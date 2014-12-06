@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F8A07DB9-35AE-4605-90EB-5F304D9D6450}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tourist.Data</RootNamespace>
+    <AssemblyName>Tourist.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Activities.cs" />
+    <Compile Include="Classes\BicycleTransportation.cs" />
+    <Compile Include="Classes\BoatRideActivity.cs" />
+    <Compile Include="Classes\BookingItem.cs" />
+    <Compile Include="Classes\BookingRooms.cs" />
+    <Compile Include="Classes\BusTransportation.cs" />
+    <Compile Include="Classes\CableCarTransportation.cs" />
+    <Compile Include="Classes\CampingActivity.cs" />
+    <Compile Include="Classes\CarTransportation.cs" />
+    <Compile Include="Classes\Client.cs" />
+    <Compile Include="Classes\DateTimeRange.cs" />
+    <Compile Include="Classes\DivingActivity.cs" />
+    <Compile Include="Classes\DoubleRoom.cs" />
+    <Compile Include="Classes\DoubleSingleRoom.cs" />
+    <Compile Include="Classes\Employer.cs" />
+    <Compile Include="Classes\FamilySuiteRoom.cs" />
+    <Compile Include="Classes\GolfActivity.cs" />
+    <Compile Include="Classes\MeetingRoom.cs" />
+    <Compile Include="Classes\MotoristTransportation.cs" />
+    <Compile Include="Classes\Room.cs" />
+    <Compile Include="Classes\SightSeeingWalkActivity.cs" />
+    <Compile Include="Classes\SingleRoom.cs" />
+    <Compile Include="Classes\SkyDivingActivity.cs" />
+    <Compile Include="Classes\SuiteRoom.cs" />
+    <Compile Include="Classes\Transportation.cs" />
+    <Compile Include="Classes\TuckTuckTransportation.cs" />
+    <Compile Include="Classes\UnitPrice.cs" />
+    <Compile Include="Interfaces\GenderEnum.cs" />
+    <Compile Include="Interfaces\IBookable.cs" />
+    <Compile Include="Interfaces\IBooking.cs" />
+    <Compile Include="Interfaces\IBookingItem.cs" />
+    <Compile Include="Interfaces\IClient.cs" />
+    <Compile Include="Interfaces\IEmployer.cs" />
+    <Compile Include="Interfaces\IEntity.cs" />
+    <Compile Include="Interfaces\IManager.cs" />
+    <Compile Include="Interfaces\IPartner.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
