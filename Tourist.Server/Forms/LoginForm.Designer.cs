@@ -212,7 +212,7 @@
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label2.ForeColor = System.Drawing.Color.White;
-			this.label2.Location = new System.Drawing.Point(24, 67);
+			this.label2.Location = new System.Drawing.Point(24, 70);
 			this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(644, 30);
@@ -225,7 +225,7 @@
 			this.LoginLabel.BackColor = System.Drawing.Color.Transparent;
 			this.LoginLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.LoginLabel.ForeColor = System.Drawing.Color.White;
-			this.LoginLabel.Location = new System.Drawing.Point(17, 2);
+			this.LoginLabel.Location = new System.Drawing.Point(17, 5);
 			this.LoginLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.LoginLabel.Name = "LoginLabel";
 			this.LoginLabel.Size = new System.Drawing.Size(322, 51);
@@ -241,10 +241,10 @@
 			this.Controls.Add(this.FooterPanel);
 			this.Controls.Add(this.BodyPanel);
 			this.Controls.Add(this.HeaderPanel);
-			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Margin = new System.Windows.Forms.Padding(2);
 			this.MaximizeBox = false;
 			this.Name = "LoginForm";
-			this.Padding = new System.Windows.Forms.Padding(15, 49, 15, 16);
+			this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
 			this.Resizable = false;
 			this.Style = MetroFramework.MetroColorStyle.White;
 			this.Load += new System.EventHandler(this.LoginForm_Load);
