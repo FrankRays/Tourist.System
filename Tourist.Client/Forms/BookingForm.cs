@@ -29,6 +29,11 @@ namespace Tourist.Client.Forms
 			Size = new Size( x, y );
 		}
 
+		private void metroGrid3_CellContentClick( object sender, DataGridViewCellEventArgs e )
+		{
+
+		}
+
 
 
 	}
