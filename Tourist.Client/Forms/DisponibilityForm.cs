@@ -29,6 +29,11 @@ namespace Tourist.Client.Forms
 			Size = new Size( x, y );
 		}
 
+		private void BookingTypeLabel_Click( object sender, System.EventArgs e )
+		{
+
+		}
+
 
 
 	}
