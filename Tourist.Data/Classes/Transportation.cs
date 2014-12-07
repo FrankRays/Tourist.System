@@ -25,6 +25,12 @@ namespace Tourist.Data.Classes
 			set { mName = value; }
 		}
 
+		public string Type
+		{
+			get { return GetType().ToString(); }
+			
+		}
+
 		public double Price
 		{
 			get { return mPrice; }

@@ -8,7 +8,6 @@ namespace Tourist.Data.Classes
 		#region Fields
 
 		private static int mCounter = 0;
-		private string mName;
 		private double mPrice;
 		private DateTimeRange mTimeRange;
 		private int mMaxNumberOfPersons;
@@ -19,10 +18,9 @@ namespace Tourist.Data.Classes
 
 		public int Id { get; private set; }
 
-		public string Name
+		public string Type
 		{
-			get { return mName; }
-			set { mName = value; }
+			get { return GetType( ).ToString( ); }
 		}
 
 		public double Price
@@ -50,7 +48,6 @@ namespace Tourist.Data.Classes
 		protected Room( DateTimeRange aDateTimeRange )
 		{
 			Id = ++mCounter;
-			Name = "Service Name";
 			Price = 0.00;
 			TimeRange = aDateTimeRange;
 			MaxNumberOfPersons = 0;

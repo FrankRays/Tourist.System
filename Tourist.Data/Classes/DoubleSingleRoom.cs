@@ -4,7 +4,6 @@
 	{
 		public DoubleSingleRoom( DateTimeRange aDateTimeRange ) : base( aDateTimeRange )
 		{
-			Name = "Double Single Room";
 			TimeRange = aDateTimeRange;
 			Price = UnitPrice.DoubleSingleRoom * TimeRange.DiferenceTimeSpan( ).Days;
 			MaxNumberOfPersons = 2;

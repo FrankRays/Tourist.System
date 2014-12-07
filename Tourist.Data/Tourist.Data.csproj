@@ -43,7 +43,7 @@
     <Compile Include="Classes\BicycleTransportation.cs" />
     <Compile Include="Classes\BoatRideActivity.cs" />
     <Compile Include="Classes\BookingItem.cs" />
-    <Compile Include="Classes\BookingRooms.cs" />
+    <Compile Include="Classes\Booking.cs" />
     <Compile Include="Classes\BusTransportation.cs" />
     <Compile Include="Classes\CableCarTransportation.cs" />
     <Compile Include="Classes\CampingActivity.cs" />

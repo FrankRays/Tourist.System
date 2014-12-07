@@ -8,6 +8,7 @@
 			TimeRange = aDateTimeRange;
 			Price = UnitPrice.BicycleTransportation * TimeRange.DiferenceTimeSpan( ).Days;
 			MaxNumberOfPersons = 1;
+			
 		}
 	}
 }
