@@ -31,12 +31,12 @@
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.HeaderPanel = new System.Windows.Forms.Panel();
 			this.ImagePanel = new System.Windows.Forms.Panel();
 			this.panel2 = new System.Windows.Forms.Panel();
@@ -49,7 +49,13 @@
 			this.metroTile5 = new MetroFramework.Controls.MetroTile();
 			this.metroTile6 = new MetroFramework.Controls.MetroTile();
 			this.ActivitiesTab = new MetroFramework.Controls.MetroTabPage();
+			this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
+			this.metroTile1 = new MetroFramework.Controls.MetroTile();
+			this.metroTile2 = new MetroFramework.Controls.MetroTile();
 			this.TransportsTab = new MetroFramework.Controls.MetroTabPage();
+			this.metroGrid2 = new MetroFramework.Controls.MetroGrid();
+			this.metroTile3 = new MetroFramework.Controls.MetroTile();
+			this.metroTile4 = new MetroFramework.Controls.MetroTile();
 			this.GroupSearch = new System.Windows.Forms.GroupBox();
 			this.OkButton = new System.Windows.Forms.Button();
 			this.textBox1 = new System.Windows.Forms.TextBox();
@@ -58,50 +64,48 @@
 			this.FowardPanel = new System.Windows.Forms.Panel();
 			this.HomePanel = new System.Windows.Forms.Panel();
 			this.BackPanel = new System.Windows.Forms.Panel();
-			this.ClientIDHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ClientNameHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.TransportBookingIDHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.TransportClientIDHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.TransportClientNameHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.TransportIDHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.TransportTypeHeader = new System.Windows.Forms.DataGridViewComboBoxColumn();
+			this.TransportStartDateHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.TransportEndDateHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.TransportUnitPriceHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.TransportRentalDaysHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.TransportationTotalPriceHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ActivityBookingIDHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ActivityClientIDHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ActivityClientNameHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ActivityIDHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ActivityTypeHeader = new System.Windows.Forms.DataGridViewComboBoxColumn();
+			this.ActivityLocalHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ActivityUnitPriceHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ActivityMaxCapacityHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ActivityStartHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ActivityEndHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.RoomBookingIDHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.RoomClientIDHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.RoomClientNameHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.RoomIDHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.RoomTypeHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.RoomTypeHeader = new System.Windows.Forms.DataGridViewComboBoxColumn();
 			this.CheckInDateHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.CheckOutDateHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.UnitPriceHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.RoomUnitPriceHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.StayNightsHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.TotalPriceHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
-			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.metroTile1 = new MetroFramework.Controls.MetroTile();
-			this.metroTile2 = new MetroFramework.Controls.MetroTile();
-			this.metroGrid2 = new MetroFramework.Controls.MetroGrid();
-			this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.metroTile3 = new MetroFramework.Controls.MetroTile();
-			this.metroTile4 = new MetroFramework.Controls.MetroTile();
+			this.RoomTotalPriceHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.HeaderPanel.SuspendLayout();
 			this.BodyPanel.SuspendLayout();
 			this.ClientsTabsControl.SuspendLayout();
 			this.RoomsTab.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ClientsGrid)).BeginInit();
 			this.ActivitiesTab.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
 			this.TransportsTab.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.metroGrid2)).BeginInit();
 			this.GroupSearch.SuspendLayout();
 			this.FooterPanel.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.metroGrid2)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// HeaderPanel
@@ -192,7 +196,7 @@
 			this.ClientsTabsControl.Location = new System.Drawing.Point(229, 12);
 			this.ClientsTabsControl.Margin = new System.Windows.Forms.Padding(0);
 			this.ClientsTabsControl.Name = "ClientsTabsControl";
-			this.ClientsTabsControl.SelectedIndex = 0;
+			this.ClientsTabsControl.SelectedIndex = 2;
 			this.ClientsTabsControl.Size = new System.Drawing.Size(955, 500);
 			this.ClientsTabsControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
 			this.ClientsTabsControl.TabIndex = 19;
@@ -224,6 +228,8 @@
 			this.ClientsGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.ClientsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+			this.ClientsGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
 			this.ClientsGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.ClientsGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.ClientsGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -238,15 +244,16 @@
 			this.ClientsGrid.ColumnHeadersHeight = 60;
 			this.ClientsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.ClientsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ClientIDHeader,
-            this.ClientNameHeader,
+            this.RoomBookingIDHeader,
+            this.RoomClientIDHeader,
+            this.RoomClientNameHeader,
             this.RoomIDHeader,
             this.RoomTypeHeader,
             this.CheckInDateHeader,
             this.CheckOutDateHeader,
-            this.UnitPriceHeader,
+            this.RoomUnitPriceHeader,
             this.StayNightsHeader,
-            this.TotalPriceHeader});
+            this.RoomTotalPriceHeader});
 			dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(172)))), ((int)(((byte)(219)))));
 			dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -326,6 +333,101 @@
 			this.ActivitiesTab.VerticalScrollbarHighlightOnWheel = false;
 			this.ActivitiesTab.VerticalScrollbarSize = 8;
 			// 
+			// metroGrid1
+			// 
+			this.metroGrid1.AllowUserToOrderColumns = true;
+			this.metroGrid1.AllowUserToResizeRows = false;
+			this.metroGrid1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.metroGrid1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+			this.metroGrid1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+			this.metroGrid1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.metroGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.metroGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+			this.metroGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+			dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI Semilight", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+			dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			this.metroGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+			this.metroGrid1.ColumnHeadersHeight = 60;
+			this.metroGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+			this.metroGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ActivityBookingIDHeader,
+            this.ActivityClientIDHeader,
+            this.ActivityClientNameHeader,
+            this.ActivityIDHeader,
+            this.ActivityTypeHeader,
+            this.ActivityLocalHeader,
+            this.ActivityUnitPriceHeader,
+            this.ActivityMaxCapacityHeader,
+            this.ActivityStartHeader,
+            this.ActivityEndHeader,
+            this.dataGridViewTextBoxColumn9});
+			dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(172)))), ((int)(((byte)(219)))));
+			dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+			dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.metroGrid1.DefaultCellStyle = dataGridViewCellStyle14;
+			this.metroGrid1.EnableHeadersVisualStyles = false;
+			this.metroGrid1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.metroGrid1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.metroGrid1.Location = new System.Drawing.Point(-1, 33);
+			this.metroGrid1.Margin = new System.Windows.Forms.Padding(2);
+			this.metroGrid1.Name = "metroGrid1";
+			this.metroGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+			dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+			dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.metroGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+			this.metroGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+			this.metroGrid1.RowTemplate.Height = 24;
+			this.metroGrid1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.metroGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.metroGrid1.Size = new System.Drawing.Size(949, 406);
+			this.metroGrid1.TabIndex = 23;
+			// 
+			// metroTile1
+			// 
+			this.metroTile1.ActiveControl = null;
+			this.metroTile1.AutoSize = true;
+			this.metroTile1.Location = new System.Drawing.Point(111, 3);
+			this.metroTile1.Margin = new System.Windows.Forms.Padding(2);
+			this.metroTile1.Name = "metroTile1";
+			this.metroTile1.Size = new System.Drawing.Size(108, 23);
+			this.metroTile1.TabIndex = 22;
+			this.metroTile1.Text = "x Remove";
+			this.metroTile1.TileImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.metroTile1.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+			this.metroTile1.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+			this.metroTile1.UseSelectable = true;
+			this.metroTile1.UseTileImage = true;
+			// 
+			// metroTile2
+			// 
+			this.metroTile2.ActiveControl = null;
+			this.metroTile2.AutoSize = true;
+			this.metroTile2.Location = new System.Drawing.Point(-1, 3);
+			this.metroTile2.Margin = new System.Windows.Forms.Padding(2);
+			this.metroTile2.Name = "metroTile2";
+			this.metroTile2.Size = new System.Drawing.Size(108, 23);
+			this.metroTile2.TabIndex = 21;
+			this.metroTile2.Text = " + Add";
+			this.metroTile2.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.metroTile2.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+			this.metroTile2.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+			this.metroTile2.UseSelectable = true;
+			// 
 			// TransportsTab
 			// 
 			this.TransportsTab.Controls.Add(this.metroGrid2);
@@ -343,6 +445,100 @@
 			this.TransportsTab.VerticalScrollbarBarColor = true;
 			this.TransportsTab.VerticalScrollbarHighlightOnWheel = false;
 			this.TransportsTab.VerticalScrollbarSize = 8;
+			// 
+			// metroGrid2
+			// 
+			this.metroGrid2.AllowUserToOrderColumns = true;
+			this.metroGrid2.AllowUserToResizeRows = false;
+			this.metroGrid2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.metroGrid2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+			this.metroGrid2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+			this.metroGrid2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.metroGrid2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.metroGrid2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+			this.metroGrid2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+			dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI Semilight", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+			dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			this.metroGrid2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+			this.metroGrid2.ColumnHeadersHeight = 60;
+			this.metroGrid2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+			this.metroGrid2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.TransportBookingIDHeader,
+            this.TransportClientIDHeader,
+            this.TransportClientNameHeader,
+            this.TransportIDHeader,
+            this.TransportTypeHeader,
+            this.TransportStartDateHeader,
+            this.TransportEndDateHeader,
+            this.TransportUnitPriceHeader,
+            this.TransportRentalDaysHeader,
+            this.TransportationTotalPriceHeader});
+			dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(172)))), ((int)(((byte)(219)))));
+			dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+			dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.metroGrid2.DefaultCellStyle = dataGridViewCellStyle17;
+			this.metroGrid2.EnableHeadersVisualStyles = false;
+			this.metroGrid2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.metroGrid2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.metroGrid2.Location = new System.Drawing.Point(-1, 33);
+			this.metroGrid2.Margin = new System.Windows.Forms.Padding(2);
+			this.metroGrid2.Name = "metroGrid2";
+			this.metroGrid2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+			dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+			dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.metroGrid2.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+			this.metroGrid2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+			this.metroGrid2.RowTemplate.Height = 24;
+			this.metroGrid2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.metroGrid2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.metroGrid2.Size = new System.Drawing.Size(949, 406);
+			this.metroGrid2.TabIndex = 23;
+			// 
+			// metroTile3
+			// 
+			this.metroTile3.ActiveControl = null;
+			this.metroTile3.AutoSize = true;
+			this.metroTile3.Location = new System.Drawing.Point(111, 3);
+			this.metroTile3.Margin = new System.Windows.Forms.Padding(2);
+			this.metroTile3.Name = "metroTile3";
+			this.metroTile3.Size = new System.Drawing.Size(108, 23);
+			this.metroTile3.TabIndex = 22;
+			this.metroTile3.Text = "x Remove";
+			this.metroTile3.TileImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.metroTile3.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+			this.metroTile3.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+			this.metroTile3.UseSelectable = true;
+			this.metroTile3.UseTileImage = true;
+			// 
+			// metroTile4
+			// 
+			this.metroTile4.ActiveControl = null;
+			this.metroTile4.AutoSize = true;
+			this.metroTile4.Location = new System.Drawing.Point(-1, 3);
+			this.metroTile4.Margin = new System.Windows.Forms.Padding(2);
+			this.metroTile4.Name = "metroTile4";
+			this.metroTile4.Size = new System.Drawing.Size(108, 23);
+			this.metroTile4.TabIndex = 21;
+			this.metroTile4.Text = " + Add";
+			this.metroTile4.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.metroTile4.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+			this.metroTile4.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+			this.metroTile4.UseSelectable = true;
 			// 
 			// GroupSearch
 			// 
@@ -440,19 +636,177 @@
 			this.BackPanel.Size = new System.Drawing.Size(64, 95);
 			this.BackPanel.TabIndex = 3;
 			// 
-			// ClientIDHeader
+			// TransportBookingIDHeader
 			// 
-			this.ClientIDHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.ClientIDHeader.HeaderText = "Client ID";
-			this.ClientIDHeader.Name = "ClientIDHeader";
-			this.ClientIDHeader.Width = 107;
+			this.TransportBookingIDHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.TransportBookingIDHeader.HeaderText = "Booking ID";
+			this.TransportBookingIDHeader.Name = "TransportBookingIDHeader";
+			this.TransportBookingIDHeader.Width = 128;
 			// 
-			// ClientNameHeader
+			// TransportClientIDHeader
 			// 
-			this.ClientNameHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.ClientNameHeader.HeaderText = "Client Name";
-			this.ClientNameHeader.Name = "ClientNameHeader";
-			this.ClientNameHeader.Width = 140;
+			this.TransportClientIDHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.TransportClientIDHeader.HeaderText = "Client ID";
+			this.TransportClientIDHeader.Name = "TransportClientIDHeader";
+			this.TransportClientIDHeader.Width = 107;
+			// 
+			// TransportClientNameHeader
+			// 
+			this.TransportClientNameHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.TransportClientNameHeader.HeaderText = "Client Name";
+			this.TransportClientNameHeader.Name = "TransportClientNameHeader";
+			this.TransportClientNameHeader.Width = 140;
+			// 
+			// TransportIDHeader
+			// 
+			this.TransportIDHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.TransportIDHeader.HeaderText = "Transport ID";
+			this.TransportIDHeader.Name = "TransportIDHeader";
+			this.TransportIDHeader.Width = 140;
+			// 
+			// TransportTypeHeader
+			// 
+			this.TransportTypeHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.TransportTypeHeader.HeaderText = "Transport Type";
+			this.TransportTypeHeader.Name = "TransportTypeHeader";
+			this.TransportTypeHeader.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.TransportTypeHeader.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			this.TransportTypeHeader.Width = 160;
+			// 
+			// TransportStartDateHeader
+			// 
+			this.TransportStartDateHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.TransportStartDateHeader.HeaderText = "Start Date/Time";
+			this.TransportStartDateHeader.Name = "TransportStartDateHeader";
+			this.TransportStartDateHeader.Width = 169;
+			// 
+			// TransportEndDateHeader
+			// 
+			this.TransportEndDateHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.TransportEndDateHeader.HeaderText = "End Date/Time";
+			this.TransportEndDateHeader.Name = "TransportEndDateHeader";
+			this.TransportEndDateHeader.Width = 162;
+			// 
+			// TransportUnitPriceHeader
+			// 
+			this.TransportUnitPriceHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.TransportUnitPriceHeader.HeaderText = "Unit Price";
+			this.TransportUnitPriceHeader.Name = "TransportUnitPriceHeader";
+			this.TransportUnitPriceHeader.Width = 116;
+			// 
+			// TransportRentalDaysHeader
+			// 
+			this.TransportRentalDaysHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.TransportRentalDaysHeader.HeaderText = "Rental Days";
+			this.TransportRentalDaysHeader.Name = "TransportRentalDaysHeader";
+			this.TransportRentalDaysHeader.Width = 134;
+			// 
+			// TransportationTotalPriceHeader
+			// 
+			this.TransportationTotalPriceHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.TransportationTotalPriceHeader.HeaderText = "Total Price";
+			this.TransportationTotalPriceHeader.Name = "TransportationTotalPriceHeader";
+			this.TransportationTotalPriceHeader.Width = 121;
+			// 
+			// ActivityBookingIDHeader
+			// 
+			this.ActivityBookingIDHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.ActivityBookingIDHeader.HeaderText = "Booking ID";
+			this.ActivityBookingIDHeader.Name = "ActivityBookingIDHeader";
+			this.ActivityBookingIDHeader.Width = 128;
+			// 
+			// ActivityClientIDHeader
+			// 
+			this.ActivityClientIDHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.ActivityClientIDHeader.HeaderText = "Client ID";
+			this.ActivityClientIDHeader.Name = "ActivityClientIDHeader";
+			this.ActivityClientIDHeader.Width = 107;
+			// 
+			// ActivityClientNameHeader
+			// 
+			this.ActivityClientNameHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.ActivityClientNameHeader.HeaderText = "Client Name";
+			this.ActivityClientNameHeader.Name = "ActivityClientNameHeader";
+			this.ActivityClientNameHeader.Width = 140;
+			// 
+			// ActivityIDHeader
+			// 
+			this.ActivityIDHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.ActivityIDHeader.HeaderText = "Activity ID";
+			this.ActivityIDHeader.Name = "ActivityIDHeader";
+			this.ActivityIDHeader.Width = 120;
+			// 
+			// ActivityTypeHeader
+			// 
+			this.ActivityTypeHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.ActivityTypeHeader.HeaderText = "Activity Type";
+			this.ActivityTypeHeader.Name = "ActivityTypeHeader";
+			this.ActivityTypeHeader.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.ActivityTypeHeader.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			this.ActivityTypeHeader.Width = 140;
+			// 
+			// ActivityLocalHeader
+			// 
+			this.ActivityLocalHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.ActivityLocalHeader.HeaderText = "Activity Local";
+			this.ActivityLocalHeader.Name = "ActivityLocalHeader";
+			this.ActivityLocalHeader.Width = 144;
+			// 
+			// ActivityUnitPriceHeader
+			// 
+			this.ActivityUnitPriceHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.ActivityUnitPriceHeader.HeaderText = "Unit Price";
+			this.ActivityUnitPriceHeader.Name = "ActivityUnitPriceHeader";
+			this.ActivityUnitPriceHeader.Width = 116;
+			// 
+			// ActivityMaxCapacityHeader
+			// 
+			this.ActivityMaxCapacityHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.ActivityMaxCapacityHeader.HeaderText = "Max Capacity";
+			this.ActivityMaxCapacityHeader.Name = "ActivityMaxCapacityHeader";
+			this.ActivityMaxCapacityHeader.Width = 148;
+			// 
+			// ActivityStartHeader
+			// 
+			this.ActivityStartHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.ActivityStartHeader.HeaderText = "Start Date/Time";
+			this.ActivityStartHeader.Name = "ActivityStartHeader";
+			this.ActivityStartHeader.Width = 169;
+			// 
+			// ActivityEndHeader
+			// 
+			this.ActivityEndHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.ActivityEndHeader.HeaderText = "End Date/Time";
+			this.ActivityEndHeader.Name = "ActivityEndHeader";
+			this.ActivityEndHeader.Width = 162;
+			// 
+			// dataGridViewTextBoxColumn9
+			// 
+			this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.dataGridViewTextBoxColumn9.HeaderText = "Total Price";
+			this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+			this.dataGridViewTextBoxColumn9.Width = 121;
+			// 
+			// RoomBookingIDHeader
+			// 
+			this.RoomBookingIDHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.RoomBookingIDHeader.HeaderText = "Booking ID";
+			this.RoomBookingIDHeader.Name = "RoomBookingIDHeader";
+			this.RoomBookingIDHeader.Width = 128;
+			// 
+			// RoomClientIDHeader
+			// 
+			this.RoomClientIDHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.RoomClientIDHeader.HeaderText = "Client ID";
+			this.RoomClientIDHeader.Name = "RoomClientIDHeader";
+			this.RoomClientIDHeader.Width = 107;
+			// 
+			// RoomClientNameHeader
+			// 
+			this.RoomClientNameHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.RoomClientNameHeader.HeaderText = "Client Name";
+			this.RoomClientNameHeader.Name = "RoomClientNameHeader";
+			this.RoomClientNameHeader.Width = 140;
 			// 
 			// RoomIDHeader
 			// 
@@ -466,6 +820,8 @@
 			this.RoomTypeHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			this.RoomTypeHeader.HeaderText = "Room Type";
 			this.RoomTypeHeader.Name = "RoomTypeHeader";
+			this.RoomTypeHeader.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.RoomTypeHeader.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
 			this.RoomTypeHeader.Width = 130;
 			// 
 			// CheckInDateHeader
@@ -482,12 +838,12 @@
 			this.CheckOutDateHeader.Name = "CheckOutDateHeader";
 			this.CheckOutDateHeader.Width = 169;
 			// 
-			// UnitPriceHeader
+			// RoomUnitPriceHeader
 			// 
-			this.UnitPriceHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.UnitPriceHeader.HeaderText = "Unit Price";
-			this.UnitPriceHeader.Name = "UnitPriceHeader";
-			this.UnitPriceHeader.Width = 116;
+			this.RoomUnitPriceHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.RoomUnitPriceHeader.HeaderText = "Unit Price";
+			this.RoomUnitPriceHeader.Name = "RoomUnitPriceHeader";
+			this.RoomUnitPriceHeader.Width = 116;
 			// 
 			// StayNightsHeader
 			// 
@@ -496,320 +852,12 @@
 			this.StayNightsHeader.Name = "StayNightsHeader";
 			this.StayNightsHeader.Width = 130;
 			// 
-			// TotalPriceHeader
+			// RoomTotalPriceHeader
 			// 
-			this.TotalPriceHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.TotalPriceHeader.HeaderText = "Total Price";
-			this.TotalPriceHeader.Name = "TotalPriceHeader";
-			this.TotalPriceHeader.Width = 121;
-			// 
-			// metroGrid1
-			// 
-			this.metroGrid1.AllowUserToOrderColumns = true;
-			this.metroGrid1.AllowUserToResizeRows = false;
-			this.metroGrid1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.metroGrid1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.metroGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.metroGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-			this.metroGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semilight", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			this.metroGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-			this.metroGrid1.ColumnHeadersHeight = 60;
-			this.metroGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-			this.metroGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9});
-			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(172)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.metroGrid1.DefaultCellStyle = dataGridViewCellStyle5;
-			this.metroGrid1.EnableHeadersVisualStyles = false;
-			this.metroGrid1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.metroGrid1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.metroGrid1.Location = new System.Drawing.Point(-1, 33);
-			this.metroGrid1.Margin = new System.Windows.Forms.Padding(2);
-			this.metroGrid1.Name = "metroGrid1";
-			this.metroGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.metroGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-			this.metroGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-			this.metroGrid1.RowTemplate.Height = 24;
-			this.metroGrid1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.metroGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.metroGrid1.Size = new System.Drawing.Size(949, 406);
-			this.metroGrid1.TabIndex = 23;
-			// 
-			// dataGridViewTextBoxColumn1
-			// 
-			this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn1.HeaderText = "Client ID";
-			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-			this.dataGridViewTextBoxColumn1.Width = 107;
-			// 
-			// dataGridViewTextBoxColumn2
-			// 
-			this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn2.HeaderText = "Client Name";
-			this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-			this.dataGridViewTextBoxColumn2.Width = 140;
-			// 
-			// dataGridViewTextBoxColumn3
-			// 
-			this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn3.HeaderText = "Room ID";
-			this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-			this.dataGridViewTextBoxColumn3.Width = 110;
-			// 
-			// dataGridViewTextBoxColumn4
-			// 
-			this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn4.HeaderText = "Room Type";
-			this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-			this.dataGridViewTextBoxColumn4.Width = 130;
-			// 
-			// dataGridViewTextBoxColumn5
-			// 
-			this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn5.HeaderText = "Check In Date";
-			this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-			this.dataGridViewTextBoxColumn5.Width = 153;
-			// 
-			// dataGridViewTextBoxColumn6
-			// 
-			this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn6.HeaderText = "Check Out Date";
-			this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-			this.dataGridViewTextBoxColumn6.Width = 169;
-			// 
-			// dataGridViewTextBoxColumn7
-			// 
-			this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn7.HeaderText = "Unit Price";
-			this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-			this.dataGridViewTextBoxColumn7.Width = 116;
-			// 
-			// dataGridViewTextBoxColumn8
-			// 
-			this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn8.HeaderText = "Stay Nights";
-			this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-			this.dataGridViewTextBoxColumn8.Width = 130;
-			// 
-			// dataGridViewTextBoxColumn9
-			// 
-			this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn9.HeaderText = "Total Price";
-			this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-			this.dataGridViewTextBoxColumn9.Width = 121;
-			// 
-			// metroTile1
-			// 
-			this.metroTile1.ActiveControl = null;
-			this.metroTile1.AutoSize = true;
-			this.metroTile1.Location = new System.Drawing.Point(111, 3);
-			this.metroTile1.Margin = new System.Windows.Forms.Padding(2);
-			this.metroTile1.Name = "metroTile1";
-			this.metroTile1.Size = new System.Drawing.Size(108, 23);
-			this.metroTile1.TabIndex = 22;
-			this.metroTile1.Text = "x Remove";
-			this.metroTile1.TileImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.metroTile1.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-			this.metroTile1.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-			this.metroTile1.UseSelectable = true;
-			this.metroTile1.UseTileImage = true;
-			// 
-			// metroTile2
-			// 
-			this.metroTile2.ActiveControl = null;
-			this.metroTile2.AutoSize = true;
-			this.metroTile2.Location = new System.Drawing.Point(-1, 3);
-			this.metroTile2.Margin = new System.Windows.Forms.Padding(2);
-			this.metroTile2.Name = "metroTile2";
-			this.metroTile2.Size = new System.Drawing.Size(108, 23);
-			this.metroTile2.TabIndex = 21;
-			this.metroTile2.Text = " + Add";
-			this.metroTile2.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.metroTile2.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-			this.metroTile2.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-			this.metroTile2.UseSelectable = true;
-			// 
-			// metroGrid2
-			// 
-			this.metroGrid2.AllowUserToOrderColumns = true;
-			this.metroGrid2.AllowUserToResizeRows = false;
-			this.metroGrid2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.metroGrid2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.metroGrid2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.metroGrid2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-			this.metroGrid2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semilight", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			this.metroGrid2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-			this.metroGrid2.ColumnHeadersHeight = 60;
-			this.metroGrid2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-			this.metroGrid2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17,
-            this.dataGridViewTextBoxColumn18});
-			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(172)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.metroGrid2.DefaultCellStyle = dataGridViewCellStyle8;
-			this.metroGrid2.EnableHeadersVisualStyles = false;
-			this.metroGrid2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.metroGrid2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.metroGrid2.Location = new System.Drawing.Point(-1, 33);
-			this.metroGrid2.Margin = new System.Windows.Forms.Padding(2);
-			this.metroGrid2.Name = "metroGrid2";
-			this.metroGrid2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.metroGrid2.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-			this.metroGrid2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-			this.metroGrid2.RowTemplate.Height = 24;
-			this.metroGrid2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.metroGrid2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.metroGrid2.Size = new System.Drawing.Size(949, 406);
-			this.metroGrid2.TabIndex = 23;
-			// 
-			// dataGridViewTextBoxColumn10
-			// 
-			this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn10.HeaderText = "Client ID";
-			this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-			this.dataGridViewTextBoxColumn10.Width = 107;
-			// 
-			// dataGridViewTextBoxColumn11
-			// 
-			this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn11.HeaderText = "Client Name";
-			this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-			this.dataGridViewTextBoxColumn11.Width = 140;
-			// 
-			// dataGridViewTextBoxColumn12
-			// 
-			this.dataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn12.HeaderText = "Room ID";
-			this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-			this.dataGridViewTextBoxColumn12.Width = 110;
-			// 
-			// dataGridViewTextBoxColumn13
-			// 
-			this.dataGridViewTextBoxColumn13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn13.HeaderText = "Room Type";
-			this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-			this.dataGridViewTextBoxColumn13.Width = 130;
-			// 
-			// dataGridViewTextBoxColumn14
-			// 
-			this.dataGridViewTextBoxColumn14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn14.HeaderText = "Check In Date";
-			this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-			this.dataGridViewTextBoxColumn14.Width = 153;
-			// 
-			// dataGridViewTextBoxColumn15
-			// 
-			this.dataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn15.HeaderText = "Check Out Date";
-			this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-			this.dataGridViewTextBoxColumn15.Width = 169;
-			// 
-			// dataGridViewTextBoxColumn16
-			// 
-			this.dataGridViewTextBoxColumn16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn16.HeaderText = "Unit Price";
-			this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-			this.dataGridViewTextBoxColumn16.Width = 116;
-			// 
-			// dataGridViewTextBoxColumn17
-			// 
-			this.dataGridViewTextBoxColumn17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn17.HeaderText = "Stay Nights";
-			this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-			this.dataGridViewTextBoxColumn17.Width = 130;
-			// 
-			// dataGridViewTextBoxColumn18
-			// 
-			this.dataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn18.HeaderText = "Total Price";
-			this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-			this.dataGridViewTextBoxColumn18.Width = 121;
-			// 
-			// metroTile3
-			// 
-			this.metroTile3.ActiveControl = null;
-			this.metroTile3.AutoSize = true;
-			this.metroTile3.Location = new System.Drawing.Point(111, 3);
-			this.metroTile3.Margin = new System.Windows.Forms.Padding(2);
-			this.metroTile3.Name = "metroTile3";
-			this.metroTile3.Size = new System.Drawing.Size(108, 23);
-			this.metroTile3.TabIndex = 22;
-			this.metroTile3.Text = "x Remove";
-			this.metroTile3.TileImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.metroTile3.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-			this.metroTile3.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-			this.metroTile3.UseSelectable = true;
-			this.metroTile3.UseTileImage = true;
-			// 
-			// metroTile4
-			// 
-			this.metroTile4.ActiveControl = null;
-			this.metroTile4.AutoSize = true;
-			this.metroTile4.Location = new System.Drawing.Point(-1, 3);
-			this.metroTile4.Margin = new System.Windows.Forms.Padding(2);
-			this.metroTile4.Name = "metroTile4";
-			this.metroTile4.Size = new System.Drawing.Size(108, 23);
-			this.metroTile4.TabIndex = 21;
-			this.metroTile4.Text = " + Add";
-			this.metroTile4.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.metroTile4.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-			this.metroTile4.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-			this.metroTile4.UseSelectable = true;
+			this.RoomTotalPriceHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.RoomTotalPriceHeader.HeaderText = "Total Price";
+			this.RoomTotalPriceHeader.Name = "RoomTotalPriceHeader";
+			this.RoomTotalPriceHeader.Width = 121;
 			// 
 			// BookingsForm
 			// 
@@ -820,6 +868,7 @@
 			this.Controls.Add(this.FooterPanel);
 			this.Controls.Add(this.HeaderPanel);
 			this.Margin = new System.Windows.Forms.Padding(2);
+			this.MaximizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(1200, 800);
 			this.Name = "BookingsForm";
 			this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
@@ -835,13 +884,13 @@
 			((System.ComponentModel.ISupportInitialize)(this.ClientsGrid)).EndInit();
 			this.ActivitiesTab.ResumeLayout(false);
 			this.ActivitiesTab.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
 			this.TransportsTab.ResumeLayout(false);
 			this.TransportsTab.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.metroGrid2)).EndInit();
 			this.GroupSearch.ResumeLayout(false);
 			this.GroupSearch.PerformLayout();
 			this.FooterPanel.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.metroGrid2)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -869,39 +918,43 @@
 		private MetroFramework.Controls.MetroGrid ClientsGrid;
 		private MetroFramework.Controls.MetroTile metroTile5;
 		private MetroFramework.Controls.MetroTile metroTile6;
-		private System.Windows.Forms.DataGridViewTextBoxColumn ClientIDHeader;
-		private System.Windows.Forms.DataGridViewTextBoxColumn ClientNameHeader;
-		private System.Windows.Forms.DataGridViewTextBoxColumn RoomIDHeader;
-		private System.Windows.Forms.DataGridViewTextBoxColumn RoomTypeHeader;
-		private System.Windows.Forms.DataGridViewTextBoxColumn CheckInDateHeader;
-		private System.Windows.Forms.DataGridViewTextBoxColumn CheckOutDateHeader;
-		private System.Windows.Forms.DataGridViewTextBoxColumn UnitPriceHeader;
-		private System.Windows.Forms.DataGridViewTextBoxColumn StayNightsHeader;
-		private System.Windows.Forms.DataGridViewTextBoxColumn TotalPriceHeader;
 		private MetroFramework.Controls.MetroGrid metroGrid1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
 		private MetroFramework.Controls.MetroTile metroTile1;
 		private MetroFramework.Controls.MetroTile metroTile2;
 		private MetroFramework.Controls.MetroGrid metroGrid2;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
 		private MetroFramework.Controls.MetroTile metroTile3;
 		private MetroFramework.Controls.MetroTile metroTile4;
+		private System.Windows.Forms.DataGridViewTextBoxColumn TransportBookingIDHeader;
+		private System.Windows.Forms.DataGridViewTextBoxColumn TransportClientIDHeader;
+		private System.Windows.Forms.DataGridViewTextBoxColumn TransportClientNameHeader;
+		private System.Windows.Forms.DataGridViewTextBoxColumn TransportIDHeader;
+		private System.Windows.Forms.DataGridViewComboBoxColumn TransportTypeHeader;
+		private System.Windows.Forms.DataGridViewTextBoxColumn TransportStartDateHeader;
+		private System.Windows.Forms.DataGridViewTextBoxColumn TransportEndDateHeader;
+		private System.Windows.Forms.DataGridViewTextBoxColumn TransportUnitPriceHeader;
+		private System.Windows.Forms.DataGridViewTextBoxColumn TransportRentalDaysHeader;
+		private System.Windows.Forms.DataGridViewTextBoxColumn TransportationTotalPriceHeader;
+		private System.Windows.Forms.DataGridViewTextBoxColumn RoomBookingIDHeader;
+		private System.Windows.Forms.DataGridViewTextBoxColumn RoomClientIDHeader;
+		private System.Windows.Forms.DataGridViewTextBoxColumn RoomClientNameHeader;
+		private System.Windows.Forms.DataGridViewTextBoxColumn RoomIDHeader;
+		private System.Windows.Forms.DataGridViewComboBoxColumn RoomTypeHeader;
+		private System.Windows.Forms.DataGridViewTextBoxColumn CheckInDateHeader;
+		private System.Windows.Forms.DataGridViewTextBoxColumn CheckOutDateHeader;
+		private System.Windows.Forms.DataGridViewTextBoxColumn RoomUnitPriceHeader;
+		private System.Windows.Forms.DataGridViewTextBoxColumn StayNightsHeader;
+		private System.Windows.Forms.DataGridViewTextBoxColumn RoomTotalPriceHeader;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ActivityBookingIDHeader;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ActivityClientIDHeader;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ActivityClientNameHeader;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ActivityIDHeader;
+		private System.Windows.Forms.DataGridViewComboBoxColumn ActivityTypeHeader;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ActivityLocalHeader;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ActivityUnitPriceHeader;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ActivityMaxCapacityHeader;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ActivityStartHeader;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ActivityEndHeader;
+		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
 
 	}
 }

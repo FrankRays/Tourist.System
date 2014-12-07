@@ -211,7 +211,7 @@
 			this.RoomsTab.Location = new System.Drawing.Point(4, 54);
 			this.RoomsTab.Margin = new System.Windows.Forms.Padding(2);
 			this.RoomsTab.Name = "RoomsTab";
-			this.RoomsTab.Size = new System.Drawing.Size(1187, 471);
+			this.RoomsTab.Size = new System.Drawing.Size(947, 442);
 			this.RoomsTab.TabIndex = 0;
 			this.RoomsTab.Text = "ROOMS";
 			this.RoomsTab.VerticalScrollbarBarColor = true;
@@ -381,7 +381,7 @@
 			this.ActivitiesTab.Location = new System.Drawing.Point(4, 54);
 			this.ActivitiesTab.Margin = new System.Windows.Forms.Padding(2);
 			this.ActivitiesTab.Name = "ActivitiesTab";
-			this.ActivitiesTab.Size = new System.Drawing.Size(1187, 471);
+			this.ActivitiesTab.Size = new System.Drawing.Size(947, 442);
 			this.ActivitiesTab.TabIndex = 1;
 			this.ActivitiesTab.Text = "ACTIVITIES";
 			this.ActivitiesTab.VerticalScrollbarBarColor = true;
@@ -819,6 +819,7 @@
 			this.Controls.Add(this.FooterPanel);
 			this.Controls.Add(this.HeaderPanel);
 			this.Margin = new System.Windows.Forms.Padding(2);
+			this.MaximizeBox = false;
 			this.Name = "DisponibilityForm";
 			this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
 			this.Resizable = false;

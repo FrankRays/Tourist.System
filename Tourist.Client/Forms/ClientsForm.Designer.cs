@@ -480,6 +480,7 @@
 			this.Controls.Add(this.FooterPanel);
 			this.Controls.Add(this.HeaderPanel);
 			this.Margin = new System.Windows.Forms.Padding(2);
+			this.MaximizeBox = false;
 			this.Name = "ClientsForm";
 			this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
 			this.Resizable = false;
