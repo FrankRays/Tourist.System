@@ -56,6 +56,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\PaymentsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PaymentsForm.Designer.cs">
+      <DependentUpon>PaymentsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DisponibilityForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DisponibilityForm.Designer.cs">
+      <DependentUpon>DisponibilityForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ClientsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ClientsForm.Designer.cs">
+      <DependentUpon>ClientsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\BookingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +94,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\PaymentsForm.resx">
+      <DependentUpon>PaymentsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DisponibilityForm.resx">
+      <DependentUpon>DisponibilityForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ClientsForm.resx">
+      <DependentUpon>ClientsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\BookingForm.resx">
       <DependentUpon>BookingForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,8 +149,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Add.png" />
+    <None Include="Resources\Bookings.png" />
+    <None Include="Resources\ComingSoon.png" />
     <Content Include="Resources\employers.png" />
     <None Include="Resources\Remove.png" />
+    <None Include="Resources\Payment.png" />
+    <None Include="Resources\Help.png" />
     <Content Include="Resources\unlock.png" />
     <None Include="Resources\Tools.png" />
     <None Include="Resources\services.png" />

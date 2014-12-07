@@ -4,14 +4,14 @@ using MetroFramework.Forms;
 
 namespace Tourist.Client.Forms
 {
-	public partial class BookingsForm: MetroForm
+	public partial class DisponibilityForm : MetroForm
 	{
-		public BookingsForm( )
+		public DisponibilityForm( )
 		{
 			InitializeComponent( );
 		}
 
-		private void BookingsForm_Load( object sender, System.EventArgs e )
+		private void DisponibilityForm_Load( object sender, System.EventArgs e )
 		{
 			SetFormFullScreen();
 			

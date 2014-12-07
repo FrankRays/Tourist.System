@@ -99,7 +99,7 @@ namespace Tourist.Client.Forms
 
 		private void BookingsTile_Click( object sender, EventArgs e )
 		{
-			BookingForm booking = new BookingForm();
+			ClientsForm booking = new ClientsForm();
 
 			booking.Show();
 		}

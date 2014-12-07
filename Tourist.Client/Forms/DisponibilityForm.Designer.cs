@@ -1,6 +1,6 @@
 ﻿namespace Tourist.Client.Forms
 {
-	partial class BookingsForm
+	partial class DisponibilityForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -783,7 +783,7 @@
 			this.Name = "BookingForm";
 			this.Resizable = false;
 			this.Style = MetroFramework.MetroColorStyle.White;
-			this.Load += new System.EventHandler(this.BookingsForm_Load);
+			this.Load += new System.EventHandler(this.DisponibilityForm_Load);
 			this.HeaderPanel.ResumeLayout(false);
 			this.HeaderPanel.PerformLayout();
 			this.BodyPanel.ResumeLayout(false);
