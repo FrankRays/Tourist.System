@@ -99,9 +99,31 @@ namespace Tourist.Client.Forms
 
 		private void BookingsTile_Click( object sender, EventArgs e )
 		{
-			ClientsForm booking = new ClientsForm();
+			BookingsForm booking = new BookingsForm();
 
 			booking.Show();
+		}
+
+		private void ClientsTile_Click( object sender, EventArgs e )
+		{
+			ClientsForm clients = new ClientsForm( );
+
+			clients.Show( );
+		}
+
+		private void DisponibilityTile_Click( object sender, EventArgs e )
+		{
+			DisponibilityForm disponibility = new DisponibilityForm( );
+
+			disponibility.Show( );
+
+		}
+
+		private void PaymentsTile_Click( object sender, EventArgs e )
+		{
+			PaymentsForm payementForm = new PaymentsForm();
+
+			payementForm.Show();
 		}
 
 	}

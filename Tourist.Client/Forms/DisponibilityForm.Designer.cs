@@ -28,36 +28,29 @@
 		/// </summary>
 		private void InitializeComponent( )
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.HeaderPanel = new System.Windows.Forms.Panel();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.SubTitleLabel = new System.Windows.Forms.Label();
 			this.TitleLabel = new System.Windows.Forms.Label();
 			this.BodyPanel = new System.Windows.Forms.Panel();
+			this.FooterPanel = new System.Windows.Forms.Panel();
 			this.ClientsTabsControl = new MetroFramework.Controls.MetroTabControl();
 			this.RoomsTab = new MetroFramework.Controls.MetroTabPage();
 			this.ActivitiesTab = new MetroFramework.Controls.MetroTabPage();
-			this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
-			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.metroTile1 = new MetroFramework.Controls.MetroTile();
-			this.metroTile2 = new MetroFramework.Controls.MetroTile();
 			this.TransportsTab = new MetroFramework.Controls.MetroTabPage();
+			this.GroupSearch = new System.Windows.Forms.GroupBox();
+			this.OkButton = new System.Windows.Forms.Button();
+			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
 			this.metroGrid2 = new MetroFramework.Controls.MetroGrid();
 			this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,15 +63,6 @@
 			this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.metroTile3 = new MetroFramework.Controls.MetroTile();
 			this.metroTile4 = new MetroFramework.Controls.MetroTile();
-			this.GroupSearch = new System.Windows.Forms.GroupBox();
-			this.OkButton = new System.Windows.Forms.Button();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
-			this.FooterPanel = new System.Windows.Forms.Panel();
-			this.FowardPanel = new System.Windows.Forms.Panel();
-			this.HomePanel = new System.Windows.Forms.Panel();
-			this.BackPanel = new System.Windows.Forms.Panel();
-			this.ImagePanel = new System.Windows.Forms.Panel();
 			this.metroGrid3 = new MetroFramework.Controls.MetroGrid();
 			this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -91,17 +75,33 @@
 			this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.metroTile5 = new MetroFramework.Controls.MetroTile();
 			this.metroTile6 = new MetroFramework.Controls.MetroTile();
+			this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
+			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.metroTile1 = new MetroFramework.Controls.MetroTile();
+			this.metroTile2 = new MetroFramework.Controls.MetroTile();
+			this.FowardPanel = new System.Windows.Forms.Panel();
+			this.HomePanel = new System.Windows.Forms.Panel();
+			this.BackPanel = new System.Windows.Forms.Panel();
+			this.ImagePanel = new System.Windows.Forms.Panel();
 			this.HeaderPanel.SuspendLayout();
 			this.BodyPanel.SuspendLayout();
+			this.FooterPanel.SuspendLayout();
 			this.ClientsTabsControl.SuspendLayout();
 			this.RoomsTab.SuspendLayout();
 			this.ActivitiesTab.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
 			this.TransportsTab.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.metroGrid2)).BeginInit();
 			this.GroupSearch.SuspendLayout();
-			this.FooterPanel.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.metroGrid2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.metroGrid3)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// HeaderPanel
@@ -113,16 +113,18 @@
 			this.HeaderPanel.Controls.Add(this.panel2);
 			this.HeaderPanel.Controls.Add(this.SubTitleLabel);
 			this.HeaderPanel.Controls.Add(this.TitleLabel);
-			this.HeaderPanel.Location = new System.Drawing.Point(-1, 28);
+			this.HeaderPanel.Location = new System.Drawing.Point(-1, 23);
+			this.HeaderPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
 			this.HeaderPanel.Name = "HeaderPanel";
-			this.HeaderPanel.Size = new System.Drawing.Size(1922, 150);
+			this.HeaderPanel.Size = new System.Drawing.Size(1442, 122);
 			this.HeaderPanel.TabIndex = 14;
 			// 
 			// panel2
 			// 
-			this.panel2.Location = new System.Drawing.Point(562, 153);
+			this.panel2.Location = new System.Drawing.Point(422, 124);
+			this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(200, 32);
+			this.panel2.Size = new System.Drawing.Size(150, 26);
 			this.panel2.TabIndex = 11;
 			// 
 			// SubTitleLabel
@@ -130,9 +132,10 @@
 			this.SubTitleLabel.AutoSize = true;
 			this.SubTitleLabel.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.SubTitleLabel.ForeColor = System.Drawing.Color.White;
-			this.SubTitleLabel.Location = new System.Drawing.Point(32, 82);
+			this.SubTitleLabel.Location = new System.Drawing.Point(24, 67);
+			this.SubTitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.SubTitleLabel.Name = "SubTitleLabel";
-			this.SubTitleLabel.Size = new System.Drawing.Size(226, 38);
+			this.SubTitleLabel.Size = new System.Drawing.Size(178, 30);
 			this.SubTitleLabel.TabIndex = 4;
 			this.SubTitleLabel.Text = "Booking Services";
 			// 
@@ -142,9 +145,10 @@
 			this.TitleLabel.BackColor = System.Drawing.Color.Transparent;
 			this.TitleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.TitleLabel.ForeColor = System.Drawing.Color.White;
-			this.TitleLabel.Location = new System.Drawing.Point(23, 3);
+			this.TitleLabel.Location = new System.Drawing.Point(17, 2);
+			this.TitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.TitleLabel.Name = "TitleLabel";
-			this.TitleLabel.Size = new System.Drawing.Size(223, 65);
+			this.TitleLabel.Size = new System.Drawing.Size(176, 51);
 			this.TitleLabel.TabIndex = 3;
 			this.TitleLabel.Text = "Booking ";
 			// 
@@ -156,10 +160,25 @@
 			this.BodyPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
 			this.BodyPanel.Controls.Add(this.ClientsTabsControl);
 			this.BodyPanel.Controls.Add(this.GroupSearch);
-			this.BodyPanel.Location = new System.Drawing.Point(-1, 184);
+			this.BodyPanel.Location = new System.Drawing.Point(-1, 150);
+			this.BodyPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
 			this.BodyPanel.Name = "BodyPanel";
-			this.BodyPanel.Size = new System.Drawing.Size(1922, 681);
+			this.BodyPanel.Size = new System.Drawing.Size(1442, 553);
 			this.BodyPanel.TabIndex = 16;
+			// 
+			// FooterPanel
+			// 
+			this.FooterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			this.FooterPanel.Controls.Add(this.FowardPanel);
+			this.FooterPanel.Controls.Add(this.HomePanel);
+			this.FooterPanel.Controls.Add(this.BackPanel);
+			this.FooterPanel.Location = new System.Drawing.Point(-1, 708);
+			this.FooterPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.FooterPanel.Name = "FooterPanel";
+			this.FooterPanel.Size = new System.Drawing.Size(1442, 122);
+			this.FooterPanel.TabIndex = 15;
 			// 
 			// ClientsTabsControl
 			// 
@@ -172,13 +191,13 @@
 			this.ClientsTabsControl.FontSize = MetroFramework.MetroTabControlSize.Tall;
 			this.ClientsTabsControl.FontWeight = MetroFramework.MetroTabControlWeight.Regular;
 			this.ClientsTabsControl.ItemSize = new System.Drawing.Size(150, 50);
-			this.ClientsTabsControl.Location = new System.Drawing.Point(305, 17);
+			this.ClientsTabsControl.Location = new System.Drawing.Point(229, 12);
 			this.ClientsTabsControl.Margin = new System.Windows.Forms.Padding(0);
 			this.ClientsTabsControl.Name = "ClientsTabsControl";
-			this.ClientsTabsControl.SelectedIndex = 0;
-			this.ClientsTabsControl.Size = new System.Drawing.Size(1593, 651);
+			this.ClientsTabsControl.SelectedIndex = 2;
+			this.ClientsTabsControl.Size = new System.Drawing.Size(1195, 529);
 			this.ClientsTabsControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-			this.ClientsTabsControl.TabIndex = 0;
+			this.ClientsTabsControl.TabIndex = 15;
 			this.ClientsTabsControl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.ClientsTabsControl.UseSelectable = true;
 			// 
@@ -189,15 +208,16 @@
 			this.RoomsTab.Controls.Add(this.metroTile6);
 			this.RoomsTab.HorizontalScrollbarBarColor = true;
 			this.RoomsTab.HorizontalScrollbarHighlightOnWheel = false;
-			this.RoomsTab.HorizontalScrollbarSize = 10;
+			this.RoomsTab.HorizontalScrollbarSize = 8;
 			this.RoomsTab.Location = new System.Drawing.Point(4, 54);
+			this.RoomsTab.Margin = new System.Windows.Forms.Padding(2);
 			this.RoomsTab.Name = "RoomsTab";
-			this.RoomsTab.Size = new System.Drawing.Size(1585, 593);
+			this.RoomsTab.Size = new System.Drawing.Size(1187, 471);
 			this.RoomsTab.TabIndex = 0;
 			this.RoomsTab.Text = "ROOMS";
 			this.RoomsTab.VerticalScrollbarBarColor = true;
 			this.RoomsTab.VerticalScrollbarHighlightOnWheel = false;
-			this.RoomsTab.VerticalScrollbarSize = 10;
+			this.RoomsTab.VerticalScrollbarSize = 8;
 			// 
 			// ActivitiesTab
 			// 
@@ -206,162 +226,16 @@
 			this.ActivitiesTab.Controls.Add(this.metroTile2);
 			this.ActivitiesTab.HorizontalScrollbarBarColor = true;
 			this.ActivitiesTab.HorizontalScrollbarHighlightOnWheel = false;
-			this.ActivitiesTab.HorizontalScrollbarSize = 10;
+			this.ActivitiesTab.HorizontalScrollbarSize = 8;
 			this.ActivitiesTab.Location = new System.Drawing.Point(4, 54);
+			this.ActivitiesTab.Margin = new System.Windows.Forms.Padding(2);
 			this.ActivitiesTab.Name = "ActivitiesTab";
-			this.ActivitiesTab.Size = new System.Drawing.Size(1585, 593);
+			this.ActivitiesTab.Size = new System.Drawing.Size(1187, 471);
 			this.ActivitiesTab.TabIndex = 1;
 			this.ActivitiesTab.Text = "ACTIVITIES";
 			this.ActivitiesTab.VerticalScrollbarBarColor = true;
 			this.ActivitiesTab.VerticalScrollbarHighlightOnWheel = false;
-			this.ActivitiesTab.VerticalScrollbarSize = 10;
-			// 
-			// metroGrid1
-			// 
-			this.metroGrid1.AllowUserToResizeRows = false;
-			this.metroGrid1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-			this.metroGrid1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.metroGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.metroGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-			this.metroGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.metroGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-			this.metroGrid1.ColumnHeadersHeight = 60;
-			this.metroGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-			this.metroGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9});
-			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(172)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.metroGrid1.DefaultCellStyle = dataGridViewCellStyle5;
-			this.metroGrid1.EnableHeadersVisualStyles = false;
-			this.metroGrid1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.metroGrid1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.metroGrid1.Location = new System.Drawing.Point(15, 53);
-			this.metroGrid1.Name = "metroGrid1";
-			this.metroGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.metroGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-			this.metroGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-			this.metroGrid1.RowTemplate.Height = 24;
-			this.metroGrid1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.metroGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.metroGrid1.Size = new System.Drawing.Size(1554, 527);
-			this.metroGrid1.TabIndex = 8;
-			// 
-			// dataGridViewTextBoxColumn1
-			// 
-			this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn1.HeaderText = "Client ID";
-			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-			this.dataGridViewTextBoxColumn1.Width = 131;
-			// 
-			// dataGridViewTextBoxColumn2
-			// 
-			this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn2.HeaderText = "Client Name";
-			this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-			this.dataGridViewTextBoxColumn2.Width = 172;
-			// 
-			// dataGridViewTextBoxColumn3
-			// 
-			this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn3.HeaderText = "Birth Date";
-			this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-			this.dataGridViewTextBoxColumn3.Width = 146;
-			// 
-			// dataGridViewTextBoxColumn4
-			// 
-			this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn4.HeaderText = "Gender";
-			this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-			this.dataGridViewTextBoxColumn4.Width = 117;
-			// 
-			// dataGridViewTextBoxColumn5
-			// 
-			this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn5.HeaderText = "City";
-			this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-			this.dataGridViewTextBoxColumn5.Width = 80;
-			// 
-			// dataGridViewTextBoxColumn6
-			// 
-			this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn6.HeaderText = "Fiscal Number";
-			this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-			this.dataGridViewTextBoxColumn6.Width = 191;
-			// 
-			// dataGridViewTextBoxColumn7
-			// 
-			this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn7.HeaderText = "Contact Number";
-			this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-			this.dataGridViewTextBoxColumn7.Width = 216;
-			// 
-			// dataGridViewTextBoxColumn8
-			// 
-			this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn8.HeaderText = "Last Reservation";
-			this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-			this.dataGridViewTextBoxColumn8.Width = 211;
-			// 
-			// dataGridViewTextBoxColumn9
-			// 
-			this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.dataGridViewTextBoxColumn9.HeaderText = "Number Reservations";
-			this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-			this.dataGridViewTextBoxColumn9.Width = 268;
-			// 
-			// metroTile1
-			// 
-			this.metroTile1.ActiveControl = null;
-			this.metroTile1.Location = new System.Drawing.Point(141, 12);
-			this.metroTile1.Name = "metroTile1";
-			this.metroTile1.Size = new System.Drawing.Size(120, 25);
-			this.metroTile1.TabIndex = 7;
-			this.metroTile1.Text = "x Remove";
-			this.metroTile1.TileImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.metroTile1.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-			this.metroTile1.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-			this.metroTile1.UseSelectable = true;
-			this.metroTile1.UseTileImage = true;
-			// 
-			// metroTile2
-			// 
-			this.metroTile2.ActiveControl = null;
-			this.metroTile2.Location = new System.Drawing.Point(15, 12);
-			this.metroTile2.Name = "metroTile2";
-			this.metroTile2.Size = new System.Drawing.Size(120, 25);
-			this.metroTile2.TabIndex = 6;
-			this.metroTile2.Text = " + Add";
-			this.metroTile2.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.metroTile2.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-			this.metroTile2.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-			this.metroTile2.UseSelectable = true;
+			this.ActivitiesTab.VerticalScrollbarSize = 8;
 			// 
 			// TransportsTab
 			// 
@@ -370,15 +244,66 @@
 			this.TransportsTab.Controls.Add(this.metroTile4);
 			this.TransportsTab.HorizontalScrollbarBarColor = true;
 			this.TransportsTab.HorizontalScrollbarHighlightOnWheel = false;
-			this.TransportsTab.HorizontalScrollbarSize = 10;
+			this.TransportsTab.HorizontalScrollbarSize = 8;
 			this.TransportsTab.Location = new System.Drawing.Point(4, 54);
+			this.TransportsTab.Margin = new System.Windows.Forms.Padding(2);
 			this.TransportsTab.Name = "TransportsTab";
-			this.TransportsTab.Size = new System.Drawing.Size(1585, 593);
+			this.TransportsTab.Size = new System.Drawing.Size(1187, 471);
 			this.TransportsTab.TabIndex = 2;
 			this.TransportsTab.Text = "TRANSPORTS";
 			this.TransportsTab.VerticalScrollbarBarColor = true;
 			this.TransportsTab.VerticalScrollbarHighlightOnWheel = false;
-			this.TransportsTab.VerticalScrollbarSize = 10;
+			this.TransportsTab.VerticalScrollbarSize = 8;
+			// 
+			// GroupSearch
+			// 
+			this.GroupSearch.Controls.Add(this.OkButton);
+			this.GroupSearch.Controls.Add(this.textBox1);
+			this.GroupSearch.Controls.Add(this.metroComboBox1);
+			this.GroupSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.GroupSearch.ForeColor = System.Drawing.Color.White;
+			this.GroupSearch.Location = new System.Drawing.Point(18, 12);
+			this.GroupSearch.Margin = new System.Windows.Forms.Padding(2);
+			this.GroupSearch.Name = "GroupSearch";
+			this.GroupSearch.Padding = new System.Windows.Forms.Padding(2);
+			this.GroupSearch.Size = new System.Drawing.Size(197, 157);
+			this.GroupSearch.TabIndex = 16;
+			this.GroupSearch.TabStop = false;
+			this.GroupSearch.Text = "Search ";
+			// 
+			// OkButton
+			// 
+			this.OkButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			this.OkButton.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.OkButton.ForeColor = System.Drawing.Color.White;
+			this.OkButton.Location = new System.Drawing.Point(12, 106);
+			this.OkButton.Margin = new System.Windows.Forms.Padding(2);
+			this.OkButton.Name = "OkButton";
+			this.OkButton.Size = new System.Drawing.Size(176, 32);
+			this.OkButton.TabIndex = 11;
+			this.OkButton.Text = "OK";
+			this.OkButton.UseVisualStyleBackColor = false;
+			// 
+			// textBox1
+			// 
+			this.textBox1.Font = new System.Drawing.Font("Segoe UI Semilight", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.textBox1.Location = new System.Drawing.Point(12, 64);
+			this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(176, 32);
+			this.textBox1.TabIndex = 8;
+			this.textBox1.Text = " Search";
+			// 
+			// metroComboBox1
+			// 
+			this.metroComboBox1.FormattingEnabled = true;
+			this.metroComboBox1.ItemHeight = 23;
+			this.metroComboBox1.Location = new System.Drawing.Point(12, 29);
+			this.metroComboBox1.Margin = new System.Windows.Forms.Padding(2);
+			this.metroComboBox1.Name = "metroComboBox1";
+			this.metroComboBox1.Size = new System.Drawing.Size(176, 29);
+			this.metroComboBox1.TabIndex = 9;
+			this.metroComboBox1.UseSelectable = true;
 			// 
 			// metroGrid2
 			// 
@@ -419,7 +344,8 @@
 			this.metroGrid2.EnableHeadersVisualStyles = false;
 			this.metroGrid2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
 			this.metroGrid2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.metroGrid2.Location = new System.Drawing.Point(15, 53);
+			this.metroGrid2.Location = new System.Drawing.Point(10, 43);
+			this.metroGrid2.Margin = new System.Windows.Forms.Padding(2);
 			this.metroGrid2.Name = "metroGrid2";
 			this.metroGrid2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -434,79 +360,81 @@
 			this.metroGrid2.RowTemplate.Height = 24;
 			this.metroGrid2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.metroGrid2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.metroGrid2.Size = new System.Drawing.Size(1554, 527);
-			this.metroGrid2.TabIndex = 8;
+			this.metroGrid2.Size = new System.Drawing.Size(1166, 423);
+			this.metroGrid2.TabIndex = 17;
 			// 
 			// dataGridViewTextBoxColumn10
 			// 
 			this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			this.dataGridViewTextBoxColumn10.HeaderText = "Client ID";
 			this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-			this.dataGridViewTextBoxColumn10.Width = 131;
+			this.dataGridViewTextBoxColumn10.Width = 99;
 			// 
 			// dataGridViewTextBoxColumn11
 			// 
 			this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			this.dataGridViewTextBoxColumn11.HeaderText = "Client Name";
 			this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-			this.dataGridViewTextBoxColumn11.Width = 172;
+			this.dataGridViewTextBoxColumn11.Width = 128;
 			// 
 			// dataGridViewTextBoxColumn12
 			// 
 			this.dataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			this.dataGridViewTextBoxColumn12.HeaderText = "Birth Date";
 			this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-			this.dataGridViewTextBoxColumn12.Width = 146;
+			this.dataGridViewTextBoxColumn12.Width = 110;
 			// 
 			// dataGridViewTextBoxColumn13
 			// 
 			this.dataGridViewTextBoxColumn13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			this.dataGridViewTextBoxColumn13.HeaderText = "Gender";
 			this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-			this.dataGridViewTextBoxColumn13.Width = 117;
+			this.dataGridViewTextBoxColumn13.Width = 98;
 			// 
 			// dataGridViewTextBoxColumn14
 			// 
 			this.dataGridViewTextBoxColumn14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			this.dataGridViewTextBoxColumn14.HeaderText = "City";
 			this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-			this.dataGridViewTextBoxColumn14.Width = 80;
+			this.dataGridViewTextBoxColumn14.Width = 68;
 			// 
 			// dataGridViewTextBoxColumn15
 			// 
 			this.dataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			this.dataGridViewTextBoxColumn15.HeaderText = "Fiscal Number";
 			this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-			this.dataGridViewTextBoxColumn15.Width = 191;
+			this.dataGridViewTextBoxColumn15.Width = 142;
 			// 
 			// dataGridViewTextBoxColumn16
 			// 
 			this.dataGridViewTextBoxColumn16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			this.dataGridViewTextBoxColumn16.HeaderText = "Contact Number";
 			this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-			this.dataGridViewTextBoxColumn16.Width = 216;
+			this.dataGridViewTextBoxColumn16.Width = 159;
 			// 
 			// dataGridViewTextBoxColumn17
 			// 
 			this.dataGridViewTextBoxColumn17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			this.dataGridViewTextBoxColumn17.HeaderText = "Last Reservation";
 			this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-			this.dataGridViewTextBoxColumn17.Width = 211;
+			this.dataGridViewTextBoxColumn17.Width = 157;
 			// 
 			// dataGridViewTextBoxColumn18
 			// 
 			this.dataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			this.dataGridViewTextBoxColumn18.HeaderText = "Number Reservations";
 			this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-			this.dataGridViewTextBoxColumn18.Width = 268;
+			this.dataGridViewTextBoxColumn18.Width = 196;
 			// 
 			// metroTile3
 			// 
 			this.metroTile3.ActiveControl = null;
-			this.metroTile3.Location = new System.Drawing.Point(141, 12);
+			this.metroTile3.AutoSize = true;
+			this.metroTile3.Location = new System.Drawing.Point(131, 5);
+			this.metroTile3.Margin = new System.Windows.Forms.Padding(2);
 			this.metroTile3.Name = "metroTile3";
-			this.metroTile3.Size = new System.Drawing.Size(120, 25);
-			this.metroTile3.TabIndex = 7;
+			this.metroTile3.Size = new System.Drawing.Size(108, 26);
+			this.metroTile3.TabIndex = 16;
 			this.metroTile3.Text = "x Remove";
 			this.metroTile3.TileImageAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.metroTile3.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
@@ -517,113 +445,17 @@
 			// metroTile4
 			// 
 			this.metroTile4.ActiveControl = null;
-			this.metroTile4.Location = new System.Drawing.Point(15, 12);
+			this.metroTile4.AutoSize = true;
+			this.metroTile4.Location = new System.Drawing.Point(10, 5);
+			this.metroTile4.Margin = new System.Windows.Forms.Padding(2);
 			this.metroTile4.Name = "metroTile4";
-			this.metroTile4.Size = new System.Drawing.Size(120, 25);
-			this.metroTile4.TabIndex = 6;
+			this.metroTile4.Size = new System.Drawing.Size(108, 26);
+			this.metroTile4.TabIndex = 15;
 			this.metroTile4.Text = " + Add";
 			this.metroTile4.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.metroTile4.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
 			this.metroTile4.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
 			this.metroTile4.UseSelectable = true;
-			// 
-			// GroupSearch
-			// 
-			this.GroupSearch.Controls.Add(this.OkButton);
-			this.GroupSearch.Controls.Add(this.textBox1);
-			this.GroupSearch.Controls.Add(this.metroComboBox1);
-			this.GroupSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.GroupSearch.ForeColor = System.Drawing.Color.White;
-			this.GroupSearch.Location = new System.Drawing.Point(24, 17);
-			this.GroupSearch.Name = "GroupSearch";
-			this.GroupSearch.Size = new System.Drawing.Size(263, 193);
-			this.GroupSearch.TabIndex = 12;
-			this.GroupSearch.TabStop = false;
-			this.GroupSearch.Text = "Search ";
-			// 
-			// OkButton
-			// 
-			this.OkButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.OkButton.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.OkButton.ForeColor = System.Drawing.Color.White;
-			this.OkButton.Location = new System.Drawing.Point(16, 131);
-			this.OkButton.Name = "OkButton";
-			this.OkButton.Size = new System.Drawing.Size(234, 39);
-			this.OkButton.TabIndex = 11;
-			this.OkButton.Text = "OK";
-			this.OkButton.UseVisualStyleBackColor = false;
-			// 
-			// textBox1
-			// 
-			this.textBox1.Font = new System.Drawing.Font("Segoe UI Semilight", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBox1.Location = new System.Drawing.Point(16, 79);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(234, 38);
-			this.textBox1.TabIndex = 8;
-			this.textBox1.Text = " Search";
-			// 
-			// metroComboBox1
-			// 
-			this.metroComboBox1.FormattingEnabled = true;
-			this.metroComboBox1.ItemHeight = 24;
-			this.metroComboBox1.Location = new System.Drawing.Point(16, 36);
-			this.metroComboBox1.Name = "metroComboBox1";
-			this.metroComboBox1.Size = new System.Drawing.Size(234, 30);
-			this.metroComboBox1.TabIndex = 9;
-			this.metroComboBox1.UseSelectable = true;
-			// 
-			// FooterPanel
-			// 
-			this.FooterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.FooterPanel.Controls.Add(this.FowardPanel);
-			this.FooterPanel.Controls.Add(this.HomePanel);
-			this.FooterPanel.Controls.Add(this.BackPanel);
-			this.FooterPanel.Location = new System.Drawing.Point(-1, 871);
-			this.FooterPanel.Name = "FooterPanel";
-			this.FooterPanel.Size = new System.Drawing.Size(1922, 150);
-			this.FooterPanel.TabIndex = 15;
-			// 
-			// FowardPanel
-			// 
-			this.FowardPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.FowardPanel.BackgroundImage = global::Tourist.Client.Properties.Resources.RightArrow;
-			this.FowardPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.FowardPanel.Location = new System.Drawing.Point(1815, 17);
-			this.FowardPanel.Name = "FowardPanel";
-			this.FowardPanel.Size = new System.Drawing.Size(83, 117);
-			this.FowardPanel.TabIndex = 1;
-			// 
-			// HomePanel
-			// 
-			this.HomePanel.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.HomePanel.BackgroundImage = global::Tourist.Client.Properties.Resources.Home;
-			this.HomePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.HomePanel.Location = new System.Drawing.Point(959, 17);
-			this.HomePanel.Name = "HomePanel";
-			this.HomePanel.Size = new System.Drawing.Size(130, 117);
-			this.HomePanel.TabIndex = 2;
-			// 
-			// BackPanel
-			// 
-			this.BackPanel.BackgroundImage = global::Tourist.Client.Properties.Resources.LeftArrow;
-			this.BackPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.BackPanel.Location = new System.Drawing.Point(24, 17);
-			this.BackPanel.Name = "BackPanel";
-			this.BackPanel.Size = new System.Drawing.Size(85, 117);
-			this.BackPanel.TabIndex = 3;
-			// 
-			// ImagePanel
-			// 
-			this.ImagePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.ImagePanel.BackgroundImage = global::Tourist.Client.Properties.Resources.Bookings;
-			this.ImagePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.ImagePanel.Location = new System.Drawing.Point(1718, 14);
-			this.ImagePanel.Name = "ImagePanel";
-			this.ImagePanel.Size = new System.Drawing.Size(180, 122);
-			this.ImagePanel.TabIndex = 13;
 			// 
 			// metroGrid3
 			// 
@@ -664,7 +496,8 @@
 			this.metroGrid3.EnableHeadersVisualStyles = false;
 			this.metroGrid3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
 			this.metroGrid3.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.metroGrid3.Location = new System.Drawing.Point(15, 53);
+			this.metroGrid3.Location = new System.Drawing.Point(10, 43);
+			this.metroGrid3.Margin = new System.Windows.Forms.Padding(2);
 			this.metroGrid3.Name = "metroGrid3";
 			this.metroGrid3.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -679,79 +512,81 @@
 			this.metroGrid3.RowTemplate.Height = 24;
 			this.metroGrid3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.metroGrid3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.metroGrid3.Size = new System.Drawing.Size(1554, 527);
-			this.metroGrid3.TabIndex = 11;
+			this.metroGrid3.Size = new System.Drawing.Size(1166, 423);
+			this.metroGrid3.TabIndex = 17;
 			// 
 			// dataGridViewTextBoxColumn19
 			// 
 			this.dataGridViewTextBoxColumn19.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			this.dataGridViewTextBoxColumn19.HeaderText = "Client ID";
 			this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-			this.dataGridViewTextBoxColumn19.Width = 131;
+			this.dataGridViewTextBoxColumn19.Width = 99;
 			// 
 			// dataGridViewTextBoxColumn20
 			// 
 			this.dataGridViewTextBoxColumn20.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			this.dataGridViewTextBoxColumn20.HeaderText = "Client Name";
 			this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-			this.dataGridViewTextBoxColumn20.Width = 172;
+			this.dataGridViewTextBoxColumn20.Width = 128;
 			// 
 			// dataGridViewTextBoxColumn21
 			// 
 			this.dataGridViewTextBoxColumn21.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			this.dataGridViewTextBoxColumn21.HeaderText = "Birth Date";
 			this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
-			this.dataGridViewTextBoxColumn21.Width = 146;
+			this.dataGridViewTextBoxColumn21.Width = 110;
 			// 
 			// dataGridViewTextBoxColumn22
 			// 
 			this.dataGridViewTextBoxColumn22.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			this.dataGridViewTextBoxColumn22.HeaderText = "Gender";
 			this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
-			this.dataGridViewTextBoxColumn22.Width = 117;
+			this.dataGridViewTextBoxColumn22.Width = 98;
 			// 
 			// dataGridViewTextBoxColumn23
 			// 
 			this.dataGridViewTextBoxColumn23.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			this.dataGridViewTextBoxColumn23.HeaderText = "City";
 			this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
-			this.dataGridViewTextBoxColumn23.Width = 80;
+			this.dataGridViewTextBoxColumn23.Width = 68;
 			// 
 			// dataGridViewTextBoxColumn24
 			// 
 			this.dataGridViewTextBoxColumn24.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			this.dataGridViewTextBoxColumn24.HeaderText = "Fiscal Number";
 			this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
-			this.dataGridViewTextBoxColumn24.Width = 191;
+			this.dataGridViewTextBoxColumn24.Width = 142;
 			// 
 			// dataGridViewTextBoxColumn25
 			// 
 			this.dataGridViewTextBoxColumn25.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			this.dataGridViewTextBoxColumn25.HeaderText = "Contact Number";
 			this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
-			this.dataGridViewTextBoxColumn25.Width = 216;
+			this.dataGridViewTextBoxColumn25.Width = 159;
 			// 
 			// dataGridViewTextBoxColumn26
 			// 
 			this.dataGridViewTextBoxColumn26.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			this.dataGridViewTextBoxColumn26.HeaderText = "Last Reservation";
 			this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
-			this.dataGridViewTextBoxColumn26.Width = 211;
+			this.dataGridViewTextBoxColumn26.Width = 157;
 			// 
 			// dataGridViewTextBoxColumn27
 			// 
 			this.dataGridViewTextBoxColumn27.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			this.dataGridViewTextBoxColumn27.HeaderText = "Number Reservations";
 			this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
-			this.dataGridViewTextBoxColumn27.Width = 268;
+			this.dataGridViewTextBoxColumn27.Width = 196;
 			// 
 			// metroTile5
 			// 
 			this.metroTile5.ActiveControl = null;
-			this.metroTile5.Location = new System.Drawing.Point(141, 12);
+			this.metroTile5.AutoSize = true;
+			this.metroTile5.Location = new System.Drawing.Point(131, 5);
+			this.metroTile5.Margin = new System.Windows.Forms.Padding(2);
 			this.metroTile5.Name = "metroTile5";
-			this.metroTile5.Size = new System.Drawing.Size(120, 25);
-			this.metroTile5.TabIndex = 10;
+			this.metroTile5.Size = new System.Drawing.Size(108, 26);
+			this.metroTile5.TabIndex = 16;
 			this.metroTile5.Text = "x Remove";
 			this.metroTile5.TileImageAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.metroTile5.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
@@ -762,41 +597,250 @@
 			// metroTile6
 			// 
 			this.metroTile6.ActiveControl = null;
-			this.metroTile6.Location = new System.Drawing.Point(15, 12);
+			this.metroTile6.AutoSize = true;
+			this.metroTile6.Location = new System.Drawing.Point(10, 5);
+			this.metroTile6.Margin = new System.Windows.Forms.Padding(2);
 			this.metroTile6.Name = "metroTile6";
-			this.metroTile6.Size = new System.Drawing.Size(120, 25);
-			this.metroTile6.TabIndex = 9;
+			this.metroTile6.Size = new System.Drawing.Size(108, 26);
+			this.metroTile6.TabIndex = 15;
 			this.metroTile6.Text = " + Add";
 			this.metroTile6.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.metroTile6.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
 			this.metroTile6.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
 			this.metroTile6.UseSelectable = true;
 			// 
-			// BookingForm
+			// metroGrid1
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+			this.metroGrid1.AllowUserToResizeRows = false;
+			this.metroGrid1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+			this.metroGrid1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.metroGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.metroGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+			this.metroGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.metroGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+			this.metroGrid1.ColumnHeadersHeight = 60;
+			this.metroGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+			this.metroGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9});
+			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(172)))), ((int)(((byte)(219)))));
+			dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.metroGrid1.DefaultCellStyle = dataGridViewCellStyle5;
+			this.metroGrid1.EnableHeadersVisualStyles = false;
+			this.metroGrid1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.metroGrid1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.metroGrid1.Location = new System.Drawing.Point(10, 43);
+			this.metroGrid1.Margin = new System.Windows.Forms.Padding(2);
+			this.metroGrid1.Name = "metroGrid1";
+			this.metroGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.metroGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+			this.metroGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+			this.metroGrid1.RowTemplate.Height = 24;
+			this.metroGrid1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.metroGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.metroGrid1.Size = new System.Drawing.Size(1166, 423);
+			this.metroGrid1.TabIndex = 17;
+			// 
+			// dataGridViewTextBoxColumn1
+			// 
+			this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.dataGridViewTextBoxColumn1.HeaderText = "Client ID";
+			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+			this.dataGridViewTextBoxColumn1.Width = 99;
+			// 
+			// dataGridViewTextBoxColumn2
+			// 
+			this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.dataGridViewTextBoxColumn2.HeaderText = "Client Name";
+			this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+			this.dataGridViewTextBoxColumn2.Width = 128;
+			// 
+			// dataGridViewTextBoxColumn3
+			// 
+			this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.dataGridViewTextBoxColumn3.HeaderText = "Birth Date";
+			this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+			this.dataGridViewTextBoxColumn3.Width = 110;
+			// 
+			// dataGridViewTextBoxColumn4
+			// 
+			this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.dataGridViewTextBoxColumn4.HeaderText = "Gender";
+			this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+			this.dataGridViewTextBoxColumn4.Width = 98;
+			// 
+			// dataGridViewTextBoxColumn5
+			// 
+			this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.dataGridViewTextBoxColumn5.HeaderText = "City";
+			this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+			this.dataGridViewTextBoxColumn5.Width = 68;
+			// 
+			// dataGridViewTextBoxColumn6
+			// 
+			this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.dataGridViewTextBoxColumn6.HeaderText = "Fiscal Number";
+			this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+			this.dataGridViewTextBoxColumn6.Width = 142;
+			// 
+			// dataGridViewTextBoxColumn7
+			// 
+			this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.dataGridViewTextBoxColumn7.HeaderText = "Contact Number";
+			this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+			this.dataGridViewTextBoxColumn7.Width = 159;
+			// 
+			// dataGridViewTextBoxColumn8
+			// 
+			this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.dataGridViewTextBoxColumn8.HeaderText = "Last Reservation";
+			this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+			this.dataGridViewTextBoxColumn8.Width = 157;
+			// 
+			// dataGridViewTextBoxColumn9
+			// 
+			this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.dataGridViewTextBoxColumn9.HeaderText = "Number Reservations";
+			this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+			this.dataGridViewTextBoxColumn9.Width = 196;
+			// 
+			// metroTile1
+			// 
+			this.metroTile1.ActiveControl = null;
+			this.metroTile1.AutoSize = true;
+			this.metroTile1.Location = new System.Drawing.Point(131, 5);
+			this.metroTile1.Margin = new System.Windows.Forms.Padding(2);
+			this.metroTile1.Name = "metroTile1";
+			this.metroTile1.Size = new System.Drawing.Size(108, 26);
+			this.metroTile1.TabIndex = 16;
+			this.metroTile1.Text = "x Remove";
+			this.metroTile1.TileImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.metroTile1.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+			this.metroTile1.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+			this.metroTile1.UseSelectable = true;
+			this.metroTile1.UseTileImage = true;
+			// 
+			// metroTile2
+			// 
+			this.metroTile2.ActiveControl = null;
+			this.metroTile2.AutoSize = true;
+			this.metroTile2.Location = new System.Drawing.Point(10, 5);
+			this.metroTile2.Margin = new System.Windows.Forms.Padding(2);
+			this.metroTile2.Name = "metroTile2";
+			this.metroTile2.Size = new System.Drawing.Size(108, 26);
+			this.metroTile2.TabIndex = 15;
+			this.metroTile2.Text = " + Add";
+			this.metroTile2.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.metroTile2.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+			this.metroTile2.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+			this.metroTile2.UseSelectable = true;
+			// 
+			// FowardPanel
+			// 
+			this.FowardPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.FowardPanel.AutoSize = true;
+			this.FowardPanel.BackgroundImage = global::Tourist.Client.Properties.Resources.RightArrow;
+			this.FowardPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.FowardPanel.Location = new System.Drawing.Point(1362, 14);
+			this.FowardPanel.Margin = new System.Windows.Forms.Padding(2);
+			this.FowardPanel.Name = "FowardPanel";
+			this.FowardPanel.Size = new System.Drawing.Size(62, 95);
+			this.FowardPanel.TabIndex = 7;
+			// 
+			// HomePanel
+			// 
+			this.HomePanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.HomePanel.AutoSize = true;
+			this.HomePanel.BackgroundImage = global::Tourist.Client.Properties.Resources.Home;
+			this.HomePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.HomePanel.Location = new System.Drawing.Point(671, 14);
+			this.HomePanel.Margin = new System.Windows.Forms.Padding(2);
+			this.HomePanel.Name = "HomePanel";
+			this.HomePanel.Size = new System.Drawing.Size(111, 95);
+			this.HomePanel.TabIndex = 8;
+			// 
+			// BackPanel
+			// 
+			this.BackPanel.AutoSize = true;
+			this.BackPanel.BackgroundImage = global::Tourist.Client.Properties.Resources.LeftArrow;
+			this.BackPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.BackPanel.Location = new System.Drawing.Point(19, 14);
+			this.BackPanel.Margin = new System.Windows.Forms.Padding(2);
+			this.BackPanel.Name = "BackPanel";
+			this.BackPanel.Size = new System.Drawing.Size(64, 95);
+			this.BackPanel.TabIndex = 9;
+			// 
+			// ImagePanel
+			// 
+			this.ImagePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.ImagePanel.AutoSize = true;
+			this.ImagePanel.BackgroundImage = global::Tourist.Client.Properties.Resources.Disponibility;
+			this.ImagePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.ImagePanel.Location = new System.Drawing.Point(1324, 11);
+			this.ImagePanel.Margin = new System.Windows.Forms.Padding(2);
+			this.ImagePanel.Name = "ImagePanel";
+			this.ImagePanel.Size = new System.Drawing.Size(100, 95);
+			this.ImagePanel.TabIndex = 13;
+			// 
+			// DisponibilityForm
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1920, 1020);
+			this.AutoSize = true;
+			this.ClientSize = new System.Drawing.Size(1440, 829);
 			this.Controls.Add(this.BodyPanel);
 			this.Controls.Add(this.FooterPanel);
 			this.Controls.Add(this.HeaderPanel);
-			this.Name = "BookingForm";
+			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Name = "DisponibilityForm";
+			this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
 			this.Resizable = false;
 			this.Style = MetroFramework.MetroColorStyle.White;
 			this.Load += new System.EventHandler(this.DisponibilityForm_Load);
 			this.HeaderPanel.ResumeLayout(false);
 			this.HeaderPanel.PerformLayout();
 			this.BodyPanel.ResumeLayout(false);
+			this.FooterPanel.ResumeLayout(false);
+			this.FooterPanel.PerformLayout();
 			this.ClientsTabsControl.ResumeLayout(false);
 			this.RoomsTab.ResumeLayout(false);
+			this.RoomsTab.PerformLayout();
 			this.ActivitiesTab.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
+			this.ActivitiesTab.PerformLayout();
 			this.TransportsTab.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.metroGrid2)).EndInit();
+			this.TransportsTab.PerformLayout();
 			this.GroupSearch.ResumeLayout(false);
 			this.GroupSearch.PerformLayout();
-			this.FooterPanel.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.metroGrid2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.metroGrid3)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -808,19 +852,31 @@
 		private System.Windows.Forms.Label SubTitleLabel;
 		private System.Windows.Forms.Label TitleLabel;
 		private System.Windows.Forms.Panel BodyPanel;
+		private System.Windows.Forms.Panel ImagePanel;
+		private System.Windows.Forms.Panel FooterPanel;
 		private MetroFramework.Controls.MetroTabControl ClientsTabsControl;
 		private MetroFramework.Controls.MetroTabPage RoomsTab;
 		private MetroFramework.Controls.MetroTabPage ActivitiesTab;
-		private System.Windows.Forms.Panel ImagePanel;
-		private System.Windows.Forms.Panel FooterPanel;
+		private MetroFramework.Controls.MetroTabPage TransportsTab;
+		private System.Windows.Forms.GroupBox GroupSearch;
+		private System.Windows.Forms.Button OkButton;
+		private System.Windows.Forms.TextBox textBox1;
+		private MetroFramework.Controls.MetroComboBox metroComboBox1;
 		private System.Windows.Forms.Panel FowardPanel;
 		private System.Windows.Forms.Panel HomePanel;
 		private System.Windows.Forms.Panel BackPanel;
-		private System.Windows.Forms.TextBox textBox1;
-		private MetroFramework.Controls.MetroTabPage TransportsTab;
-		private MetroFramework.Controls.MetroComboBox metroComboBox1;
-		private System.Windows.Forms.GroupBox GroupSearch;
-		private System.Windows.Forms.Button OkButton;
+		private MetroFramework.Controls.MetroGrid metroGrid3;
+		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
+		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
+		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
+		private MetroFramework.Controls.MetroTile metroTile5;
+		private MetroFramework.Controls.MetroTile metroTile6;
 		private MetroFramework.Controls.MetroGrid metroGrid1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -845,18 +901,6 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
 		private MetroFramework.Controls.MetroTile metroTile3;
 		private MetroFramework.Controls.MetroTile metroTile4;
-		private MetroFramework.Controls.MetroGrid metroGrid3;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
-		private MetroFramework.Controls.MetroTile metroTile5;
-		private MetroFramework.Controls.MetroTile metroTile6;
 
 	}
 }

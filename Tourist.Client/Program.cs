@@ -17,7 +17,7 @@ namespace Tourist.Client
 		{
 			Application.EnableVisualStyles( );
 			Application.SetCompatibleTextRenderingDefault( false );
-			Application.Run( new ClientsForm( ) );
+			Application.Run( new LoginForm( ) );
 		}
 	}
 }
