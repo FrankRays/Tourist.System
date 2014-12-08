@@ -1,8 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Tourist.Data.Interfaces
 {
@@ -10,10 +6,14 @@ namespace Tourist.Data.Interfaces
 	{
 		string Name { get; set; }
 		string City { get; set; }
-		
+
 		IEnumerable<IBooking> Bookings { get; }
 		void Append( IBooking aItem );
 		void Remove( IBooking aItem );
+
+		IEnumerable<IClient> Clients { get; set; }
+		void Append( IClient aItem );
+		void Remove( IClient aItem );
 
 		IEnumerable<IBookable> Bookables { get; set; }
 		void Append( IBookable aItem );
@@ -24,6 +24,7 @@ namespace Tourist.Data.Interfaces
 		void Append( IEmployer aItem );
 		void Remove( IEmployer aItem );
 		
+
 		
 	}
 }

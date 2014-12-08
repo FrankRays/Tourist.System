@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Xml;
+using System.Xml.Serialization;
 using Tourist.Data.Interfaces;
 
 namespace Tourist.Data.Classes
@@ -21,6 +24,7 @@ namespace Tourist.Data.Classes
 
 		public int Id { get; private set; }
 
+		[Browsable( true ), XmlIgnore]
 		public IClient Client
 		{
 			get { return mClient; }
@@ -35,6 +39,7 @@ namespace Tourist.Data.Classes
 			set { mBookingDateTime = value; }
 		}
 
+		[Browsable( false )]
 		public IEnumerable<IBookingItem> BookingItens
 		{
 			get { return mBookingItems; }
@@ -95,6 +100,7 @@ namespace Tourist.Data.Classes
 		}
 
 		#endregion
+
 
 	}
 }

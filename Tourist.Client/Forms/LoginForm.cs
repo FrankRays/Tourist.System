@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using MetroFramework.Forms;
@@ -20,9 +21,7 @@ namespace Tourist.Client.Forms
 		{
 
 			SetFormFullScreen( );
-			//SetTitlePanelPosition();
-			//Resize += LoginForm_Resize ;
-			
+
 		}
 
 		/* Teste de evento 

@@ -50,7 +50,6 @@
     <Compile Include="Classes\CarTransport.cs" />
     <Compile Include="Classes\Client.cs" />
     <Compile Include="Classes\DateTimeRange.cs" />
-    <Compile Include="Classes\DependableCollection.cs" />
     <Compile Include="Classes\DivingActivity.cs" />
     <Compile Include="Classes\DoubleRoom.cs" />
     <Compile Include="Classes\DoubleSingleRoom.cs" />

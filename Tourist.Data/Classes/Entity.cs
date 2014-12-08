@@ -14,8 +14,10 @@ namespace Tourist.Data.Classes
 		private string mName;
 		private string mCity;
 		private IEnumerable<IBooking> mBookings;
+		private IEnumerable<IClient> mClients;
 		private IEnumerable<IBookable> mBookables;
 		private IEnumerable<IEmployer> mEmployers;
+
 
 		#endregion
 
@@ -39,6 +41,12 @@ namespace Tourist.Data.Classes
 		{
 			get { return mBookings; }
 			private set { mBookings = value; }
+		}
+
+		public IEnumerable<IClient> Clients
+		{
+			get { return mClients; }
+			set { mClients = value; }
 		}
 
 		public IEnumerable<IBookable> Bookables
@@ -85,6 +93,20 @@ namespace Tourist.Data.Classes
 			( ( ICollection<IBookable> ) Bookables ).Remove( aItem );
 		}
 
+		public void Append( IClient aItem )
+		{
+			Trace.Assert( !Clients.Contains( aItem ) );
+			if ( Clients.Contains( aItem ) ) return;
+			( ( ICollection<IClient> ) Clients ).Add( aItem );
+		}
+
+		public void Remove( IClient aItem )
+		{
+			Trace.Assert( !Clients.Contains( aItem ) );
+			if ( !Clients.Contains( aItem ) ) return;
+			( ( ICollection<Client> ) Clients ).Remove( aItem );
+		}
+
 		public void Append( IEmployer aItem )
 		{
 			Trace.Assert( !Employers.Contains( aItem ) );
@@ -103,16 +125,17 @@ namespace Tourist.Data.Classes
 
 		#region Constructor
 
-		public Entity()
+		public Entity( )
 		{
 			Id = ++mCounter;
 
 			Bookings = new List<IBooking>( );
+			Clients = new List<IClient>( );
 			Bookables = new List<IBookable>( );
 			Employers = new List<IEmployer>( );
 		}
 
-		public Entity(string aName, string aCity )
+		public Entity( string aName, string aCity )
 		{
 			Id = ++mCounter;
 
