@@ -2,7 +2,7 @@
 
 namespace Tourist.Data.Classes
 {
-	public abstract class Transportation : IBookable
+	public abstract class Transport : IBookable
 	{
 		
 		#region Fields
@@ -18,12 +18,6 @@ namespace Tourist.Data.Classes
 		#region Properties
 
 		public int Id { get; private set; }
-
-		public string Name
-		{
-			get { return mName; }
-			set { mName = value; }
-		}
 
 		public string Type
 		{
@@ -53,13 +47,9 @@ namespace Tourist.Data.Classes
 
 		#region Constructor
 
-		protected Transportation( DateTimeRange aDateTimeRange )
+		protected Transport( )
 		{
 			Id = ++mCounter;
-			Name = "Service Name";
-			Price = 0.00;
-			TimeRange = aDateTimeRange;
-			MaxNumberOfPersons = 0;
 		}
 
 		#endregion

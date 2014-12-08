@@ -39,15 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Activities.cs" />
-    <Compile Include="Classes\BicycleTransportation.cs" />
+    <Compile Include="Classes\Activitiy.cs" />
+    <Compile Include="Classes\BicycleTransport.cs" />
     <Compile Include="Classes\BoatRideActivity.cs" />
     <Compile Include="Classes\BookingItem.cs" />
     <Compile Include="Classes\Booking.cs" />
-    <Compile Include="Classes\BusTransportation.cs" />
-    <Compile Include="Classes\CableCarTransportation.cs" />
+    <Compile Include="Classes\BusTransport.cs" />
+    <Compile Include="Classes\CableCarTransport.cs" />
     <Compile Include="Classes\CampingActivity.cs" />
-    <Compile Include="Classes\CarTransportation.cs" />
+    <Compile Include="Classes\CarTransport.cs" />
     <Compile Include="Classes\Client.cs" />
     <Compile Include="Classes\DateTimeRange.cs" />
     <Compile Include="Classes\DependableCollection.cs" />
@@ -61,14 +61,14 @@
     <Compile Include="Classes\GolfActivity.cs" />
     <Compile Include="Classes\Manager.cs" />
     <Compile Include="Classes\MeetingRoom.cs" />
-    <Compile Include="Classes\MotoristTransportation.cs" />
+    <Compile Include="Classes\MotoristTransport.cs" />
     <Compile Include="Classes\Room.cs" />
-    <Compile Include="Classes\SightSeeingWalkActivity.cs" />
+    <Compile Include="Classes\SightSeeingActivity.cs" />
     <Compile Include="Classes\SingleRoom.cs" />
     <Compile Include="Classes\SkyDivingActivity.cs" />
     <Compile Include="Classes\SuiteRoom.cs" />
-    <Compile Include="Classes\Transportation.cs" />
-    <Compile Include="Classes\TuckTuckTransportation.cs" />
+    <Compile Include="Classes\Transport.cs" />
+    <Compile Include="Classes\TuckTuckTransport.cs" />
     <Compile Include="Classes\UnitPrice.cs" />
     <Compile Include="Interfaces\GenderEnum.cs" />
     <Compile Include="Interfaces\IBookable.cs" />

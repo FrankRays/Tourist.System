@@ -1,13 +1,10 @@
 namespace Tourist.Data.Classes
 {
-	public class GolfActivity : Activities
+	public class GolfActivity : Activitiy
 	{
-		public GolfActivity( DateTimeRange aDateTimeRange ) : base( aDateTimeRange )
+		public GolfActivity( ) 
 		{
-			Name = "Golf ";
-			TimeRange = aDateTimeRange;
-			Price = UnitPrice.GolfActivity * TimeRange.DiferenceTimeSpan( ).Days;
-			MaxNumberOfPersons = 3;
+			MaxNumberOfPersons = 5;
 		}
 	}
 }

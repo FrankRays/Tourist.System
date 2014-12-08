@@ -41,12 +41,10 @@
 			this.ImagePanel = new System.Windows.Forms.Panel();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.label2 = new System.Windows.Forms.Label();
-			this.panel4 = new System.Windows.Forms.Panel();
 			this.FooterPanel = new System.Windows.Forms.Panel();
 			this.BodyPanel.SuspendLayout();
 			this.LoginFrame.SuspendLayout();
 			this.HeaderPanel.SuspendLayout();
-			this.FooterPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// BodyPanel
@@ -213,20 +211,11 @@
 			this.label2.TabIndex = 4;
 			this.label2.Text = "Welcome! Please enter your username and password to procede.";
 			// 
-			// panel4
-			// 
-			this.panel4.Location = new System.Drawing.Point(422, 124);
-			this.panel4.Margin = new System.Windows.Forms.Padding(2);
-			this.panel4.Name = "panel4";
-			this.panel4.Size = new System.Drawing.Size(150, 26);
-			this.panel4.TabIndex = 11;
-			// 
 			// FooterPanel
 			// 
 			this.FooterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.FooterPanel.Controls.Add(this.panel4);
 			this.FooterPanel.Location = new System.Drawing.Point(0, 678);
 			this.FooterPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.FooterPanel.Name = "FooterPanel";
@@ -256,7 +245,6 @@
 			this.LoginFrame.PerformLayout();
 			this.HeaderPanel.ResumeLayout(false);
 			this.HeaderPanel.PerformLayout();
-			this.FooterPanel.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -276,7 +264,6 @@
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Panel ImagePanel;
 		private System.Windows.Forms.Panel LoginFrame;
-		private System.Windows.Forms.Panel panel4;
 		private System.Windows.Forms.Panel FooterPanel;
 	}
 }

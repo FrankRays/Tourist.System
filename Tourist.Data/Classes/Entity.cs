@@ -103,12 +103,22 @@ namespace Tourist.Data.Classes
 
 		#region Constructor
 
-		public Entity( string aName, string aCity )
+		public Entity()
+		{
+			Id = ++mCounter;
+
+			Bookings = new List<IBooking>( );
+			Bookables = new List<IBookable>( );
+			Employers = new List<IEmployer>( );
+		}
+
+		public Entity(string aName, string aCity )
 		{
 			Id = ++mCounter;
 
 			Name = aName;
 			City = aCity;
+
 			Bookings = new List<IBooking>( );
 			Bookables = new List<IBookable>( );
 			Employers = new List<IEmployer>( );

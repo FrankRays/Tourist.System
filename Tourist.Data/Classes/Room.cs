@@ -17,7 +17,7 @@ namespace Tourist.Data.Classes
 		#region Properties
 
 		public int Id { get; private set; }
-
+		
 		public string Type
 		{
 			get { return GetType( ).ToString( ); }
@@ -45,12 +45,9 @@ namespace Tourist.Data.Classes
 
 		#region Constructor
 
-		protected Room( DateTimeRange aDateTimeRange )
+		protected Room( )
 		{
 			Id = ++mCounter;
-			Price = 0.00;
-			TimeRange = aDateTimeRange;
-			MaxNumberOfPersons = 0;
 		}
 
 		#endregion

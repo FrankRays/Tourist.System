@@ -80,11 +80,18 @@ namespace Tourist.Data.Classes
 
 		#region Constructor
 
-		public Booking( Client aClient )
+		public Booking( )
 		{
 			Id = ++counter;
 			BookingItens = new List<IBookingItem>( );
-			Client = aClient;
+		}
+
+		public Booking(IClient aClient)
+		{
+			Id = ++counter;
+
+			Client = aClient;			
+			BookingItens = new List<IBookingItem>( );
 		}
 
 		#endregion

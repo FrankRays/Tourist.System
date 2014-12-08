@@ -9,7 +9,6 @@ namespace Tourist.Data.Classes
 
 		private int mQuantity;
 		private IBookable mService;
-		private double mBookingItemPrice;
 
 		#endregion
 
@@ -29,21 +28,21 @@ namespace Tourist.Data.Classes
 
 		public double BookingItemPrice
 		{
-			get { return mBookingItemPrice; }
-			set { mBookingItemPrice = value; }
+			get { return (Service.Price*Quantity); }
 		}
 
 		#endregion
 
 		#region Constructor
 
-		public BookingItem( IBookable aService, int aQuantity )
+		public BookingItem( ) { }
+
+		public BookingItem(IBookable aService, int aQuantity)
 		{
 			Service = aService;
 			Quantity = aQuantity;
-			BookingItemPrice = Service.Price * Quantity;
 		}
-
+		
 		#endregion
 
 	}

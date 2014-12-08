@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Drawing;
+using System.Reflection;
 using System.Windows.Forms;
 using MetroFramework.Forms;
+using Tourist.Data.Classes;
+using Tourist.Data.Interfaces;
+
 
 namespace Tourist.Client.Forms
 {
@@ -18,6 +22,7 @@ namespace Tourist.Client.Forms
 			SetFormFullScreen( );
 			//SetTitlePanelPosition();
 			//Resize += LoginForm_Resize ;
+			
 		}
 
 		/* Teste de evento 

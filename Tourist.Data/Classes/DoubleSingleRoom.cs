@@ -2,10 +2,8 @@
 {
 	public class DoubleSingleRoom : Room
 	{
-		public DoubleSingleRoom( DateTimeRange aDateTimeRange ) : base( aDateTimeRange )
+		public DoubleSingleRoom( )
 		{
-			TimeRange = aDateTimeRange;
-			Price = UnitPrice.DoubleSingleRoom * TimeRange.DiferenceTimeSpan( ).Days;
 			MaxNumberOfPersons = 2;
 		}
 	}

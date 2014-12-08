@@ -172,6 +172,12 @@
     <None Include="Resources\LeftArrow.png" />
     <None Include="Resources\Home.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tourist.Data\Tourist.Data.csproj">
+      <Project>{f8a07db9-35ae-4605-90eb-5f304d9d6450}</Project>
+      <Name>Tourist.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

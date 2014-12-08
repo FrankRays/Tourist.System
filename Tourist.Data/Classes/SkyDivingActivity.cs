@@ -1,13 +1,10 @@
 namespace Tourist.Data.Classes
 {
-	public class SkyDivingActivity : Activities
+	public class SkyDivingActivity : Activitiy
 	{
-		public SkyDivingActivity( DateTimeRange aDateTimeRange ) : base( aDateTimeRange )
+		public SkyDivingActivity()
 		{
-			Name = "Sky Diving";
-			TimeRange = aDateTimeRange;
-			Price = UnitPrice.SkyDivingActivity * TimeRange.DiferenceTimeSpan( ).Days;
-			MaxNumberOfPersons = 3;
+			MaxNumberOfPersons = 4;
 		}
 	}
 }

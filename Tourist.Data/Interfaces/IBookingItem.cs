@@ -4,6 +4,6 @@
 	{
 		int Quantity { get; set; }
 		IBookable Service { get; set; }
-		double BookingItemPrice { get; set; }
+		double BookingItemPrice { get; }
 	}
 }
