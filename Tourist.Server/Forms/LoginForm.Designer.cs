@@ -125,6 +125,7 @@
 			this.OkButton.TabIndex = 9;
 			this.OkButton.Text = "OK";
 			this.OkButton.UseVisualStyleBackColor = false;
+			this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
 			// 
 			// textBox2
 			// 

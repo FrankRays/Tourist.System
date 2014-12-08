@@ -39,14 +39,13 @@ namespace Tourist.Server.Forms
 			Size = new Size( x, y );
 		}
 
-		//so para teste
+		
 		private void OkButton_Click( object sender, EventArgs e )
 		{
-			MainForm main = new MainForm( );
-			main.Show( );
-			// Hide();
+			MainForm main = new MainForm();
+			main.Show();
 		}
 
-	
+		
 	}
 }

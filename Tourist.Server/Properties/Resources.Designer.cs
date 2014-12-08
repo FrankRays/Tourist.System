@@ -103,6 +103,16 @@ namespace Tourist.Server.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ComingSoon {
+            get {
+                object obj = ResourceManager.GetObject("ComingSoon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Disponibility {
             get {
                 object obj = ResourceManager.GetObject("Disponibility", resourceCulture);
@@ -116,6 +126,16 @@ namespace Tourist.Server.Properties {
         internal static System.Drawing.Bitmap employers {
             get {
                 object obj = ResourceManager.GetObject("employers", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Entity {
+            get {
+                object obj = ResourceManager.GetObject("Entity", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -28,7 +28,6 @@
 		/// </summary>
 		private void InitializeComponent( )
 		{
-			this.components = new System.ComponentModel.Container();
 			this.htmlToolTip1 = new MetroFramework.Drawing.Html.HtmlToolTip();
 			this.MainPanel = new MetroFramework.Controls.MetroPanel();
 			this.panel1 = new System.Windows.Forms.Panel();
@@ -40,25 +39,27 @@
 			this.ClockTitleLabel = new System.Windows.Forms.Label();
 			this.AmPmLabel = new System.Windows.Forms.Label();
 			this.ClockLabel = new System.Windows.Forms.Label();
-			this.EmployersTile = new MetroFramework.Controls.MetroTile();
-			this.DisponibilityTile = new MetroFramework.Controls.MetroTile();
-			this.BackupTile = new MetroFramework.Controls.MetroTile();
-			this.ReportsTile = new MetroFramework.Controls.MetroTile();
-			this.NotifyTile = new MetroFramework.Controls.MetroTile();
-			this.AdminToolsTile = new MetroFramework.Controls.MetroTile();
-			this.ServicesTile = new MetroFramework.Controls.MetroTile();
-			this.ClientsTile = new MetroFramework.Controls.MetroTile();
 			this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-			this.TimerClock = new System.Windows.Forms.Timer(this.components);
+			this.TimerClock = new System.Windows.Forms.Timer();
 			this.FooterPanel = new System.Windows.Forms.Panel();
 			this.BodyPanel = new System.Windows.Forms.Panel();
 			this.SideBarPanel = new System.Windows.Forms.Panel();
-			this.SearchTile = new MetroFramework.Controls.MetroTile();
-			this.LogoffTile = new MetroFramework.Controls.MetroTile();
-			this.PrefrencesTile = new MetroFramework.Controls.MetroTile();
 			this.TitleLabel = new System.Windows.Forms.Label();
 			this.SubTitleLabel = new System.Windows.Forms.Label();
 			this.HeaderPanel = new System.Windows.Forms.Panel();
+			this.SearchTile = new MetroFramework.Controls.MetroTile();
+			this.LogoffTile = new MetroFramework.Controls.MetroTile();
+			this.PrefrencesTile = new MetroFramework.Controls.MetroTile();
+			this.metroTile1 = new MetroFramework.Controls.MetroTile();
+			this.EntityTile = new MetroFramework.Controls.MetroTile();
+			this.AdminToolsTile = new MetroFramework.Controls.MetroTile();
+			this.NotifyTile = new MetroFramework.Controls.MetroTile();
+			this.ReportsTile = new MetroFramework.Controls.MetroTile();
+			this.EmployersTile = new MetroFramework.Controls.MetroTile();
+			this.DisponibilityTile = new MetroFramework.Controls.MetroTile();
+			this.BackupTile = new MetroFramework.Controls.MetroTile();
+			this.ServicesTile = new MetroFramework.Controls.MetroTile();
+			this.ClientsTile = new MetroFramework.Controls.MetroTile();
 			this.ImagePanel = new System.Windows.Forms.Panel();
 			this.MainPanel.SuspendLayout();
 			this.panel1.SuspendLayout();
@@ -75,23 +76,25 @@
 			// MainPanel
 			// 
 			this.MainPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.MainPanel.Controls.Add(this.metroTile1);
+			this.MainPanel.Controls.Add(this.EntityTile);
+			this.MainPanel.Controls.Add(this.AdminToolsTile);
+			this.MainPanel.Controls.Add(this.NotifyTile);
+			this.MainPanel.Controls.Add(this.ReportsTile);
 			this.MainPanel.Controls.Add(this.panel1);
 			this.MainPanel.Controls.Add(this.ClockTile);
 			this.MainPanel.Controls.Add(this.EmployersTile);
 			this.MainPanel.Controls.Add(this.DisponibilityTile);
 			this.MainPanel.Controls.Add(this.BackupTile);
-			this.MainPanel.Controls.Add(this.ReportsTile);
-			this.MainPanel.Controls.Add(this.NotifyTile);
-			this.MainPanel.Controls.Add(this.AdminToolsTile);
 			this.MainPanel.Controls.Add(this.ServicesTile);
 			this.MainPanel.Controls.Add(this.ClientsTile);
 			this.MainPanel.HorizontalScrollbarBarColor = true;
 			this.MainPanel.HorizontalScrollbarHighlightOnWheel = false;
 			this.MainPanel.HorizontalScrollbarSize = 8;
-			this.MainPanel.Location = new System.Drawing.Point(178, 50);
+			this.MainPanel.Location = new System.Drawing.Point(40, 55);
 			this.MainPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.MainPanel.Name = "MainPanel";
-			this.MainPanel.Size = new System.Drawing.Size(850, 422);
+			this.MainPanel.Size = new System.Drawing.Size(1132, 416);
 			this.MainPanel.Style = MetroFramework.MetroColorStyle.Purple;
 			this.MainPanel.TabIndex = 0;
 			this.MainPanel.VerticalScrollbarBarColor = true;
@@ -105,7 +108,7 @@
 			this.panel1.Controls.Add(this.MonthNameLabel);
 			this.panel1.Controls.Add(this.YearLabel);
 			this.panel1.Controls.Add(this.DayNumberLabel);
-			this.panel1.Location = new System.Drawing.Point(566, 284);
+			this.panel1.Location = new System.Drawing.Point(847, 281);
 			this.panel1.Margin = new System.Windows.Forms.Padding(2);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(272, 122);
@@ -173,7 +176,7 @@
 			this.ClockTile.Controls.Add(this.ClockTitleLabel);
 			this.ClockTile.Controls.Add(this.AmPmLabel);
 			this.ClockTile.Controls.Add(this.ClockLabel);
-			this.ClockTile.Location = new System.Drawing.Point(566, 15);
+			this.ClockTile.Location = new System.Drawing.Point(847, 12);
 			this.ClockTile.Margin = new System.Windows.Forms.Padding(2);
 			this.ClockTile.Name = "ClockTile";
 			this.ClockTile.Size = new System.Drawing.Size(272, 256);
@@ -221,137 +224,6 @@
 			this.ClockLabel.Text = "00:00:00";
 			this.ClockLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// EmployersTile
-			// 
-			this.EmployersTile.ActiveControl = null;
-			this.EmployersTile.BackColor = System.Drawing.Color.Transparent;
-			this.EmployersTile.Location = new System.Drawing.Point(12, 284);
-			this.EmployersTile.Margin = new System.Windows.Forms.Padding(2);
-			this.EmployersTile.Name = "EmployersTile";
-			this.EmployersTile.Size = new System.Drawing.Size(262, 122);
-			this.EmployersTile.TabIndex = 2;
-			this.EmployersTile.Text = "Employers";
-			this.EmployersTile.Theme = MetroFramework.MetroThemeStyle.Dark;
-			this.EmployersTile.TileImage = global::Tourist.Server.Properties.Resources.employers;
-			this.EmployersTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.EmployersTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-			this.EmployersTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-			this.EmployersTile.UseSelectable = true;
-			this.EmployersTile.UseTileImage = true;
-			// 
-			// DisponibilityTile
-			// 
-			this.DisponibilityTile.ActiveControl = null;
-			this.DisponibilityTile.Location = new System.Drawing.Point(286, 15);
-			this.DisponibilityTile.Margin = new System.Windows.Forms.Padding(2);
-			this.DisponibilityTile.Name = "DisponibilityTile";
-			this.DisponibilityTile.Size = new System.Drawing.Size(128, 122);
-			this.DisponibilityTile.TabIndex = 9;
-			this.DisponibilityTile.Text = "Disponibility";
-			this.DisponibilityTile.TileImage = global::Tourist.Server.Properties.Resources.Disponibility;
-			this.DisponibilityTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.DisponibilityTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-			this.DisponibilityTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-			this.DisponibilityTile.UseSelectable = true;
-			this.DisponibilityTile.UseTileImage = true;
-			// 
-			// BackupTile
-			// 
-			this.BackupTile.ActiveControl = null;
-			this.BackupTile.Location = new System.Drawing.Point(286, 284);
-			this.BackupTile.Margin = new System.Windows.Forms.Padding(2);
-			this.BackupTile.Name = "BackupTile";
-			this.BackupTile.Size = new System.Drawing.Size(128, 122);
-			this.BackupTile.TabIndex = 8;
-			this.BackupTile.Text = "Backup";
-			this.BackupTile.TileImage = global::Tourist.Server.Properties.Resources.backup;
-			this.BackupTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.BackupTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-			this.BackupTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-			this.BackupTile.UseSelectable = true;
-			this.BackupTile.UseTileImage = true;
-			// 
-			// ReportsTile
-			// 
-			this.ReportsTile.ActiveControl = null;
-			this.ReportsTile.Location = new System.Drawing.Point(286, 149);
-			this.ReportsTile.Margin = new System.Windows.Forms.Padding(2);
-			this.ReportsTile.Name = "ReportsTile";
-			this.ReportsTile.Size = new System.Drawing.Size(268, 122);
-			this.ReportsTile.TabIndex = 7;
-			this.ReportsTile.Text = "Reports ";
-			this.ReportsTile.TileImage = global::Tourist.Server.Properties.Resources.BarGraph;
-			this.ReportsTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.ReportsTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-			this.ReportsTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-			this.ReportsTile.UseSelectable = true;
-			this.ReportsTile.UseTileImage = true;
-			// 
-			// NotifyTile
-			// 
-			this.NotifyTile.ActiveControl = null;
-			this.NotifyTile.Location = new System.Drawing.Point(426, 15);
-			this.NotifyTile.Margin = new System.Windows.Forms.Padding(2);
-			this.NotifyTile.Name = "NotifyTile";
-			this.NotifyTile.Size = new System.Drawing.Size(128, 122);
-			this.NotifyTile.TabIndex = 6;
-			this.NotifyTile.Text = "Notify";
-			this.NotifyTile.TileImage = global::Tourist.Server.Properties.Resources.Message;
-			this.NotifyTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.NotifyTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-			this.NotifyTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-			this.NotifyTile.UseSelectable = true;
-			this.NotifyTile.UseTileImage = true;
-			// 
-			// AdminToolsTile
-			// 
-			this.AdminToolsTile.ActiveControl = null;
-			this.AdminToolsTile.Location = new System.Drawing.Point(426, 284);
-			this.AdminToolsTile.Margin = new System.Windows.Forms.Padding(2);
-			this.AdminToolsTile.Name = "AdminToolsTile";
-			this.AdminToolsTile.Size = new System.Drawing.Size(128, 122);
-			this.AdminToolsTile.TabIndex = 5;
-			this.AdminToolsTile.Text = "Tools";
-			this.AdminToolsTile.TileImage = global::Tourist.Server.Properties.Resources.Tools;
-			this.AdminToolsTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.AdminToolsTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-			this.AdminToolsTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-			this.AdminToolsTile.UseSelectable = true;
-			this.AdminToolsTile.UseTileImage = true;
-			// 
-			// ServicesTile
-			// 
-			this.ServicesTile.ActiveControl = null;
-			this.ServicesTile.Location = new System.Drawing.Point(12, 149);
-			this.ServicesTile.Margin = new System.Windows.Forms.Padding(2);
-			this.ServicesTile.Name = "ServicesTile";
-			this.ServicesTile.Size = new System.Drawing.Size(263, 122);
-			this.ServicesTile.TabIndex = 4;
-			this.ServicesTile.Text = "Services";
-			this.ServicesTile.TileImage = global::Tourist.Server.Properties.Resources.services;
-			this.ServicesTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.ServicesTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-			this.ServicesTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-			this.ServicesTile.UseSelectable = true;
-			this.ServicesTile.UseTileImage = true;
-			// 
-			// ClientsTile
-			// 
-			this.ClientsTile.ActiveControl = null;
-			this.ClientsTile.Location = new System.Drawing.Point(12, 15);
-			this.ClientsTile.Margin = new System.Windows.Forms.Padding(2);
-			this.ClientsTile.Name = "ClientsTile";
-			this.ClientsTile.Size = new System.Drawing.Size(263, 122);
-			this.ClientsTile.TabIndex = 3;
-			this.ClientsTile.Text = "Clients";
-			this.ClientsTile.TileImage = global::Tourist.Server.Properties.Resources.clients;
-			this.ClientsTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.ClientsTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-			this.ClientsTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-			this.ClientsTile.UseSelectable = true;
-			this.ClientsTile.UseTileImage = true;
-			this.ClientsTile.Click += new System.EventHandler(this.ClientsTile_Click);
-			// 
 			// TimerClock
 			// 
 			this.TimerClock.Tick += new System.EventHandler(this.TimerClock_Tick);
@@ -396,6 +268,45 @@
 			this.SideBarPanel.Size = new System.Drawing.Size(112, 525);
 			this.SideBarPanel.TabIndex = 14;
 			this.SideBarPanel.Visible = false;
+			// 
+			// TitleLabel
+			// 
+			this.TitleLabel.AutoSize = true;
+			this.TitleLabel.BackColor = System.Drawing.Color.Transparent;
+			this.TitleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.TitleLabel.ForeColor = System.Drawing.Color.White;
+			this.TitleLabel.Location = new System.Drawing.Point(17, 5);
+			this.TitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.TitleLabel.Name = "TitleLabel";
+			this.TitleLabel.Size = new System.Drawing.Size(109, 51);
+			this.TitleLabel.TabIndex = 3;
+			this.TitleLabel.Text = "Main";
+			// 
+			// SubTitleLabel
+			// 
+			this.SubTitleLabel.AutoSize = true;
+			this.SubTitleLabel.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.SubTitleLabel.ForeColor = System.Drawing.Color.White;
+			this.SubTitleLabel.Location = new System.Drawing.Point(24, 70);
+			this.SubTitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.SubTitleLabel.Name = "SubTitleLabel";
+			this.SubTitleLabel.Size = new System.Drawing.Size(266, 30);
+			this.SubTitleLabel.TabIndex = 4;
+			this.SubTitleLabel.Text = "Management Main Board ";
+			// 
+			// HeaderPanel
+			// 
+			this.HeaderPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			this.HeaderPanel.Controls.Add(this.SubTitleLabel);
+			this.HeaderPanel.Controls.Add(this.TitleLabel);
+			this.HeaderPanel.Controls.Add(this.ImagePanel);
+			this.HeaderPanel.Location = new System.Drawing.Point(0, 23);
+			this.HeaderPanel.Margin = new System.Windows.Forms.Padding(2);
+			this.HeaderPanel.Name = "HeaderPanel";
+			this.HeaderPanel.Size = new System.Drawing.Size(1201, 122);
+			this.HeaderPanel.TabIndex = 11;
 			// 
 			// SearchTile
 			// 
@@ -451,44 +362,170 @@
 			this.PrefrencesTile.UseSelectable = true;
 			this.PrefrencesTile.UseTileImage = true;
 			// 
-			// TitleLabel
+			// metroTile1
 			// 
-			this.TitleLabel.AutoSize = true;
-			this.TitleLabel.BackColor = System.Drawing.Color.Transparent;
-			this.TitleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TitleLabel.ForeColor = System.Drawing.Color.White;
-			this.TitleLabel.Location = new System.Drawing.Point(17, 5);
-			this.TitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.TitleLabel.Name = "TitleLabel";
-			this.TitleLabel.Size = new System.Drawing.Size(109, 51);
-			this.TitleLabel.TabIndex = 3;
-			this.TitleLabel.Text = "Main";
+			this.metroTile1.ActiveControl = null;
+			this.metroTile1.BackColor = System.Drawing.Color.Transparent;
+			this.metroTile1.Location = new System.Drawing.Point(567, 146);
+			this.metroTile1.Margin = new System.Windows.Forms.Padding(2);
+			this.metroTile1.Name = "metroTile1";
+			this.metroTile1.Size = new System.Drawing.Size(268, 122);
+			this.metroTile1.TabIndex = 15;
+			this.metroTile1.Text = "New Feature";
+			this.metroTile1.Theme = MetroFramework.MetroThemeStyle.Dark;
+			this.metroTile1.TileImage = global::Tourist.Server.Properties.Resources.ComingSoon;
+			this.metroTile1.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.metroTile1.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+			this.metroTile1.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+			this.metroTile1.UseSelectable = true;
+			this.metroTile1.UseTileImage = true;
 			// 
-			// SubTitleLabel
+			// EntityTile
 			// 
-			this.SubTitleLabel.AutoSize = true;
-			this.SubTitleLabel.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.SubTitleLabel.ForeColor = System.Drawing.Color.White;
-			this.SubTitleLabel.Location = new System.Drawing.Point(24, 70);
-			this.SubTitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.SubTitleLabel.Name = "SubTitleLabel";
-			this.SubTitleLabel.Size = new System.Drawing.Size(266, 30);
-			this.SubTitleLabel.TabIndex = 4;
-			this.SubTitleLabel.Text = "Management Main Board ";
+			this.EntityTile.ActiveControl = null;
+			this.EntityTile.Location = new System.Drawing.Point(12, 12);
+			this.EntityTile.Margin = new System.Windows.Forms.Padding(2);
+			this.EntityTile.Name = "EntityTile";
+			this.EntityTile.Size = new System.Drawing.Size(263, 122);
+			this.EntityTile.TabIndex = 14;
+			this.EntityTile.Text = "Entitys";
+			this.EntityTile.TileImage = global::Tourist.Server.Properties.Resources.Entity;
+			this.EntityTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.EntityTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+			this.EntityTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+			this.EntityTile.UseSelectable = true;
+			this.EntityTile.UseTileImage = true;
 			// 
-			// HeaderPanel
+			// AdminToolsTile
 			// 
-			this.HeaderPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.HeaderPanel.Controls.Add(this.SubTitleLabel);
-			this.HeaderPanel.Controls.Add(this.TitleLabel);
-			this.HeaderPanel.Controls.Add(this.ImagePanel);
-			this.HeaderPanel.Location = new System.Drawing.Point(0, 23);
-			this.HeaderPanel.Margin = new System.Windows.Forms.Padding(2);
-			this.HeaderPanel.Name = "HeaderPanel";
-			this.HeaderPanel.Size = new System.Drawing.Size(1201, 122);
-			this.HeaderPanel.TabIndex = 11;
+			this.AdminToolsTile.ActiveControl = null;
+			this.AdminToolsTile.Location = new System.Drawing.Point(708, 281);
+			this.AdminToolsTile.Margin = new System.Windows.Forms.Padding(2);
+			this.AdminToolsTile.Name = "AdminToolsTile";
+			this.AdminToolsTile.Size = new System.Drawing.Size(128, 122);
+			this.AdminToolsTile.TabIndex = 5;
+			this.AdminToolsTile.Text = "Tools";
+			this.AdminToolsTile.TileImage = global::Tourist.Server.Properties.Resources.Tools;
+			this.AdminToolsTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.AdminToolsTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+			this.AdminToolsTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+			this.AdminToolsTile.UseSelectable = true;
+			this.AdminToolsTile.UseTileImage = true;
+			// 
+			// NotifyTile
+			// 
+			this.NotifyTile.ActiveControl = null;
+			this.NotifyTile.Location = new System.Drawing.Point(567, 12);
+			this.NotifyTile.Margin = new System.Windows.Forms.Padding(2);
+			this.NotifyTile.Name = "NotifyTile";
+			this.NotifyTile.Size = new System.Drawing.Size(268, 122);
+			this.NotifyTile.TabIndex = 6;
+			this.NotifyTile.Text = "Notify";
+			this.NotifyTile.TileImage = global::Tourist.Server.Properties.Resources.Message;
+			this.NotifyTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.NotifyTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+			this.NotifyTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+			this.NotifyTile.UseSelectable = true;
+			this.NotifyTile.UseTileImage = true;
+			// 
+			// ReportsTile
+			// 
+			this.ReportsTile.ActiveControl = null;
+			this.ReportsTile.Location = new System.Drawing.Point(286, 281);
+			this.ReportsTile.Margin = new System.Windows.Forms.Padding(2);
+			this.ReportsTile.Name = "ReportsTile";
+			this.ReportsTile.Size = new System.Drawing.Size(268, 122);
+			this.ReportsTile.TabIndex = 7;
+			this.ReportsTile.Text = "Reports ";
+			this.ReportsTile.TileImage = global::Tourist.Server.Properties.Resources.BarGraph;
+			this.ReportsTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.ReportsTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+			this.ReportsTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+			this.ReportsTile.UseSelectable = true;
+			this.ReportsTile.UseTileImage = true;
+			// 
+			// EmployersTile
+			// 
+			this.EmployersTile.ActiveControl = null;
+			this.EmployersTile.BackColor = System.Drawing.Color.Transparent;
+			this.EmployersTile.Location = new System.Drawing.Point(286, 146);
+			this.EmployersTile.Margin = new System.Windows.Forms.Padding(2);
+			this.EmployersTile.Name = "EmployersTile";
+			this.EmployersTile.Size = new System.Drawing.Size(268, 122);
+			this.EmployersTile.TabIndex = 2;
+			this.EmployersTile.Text = "Employers";
+			this.EmployersTile.Theme = MetroFramework.MetroThemeStyle.Dark;
+			this.EmployersTile.TileImage = global::Tourist.Server.Properties.Resources.employers;
+			this.EmployersTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.EmployersTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+			this.EmployersTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+			this.EmployersTile.UseSelectable = true;
+			this.EmployersTile.UseTileImage = true;
+			// 
+			// DisponibilityTile
+			// 
+			this.DisponibilityTile.ActiveControl = null;
+			this.DisponibilityTile.Location = new System.Drawing.Point(12, 146);
+			this.DisponibilityTile.Margin = new System.Windows.Forms.Padding(2);
+			this.DisponibilityTile.Name = "DisponibilityTile";
+			this.DisponibilityTile.Size = new System.Drawing.Size(262, 122);
+			this.DisponibilityTile.TabIndex = 9;
+			this.DisponibilityTile.Text = "Disponibility";
+			this.DisponibilityTile.TileImage = global::Tourist.Server.Properties.Resources.Disponibility;
+			this.DisponibilityTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.DisponibilityTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+			this.DisponibilityTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+			this.DisponibilityTile.UseSelectable = true;
+			this.DisponibilityTile.UseTileImage = true;
+			// 
+			// BackupTile
+			// 
+			this.BackupTile.ActiveControl = null;
+			this.BackupTile.Location = new System.Drawing.Point(567, 281);
+			this.BackupTile.Margin = new System.Windows.Forms.Padding(2);
+			this.BackupTile.Name = "BackupTile";
+			this.BackupTile.Size = new System.Drawing.Size(128, 122);
+			this.BackupTile.TabIndex = 8;
+			this.BackupTile.Text = "Backup";
+			this.BackupTile.TileImage = global::Tourist.Server.Properties.Resources.backup;
+			this.BackupTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.BackupTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+			this.BackupTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+			this.BackupTile.UseSelectable = true;
+			this.BackupTile.UseTileImage = true;
+			// 
+			// ServicesTile
+			// 
+			this.ServicesTile.ActiveControl = null;
+			this.ServicesTile.Location = new System.Drawing.Point(12, 281);
+			this.ServicesTile.Margin = new System.Windows.Forms.Padding(2);
+			this.ServicesTile.Name = "ServicesTile";
+			this.ServicesTile.Size = new System.Drawing.Size(263, 122);
+			this.ServicesTile.TabIndex = 4;
+			this.ServicesTile.Text = "Services";
+			this.ServicesTile.TileImage = global::Tourist.Server.Properties.Resources.services;
+			this.ServicesTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.ServicesTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+			this.ServicesTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+			this.ServicesTile.UseSelectable = true;
+			this.ServicesTile.UseTileImage = true;
+			// 
+			// ClientsTile
+			// 
+			this.ClientsTile.ActiveControl = null;
+			this.ClientsTile.Location = new System.Drawing.Point(286, 12);
+			this.ClientsTile.Margin = new System.Windows.Forms.Padding(2);
+			this.ClientsTile.Name = "ClientsTile";
+			this.ClientsTile.Size = new System.Drawing.Size(268, 122);
+			this.ClientsTile.TabIndex = 3;
+			this.ClientsTile.Text = "Clients";
+			this.ClientsTile.TileImage = global::Tourist.Server.Properties.Resources.clients;
+			this.ClientsTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.ClientsTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+			this.ClientsTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+			this.ClientsTile.UseSelectable = true;
+			this.ClientsTile.UseTileImage = true;
+			this.ClientsTile.Click += new System.EventHandler(this.ClientsTile_Click);
 			// 
 			// ImagePanel
 			// 
@@ -566,6 +603,8 @@
 		private System.Windows.Forms.Label TitleLabel;
 		private System.Windows.Forms.Label SubTitleLabel;
 		private System.Windows.Forms.Panel HeaderPanel;
+		private MetroFramework.Controls.MetroTile EntityTile;
+		private MetroFramework.Controls.MetroTile metroTile1;
 	}
 }
 

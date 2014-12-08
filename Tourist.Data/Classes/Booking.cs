@@ -44,17 +44,6 @@ namespace Tourist.Data.Classes
 
 		#endregion
 
-		#region Constructor
-
-		public Booking( Client aClient )
-		{
-			Id = ++counter;
-			BookingItens = new List<IBookingItem>( );
-			Client = aClient;
-		}
-
-		#endregion
-
 		#region Methods
 
 		public void Append( IBookingItem aItem )
@@ -85,6 +74,17 @@ namespace Tourist.Data.Classes
 			}
 
 			return temp;
+		}
+
+		#endregion
+
+		#region Constructor
+
+		public Booking( Client aClient )
+		{
+			Id = ++counter;
+			BookingItens = new List<IBookingItem>( );
+			Client = aClient;
 		}
 
 		#endregion

@@ -50,12 +50,16 @@
     <Compile Include="Classes\CarTransportation.cs" />
     <Compile Include="Classes\Client.cs" />
     <Compile Include="Classes\DateTimeRange.cs" />
+    <Compile Include="Classes\DependableCollection.cs" />
     <Compile Include="Classes\DivingActivity.cs" />
     <Compile Include="Classes\DoubleRoom.cs" />
     <Compile Include="Classes\DoubleSingleRoom.cs" />
     <Compile Include="Classes\Employer.cs" />
+    <Compile Include="Classes\Entity.cs" />
+    <Compile Include="Classes\Factory.cs" />
     <Compile Include="Classes\FamilySuiteRoom.cs" />
     <Compile Include="Classes\GolfActivity.cs" />
+    <Compile Include="Classes\Manager.cs" />
     <Compile Include="Classes\MeetingRoom.cs" />
     <Compile Include="Classes\MotoristTransportation.cs" />
     <Compile Include="Classes\Room.cs" />
@@ -73,6 +77,7 @@
     <Compile Include="Interfaces\IClient.cs" />
     <Compile Include="Interfaces\IEmployer.cs" />
     <Compile Include="Interfaces\IEntity.cs" />
+    <Compile Include="Interfaces\IFactory.cs" />
     <Compile Include="Interfaces\IManager.cs" />
     <Compile Include="Interfaces\IPartner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
