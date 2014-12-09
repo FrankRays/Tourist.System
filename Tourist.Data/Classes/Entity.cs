@@ -1,10 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Xml.Serialization;
 using Tourist.Data.Interfaces;
 
 namespace Tourist.Data.Classes
 {
+
 	public class Entity : IEntity
 	{
 
@@ -18,12 +21,16 @@ namespace Tourist.Data.Classes
 		private IEnumerable<IBookable> mBookables;
 		private IEnumerable<IEmployer> mEmployers;
 
-
 		#endregion
 
 		#region Properties
 
-		public int Id { get; private set; }
+		public int Id
+		{
+			get { return mCounter; } 
+			
+			set { }
+		}
 
 		public string Name
 		{
@@ -37,24 +44,28 @@ namespace Tourist.Data.Classes
 			set { mCity = value; }
 		}
 
+		[XmlIgnore]
 		public IEnumerable<IBooking> Bookings
 		{
 			get { return mBookings; }
 			private set { mBookings = value; }
 		}
 
+		[XmlIgnore]
 		public IEnumerable<IClient> Clients
 		{
 			get { return mClients; }
 			set { mClients = value; }
 		}
 
+		[XmlIgnore]
 		public IEnumerable<IBookable> Bookables
 		{
 			get { return mBookables; }
 			set { mBookables = value; }
 		}
 
+		[XmlIgnore]
 		public IEnumerable<IEmployer> Employers
 		{
 			get { return mEmployers; }
@@ -104,7 +115,7 @@ namespace Tourist.Data.Classes
 		{
 			Trace.Assert( !Clients.Contains( aItem ) );
 			if ( !Clients.Contains( aItem ) ) return;
-			( ( ICollection<Client> ) Clients ).Remove( aItem );
+			( ( ICollection<IClient> ) Clients ).Remove( aItem );
 		}
 
 		public void Append( IEmployer aItem )
@@ -127,7 +138,7 @@ namespace Tourist.Data.Classes
 
 		public Entity( )
 		{
-			Id = ++mCounter;
+			++mCounter;
 
 			Bookings = new List<IBooking>( );
 			Clients = new List<IClient>( );
@@ -137,16 +148,94 @@ namespace Tourist.Data.Classes
 
 		public Entity( string aName, string aCity )
 		{
-			Id = ++mCounter;
+			++mCounter;
 
 			Name = aName;
 			City = aCity;
 
 			Bookings = new List<IBooking>( );
+			Clients = new List<IClient>( );
 			Bookables = new List<IBookable>( );
 			Employers = new List<IEmployer>( );
 		}
 
+		#endregion
+
+		#region Serialization
+
+		public List<Booking> BookingsList
+		{
+			get
+			{
+				List<Booking> temp = new List<Booking>();
+
+				foreach (var item in Bookings)
+				{
+					temp.Add(item as Booking);
+				}
+
+				return temp;
+			}
+		
+		}
+
+		public List<Client> ClientsList
+		{
+			get
+			{
+				List<Client> temp = new List<Client>();
+
+				foreach (var item in Clients)
+				{
+					temp.Add(item as Client);
+				}
+
+				return temp;
+			}
+		
+		}
+
+		public List<Bookable> BookablesList
+		{
+			get
+			{
+				List<Bookable> temp = new List<Bookable>( );
+
+				foreach ( var item in Bookables)
+				{
+					
+					temp.Add(item as SingleRoom); //funciona 
+				}
+
+				return temp;
+			}	
+		}
+
+		public List<Employer> EmployersList
+		{
+			get
+			{
+				List<Employer> temp = new List<Employer>( );
+
+				foreach ( var item in Employers )
+				{
+
+					temp.Add( item as Employer );
+				}
+
+				return temp;
+			}
+		}
+
+		/*
+		[XmlIgnore]
+		public List<Bookings> SerializableEmployers
+		{
+			get { return mEmployers; }
+			
+		}
+		*/
+		
 		#endregion
 
 	}

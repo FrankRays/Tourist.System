@@ -13,7 +13,7 @@ namespace Tourist.Data.Classes
 
 		#region Fields
 
-		private static int counter = 0;
+		private static int mCounter = 0;
 		private IClient mClient;
 		private DateTime mBookingDateTime;
 		private IEnumerable<IBookingItem> mBookingItems;
@@ -22,14 +22,14 @@ namespace Tourist.Data.Classes
 
 		#region Properties
 
-		public int Id { get; private set; }
+		public int Id { get { return mCounter; } set{ } }
 
-		[Browsable( true ), XmlIgnore]
-		public IClient Client
+		[XmlIgnore]
+		public IClient Clientt
 		{
 			get { return mClient; }
 
-			private set { mClient = value; }
+			set { mClient = value; }
 		}
 
 		public DateTime BookingDateTime
@@ -38,8 +38,8 @@ namespace Tourist.Data.Classes
 
 			set { mBookingDateTime = value; }
 		}
-
-		[Browsable( false )]
+		
+		[XmlIgnore]
 		public IEnumerable<IBookingItem> BookingItens
 		{
 			get { return mBookingItems; }
@@ -87,20 +87,51 @@ namespace Tourist.Data.Classes
 
 		public Booking( )
 		{
-			Id = ++counter;
+			++mCounter;
 			BookingItens = new List<IBookingItem>( );
 		}
 
 		public Booking(IClient aClient)
 		{
-			Id = ++counter;
+			++mCounter;
 
-			Client = aClient;			
+			Clientt = aClient;			
 			BookingItens = new List<IBookingItem>( );
 		}
 
 		#endregion
 
+		#region Seralization
+
+		public List<BookingItem> ListBookingItens
+		{
+			get
+			{
+				List<BookingItem> temp = new List<BookingItem>();
+
+				foreach (var item in BookingItens)
+				{
+					temp.Add(item as BookingItem);
+				}
+
+				return temp;
+			}
+
+		}
+
+		public Client Client
+		{
+			get { return (mClient as Client); }
+			set { }
+		}
+
+
+		public int BookingId
+		{
+			get { return mCounter; }
+		}
+
+		#endregion
 
 	}
 }

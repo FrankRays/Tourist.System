@@ -39,9 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Activitiy.cs" />
+    <Compile Include="Classes\Bookable.cs" />
     <Compile Include="Classes\BicycleTransport.cs" />
     <Compile Include="Classes\BoatRideActivity.cs" />
+    <Compile Include="Classes\Transport.cs" />
+    <Compile Include="Classes\Activity.cs" />
     <Compile Include="Classes\BookingItem.cs" />
     <Compile Include="Classes\Booking.cs" />
     <Compile Include="Classes\BusTransport.cs" />
@@ -66,7 +68,6 @@
     <Compile Include="Classes\SingleRoom.cs" />
     <Compile Include="Classes\SkyDivingActivity.cs" />
     <Compile Include="Classes\SuiteRoom.cs" />
-    <Compile Include="Classes\Transport.cs" />
     <Compile Include="Classes\TuckTuckTransport.cs" />
     <Compile Include="Classes\UnitPrice.cs" />
     <Compile Include="Interfaces\GenderEnum.cs" />

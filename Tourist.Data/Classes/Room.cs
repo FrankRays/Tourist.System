@@ -1,53 +1,34 @@
-﻿using Tourist.Data.Interfaces;
+﻿using System.Xml.Serialization;
+using Tourist.Data.Interfaces;
 
 namespace Tourist.Data.Classes
 {
-	public abstract class Room : IBookable
+	public abstract class Room : Bookable
 	{
 
 		#region Fields
 
 		private static int mCounter = 0;
-		private double mPrice;
-		private DateTimeRange mTimeRange;
-		private int mMaxNumberOfPersons;
 
 		#endregion
 
 		#region Properties
 
-		public int Id { get; private set; }
-		
-		public string Type
+		public new int Id
 		{
-			get { return GetType( ).ToString( ); }
-		}
+			get { return mCounter; }
 
-		public double Price
-		{
-			get { return mPrice; }
-			set { mPrice = value; }
-		}
-
-		public DateTimeRange TimeRange
-		{
-			get { return mTimeRange; }
-			set { mTimeRange = value; }
-		}
-
-		public int MaxNumberOfPersons
-		{
-			get { return mMaxNumberOfPersons; }
-			set { MaxNumberOfPersons = value; }
+			set { }
 		}
 
 		#endregion
 
 		#region Constructor
 
-		protected Room( )
+		protected Room()
 		{
 			Id = ++mCounter;
+
 		}
 
 		#endregion

@@ -5,14 +5,34 @@ namespace Tourist.Data.Classes
 	public class DateTimeRange
 	{
 
-		#region Fields&Properties
+		#region Fields
 
-		public DateTime StartDateTime { get; set; }
-		public DateTime EndDateTime { get; set; }
+		private DateTime mStartDateTime;
+		private DateTime mEndDateTime;
+
+		#endregion
+		
+		#region Properties
+		
+		public DateTime StartDateTime
+		{
+			get { return mStartDateTime; }
+
+			set { mStartDateTime = value; }
+		}
+
+		public DateTime EndDateTime
+		{
+			get { return mEndDateTime; }
+
+			set { mEndDateTime = value; }
+		}
 
 		#endregion
 
 		#region Constructor
+
+		public DateTimeRange( ) { }
 
 		public DateTimeRange( DateTime aStartDateTime, DateTime aEndDateTime )
 		{

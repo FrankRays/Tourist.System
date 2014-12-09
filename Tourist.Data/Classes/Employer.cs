@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml.Serialization;
 using Tourist.Data.Interfaces;
 
 namespace Tourist.Data.Classes
@@ -7,7 +8,7 @@ namespace Tourist.Data.Classes
 	{
 		#region Fields
 
-		private static int counter = 0;
+		private static int mCounter = 0;
 
 		private string mFirstName;
 		private string mLastName;
@@ -23,7 +24,12 @@ namespace Tourist.Data.Classes
 
 		#region Properties
 
-		public int Id { get; private set; }
+		public int Id
+		{
+			get { return mCounter; }
+
+			set { }
+		}
 
 		public string FirstName
 		{
@@ -69,13 +75,13 @@ namespace Tourist.Data.Classes
 
 		public string Username
 		{
-			get { return mUsername; } 
+			get { return mUsername; }
 			set { mUsername = value; }
 		}
 
 		public string Password
 		{
-			get { return mPassword; } 
+			get { return mPassword; }
 			set { mPassword = value; }
 		}
 
@@ -83,13 +89,15 @@ namespace Tourist.Data.Classes
 
 		#region Constructors
 
-		//pode ficar vazio e depois usa-se os sets
-		public Employer( ) { }
+		public Employer( )
+		{
+			++mCounter;
+		}
 
 		public Employer( string aFirstName, string aLastName, DateTime aBirthDate, GenderEnum aGender,
 			int aPhoneNumber, string aEmail, string aAddress, string aUsername, string aPassword )
 		{
-			Id = ++counter;
+			++mCounter;
 
 			FirstName = aFirstName;
 			LastName = aLastName;
@@ -103,5 +111,6 @@ namespace Tourist.Data.Classes
 		}
 
 		#endregion
+
 	}
 }

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Xml.Serialization;
 using Tourist.Data.Classes;
 
 namespace Tourist.Server
 {
-	partial class Repository
+	public sealed partial class Repository
 	{
 		static private Data mData = new Data( );
 
@@ -13,35 +15,39 @@ namespace Tourist.Server
 		public class Data
 		{
 
-			public List<Booking> DataBookingsList;
-			public List<Client> DataBookablesList;
-			//public List<Bookable> DataBookablesList;
-			public List<Employer> DataBookingsList;
-
-
+			[XmlArray( ElementName = "Entity", Order = 1 )]
+			public readonly List<Entity> DataEntityList = new List<Entity>();
 
 		}
 
-
-		/*	
-		public void Load( string aConnection )
+		public void Load( string aFileName )
 		{
 			var formatter = new XmlSerializer( typeof( Data ), GetTypes( ) );
-			using ( Stream stream = File.OpenRead( aConnection ) )
+			using ( Stream stream = File.OpenRead( aFileName ) )
 			{
 				mData = formatter.Deserialize( stream ) as Data;
 			}
 		}
 
-		public void Save( string aConnection )
+		public void Save( string aFileName )
 		{
-			var formatter = new XmlSerializer( typeof( Data ), GetTypes( ) );
-			using ( Stream stream = new FileStream( aConnection, FileMode.Create, FileAccess.Write, FileShare.None ) )
+			try
 			{
-				formatter.Serialize( stream, mData );
+				var formatter = new XmlSerializer(typeof (Data),GetTypes());
+				
+				using ( Stream stream = new FileStream( aFileName, FileMode.Create, FileAccess.Write, FileShare.None ) )
+				{
+					formatter.Serialize( stream, mData );
+				}	
+				
 			}
+			catch (Exception e)
+			{
+				Debug.WriteLine(e.ToString());
+			}
+			
 		}
-		*/
+		
 
 
 	}

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml.Serialization;
 using Tourist.Data.Interfaces;
 
 namespace Tourist.Data.Classes
@@ -23,7 +24,8 @@ namespace Tourist.Data.Classes
 
 		#region Properties
 
-		public int Id { get; private set; }
+		[XmlIgnore]
+		public int Id { get; set; }
 
 		public string FirstName
 		{

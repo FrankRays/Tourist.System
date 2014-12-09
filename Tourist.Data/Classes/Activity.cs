@@ -3,7 +3,7 @@ using Tourist.Data.Interfaces;
 
 namespace Tourist.Data.Classes
 {
-	public abstract class Transport : Bookable
+	public abstract class Activity : Bookable
 	{
 
 		#region Fields
@@ -25,12 +25,11 @@ namespace Tourist.Data.Classes
 
 		#region Constructor
 
-		protected Transport()
+		protected Activity()
 		{
 			Id = ++mCounter;
 		}
 
 		#endregion
-
 	}
 }

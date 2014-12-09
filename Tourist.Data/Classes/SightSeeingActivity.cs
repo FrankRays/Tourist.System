@@ -1,6 +1,6 @@
 namespace Tourist.Data.Classes
 {
-	public class SightSeeingActivity : Activitiy
+	public class SightSeeingActivity : Activity
 	{
 		public SightSeeingActivity( )
 		{

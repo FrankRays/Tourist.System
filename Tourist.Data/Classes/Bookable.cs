@@ -1,15 +1,16 @@
-﻿using Tourist.Data.Interfaces;
+﻿using System.Xml.Serialization;
+using Tourist.Data.Interfaces;
 
 namespace Tourist.Data.Classes
 {
-	public abstract class Activitiy : IBookable
+	public abstract class Bookable : IBookable
 	{
 
 		#region Fields
 
 		private static int mCounter = 0;
-		private string mName;
 		private double mPrice;
+		private string mDescription;
 		private DateTimeRange mTimeRange;
 		private int mMaxNumberOfPersons;
 
@@ -17,11 +18,22 @@ namespace Tourist.Data.Classes
 
 		#region Properties
 
-		public int Id { get; private set; }
-
+		public int Id
+		{
+			get { return mCounter; } 
+			
+			set { }
+		}
+		
+		public string Description
+		{
+			get { return mDescription; } 
+			set { mDescription = value; }
+		}
+		
 		public string Type
 		{
-			get { return GetType().ToString(); }
+			get { return GetType( ).ToString( ); }
 		}
 
 		public double Price
@@ -39,16 +51,16 @@ namespace Tourist.Data.Classes
 		public int MaxNumberOfPersons
 		{
 			get { return mMaxNumberOfPersons; }
-			set { MaxNumberOfPersons = value; }
+			set { mMaxNumberOfPersons = value; }
 		}
 
 		#endregion
 
 		#region Constructor
 
-		protected Activitiy( )
+		protected Bookable( )
 		{
-			Id = ++mCounter;
+			++mCounter;
 		}
 
 		#endregion

@@ -1,7 +1,10 @@
-﻿using Tourist.Data.Interfaces;
+﻿using System;
+using System.Xml.Serialization;
+using Tourist.Data.Interfaces;
 
 namespace Tourist.Data.Classes
 {
+
 	public class BookingItem : IBookingItem
 	{
 
@@ -20,7 +23,8 @@ namespace Tourist.Data.Classes
 			set { mQuantity = value; }
 		}
 
-		public IBookable Service
+		[XmlIgnore]
+		public IBookable BookAble
 		{
 			get { return mService; }
 			set { mService = value; }
@@ -28,21 +32,35 @@ namespace Tourist.Data.Classes
 
 		public double BookingItemPrice
 		{
-			get { return (Service.Price*Quantity); }
+			get { return ( BookAble.Price * Quantity ); }
 		}
 
 		#endregion
 
 		#region Constructor
 
-		public BookingItem( ) { }
-
-		public BookingItem(IBookable aService, int aQuantity)
+		public BookingItem( )
 		{
-			Service = aService;
+			Quantity = 1;
+		}
+
+		public BookingItem( IBookable aService, int aQuantity )
+		{
+			BookAble = aService;
 			Quantity = aQuantity;
 		}
-		
+
+		#endregion
+
+		#region Serialization
+
+		public Bookable Bookable
+		{
+			get { return ( mService as Bookable ); }
+
+			set { }
+		}
+
 		#endregion
 
 	}
