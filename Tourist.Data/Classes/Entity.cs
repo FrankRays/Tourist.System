@@ -20,7 +20,7 @@ namespace Tourist.Data.Classes
 		private IEnumerable<IClient> mClients;
 		private IEnumerable<IBookable> mBookables;
 		private IEnumerable<IEmployer> mEmployers;
-
+		
 		#endregion
 
 		#region Properties
@@ -144,6 +144,12 @@ namespace Tourist.Data.Classes
 			Clients = new List<IClient>( );
 			Bookables = new List<IBookable>( );
 			Employers = new List<IEmployer>( );
+			
+			//serialization
+			mSBookings = new List<Booking>();
+			mSClients = new List<Client>();
+			mSBookables = new List<Bookable>();
+			mSEmployers = new List<Employer>();
 		}
 
 		public Entity( string aName, string aCity )
@@ -163,79 +169,112 @@ namespace Tourist.Data.Classes
 
 		#region Serialization
 
+		private List<Booking> mSBookings;
+		private List<Client> mSClients;
+		private List<Bookable> mSBookables;
+		private List<Employer> mSEmployers;
+
+		
+		//teste se os Bookings for vazio 
 		public List<Booking> BookingsList
 		{
 			get
 			{
-				List<Booking> temp = new List<Booking>();
-
+				/* Para o Save
 				foreach (var item in Bookings)
 				{
-					temp.Add(item as Booking);
+					mSBookings.Add(item as Booking);
 				}
-
-				return temp;
+				*/
+				
+				return mSBookings;
 			}
-		
+
+			set
+			{
+				mSBookings = value;
+
+				foreach (var item in BookingsList)
+				{
+					Append(item);
+				}
+				
+			} 
 		}
 
 		public List<Client> ClientsList
 		{
 			get
 			{
-				List<Client> temp = new List<Client>();
-
 				foreach (var item in Clients)
 				{
-					temp.Add(item as Client);
+					mSClients.Add(item as Client);
 				}
 
-				return temp;
+				return mSClients;
 			}
-		
+
+			set
+			{
+				mSClients = value;
+				
+				foreach ( var item in ClientsList )
+				{
+					Append( item );
+				}
+			}
+
 		}
 
 		public List<Bookable> BookablesList
 		{
 			get
 			{
-				List<Bookable> temp = new List<Bookable>( );
-
 				foreach ( var item in Bookables)
 				{
 					
-					temp.Add(item as SingleRoom); //funciona 
+					mSBookables.Add(item as SingleRoom); //funciona 
 				}
 
-				return temp;
-			}	
+				return mSBookables;
+			}
+
+			set
+			{
+				mSBookables = value;
+
+				foreach ( var item in Bookables )
+				{
+					Append( item );
+				}
+			}
 		}
 
 		public List<Employer> EmployersList
 		{
 			get
-			{
-				List<Employer> temp = new List<Employer>( );
-
+			{	
 				foreach ( var item in Employers )
 				{
 
-					temp.Add( item as Employer );
+					mSEmployers.Add( item as Employer );
 				}
 
-				return temp;
+				return mSEmployers;
 			}
+
+			set
+			{
+				mSEmployers = value;
+				
+				foreach ( var item in Employers )
+				{
+					Append(item);
+				}
+			}
+
 		}
 
-		/*
-		[XmlIgnore]
-		public List<Bookings> SerializableEmployers
-		{
-			get { return mEmployers; }
-			
-		}
-		*/
-		
 		#endregion
 
 	}

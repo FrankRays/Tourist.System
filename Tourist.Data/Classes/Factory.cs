@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Tourist.Data.Interfaces;
 
 namespace Tourist.Data.Classes
@@ -17,7 +18,7 @@ namespace Tourist.Data.Classes
 				typeof (SkyDivingActivity), typeof (SightSeeingActivity), typeof (DivingActivity), typeof (Transport),
 				typeof (TuckTuckTransport),
 				typeof (CableCarTransport), typeof (BicycleTransport), typeof (CarTransport), typeof (BusTransport),
-				typeof (MotoristTransport)
+				typeof (MotoristTransport),typeof (List<Booking>),typeof (List<Bookable>),typeof (List<Client>),typeof (List<Employer>),typeof (List<Entity>)
 			};
 		}
 

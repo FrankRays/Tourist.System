@@ -48,6 +48,24 @@ namespace Tourist.Server
 			mData.DataEntityList.Add( aEntity as Entity );
 		}
 
+		public Entity GetEntity(int EntityId)
+		{
+			foreach (var entity in mData.DataEntityList)
+			{
+				if (entity.Id == EntityId)
+				{
+					foreach (var item in entity.BookingsList)
+					{
+						entity.Append(item);
+						
+					}
+					
+					return entity;
+				}
+			}
+			
+			return null;
+		}
 
 	}
 }

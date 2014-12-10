@@ -13,7 +13,7 @@ namespace Tourist.Server
 		public const string FileName = @"..\..\Repository.xml";
 
 		public static Repository repo = Repository.Instance;
-		
+
 		/// <summary>
 		/// The main entry point for the application.
 		/// </summary>
@@ -21,11 +21,24 @@ namespace Tourist.Server
 		static void Main( )
 		{
 
-			var entity = repo.Factory.CreateEntity();
+			//RepositorySaveTest();
+			RepositoryLoadTest();
+
+			var entity = repo.GetEntity(1);
+
+			Application.EnableVisualStyles( );
+			Application.SetCompatibleTextRenderingDefault( false );
+			Application.Run( new LoginForm( ) );
+		}
+
+		static void RepositorySaveTest( )
+		{
+
+			var entity = repo.Factory.CreateEntity( );
 			entity.Name = "Hotel Porto Bay";
 			entity.City = "Porto";
 
-			var employer = repo.Factory.CreateEmployer();
+			var employer = repo.Factory.CreateEmployer( );
 			employer.FirstName = "Jonas";
 			employer.LastName = "Rebo";
 			employer.Gender = GenderEnum.Male;
@@ -34,46 +47,48 @@ namespace Tourist.Server
 			employer.PhoneNumber = 931111111;
 			employer.Email = "jonas@super.com";
 
-			var client = repo.Factory.CreateClient();
+			var client = repo.Factory.CreateClient( );
 			client.FirstName = "Fabio";
 			client.LastName = "Nobrega";
 			client.Gender = GenderEnum.Male;
-			client.BirthDate =new DateTime(1987,5,13);
+			client.BirthDate = new DateTime( 1987, 5, 13 );
 			client.Nif = 000000000;
 			client.Address = "Caminho das Preces";
 			client.PhoneNumber = 930000000;
 			client.Email = "fabio@super.com";
 
-			var singleRoom = repo.Factory.CreateSingleRoom();
+			var singleRoom = repo.Factory.CreateSingleRoom( );
 			singleRoom.TimeRange = new DateTimeRange( );
 			singleRoom.TimeRange.StartDateTime = DateTime.Today;
-			singleRoom.TimeRange.EndDateTime = DateTime.Today.AddDays(1);
-			
-			singleRoom.Price = UnitPrice.SingleRoom * singleRoom.TimeRange.DiferenceTimeSpan().Days;
+			singleRoom.TimeRange.EndDateTime = DateTime.Today.AddDays( 1 );
 
-			var bookingItem = repo.Factory.CreateBookingItem();
+			singleRoom.Price = UnitPrice.SingleRoom * singleRoom.TimeRange.DiferenceTimeSpan( ).Days;
+
+			var bookingItem = repo.Factory.CreateBookingItem( );
 			bookingItem.BookAble = singleRoom;
 
-			var booking = repo.Factory.CreateBooking();
+			var booking = repo.Factory.CreateBooking( );
 			booking.Clientt = client;
-			booking.BookingDateTime= DateTime.Today;
-			booking.Append(bookingItem);
+			booking.BookingDateTime = DateTime.Today;
+			booking.Append( bookingItem );
 
 
-			entity.Append(booking);
-			entity.Append(singleRoom);
-			entity.Append(client);
-			entity.Append(employer);
+			entity.Append( booking );
+			entity.Append( singleRoom );
+			entity.Append( client );
+			entity.Append( employer );
 
-			repo.AddEntity(entity);
+			repo.AddEntity( entity );
 
-			repo.Save(FileName);
+			repo.Save( FileName );
 
 
-			
-			Application.EnableVisualStyles( );
-			Application.SetCompatibleTextRenderingDefault( false );
-			Application.Run( new LoginForm( ) );
 		}
+
+		static void RepositoryLoadTest( )
+		{
+			repo.Load( FileName );
+		}
+
 	}
 }
