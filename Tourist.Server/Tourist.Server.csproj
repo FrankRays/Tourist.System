@@ -56,6 +56,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\EntitiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EntitiesForm.Designer.cs">
+      <DependentUpon>EntitiesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ClientsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.Serialization.cs" />
     <Compile Include="Repository.cs" />
+    <EmbeddedResource Include="Forms\EntitiesForm.resx">
+      <DependentUpon>EntitiesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ClientsForm.resx">
       <DependentUpon>ClientsForm.cs</DependentUpon>
     </EmbeddedResource>

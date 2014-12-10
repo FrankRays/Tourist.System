@@ -103,5 +103,12 @@ namespace Tourist.Server.Forms
 			}
 		}
 
+		private void EntityTile_Click( object sender, EventArgs e )
+		{
+			EntitiesForm entityForm = new EntitiesForm();
+
+			entityForm.Show();
+		}
+
 	}
 }

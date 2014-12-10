@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent( )
 		{
+			this.components = new System.ComponentModel.Container();
 			this.htmlToolTip1 = new MetroFramework.Drawing.Html.HtmlToolTip();
 			this.MainPanel = new MetroFramework.Controls.MetroPanel();
 			this.panel1 = new System.Windows.Forms.Panel();
@@ -40,7 +41,7 @@
 			this.AmPmLabel = new System.Windows.Forms.Label();
 			this.ClockLabel = new System.Windows.Forms.Label();
 			this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-			this.TimerClock = new System.Windows.Forms.Timer();
+			this.TimerClock = new System.Windows.Forms.Timer(this.components);
 			this.FooterPanel = new System.Windows.Forms.Panel();
 			this.BodyPanel = new System.Windows.Forms.Panel();
 			this.SideBarPanel = new System.Windows.Forms.Panel();
@@ -395,6 +396,7 @@
 			this.EntityTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
 			this.EntityTile.UseSelectable = true;
 			this.EntityTile.UseTileImage = true;
+			this.EntityTile.Click += new System.EventHandler(this.EntityTile_Click);
 			// 
 			// AdminToolsTile
 			// 

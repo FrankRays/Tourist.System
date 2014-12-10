@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Xml.Serialization;
@@ -20,15 +19,15 @@ namespace Tourist.Data.Classes
 		private IEnumerable<IClient> mClients;
 		private IEnumerable<IBookable> mBookables;
 		private IEnumerable<IEmployer> mEmployers;
-		
+
 		#endregion
 
 		#region Properties
 
 		public int Id
 		{
-			get { return mCounter; } 
-			
+			get { return mCounter; }
+
 			set { }
 		}
 
@@ -144,12 +143,12 @@ namespace Tourist.Data.Classes
 			Clients = new List<IClient>( );
 			Bookables = new List<IBookable>( );
 			Employers = new List<IEmployer>( );
-			
+
 			//serialization
-			mSBookings = new List<Booking>();
-			mSClients = new List<Client>();
-			mSBookables = new List<Bookable>();
-			mSEmployers = new List<Employer>();
+			mSBookings = new List<Booking>( );
+			mSClients = new List<Client>( );
+			mSBookables = new List<Bookable>( );
+			mSEmployers = new List<Employer>( );
 		}
 		/*
 		public Entity( string aName, string aCity )
@@ -173,29 +172,29 @@ namespace Tourist.Data.Classes
 		private List<Client> mSClients;
 		private List<Bookable> mSBookables;
 		private List<Employer> mSEmployers;
-		private bool mSaveLoad = default (bool);
-		
+		private bool mSaveLoad = default( bool );
+
 
 		//teste se os Bookings for vazio 
 		public List<Booking> BookingsList
 		{
 			get
 			{
-				if (OnSaveLoad)
+				if ( OnSaveLoad )
 				{
-					foreach (var booking in Bookings)
+					foreach ( var booking in Bookings )
 					{
-						mSBookings.Add(booking as Booking);
+						mSBookings.Add( booking as Booking );
 					}
 				}
-				
+
 				return mSBookings;
 			}
 
 			set
 			{
 				mSBookings = value;
-			} 
+			}
 		}
 
 		public List<Client> ClientsList
@@ -204,19 +203,19 @@ namespace Tourist.Data.Classes
 			{
 				if ( OnSaveLoad )
 				{
-					foreach (var client in Clients)
+					foreach ( var client in Clients )
 					{
-						mSClients.Add(client as Client);
+						mSClients.Add( client as Client );
 					}
 				}
-				
+
 				return mSClients;
 			}
 
 			set
 			{
 				mSClients = value;
-				
+
 			}
 
 		}
@@ -227,15 +226,15 @@ namespace Tourist.Data.Classes
 			{
 				if ( OnSaveLoad )
 				{
-					foreach (var bookable in Bookables)
+					foreach ( var bookable in Bookables )
 					{
-						if (bookable is SingleRoom)
+						if ( bookable is SingleRoom )
 						{
-							mSBookables.Add(bookable as SingleRoom);
+							mSBookables.Add( bookable as SingleRoom );
 						}
 					}
 				}
-				
+
 				return mSBookables;
 			}
 
@@ -267,7 +266,7 @@ namespace Tourist.Data.Classes
 
 		}
 
-		[XmlIgnore]	
+		[XmlIgnore]
 		public bool OnSaveLoad
 		{
 			get { return mSaveLoad; }

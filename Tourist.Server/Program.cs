@@ -21,10 +21,9 @@ namespace Tourist.Server
 		static void Main( )
 		{
 
-			RepositorySaveTest();
+			//RepositorySaveTest();
 			//RepositoryLoadTest();
 
-			
 
 			Application.EnableVisualStyles( );
 			Application.SetCompatibleTextRenderingDefault( false );
