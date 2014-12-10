@@ -21,10 +21,10 @@ namespace Tourist.Server
 		static void Main( )
 		{
 
-			//RepositorySaveTest();
-			RepositoryLoadTest();
+			RepositorySaveTest();
+			//RepositoryLoadTest();
 
-			var entity = repo.GetEntity(1);
+			
 
 			Application.EnableVisualStyles( );
 			Application.SetCompatibleTextRenderingDefault( false );
@@ -34,7 +34,9 @@ namespace Tourist.Server
 		static void RepositorySaveTest( )
 		{
 
-			var entity = repo.Factory.CreateEntity( );
+			var entities = new List<IEntity>();
+
+			var entity = repo.Factory.CreateEntity();
 			entity.Name = "Hotel Porto Bay";
 			entity.City = "Porto";
 
@@ -78,7 +80,10 @@ namespace Tourist.Server
 			entity.Append( client );
 			entity.Append( employer );
 
-			repo.AddEntity( entity );
+
+			entities.Add(entity);
+
+			repo.Save(entities);
 
 			repo.Save( FileName );
 
@@ -88,6 +93,7 @@ namespace Tourist.Server
 		static void RepositoryLoadTest( )
 		{
 			repo.Load( FileName );
+			repo.Load();
 		}
 
 	}

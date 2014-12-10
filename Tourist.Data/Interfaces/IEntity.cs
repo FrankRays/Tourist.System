@@ -22,12 +22,12 @@ namespace Tourist.Data.Interfaces
 		void Append( IBookable aItem );
 		void Remove( IBookable aItem );
 
-		// Todos os empregados
 		IEnumerable<IEmployer> Employers { get; set; }
 		void Append( IEmployer aItem );
 		void Remove( IEmployer aItem );
-		
 
-		
+		//for serialization
+		bool OnSaveLoad { get; set; }
+
 	}
 }
