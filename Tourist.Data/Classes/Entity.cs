@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Xml.Serialization;
@@ -6,7 +7,7 @@ using Tourist.Data.Interfaces;
 
 namespace Tourist.Data.Classes
 {
-
+	[Serializable]
 	public class Entity : IEntity
 	{
 

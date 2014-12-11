@@ -80,6 +80,7 @@
     <Compile Include="Interfaces\IFactory.cs" />
     <Compile Include="Interfaces\IManager.cs" />
     <Compile Include="Interfaces\IPartner.cs" />
+    <Compile Include="Interfaces\IRemote.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

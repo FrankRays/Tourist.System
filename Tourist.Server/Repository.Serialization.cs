@@ -95,6 +95,11 @@ namespace Tourist.Server
 			}
 		}
 
+		public List<Entity> EntityList
+		{
+			get { return mData.EntityList; }
+		}
+
 		#endregion
 	}
 }

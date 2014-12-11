@@ -1,5 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net.Sockets;
+using System.Runtime.Remoting;
+using System.Runtime.Remoting.Channels;
+using System.Runtime.Remoting.Channels.Tcp;
 using System.Windows.Forms;
 using Tourist.Data.Classes;
 using Tourist.Data.Interfaces;
@@ -21,9 +26,29 @@ namespace Tourist.Server
 		static void Main( )
 		{
 
-			//RepositorySaveTest();
-			RepositoryLoadTest();
+			//Create the tcp channel
+			TcpChannel channel = new TcpChannel( 3000 );
 
+			// Lets the remoting system use the socket
+			ChannelServices.RegisterChannel( channel, false );
+
+			// Associate the class HelloServer with the URI "Tourist.Server"
+			RemotingConfiguration.RegisterWellKnownServiceType(
+				typeof( Remote ),  //type
+				"Tourist.Server",  //uri
+				WellKnownObjectMode.Singleton ); //mode
+
+			/*
+			if ( File.Exists( FileName ) )
+			{
+				Repository.Instance.Load( FileName );
+				Repository.Instance.Load( );
+				// por enquanto mas fica so numa funcao	
+			}
+			*/
+			
+			//RepositorySaveTest();
+			RepositoryLoadTest( );
 
 			Application.EnableVisualStyles( );
 			Application.SetCompatibleTextRenderingDefault( false );
@@ -68,7 +93,7 @@ namespace Tourist.Server
 			client2.PhoneNumber = 931111111;
 			client2.Email = "joao@super.com";
 
-			var singleRoom = repo.Factory.CreateDoubleRoom();
+			var singleRoom = repo.Factory.CreateDoubleRoom( );
 			singleRoom.TimeRange = new DateTimeRange( );
 			singleRoom.TimeRange.StartDateTime = DateTime.Today;
 			singleRoom.TimeRange.EndDateTime = DateTime.Today.AddDays( 1 );
