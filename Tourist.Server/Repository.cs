@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Security.AccessControl;
 using Tourist.Data.Classes;
 using Tourist.Data.Interfaces;
 
@@ -63,7 +64,6 @@ namespace Tourist.Server
 		{
 			return mData.EntityList.FirstOrDefault( entity => entity.City == aEntityCity );
 		}
-
 
 	}
 }

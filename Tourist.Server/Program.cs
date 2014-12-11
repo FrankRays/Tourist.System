@@ -22,7 +22,7 @@ namespace Tourist.Server
 		{
 
 			//RepositorySaveTest();
-			//RepositoryLoadTest();
+			RepositoryLoadTest();
 
 
 			Application.EnableVisualStyles( );
@@ -33,9 +33,9 @@ namespace Tourist.Server
 		static void RepositorySaveTest( )
 		{
 
-			var entities = new List<IEntity>();
+			var entities = new List<IEntity>( );
 
-			var entity = repo.Factory.CreateEntity();
+			var entity = repo.Factory.CreateEntity( );
 			entity.Name = "Hotel Porto Bay";
 			entity.City = "Porto";
 
@@ -48,17 +48,27 @@ namespace Tourist.Server
 			employer.PhoneNumber = 931111111;
 			employer.Email = "jonas@super.com";
 
-			var client = repo.Factory.CreateClient( );
-			client.FirstName = "Fabio";
-			client.LastName = "Nobrega";
-			client.Gender = GenderEnum.Male;
-			client.BirthDate = new DateTime( 1987, 5, 13 );
-			client.Nif = 000000000;
-			client.Address = "Caminho das Preces";
-			client.PhoneNumber = 930000000;
-			client.Email = "fabio@super.com";
+			var client1 = repo.Factory.CreateClient( );
+			client1.FirstName = "Fabio";
+			client1.LastName = "Nobrega";
+			client1.Gender = GenderEnum.Male;
+			client1.BirthDate = new DateTime( 1987, 5, 13 );
+			client1.Nif = 000000000;
+			client1.Address = "Caminho das Preces";
+			client1.PhoneNumber = 930000000;
+			client1.Email = "fabio@super.com";
 
-			var singleRoom = repo.Factory.CreateSingleRoom( );
+			var client2 = repo.Factory.CreateClient( );
+			client2.FirstName = "Joao";
+			client2.LastName = "Nobrega";
+			client2.Gender = GenderEnum.Male;
+			client2.BirthDate = new DateTime( 1975, 5, 15 );
+			client2.Nif = 000000001;
+			client2.Address = "Caminho das Preces";
+			client2.PhoneNumber = 931111111;
+			client2.Email = "joao@super.com";
+
+			var singleRoom = repo.Factory.CreateDoubleRoom();
 			singleRoom.TimeRange = new DateTimeRange( );
 			singleRoom.TimeRange.StartDateTime = DateTime.Today;
 			singleRoom.TimeRange.EndDateTime = DateTime.Today.AddDays( 1 );
@@ -69,20 +79,20 @@ namespace Tourist.Server
 			bookingItem.BookAble = singleRoom;
 
 			var booking = repo.Factory.CreateBooking( );
-			booking.Clientt = client;
+			booking.Clientt = client1;
 			booking.BookingDateTime = DateTime.Today;
 			booking.Append( bookingItem );
 
 
 			entity.Append( booking );
 			entity.Append( singleRoom );
-			entity.Append( client );
+			entity.Append( client1 );
+			entity.Append( client2 );
 			entity.Append( employer );
 
+			entities.Add( entity );
 
-			entities.Add(entity);
-
-			repo.Save(entities);
+			repo.Save( entities );
 
 			repo.Save( FileName );
 
@@ -92,7 +102,7 @@ namespace Tourist.Server
 		static void RepositoryLoadTest( )
 		{
 			repo.Load( FileName );
-			repo.Load();
+			repo.Load( );
 		}
 
 	}

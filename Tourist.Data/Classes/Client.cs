@@ -25,11 +25,7 @@ namespace Tourist.Data.Classes
 		#region Properties
 
 
-		public int Id
-		{
-			get { return mCounter; }
-			set { }
-		}
+		public int Id { get; set; }
 
 		public string FirstName
 		{
@@ -86,7 +82,7 @@ namespace Tourist.Data.Classes
 		//pode ficar vazio e depois usa-se os sets
 		public Client()
 		{
-			++mCounter;
+			Id = ++mCounter;
 		}
 
 		public Client( string aFirstName, string aLastName, DateTime aBirthDate, GenderEnum aGender,

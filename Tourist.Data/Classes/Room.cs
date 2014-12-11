@@ -14,12 +14,7 @@ namespace Tourist.Data.Classes
 
 		#region Properties
 
-		public new int Id
-		{
-			get { return mCounter; }
-
-			set { }
-		}
+		public new int Id { get; set; }
 
 		#endregion
 

@@ -4,7 +4,7 @@ namespace Tourist.Data.Interfaces
 {
 	public interface IClient
 	{
-		int Id { get; }
+		int Id { get; set; }
 		string FirstName { get; set; }
 		string LastName { get; set; }
 		DateTime BirthDate { get; set; }

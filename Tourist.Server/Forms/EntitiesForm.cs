@@ -35,7 +35,12 @@ namespace Tourist.Server.Forms
 
 			EntityDataGrid.Rows.Add(entity.Id, aName, aCity);
 			//falta guardar no repositorio, ver a Api com os eventos para adiconar, editar e remover;
+
+			string test = EntityIdHeader.HeaderText;
+
+
 		}
+
 
 
 

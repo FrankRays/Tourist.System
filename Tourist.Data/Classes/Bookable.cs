@@ -18,12 +18,7 @@ namespace Tourist.Data.Classes
 
 		#region Properties
 
-		public int Id
-		{
-			get { return mCounter; } 
-			
-			set { }
-		}
+		public int Id { get; set; }
 		
 		public string Description
 		{
@@ -60,7 +55,7 @@ namespace Tourist.Data.Classes
 
 		protected Bookable( )
 		{
-			++mCounter;
+			Id = ++mCounter;
 		}
 
 		#endregion

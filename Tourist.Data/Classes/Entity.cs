@@ -24,12 +24,7 @@ namespace Tourist.Data.Classes
 
 		#region Properties
 
-		public int Id
-		{
-			get { return mCounter; }
-
-			set { }
-		}
+		public int Id { get; set; }
 
 		public string Name
 		{
@@ -137,7 +132,7 @@ namespace Tourist.Data.Classes
 
 		public Entity( )
 		{
-			++mCounter;
+			Id = ++mCounter;
 
 			Bookings = new List<IBooking>( );
 			Clients = new List<IClient>( );
@@ -153,7 +148,7 @@ namespace Tourist.Data.Classes
 		/*
 		public Entity( string aName, string aCity )
 		{
-			++mCounter;
+			Id = ++mCounter;
 
 			Name = aName;
 			City = aCity;
@@ -232,6 +227,74 @@ namespace Tourist.Data.Classes
 						{
 							mSBookables.Add( bookable as SingleRoom );
 						}
+						else if ( bookable is DoubleSingleRoom )
+						{
+							mSBookables.Add( bookable as DoubleSingleRoom );
+						}
+						else if ( bookable is DoubleRoom )
+						{
+							mSBookables.Add( bookable as DoubleRoom );
+						}
+						else if ( bookable is SuiteRoom )
+						{
+							mSBookables.Add( bookable as SuiteRoom );
+						}
+						else if ( bookable is FamilySuiteRoom)
+						{
+							mSBookables.Add( bookable as FamilySuiteRoom );
+						}
+						else if ( bookable is MeetingRoom )
+						{
+							mSBookables.Add( bookable as MeetingRoom );
+						}
+						else if ( bookable is BoatRideActivity )
+						{
+							mSBookables.Add( bookable as BoatRideActivity );
+						}
+						else if ( bookable is GolfActivity )
+						{
+							mSBookables.Add( bookable as GolfActivity );
+						}
+						else if ( bookable is CampingActivity )
+						{
+							mSBookables.Add( bookable as CampingActivity );
+						}
+						else if ( bookable is SkyDivingActivity )
+						{
+							mSBookables.Add( bookable as SkyDivingActivity );
+						}
+						else if ( bookable is SightSeeingActivity )
+						{
+							mSBookables.Add( bookable as SightSeeingActivity );
+						}
+						else if ( bookable is DivingActivity )
+						{
+							mSBookables.Add( bookable as DivingActivity );
+						}
+						else if ( bookable is TuckTuckTransport )
+						{
+							mSBookables.Add( bookable as TuckTuckTransport );
+						}
+						else if ( bookable is CableCarTransport )
+						{
+							mSBookables.Add( bookable as CableCarTransport );
+						}
+						else if ( bookable is CarTransport )
+						{
+							mSBookables.Add( bookable as CarTransport );
+						}
+						else if ( bookable is BicycleTransport )
+						{
+							mSBookables.Add( bookable as BicycleTransport );
+						}
+						else if ( bookable is BusTransport )
+						{
+							mSBookables.Add( bookable as BusTransport );
+						}
+						else if (bookable is MotoristTransport)
+						{
+							mSBookables.Add(bookable as MotoristTransport);
+						}
 					}
 				}
 
@@ -272,6 +335,8 @@ namespace Tourist.Data.Classes
 			get { return mSaveLoad; }
 			set { mSaveLoad = value; }
 		}
+
+
 
 
 		#endregion
