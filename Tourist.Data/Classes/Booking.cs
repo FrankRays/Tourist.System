@@ -18,15 +18,16 @@ namespace Tourist.Data.Classes
 		private IClient mClient;
 		private DateTime mBookingDateTime;
 		private IEnumerable<IBookingItem> mBookingItems;
+		
 
 		#endregion
 
 		#region Properties
 
-		public int Id { get { return mCounter; } set{ } }
+		public int Id { get; set; }
 
 		[XmlIgnore]
-		public IClient Clientt
+		public IClient IClient
 		{
 			get { return mClient; }
 
@@ -41,7 +42,7 @@ namespace Tourist.Data.Classes
 		}
 		
 		[XmlIgnore]
-		public IEnumerable<IBookingItem> BookingItens
+		public IEnumerable<IBookingItem> IBookingItens
 		{
 			get { return mBookingItems; }
 
@@ -54,16 +55,16 @@ namespace Tourist.Data.Classes
 
 		public void Append( IBookingItem aItem )
 		{
-			System.Diagnostics.Trace.Assert( !BookingItens.Contains( aItem ) );
-			if ( BookingItens.Contains( aItem ) ) return;
-			( ( ICollection<IBookingItem> ) BookingItens ).Add( aItem );
+			System.Diagnostics.Trace.Assert( !IBookingItens.Contains( aItem ) );
+			if ( IBookingItens.Contains( aItem ) ) return;
+			( ( ICollection<IBookingItem> ) IBookingItens ).Add( aItem );
 		}
 
 		public void Remove( IBookingItem aItem )
 		{
-			System.Diagnostics.Trace.Assert( !BookingItens.Contains( aItem ) );
-			if ( !BookingItens.Contains( aItem ) ) return;
-			( ( ICollection<IBookingItem> ) BookingItens ).Remove( aItem );
+			System.Diagnostics.Trace.Assert( !IBookingItens.Contains( aItem ) );
+			if ( !IBookingItens.Contains( aItem ) ) return;
+			( ( ICollection<IBookingItem> ) IBookingItens ).Remove( aItem );
 		}
 
 		public double TotalPrice( )
@@ -74,7 +75,7 @@ namespace Tourist.Data.Classes
 
 			double temp = 0.00;
 
-			foreach ( var aItem in BookingItens )
+			foreach ( var aItem in IBookingItens )
 			{
 				temp += aItem.BookingItemPrice;
 			}
@@ -88,50 +89,57 @@ namespace Tourist.Data.Classes
 
 		public Booking( )
 		{
-			++mCounter;
-			BookingItens = new List<IBookingItem>( );
+			Id = ++mCounter;
+			IBookingItens = new List<IBookingItem>( );
+			BookingItensList = new List<BookingItem>( );
 		}
 
 		public Booking(IClient aClient)
 		{
-			++mCounter;
+			Id = ++mCounter;
 
-			Clientt = aClient;			
-			BookingItens = new List<IBookingItem>( );
+			IClient = aClient;			
+			IBookingItens = new List<IBookingItem>( );
 		}
 
 		#endregion
 
 		#region Seralization
 
-		public List<BookingItem> ListBookingItens
+		private List<BookingItem> mSBookingItems;
+		private Client mSClient;
+
+		public List<BookingItem> BookingItensList
 		{
 			get
 			{
-				List<BookingItem> temp = new List<BookingItem>();
-
-				foreach (var item in BookingItens)
+				foreach (var item in IBookingItens)
 				{
-					temp.Add(item as BookingItem);
+					mSBookingItems.Add(item as BookingItem);
 				}
 
-				return temp;
+				return mSBookingItems;
 			}
+			set { mSBookingItems = value; }
 
 		}
 
 		public Client Client
 		{
-			get { return (mClient as Client); }
-			set { }
+			get
+			{
+				mSClient = (Client) mClient;
+				return mSClient;
+			}
+			set { mSClient = value; }
 		}
 
-
+		/*
 		public int BookingId
 		{
 			get { return mCounter; }
 		}
-
+		*/
 		#endregion
 
 	}

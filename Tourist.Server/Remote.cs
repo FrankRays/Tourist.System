@@ -8,15 +8,22 @@ namespace Tourist.Server
 	[Serializable]
 	public class Remote : MarshalByRefObject, IRemote
 	{
-		public bool ServerRunning()
+		public bool ServerRunning( )
 		{
 			return true;
 		}
 
-		public List<Entity> GetEntityList()
+		List<Entity> IRemote.GetRepositoryEntities()
 		{
-			return Repository.Instance.EntityList ;
+			return Repository.Instance.EntityList;
 		}
+
+		public void SaveToRepository(List<Entity> entities)
+		{
+			Repository.Instance.Save( entities );
+			Repository.Instance.Save(Program.FileName);
+		}
+
 	}
 }
 

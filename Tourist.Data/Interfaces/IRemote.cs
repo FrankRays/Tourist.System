@@ -8,8 +8,9 @@ namespace Tourist.Data.Interfaces
 
 		bool ServerRunning();
 
-		List<Entity> GetEntityList();
+		List<Entity> GetRepositoryEntities();
 
+		void SaveToRepository(List<Entity> entities);
 		// metodos para adicionar, editar e remover nao esquecer ( Save e Load )
 
 	}

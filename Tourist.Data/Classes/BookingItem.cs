@@ -10,7 +10,7 @@ namespace Tourist.Data.Classes
 		#region Fields
 
 		private int mQuantity;
-		private IBookable mService;
+		private IBookable mBookable;
 
 		#endregion
 
@@ -23,15 +23,15 @@ namespace Tourist.Data.Classes
 		}
 
 		[XmlIgnore]
-		public IBookable BookAble
+		public IBookable IBookable
 		{
-			get { return mService; }
-			set { mService = value; }
+			get { return mBookable; }
+			set { mBookable = value; }
 		}
 
 		public double BookingItemPrice
 		{
-			get { return ( BookAble.Price * Quantity ); }
+			get { return ( IBookable.Price * Quantity ); }
 		}
 
 		#endregion
@@ -41,11 +41,12 @@ namespace Tourist.Data.Classes
 		public BookingItem( )
 		{
 			Quantity = 1;
+
 		}
 
 		public BookingItem( IBookable aService, int aQuantity )
 		{
-			BookAble = aService;
+			IBookable = aService;
 			Quantity = aQuantity;
 		}
 
@@ -53,11 +54,17 @@ namespace Tourist.Data.Classes
 
 		#region Serialization
 
+		private Bookable mSBookable;
+
 		public Bookable Bookable
 		{
-			get { return ( mService as Bookable ); }
+			get
+			{
+				mSBookable = mBookable as Bookable;
+				return mSBookable;
+			}
 
-			set { }
+			set { mSBookable = value; }
 		}
 
 		#endregion

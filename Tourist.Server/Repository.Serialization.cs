@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Xml.Serialization;
 using Tourist.Data.Classes;
@@ -67,6 +66,17 @@ namespace Tourist.Server
 			}
 		}
 
+		// Quando fizer save no Tourist.Client para o Repositorio no Tourist.Server
+		public void Save( List<Entity> entities )
+		{
+			foreach ( var entity in entities )
+			{
+				entity.OnSaveLoad = true;
+
+				mData.EntityList.Add( entity );
+			}
+		}
+
 		public void Load( )
 		{
 			foreach ( var entity in mData.EntityList )
@@ -76,6 +86,16 @@ namespace Tourist.Server
 				foreach ( var booking in entity.BookingsList )
 				{
 					entity.Append( booking );
+
+					//booking itens
+					/*foreach ( var bookingItem in booking.BookingItensList )
+					{
+						booking.Append(bookingItem);
+					}
+
+					//esvazia a lista
+					booking.BookingItensList = new List<BookingItem>();
+					 * */
 				}
 
 				foreach ( var bookable in entity.BookablesList )
@@ -92,7 +112,16 @@ namespace Tourist.Server
 				{
 					entity.Append( employer );
 				}
+
+				// empty the lists for each entity
+				entity.BookingsList = new List<Booking>();
+				entity.BookablesList = new List<Bookable>();
+				entity.ClientsList = new List<Client>();
+				entity.EmployersList = new List<Employer>();
+
 			}
+
+
 		}
 
 		public List<Entity> EntityList

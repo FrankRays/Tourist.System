@@ -46,9 +46,9 @@ namespace Tourist.Server
 				// por enquanto mas fica so numa funcao	
 			}
 			*/
-			
-			//RepositorySaveTest();
-			RepositoryLoadTest( );
+
+			RepositorySaveTest();
+			//RepositoryLoadTest( );
 
 			Application.EnableVisualStyles( );
 			Application.SetCompatibleTextRenderingDefault( false );
@@ -83,6 +83,7 @@ namespace Tourist.Server
 			client1.PhoneNumber = 930000000;
 			client1.Email = "fabio@super.com";
 
+			/*
 			var client2 = repo.Factory.CreateClient( );
 			client2.FirstName = "Joao";
 			client2.LastName = "Nobrega";
@@ -92,7 +93,8 @@ namespace Tourist.Server
 			client2.Address = "Caminho das Preces";
 			client2.PhoneNumber = 931111111;
 			client2.Email = "joao@super.com";
-
+			*/
+			
 			var singleRoom = repo.Factory.CreateDoubleRoom( );
 			singleRoom.TimeRange = new DateTimeRange( );
 			singleRoom.TimeRange.StartDateTime = DateTime.Today;
@@ -101,10 +103,10 @@ namespace Tourist.Server
 			singleRoom.Price = UnitPrice.SingleRoom * singleRoom.TimeRange.DiferenceTimeSpan( ).Days;
 
 			var bookingItem = repo.Factory.CreateBookingItem( );
-			bookingItem.BookAble = singleRoom;
+			bookingItem.IBookable = singleRoom;
 
 			var booking = repo.Factory.CreateBooking( );
-			booking.Clientt = client1;
+			booking.IClient = client1;
 			booking.BookingDateTime = DateTime.Today;
 			booking.Append( bookingItem );
 
@@ -112,7 +114,7 @@ namespace Tourist.Server
 			entity.Append( booking );
 			entity.Append( singleRoom );
 			entity.Append( client1 );
-			entity.Append( client2 );
+			/*entity.Append( client2 );*/
 			entity.Append( employer );
 
 			entities.Add( entity );

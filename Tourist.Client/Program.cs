@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
 using System.Windows.Forms;
+using System.Xml.Schema;
 using Tourist.Client.Forms;
 using Tourist.Data.Classes;
 using Tourist.Data.Interfaces;
@@ -29,7 +31,12 @@ namespace Tourist.Client
 				typeof( IRemote ), // Remote object type
 				"tcp://localhost:3000/Tourist.Server" ); // Remote object URL
 
-			List<Entity> test = Remote.GetEntityList( );
+			List<Entity> test = Remote.GetRepositoryEntities();
+			
+			TestEditRepository(test);
+			
+			Remote.SaveToRepository(test);
+
 
 			try
 			{
@@ -44,6 +51,27 @@ namespace Tourist.Client
 			Application.EnableVisualStyles( );
 			Application.SetCompatibleTextRenderingDefault( false );
 			Application.Run( new LoginForm() );
+		}
+
+		static void TestEditRepository(List<Entity> entities)
+		{
+			
+			// criar uma lista temporaria e copiar
+			
+			var entity = entities.ElementAt(0); // so tem um elemento
+
+			var bookings = entity.BookingsList;
+
+			var booking = entity.BookingsList.ElementAt(0);
+
+			var bookingsItem = booking.IBookingItens.ElementAt(0);
+
+			var bookable = bookingsItem.Bookable;
+
+			bookable = new SightSeeingActivity( );
+
+			//bookings.ElementAt(0).BookingItens.ElementAt(0).Bookable = new SightSeeingActivity();
+			
 		}
 	}
 }
