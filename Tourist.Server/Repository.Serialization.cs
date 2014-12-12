@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Xml.Serialization;
 using Tourist.Data.Classes;
@@ -29,7 +30,7 @@ namespace Tourist.Server
 
 			public void Remove( Entity aEntity )
 			{
-				if ( ! mData.EntityList.Contains( aEntity ) ) return;
+				if ( !mData.EntityList.Contains( aEntity ) ) return;
 
 				mData.EntityList.Remove( aEntity );
 			}
@@ -62,16 +63,36 @@ namespace Tourist.Server
 			{
 				entity.OnSaveLoad = true;
 
+				foreach ( var booking in entity.Bookings )
+				{
+					booking.OnSaveLoad = true;
+
+					foreach ( var bookingItem in booking.BookingItens )
+					{
+						bookingItem.OnSaveLoad = true;
+					}
+				}
+
 				mData.EntityList.Add( entity as Entity );
 			}
 		}
 
-		// Quando fizer save no Tourist.Client para o Repositorio no Tourist.Server
+		//From Client to Server
 		public void Save( List<Entity> entities )
 		{
 			foreach ( var entity in entities )
 			{
 				entity.OnSaveLoad = true;
+
+				foreach ( var booking in entity.BookingsList )
+				{
+					booking.OnSaveLoad = true;
+
+					foreach ( var bookingItem in booking.BookingItensList )
+					{
+						bookingItem.OnSaveLoad = true;
+					}
+				}
 
 				mData.EntityList.Add( entity );
 			}
@@ -85,22 +106,33 @@ namespace Tourist.Server
 
 				foreach ( var booking in entity.BookingsList )
 				{
-					entity.Append( booking );
+					booking.OnSaveLoad = false;
+					booking.IClient = booking.Client;
 
-					//booking itens
-					/*foreach ( var bookingItem in booking.BookingItensList )
+					//clean
+					booking.Client = null;
+
+					foreach ( var bookingItem in booking.BookingItensList )
 					{
-						booking.Append(bookingItem);
+						bookingItem.OnSaveLoad = false;
+						bookingItem.BookAble = bookingItem.Bookable;
+						//clean
+						bookingItem.Bookable = null;
+
+						booking.Append( bookingItem );
 					}
 
-					//esvazia a lista
-					booking.BookingItensList = new List<BookingItem>();
-					 * */
+					//Clean
+					booking.BookingItensList = new List<BookingItem>( );
+
+					entity.Append( booking );
 				}
 
 				foreach ( var bookable in entity.BookablesList )
 				{
+
 					entity.Append( bookable );
+
 				}
 
 				foreach ( var client in entity.ClientsList )
@@ -114,14 +146,11 @@ namespace Tourist.Server
 				}
 
 				// empty the lists for each entity
-				entity.BookingsList = new List<Booking>();
-				entity.BookablesList = new List<Bookable>();
-				entity.ClientsList = new List<Client>();
-				entity.EmployersList = new List<Employer>();
-
+				entity.BookingsList = new List<Booking>( );
+				entity.BookablesList = new List<Bookable>( );
+				entity.ClientsList = new List<Client>( );
+				entity.EmployersList = new List<Employer>( );
 			}
-
-
 		}
 
 		public List<Entity> EntityList

@@ -1,12 +1,12 @@
-﻿using Tourist.Data.Classes;
-
-namespace Tourist.Data.Interfaces
+﻿namespace Tourist.Data.Interfaces
 {
 	public interface IBookingItem
 	{
 		int Quantity { get; set; }
-		IBookable IBookable { get; set; }
+		IBookable BookAble { get; set; }
 		double BookingItemPrice { get; }
-		Bookable Bookable { get; set; }
+
+		//serialization
+		bool OnSaveLoad { get; set; }
 	}
 }

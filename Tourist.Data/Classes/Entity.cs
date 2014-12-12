@@ -337,9 +337,6 @@ namespace Tourist.Data.Classes
 			set { mSaveLoad = value; }
 		}
 
-
-
-
 		#endregion
 
 	}

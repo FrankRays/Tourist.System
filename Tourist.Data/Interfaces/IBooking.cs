@@ -8,9 +8,12 @@ namespace Tourist.Data.Interfaces
 		int Id { get; set; }
 		IClient IClient { get; set; } //set alterado
 		DateTime BookingDateTime { get; set; }
-		IEnumerable<IBookingItem> IBookingItens { get; }
+		IEnumerable<IBookingItem> BookingItens { get; }
 		void Append( IBookingItem aItem );
 		void Remove( IBookingItem aItem );
+
+		//serialization
+		bool OnSaveLoad { get; set; }
 
 	}
 }

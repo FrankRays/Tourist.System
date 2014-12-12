@@ -11,14 +11,16 @@ namespace Tourist.Data.Classes
 		{
 			return new[ ]
 			{
-				typeof (Entity), typeof (Booking), typeof (BookingItem), typeof (Client), typeof (Employer), typeof (DateTimeRange),typeof(Bookable),
-				typeof (Activity),typeof(Room),typeof (SingleRoom), typeof (DoubleRoom), typeof (DoubleSingleRoom), typeof (SuiteRoom),
-				typeof (FamilySuiteRoom),
-				typeof (MeetingRoom), typeof (Activity), typeof (BoatRideActivity), typeof (GolfActivity), typeof (CampingActivity),
-				typeof (SkyDivingActivity), typeof (SightSeeingActivity), typeof (DivingActivity), typeof (Transport),
-				typeof (TuckTuckTransport),
-				typeof (CableCarTransport), typeof (BicycleTransport), typeof (CarTransport), typeof (BusTransport),
-				typeof (MotoristTransport)
+				typeof (Entity),				typeof (Booking),				typeof (BookingItem), 
+				typeof (Client),				typeof (Employer),				typeof (DateTimeRange),			
+				typeof(Bookable),				typeof (Activity),				typeof (Room),					
+				typeof (SingleRoom),			typeof (DoubleRoom),			typeof (DoubleSingleRoom), 
+				typeof (SuiteRoom),				typeof (FamilySuiteRoom),		typeof (MeetingRoom), 
+				typeof (Activity),				typeof (BoatRideActivity),		typeof (GolfActivity),			
+				typeof (CampingActivity),		typeof (SkyDivingActivity),		typeof (SightSeeingActivity),
+				typeof (DivingActivity),		typeof (Transport),				typeof (TuckTuckTransport),		
+				typeof (CableCarTransport),		typeof (BicycleTransport),		typeof (CarTransport),
+				typeof (BusTransport),			typeof (MotoristTransport)
 			};
 		}
 
