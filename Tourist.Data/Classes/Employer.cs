@@ -4,6 +4,7 @@ using Tourist.Data.Interfaces;
 
 namespace Tourist.Data.Classes
 {
+	[Serializable]
 	public class Employer : IEmployer
 	{
 		#region Fields

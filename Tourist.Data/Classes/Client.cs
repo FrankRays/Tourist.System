@@ -5,6 +5,7 @@ using Tourist.Data.Interfaces;
 
 namespace Tourist.Data.Classes
 {
+	[Serializable]
 	public class Client : IClient
 	{
 		#region Fields

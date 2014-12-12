@@ -4,10 +4,9 @@ using Tourist.Data.Interfaces;
 
 namespace Tourist.Data.Classes
 {
-
+	[Serializable]
 	public class BookingItem : IBookingItem
 	{
-
 		#region Fields
 
 		private int mQuantity;

@@ -2,6 +2,7 @@
 
 namespace Tourist.Data.Classes
 {
+	[Serializable]
 	public class DateTimeRange
 	{
 

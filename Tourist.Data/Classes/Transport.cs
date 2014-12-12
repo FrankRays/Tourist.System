@@ -1,11 +1,13 @@
-﻿using System.Xml.Serialization;
+﻿using System;
+using System.Xml.Serialization;
 using Tourist.Data.Interfaces;
 
 namespace Tourist.Data.Classes
 {
+	[Serializable]
 	public abstract class Transport : Bookable
 	{
-
+		
 		#region Fields
 
 		private static int mCounter = 0;

@@ -8,9 +8,10 @@ using Tourist.Data.Interfaces;
 
 namespace Tourist.Data.Classes
 {
+	[Serializable]
 	public class Booking : IBooking
 	{
-
+		
 		#region Fields
 
 		private static int mCounter = 0;

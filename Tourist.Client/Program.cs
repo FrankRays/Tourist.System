@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
 using System.Windows.Forms;
 using Tourist.Client.Forms;
+using Tourist.Data.Classes;
 using Tourist.Data.Interfaces;
 
 namespace Tourist.Client
@@ -26,6 +29,8 @@ namespace Tourist.Client
 				typeof( IRemote ), // Remote object type
 				"tcp://localhost:3000/Tourist.Server" ); // Remote object URL
 
+			List<Entity> test = Remote.GetEntityList( );
+
 			try
 			{
 				Remote.ServerRunning( );
@@ -38,7 +43,7 @@ namespace Tourist.Client
 			
 			Application.EnableVisualStyles( );
 			Application.SetCompatibleTextRenderingDefault( false );
-			Application.Run( new LoginForm( ) );
+			Application.Run( new LoginForm() );
 		}
 	}
 }

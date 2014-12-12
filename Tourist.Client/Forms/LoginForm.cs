@@ -2,12 +2,14 @@
 using System.Drawing;
 using System.Windows.Forms;
 using MetroFramework.Forms;
+using Tourist.Data.Interfaces;
 
 
 namespace Tourist.Client.Forms
 {
 	public partial class LoginForm : MetroForm
 	{
+		
 		public LoginForm( )
 		{
 			InitializeComponent( );
