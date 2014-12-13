@@ -65,5 +65,8 @@ namespace Tourist.Server
 			return mData.EntityList.FirstOrDefault( entity => entity.City == aEntityCity );
 		}
 
+
+
+
 	}
 }

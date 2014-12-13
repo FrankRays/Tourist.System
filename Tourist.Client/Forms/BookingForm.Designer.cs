@@ -43,19 +43,13 @@
 			this.SubTitleLabel = new System.Windows.Forms.Label();
 			this.TitleLabel = new System.Windows.Forms.Label();
 			this.BodyPanel = new System.Windows.Forms.Panel();
+			this.SideBarPanel = new System.Windows.Forms.Panel();
+			this.SearchTile = new MetroFramework.Controls.MetroTile();
+			this.LogoffTile = new MetroFramework.Controls.MetroTile();
+			this.PrefrencesTile = new MetroFramework.Controls.MetroTile();
 			this.ClientsTabsControl = new MetroFramework.Controls.MetroTabControl();
 			this.RoomsTab = new MetroFramework.Controls.MetroTabPage();
 			this.ClientsGrid = new MetroFramework.Controls.MetroGrid();
-			this.RoomBookingIDHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.RoomClientIDHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.RoomClientNameHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.RoomIDHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.RoomTypeHeader = new System.Windows.Forms.DataGridViewComboBoxColumn();
-			this.CheckInDateHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.CheckOutDateHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.RoomUnitPriceHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.StayNightsHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.RoomTotalPriceHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.metroTile5 = new MetroFramework.Controls.MetroTile();
 			this.metroTile6 = new MetroFramework.Controls.MetroTile();
 			this.ActivitiesTab = new MetroFramework.Controls.MetroTabPage();
@@ -95,12 +89,21 @@
 			this.FowardPanel = new System.Windows.Forms.Panel();
 			this.HomePanel = new System.Windows.Forms.Panel();
 			this.BackPanel = new System.Windows.Forms.Panel();
-			this.SideBarPanel = new System.Windows.Forms.Panel();
-			this.SearchTile = new MetroFramework.Controls.MetroTile();
-			this.LogoffTile = new MetroFramework.Controls.MetroTile();
-			this.PrefrencesTile = new MetroFramework.Controls.MetroTile();
+			this.EntityIDHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.EntityNameHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.RoomBookingIDHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.RoomClientIDHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.RoomClientNameHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.RoomIDHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.RoomTypeHeader = new System.Windows.Forms.DataGridViewComboBoxColumn();
+			this.CheckInDateHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.CheckOutDateHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.RoomUnitPriceHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.StayNightsHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.RoomTotalPriceHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.HeaderPanel.SuspendLayout();
 			this.BodyPanel.SuspendLayout();
+			this.SideBarPanel.SuspendLayout();
 			this.ClientsTabsControl.SuspendLayout();
 			this.RoomsTab.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ClientsGrid)).BeginInit();
@@ -110,7 +113,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.metroGrid2)).BeginInit();
 			this.GroupSearch.SuspendLayout();
 			this.FooterPanel.SuspendLayout();
-			this.SideBarPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// HeaderPanel
@@ -188,6 +190,75 @@
 			this.BodyPanel.Size = new System.Drawing.Size(1202, 524);
 			this.BodyPanel.TabIndex = 16;
 			// 
+			// SideBarPanel
+			// 
+			this.SideBarPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.SideBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			this.SideBarPanel.Controls.Add(this.SearchTile);
+			this.SideBarPanel.Controls.Add(this.LogoffTile);
+			this.SideBarPanel.Controls.Add(this.PrefrencesTile);
+			this.SideBarPanel.Location = new System.Drawing.Point(1199, 0);
+			this.SideBarPanel.Margin = new System.Windows.Forms.Padding(2);
+			this.SideBarPanel.Name = "SideBarPanel";
+			this.SideBarPanel.Size = new System.Drawing.Size(112, 525);
+			this.SideBarPanel.TabIndex = 21;
+			this.SideBarPanel.Visible = false;
+			// 
+			// SearchTile
+			// 
+			this.SearchTile.ActiveControl = null;
+			this.SearchTile.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.SearchTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(219)))));
+			this.SearchTile.Location = new System.Drawing.Point(2, 20);
+			this.SearchTile.Margin = new System.Windows.Forms.Padding(2);
+			this.SearchTile.Name = "SearchTile";
+			this.SearchTile.Size = new System.Drawing.Size(108, 85);
+			this.SearchTile.TabIndex = 1;
+			this.SearchTile.Text = "Search";
+			this.SearchTile.TileImage = global::Tourist.Client.Properties.Resources.Magnifier;
+			this.SearchTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.SearchTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+			this.SearchTile.UseCustomBackColor = true;
+			this.SearchTile.UseSelectable = true;
+			this.SearchTile.UseTileImage = true;
+			// 
+			// LogoffTile
+			// 
+			this.LogoffTile.ActiveControl = null;
+			this.LogoffTile.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.LogoffTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(219)))));
+			this.LogoffTile.Location = new System.Drawing.Point(0, 421);
+			this.LogoffTile.Margin = new System.Windows.Forms.Padding(2);
+			this.LogoffTile.Name = "LogoffTile";
+			this.LogoffTile.Size = new System.Drawing.Size(112, 85);
+			this.LogoffTile.TabIndex = 0;
+			this.LogoffTile.Text = "LogOff";
+			this.LogoffTile.TileImage = global::Tourist.Client.Properties.Resources.PowerOff;
+			this.LogoffTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.LogoffTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+			this.LogoffTile.UseCustomBackColor = true;
+			this.LogoffTile.UseSelectable = true;
+			this.LogoffTile.UseTileImage = true;
+			// 
+			// PrefrencesTile
+			// 
+			this.PrefrencesTile.ActiveControl = null;
+			this.PrefrencesTile.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.PrefrencesTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(219)))));
+			this.PrefrencesTile.Location = new System.Drawing.Point(0, 218);
+			this.PrefrencesTile.Margin = new System.Windows.Forms.Padding(2);
+			this.PrefrencesTile.Name = "PrefrencesTile";
+			this.PrefrencesTile.Size = new System.Drawing.Size(112, 85);
+			this.PrefrencesTile.TabIndex = 0;
+			this.PrefrencesTile.Text = "Preferences";
+			this.PrefrencesTile.TileImage = global::Tourist.Client.Properties.Resources.preferences;
+			this.PrefrencesTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.PrefrencesTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+			this.PrefrencesTile.UseCustomBackColor = true;
+			this.PrefrencesTile.UseSelectable = true;
+			this.PrefrencesTile.UseTileImage = true;
+			// 
 			// ClientsTabsControl
 			// 
 			this.ClientsTabsControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -250,6 +321,8 @@
 			this.ClientsGrid.ColumnHeadersHeight = 60;
 			this.ClientsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.ClientsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.EntityIDHeader,
+            this.EntityNameHeader,
             this.RoomBookingIDHeader,
             this.RoomClientIDHeader,
             this.RoomClientNameHeader,
@@ -289,78 +362,6 @@
 			this.ClientsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.ClientsGrid.Size = new System.Drawing.Size(949, 406);
 			this.ClientsGrid.TabIndex = 20;
-			// 
-			// RoomBookingIDHeader
-			// 
-			this.RoomBookingIDHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.RoomBookingIDHeader.HeaderText = "Booking ID";
-			this.RoomBookingIDHeader.Name = "RoomBookingIDHeader";
-			this.RoomBookingIDHeader.Width = 128;
-			// 
-			// RoomClientIDHeader
-			// 
-			this.RoomClientIDHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.RoomClientIDHeader.HeaderText = "Client ID";
-			this.RoomClientIDHeader.Name = "RoomClientIDHeader";
-			this.RoomClientIDHeader.Width = 107;
-			// 
-			// RoomClientNameHeader
-			// 
-			this.RoomClientNameHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.RoomClientNameHeader.HeaderText = "Client Name";
-			this.RoomClientNameHeader.Name = "RoomClientNameHeader";
-			this.RoomClientNameHeader.Width = 140;
-			// 
-			// RoomIDHeader
-			// 
-			this.RoomIDHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.RoomIDHeader.HeaderText = "Room ID";
-			this.RoomIDHeader.Name = "RoomIDHeader";
-			this.RoomIDHeader.Width = 110;
-			// 
-			// RoomTypeHeader
-			// 
-			this.RoomTypeHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.RoomTypeHeader.HeaderText = "Room Type";
-			this.RoomTypeHeader.Name = "RoomTypeHeader";
-			this.RoomTypeHeader.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.RoomTypeHeader.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-			this.RoomTypeHeader.Width = 130;
-			// 
-			// CheckInDateHeader
-			// 
-			this.CheckInDateHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.CheckInDateHeader.HeaderText = "Check In Date";
-			this.CheckInDateHeader.Name = "CheckInDateHeader";
-			this.CheckInDateHeader.Width = 153;
-			// 
-			// CheckOutDateHeader
-			// 
-			this.CheckOutDateHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.CheckOutDateHeader.HeaderText = "Check Out Date";
-			this.CheckOutDateHeader.Name = "CheckOutDateHeader";
-			this.CheckOutDateHeader.Width = 169;
-			// 
-			// RoomUnitPriceHeader
-			// 
-			this.RoomUnitPriceHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.RoomUnitPriceHeader.HeaderText = "Unit Price";
-			this.RoomUnitPriceHeader.Name = "RoomUnitPriceHeader";
-			this.RoomUnitPriceHeader.Width = 116;
-			// 
-			// StayNightsHeader
-			// 
-			this.StayNightsHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.StayNightsHeader.HeaderText = "Stay Nights";
-			this.StayNightsHeader.Name = "StayNightsHeader";
-			this.StayNightsHeader.Width = 130;
-			// 
-			// RoomTotalPriceHeader
-			// 
-			this.RoomTotalPriceHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.RoomTotalPriceHeader.HeaderText = "Total Price";
-			this.RoomTotalPriceHeader.Name = "RoomTotalPriceHeader";
-			this.RoomTotalPriceHeader.Width = 121;
 			// 
 			// metroTile5
 			// 
@@ -868,74 +869,89 @@
 			this.BackPanel.Size = new System.Drawing.Size(64, 95);
 			this.BackPanel.TabIndex = 15;
 			// 
-			// SideBarPanel
+			// EntityIDHeader
 			// 
-			this.SideBarPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.SideBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.SideBarPanel.Controls.Add(this.SearchTile);
-			this.SideBarPanel.Controls.Add(this.LogoffTile);
-			this.SideBarPanel.Controls.Add(this.PrefrencesTile);
-			this.SideBarPanel.Location = new System.Drawing.Point(1199, 0);
-			this.SideBarPanel.Margin = new System.Windows.Forms.Padding(2);
-			this.SideBarPanel.Name = "SideBarPanel";
-			this.SideBarPanel.Size = new System.Drawing.Size(112, 525);
-			this.SideBarPanel.TabIndex = 21;
-			this.SideBarPanel.Visible = false;
+			this.EntityIDHeader.HeaderText = "Entity ID";
+			this.EntityIDHeader.Name = "EntityIDHeader";
+			this.EntityIDHeader.Width = 106;
 			// 
-			// SearchTile
+			// EntityNameHeader
 			// 
-			this.SearchTile.ActiveControl = null;
-			this.SearchTile.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.SearchTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(219)))));
-			this.SearchTile.Location = new System.Drawing.Point(2, 20);
-			this.SearchTile.Margin = new System.Windows.Forms.Padding(2);
-			this.SearchTile.Name = "SearchTile";
-			this.SearchTile.Size = new System.Drawing.Size(108, 85);
-			this.SearchTile.TabIndex = 1;
-			this.SearchTile.Text = "Search";
-			this.SearchTile.TileImage = global::Tourist.Client.Properties.Resources.Magnifier;
-			this.SearchTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.SearchTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-			this.SearchTile.UseCustomBackColor = true;
-			this.SearchTile.UseSelectable = true;
-			this.SearchTile.UseTileImage = true;
+			this.EntityNameHeader.HeaderText = "Entity Name";
+			this.EntityNameHeader.Name = "EntityNameHeader";
+			this.EntityNameHeader.Width = 139;
 			// 
-			// LogoffTile
+			// RoomBookingIDHeader
 			// 
-			this.LogoffTile.ActiveControl = null;
-			this.LogoffTile.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.LogoffTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(219)))));
-			this.LogoffTile.Location = new System.Drawing.Point(0, 421);
-			this.LogoffTile.Margin = new System.Windows.Forms.Padding(2);
-			this.LogoffTile.Name = "LogoffTile";
-			this.LogoffTile.Size = new System.Drawing.Size(112, 85);
-			this.LogoffTile.TabIndex = 0;
-			this.LogoffTile.Text = "LogOff";
-			this.LogoffTile.TileImage = global::Tourist.Client.Properties.Resources.PowerOff;
-			this.LogoffTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.LogoffTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-			this.LogoffTile.UseCustomBackColor = true;
-			this.LogoffTile.UseSelectable = true;
-			this.LogoffTile.UseTileImage = true;
+			this.RoomBookingIDHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.RoomBookingIDHeader.HeaderText = "Booking ID";
+			this.RoomBookingIDHeader.Name = "RoomBookingIDHeader";
+			this.RoomBookingIDHeader.Width = 128;
 			// 
-			// PrefrencesTile
+			// RoomClientIDHeader
 			// 
-			this.PrefrencesTile.ActiveControl = null;
-			this.PrefrencesTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.PrefrencesTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(219)))));
-			this.PrefrencesTile.Location = new System.Drawing.Point(0, 218);
-			this.PrefrencesTile.Margin = new System.Windows.Forms.Padding(2);
-			this.PrefrencesTile.Name = "PrefrencesTile";
-			this.PrefrencesTile.Size = new System.Drawing.Size(112, 85);
-			this.PrefrencesTile.TabIndex = 0;
-			this.PrefrencesTile.Text = "Preferences";
-			this.PrefrencesTile.TileImage = global::Tourist.Client.Properties.Resources.preferences;
-			this.PrefrencesTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.PrefrencesTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-			this.PrefrencesTile.UseCustomBackColor = true;
-			this.PrefrencesTile.UseSelectable = true;
-			this.PrefrencesTile.UseTileImage = true;
+			this.RoomClientIDHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.RoomClientIDHeader.HeaderText = "Client ID";
+			this.RoomClientIDHeader.Name = "RoomClientIDHeader";
+			this.RoomClientIDHeader.Width = 107;
+			// 
+			// RoomClientNameHeader
+			// 
+			this.RoomClientNameHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.RoomClientNameHeader.HeaderText = "Client Name";
+			this.RoomClientNameHeader.Name = "RoomClientNameHeader";
+			this.RoomClientNameHeader.Width = 140;
+			// 
+			// RoomIDHeader
+			// 
+			this.RoomIDHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.RoomIDHeader.HeaderText = "Room ID";
+			this.RoomIDHeader.Name = "RoomIDHeader";
+			this.RoomIDHeader.Width = 110;
+			// 
+			// RoomTypeHeader
+			// 
+			this.RoomTypeHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.RoomTypeHeader.HeaderText = "Room Type";
+			this.RoomTypeHeader.Name = "RoomTypeHeader";
+			this.RoomTypeHeader.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.RoomTypeHeader.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			this.RoomTypeHeader.Width = 130;
+			// 
+			// CheckInDateHeader
+			// 
+			this.CheckInDateHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.CheckInDateHeader.HeaderText = "Check In Date";
+			this.CheckInDateHeader.Name = "CheckInDateHeader";
+			this.CheckInDateHeader.Width = 153;
+			// 
+			// CheckOutDateHeader
+			// 
+			this.CheckOutDateHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.CheckOutDateHeader.HeaderText = "Check Out Date";
+			this.CheckOutDateHeader.Name = "CheckOutDateHeader";
+			this.CheckOutDateHeader.Width = 169;
+			// 
+			// RoomUnitPriceHeader
+			// 
+			this.RoomUnitPriceHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.RoomUnitPriceHeader.HeaderText = "Unit Price";
+			this.RoomUnitPriceHeader.Name = "RoomUnitPriceHeader";
+			this.RoomUnitPriceHeader.Width = 116;
+			// 
+			// StayNightsHeader
+			// 
+			this.StayNightsHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.StayNightsHeader.HeaderText = "Stay Nights";
+			this.StayNightsHeader.Name = "StayNightsHeader";
+			this.StayNightsHeader.Width = 130;
+			// 
+			// RoomTotalPriceHeader
+			// 
+			this.RoomTotalPriceHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.RoomTotalPriceHeader.HeaderText = "Total Price";
+			this.RoomTotalPriceHeader.Name = "RoomTotalPriceHeader";
+			this.RoomTotalPriceHeader.Width = 121;
 			// 
 			// BookingsForm
 			// 
@@ -956,6 +972,7 @@
 			this.HeaderPanel.ResumeLayout(false);
 			this.HeaderPanel.PerformLayout();
 			this.BodyPanel.ResumeLayout(false);
+			this.SideBarPanel.ResumeLayout(false);
 			this.ClientsTabsControl.ResumeLayout(false);
 			this.RoomsTab.ResumeLayout(false);
 			this.RoomsTab.PerformLayout();
@@ -970,7 +987,6 @@
 			this.GroupSearch.PerformLayout();
 			this.FooterPanel.ResumeLayout(false);
 			this.FooterPanel.PerformLayout();
-			this.SideBarPanel.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -1022,6 +1038,15 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn ActivityStartHeader;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ActivityEndHeader;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+		private System.Windows.Forms.Panel FowardPanel;
+		private System.Windows.Forms.Panel HomePanel;
+		private System.Windows.Forms.Panel BackPanel;
+		private System.Windows.Forms.Panel SideBarPanel;
+		private MetroFramework.Controls.MetroTile SearchTile;
+		private MetroFramework.Controls.MetroTile LogoffTile;
+		private MetroFramework.Controls.MetroTile PrefrencesTile;
+		private System.Windows.Forms.DataGridViewTextBoxColumn EntityIDHeader;
+		private System.Windows.Forms.DataGridViewTextBoxColumn EntityNameHeader;
 		private System.Windows.Forms.DataGridViewTextBoxColumn RoomBookingIDHeader;
 		private System.Windows.Forms.DataGridViewTextBoxColumn RoomClientIDHeader;
 		private System.Windows.Forms.DataGridViewTextBoxColumn RoomClientNameHeader;
@@ -1032,13 +1057,6 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn RoomUnitPriceHeader;
 		private System.Windows.Forms.DataGridViewTextBoxColumn StayNightsHeader;
 		private System.Windows.Forms.DataGridViewTextBoxColumn RoomTotalPriceHeader;
-		private System.Windows.Forms.Panel FowardPanel;
-		private System.Windows.Forms.Panel HomePanel;
-		private System.Windows.Forms.Panel BackPanel;
-		private System.Windows.Forms.Panel SideBarPanel;
-		private MetroFramework.Controls.MetroTile SearchTile;
-		private MetroFramework.Controls.MetroTile LogoffTile;
-		private MetroFramework.Controls.MetroTile PrefrencesTile;
 
 	}
 }

@@ -34,9 +34,6 @@
 			this.BodyPanel = new System.Windows.Forms.Panel();
 			this.WrapperPanelGrid = new System.Windows.Forms.Panel();
 			this.EntityDataGrid = new MetroFramework.Controls.MetroGrid();
-			this.EntityIdHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.EntityNameHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.EntityCityHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.metroTile5 = new MetroFramework.Controls.MetroTile();
 			this.metroTile6 = new MetroFramework.Controls.MetroTile();
 			this.GroupSearch = new System.Windows.Forms.GroupBox();
@@ -56,6 +53,9 @@
 			this.SearchTile = new MetroFramework.Controls.MetroTile();
 			this.LogoffTile = new MetroFramework.Controls.MetroTile();
 			this.PrefrencesTile = new MetroFramework.Controls.MetroTile();
+			this.EntityIdColunm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.EntityNameColunm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.EntityCityColunm = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.BodyPanel.SuspendLayout();
 			this.WrapperPanelGrid.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.EntityDataGrid)).BeginInit();
@@ -114,9 +114,9 @@
 			this.EntityDataGrid.ColumnHeadersHeight = 60;
 			this.EntityDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.EntityDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.EntityIdHeader,
-            this.EntityNameHeader,
-            this.EntityCityHeader});
+            this.EntityIdColunm,
+            this.EntityNameColunm,
+            this.EntityCityColunm});
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(172)))), ((int)(((byte)(219)))));
 			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -146,27 +146,7 @@
 			this.EntityDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.EntityDataGrid.Size = new System.Drawing.Size(949, 449);
 			this.EntityDataGrid.TabIndex = 17;
-			// 
-			// EntityIdHeader
-			// 
-			this.EntityIdHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.EntityIdHeader.HeaderText = "Entity ID";
-			this.EntityIdHeader.Name = "EntityIdHeader";
-			this.EntityIdHeader.Width = 106;
-			// 
-			// EntityNameHeader
-			// 
-			this.EntityNameHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.EntityNameHeader.HeaderText = "Entity Name";
-			this.EntityNameHeader.Name = "EntityNameHeader";
-			this.EntityNameHeader.Width = 139;
-			// 
-			// EntityCityHeader
-			// 
-			this.EntityCityHeader.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.EntityCityHeader.HeaderText = "Entity City";
-			this.EntityCityHeader.Name = "EntityCityHeader";
-			this.EntityCityHeader.Width = 118;
+			this.EntityDataGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.EntityDataGrid_RowValidating);
 			// 
 			// metroTile5
 			// 
@@ -427,6 +407,28 @@
 			this.PrefrencesTile.UseSelectable = true;
 			this.PrefrencesTile.UseTileImage = true;
 			// 
+			// EntityIdColunm
+			// 
+			this.EntityIdColunm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.EntityIdColunm.HeaderText = "Entity ID";
+			this.EntityIdColunm.Name = "EntityIdColunm";
+			this.EntityIdColunm.ReadOnly = true;
+			this.EntityIdColunm.Width = 106;
+			// 
+			// EntityNameColunm
+			// 
+			this.EntityNameColunm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.EntityNameColunm.HeaderText = "Entity Name";
+			this.EntityNameColunm.Name = "EntityNameColunm";
+			this.EntityNameColunm.Width = 139;
+			// 
+			// EntityCityColunm
+			// 
+			this.EntityCityColunm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.EntityCityColunm.HeaderText = "Entity City";
+			this.EntityCityColunm.Name = "EntityCityColunm";
+			this.EntityCityColunm.Width = 118;
+			// 
 			// EntitiesForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -462,7 +464,6 @@
 
 		private System.Windows.Forms.Panel BodyPanel;
 		private System.Windows.Forms.Panel WrapperPanelGrid;
-		private MetroFramework.Controls.MetroGrid EntityDataGrid;
 		private MetroFramework.Controls.MetroTile metroTile5;
 		private System.Windows.Forms.GroupBox GroupSearch;
 		private System.Windows.Forms.Button OkButton;
@@ -482,9 +483,10 @@
 		private MetroFramework.Controls.MetroTile SearchTile;
 		private MetroFramework.Controls.MetroTile LogoffTile;
 		private MetroFramework.Controls.MetroTile PrefrencesTile;
-		private System.Windows.Forms.DataGridViewTextBoxColumn EntityIdHeader;
-		private System.Windows.Forms.DataGridViewTextBoxColumn EntityNameHeader;
-		private System.Windows.Forms.DataGridViewTextBoxColumn EntityCityHeader;
+		private MetroFramework.Controls.MetroGrid EntityDataGrid;
+		private System.Windows.Forms.DataGridViewTextBoxColumn EntityIdColunm;
+		private System.Windows.Forms.DataGridViewTextBoxColumn EntityNameColunm;
+		private System.Windows.Forms.DataGridViewTextBoxColumn EntityCityColunm;
 
 
 	}

@@ -77,6 +77,13 @@ namespace Tourist.Server
 			}
 		}
 
+		public void Save( IEntity entity )
+		{
+			entity.OnSaveLoad = true;	
+			mData.EntityList.Add( entity as Entity );
+			
+		}
+
 		//From Client to Server
 		public void Save( List<Entity> entities )
 		{

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net.Sockets;
 using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
@@ -48,7 +49,8 @@ namespace Tourist.Server
 			*/
 			
 			//RepositorySaveTest();
-			RepositoryLoadTest( );
+			//RepositoryLoadTest( );
+
 
 			Application.EnableVisualStyles( );
 			Application.SetCompatibleTextRenderingDefault( false );
@@ -82,6 +84,8 @@ namespace Tourist.Server
 			client1.Address = "Caminho das Preces";
 			client1.PhoneNumber = 930000000;
 			client1.Email = "fabio@super.com";
+			client1.Id = 3;
+
 
 			var client2 = repo.Factory.CreateClient( );
 			client2.FirstName = "Joao";
@@ -92,6 +96,8 @@ namespace Tourist.Server
 			client2.Address = "Caminho das Preces";
 			client2.PhoneNumber = 931111111;
 			client2.Email = "joao@super.com";
+			client2.Id = 2;
+
 
 			var singleRoom = repo.Factory.CreateDoubleRoom( );
 			singleRoom.TimeRange = new DateTimeRange( );

@@ -89,7 +89,7 @@ namespace Tourist.Data.Classes
 		public Client( string aFirstName, string aLastName, DateTime aBirthDate, GenderEnum aGender,
 						 int aPhoneNumber, string aEmail, string aAddress )
 		{
-			++mCounter;
+			Id = ++mCounter;
 
 			FirstName = aFirstName;
 			LastName = aLastName;

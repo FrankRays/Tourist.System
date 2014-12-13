@@ -18,6 +18,7 @@ namespace Tourist.Client
 		[STAThread]
 		static void Main( )
 		{
+			
 			// Create an active tcp port
 			TcpChannel channel = new TcpChannel( );
 

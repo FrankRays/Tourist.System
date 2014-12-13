@@ -30,7 +30,7 @@
 		{
 			this.BodyPanel = new System.Windows.Forms.Panel();
 			this.LoginFrame = new System.Windows.Forms.Panel();
-			this.CancelButton = new System.Windows.Forms.Button();
+			this.ButtonCancel = new System.Windows.Forms.Button();
 			this.OkButton = new System.Windows.Forms.Button();
 			this.textBox2 = new System.Windows.Forms.TextBox();
 			this.textBox1 = new System.Windows.Forms.TextBox();
@@ -66,7 +66,7 @@
 			this.LoginFrame.AutoSize = true;
 			this.LoginFrame.BackgroundImage = global::Tourist.Client.Properties.Resources.LoginFrame;
 			this.LoginFrame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.LoginFrame.Controls.Add(this.CancelButton);
+			this.LoginFrame.Controls.Add(this.ButtonCancel);
 			this.LoginFrame.Controls.Add(this.OkButton);
 			this.LoginFrame.Controls.Add(this.textBox2);
 			this.LoginFrame.Controls.Add(this.textBox1);
@@ -78,18 +78,18 @@
 			this.LoginFrame.Size = new System.Drawing.Size(602, 346);
 			this.LoginFrame.TabIndex = 11;
 			// 
-			// CancelButton
+			// ButtonCancel
 			// 
-			this.CancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.CancelButton.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.CancelButton.ForeColor = System.Drawing.Color.White;
-			this.CancelButton.Location = new System.Drawing.Point(321, 270);
-			this.CancelButton.Margin = new System.Windows.Forms.Padding(2);
-			this.CancelButton.Name = "CancelButton";
-			this.CancelButton.Size = new System.Drawing.Size(163, 40);
-			this.CancelButton.TabIndex = 10;
-			this.CancelButton.Text = "Cancel";
-			this.CancelButton.UseVisualStyleBackColor = false;
+			this.ButtonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			this.ButtonCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ButtonCancel.ForeColor = System.Drawing.Color.White;
+			this.ButtonCancel.Location = new System.Drawing.Point(321, 270);
+			this.ButtonCancel.Margin = new System.Windows.Forms.Padding(2);
+			this.ButtonCancel.Name = "ButtonCancel";
+			this.ButtonCancel.Size = new System.Drawing.Size(163, 40);
+			this.ButtonCancel.TabIndex = 10;
+			this.ButtonCancel.Text = "Cancel";
+			this.ButtonCancel.UseVisualStyleBackColor = false;
 			// 
 			// OkButton
 			// 
@@ -256,7 +256,7 @@
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.TextBox textBox2;
 		private System.Windows.Forms.Panel BodyPanel;
-		private System.Windows.Forms.Button CancelButton;
+		private System.Windows.Forms.Button ButtonCancel;
 		private System.Windows.Forms.Button OkButton;
 		private System.Windows.Forms.Label LoginLabel;
 		private System.Windows.Forms.Panel HeaderPanel;
