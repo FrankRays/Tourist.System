@@ -51,6 +51,7 @@
 			this.SearchTile = new MetroFramework.Controls.MetroTile();
 			this.LogoffTile = new MetroFramework.Controls.MetroTile();
 			this.PrefrencesTile = new MetroFramework.Controls.MetroTile();
+			this.metroTile2 = new MetroFramework.Controls.MetroTile();
 			this.metroTile1 = new MetroFramework.Controls.MetroTile();
 			this.EntityTile = new MetroFramework.Controls.MetroTile();
 			this.AdminToolsTile = new MetroFramework.Controls.MetroTile();
@@ -77,6 +78,7 @@
 			// MainPanel
 			// 
 			this.MainPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.MainPanel.Controls.Add(this.metroTile2);
 			this.MainPanel.Controls.Add(this.metroTile1);
 			this.MainPanel.Controls.Add(this.EntityTile);
 			this.MainPanel.Controls.Add(this.AdminToolsTile);
@@ -363,6 +365,22 @@
 			this.PrefrencesTile.UseSelectable = true;
 			this.PrefrencesTile.UseTileImage = true;
 			// 
+			// metroTile2
+			// 
+			this.metroTile2.ActiveControl = null;
+			this.metroTile2.Location = new System.Drawing.Point(707, 281);
+			this.metroTile2.Margin = new System.Windows.Forms.Padding(2);
+			this.metroTile2.Name = "metroTile2";
+			this.metroTile2.Size = new System.Drawing.Size(128, 122);
+			this.metroTile2.TabIndex = 16;
+			this.metroTile2.Text = "Help";
+			this.metroTile2.TileImage = global::Tourist.Server.Properties.Resources.Help;
+			this.metroTile2.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.metroTile2.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+			this.metroTile2.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+			this.metroTile2.UseSelectable = true;
+			this.metroTile2.UseTileImage = true;
+			// 
 			// metroTile1
 			// 
 			this.metroTile1.ActiveControl = null;
@@ -389,7 +407,7 @@
 			this.EntityTile.Name = "EntityTile";
 			this.EntityTile.Size = new System.Drawing.Size(263, 122);
 			this.EntityTile.TabIndex = 14;
-			this.EntityTile.Text = "Entitys";
+			this.EntityTile.Text = "Entities";
 			this.EntityTile.TileImage = global::Tourist.Server.Properties.Resources.Entity;
 			this.EntityTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.EntityTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
@@ -401,7 +419,7 @@
 			// AdminToolsTile
 			// 
 			this.AdminToolsTile.ActiveControl = null;
-			this.AdminToolsTile.Location = new System.Drawing.Point(708, 281);
+			this.AdminToolsTile.Location = new System.Drawing.Point(567, 281);
 			this.AdminToolsTile.Margin = new System.Windows.Forms.Padding(2);
 			this.AdminToolsTile.Name = "AdminToolsTile";
 			this.AdminToolsTile.Size = new System.Drawing.Size(128, 122);
@@ -420,7 +438,7 @@
 			this.NotifyTile.Location = new System.Drawing.Point(567, 12);
 			this.NotifyTile.Margin = new System.Windows.Forms.Padding(2);
 			this.NotifyTile.Name = "NotifyTile";
-			this.NotifyTile.Size = new System.Drawing.Size(268, 122);
+			this.NotifyTile.Size = new System.Drawing.Size(128, 122);
 			this.NotifyTile.TabIndex = 6;
 			this.NotifyTile.Text = "Notify";
 			this.NotifyTile.TileImage = global::Tourist.Server.Properties.Resources.Message;
@@ -483,7 +501,7 @@
 			// BackupTile
 			// 
 			this.BackupTile.ActiveControl = null;
-			this.BackupTile.Location = new System.Drawing.Point(567, 281);
+			this.BackupTile.Location = new System.Drawing.Point(707, 12);
 			this.BackupTile.Margin = new System.Windows.Forms.Padding(2);
 			this.BackupTile.Name = "BackupTile";
 			this.BackupTile.Size = new System.Drawing.Size(128, 122);
@@ -607,6 +625,7 @@
 		private System.Windows.Forms.Panel HeaderPanel;
 		private MetroFramework.Controls.MetroTile EntityTile;
 		private MetroFramework.Controls.MetroTile metroTile1;
+		private MetroFramework.Controls.MetroTile metroTile2;
 	}
 }
 

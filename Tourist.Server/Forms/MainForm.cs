@@ -88,18 +88,17 @@ namespace Tourist.Server.Forms
 			{
 				SideBarPanel.Visible = true;
 				
-				Transition t = new Transition( new TransitionType_Linear( 750 ) );
-				t.add( SideBarPanel, "Left", ( Width - SideBarPanel.Width ) );
-				t.run( );
-
+				Transition transition = new Transition( new TransitionType_Linear( 750 ) );
+				transition.add( SideBarPanel, "Left", ( Width - SideBarPanel.Width ) );
+				transition.run( );
 			}
 			else
 			{
 				SideBarPanel.Visible = false;
-				
-				Transition t = new Transition( new TransitionType_Linear( 1 ) );
-				t.add( SideBarPanel, "Left", ( Width - 1 ) );
-				t.run( );
+
+				Transition transition = new Transition( new TransitionType_Linear( 1 ) );
+				transition.add( SideBarPanel, "Left", ( Width - 1 ) );
+				transition.run( );
 			}
 		}
 

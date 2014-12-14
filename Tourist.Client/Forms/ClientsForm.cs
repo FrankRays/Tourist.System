@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using MetroFramework.Forms;
 
-namespace Tourist.Client.Forms
+namespace Tourist.Server.Forms
 {
 	public partial class ClientsForm: MetroForm
 	{

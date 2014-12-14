@@ -14,11 +14,7 @@ namespace Tourist.Server.Forms
 		private void DisponibilityForm_Load( object sender, System.EventArgs e )
 		{
 			SetFormFullScreen();
-			
-			ClientsTabsControl.BackColor = Color.FromArgb( 0, 174, 219 );
-			ClientsTabsControl.ForeColor = Color.FromArgb( 255, 255, 255 );
 
-			
 		}
 
 		private void SetFormFullScreen( )

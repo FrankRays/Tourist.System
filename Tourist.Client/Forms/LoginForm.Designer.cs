@@ -1,4 +1,4 @@
-﻿namespace Tourist.Client.Forms
+﻿namespace Tourist.Server.Forms
 {
 	partial class LoginForm
 	{
@@ -64,7 +64,7 @@
 			// 
 			this.LoginFrame.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.LoginFrame.AutoSize = true;
-			this.LoginFrame.BackgroundImage = global::Tourist.Client.Properties.Resources.LoginFrame;
+			this.LoginFrame.BackgroundImage = global::Tourist.Server.Properties.Resources.LoginFrame;
 			this.LoginFrame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.LoginFrame.Controls.Add(this.ButtonCancel);
 			this.LoginFrame.Controls.Add(this.OkButton);
@@ -183,7 +183,7 @@
 			this.ImagePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.ImagePanel.AutoSize = true;
-			this.ImagePanel.BackgroundImage = global::Tourist.Client.Properties.Resources._lock;
+			this.ImagePanel.BackgroundImage = global::Tourist.Server.Properties.Resources._lock;
 			this.ImagePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.ImagePanel.Location = new System.Drawing.Point(1080, 11);
 			this.ImagePanel.Margin = new System.Windows.Forms.Padding(2);

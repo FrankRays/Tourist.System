@@ -16,20 +16,9 @@ namespace Tourist.Server.Forms
 		{
 
 			SetFormFullScreen( );
-			//SetTitlePanelPosition();
-			//Resize += LoginForm_Resize ;
-		}
 
-		/* Teste de evento 
-		private void LoginForm_Resize(object sender, EventArgs e)
-		{
-			if ( WindowState == FormWindowState.Maximized )
-			{
-				TitlePanel.Width = Screen.PrimaryScreen.Bounds.Width;
-			}
-			
+
 		}
-		 */
 
 		private void SetFormFullScreen( )
 		{

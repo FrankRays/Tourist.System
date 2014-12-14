@@ -4,11 +4,11 @@ using System.Diagnostics;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
 using System.Windows.Forms;
-using Tourist.Client.Forms;
+using Tourist.Server.Forms;
 using Tourist.Data.Classes;
 using Tourist.Data.Interfaces;
 
-namespace Tourist.Client
+namespace Tourist.Server
 {
 	static class Program
 	{

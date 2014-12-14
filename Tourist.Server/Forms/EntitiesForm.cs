@@ -188,6 +188,11 @@ namespace Tourist.Server.Forms
 
 		}
 
+		private void BackPanel_Paint( object sender, PaintEventArgs e )
+		{
+
+		}
+
 
 
 	}

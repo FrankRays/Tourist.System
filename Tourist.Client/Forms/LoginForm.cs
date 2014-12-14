@@ -5,7 +5,7 @@ using MetroFramework.Forms;
 using Tourist.Data.Interfaces;
 
 
-namespace Tourist.Client.Forms
+namespace Tourist.Server.Forms
 {
 	public partial class LoginForm : MetroForm
 	{

@@ -4,20 +4,16 @@ using MetroFramework.Forms;
 
 namespace Tourist.Server.Forms
 {
-	public partial class DisponibilityForm : MetroForm
+	public partial class ToolsForm: MetroForm
 	{
-		public DisponibilityForm( )
+		public ToolsForm( )
 		{
 			InitializeComponent( );
 		}
 
-		private void DisponibilityForm_Load( object sender, System.EventArgs e )
+		private void ToolsForm_Load( object sender, System.EventArgs e )
 		{
 			SetFormFullScreen();
-			
-			ClientsTabsControl.BackColor = Color.FromArgb( 0, 174, 219 );
-			ClientsTabsControl.ForeColor = Color.FromArgb( 255, 255, 255 );
-
 			
 		}
 
@@ -29,7 +25,7 @@ namespace Tourist.Server.Forms
 			Size = new Size( x, y );
 		}
 
-		private void BookingTypeLabel_Click( object sender, System.EventArgs e )
+		private void metroGrid3_CellContentClick( object sender, DataGridViewCellEventArgs e )
 		{
 
 		}

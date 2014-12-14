@@ -28,18 +28,12 @@
 		/// </summary>
 		private void InitializeComponent( )
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.BodyPanel = new System.Windows.Forms.Panel();
 			this.WrapperPanelGrid = new System.Windows.Forms.Panel();
 			this.EntityDataGrid = new MetroFramework.Controls.MetroGrid();
-			this.metroTile5 = new MetroFramework.Controls.MetroTile();
-			this.metroTile6 = new MetroFramework.Controls.MetroTile();
-			this.GroupSearch = new System.Windows.Forms.GroupBox();
-			this.OkButton = new System.Windows.Forms.Button();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
 			this.FooterPanel = new System.Windows.Forms.Panel();
 			this.FowardPanel = new System.Windows.Forms.Panel();
 			this.HomePanel = new System.Windows.Forms.Panel();
@@ -58,13 +52,17 @@
 			this.EntityNameColunm = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.EntityAddressColunm = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.EntityNifColunm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.GroupSearch = new System.Windows.Forms.GroupBox();
+			this.OkButton = new System.Windows.Forms.Button();
+			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
 			this.BodyPanel.SuspendLayout();
 			this.WrapperPanelGrid.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.EntityDataGrid)).BeginInit();
-			this.GroupSearch.SuspendLayout();
 			this.FooterPanel.SuspendLayout();
 			this.HeaderPanel.SuspendLayout();
 			this.SideBarPanel.SuspendLayout();
+			this.GroupSearch.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// BodyPanel
@@ -73,8 +71,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.BodyPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.BodyPanel.Controls.Add(this.WrapperPanelGrid);
 			this.BodyPanel.Controls.Add(this.GroupSearch);
+			this.BodyPanel.Controls.Add(this.WrapperPanelGrid);
 			this.BodyPanel.Location = new System.Drawing.Point(-1, 149);
 			this.BodyPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.BodyPanel.Name = "BodyPanel";
@@ -88,9 +86,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.WrapperPanelGrid.BackColor = System.Drawing.Color.White;
 			this.WrapperPanelGrid.Controls.Add(this.EntityDataGrid);
-			this.WrapperPanelGrid.Controls.Add(this.metroTile5);
-			this.WrapperPanelGrid.Controls.Add(this.metroTile6);
-			this.WrapperPanelGrid.Location = new System.Drawing.Point(231, 24);
+			this.WrapperPanelGrid.Location = new System.Drawing.Point(233, 24);
 			this.WrapperPanelGrid.Name = "WrapperPanelGrid";
 			this.WrapperPanelGrid.Size = new System.Drawing.Size(953, 482);
 			this.WrapperPanelGrid.TabIndex = 23;
@@ -98,21 +94,24 @@
 			// EntityDataGrid
 			// 
 			this.EntityDataGrid.AllowUserToOrderColumns = true;
+			this.EntityDataGrid.AllowUserToResizeColumns = false;
 			this.EntityDataGrid.AllowUserToResizeRows = false;
 			this.EntityDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.EntityDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.EntityDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
 			this.EntityDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.EntityDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.EntityDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.EntityDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semilight", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			this.EntityDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semilight", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+			dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			this.EntityDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
 			this.EntityDataGrid.ColumnHeadersHeight = 60;
 			this.EntityDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.EntityDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -121,118 +120,38 @@
             this.EntityNameColunm,
             this.EntityAddressColunm,
             this.EntityNifColunm});
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(172)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.EntityDataGrid.DefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(172)))), ((int)(((byte)(219)))));
+			dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 13F);
+			dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+			dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.EntityDataGrid.DefaultCellStyle = dataGridViewCellStyle8;
 			this.EntityDataGrid.EnableHeadersVisualStyles = false;
 			this.EntityDataGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
 			this.EntityDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.EntityDataGrid.Location = new System.Drawing.Point(2, 33);
+			this.EntityDataGrid.Location = new System.Drawing.Point(2, 1);
 			this.EntityDataGrid.Margin = new System.Windows.Forms.Padding(2);
 			this.EntityDataGrid.Name = "EntityDataGrid";
 			this.EntityDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.EntityDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+			dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.EntityDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+			this.EntityDataGrid.RowHeadersWidth = 50;
 			this.EntityDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-			this.EntityDataGrid.RowTemplate.Height = 24;
+			this.EntityDataGrid.RowTemplate.Height = 25;
 			this.EntityDataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.EntityDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.EntityDataGrid.Size = new System.Drawing.Size(949, 449);
+			this.EntityDataGrid.Size = new System.Drawing.Size(949, 480);
 			this.EntityDataGrid.TabIndex = 17;
 			this.EntityDataGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.EntityDataGrid_CellEndEdit);
 			this.EntityDataGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.EntityDataGrid_RowValidating);
-			// 
-			// metroTile5
-			// 
-			this.metroTile5.ActiveControl = null;
-			this.metroTile5.AutoSize = true;
-			this.metroTile5.Location = new System.Drawing.Point(114, 3);
-			this.metroTile5.Margin = new System.Windows.Forms.Padding(2);
-			this.metroTile5.Name = "metroTile5";
-			this.metroTile5.Size = new System.Drawing.Size(108, 26);
-			this.metroTile5.TabIndex = 16;
-			this.metroTile5.Text = "x Remove";
-			this.metroTile5.TileImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.metroTile5.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-			this.metroTile5.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-			this.metroTile5.UseSelectable = true;
-			this.metroTile5.UseTileImage = true;
-			// 
-			// metroTile6
-			// 
-			this.metroTile6.ActiveControl = null;
-			this.metroTile6.AutoSize = true;
-			this.metroTile6.Location = new System.Drawing.Point(2, 3);
-			this.metroTile6.Margin = new System.Windows.Forms.Padding(2);
-			this.metroTile6.Name = "metroTile6";
-			this.metroTile6.Size = new System.Drawing.Size(108, 26);
-			this.metroTile6.TabIndex = 15;
-			this.metroTile6.Text = " + Add";
-			this.metroTile6.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.metroTile6.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-			this.metroTile6.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-			this.metroTile6.UseSelectable = true;
-			// 
-			// GroupSearch
-			// 
-			this.GroupSearch.Controls.Add(this.OkButton);
-			this.GroupSearch.Controls.Add(this.textBox1);
-			this.GroupSearch.Controls.Add(this.metroComboBox1);
-			this.GroupSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.GroupSearch.ForeColor = System.Drawing.Color.White;
-			this.GroupSearch.Location = new System.Drawing.Point(18, 12);
-			this.GroupSearch.Margin = new System.Windows.Forms.Padding(2);
-			this.GroupSearch.Name = "GroupSearch";
-			this.GroupSearch.Padding = new System.Windows.Forms.Padding(2);
-			this.GroupSearch.Size = new System.Drawing.Size(197, 157);
-			this.GroupSearch.TabIndex = 22;
-			this.GroupSearch.TabStop = false;
-			this.GroupSearch.Text = "Search ";
-			// 
-			// OkButton
-			// 
-			this.OkButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.OkButton.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.OkButton.ForeColor = System.Drawing.Color.White;
-			this.OkButton.Location = new System.Drawing.Point(12, 106);
-			this.OkButton.Margin = new System.Windows.Forms.Padding(2);
-			this.OkButton.Name = "OkButton";
-			this.OkButton.Size = new System.Drawing.Size(176, 32);
-			this.OkButton.TabIndex = 11;
-			this.OkButton.Text = "OK";
-			this.OkButton.UseVisualStyleBackColor = false;
-			// 
-			// textBox1
-			// 
-			this.textBox1.Font = new System.Drawing.Font("Segoe UI Semilight", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBox1.Location = new System.Drawing.Point(12, 64);
-			this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(176, 32);
-			this.textBox1.TabIndex = 8;
-			this.textBox1.Text = " Search";
-			// 
-			// metroComboBox1
-			// 
-			this.metroComboBox1.FormattingEnabled = true;
-			this.metroComboBox1.ItemHeight = 23;
-			this.metroComboBox1.Location = new System.Drawing.Point(12, 29);
-			this.metroComboBox1.Margin = new System.Windows.Forms.Padding(2);
-			this.metroComboBox1.Name = "metroComboBox1";
-			this.metroComboBox1.Size = new System.Drawing.Size(176, 29);
-			this.metroComboBox1.TabIndex = 9;
-			this.metroComboBox1.UseSelectable = true;
 			// 
 			// FooterPanel
 			// 
@@ -282,6 +201,7 @@
 			this.BackPanel.Name = "BackPanel";
 			this.BackPanel.Size = new System.Drawing.Size(64, 95);
 			this.BackPanel.TabIndex = 12;
+			this.BackPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BackPanel_Paint);
 			// 
 			// HeaderPanel
 			// 
@@ -414,46 +334,91 @@
 			// 
 			// EntityIdColunm
 			// 
-			this.EntityIdColunm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.EntityIdColunm.HeaderText = "Entity ID";
+			this.EntityIdColunm.HeaderText = "ID";
+			this.EntityIdColunm.MinimumWidth = 150;
 			this.EntityIdColunm.Name = "EntityIdColunm";
 			this.EntityIdColunm.ReadOnly = true;
-			this.EntityIdColunm.Width = 106;
 			// 
 			// EntityTypeColumn
 			// 
-			this.EntityTypeColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.EntityTypeColumn.HeaderText = "Entity Type";
+			this.EntityTypeColumn.HeaderText = "Type";
 			this.EntityTypeColumn.Items.AddRange(new object[] {
             "Hotel",
             "ActivityAgency",
             "TransportAgency",
             "HotelierGroup"});
+			this.EntityTypeColumn.MinimumWidth = 150;
 			this.EntityTypeColumn.Name = "EntityTypeColumn";
-			this.EntityTypeColumn.Width = 107;
 			// 
 			// EntityNameColunm
 			// 
-			this.EntityNameColunm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.EntityNameColunm.HeaderText = "Entity Name";
+			this.EntityNameColunm.HeaderText = "Name";
+			this.EntityNameColunm.MinimumWidth = 150;
 			this.EntityNameColunm.Name = "EntityNameColunm";
-			this.EntityNameColunm.Width = 139;
 			// 
 			// EntityAddressColunm
 			// 
-			this.EntityAddressColunm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.EntityAddressColunm.HeaderText = "Entity Address";
+			this.EntityAddressColunm.HeaderText = "Address";
+			this.EntityAddressColunm.MinimumWidth = 150;
 			this.EntityAddressColunm.Name = "EntityAddressColunm";
-			this.EntityAddressColunm.Width = 155;
 			// 
 			// EntityNifColunm
 			// 
-			this.EntityNifColunm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.EntityNifColunm.HeaderText = "Entity Nif";
+			this.EntityNifColunm.HeaderText = "NIF";
+			this.EntityNifColunm.MinimumWidth = 150;
 			this.EntityNifColunm.Name = "EntityNifColunm";
 			this.EntityNifColunm.Resizable = System.Windows.Forms.DataGridViewTriState.True;
 			this.EntityNifColunm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			this.EntityNifColunm.Width = 93;
+			// 
+			// GroupSearch
+			// 
+			this.GroupSearch.Controls.Add(this.OkButton);
+			this.GroupSearch.Controls.Add(this.textBox1);
+			this.GroupSearch.Controls.Add(this.metroComboBox1);
+			this.GroupSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.GroupSearch.ForeColor = System.Drawing.Color.White;
+			this.GroupSearch.Location = new System.Drawing.Point(22, 12);
+			this.GroupSearch.Margin = new System.Windows.Forms.Padding(2);
+			this.GroupSearch.Name = "GroupSearch";
+			this.GroupSearch.Padding = new System.Windows.Forms.Padding(2);
+			this.GroupSearch.Size = new System.Drawing.Size(197, 157);
+			this.GroupSearch.TabIndex = 24;
+			this.GroupSearch.TabStop = false;
+			this.GroupSearch.Text = "Search ";
+			// 
+			// OkButton
+			// 
+			this.OkButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			this.OkButton.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.OkButton.ForeColor = System.Drawing.Color.White;
+			this.OkButton.Location = new System.Drawing.Point(12, 106);
+			this.OkButton.Margin = new System.Windows.Forms.Padding(2);
+			this.OkButton.Name = "OkButton";
+			this.OkButton.Size = new System.Drawing.Size(176, 32);
+			this.OkButton.TabIndex = 11;
+			this.OkButton.Text = "OK";
+			this.OkButton.UseVisualStyleBackColor = false;
+			// 
+			// textBox1
+			// 
+			this.textBox1.Font = new System.Drawing.Font("Segoe UI Semilight", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.textBox1.Location = new System.Drawing.Point(12, 64);
+			this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(176, 32);
+			this.textBox1.TabIndex = 8;
+			this.textBox1.Text = " Search";
+			// 
+			// metroComboBox1
+			// 
+			this.metroComboBox1.FormattingEnabled = true;
+			this.metroComboBox1.ItemHeight = 23;
+			this.metroComboBox1.Location = new System.Drawing.Point(12, 29);
+			this.metroComboBox1.Margin = new System.Windows.Forms.Padding(2);
+			this.metroComboBox1.Name = "metroComboBox1";
+			this.metroComboBox1.Size = new System.Drawing.Size(176, 29);
+			this.metroComboBox1.TabIndex = 9;
+			this.metroComboBox1.UseSelectable = true;
 			// 
 			// EntitiesForm
 			// 
@@ -473,15 +438,14 @@
 			this.Load += new System.EventHandler(this.EntitiesForm_Load);
 			this.BodyPanel.ResumeLayout(false);
 			this.WrapperPanelGrid.ResumeLayout(false);
-			this.WrapperPanelGrid.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.EntityDataGrid)).EndInit();
-			this.GroupSearch.ResumeLayout(false);
-			this.GroupSearch.PerformLayout();
 			this.FooterPanel.ResumeLayout(false);
 			this.FooterPanel.PerformLayout();
 			this.HeaderPanel.ResumeLayout(false);
 			this.HeaderPanel.PerformLayout();
 			this.SideBarPanel.ResumeLayout(false);
+			this.GroupSearch.ResumeLayout(false);
+			this.GroupSearch.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -490,11 +454,6 @@
 
 		private System.Windows.Forms.Panel BodyPanel;
 		private System.Windows.Forms.Panel WrapperPanelGrid;
-		private MetroFramework.Controls.MetroTile metroTile5;
-		private System.Windows.Forms.GroupBox GroupSearch;
-		private System.Windows.Forms.Button OkButton;
-		private System.Windows.Forms.TextBox textBox1;
-		private MetroFramework.Controls.MetroComboBox metroComboBox1;
 		private System.Windows.Forms.Panel FooterPanel;
 		private System.Windows.Forms.Panel FowardPanel;
 		private System.Windows.Forms.Panel HomePanel;
@@ -504,7 +463,6 @@
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Label SubTitleLabel;
 		private System.Windows.Forms.Label TitleLabel;
-		private MetroFramework.Controls.MetroTile metroTile6;
 		private System.Windows.Forms.Panel SideBarPanel;
 		private MetroFramework.Controls.MetroTile SearchTile;
 		private MetroFramework.Controls.MetroTile LogoffTile;
@@ -515,6 +473,10 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn EntityNameColunm;
 		private System.Windows.Forms.DataGridViewTextBoxColumn EntityAddressColunm;
 		private System.Windows.Forms.DataGridViewTextBoxColumn EntityNifColunm;
+		private System.Windows.Forms.GroupBox GroupSearch;
+		private System.Windows.Forms.Button OkButton;
+		private System.Windows.Forms.TextBox textBox1;
+		private MetroFramework.Controls.MetroComboBox metroComboBox1;
 
 
 	}

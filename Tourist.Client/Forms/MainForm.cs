@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using MetroFramework.Forms;
 using Transitions;
 
-namespace Tourist.Client.Forms
+namespace Tourist.Server.Forms
 {
 	public partial class MainForm : MetroForm
 	{
