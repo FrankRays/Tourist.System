@@ -54,8 +54,10 @@
 			this.LogoffTile = new MetroFramework.Controls.MetroTile();
 			this.PrefrencesTile = new MetroFramework.Controls.MetroTile();
 			this.EntityIdColunm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.EntityTypeColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
 			this.EntityNameColunm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.EntityCityColunm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.EntityAddressColunm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.EntityNifColunm = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.BodyPanel.SuspendLayout();
 			this.WrapperPanelGrid.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.EntityDataGrid)).BeginInit();
@@ -115,8 +117,10 @@
 			this.EntityDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.EntityDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.EntityIdColunm,
+            this.EntityTypeColumn,
             this.EntityNameColunm,
-            this.EntityCityColunm});
+            this.EntityAddressColunm,
+            this.EntityNifColunm});
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(172)))), ((int)(((byte)(219)))));
 			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -146,6 +150,7 @@
 			this.EntityDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.EntityDataGrid.Size = new System.Drawing.Size(949, 449);
 			this.EntityDataGrid.TabIndex = 17;
+			this.EntityDataGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.EntityDataGrid_CellEndEdit);
 			this.EntityDataGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.EntityDataGrid_RowValidating);
 			// 
 			// metroTile5
@@ -321,9 +326,9 @@
 			this.SubTitleLabel.Location = new System.Drawing.Point(24, 70);
 			this.SubTitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.SubTitleLabel.Name = "SubTitleLabel";
-			this.SubTitleLabel.Size = new System.Drawing.Size(216, 30);
+			this.SubTitleLabel.Size = new System.Drawing.Size(201, 30);
 			this.SubTitleLabel.TabIndex = 4;
-			this.SubTitleLabel.Text = "Entities Management";
+			this.SubTitleLabel.Text = "Entity Management";
 			// 
 			// TitleLabel
 			// 
@@ -334,9 +339,9 @@
 			this.TitleLabel.Location = new System.Drawing.Point(17, 5);
 			this.TitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.TitleLabel.Name = "TitleLabel";
-			this.TitleLabel.Size = new System.Drawing.Size(148, 51);
+			this.TitleLabel.Size = new System.Drawing.Size(121, 51);
 			this.TitleLabel.TabIndex = 3;
-			this.TitleLabel.Text = "Entities";
+			this.TitleLabel.Text = "Entity";
 			// 
 			// SideBarPanel
 			// 
@@ -415,6 +420,18 @@
 			this.EntityIdColunm.ReadOnly = true;
 			this.EntityIdColunm.Width = 106;
 			// 
+			// EntityTypeColumn
+			// 
+			this.EntityTypeColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.EntityTypeColumn.HeaderText = "Entity Type";
+			this.EntityTypeColumn.Items.AddRange(new object[] {
+            "Hotel",
+            "ActivityAgency",
+            "TransportAgency",
+            "HotelierGroup"});
+			this.EntityTypeColumn.Name = "EntityTypeColumn";
+			this.EntityTypeColumn.Width = 107;
+			// 
 			// EntityNameColunm
 			// 
 			this.EntityNameColunm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -422,12 +439,21 @@
 			this.EntityNameColunm.Name = "EntityNameColunm";
 			this.EntityNameColunm.Width = 139;
 			// 
-			// EntityCityColunm
+			// EntityAddressColunm
 			// 
-			this.EntityCityColunm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.EntityCityColunm.HeaderText = "Entity City";
-			this.EntityCityColunm.Name = "EntityCityColunm";
-			this.EntityCityColunm.Width = 118;
+			this.EntityAddressColunm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.EntityAddressColunm.HeaderText = "Entity Address";
+			this.EntityAddressColunm.Name = "EntityAddressColunm";
+			this.EntityAddressColunm.Width = 155;
+			// 
+			// EntityNifColunm
+			// 
+			this.EntityNifColunm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.EntityNifColunm.HeaderText = "Entity Nif";
+			this.EntityNifColunm.Name = "EntityNifColunm";
+			this.EntityNifColunm.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.EntityNifColunm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.EntityNifColunm.Width = 93;
 			// 
 			// EntitiesForm
 			// 
@@ -485,8 +511,10 @@
 		private MetroFramework.Controls.MetroTile PrefrencesTile;
 		private MetroFramework.Controls.MetroGrid EntityDataGrid;
 		private System.Windows.Forms.DataGridViewTextBoxColumn EntityIdColunm;
+		private System.Windows.Forms.DataGridViewComboBoxColumn EntityTypeColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn EntityNameColunm;
-		private System.Windows.Forms.DataGridViewTextBoxColumn EntityCityColunm;
+		private System.Windows.Forms.DataGridViewTextBoxColumn EntityAddressColunm;
+		private System.Windows.Forms.DataGridViewTextBoxColumn EntityNifColunm;
 
 
 	}

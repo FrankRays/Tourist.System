@@ -15,7 +15,9 @@ namespace Tourist.Data.Classes
 
 		private static int mCounter = 0;
 		private string mName;
-		private string mCity;
+		private string mAddress;
+		private EntityType mEntityType;
+		private int mNif;
 		private IEnumerable<IBooking> mBookings;
 		private IEnumerable<IClient> mClients;
 		private IEnumerable<IBookable> mBookables;
@@ -27,16 +29,28 @@ namespace Tourist.Data.Classes
 
 		public int Id { get; set; }
 
+		public EntityType EntityType
+		{
+			get { return mEntityType; } 
+			set { mEntityType = value; }
+		}
+
 		public string Name
 		{
 			get { return mName; }
 			set { mName = value; }
 		}
 
-		public string City
+		public string Address
 		{
-			get { return mCity; }
-			set { mCity = value; }
+			get { return mAddress; }
+			set { mAddress = value; }
+		}
+
+		public int Nif
+		{
+			get { return mNif; } 
+			set { mNif = value; }
 		}
 
 		[XmlIgnore]

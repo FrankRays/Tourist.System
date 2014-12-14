@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Tourist.Data.Classes;
 
 namespace Tourist.Data.Interfaces
 {
@@ -7,9 +8,11 @@ namespace Tourist.Data.Interfaces
 
 		int Id { get; set; }
 
+		EntityType EntityType { get; set; }
 		string Name { get; set; }
-		string City { get; set; }
-
+		string Address { get; set; }
+		int Nif { get; set; }
+		
 		IEnumerable<IBooking> Bookings { get; }
 		void Append( IBooking aItem );
 		void Remove( IBooking aItem );

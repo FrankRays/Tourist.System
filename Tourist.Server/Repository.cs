@@ -44,20 +44,26 @@ namespace Tourist.Server
 		}
 		#endregion
 
-		public void AddEntityToRepository( IEntity aEntity )
+		public void AddEntity( IEntity aEntity )
 		{
 			aEntity.OnSaveLoad = true;
 			mData.Append(aEntity as Entity);
 		}
 
-		public int RepositoryEntityCount( )
+		public int Count( )
 		{
 			return mData.EntityList.Count;
 		}
 
+		public bool IsEmpty( )
+		{
+			return (mData.EntityList.Count == 0);
+		}
+
+
 		public string[ , ] EntitiesListToMatrix(int columnsCount)
 		{
-			int rowsCount = mData.EntityList.Count;
+			int rowsCount = Count();
 
 			var matrix = new string[rowsCount, columnsCount ];
 
@@ -67,9 +73,13 @@ namespace Tourist.Server
 				{
 					matrix[ i, j ] = mData.EntityList.ElementAt( i ).Id.ToString( );
 					j++;
+					matrix[ i, j ] = mData.EntityList.ElementAt( i ).EntityType.ToString();
+					j++;
 					matrix[ i, j ] = mData.EntityList.ElementAt( i ).Name;
 					j++;
-					matrix[ i, j ] = mData.EntityList.ElementAt( i ).City;
+					matrix[ i, j ] = mData.EntityList.ElementAt( i ).Address;
+					j++;
+					matrix[ i, j ] = mData.EntityList.ElementAt( i ).Nif.ToString();
 					j++;
 				}
 			}
@@ -87,6 +97,14 @@ namespace Tourist.Server
 			return false;
 		}
 
+		public void EditEntityType( int aId, EntityType aType )
+		{
+			foreach ( var entity in mData.EntityList.Where( entity => entity.Id == aId ) )
+			{
+				entity.EntityType = aType;
+			}
+		}
+
 		public void EditEntityName(int aId, string aName)
 		{
 			foreach (var entity in mData.EntityList.Where(entity => entity.Id == aId))
@@ -95,15 +113,24 @@ namespace Tourist.Server
 			}
 		}
 
-		public void EditEntityCity( int aId, string aCity )
+		public void EditEntityAddress( int aId, string aAddress )
 		{
 			foreach ( var entity in mData.EntityList.Where( entity => entity.Id == aId ) )
 			{
-				entity.City = aCity;
+				entity.Address = aAddress;
+			}
+		}
+
+		public void EditEntityNif( int aId, int aNif )
+		{
+			foreach ( var entity in mData.EntityList.Where( entity => entity.Id == aId ) )
+			{
+				entity.Nif = aNif;
 			}
 		}
 
 
+		/*
 		public Entity SearchByEntityId( int aEntityId )
 		{
 			return mData.EntityList.FirstOrDefault( entity => entity.Id == aEntityId );
@@ -114,13 +141,22 @@ namespace Tourist.Server
 			return mData.EntityList.FirstOrDefault( entity => entity.Name == aEntityName );
 		}
 
-		public Entity SearchByEntityCity( string aEntityCity)
+		public Entity SearchByEntityAddress( string aEntityAddress)
 		{
-			return mData.EntityList.FirstOrDefault( entity => entity.City == aEntityCity );
+			return mData.EntityList.FirstOrDefault( entity => entity.Address == aEntityAddress );
 		}
 
-
-
+		public Entity SearchByEntityType( EntityType aEntityType )
+		{
+			return mData.EntityList.FirstOrDefault( entity => entity.EntityType == aEntityType );
+		}
+		
+		public Entity SearchByEntityNif( int aEntityNif )
+		{
+			return mData.EntityList.FirstOrDefault( entity => entity.Nif == aEntityNif );
+		}
+		
+		*/
 
 	}
 }

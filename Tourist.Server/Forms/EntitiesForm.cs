@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -13,17 +14,18 @@ namespace Tourist.Server.Forms
 	public partial class EntitiesForm : MetroForm
 	{
 
-		private Repository Repository = Repository.Instance;
+		private readonly Repository Repository = Repository.Instance;
 
 		public EntitiesForm( )
 		{
 			InitializeComponent( );
 		}
 
-		private void EntitiesForm_Load( object sender, System.EventArgs e )
+		private void EntitiesForm_Load( object sender, EventArgs e )
 		{
 			SetFormFullScreen( );
-			LoadEntitiesFromRepository( );
+
+			LoadDataToGrid( );
 
 		}
 
@@ -35,19 +37,22 @@ namespace Tourist.Server.Forms
 			Size = new Size( x, y );
 		}
 
-		private void LoadEntitiesFromRepository( )
+		private void LoadDataToGrid( )
 		{
-			var entitiesMatrix = Repository.EntitiesListToMatrix( EntityDataGrid.ColumnCount );
 
-			for ( int i = 0 ; i < Repository.RepositoryEntityCount( ) ; i++ )
+			if ( Repository.IsEmpty( ) )
+				return;
+
+			var EntitiesMatrix = Repository.EntitiesListToMatrix( EntityDataGrid.ColumnCount );
+
+			for ( int i = 0 ; i < Repository.Count( ) ; i++ )
 			{
 				EntityDataGrid.Rows.Add( );
 
 				for ( int j = 0 ; j < EntityDataGrid.ColumnCount ; j++ )
 				{
-					EntityDataGrid.Rows[ i ].Cells[ j ].Value = entitiesMatrix[ i, j ];
+					EntityDataGrid.Rows[ i ].Cells[ j ].Value = EntitiesMatrix[ i, j ];
 				}
-
 			}
 		}
 
@@ -55,80 +60,118 @@ namespace Tourist.Server.Forms
 		{
 
 			DataGridViewRow row = EntityDataGrid.Rows[ e.RowIndex ];
+
 			int entityId = e.RowIndex + 1;
+
+			EntityDataGrid[ "EntityIdColunm", e.RowIndex ].Value = entityId;
+
 
 			if ( row.IsNewRow )
 				return;
 
-			bool canAddOrEditEntity = RowCellsValidated( row );
+			bool isRowValidated = RowCellsValidated( row );
 
-			if ( canAddOrEditEntity )
+			if (isRowValidated)
 			{
 
-				if ( !Repository.EntityAlreadyExists( entityId ) )
+				if (!Repository.EntityAlreadyExists(entityId))
 				{
-					var buffer = RowCellValues( row );
+					var buffer = RowCellValues(row);
 
-					CreateEntityRow( buffer[ 0 ], buffer[ 1 ] );
-
-					RowCellsErrorRemove( row );
+					CreateEntityRow(buffer);
 
 				}
 				else
 				{
-					if ( e.ColumnIndex == EntityDataGrid.Columns[ "EntityNameColunm" ].Index )
+					if (e.ColumnIndex == EntityDataGrid.Columns["EntityTypeColumn"].Index)
 					{
-						Repository.EditEntityName( entityId, e.FormattedValue.ToString( ) );
+						Repository.EditEntityType(entityId, (EntityType) Enum.Parse(typeof (EntityType), e.FormattedValue.ToString()));
 					}
-					else if ( e.ColumnIndex == EntityDataGrid.Columns[ "EntityCityColunm" ].Index )
+					else if (e.ColumnIndex == EntityDataGrid.Columns["EntityNameColunm"].Index)
 					{
-						Repository.EditEntityCity( entityId, e.FormattedValue.ToString( ) );
+						Repository.EditEntityName(entityId, e.FormattedValue.ToString());
+					}
+					else if (e.ColumnIndex == EntityDataGrid.Columns["EntityAddressColunm"].Index)
+					{
+						Repository.EditEntityAddress(entityId, e.FormattedValue.ToString());
+					}
+					else if (e.ColumnIndex == EntityDataGrid.Columns["EntityNifColunm"].Index)
+					{
+						Repository.EditEntityNif(entityId, Convert.ToInt32(e.FormattedValue.ToString()));
 					}
 				}
 
-				Repository.Save( Program.FileName );
+				// gravar sempre que possivel porque pode acontecer falhar a energia
+				Repository.Save(Program.FileName);
 			}
+			
 		}
 
-		private void CreateEntityRow( string aName, string aCity )
+		private void EntityDataGrid_CellEndEdit( object sender, DataGridViewCellEventArgs e )
+		{
+			//EntityDataGrid[e.ColumnIndex, e.RowIndex].ErrorText = string.Empty;
+		}
+
+
+		private void CreateEntityRow( string[ ] Args )
 		{
 			IEntity entity = Repository.Factory.CreateObject<IEntity>( );
-			entity.Name = aName;
-			entity.City = aCity;
+			entity.EntityType = ( EntityType ) Enum.Parse( typeof( EntityType ), Args[ 0 ] );
+			entity.Name = Args[ 1 ];
+			entity.Address = Args[ 2 ];
+			entity.Nif = Convert.ToInt32( Args[ 3 ] );
 
 			// so adiciona no repositorio
-			Repository.AddEntityToRepository( entity );
-
-			// so faz save quando carrega num botao , exit, back, home
-			//Program.repo.Save( entity );
-			//Program.repo.Save( Program.FileName );
+			Repository.AddEntity( entity );
 		}
 
-		private void RowCellsErrorRemove( DataGridViewRow rows )
+		private void CellErrorRemove( DataGridViewCell aCell )
 		{
-			for ( int i = 1 ; i < rows.Cells.Count ; i++ )
+			aCell.ErrorText = string.Empty;
+		}
+
+		private bool RowCellsValidated( DataGridViewRow aRow )
+		{
+
+			bool[ ] cellHasError = new bool[ aRow.Cells.Count ];
+
+			for ( int i = 0 ; i < aRow.Cells.Count - 1 ; i++ )
 			{
-				rows.Cells[ i ].ErrorText = string.Empty;
+				cellHasError[ i ] = false;
 			}
-		}
 
-		private bool RowCellsValidated( DataGridViewRow rows )
-		{
-			for ( int i = 1 ; i < rows.Cells.Count ; i++ )
+			for ( int i = 1 ; i < aRow.Cells.Count ; i++ )
 			{
-				if ( rows.Cells[ i ].EditedFormattedValue.ToString( ).Length == 0 )
+
+				if ( aRow.Cells[ i ].EditedFormattedValue.ToString( ).Length == 0 )
 				{
-					rows.Cells[ i ].ErrorText = "This Cell can´t be empty!";
-					return false;
+					aRow.Cells[ i ].ErrorText = "This Cell can´t be empty!";
+
+					cellHasError[ i - 1 ] = true;
 				}
+				else
+				{
+					CellErrorRemove( aRow.Cells[ i ] );
+				}
+
 			}
-			return true;
+
+			// testar se o nif contem apenas numeros
+			if ( !IsNumeric( aRow.Cells[ "EntityNifColunm" ].EditedFormattedValue.ToString( ) ) )
+			{
+				aRow.Cells[ "EntityNifColunm" ].ErrorText = "The cell is not a number";
+				return false;
+			}
+
+			CellErrorRemove( aRow.Cells[ "EntityNifColunm" ] );
+
+			return !cellHasError.Any( bolean => bolean );
 		}
 
 		private string[ ] RowCellValues( DataGridViewRow rows )
 		{
 
-			var buffer = new string[ 2 ];
+			var buffer = new string[ 4 ];
 
 			for ( int i = 1, j = 0 ; i < rows.Cells.Count ; i++, j++ )
 			{
@@ -136,6 +179,16 @@ namespace Tourist.Server.Forms
 			}
 			return buffer;
 		}
+
+		private bool IsNumeric( string isNumber )
+		{
+			int retNum;
+
+			return ( int.TryParse( isNumber, out retNum ) );
+
+		}
+
+
 
 	}
 }

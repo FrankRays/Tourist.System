@@ -63,8 +63,10 @@ namespace Tourist.Server
 			var entities = new List<IEntity>( );
 
 			var entity = repository.Factory.CreateEntity( );
+			entity.EntityType =EntityType.HotelierGroup;
 			entity.Name = "Hotel Porto Bay";
-			entity.City = "Porto";
+			entity.Address = "Porto";
+			entity.Nif = 999999999;
 
 			var employer = repository.Factory.CreateEmployer( );
 			employer.FirstName = "Jonas";
