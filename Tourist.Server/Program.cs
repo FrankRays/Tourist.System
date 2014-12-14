@@ -18,7 +18,7 @@ namespace Tourist.Server
 
 		public const string FileName = @"..\..\Repository.xml";
 
-		public static Repository repo = Repository.Instance;
+		public static Repository repository = Repository.Instance;
 
 		/// <summary>
 		/// The main entry point for the application.
@@ -39,14 +39,14 @@ namespace Tourist.Server
 				"Tourist.Server",  //uri
 				WellKnownObjectMode.Singleton ); //mode
 
-			/*
+			
 			if ( File.Exists( FileName ) )
 			{
 				Repository.Instance.Load( FileName );
 				Repository.Instance.Load( );
 				// por enquanto mas fica so numa funcao	
 			}
-			*/
+			
 			
 			//RepositorySaveTest();
 			//RepositoryLoadTest( );
@@ -62,11 +62,11 @@ namespace Tourist.Server
 
 			var entities = new List<IEntity>( );
 
-			var entity = repo.Factory.CreateEntity( );
+			var entity = repository.Factory.CreateEntity( );
 			entity.Name = "Hotel Porto Bay";
 			entity.City = "Porto";
 
-			var employer = repo.Factory.CreateEmployer( );
+			var employer = repository.Factory.CreateEmployer( );
 			employer.FirstName = "Jonas";
 			employer.LastName = "Rebo";
 			employer.Gender = GenderEnum.Male;
@@ -75,7 +75,7 @@ namespace Tourist.Server
 			employer.PhoneNumber = 931111111;
 			employer.Email = "jonas@super.com";
 
-			var client1 = repo.Factory.CreateClient( );
+			var client1 = repository.Factory.CreateClient( );
 			client1.FirstName = "Fabio";
 			client1.LastName = "Nobrega";
 			client1.Gender = GenderEnum.Male;
@@ -87,7 +87,7 @@ namespace Tourist.Server
 			client1.Id = 3;
 
 
-			var client2 = repo.Factory.CreateClient( );
+			var client2 = repository.Factory.CreateClient( );
 			client2.FirstName = "Joao";
 			client2.LastName = "Nobrega";
 			client2.Gender = GenderEnum.Male;
@@ -99,17 +99,17 @@ namespace Tourist.Server
 			client2.Id = 2;
 
 
-			var singleRoom = repo.Factory.CreateDoubleRoom( );
+			var singleRoom = repository.Factory.CreateDoubleRoom( );
 			singleRoom.TimeRange = new DateTimeRange( );
 			singleRoom.TimeRange.StartDateTime = DateTime.Today;
 			singleRoom.TimeRange.EndDateTime = DateTime.Today.AddDays( 1 );
 
 			singleRoom.Price = UnitPrice.SingleRoom * singleRoom.TimeRange.DiferenceTimeSpan( ).Days;
 
-			var bookingItem = repo.Factory.CreateBookingItem( );
+			var bookingItem = repository.Factory.CreateBookingItem( );
 			bookingItem.BookAble = singleRoom;
 
-			var booking = repo.Factory.CreateBooking( );
+			var booking = repository.Factory.CreateBooking( );
 			booking.IClient = client1;
 			booking.BookingDateTime = DateTime.Today;
 			booking.Append( bookingItem );
@@ -123,17 +123,17 @@ namespace Tourist.Server
 
 			entities.Add( entity );
 
-			repo.Save( entities );
+			repository.Save( entities );
 
-			repo.Save( FileName );
+			repository.Save( FileName );
 
 
 		}
 
 		static void RepositoryLoadTest( )
 		{
-			repo.Load( FileName );
-			repo.Load( );
+			repository.Load( FileName );
+			repository.Load( );
 		}
 
 	}
