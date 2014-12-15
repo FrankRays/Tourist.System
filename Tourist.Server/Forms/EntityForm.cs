@@ -55,16 +55,30 @@ namespace Tourist.Server.Forms
 
 		private void EntityDataGrid_RowValidating( object sender, DataGridViewCellValidatingEventArgs e )
 		{
+			
 			DataGridViewRow row = EntityDataGrid.Rows[ e.RowIndex ];
+			
+			/*
+			if ( row.IsNewRow )
+				return;
+			*/
+			
+			int entityIndex = e.RowIndex ;
 
-			int entityId = e.RowIndex + 1;
+			int entityId = 0;
+			
+			if (repository.ValidIndex(entityIndex))
+			{
+				entityId = repository.GetEntityId(entityIndex);
+			}
+			else
+			{
+				entityId = repository.MaxEntityId() + 1;
+			}
 
 			EntityDataGrid[ "EntityIdColunm", e.RowIndex ].Value = entityId;
 
 			bool isRowValidated = RowCellsValidated( row );
-
-			if ( row.IsNewRow )
-				return;
 
 			if ( isRowValidated )
 			{
@@ -75,7 +89,6 @@ namespace Tourist.Server.Forms
 					AddEntityToRepository( buffer );
 
 					//MetroMessageBox.Show( this, "Do you like this metro message box?", "Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
-
 				}
 				else
 				{
@@ -99,12 +112,19 @@ namespace Tourist.Server.Forms
 
 				// gravar sempre que possivel porque pode acontecer falhar a energia
 				repository.Save( Program.FileName );
+				//LoadDataToGrid();
+
 			}
 		}
 
 		private void AddEntityToRepository( string[ ] args )
 		{
 			IEntity entity = repository.Factory.CreateObject<IEntity>( );
+			
+			var nextId = repository.MaxEntityId() + 1;
+			
+			entity.Id = nextId;
+
 			entity.EntityType = ( EntityType ) Enum.Parse( typeof( EntityType ), args[ 0 ] );
 			entity.Name = args[ 1 ];
 			entity.Address = args[ 2 ];
@@ -178,6 +198,8 @@ namespace Tourist.Server.Forms
 			var entityId = e.RowIndex + 1;
 
 			repository.RemoveEntity( entityId );
+
+			repository.Save(Program.FileName);
 		}
 
 		private void BackPanel_MouseClick( object sender, MouseEventArgs e )

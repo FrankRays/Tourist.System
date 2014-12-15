@@ -37,7 +37,7 @@
 			this.LogoffTile = new MetroFramework.Controls.MetroTile();
 			this.PrefrencesTile = new MetroFramework.Controls.MetroTile();
 			this.WrapperPanelGrid = new System.Windows.Forms.Panel();
-			this.EntityDataGrid = new MetroFramework.Controls.MetroGrid();
+			this.EmployersDataGrid = new MetroFramework.Controls.MetroGrid();
 			this.IdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.GenderColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
 			this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,7 +61,7 @@
 			this.BodyPanel.SuspendLayout();
 			this.SideBarPanel.SuspendLayout();
 			this.WrapperPanelGrid.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.EntityDataGrid)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.EmployersDataGrid)).BeginInit();
 			this.GroupSearch.SuspendLayout();
 			this.HeaderPanel.SuspendLayout();
 			this.SuspendLayout();
@@ -156,36 +156,36 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.WrapperPanelGrid.BackColor = System.Drawing.Color.White;
-			this.WrapperPanelGrid.Controls.Add(this.EntityDataGrid);
+			this.WrapperPanelGrid.Controls.Add(this.EmployersDataGrid);
 			this.WrapperPanelGrid.Location = new System.Drawing.Point(231, 27);
 			this.WrapperPanelGrid.Name = "WrapperPanelGrid";
 			this.WrapperPanelGrid.Size = new System.Drawing.Size(953, 482);
 			this.WrapperPanelGrid.TabIndex = 25;
 			// 
-			// EntityDataGrid
+			// EmployersDataGrid
 			// 
-			this.EntityDataGrid.AllowUserToOrderColumns = true;
-			this.EntityDataGrid.AllowUserToResizeColumns = false;
-			this.EntityDataGrid.AllowUserToResizeRows = false;
-			this.EntityDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this.EmployersDataGrid.AllowUserToOrderColumns = true;
+			this.EmployersDataGrid.AllowUserToResizeColumns = false;
+			this.EmployersDataGrid.AllowUserToResizeRows = false;
+			this.EmployersDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.EntityDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.EntityDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-			this.EntityDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.EntityDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.EntityDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-			this.EntityDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+			this.EmployersDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.EmployersDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+			this.EmployersDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.EmployersDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.EmployersDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+			this.EmployersDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
 			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
 			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semilight", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
 			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			this.EntityDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-			this.EntityDataGrid.ColumnHeadersHeight = 60;
-			this.EntityDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-			this.EntityDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+			this.EmployersDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			this.EmployersDataGrid.ColumnHeadersHeight = 60;
+			this.EmployersDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+			this.EmployersDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdColumn,
             this.GenderColumn,
             this.NameColumn,
@@ -202,14 +202,14 @@
 			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
 			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.EntityDataGrid.DefaultCellStyle = dataGridViewCellStyle2;
-			this.EntityDataGrid.EnableHeadersVisualStyles = false;
-			this.EntityDataGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.EntityDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.EntityDataGrid.Location = new System.Drawing.Point(2, 1);
-			this.EntityDataGrid.Margin = new System.Windows.Forms.Padding(2);
-			this.EntityDataGrid.Name = "EntityDataGrid";
-			this.EntityDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+			this.EmployersDataGrid.DefaultCellStyle = dataGridViewCellStyle2;
+			this.EmployersDataGrid.EnableHeadersVisualStyles = false;
+			this.EmployersDataGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.EmployersDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.EmployersDataGrid.Location = new System.Drawing.Point(2, 1);
+			this.EmployersDataGrid.Margin = new System.Windows.Forms.Padding(2);
+			this.EmployersDataGrid.Name = "EmployersDataGrid";
+			this.EmployersDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
 			dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -217,14 +217,14 @@
 			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
 			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
 			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.EntityDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-			this.EntityDataGrid.RowHeadersWidth = 50;
-			this.EntityDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-			this.EntityDataGrid.RowTemplate.Height = 25;
-			this.EntityDataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.EntityDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.EntityDataGrid.Size = new System.Drawing.Size(949, 480);
-			this.EntityDataGrid.TabIndex = 18;
+			this.EmployersDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+			this.EmployersDataGrid.RowHeadersWidth = 50;
+			this.EmployersDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+			this.EmployersDataGrid.RowTemplate.Height = 25;
+			this.EmployersDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.EmployersDataGrid.Size = new System.Drawing.Size(949, 480);
+			this.EmployersDataGrid.TabIndex = 18;
+			this.EmployersDataGrid.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.EmployersDataGrid_RowValidating);
 			// 
 			// IdColumn
 			// 
@@ -445,7 +445,7 @@
 			this.BodyPanel.ResumeLayout(false);
 			this.SideBarPanel.ResumeLayout(false);
 			this.WrapperPanelGrid.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.EntityDataGrid)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.EmployersDataGrid)).EndInit();
 			this.GroupSearch.ResumeLayout(false);
 			this.GroupSearch.PerformLayout();
 			this.HeaderPanel.ResumeLayout(false);
@@ -473,7 +473,7 @@
 		private MetroFramework.Controls.MetroTile SearchTile;
 		private MetroFramework.Controls.MetroTile LogoffTile;
 		private MetroFramework.Controls.MetroTile PrefrencesTile;
-		private MetroFramework.Controls.MetroGrid EntityDataGrid;
+		private MetroFramework.Controls.MetroGrid EmployersDataGrid;
 		private System.Windows.Forms.DataGridViewTextBoxColumn IdColumn;
 		private System.Windows.Forms.DataGridViewComboBoxColumn GenderColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;

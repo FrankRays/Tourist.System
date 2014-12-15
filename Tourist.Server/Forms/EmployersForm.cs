@@ -8,6 +8,7 @@ namespace Tourist.Server.Forms
 	public partial class EmployersForm : MetroForm
 	{
 		private readonly MainForm mMainForm;
+		private Repository repository = Repository.Instance;
 
 		public EmployersForm( Form aForm )
 		{
@@ -34,6 +35,24 @@ namespace Tourist.Server.Forms
 			mMainForm.Show( );
 		}
 
+		private void LoadDataToGrid( )
+		{
+			if ( repository.IsEmpty( ) )
+				return;
+
+			var entitiesMatrix = repository.EntitiesListToMatrix( EmployersDataGrid.ColumnCount );
+
+			for ( int i = 0 ; i < repository.Count( ) ; i++ )
+			{
+				EmployersDataGrid.Rows.Add( );
+
+				for ( int j = 0 ; j < EmployersDataGrid.ColumnCount ; j++ )
+				{
+					EmployersDataGrid.Rows[ i ].Cells[ j ].Value = entitiesMatrix[ i, j ];
+				}
+			}
+		}
+
 		protected override void OnFormClosing( FormClosingEventArgs e )
 		{
 
@@ -55,6 +74,11 @@ namespace Tourist.Server.Forms
 					System.Diagnostics.Process.GetCurrentProcess( ).Kill( );
 					break;
 			}
+		}
+
+		private void EmployersDataGrid_RowValidating( object sender, DataGridViewCellCancelEventArgs e )
+		{
+
 		}
 	}
 }

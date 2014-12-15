@@ -193,7 +193,7 @@
 			this.EntityDataGrid.RowHeadersWidth = 50;
 			this.EntityDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			this.EntityDataGrid.RowTemplate.Height = 25;
-			this.EntityDataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.EntityDataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
 			this.EntityDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.EntityDataGrid.Size = new System.Drawing.Size(949, 480);
 			this.EntityDataGrid.TabIndex = 17;

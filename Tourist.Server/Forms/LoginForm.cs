@@ -14,7 +14,6 @@ namespace Tourist.Server.Forms
 
 		private readonly Repository repository = Repository.Instance;
 		private readonly MainForm mMainForm;
-		private bool mCancelOrClose = false;
 
 		public LoginForm( )
 		{

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.AccessControl;
 using Tourist.Data.Classes;
@@ -59,6 +60,16 @@ namespace Tourist.Server
 			return ( mData.EntityList.Count == 0 );
 		}
 
+		public int MaxEntityId()
+		{
+			if (IsEmpty())
+				return 0;
+			
+			List<int> Ids = mData.EntityList.Select(entity => entity.Id).ToList();
+
+			return Ids.Max();
+		}
+
 		public void AddEntity( IEntity aEntity )
 		{
 			aEntity.OnSaveLoad = true;
@@ -97,8 +108,20 @@ namespace Tourist.Server
 			}
 		}
 
-		public void RemoveEntity( int aId )
+		public int GetEntityId(int index)
 		{
+			return mData.EntityList.ElementAt(index).Id;
+		}
+
+		public bool ValidIndex(int index)
+		{
+			return !(index > Count());
+		}
+
+		public void RemoveEntity( int index )
+		{
+			var aId = mData.EntityList.ElementAt( index ).Id;
+			
 			foreach ( var entity in mData.EntityList.Where( entity => entity.Id == aId ) )
 			{
 				mData.EntityList.Remove( entity );
