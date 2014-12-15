@@ -31,25 +31,25 @@
 			this.FooterPanel = new System.Windows.Forms.Panel();
 			this.panel4 = new System.Windows.Forms.Panel();
 			this.BodyPanel = new System.Windows.Forms.Panel();
-			this.HeaderPanel = new System.Windows.Forms.Panel();
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.label2 = new System.Windows.Forms.Label();
-			this.LoginLabel = new System.Windows.Forms.Label();
 			this.LoginFrame = new System.Windows.Forms.Panel();
+			this.EntityNameCombox = new System.Windows.Forms.ComboBox();
+			this.label3 = new System.Windows.Forms.Label();
+			this.label1 = new System.Windows.Forms.Label();
 			this.ExitButton = new System.Windows.Forms.Button();
 			this.OkButton = new System.Windows.Forms.Button();
 			this.textBox2 = new System.Windows.Forms.TextBox();
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.PasswordLabel = new System.Windows.Forms.Label();
 			this.UsernameLabel = new System.Windows.Forms.Label();
+			this.HeaderPanel = new System.Windows.Forms.Panel();
 			this.ImagePanel = new System.Windows.Forms.Panel();
-			this.label1 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
-			this.EntityNameCombox = new System.Windows.Forms.ComboBox();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.label2 = new System.Windows.Forms.Label();
+			this.LoginLabel = new System.Windows.Forms.Label();
 			this.FooterPanel.SuspendLayout();
 			this.BodyPanel.SuspendLayout();
-			this.HeaderPanel.SuspendLayout();
 			this.LoginFrame.SuspendLayout();
+			this.HeaderPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// FooterPanel
@@ -85,54 +85,6 @@
 			this.BodyPanel.Size = new System.Drawing.Size(1200, 521);
 			this.BodyPanel.TabIndex = 12;
 			// 
-			// HeaderPanel
-			// 
-			this.HeaderPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.HeaderPanel.Controls.Add(this.ImagePanel);
-			this.HeaderPanel.Controls.Add(this.panel1);
-			this.HeaderPanel.Controls.Add(this.label2);
-			this.HeaderPanel.Controls.Add(this.LoginLabel);
-			this.HeaderPanel.Location = new System.Drawing.Point(0, 24);
-			this.HeaderPanel.Margin = new System.Windows.Forms.Padding(2);
-			this.HeaderPanel.Name = "HeaderPanel";
-			this.HeaderPanel.Size = new System.Drawing.Size(1200, 122);
-			this.HeaderPanel.TabIndex = 13;
-			// 
-			// panel1
-			// 
-			this.panel1.Location = new System.Drawing.Point(422, 124);
-			this.panel1.Margin = new System.Windows.Forms.Padding(2);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(150, 26);
-			this.panel1.TabIndex = 11;
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.ForeColor = System.Drawing.Color.White;
-			this.label2.Location = new System.Drawing.Point(24, 70);
-			this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(644, 30);
-			this.label2.TabIndex = 4;
-			this.label2.Text = "Welcome! Please enter your username and password to procede.";
-			// 
-			// LoginLabel
-			// 
-			this.LoginLabel.AutoSize = true;
-			this.LoginLabel.BackColor = System.Drawing.Color.Transparent;
-			this.LoginLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.LoginLabel.ForeColor = System.Drawing.Color.White;
-			this.LoginLabel.Location = new System.Drawing.Point(17, 5);
-			this.LoginLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.LoginLabel.Name = "LoginLabel";
-			this.LoginLabel.Size = new System.Drawing.Size(322, 51);
-			this.LoginLabel.TabIndex = 3;
-			this.LoginLabel.Text = "Login Credentials";
-			// 
 			// LoginFrame
 			// 
 			this.LoginFrame.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -154,6 +106,40 @@
 			this.LoginFrame.Size = new System.Drawing.Size(702, 402);
 			this.LoginFrame.TabIndex = 11;
 			// 
+			// EntityNameCombox
+			// 
+			this.EntityNameCombox.Font = new System.Drawing.Font("Segoe UI Semilight", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.EntityNameCombox.FormattingEnabled = true;
+			this.EntityNameCombox.Location = new System.Drawing.Point(149, 67);
+			this.EntityNameCombox.Name = "EntityNameCombox";
+			this.EntityNameCombox.Size = new System.Drawing.Size(418, 40);
+			this.EntityNameCombox.TabIndex = 12;
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.BackColor = System.Drawing.Color.Transparent;
+			this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label3.ForeColor = System.Drawing.Color.White;
+			this.label3.Location = new System.Drawing.Point(143, 21);
+			this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(149, 32);
+			this.label3.TabIndex = 13;
+			this.label3.Text = "Entity Name";
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.BackColor = System.Drawing.Color.Transparent;
+			this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.ForeColor = System.Drawing.Color.White;
+			this.label1.Location = new System.Drawing.Point(153, 14);
+			this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(0, 32);
+			this.label1.TabIndex = 12;
+			// 
 			// ExitButton
 			// 
 			this.ExitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
@@ -166,6 +152,7 @@
 			this.ExitButton.TabIndex = 10;
 			this.ExitButton.Text = "Cancel";
 			this.ExitButton.UseVisualStyleBackColor = false;
+			this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
 			// 
 			// OkButton
 			// 
@@ -226,6 +213,21 @@
 			this.UsernameLabel.TabIndex = 5;
 			this.UsernameLabel.Text = "Username";
 			// 
+			// HeaderPanel
+			// 
+			this.HeaderPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			this.HeaderPanel.Controls.Add(this.ImagePanel);
+			this.HeaderPanel.Controls.Add(this.panel1);
+			this.HeaderPanel.Controls.Add(this.label2);
+			this.HeaderPanel.Controls.Add(this.LoginLabel);
+			this.HeaderPanel.Location = new System.Drawing.Point(0, 24);
+			this.HeaderPanel.Margin = new System.Windows.Forms.Padding(2);
+			this.HeaderPanel.Name = "HeaderPanel";
+			this.HeaderPanel.Size = new System.Drawing.Size(1200, 122);
+			this.HeaderPanel.TabIndex = 13;
+			// 
 			// ImagePanel
 			// 
 			this.ImagePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -239,39 +241,38 @@
 			this.ImagePanel.Size = new System.Drawing.Size(96, 95);
 			this.ImagePanel.TabIndex = 12;
 			// 
-			// label1
+			// panel1
 			// 
-			this.label1.AutoSize = true;
-			this.label1.BackColor = System.Drawing.Color.Transparent;
-			this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.ForeColor = System.Drawing.Color.White;
-			this.label1.Location = new System.Drawing.Point(153, 14);
-			this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(0, 32);
-			this.label1.TabIndex = 12;
+			this.panel1.Location = new System.Drawing.Point(422, 124);
+			this.panel1.Margin = new System.Windows.Forms.Padding(2);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(150, 26);
+			this.panel1.TabIndex = 11;
 			// 
-			// label3
+			// label2
 			// 
-			this.label3.AutoSize = true;
-			this.label3.BackColor = System.Drawing.Color.Transparent;
-			this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.ForeColor = System.Drawing.Color.White;
-			this.label3.Location = new System.Drawing.Point(143, 21);
-			this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(149, 32);
-			this.label3.TabIndex = 13;
-			this.label3.Text = "Entity Name";
+			this.label2.AutoSize = true;
+			this.label2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.ForeColor = System.Drawing.Color.White;
+			this.label2.Location = new System.Drawing.Point(24, 70);
+			this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(644, 30);
+			this.label2.TabIndex = 4;
+			this.label2.Text = "Welcome! Please enter your username and password to procede.";
 			// 
-			// EntityNameCombox
+			// LoginLabel
 			// 
-			this.EntityNameCombox.Font = new System.Drawing.Font("Segoe UI Semilight", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.EntityNameCombox.FormattingEnabled = true;
-			this.EntityNameCombox.Location = new System.Drawing.Point(149, 67);
-			this.EntityNameCombox.Name = "EntityNameCombox";
-			this.EntityNameCombox.Size = new System.Drawing.Size(418, 40);
-			this.EntityNameCombox.TabIndex = 12;
+			this.LoginLabel.AutoSize = true;
+			this.LoginLabel.BackColor = System.Drawing.Color.Transparent;
+			this.LoginLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.LoginLabel.ForeColor = System.Drawing.Color.White;
+			this.LoginLabel.Location = new System.Drawing.Point(17, 5);
+			this.LoginLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.LoginLabel.Name = "LoginLabel";
+			this.LoginLabel.Size = new System.Drawing.Size(322, 51);
+			this.LoginLabel.TabIndex = 3;
+			this.LoginLabel.Text = "Login Credentials";
 			// 
 			// LoginForm
 			// 
@@ -289,14 +290,15 @@
 			this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
 			this.Resizable = false;
 			this.Style = MetroFramework.MetroColorStyle.White;
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoginForm_FormClosing);
 			this.Load += new System.EventHandler(this.LoginForm_Load);
 			this.FooterPanel.ResumeLayout(false);
 			this.BodyPanel.ResumeLayout(false);
 			this.BodyPanel.PerformLayout();
-			this.HeaderPanel.ResumeLayout(false);
-			this.HeaderPanel.PerformLayout();
 			this.LoginFrame.ResumeLayout(false);
 			this.LoginFrame.PerformLayout();
+			this.HeaderPanel.ResumeLayout(false);
+			this.HeaderPanel.PerformLayout();
 			this.ResumeLayout(false);
 
 		}

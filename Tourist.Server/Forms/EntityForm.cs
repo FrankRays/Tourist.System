@@ -2,18 +2,22 @@
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using MetroFramework;
 using MetroFramework.Forms;
 using Tourist.Data.Interfaces;
 
 namespace Tourist.Server.Forms
 {
-	public partial class EntitiesForm : MetroForm
+	public partial class EntityForm : MetroForm
 	{
 
 		private readonly Repository repository = Repository.Instance;
+		private readonly MainForm mMainForm;
 
-		public EntitiesForm( )
+
+		public EntityForm( Form aForm )
 		{
+			mMainForm = aForm as MainForm;
 			InitializeComponent( );
 		}
 
@@ -33,12 +37,12 @@ namespace Tourist.Server.Forms
 
 		private void LoadDataToGrid( )
 		{
-			if ( repository.EntityListIsEmpty( ) )
+			if ( repository.IsEmpty( ) )
 				return;
 
 			var entitiesMatrix = repository.EntitiesListToMatrix( EntityDataGrid.ColumnCount );
 
-			for ( int i = 0 ; i < repository.EntityListCount( ) ; i++ )
+			for ( int i = 0 ; i < repository.Count( ) ; i++ )
 			{
 				EntityDataGrid.Rows.Add( );
 
@@ -69,6 +73,9 @@ namespace Tourist.Server.Forms
 					var buffer = RowCellValues( row );
 
 					AddEntityToRepository( buffer );
+
+					//MetroMessageBox.Show( this, "Do you like this metro message box?", "Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
+
 				}
 				else
 				{
@@ -171,6 +178,24 @@ namespace Tourist.Server.Forms
 			var entityId = e.RowIndex + 1;
 
 			repository.RemoveEntity( entityId );
+		}
+
+		private void BackPanel_MouseClick( object sender, MouseEventArgs e )
+		{
+			Hide( );
+			mMainForm.Show( );
+		}
+
+		private void EntitiesForm_FormClosing( object sender, FormClosingEventArgs e )
+		{
+			// se precisar grava os dados antes de sair 
+			
+			var dialogResult = MetroMessageBox.Show( this, "\n Are you sure you want to exit the application?", "Login Cancel Button Pressed", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
+
+			if ( dialogResult == DialogResult.No )
+				return;
+			
+			Application.Exit( );
 		}
 	}
 }

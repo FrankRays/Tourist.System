@@ -1,6 +1,6 @@
 ﻿namespace Tourist.Server.Forms
 {
-	partial class EntitiesForm
+	partial class EntityForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -44,8 +44,6 @@
 			this.EntityAddressColunm = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.EntityNifColunm = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.FooterPanel = new System.Windows.Forms.Panel();
-			this.FowardPanel = new System.Windows.Forms.Panel();
-			this.HomePanel = new System.Windows.Forms.Panel();
 			this.BackPanel = new System.Windows.Forms.Panel();
 			this.HeaderPanel = new System.Windows.Forms.Panel();
 			this.ImagePanel = new System.Windows.Forms.Panel();
@@ -60,7 +58,6 @@
 			this.GroupSearch.SuspendLayout();
 			this.WrapperPanelGrid.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.EntityDataGrid)).BeginInit();
-			this.FooterPanel.SuspendLayout();
 			this.HeaderPanel.SuspendLayout();
 			this.SideBarPanel.SuspendLayout();
 			this.SuspendLayout();
@@ -246,55 +243,30 @@
 			this.FooterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.FooterPanel.Controls.Add(this.FowardPanel);
-			this.FooterPanel.Controls.Add(this.HomePanel);
-			this.FooterPanel.Controls.Add(this.BackPanel);
 			this.FooterPanel.Location = new System.Drawing.Point(-1, 678);
 			this.FooterPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.FooterPanel.Name = "FooterPanel";
 			this.FooterPanel.Size = new System.Drawing.Size(1202, 122);
 			this.FooterPanel.TabIndex = 18;
 			// 
-			// FowardPanel
-			// 
-			this.FowardPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.FowardPanel.AutoSize = true;
-			this.FowardPanel.BackgroundImage = global::Tourist.Server.Properties.Resources.RightArrow;
-			this.FowardPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.FowardPanel.Location = new System.Drawing.Point(1122, 14);
-			this.FowardPanel.Margin = new System.Windows.Forms.Padding(2);
-			this.FowardPanel.Name = "FowardPanel";
-			this.FowardPanel.Size = new System.Drawing.Size(62, 95);
-			this.FowardPanel.TabIndex = 10;
-			// 
-			// HomePanel
-			// 
-			this.HomePanel.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.HomePanel.AutoSize = true;
-			this.HomePanel.BackgroundImage = global::Tourist.Server.Properties.Resources.Home;
-			this.HomePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.HomePanel.Location = new System.Drawing.Point(551, 14);
-			this.HomePanel.Margin = new System.Windows.Forms.Padding(2);
-			this.HomePanel.Name = "HomePanel";
-			this.HomePanel.Size = new System.Drawing.Size(111, 95);
-			this.HomePanel.TabIndex = 11;
-			// 
 			// BackPanel
 			// 
 			this.BackPanel.AutoSize = true;
 			this.BackPanel.BackgroundImage = global::Tourist.Server.Properties.Resources.LeftArrow;
 			this.BackPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.BackPanel.Location = new System.Drawing.Point(19, 14);
+			this.BackPanel.Location = new System.Drawing.Point(18, 16);
 			this.BackPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.BackPanel.Name = "BackPanel";
-			this.BackPanel.Size = new System.Drawing.Size(64, 95);
+			this.BackPanel.Size = new System.Drawing.Size(64, 89);
 			this.BackPanel.TabIndex = 12;
+			this.BackPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BackPanel_MouseClick);
 			// 
 			// HeaderPanel
 			// 
 			this.HeaderPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			this.HeaderPanel.Controls.Add(this.BackPanel);
 			this.HeaderPanel.Controls.Add(this.ImagePanel);
 			this.HeaderPanel.Controls.Add(this.panel2);
 			this.HeaderPanel.Controls.Add(this.SubTitleLabel);
@@ -330,7 +302,7 @@
 			this.SubTitleLabel.AutoSize = true;
 			this.SubTitleLabel.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.SubTitleLabel.ForeColor = System.Drawing.Color.White;
-			this.SubTitleLabel.Location = new System.Drawing.Point(24, 70);
+			this.SubTitleLabel.Location = new System.Drawing.Point(105, 70);
 			this.SubTitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.SubTitleLabel.Name = "SubTitleLabel";
 			this.SubTitleLabel.Size = new System.Drawing.Size(201, 30);
@@ -343,7 +315,7 @@
 			this.TitleLabel.BackColor = System.Drawing.Color.Transparent;
 			this.TitleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.TitleLabel.ForeColor = System.Drawing.Color.White;
-			this.TitleLabel.Location = new System.Drawing.Point(17, 5);
+			this.TitleLabel.Location = new System.Drawing.Point(98, 12);
 			this.TitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.TitleLabel.Name = "TitleLabel";
 			this.TitleLabel.Size = new System.Drawing.Size(121, 51);
@@ -419,7 +391,7 @@
 			this.PrefrencesTile.UseSelectable = true;
 			this.PrefrencesTile.UseTileImage = true;
 			// 
-			// EntitiesForm
+			// EntityForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -432,18 +404,18 @@
 			this.Margin = new System.Windows.Forms.Padding(2);
 			this.MaximizeBox = false;
 			this.Movable = false;
-			this.Name = "EntitiesForm";
+			this.Name = "EntityForm";
 			this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
 			this.Resizable = false;
+			this.ShowInTaskbar = false;
 			this.Style = MetroFramework.MetroColorStyle.White;
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EntitiesForm_FormClosing);
 			this.Load += new System.EventHandler(this.EntitiesForm_Load);
 			this.BodyPanel.ResumeLayout(false);
 			this.GroupSearch.ResumeLayout(false);
 			this.GroupSearch.PerformLayout();
 			this.WrapperPanelGrid.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.EntityDataGrid)).EndInit();
-			this.FooterPanel.ResumeLayout(false);
-			this.FooterPanel.PerformLayout();
 			this.HeaderPanel.ResumeLayout(false);
 			this.HeaderPanel.PerformLayout();
 			this.SideBarPanel.ResumeLayout(false);
@@ -456,8 +428,6 @@
 		private System.Windows.Forms.Panel BodyPanel;
 		private System.Windows.Forms.Panel WrapperPanelGrid;
 		private System.Windows.Forms.Panel FooterPanel;
-		private System.Windows.Forms.Panel FowardPanel;
-		private System.Windows.Forms.Panel HomePanel;
 		private System.Windows.Forms.Panel BackPanel;
 		private System.Windows.Forms.Panel HeaderPanel;
 		private System.Windows.Forms.Panel ImagePanel;

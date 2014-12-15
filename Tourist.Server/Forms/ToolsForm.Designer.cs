@@ -28,12 +28,10 @@
 		/// </summary>
 		private void InitializeComponent( )
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.HeaderPanel = new System.Windows.Forms.Panel();
 			this.ImagePanel = new System.Windows.Forms.Panel();
 			this.panel2 = new System.Windows.Forms.Panel();
+			this.BackPanel = new System.Windows.Forms.Panel();
 			this.SubTitleLabel = new System.Windows.Forms.Label();
 			this.TitleLabel = new System.Windows.Forms.Label();
 			this.BodyPanel = new System.Windows.Forms.Panel();
@@ -42,20 +40,9 @@
 			this.LogoffTile = new MetroFramework.Controls.MetroTile();
 			this.PrefrencesTile = new MetroFramework.Controls.MetroTile();
 			this.FooterPanel = new System.Windows.Forms.Panel();
-			this.FowardPanel = new System.Windows.Forms.Panel();
-			this.HomePanel = new System.Windows.Forms.Panel();
-			this.BackPanel = new System.Windows.Forms.Panel();
-			this.EntityDataGrid = new MetroFramework.Controls.MetroGrid();
-			this.EntityIdColunm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.EntityTypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.EntityNameColunm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.EntityAddressColunm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.EntityNifColunm = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.HeaderPanel.SuspendLayout();
 			this.BodyPanel.SuspendLayout();
 			this.SideBarPanel.SuspendLayout();
-			this.FooterPanel.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.EntityDataGrid)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// HeaderPanel
@@ -65,6 +52,7 @@
 			this.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
 			this.HeaderPanel.Controls.Add(this.ImagePanel);
 			this.HeaderPanel.Controls.Add(this.panel2);
+			this.HeaderPanel.Controls.Add(this.BackPanel);
 			this.HeaderPanel.Controls.Add(this.SubTitleLabel);
 			this.HeaderPanel.Controls.Add(this.TitleLabel);
 			this.HeaderPanel.Location = new System.Drawing.Point(-1, 23);
@@ -93,12 +81,24 @@
 			this.panel2.Size = new System.Drawing.Size(150, 26);
 			this.panel2.TabIndex = 11;
 			// 
+			// BackPanel
+			// 
+			this.BackPanel.AutoSize = true;
+			this.BackPanel.BackgroundImage = global::Tourist.Server.Properties.Resources.LeftArrow;
+			this.BackPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.BackPanel.Location = new System.Drawing.Point(18, 16);
+			this.BackPanel.Margin = new System.Windows.Forms.Padding(2);
+			this.BackPanel.Name = "BackPanel";
+			this.BackPanel.Size = new System.Drawing.Size(64, 85);
+			this.BackPanel.TabIndex = 15;
+			this.BackPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BackPanel_MouseClick);
+			// 
 			// SubTitleLabel
 			// 
 			this.SubTitleLabel.AutoSize = true;
 			this.SubTitleLabel.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.SubTitleLabel.ForeColor = System.Drawing.Color.White;
-			this.SubTitleLabel.Location = new System.Drawing.Point(24, 68);
+			this.SubTitleLabel.Location = new System.Drawing.Point(107, 68);
 			this.SubTitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.SubTitleLabel.Name = "SubTitleLabel";
 			this.SubTitleLabel.Size = new System.Drawing.Size(150, 30);
@@ -111,7 +111,7 @@
 			this.TitleLabel.BackColor = System.Drawing.Color.Transparent;
 			this.TitleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.TitleLabel.ForeColor = System.Drawing.Color.White;
-			this.TitleLabel.Location = new System.Drawing.Point(17, 3);
+			this.TitleLabel.Location = new System.Drawing.Point(98, 12);
 			this.TitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.TitleLabel.Name = "TitleLabel";
 			this.TitleLabel.Size = new System.Drawing.Size(111, 51);
@@ -124,7 +124,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.BodyPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.BodyPanel.Controls.Add(this.EntityDataGrid);
 			this.BodyPanel.Controls.Add(this.SideBarPanel);
 			this.BodyPanel.Location = new System.Drawing.Point(-1, 150);
 			this.BodyPanel.Margin = new System.Windows.Forms.Padding(2);
@@ -206,144 +205,11 @@
 			this.FooterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.FooterPanel.Controls.Add(this.FowardPanel);
-			this.FooterPanel.Controls.Add(this.HomePanel);
-			this.FooterPanel.Controls.Add(this.BackPanel);
 			this.FooterPanel.Location = new System.Drawing.Point(-1, 679);
 			this.FooterPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.FooterPanel.Name = "FooterPanel";
 			this.FooterPanel.Size = new System.Drawing.Size(1202, 122);
 			this.FooterPanel.TabIndex = 15;
-			// 
-			// FowardPanel
-			// 
-			this.FowardPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.FowardPanel.AutoSize = true;
-			this.FowardPanel.BackgroundImage = global::Tourist.Server.Properties.Resources.RightArrow;
-			this.FowardPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.FowardPanel.Location = new System.Drawing.Point(1122, 14);
-			this.FowardPanel.Margin = new System.Windows.Forms.Padding(2);
-			this.FowardPanel.Name = "FowardPanel";
-			this.FowardPanel.Size = new System.Drawing.Size(62, 95);
-			this.FowardPanel.TabIndex = 13;
-			// 
-			// HomePanel
-			// 
-			this.HomePanel.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.HomePanel.AutoSize = true;
-			this.HomePanel.BackgroundImage = global::Tourist.Server.Properties.Resources.Home;
-			this.HomePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.HomePanel.Location = new System.Drawing.Point(551, 14);
-			this.HomePanel.Margin = new System.Windows.Forms.Padding(2);
-			this.HomePanel.Name = "HomePanel";
-			this.HomePanel.Size = new System.Drawing.Size(111, 95);
-			this.HomePanel.TabIndex = 14;
-			// 
-			// BackPanel
-			// 
-			this.BackPanel.AutoSize = true;
-			this.BackPanel.BackgroundImage = global::Tourist.Server.Properties.Resources.LeftArrow;
-			this.BackPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.BackPanel.Location = new System.Drawing.Point(19, 14);
-			this.BackPanel.Margin = new System.Windows.Forms.Padding(2);
-			this.BackPanel.Name = "BackPanel";
-			this.BackPanel.Size = new System.Drawing.Size(64, 95);
-			this.BackPanel.TabIndex = 15;
-			// 
-			// EntityDataGrid
-			// 
-			this.EntityDataGrid.AllowUserToOrderColumns = true;
-			this.EntityDataGrid.AllowUserToResizeColumns = false;
-			this.EntityDataGrid.AllowUserToResizeRows = false;
-			this.EntityDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.EntityDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.EntityDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-			this.EntityDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.EntityDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.EntityDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-			this.EntityDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semilight", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			this.EntityDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-			this.EntityDataGrid.ColumnHeadersHeight = 60;
-			this.EntityDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-			this.EntityDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.EntityIdColunm,
-            this.EntityTypeColumn,
-            this.EntityNameColunm,
-            this.EntityAddressColunm,
-            this.EntityNifColunm});
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(172)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 13F);
-			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.EntityDataGrid.DefaultCellStyle = dataGridViewCellStyle2;
-			this.EntityDataGrid.EnableHeadersVisualStyles = false;
-			this.EntityDataGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.EntityDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.EntityDataGrid.Location = new System.Drawing.Point(127, 22);
-			this.EntityDataGrid.Margin = new System.Windows.Forms.Padding(2);
-			this.EntityDataGrid.Name = "EntityDataGrid";
-			this.EntityDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.EntityDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-			this.EntityDataGrid.RowHeadersWidth = 50;
-			this.EntityDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-			this.EntityDataGrid.RowTemplate.Height = 25;
-			this.EntityDataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.EntityDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.EntityDataGrid.Size = new System.Drawing.Size(949, 480);
-			this.EntityDataGrid.TabIndex = 22;
-			// 
-			// EntityIdColunm
-			// 
-			this.EntityIdColunm.HeaderText = "ID";
-			this.EntityIdColunm.MinimumWidth = 150;
-			this.EntityIdColunm.Name = "EntityIdColunm";
-			this.EntityIdColunm.ReadOnly = true;
-			// 
-			// EntityTypeColumn
-			// 
-			this.EntityTypeColumn.HeaderText = "Type";
-			this.EntityTypeColumn.MinimumWidth = 150;
-			this.EntityTypeColumn.Name = "EntityTypeColumn";
-			this.EntityTypeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.EntityTypeColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			// 
-			// EntityNameColunm
-			// 
-			this.EntityNameColunm.HeaderText = "Name";
-			this.EntityNameColunm.MinimumWidth = 150;
-			this.EntityNameColunm.Name = "EntityNameColunm";
-			// 
-			// EntityAddressColunm
-			// 
-			this.EntityAddressColunm.HeaderText = "Address";
-			this.EntityAddressColunm.MinimumWidth = 150;
-			this.EntityAddressColunm.Name = "EntityAddressColunm";
-			// 
-			// EntityNifColunm
-			// 
-			this.EntityNifColunm.HeaderText = "NIF";
-			this.EntityNifColunm.MinimumWidth = 150;
-			this.EntityNifColunm.Name = "EntityNifColunm";
-			this.EntityNifColunm.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.EntityNifColunm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
 			// 
 			// ToolsForm
 			// 
@@ -360,15 +226,14 @@
 			this.Name = "ToolsForm";
 			this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
 			this.Resizable = false;
+			this.ShowInTaskbar = false;
 			this.Style = MetroFramework.MetroColorStyle.White;
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ToolsForm_FormClosing);
 			this.Load += new System.EventHandler(this.ToolsForm_Load);
 			this.HeaderPanel.ResumeLayout(false);
 			this.HeaderPanel.PerformLayout();
 			this.BodyPanel.ResumeLayout(false);
 			this.SideBarPanel.ResumeLayout(false);
-			this.FooterPanel.ResumeLayout(false);
-			this.FooterPanel.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.EntityDataGrid)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -382,19 +247,11 @@
 		private System.Windows.Forms.Panel BodyPanel;
 		private System.Windows.Forms.Panel ImagePanel;
 		private System.Windows.Forms.Panel FooterPanel;
-		private System.Windows.Forms.Panel FowardPanel;
-		private System.Windows.Forms.Panel HomePanel;
 		private System.Windows.Forms.Panel BackPanel;
 		private System.Windows.Forms.Panel SideBarPanel;
 		private MetroFramework.Controls.MetroTile SearchTile;
 		private MetroFramework.Controls.MetroTile LogoffTile;
 		private MetroFramework.Controls.MetroTile PrefrencesTile;
-		private MetroFramework.Controls.MetroGrid EntityDataGrid;
-		private System.Windows.Forms.DataGridViewTextBoxColumn EntityIdColunm;
-		private System.Windows.Forms.DataGridViewTextBoxColumn EntityTypeColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn EntityNameColunm;
-		private System.Windows.Forms.DataGridViewTextBoxColumn EntityAddressColunm;
-		private System.Windows.Forms.DataGridViewTextBoxColumn EntityNifColunm;
 
 	}
 }

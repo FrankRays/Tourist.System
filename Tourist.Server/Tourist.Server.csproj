@@ -87,11 +87,11 @@
     <Compile Include="Forms\DisponibilityForm.Designer.cs">
       <DependentUpon>DisponibilityForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\EntitiesForm.cs">
+    <Compile Include="Forms\EntityForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EntitiesForm.Designer.cs">
-      <DependentUpon>EntitiesForm.cs</DependentUpon>
+    <Compile Include="Forms\EntityForm.Designer.cs">
+      <DependentUpon>EntityForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ClientsForm.cs">
       <SubType>Form</SubType>
@@ -143,8 +143,8 @@
     <EmbeddedResource Include="Forms\DisponibilityForm.resx">
       <DependentUpon>DisponibilityForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EntitiesForm.resx">
-      <DependentUpon>EntitiesForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\EntityForm.resx">
+      <DependentUpon>EntityForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ClientsForm.resx">
       <DependentUpon>ClientsForm.cs</DependentUpon>

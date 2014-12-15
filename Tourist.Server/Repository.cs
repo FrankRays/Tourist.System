@@ -41,14 +41,20 @@ namespace Tourist.Server
 
 		#endregion
 
+		#region LoginForm Methods
+			
+
+
+		#endregion
+
 		#region EntityForm Methods
 
-		public int EntityListCount( )
+		public int Count( )
 		{
 			return mData.EntityList.Count;
 		}
 
-		public bool EntityListIsEmpty( )
+		public bool IsEmpty( )
 		{
 			return ( mData.EntityList.Count == 0 );
 		}
@@ -107,7 +113,7 @@ namespace Tourist.Server
 
 		public string[ , ] EntitiesListToMatrix( int columnsCount )
 		{
-			int rowsCount = EntityListCount( );
+			int rowsCount = Count( );
 
 			var matrix = new string[ rowsCount, columnsCount ];
 

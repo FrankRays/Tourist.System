@@ -1,19 +1,23 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
+using MetroFramework;
 using MetroFramework.Forms;
 
 namespace Tourist.Server.Forms
 {
-	public partial class NotifyForm :MetroForm
+	public partial class NotifyForm : MetroForm
 	{
-		public NotifyForm( )
+		private readonly MainForm mMainForm;
+
+		public NotifyForm( Form aForm )
 		{
+			mMainForm = aForm as MainForm;
 			InitializeComponent( );
 		}
 
 		private void NotifyForm_Load( object sender, System.EventArgs e )
 		{
-			SetFormFullScreen();
+			SetFormFullScreen( );
 
 		}
 
@@ -25,6 +29,22 @@ namespace Tourist.Server.Forms
 			Size = new Size( x, y );
 		}
 
-	
+		private void BackPanel_MouseClick( object sender, MouseEventArgs e )
+		{
+			Hide( );
+			mMainForm.Show( );
+		}
+
+		private void NotifyForm_FormClosing( object sender, FormClosingEventArgs e )
+		{
+			// se precisar grava os dados antes de sair 
+
+			var dialogResult = MetroMessageBox.Show( this, "\n Are you sure you want to exit the application?", "Login Cancel Button Pressed", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
+
+			if ( dialogResult == DialogResult.No )
+				return;
+
+			Application.Exit( );
+		}
 	}
 }

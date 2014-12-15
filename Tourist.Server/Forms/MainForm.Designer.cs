@@ -31,7 +31,7 @@
 			this.components = new System.ComponentModel.Container();
 			this.htmlToolTip1 = new MetroFramework.Drawing.Html.HtmlToolTip();
 			this.MainPanel = new MetroFramework.Controls.MetroPanel();
-			this.metroTile2 = new MetroFramework.Controls.MetroTile();
+			this.HelpTile = new MetroFramework.Controls.MetroTile();
 			this.metroTile1 = new MetroFramework.Controls.MetroTile();
 			this.EntityTile = new MetroFramework.Controls.MetroTile();
 			this.AdminToolsTile = new MetroFramework.Controls.MetroTile();
@@ -63,6 +63,7 @@
 			this.SubTitleLabel = new System.Windows.Forms.Label();
 			this.HeaderPanel = new System.Windows.Forms.Panel();
 			this.ImagePanel = new System.Windows.Forms.Panel();
+			this.BackupFile = new System.Windows.Forms.SaveFileDialog();
 			this.MainPanel.SuspendLayout();
 			this.panel1.SuspendLayout();
 			this.ClockTile.SuspendLayout();
@@ -78,7 +79,7 @@
 			// MainPanel
 			// 
 			this.MainPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.MainPanel.Controls.Add(this.metroTile2);
+			this.MainPanel.Controls.Add(this.HelpTile);
 			this.MainPanel.Controls.Add(this.metroTile1);
 			this.MainPanel.Controls.Add(this.EntityTile);
 			this.MainPanel.Controls.Add(this.AdminToolsTile);
@@ -104,21 +105,22 @@
 			this.MainPanel.VerticalScrollbarHighlightOnWheel = false;
 			this.MainPanel.VerticalScrollbarSize = 8;
 			// 
-			// metroTile2
+			// HelpTile
 			// 
-			this.metroTile2.ActiveControl = null;
-			this.metroTile2.Location = new System.Drawing.Point(707, 281);
-			this.metroTile2.Margin = new System.Windows.Forms.Padding(2);
-			this.metroTile2.Name = "metroTile2";
-			this.metroTile2.Size = new System.Drawing.Size(128, 122);
-			this.metroTile2.TabIndex = 16;
-			this.metroTile2.Text = "Help";
-			this.metroTile2.TileImage = global::Tourist.Server.Properties.Resources.Help;
-			this.metroTile2.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.metroTile2.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-			this.metroTile2.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-			this.metroTile2.UseSelectable = true;
-			this.metroTile2.UseTileImage = true;
+			this.HelpTile.ActiveControl = null;
+			this.HelpTile.Location = new System.Drawing.Point(707, 281);
+			this.HelpTile.Margin = new System.Windows.Forms.Padding(2);
+			this.HelpTile.Name = "HelpTile";
+			this.HelpTile.Size = new System.Drawing.Size(128, 122);
+			this.HelpTile.TabIndex = 16;
+			this.HelpTile.Text = "Help";
+			this.HelpTile.TileImage = global::Tourist.Server.Properties.Resources.Help;
+			this.HelpTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.HelpTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+			this.HelpTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+			this.HelpTile.UseSelectable = true;
+			this.HelpTile.UseTileImage = true;
+			this.HelpTile.Click += new System.EventHandler(this.HelpTile_Click);
 			// 
 			// metroTile1
 			// 
@@ -170,6 +172,7 @@
 			this.AdminToolsTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
 			this.AdminToolsTile.UseSelectable = true;
 			this.AdminToolsTile.UseTileImage = true;
+			this.AdminToolsTile.Click += new System.EventHandler(this.ToolsTile_Click);
 			// 
 			// NotifyTile
 			// 
@@ -186,6 +189,7 @@
 			this.NotifyTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
 			this.NotifyTile.UseSelectable = true;
 			this.NotifyTile.UseTileImage = true;
+			this.NotifyTile.Click += new System.EventHandler(this.NotifyTile_Click);
 			// 
 			// ReportsTile
 			// 
@@ -202,6 +206,7 @@
 			this.ReportsTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
 			this.ReportsTile.UseSelectable = true;
 			this.ReportsTile.UseTileImage = true;
+			this.ReportsTile.Click += new System.EventHandler(this.ReportsTile_Click);
 			// 
 			// panel1
 			// 
@@ -330,10 +335,10 @@
 			// 
 			this.EmployersTile.ActiveControl = null;
 			this.EmployersTile.BackColor = System.Drawing.Color.Transparent;
-			this.EmployersTile.Location = new System.Drawing.Point(286, 146);
+			this.EmployersTile.Location = new System.Drawing.Point(12, 281);
 			this.EmployersTile.Margin = new System.Windows.Forms.Padding(2);
 			this.EmployersTile.Name = "EmployersTile";
-			this.EmployersTile.Size = new System.Drawing.Size(268, 122);
+			this.EmployersTile.Size = new System.Drawing.Size(263, 122);
 			this.EmployersTile.TabIndex = 2;
 			this.EmployersTile.Text = "Employers";
 			this.EmployersTile.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -348,10 +353,10 @@
 			// DisponibilityTile
 			// 
 			this.DisponibilityTile.ActiveControl = null;
-			this.DisponibilityTile.Location = new System.Drawing.Point(12, 146);
+			this.DisponibilityTile.Location = new System.Drawing.Point(286, 146);
 			this.DisponibilityTile.Margin = new System.Windows.Forms.Padding(2);
 			this.DisponibilityTile.Name = "DisponibilityTile";
-			this.DisponibilityTile.Size = new System.Drawing.Size(262, 122);
+			this.DisponibilityTile.Size = new System.Drawing.Size(268, 122);
 			this.DisponibilityTile.TabIndex = 9;
 			this.DisponibilityTile.Text = "Disponibility";
 			this.DisponibilityTile.TileImage = global::Tourist.Server.Properties.Resources.Disponibility;
@@ -360,6 +365,7 @@
 			this.DisponibilityTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
 			this.DisponibilityTile.UseSelectable = true;
 			this.DisponibilityTile.UseTileImage = true;
+			this.DisponibilityTile.Click += new System.EventHandler(this.DisponibilityTile_Click);
 			// 
 			// BackupTile
 			// 
@@ -376,11 +382,12 @@
 			this.BackupTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
 			this.BackupTile.UseSelectable = true;
 			this.BackupTile.UseTileImage = true;
+			this.BackupTile.Click += new System.EventHandler(this.BackupTile_Click);
 			// 
 			// ServicesTile
 			// 
 			this.ServicesTile.ActiveControl = null;
-			this.ServicesTile.Location = new System.Drawing.Point(12, 281);
+			this.ServicesTile.Location = new System.Drawing.Point(12, 146);
 			this.ServicesTile.Margin = new System.Windows.Forms.Padding(2);
 			this.ServicesTile.Name = "ServicesTile";
 			this.ServicesTile.Size = new System.Drawing.Size(263, 122);
@@ -392,6 +399,7 @@
 			this.ServicesTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
 			this.ServicesTile.UseSelectable = true;
 			this.ServicesTile.UseTileImage = true;
+			this.ServicesTile.Click += new System.EventHandler(this.ServicesTile_Click);
 			// 
 			// ClientsTile
 			// 
@@ -560,6 +568,10 @@
 			this.ImagePanel.Size = new System.Drawing.Size(100, 84);
 			this.ImagePanel.TabIndex = 14;
 			// 
+			// BackupFile
+			// 
+			this.BackupFile.FileOk += new System.ComponentModel.CancelEventHandler(this.BackupFile_OK);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -577,6 +589,7 @@
 			this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 49);
 			this.Resizable = false;
 			this.Style = MetroFramework.MetroColorStyle.White;
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
 			this.Load += new System.EventHandler(this.MainForm_Load);
 			this.MainPanel.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);
@@ -626,7 +639,8 @@
 		private System.Windows.Forms.Panel HeaderPanel;
 		private MetroFramework.Controls.MetroTile EntityTile;
 		private MetroFramework.Controls.MetroTile metroTile1;
-		private MetroFramework.Controls.MetroTile metroTile2;
+		private MetroFramework.Controls.MetroTile HelpTile;
+		private System.Windows.Forms.SaveFileDialog BackupFile;
 	}
 }
 
