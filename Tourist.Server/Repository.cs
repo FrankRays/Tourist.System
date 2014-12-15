@@ -18,6 +18,12 @@ namespace Tourist.Server
 			get { return mFactory; }
 		}
 
+		public Type[ ] GetTypes( )
+		{
+			if ( Factory == null ) return null;
+			return Factory.GetTypes( );
+		}
+
 		#endregion
 
 		#region Singleton usage: Repository.Instance
@@ -35,66 +41,22 @@ namespace Tourist.Server
 
 		#endregion
 
-		#region Methods
-		
-		public Type[ ] GetTypes( )
-		{
-			if ( Factory == null ) return null;
-			return Factory.GetTypes( );
-		}
-		#endregion
+		#region EntityForm Methods
 
-		public void AddEntity( IEntity aEntity )
-		{
-			aEntity.OnSaveLoad = true;
-			mData.Append(aEntity as Entity);
-		}
-
-		public int Count( )
+		public int EntityListCount( )
 		{
 			return mData.EntityList.Count;
 		}
 
-		public bool IsEmpty( )
+		public bool EntityListIsEmpty( )
 		{
-			return (mData.EntityList.Count == 0);
+			return ( mData.EntityList.Count == 0 );
 		}
 
-
-		public string[ , ] EntitiesListToMatrix(int columnsCount)
+		public void AddEntity( IEntity aEntity )
 		{
-			int rowsCount = Count();
-
-			var matrix = new string[rowsCount, columnsCount ];
-
-			for ( int i = 0 ; i < rowsCount ; i++ )
-			{
-				for ( int j = 0 ; j < columnsCount ; )
-				{
-					matrix[ i, j ] = mData.EntityList.ElementAt( i ).Id.ToString( );
-					j++;
-					matrix[ i, j ] = mData.EntityList.ElementAt( i ).EntityType.ToString();
-					j++;
-					matrix[ i, j ] = mData.EntityList.ElementAt( i ).Name;
-					j++;
-					matrix[ i, j ] = mData.EntityList.ElementAt( i ).Address;
-					j++;
-					matrix[ i, j ] = mData.EntityList.ElementAt( i ).Nif.ToString();
-					j++;
-				}
-			}
-
-			return matrix;
-		}
-
-		public bool EntityAlreadyExists( int aId )
-		{
-			if (mData.EntityList.Any(entity => entity.Id == aId))
-			{
-				return true;
-			}
-			
-			return false;
+			aEntity.OnSaveLoad = true;
+			mData.Append( aEntity as Entity );
 		}
 
 		public void EditEntityType( int aId, EntityType aType )
@@ -105,9 +67,9 @@ namespace Tourist.Server
 			}
 		}
 
-		public void EditEntityName(int aId, string aName)
+		public void EditEntityName( int aId, string aName )
 		{
-			foreach (var entity in mData.EntityList.Where(entity => entity.Id == aId))
+			foreach ( var entity in mData.EntityList.Where( entity => entity.Id == aId ) )
 			{
 				entity.Name = aName;
 			}
@@ -129,6 +91,52 @@ namespace Tourist.Server
 			}
 		}
 
+		public void RemoveEntity( int aId )
+		{
+			foreach ( var entity in mData.EntityList.Where( entity => entity.Id == aId ) )
+			{
+				mData.EntityList.Remove( entity );
+				return;
+			}
+		}
+
+		public bool EntityAlreadyExists( int aId )
+		{
+			return mData.EntityList.Any( entity => entity.Id == aId );
+		}
+
+		public string[ , ] EntitiesListToMatrix( int columnsCount )
+		{
+			int rowsCount = EntityListCount( );
+
+			var matrix = new string[ rowsCount, columnsCount ];
+
+			for ( var i = 0 ; i < rowsCount ; i++ )
+			{
+				for ( var j = 0 ; j < columnsCount ; )
+				{
+					matrix[ i, j ] = mData.EntityList.ElementAt( i ).Id.ToString( );
+					j++;
+					matrix[ i, j ] = mData.EntityList.ElementAt( i ).EntityType.ToString( );
+					j++;
+					matrix[ i, j ] = mData.EntityList.ElementAt( i ).Name;
+					j++;
+					matrix[ i, j ] = mData.EntityList.ElementAt( i ).Address;
+					j++;
+					matrix[ i, j ] = mData.EntityList.ElementAt( i ).Nif.ToString( );
+					j++;
+				}
+			}
+			
+			return matrix;
+		}
+
+		#endregion
+
+		#region EmployersForms Methods
+
+		
+		#endregion
 
 		/*
 		public Entity SearchByEntityId( int aEntityId )

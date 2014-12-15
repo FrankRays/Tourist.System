@@ -1,12 +1,8 @@
 ﻿using System;
-using System.CodeDom.Compiler;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using MetroFramework;
 using MetroFramework.Forms;
-using Tourist.Data.Classes;
 using Tourist.Data.Interfaces;
 
 namespace Tourist.Server.Forms
@@ -14,7 +10,7 @@ namespace Tourist.Server.Forms
 	public partial class EntitiesForm : MetroForm
 	{
 
-		private readonly Repository Repository = Repository.Instance;
+		private readonly Repository repository = Repository.Instance;
 
 		public EntitiesForm( )
 		{
@@ -24,9 +20,7 @@ namespace Tourist.Server.Forms
 		private void EntitiesForm_Load( object sender, EventArgs e )
 		{
 			SetFormFullScreen( );
-
 			LoadDataToGrid( );
-
 		}
 
 		private void SetFormFullScreen( )
@@ -39,90 +33,78 @@ namespace Tourist.Server.Forms
 
 		private void LoadDataToGrid( )
 		{
-
-			if ( Repository.IsEmpty( ) )
+			if ( repository.EntityListIsEmpty( ) )
 				return;
 
-			var EntitiesMatrix = Repository.EntitiesListToMatrix( EntityDataGrid.ColumnCount );
+			var entitiesMatrix = repository.EntitiesListToMatrix( EntityDataGrid.ColumnCount );
 
-			for ( int i = 0 ; i < Repository.Count( ) ; i++ )
+			for ( int i = 0 ; i < repository.EntityListCount( ) ; i++ )
 			{
 				EntityDataGrid.Rows.Add( );
 
 				for ( int j = 0 ; j < EntityDataGrid.ColumnCount ; j++ )
 				{
-					EntityDataGrid.Rows[ i ].Cells[ j ].Value = EntitiesMatrix[ i, j ];
+					EntityDataGrid.Rows[ i ].Cells[ j ].Value = entitiesMatrix[ i, j ];
 				}
 			}
 		}
 
 		private void EntityDataGrid_RowValidating( object sender, DataGridViewCellValidatingEventArgs e )
 		{
-
 			DataGridViewRow row = EntityDataGrid.Rows[ e.RowIndex ];
 
 			int entityId = e.RowIndex + 1;
 
 			EntityDataGrid[ "EntityIdColunm", e.RowIndex ].Value = entityId;
 
+			bool isRowValidated = RowCellsValidated( row );
 
 			if ( row.IsNewRow )
 				return;
 
-			bool isRowValidated = RowCellsValidated( row );
-
-			if (isRowValidated)
+			if ( isRowValidated )
 			{
-
-				if (!Repository.EntityAlreadyExists(entityId))
+				if ( !repository.EntityAlreadyExists( entityId ) )
 				{
-					var buffer = RowCellValues(row);
+					var buffer = RowCellValues( row );
 
-					CreateEntityRow(buffer);
-
+					AddEntityToRepository( buffer );
 				}
 				else
 				{
-					if (e.ColumnIndex == EntityDataGrid.Columns["EntityTypeColumn"].Index)
+					if ( e.ColumnIndex == EntityDataGrid.Columns[ "EntityTypeColumn" ].Index )
 					{
-						Repository.EditEntityType(entityId, (EntityType) Enum.Parse(typeof (EntityType), e.FormattedValue.ToString()));
+						repository.EditEntityType( entityId, ( EntityType ) Enum.Parse( typeof( EntityType ), e.FormattedValue.ToString( ) ) );
 					}
-					else if (e.ColumnIndex == EntityDataGrid.Columns["EntityNameColunm"].Index)
+					else if ( e.ColumnIndex == EntityDataGrid.Columns[ "EntityNameColunm" ].Index )
 					{
-						Repository.EditEntityName(entityId, e.FormattedValue.ToString());
+						repository.EditEntityName( entityId, e.FormattedValue.ToString( ) );
 					}
-					else if (e.ColumnIndex == EntityDataGrid.Columns["EntityAddressColunm"].Index)
+					else if ( e.ColumnIndex == EntityDataGrid.Columns[ "EntityAddressColunm" ].Index )
 					{
-						Repository.EditEntityAddress(entityId, e.FormattedValue.ToString());
+						repository.EditEntityAddress( entityId, e.FormattedValue.ToString( ) );
 					}
-					else if (e.ColumnIndex == EntityDataGrid.Columns["EntityNifColunm"].Index)
+					else if ( e.ColumnIndex == EntityDataGrid.Columns[ "EntityNifColunm" ].Index )
 					{
-						Repository.EditEntityNif(entityId, Convert.ToInt32(e.FormattedValue.ToString()));
+						repository.EditEntityNif( entityId, Convert.ToInt32( e.FormattedValue.ToString( ) ) );
 					}
 				}
 
 				// gravar sempre que possivel porque pode acontecer falhar a energia
-				Repository.Save(Program.FileName);
+				repository.Save( Program.FileName );
 			}
-			
 		}
 
-		private void EntityDataGrid_CellEndEdit( object sender, DataGridViewCellEventArgs e )
+		private void AddEntityToRepository( string[ ] args )
 		{
-			//EntityDataGrid[e.ColumnIndex, e.RowIndex].ErrorText = string.Empty;
-		}
-
-
-		private void CreateEntityRow( string[ ] Args )
-		{
-			IEntity entity = Repository.Factory.CreateObject<IEntity>( );
-			entity.EntityType = ( EntityType ) Enum.Parse( typeof( EntityType ), Args[ 0 ] );
-			entity.Name = Args[ 1 ];
-			entity.Address = Args[ 2 ];
-			entity.Nif = Convert.ToInt32( Args[ 3 ] );
+			IEntity entity = repository.Factory.CreateObject<IEntity>( );
+			entity.EntityType = ( EntityType ) Enum.Parse( typeof( EntityType ), args[ 0 ] );
+			entity.Name = args[ 1 ];
+			entity.Address = args[ 2 ];
+			entity.Nif = Convert.ToInt32( args[ 3 ] );
 
 			// so adiciona no repositorio
-			Repository.AddEntity( entity );
+			repository.AddEntity( entity );
 		}
 
 		private void CellErrorRemove( DataGridViewCell aCell )
@@ -133,7 +115,7 @@ namespace Tourist.Server.Forms
 		private bool RowCellsValidated( DataGridViewRow aRow )
 		{
 
-			bool[ ] cellHasError = new bool[ aRow.Cells.Count ];
+			var cellHasError = new bool[ aRow.Cells.Count ];
 
 			for ( int i = 0 ; i < aRow.Cells.Count - 1 ; i++ )
 			{
@@ -142,7 +124,6 @@ namespace Tourist.Server.Forms
 
 			for ( int i = 1 ; i < aRow.Cells.Count ; i++ )
 			{
-
 				if ( aRow.Cells[ i ].EditedFormattedValue.ToString( ).Length == 0 )
 				{
 					aRow.Cells[ i ].ErrorText = "This Cell can´t be empty!";
@@ -153,7 +134,6 @@ namespace Tourist.Server.Forms
 				{
 					CellErrorRemove( aRow.Cells[ i ] );
 				}
-
 			}
 
 			// testar se o nif contem apenas numeros
@@ -170,7 +150,6 @@ namespace Tourist.Server.Forms
 
 		private string[ ] RowCellValues( DataGridViewRow rows )
 		{
-
 			var buffer = new string[ 4 ];
 
 			for ( int i = 1, j = 0 ; i < rows.Cells.Count ; i++, j++ )
@@ -185,15 +164,13 @@ namespace Tourist.Server.Forms
 			int retNum;
 
 			return ( int.TryParse( isNumber, out retNum ) );
-
 		}
 
-		private void BackPanel_Paint( object sender, PaintEventArgs e )
+		private void EntityDataGrid_RowsRemoved( object sender, DataGridViewRowsRemovedEventArgs e )
 		{
+			var entityId = e.RowIndex + 1;
 
+			repository.RemoveEntity( entityId );
 		}
-
-
-
 	}
 }

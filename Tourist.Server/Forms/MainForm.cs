@@ -109,5 +109,12 @@ namespace Tourist.Server.Forms
 			entityForm.Show();
 		}
 
+		private void EmployersTile_Click( object sender, EventArgs e )
+		{
+			EmployersForm employersForm = new EmployersForm();
+
+			employersForm.Show( );
+		}
+
 	}
 }

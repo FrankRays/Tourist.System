@@ -7,6 +7,10 @@ namespace Tourist.Server.Forms
 {
 	public partial class LoginForm : MetroForm
 	{
+
+		private Repository repository = Repository.Instance;
+		
+
 		public LoginForm( )
 		{
 			InitializeComponent( );
@@ -16,7 +20,6 @@ namespace Tourist.Server.Forms
 		{
 
 			SetFormFullScreen( );
-
 
 		}
 

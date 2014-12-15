@@ -250,6 +250,7 @@
 			this.Margin = new System.Windows.Forms.Padding(2);
 			this.MaximizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(1200, 800);
+			this.Movable = false;
 			this.Name = "HelpForm";
 			this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
 			this.Resizable = false;
