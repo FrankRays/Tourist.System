@@ -441,7 +441,6 @@
 			this.Resizable = false;
 			this.ShowInTaskbar = false;
 			this.Style = MetroFramework.MetroColorStyle.White;
-			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EmployersForm_FormClosing);
 			this.Load += new System.EventHandler(this.EmployersForm_Load);
 			this.BodyPanel.ResumeLayout(false);
 			this.SideBarPanel.ResumeLayout(false);

@@ -471,7 +471,6 @@
 			this.Resizable = false;
 			this.ShowInTaskbar = false;
 			this.Style = MetroFramework.MetroColorStyle.White;
-			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClientsForm_FormClosing);
 			this.Load += new System.EventHandler(this.ClientsForm_Load);
 			this.BodyPanel.ResumeLayout(false);
 			this.WrapperPanelGrid.ResumeLayout(false);

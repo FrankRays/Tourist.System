@@ -589,7 +589,6 @@
 			this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 49);
 			this.Resizable = false;
 			this.Style = MetroFramework.MetroColorStyle.White;
-			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
 			this.Load += new System.EventHandler(this.MainForm_Load);
 			this.MainPanel.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);

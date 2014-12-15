@@ -290,7 +290,6 @@
 			this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
 			this.Resizable = false;
 			this.Style = MetroFramework.MetroColorStyle.White;
-			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoginForm_FormClosing);
 			this.Load += new System.EventHandler(this.LoginForm_Load);
 			this.FooterPanel.ResumeLayout(false);
 			this.BodyPanel.ResumeLayout(false);

@@ -30,22 +30,32 @@ namespace Tourist.Server.Forms
 			Size = new Size( x, y );
 		}
 
-		private void ClientsForm_FormClosing( object sender, FormClosingEventArgs e )
+		protected override void OnFormClosing( FormClosingEventArgs e )
 		{
-			// se precisar grava os dados antes de sair 
-			
-			var dialogResult = MetroMessageBox.Show( this, "\n Are you sure you want to exit the application?", "Login Cancel Button Pressed", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
 
-			if ( dialogResult == DialogResult.No )
-				return;
+			base.OnFormClosing( e );
 
-			Application.Exit( );
+			var dialogResult = MetroMessageBox.Show( this, "\n Are you sure you want to exit the application?",
+				"Close Button Pressed", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
+
+			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
+
+			// Confirm user wants to close
+			switch ( dialogResult )
+			{
+				case DialogResult.No:
+					e.Cancel = true;
+					//Application.Exit();
+					break;
+				default:
+					System.Diagnostics.Process.GetCurrentProcess( ).Kill( );
+					break;
+			}
 		}
 
 		private void BackPanel_MouseClick( object sender, MouseEventArgs e )
 		{
 			Hide( );
-
 			mMainForm.Show();
 		}
 	}

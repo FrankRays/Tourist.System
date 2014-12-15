@@ -252,23 +252,32 @@ namespace Tourist.Server.Forms
 			mHelpForm.Show( );
 		}
 
-		private void MainForm_FormClosing( object sender, FormClosingEventArgs e )
-		{
-			// se precisar grava os dados antes de sair 
-
-			var dialogResult = MetroMessageBox.Show( this, "\n Are you sure you want to exit the application?", "Login Cancel Button Pressed", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
-
-			if ( dialogResult == DialogResult.No )
-				return;
-
-			Application.Exit( );
-		}
-
 		private void BackupFile_OK( object sender, System.ComponentModel.CancelEventArgs e )
 		{
 			// se houver tempo
 		}
 
-	
+		protected override void OnFormClosing( FormClosingEventArgs e )
+		{
+
+			base.OnFormClosing( e );
+
+			var dialogResult = MetroMessageBox.Show( this, "\n Are you sure you want to exit the application?",
+				"Close Button Pressed", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
+
+			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
+
+			// Confirm user wants to close
+			switch ( dialogResult )
+			{
+				case DialogResult.No:
+					e.Cancel = true;
+					//Application.Exit();
+					break;
+				default:
+					System.Diagnostics.Process.GetCurrentProcess( ).Kill( );
+					break;
+			}
+		}
 	}
 }

@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using MetroFramework;
 using MetroFramework.Controls;
 using MetroFramework.Forms;
+using Tourist.Data.Classes;
 
 namespace Tourist.Server.Forms
 {
@@ -13,6 +14,7 @@ namespace Tourist.Server.Forms
 
 		private readonly Repository repository = Repository.Instance;
 		private readonly MainForm mMainForm;
+		private bool mCancelOrClose = false;
 
 		public LoginForm( )
 		{
@@ -55,26 +57,37 @@ namespace Tourist.Server.Forms
 		{
 			if ( !repository.IsEmpty( ) ) return;
 
-			Hide( );
+			Hide();
 			
 			mMainForm.EntityForm.Show();
 		}
 
-		private void LoginForm_FormClosing( object sender, FormClosingEventArgs e )
+
+		protected override void OnFormClosing(FormClosingEventArgs e)
 		{
-			
-			// nao é preciso no login
-			
+
+			base.OnFormClosing(e);
+
+			var dialogResult = MetroMessageBox.Show(this, "\n Are you sure you want to exit the application?",
+				"Close Button Pressed", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+
+			if (e.CloseReason == CloseReason.WindowsShutDown) return;
+
+			// Confirm user wants to close
+			switch (dialogResult)
+			{
+				case DialogResult.No:
+					e.Cancel = true;
+					break;
+				default:
+					break;
+			}
 		}
+
 
 		private void ExitButton_Click( object sender, EventArgs e )
 		{
-			
-			var dialogResult = MetroMessageBox.Show( this, "\n Are you sure you want to exit the application?", "Login Cancel Button Pressed", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
-
-			if ( dialogResult != DialogResult.No )
-				Application.Exit( );
+			Close();
 		}
-
 	}
 }

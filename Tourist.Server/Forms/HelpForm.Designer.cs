@@ -228,7 +228,6 @@
 			this.Resizable = false;
 			this.ShowInTaskbar = false;
 			this.Style = MetroFramework.MetroColorStyle.White;
-			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.HelpForm_FormClosing);
 			this.Load += new System.EventHandler(this.HelpForm_Load);
 			this.HeaderPanel.ResumeLayout(false);
 			this.HeaderPanel.PerformLayout();
