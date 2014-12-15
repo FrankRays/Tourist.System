@@ -24,7 +24,7 @@ namespace Tourist.Server.Forms
 		private void LoginForm_Load( object sender, EventArgs e )
 		{
 
-			ShowLoginFormOrEntityForm( );
+			//ShowLoginFormOrEntityForm( );
 			SetFormFullScreen( );
 
 		}

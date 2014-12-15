@@ -432,7 +432,6 @@
 			this.Name = "DisponibilityForm";
 			this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
 			this.Resizable = false;
-			this.ShowInTaskbar = false;
 			this.Style = MetroFramework.MetroColorStyle.White;
 			this.Load += new System.EventHandler(this.DisponibilityForm_Load);
 			this.HeaderPanel.ResumeLayout(false);

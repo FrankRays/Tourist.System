@@ -43,7 +43,7 @@ namespace Tourist.Server
 		#endregion
 
 		#region LoginForm Methods
-			
+
 
 
 		#endregion
@@ -60,14 +60,14 @@ namespace Tourist.Server
 			return ( mData.EntityList.Count == 0 );
 		}
 
-		public int MaxEntityId()
+		public int MaxEntityId( )
 		{
-			if (IsEmpty())
+			if ( IsEmpty( ) )
 				return 0;
-			
-			List<int> Ids = mData.EntityList.Select(entity => entity.Id).ToList();
 
-			return Ids.Max();
+			List<int> Ids = mData.EntityList.Select( entity => entity.Id ).ToList( );
+
+			return Ids.Max( );
 		}
 
 		public void AddEntity( IEntity aEntity )
@@ -108,20 +108,23 @@ namespace Tourist.Server
 			}
 		}
 
-		public int GetEntityId(int index)
+		public int GetEntityId( int index )
 		{
-			return mData.EntityList.ElementAt(index).Id;
+			return mData.EntityList.ElementAt( index ).Id;
 		}
 
-		public bool ValidIndex(int index)
+		public bool ValidIndex( int index )
 		{
-			return !(index > Count());
+			if ( IsEmpty( ) )
+				return false;
+
+			return ( index <= Count( ) - 1 );
 		}
 
 		public void RemoveEntity( int index )
 		{
 			var aId = mData.EntityList.ElementAt( index ).Id;
-			
+
 			foreach ( var entity in mData.EntityList.Where( entity => entity.Id == aId ) )
 			{
 				mData.EntityList.Remove( entity );
@@ -156,7 +159,7 @@ namespace Tourist.Server
 					j++;
 				}
 			}
-			
+
 			return matrix;
 		}
 
@@ -164,7 +167,7 @@ namespace Tourist.Server
 
 		#region EmployersForms Methods
 
-		
+
 		#endregion
 
 		/*

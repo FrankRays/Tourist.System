@@ -195,9 +195,9 @@ namespace Tourist.Server.Forms
 
 		private void EntityDataGrid_RowsRemoved( object sender, DataGridViewRowsRemovedEventArgs e )
 		{
-			var entityId = e.RowIndex + 1;
+			var removeIndex = e.RowIndex;
 
-			repository.RemoveEntity( entityId );
+			repository.RemoveEntity( removeIndex );
 
 			repository.Save(Program.FileName);
 		}
