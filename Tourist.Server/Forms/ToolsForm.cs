@@ -8,6 +8,7 @@ namespace Tourist.Server.Forms
 	public partial class ToolsForm: MetroForm
 	{
 		private readonly MainForm mMainForm;
+		private bool mBackOrExit = default(bool);
 		
 		public ToolsForm(Form aForm)
 		{
@@ -23,20 +24,18 @@ namespace Tourist.Server.Forms
 
 		private void SetFormFullScreen( )
 		{
-			int x = Screen.PrimaryScreen.Bounds.Width;
-			int y = Screen.PrimaryScreen.Bounds.Height;
+			var x = Screen.PrimaryScreen.Bounds.Width;
+			var y = Screen.PrimaryScreen.Bounds.Height;
 			Location = new Point( 0, 0 );
 			Size = new Size( x, y );
-		}
 
-		private void BackPanel_MouseClick( object sender, MouseEventArgs e )
-		{
-			Hide( );
-			mMainForm.Show( );
+			FormBorderStyle = FormBorderStyle.None;
+			Focus( );
 		}
 
 		protected override void OnFormClosing( FormClosingEventArgs e )
 		{
+			if ( mBackOrExit ) return;
 
 			base.OnFormClosing( e );
 
@@ -45,17 +44,17 @@ namespace Tourist.Server.Forms
 
 			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
 
-			// Confirm user wants to close
-			switch ( dialogResult )
-			{
-				case DialogResult.No:
-					e.Cancel = true;
-					//Application.Exit();
-					break;
-				default:
-					System.Diagnostics.Process.GetCurrentProcess( ).Kill( );
-					break;
-			}
+			if ( dialogResult == DialogResult.No )
+				e.Cancel = true;
+			else
+				System.Diagnostics.Process.GetCurrentProcess( ).Kill( );
+		}
+
+		private void BackPanel_MouseClick( object sender, MouseEventArgs e )
+		{
+			mBackOrExit = true;
+			Close( );
+			mMainForm.Show( );
 		}
 	}
 }

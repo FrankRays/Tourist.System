@@ -44,7 +44,10 @@ namespace Tourist.Server
 
 		#region LoginForm Methods
 
-
+		public List<string> EntityNameList()
+		{
+			return mData.EntityList.Select(entity => entity.Name).ToList();
+		}
 
 		#endregion
 
@@ -65,7 +68,7 @@ namespace Tourist.Server
 			if ( IsEmpty( ) )
 				return 0;
 
-			List<int> Ids = mData.EntityList.Select( entity => entity.Id ).ToList( );
+			var Ids = mData.EntityList.Select( entity => entity.Id ).ToList( );
 
 			return Ids.Max( );
 		}

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Tourist.Data.Interfaces;
 
 namespace Tourist.Data.Classes
@@ -219,7 +218,7 @@ namespace Tourist.Data.Classes
 		/// <returns>An object that implements the given interface type</returns>
 		public T CreateObject<T>( )
 		{
-			return Cast<T>( CreateObject( typeof( T ).Name.Substring( 1 ) ) );
+			return Cast<T>( CreateObject( typeof( T ).Name ) );
 		}
 
 		public static T Cast<T>( object o )

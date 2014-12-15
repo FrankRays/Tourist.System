@@ -8,6 +8,7 @@ namespace Tourist.Server.Forms
 	public partial class ClientsForm : MetroForm
 	{
 		private readonly MainForm mMainForm;
+		private bool mBackOrExit = default( bool );
 		
 		public ClientsForm(Form aForm )
 		{
@@ -18,45 +19,43 @@ namespace Tourist.Server.Forms
 		private void ClientsForm_Load( object sender, System.EventArgs e )
 		{
 			SetFormFullScreen();
-			//ClientsTabControl.BackColor = Color.FromArgb(0, 174, 219);
-			//ClientsTabControl.ForeColor = Color.FromArgb( 255, 255, 255  );
+		
 		}
 
 		private void SetFormFullScreen( )
 		{
-			int x = Screen.PrimaryScreen.Bounds.Width;
-			int y = Screen.PrimaryScreen.Bounds.Height;
+			var x = Screen.PrimaryScreen.Bounds.Width;
+			var y = Screen.PrimaryScreen.Bounds.Height;
 			Location = new Point( 0, 0 );
 			Size = new Size( x, y );
+
+			FormBorderStyle = FormBorderStyle.None;
+			Focus( );
 		}
 
 		protected override void OnFormClosing( FormClosingEventArgs e )
 		{
+			if ( mBackOrExit ) return;
+			
+			base.OnFormClosing(e);
 
-			base.OnFormClosing( e );
+			var dialogResult = MetroMessageBox.Show(this, "\n Are you sure you want to exit the application?",
+				"Close Button Pressed", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
 
-			var dialogResult = MetroMessageBox.Show( this, "\n Are you sure you want to exit the application?",
-				"Close Button Pressed", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
+			if (e.CloseReason == CloseReason.WindowsShutDown) return;
 
-			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
-
-			// Confirm user wants to close
-			switch ( dialogResult )
-			{
-				case DialogResult.No:
-					e.Cancel = true;
-					//Application.Exit();
-					break;
-				default:
-					System.Diagnostics.Process.GetCurrentProcess( ).Kill( );
-					break;
-			}
+			if (dialogResult == DialogResult.No)
+				e.Cancel = true;
+			else
+				System.Diagnostics.Process.GetCurrentProcess().Kill();
 		}
 
 		private void BackPanel_MouseClick( object sender, MouseEventArgs e )
 		{
-			Hide( );
+			mBackOrExit = true;
+			Close();
 			mMainForm.Show();
+
 		}
 	}
 }

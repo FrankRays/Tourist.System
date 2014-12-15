@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using MetroFramework;
 using MetroFramework.Forms;
+using Tourist.Data.Classes;
 using Tourist.Data.Interfaces;
 
 namespace Tourist.Server.Forms
@@ -13,6 +14,7 @@ namespace Tourist.Server.Forms
 
 		private readonly Repository repository = Repository.Instance;
 		private readonly MainForm mMainForm;
+		private bool mBackOrExit = default (bool);
 
 
 		public EntityForm( Form aForm )
@@ -29,10 +31,13 @@ namespace Tourist.Server.Forms
 
 		private void SetFormFullScreen( )
 		{
-			int x = Screen.PrimaryScreen.Bounds.Width;
-			int y = Screen.PrimaryScreen.Bounds.Height;
+			var x = Screen.PrimaryScreen.Bounds.Width;
+			var y = Screen.PrimaryScreen.Bounds.Height;
 			Location = new Point( 0, 0 );
 			Size = new Size( x, y );
+
+			FormBorderStyle = FormBorderStyle.None;
+			Focus( );
 		}
 
 		private void LoadDataToGrid( )
@@ -42,11 +47,11 @@ namespace Tourist.Server.Forms
 
 			var entitiesMatrix = repository.EntitiesListToMatrix( EntityDataGrid.ColumnCount );
 
-			for ( int i = 0 ; i < repository.Count( ) ; i++ )
+			for ( var i = 0 ; i < repository.Count( ) ; i++ )
 			{
 				EntityDataGrid.Rows.Add( );
 
-				for ( int j = 0 ; j < EntityDataGrid.ColumnCount ; j++ )
+				for ( var j = 0 ; j < EntityDataGrid.ColumnCount ; j++ )
 				{
 					EntityDataGrid.Rows[ i ].Cells[ j ].Value = entitiesMatrix[ i, j ];
 				}
@@ -56,16 +61,11 @@ namespace Tourist.Server.Forms
 		private void EntityDataGrid_RowValidating( object sender, DataGridViewCellValidatingEventArgs e )
 		{
 			
-			DataGridViewRow row = EntityDataGrid.Rows[ e.RowIndex ];
+			var row = EntityDataGrid.Rows[ e.RowIndex ];
 			
-			/*
-			if ( row.IsNewRow )
-				return;
-			*/
-			
-			int entityIndex = e.RowIndex ;
+			var entityIndex = e.RowIndex ;
 
-			int entityId = 0;
+			int entityId;
 			
 			if (repository.ValidIndex(entityIndex))
 			{
@@ -119,7 +119,7 @@ namespace Tourist.Server.Forms
 
 		private void AddEntityToRepository( string[ ] args )
 		{
-			IEntity entity = repository.Factory.CreateObject<IEntity>( );
+			var entity = repository.Factory.CreateObject<Entity>( );
 			
 			var nextId = repository.MaxEntityId() + 1;
 			
@@ -196,20 +196,33 @@ namespace Tourist.Server.Forms
 		private void EntityDataGrid_RowsRemoved( object sender, DataGridViewRowsRemovedEventArgs e )
 		{
 			var removeIndex = e.RowIndex;
+			
+			var aRow = EntityDataGrid.Rows[ e.RowIndex ];
 
-			repository.RemoveEntity( removeIndex );
+			if (RowCellsValidated(aRow))
+			{
+				repository.RemoveEntity( removeIndex );
+				repository.Save( Program.FileName );
+			}
+			else
+			{
 
-			repository.Save(Program.FileName);
-		}
+				if (aRow.IsNewRow)
+					return;
+				
+				for ( int i = 1 ; i < aRow.Cells.Count ; i++ )
+				{
+					CellErrorRemove( aRow.Cells[ i ] );
+				}
 
-		private void BackPanel_MouseClick( object sender, MouseEventArgs e )
-		{
-			Hide( );
-			mMainForm.Show( );
+				EntityDataGrid.Rows.Remove(aRow);
+			}
+	
 		}
 
 		protected override void OnFormClosing( FormClosingEventArgs e )
 		{
+			if ( mBackOrExit ) return;
 
 			base.OnFormClosing( e );
 
@@ -218,17 +231,17 @@ namespace Tourist.Server.Forms
 
 			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
 
-			// Confirm user wants to close
-			switch ( dialogResult )
-			{
-				case DialogResult.No:
-					e.Cancel = true;
-					//Application.Exit();
-					break;
-				default:
-					System.Diagnostics.Process.GetCurrentProcess( ).Kill( );
-					break;
-			}
+			if ( dialogResult == DialogResult.No )
+				e.Cancel = true;
+			else
+				System.Diagnostics.Process.GetCurrentProcess( ).Kill( );
+		}
+
+		private void BackPanel_MouseClick( object sender, MouseEventArgs e )
+		{
+			mBackOrExit = true;
+			Close( );
+			mMainForm.Show( );
 		}
 
 	}
