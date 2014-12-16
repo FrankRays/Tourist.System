@@ -7,7 +7,7 @@ namespace Tourist.Data.Classes
 	{
 		public CableCarTransport( )
 		{		
-			MaxNumberOfPersons = 10;
+			Capacity = 10;
 		}
 	}
 }

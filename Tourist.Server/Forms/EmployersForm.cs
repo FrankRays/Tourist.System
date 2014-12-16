@@ -195,23 +195,8 @@ namespace Tourist.Server.Forms
 
 			var aRow = EmployersDataGrid.Rows[ e.RowIndex ];
 
-			
 			repository.RemoveEmployerOfEntity( mEntityId, removeIndex );
 			
-			/*
-			else
-			{
-				if ( aRow.IsNewRow )
-					return;
-
-				for ( int i = 1 ; i < aRow.Cells.Count ; i++ )
-				{
-					CellErrorRemove( aRow.Cells[ i ] );
-				}
-
-				EmployersDataGrid.Rows.Remove( aRow );
-			}
-			*/
 		}
 
 		protected override void OnFormClosing( FormClosingEventArgs e )

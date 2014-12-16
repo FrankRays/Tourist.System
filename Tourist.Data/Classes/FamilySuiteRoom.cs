@@ -7,7 +7,7 @@ namespace Tourist.Data.Classes
 	{
 		public FamilySuiteRoom( ) 
 		{
-			MaxNumberOfPersons = 4;
+			Capacity = 4;
 		}
 	}
 }

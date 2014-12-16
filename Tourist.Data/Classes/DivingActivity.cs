@@ -7,7 +7,7 @@ namespace Tourist.Data.Classes
 	{
 		public DivingActivity( ) 
 		{
-			MaxNumberOfPersons = 2;
+			Capacity = 2;
 		}
 	}
 }

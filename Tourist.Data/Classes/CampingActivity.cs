@@ -7,7 +7,7 @@ namespace Tourist.Data.Classes
 	{
 		public CampingActivity( )
 		{
-			MaxNumberOfPersons = 5;
+			Capacity = 5;
 		}
 	}
 }

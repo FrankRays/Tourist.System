@@ -1,4 +1,6 @@
-﻿using Tourist.Data.Classes;
+﻿using System;
+using System.Data;
+using Tourist.Data.Classes;
 
 namespace Tourist.Data.Interfaces
 {
@@ -6,8 +8,14 @@ namespace Tourist.Data.Interfaces
     {
 		int Id { get; set; }
 		string Description { get; set; }
-		string Type { get; }
+		string Type { get; set; }
 		double Price { get; set; }
-		int MaxNumberOfPersons { get; set; } 
+		int Capacity { get; set; }
+		BookableState State { get; set; }
+	}
+
+	public enum BookableState
+	{
+		Available, Unavailable
 	}
 }

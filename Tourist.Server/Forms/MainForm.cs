@@ -126,7 +126,7 @@ namespace Tourist.Server.Forms
 		{
 			Hide( );
 
-			var servicesForm = new ServicesForm( this );
+			var servicesForm = new BookablesForm( this, EntityId );
 			servicesForm.Show( );
 		}
 

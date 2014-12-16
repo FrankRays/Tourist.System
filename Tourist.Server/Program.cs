@@ -57,7 +57,7 @@ namespace Tourist.Server
 
 		static void RepositorySaveTest( )
 		{
-
+			/*
 			var entities = new List<IEntity>( );
 
 			var entity = repository.Factory.CreateEntity( );
@@ -127,7 +127,7 @@ namespace Tourist.Server
 
 			repository.Save( FileName );
 
-
+			*/
 		}
 
 		static void RepositoryLoadTest( )

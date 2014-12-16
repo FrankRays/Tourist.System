@@ -7,7 +7,7 @@ namespace Tourist.Data.Classes
 	{
 		public BoatRideActivity()
 		{
-			MaxNumberOfPersons = 10;
+			Capacity = 10;
 		}
 	}
 }

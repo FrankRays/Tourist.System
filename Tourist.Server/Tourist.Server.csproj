@@ -75,11 +75,11 @@
     <Compile Include="Forms\NotifyForm.Designer.cs">
       <DependentUpon>NotifyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ServicesForm.cs">
+    <Compile Include="Forms\BookablesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ServicesForm.Designer.cs">
-      <DependentUpon>ServicesForm.cs</DependentUpon>
+    <Compile Include="Forms\BookablesForm.Designer.cs">
+      <DependentUpon>BookablesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\DisponibilityForm.cs">
       <SubType>Form</SubType>
@@ -137,8 +137,8 @@
     <EmbeddedResource Include="Forms\NotifyForm.resx">
       <DependentUpon>NotifyForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ServicesForm.resx">
-      <DependentUpon>ServicesForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\BookablesForm.resx">
+      <DependentUpon>BookablesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DisponibilityForm.resx">
       <DependentUpon>DisponibilityForm.cs</DependentUpon>

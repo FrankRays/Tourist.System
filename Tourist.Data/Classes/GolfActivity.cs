@@ -7,7 +7,7 @@ namespace Tourist.Data.Classes
 	{
 		public GolfActivity( ) 
 		{
-			MaxNumberOfPersons = 5;
+			Capacity = 5;
 		}
 	}
 }

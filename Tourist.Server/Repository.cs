@@ -293,17 +293,17 @@ namespace Tourist.Server
 
 		public void RemoveEmployerOfEntity( int aEntityId, int aIndex )
 		{
-			foreach (var entity in mData.EntityList)
+			foreach ( var entity in mData.EntityList )
 			{
-				if ( entity.Id == aEntityId ) 
+				if ( entity.Id == aEntityId )
 				{
-					if ( !( aIndex > EmployersListCount( aEntityId ) - 1 ) ) 
-					{ 
+					if ( !( aIndex > EmployersListCount( aEntityId ) - 1 ) )
+					{
 						entity.OnSaveLoad = true;
-						var employer = entity.Employers.ElementAt(aIndex);
-					
-						entity.Remove(employer);
-					
+						var employer = entity.Employers.ElementAt( aIndex );
+
+						entity.Remove( employer );
+
 						Save( Program.FileName );
 						entity.EmployersList = new List<Employer>( );
 						entity.OnSaveLoad = false;
@@ -512,6 +512,242 @@ namespace Tourist.Server
 			}
 		}
 
+
+		#endregion
+
+		#region BookablesForm RoomTab Methods
+
+		public bool IsRoomBookablesListEmpty( int aEntityId )
+		{
+			var entity = GetEntity( aEntityId );
+
+			return ( !entity.Bookables.OfType<Room>( ).Any( ) );
+		}
+
+		public int RoomBookablesListCount( int aEntityId )
+		{
+			var entity = GetEntity( aEntityId );
+
+			return entity.Bookables.OfType<Room>( ).Count( );
+		}
+
+		public bool IsRoomBookablesIndexValid( int aEntityId, int aIndex )
+		{
+			if ( IsRoomBookablesListEmpty( aEntityId ) )
+				return false;
+
+			return ( aIndex <= RoomBookablesListCount( aEntityId ) - 1 );
+		}
+
+		public int GetRoomId( int aEntityId, int aIndex )
+		{
+			var entity = GetEntity( aEntityId );
+
+			return entity.Bookables.ElementAt( aIndex ).Id;
+		}
+
+		public int MaxRoomBookablesId( int aEntityId )
+		{
+			if ( IsRoomBookablesListEmpty( aEntityId ) )
+				return 0;
+
+			var entity = GetEntity( aEntityId );
+
+			var ids = entity.Bookables.OfType<Room>( ).Select( bookable => bookable.Id ).ToList( );
+
+			return ids.Max( );
+		}
+
+		public bool RoomBookablesAlreadyExists( int aEntityId, int aBookableId )
+		{
+			var entity = GetEntity( aEntityId );
+
+			foreach ( var bookable in entity.Bookables )
+			{
+				if ( bookable is Room && bookable.Id == aBookableId )
+				{
+					return true;
+				}
+			}
+
+			return false;
+		}
+
+		public string[ , ] RoomBookablesListToMatrix( int aEntityId, int columnsCount )
+		{
+			var entity = GetEntity( aEntityId );
+
+			var rowsCount = RoomBookablesListCount( aEntityId );
+
+			var matrix = new string[ rowsCount, columnsCount ];
+
+			for ( var i = 0 ; i < rowsCount ; i++ )
+			{
+				for ( var j = 0 ; j < columnsCount ; )
+				{
+					matrix[ i, j ] = entity.Bookables.ElementAt( i ).Id.ToString( );
+					j++;
+					matrix[ i, j ] = entity.Bookables.ElementAt( i ).Type.ToString( );
+					//partir a string sem o qualifier
+					j++;
+					matrix[ i, j ] = entity.Bookables.ElementAt( i ).Description;
+					j++;
+					matrix[ i, j ] = entity.Bookables.ElementAt( i ).Price.ToString( );
+					j++;
+					matrix[ i, j ] = entity.Bookables.ElementAt( i ).Capacity.ToString( );
+					j++;
+					matrix[ i, j ] = entity.Bookables.ElementAt( i ).State.ToString( );
+					j++;
+				}
+			}
+
+			return matrix;
+		}
+
+		public void AddRoomBookableToEntity( int aEntityId, IBookable aBookable )
+		{
+			foreach ( var entity in mData.EntityList.Where( entity => entity.Id == aEntityId ) )
+			{
+				entity.OnSaveLoad = true;
+				entity.Append( aBookable as Room );
+				Save( Program.FileName );
+				entity.BookablesList = new List<Bookable>( );
+				entity.OnSaveLoad = false;
+				return;
+			}
+		}
+
+		public void RemoveRoomBookableOfEntity( int aEntityId, int aIndex )
+		{
+			foreach ( var entity in mData.EntityList )
+			{
+				if ( entity.Id == aEntityId )
+				{
+					if ( !( aIndex > RoomBookablesListCount( aEntityId ) - 1 ) )
+					{
+						entity.OnSaveLoad = true;
+						var bookable = entity.Bookables.ElementAt( aIndex );
+						entity.Remove( bookable );
+						Save( Program.FileName );
+						entity.BookablesList = new List<Bookable>( );
+						entity.OnSaveLoad = false;
+						return;
+					}
+				}
+			}
+		}
+
+		public void EditRoomBookableType( int aEntityId, int aBookableId, string aType )
+		{
+			foreach ( var entity in mData.EntityList )
+			{
+				if ( entity.Id == aEntityId )
+				{
+					entity.OnSaveLoad = true;
+
+					foreach ( var bookable in entity.Bookables.Where( bookable => bookable.Id == aBookableId ) )
+					{
+						bookable.Type = aType;
+						Save( Program.FileName );
+
+						entity.BookablesList = new List<Bookable>( );
+					}
+
+					entity.OnSaveLoad = false;
+					return;
+				}
+			}
+		}
+
+		public void EditRoomBookableDescription( int aEntityId, int aBookableId, string aDescription )
+		{
+			foreach ( var entity in mData.EntityList )
+			{
+				if ( entity.Id == aEntityId )
+				{
+					entity.OnSaveLoad = true;
+
+					foreach ( var bookable in entity.Bookables.Where( bookable => bookable.Id == aBookableId ) )
+					{
+						bookable.Description = aDescription;
+
+						Save( Program.FileName );
+
+						entity.BookablesList = new List<Bookable>( );
+					}
+
+					entity.OnSaveLoad = false;
+					return;
+				}
+			}
+		}
+
+		public void EditRoomBookablePrice( int aEntityId, int aBookableId, int aPrice )
+		{
+			foreach ( var entity in mData.EntityList )
+			{
+				if ( entity.Id == aEntityId )
+				{
+					entity.OnSaveLoad = true;
+
+					foreach ( var bookable in entity.Bookables.Where( bookable => bookable.Id == aBookableId ) )
+					{
+						bookable.Price = aPrice;
+
+						Save( Program.FileName );
+
+						entity.BookablesList = new List<Bookable>( );
+					}
+
+					entity.OnSaveLoad = false;
+					return;
+				}
+			}
+		}
+
+		public void EditRoomBookableCapacity( int aEntityId, int aBookableId, int aCapacity )
+		{
+			foreach ( var entity in mData.EntityList )
+			{
+				if ( entity.Id == aEntityId )
+				{
+					entity.OnSaveLoad = true;
+
+					foreach ( var bookable in entity.Bookables.Where( bookable => bookable.Id == aBookableId ) )
+					{
+						bookable.Capacity = aCapacity;
+						Save( Program.FileName );
+
+						entity.BookablesList = new List<Bookable>( );
+					}
+
+					entity.OnSaveLoad = false;
+					return;
+				}
+			}
+		}
+
+		public void EditRoomBookableState( int aEntityId, int aBookableId, BookableState aState )
+		{
+			foreach ( var entity in mData.EntityList )
+			{
+				if ( entity.Id == aEntityId )
+				{
+					entity.OnSaveLoad = true;
+
+					foreach ( var bookable in entity.Bookables.Where( bookable => bookable.Id == aBookableId ) )
+					{
+						bookable.State = aState;
+						Save( Program.FileName );
+
+						entity.BookablesList = new List<Bookable>( );
+					}
+
+					entity.OnSaveLoad = true;
+					return;
+				}
+			}
+		}
 
 		#endregion
 

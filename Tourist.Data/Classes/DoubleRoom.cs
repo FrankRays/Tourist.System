@@ -7,7 +7,7 @@ namespace Tourist.Data.Classes
 	{
 		public DoubleRoom( ) 
 		{
-			MaxNumberOfPersons = 2;
+			Capacity = 2;
 		}
 	}
 }

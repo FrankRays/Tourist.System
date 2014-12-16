@@ -7,7 +7,7 @@ namespace Tourist.Data.Classes
 	{
 		public MeetingRoom( )
 		{
-			MaxNumberOfPersons = 50;
+			Capacity = 50;
 		}
 	}
 }

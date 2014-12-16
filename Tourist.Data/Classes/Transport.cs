@@ -5,7 +5,7 @@ using Tourist.Data.Interfaces;
 namespace Tourist.Data.Classes
 {
 	[Serializable]
-	public abstract class Transport : Bookable
+	public class Transport : Bookable
 	{
 		
 		#region Fields
@@ -22,7 +22,7 @@ namespace Tourist.Data.Classes
 
 		#region Constructor
 
-		protected Transport()
+		public Transport()
 		{
 			Id = ++mCounter;
 		}

@@ -7,7 +7,7 @@ namespace Tourist.Data.Classes
 	{
 		public SkyDivingActivity()
 		{
-			MaxNumberOfPersons = 4;
+			Capacity = 4;
 		}
 	}
 }

@@ -7,7 +7,7 @@ namespace Tourist.Data.Classes
 	{
 		public SightSeeingActivity( )
 		{
-			MaxNumberOfPersons = 10;
+			Capacity = 10;
 		}
 	}
 }

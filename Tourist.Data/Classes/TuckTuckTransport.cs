@@ -7,7 +7,7 @@ namespace Tourist.Data.Classes
 	{
 		public TuckTuckTransport( )
 		{
-			MaxNumberOfPersons = 20;
+			Capacity = 20;
 		}
 	}
 }
