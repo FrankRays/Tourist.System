@@ -61,18 +61,20 @@ namespace Tourist.Server.Forms
 		private void ShowLoginFormOrEntityForm( )
 		{
 
-			if ( !mLoginFormOrEntityForm )
+			if ( mLoginFormOrEntityForm )
 			{
+				var selectedItem = EntityNameCombox.SelectedItem;
+				mEntityId = repository.GetEntityId( selectedItem.ToString( ) );
+				mMainForm = new MainForm( this, mEntityId );
 				Hide( );
-				var entityForm = new EntityForm( this );
+				mMainForm.Show( );
+			}
+			else 
+			{ 
+				Hide( );
+				var entityForm = new EntityForm( mMainForm );
 				entityForm.Show( );
 			}
-
-			var selectedItem = EntityNameCombox.SelectedItem;
-			mEntityId = repository.GetEntityId( selectedItem.ToString( ) );
-			mMainForm = new MainForm( this, mEntityId );
-			Hide( );
-			mMainForm.Show( );
 
 		}
 

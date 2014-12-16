@@ -13,7 +13,6 @@ namespace Tourist.Data.Classes
 		private static int mCounter = 0;
 		private double mPrice;
 		private string mDescription;
-		private DateTimeRange mTimeRange;
 		private int mMaxNumberOfPersons;
 
 		#endregion
@@ -37,12 +36,6 @@ namespace Tourist.Data.Classes
 		{
 			get { return mPrice; }
 			set { mPrice = value; }
-		}
-
-		public DateTimeRange TimeRange
-		{
-			get { return mTimeRange; }
-			set { mTimeRange = value; }
 		}
 
 		public int MaxNumberOfPersons

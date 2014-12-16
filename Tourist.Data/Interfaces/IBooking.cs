@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Tourist.Data.Classes;
 
 namespace Tourist.Data.Interfaces
 {
@@ -9,6 +10,7 @@ namespace Tourist.Data.Interfaces
 		IClient IClient { get; set; } //set alterado
 		DateTime BookingDateTime { get; set; }
 		IEnumerable<IBookingItem> BookingItens { get; }
+		DateTimeRange TimeRange { get; set; }
 		void Append( IBookingItem aItem );
 		void Remove( IBookingItem aItem );
 

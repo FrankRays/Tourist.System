@@ -8,7 +8,6 @@ namespace Tourist.Data.Interfaces
 		string Description { get; set; }
 		string Type { get; }
 		double Price { get; set; }
-		DateTimeRange TimeRange { get; set; }
 		int MaxNumberOfPersons { get; set; } 
 	}
 }

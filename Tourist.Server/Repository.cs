@@ -285,6 +285,7 @@ namespace Tourist.Server
 				entity.OnSaveLoad = true;
 				entity.Append( aEmployer as Employer );
 				Save( Program.FileName );
+				entity.EmployersList = new List<Employer>( );
 				entity.OnSaveLoad = false;
 				return;
 			}
@@ -292,17 +293,23 @@ namespace Tourist.Server
 
 		public void RemoveEmployerOfEntity( int aEntityId, int aIndex )
 		{
-			foreach ( var entity in mData.EntityList.Where( entity => entity.Id == aEntityId ) )
+			foreach (var entity in mData.EntityList)
 			{
-
-				entity.OnSaveLoad = true;
-				var employersList = entity.Employers.ToList( );
-				var employer = employersList.ElementAt( aIndex );
-				employersList.Remove( employer );
-				entity.Employers = employersList;
-				Save( Program.FileName );
-				entity.OnSaveLoad = false;
-				return;
+				if ( entity.Id == aEntityId ) 
+				{
+					if ( !( aIndex > EmployersListCount( aEntityId ) - 1 ) ) 
+					{ 
+						entity.OnSaveLoad = true;
+						var employer = entity.Employers.ElementAt(aIndex);
+					
+						entity.Remove(employer);
+					
+						Save( Program.FileName );
+						entity.EmployersList = new List<Employer>( );
+						entity.OnSaveLoad = false;
+						return;
+					}
+				}
 			}
 		}
 
@@ -318,8 +325,10 @@ namespace Tourist.Server
 					{
 						employer.Gender = aGender;
 						Save( Program.FileName );
+
+						entity.EmployersList = new List<Employer>( );
 					}
-					
+
 					entity.OnSaveLoad = false;
 					return;
 				}
@@ -337,7 +346,10 @@ namespace Tourist.Server
 					foreach ( var employer in entity.Employers.Where( employer => employer.Id == aEmployerId ) )
 					{
 						employer.FirstName = aFirstName;
+
 						Save( Program.FileName );
+
+						entity.EmployersList = new List<Employer>( );
 					}
 
 					entity.OnSaveLoad = false;
@@ -358,6 +370,8 @@ namespace Tourist.Server
 					{
 						employer.LastName = aLastName;
 						Save( Program.FileName );
+
+						entity.EmployersList = new List<Employer>( );
 					}
 
 					entity.OnSaveLoad = false;
@@ -378,6 +392,8 @@ namespace Tourist.Server
 					{
 						employer.BirthDate = aBirthDate;
 						Save( Program.FileName );
+
+						entity.EmployersList = new List<Employer>( );
 					}
 
 					entity.OnSaveLoad = false;
@@ -398,6 +414,8 @@ namespace Tourist.Server
 					{
 						employer.Address = aAddress;
 						Save( Program.FileName );
+
+						entity.EmployersList = new List<Employer>( );
 					}
 
 					entity.OnSaveLoad = true;
@@ -418,6 +436,8 @@ namespace Tourist.Server
 					{
 						employer.PhoneNumber = aPhoneNumber;
 						Save( Program.FileName );
+
+						entity.EmployersList = new List<Employer>( );
 					}
 
 					entity.OnSaveLoad = false;
@@ -438,6 +458,8 @@ namespace Tourist.Server
 					{
 						employer.Email = aEmail;
 						Save( Program.FileName );
+
+						entity.EmployersList = new List<Employer>( );
 					}
 
 					entity.OnSaveLoad = false;
@@ -458,6 +480,8 @@ namespace Tourist.Server
 					{
 						employer.Username = aUsername;
 						Save( Program.FileName );
+
+						entity.EmployersList = new List<Employer>( );
 					}
 
 					entity.OnSaveLoad = false;
@@ -478,6 +502,8 @@ namespace Tourist.Server
 					{
 						employer.Password = aPassword;
 						Save( Program.FileName );
+
+						entity.EmployersList = new List<Employer>( );
 					}
 
 					entity.OnSaveLoad = false;

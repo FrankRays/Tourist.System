@@ -195,10 +195,10 @@ namespace Tourist.Server.Forms
 
 			var aRow = EmployersDataGrid.Rows[ e.RowIndex ];
 
-			if ( RowCellsValidated( aRow ) )
-			{
-				repository.RemoveEmployerOfEntity( mEntityId, removeIndex );
-			}
+			
+			repository.RemoveEmployerOfEntity( mEntityId, removeIndex );
+			
+			/*
 			else
 			{
 				if ( aRow.IsNewRow )
@@ -211,7 +211,7 @@ namespace Tourist.Server.Forms
 
 				EmployersDataGrid.Rows.Remove( aRow );
 			}
-
+			*/
 		}
 
 		protected override void OnFormClosing( FormClosingEventArgs e )

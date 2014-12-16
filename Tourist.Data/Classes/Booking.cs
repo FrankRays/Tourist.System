@@ -18,6 +18,7 @@ namespace Tourist.Data.Classes
 		private IClient mClient;
 		private DateTime mBookingDateTime;
 		private IEnumerable<IBookingItem> mBookingItems;
+		private DateTimeRange mTimeRange;
 
 		#endregion
 
@@ -48,6 +49,12 @@ namespace Tourist.Data.Classes
 			private set { mBookingItems = value; }
 		}
 
+		public DateTimeRange TimeRange
+		{
+			get { return mTimeRange; }
+			set { mTimeRange = value; }
+		}
+
 		#endregion
 
 		#region Methods
@@ -68,7 +75,6 @@ namespace Tourist.Data.Classes
 
 		public double TotalPrice( )
 		{
-
 			//pode ser feito em apenas uma linha 
 			//return BookingItens.Sum( aItem => aItem.BookingItemPrice );
 
@@ -120,7 +126,6 @@ namespace Tourist.Data.Classes
 					{
 						mSBookingItems.Add( item as BookingItem );
 					}
-
 				}
 
 				return mSBookingItems;
