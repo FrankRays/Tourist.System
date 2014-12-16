@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Security.AccessControl;
 using Tourist.Data.Classes;
 using Tourist.Data.Interfaces;
 
@@ -14,6 +12,8 @@ namespace Tourist.Server
 		#region Fields
 
 		private readonly Factory mFactory = new Factory( );
+
+		public readonly string FileName = @"..\..\Repository.xml";
 
 		public Factory Factory
 		{
@@ -284,7 +284,7 @@ namespace Tourist.Server
 			{
 				entity.OnSaveLoad = true;
 				entity.Append( aEmployer as Employer );
-				Save( Program.FileName );
+				Save( FileName );
 				entity.EmployersList = new List<Employer>( );
 				entity.OnSaveLoad = false;
 				return;
@@ -304,7 +304,7 @@ namespace Tourist.Server
 
 						entity.Remove( employer );
 
-						Save( Program.FileName );
+						Save( FileName );
 						entity.EmployersList = new List<Employer>( );
 						entity.OnSaveLoad = false;
 						return;
@@ -324,7 +324,7 @@ namespace Tourist.Server
 					foreach ( var employer in entity.Employers.Where( employer => employer.Id == aEmployerId ) )
 					{
 						employer.Gender = aGender;
-						Save( Program.FileName );
+						Save( FileName );
 
 						entity.EmployersList = new List<Employer>( );
 					}
@@ -347,7 +347,7 @@ namespace Tourist.Server
 					{
 						employer.FirstName = aFirstName;
 
-						Save( Program.FileName );
+						Save( FileName );
 
 						entity.EmployersList = new List<Employer>( );
 					}
@@ -369,7 +369,7 @@ namespace Tourist.Server
 					foreach ( var employer in entity.Employers.Where( employer => employer.Id == aEmployerId ) )
 					{
 						employer.LastName = aLastName;
-						Save( Program.FileName );
+						Save( FileName );
 
 						entity.EmployersList = new List<Employer>( );
 					}
@@ -391,7 +391,7 @@ namespace Tourist.Server
 					foreach ( var employer in entity.Employers.Where( employer => employer.Id == aEmployerId ) )
 					{
 						employer.BirthDate = aBirthDate;
-						Save( Program.FileName );
+						Save( FileName );
 
 						entity.EmployersList = new List<Employer>( );
 					}
@@ -413,7 +413,7 @@ namespace Tourist.Server
 					foreach ( var employer in entity.Employers.Where( employer => employer.Id == aEmployerId ) )
 					{
 						employer.Address = aAddress;
-						Save( Program.FileName );
+						Save( FileName );
 
 						entity.EmployersList = new List<Employer>( );
 					}
@@ -435,7 +435,7 @@ namespace Tourist.Server
 					foreach ( var employer in entity.Employers.Where( employer => employer.Id == aEmployerId ) )
 					{
 						employer.PhoneNumber = aPhoneNumber;
-						Save( Program.FileName );
+						Save( FileName );
 
 						entity.EmployersList = new List<Employer>( );
 					}
@@ -457,7 +457,7 @@ namespace Tourist.Server
 					foreach ( var employer in entity.Employers.Where( employer => employer.Id == aEmployerId ) )
 					{
 						employer.Email = aEmail;
-						Save( Program.FileName );
+						Save( FileName );
 
 						entity.EmployersList = new List<Employer>( );
 					}
@@ -479,7 +479,7 @@ namespace Tourist.Server
 					foreach ( var employer in entity.Employers.Where( employer => employer.Id == aEmployerId ) )
 					{
 						employer.Username = aUsername;
-						Save( Program.FileName );
+						Save( FileName );
 
 						entity.EmployersList = new List<Employer>( );
 					}
@@ -501,7 +501,7 @@ namespace Tourist.Server
 					foreach ( var employer in entity.Employers.Where( employer => employer.Id == aEmployerId ) )
 					{
 						employer.Password = aPassword;
-						Save( Program.FileName );
+						Save( FileName );
 
 						entity.EmployersList = new List<Employer>( );
 					}
@@ -610,7 +610,7 @@ namespace Tourist.Server
 			{
 				entity.OnSaveLoad = true;
 				entity.Append( aBookable as Room );
-				Save( Program.FileName );
+				Save( FileName );
 				entity.BookablesList = new List<Bookable>( );
 				entity.OnSaveLoad = false;
 				return;
@@ -628,7 +628,7 @@ namespace Tourist.Server
 						entity.OnSaveLoad = true;
 						var bookable = entity.Bookables.ElementAt( aIndex );
 						entity.Remove( bookable );
-						Save( Program.FileName );
+						Save( FileName );
 						entity.BookablesList = new List<Bookable>( );
 						entity.OnSaveLoad = false;
 						return;
@@ -648,7 +648,7 @@ namespace Tourist.Server
 					foreach ( var bookable in entity.Bookables.Where( bookable => bookable.Id == aBookableId ) )
 					{
 						bookable.Type = aType;
-						Save( Program.FileName );
+						Save( FileName );
 
 						entity.BookablesList = new List<Bookable>( );
 					}
@@ -671,7 +671,7 @@ namespace Tourist.Server
 					{
 						bookable.Description = aDescription;
 
-						Save( Program.FileName );
+						Save( FileName );
 
 						entity.BookablesList = new List<Bookable>( );
 					}
@@ -694,7 +694,7 @@ namespace Tourist.Server
 					{
 						bookable.Price = aPrice;
 
-						Save( Program.FileName );
+						Save( FileName );
 
 						entity.BookablesList = new List<Bookable>( );
 					}
@@ -716,7 +716,7 @@ namespace Tourist.Server
 					foreach ( var bookable in entity.Bookables.Where( bookable => bookable.Id == aBookableId ) )
 					{
 						bookable.Capacity = aCapacity;
-						Save( Program.FileName );
+						Save( FileName );
 
 						entity.BookablesList = new List<Bookable>( );
 					}
@@ -738,7 +738,7 @@ namespace Tourist.Server
 					foreach ( var bookable in entity.Bookables.Where( bookable => bookable.Id == aBookableId ) )
 					{
 						bookable.State = aState;
-						Save( Program.FileName );
+						Save( FileName );
 
 						entity.BookablesList = new List<Bookable>( );
 					}
@@ -749,6 +749,316 @@ namespace Tourist.Server
 			}
 		}
 
+		#endregion
+
+		#region ClientsForm Methods
+
+		public bool IsClientListEmpty( int aEntityId )
+		{
+			var entity = GetEntity( aEntityId );
+
+			if ( !entity.Clients.Any( ) )
+				return true;
+
+			return false;
+		}
+
+		public int ClientsListCount( int aEntityId )
+		{
+			var temp = 0;
+
+			foreach ( var entity in mData.EntityList.Where( entity => entity.Id == aEntityId ) )
+			{
+				temp = entity.Clients.Count( );
+			}
+
+			return temp;
+		}
+
+		public bool IsClientsListIndexValid( int aEntityId, int aIndex )
+		{
+			if ( IsClientListEmpty( aEntityId ) )
+				return false;
+
+			return ( aIndex <= ClientsListCount( aEntityId ) - 1 );
+		}
+
+		public int GetClientId( int aEntityId, int aIndex )
+		{
+			var entity = GetEntity( aEntityId );
+
+			return entity.Clients.ElementAt( aIndex ).Id;
+		}
+
+		public int MaxClientId( int aEntityId )
+		{
+			if ( IsClientListEmpty( aEntityId ) )
+				return 0;
+
+			var entity = GetEntity( aEntityId );
+
+			var Ids = entity.Clients.Select( Client => Client.Id ).ToList( );
+
+			return Ids.Max( );
+		}
+
+		public bool ClientAlreadyExists( int aEntityId, int aClientId )
+		{
+			var entity = GetEntity( aEntityId );
+
+			return entity.Clients.Any( Client => Client.Id == aClientId );
+		}
+
+		public string[ , ] ClientsListToMatrix( int aEntityId, int columnsCount )
+		{
+			
+			var entity = GetEntity( aEntityId );
+
+			var rowsCount = ClientsListCount( aEntityId );
+
+			var matrix = new string[ rowsCount, columnsCount ];
+
+			for ( var i = 0 ; i < rowsCount ; i++ )
+			{
+				for ( var j = 0 ; j < columnsCount ; )
+				{
+					matrix[ i, j ] = entity.Clients.ElementAt( i ).Id.ToString( );
+					j++;
+					matrix[ i, j ] = entity.Clients.ElementAt( i ).Gender.ToString( );
+					j++;
+					matrix[ i, j ] = entity.Clients.ElementAt( i ).FirstName;
+					j++;
+					matrix[ i, j ] = entity.Clients.ElementAt( i ).LastName;
+					j++;
+					matrix[ i, j ] = entity.Clients.ElementAt( i ).BirthDate.Date.ToString( "d" );
+					j++;
+					matrix[ i, j ] = entity.Clients.ElementAt( i ).Nif.ToString( );
+					j++;
+					matrix[ i, j ] = entity.Clients.ElementAt( i ).Address;
+					j++;
+					matrix[ i, j ] = entity.Clients.ElementAt( i ).PhoneNumber.ToString( );
+					j++;
+					matrix[ i, j ] = entity.Clients.ElementAt( i ).Email;
+					j++;
+				}
+			}
+
+			return matrix;
+		}
+
+		public void AddClientToEntity( int aEntityId, IClient aClient )
+		{
+			foreach ( var entity in mData.EntityList.Where( entity => entity.Id == aEntityId ) )
+			{
+				entity.OnSaveLoad = true;
+				entity.Append( aClient as Client );
+				Save( FileName );
+				entity.ClientsList = new List<Client>( );
+				entity.OnSaveLoad = false;
+				return;
+			}
+		}
+
+		public void RemoveClientOfEntity( int aEntityId, int aIndex )
+		{
+			foreach ( var entity in mData.EntityList )
+			{
+				if ( entity.Id == aEntityId )
+				{
+					if ( !( aIndex > ClientsListCount( aEntityId ) - 1 ) )
+					{
+						entity.OnSaveLoad = true;
+						var client = entity.Clients.ElementAt( aIndex );
+
+						entity.Remove( client );
+
+						Save( FileName );
+						entity.ClientsList = new List<Client>( );
+						entity.OnSaveLoad = false;
+						return;
+					}
+				}
+			}
+		}
+
+		public void EditClientGender( int aEntityId, int aClientId, Gender aGender )
+		{
+			foreach ( var entity in mData.EntityList )
+			{
+				if ( entity.Id == aEntityId )
+				{
+					entity.OnSaveLoad = true;
+
+					foreach ( var client in entity.Clients.Where( client => client.Id == aClientId ) )
+					{
+						client.Gender = aGender;
+						Save( FileName );
+
+						entity.ClientsList = new List<Client>( );
+					}
+
+					entity.OnSaveLoad = false;
+					return;
+				}
+			}
+		}
+
+		public void EditClientFirstName( int aEntityId, int aClientId, string aFirstName )
+		{
+			foreach ( var entity in mData.EntityList )
+			{
+				if ( entity.Id == aEntityId )
+				{
+					entity.OnSaveLoad = true;
+
+					foreach ( var client in entity.Clients.Where( client => client.Id == aClientId ) )
+					{
+						client.FirstName = aFirstName;
+
+						Save( FileName );
+
+						entity.ClientsList = new List<Client>( );
+					}
+
+					entity.OnSaveLoad = false;
+					return;
+				}
+			}
+		}
+
+		public void EditClientLastName( int aEntityId, int aClientId, string aLastName )
+		{
+			foreach ( var entity in mData.EntityList )
+			{
+				if ( entity.Id == aEntityId )
+				{
+					entity.OnSaveLoad = true;
+
+					foreach ( var client in entity.Clients.Where( client => client.Id == aClientId ) )
+					{
+						client.LastName = aLastName;
+						Save( FileName );
+
+						entity.ClientsList = new List<Client>( );
+					}
+
+					entity.OnSaveLoad = false;
+					return;
+				}
+			}
+		}
+
+		public void EditClientBirthDate( int aEntityId, int aClientId, DateTime aBirthDate )
+		{
+			foreach ( var entity in mData.EntityList )
+			{
+				if ( entity.Id == aEntityId )
+				{
+					entity.OnSaveLoad = true;
+
+					foreach ( var client in entity.Clients.Where( client => client.Id == aClientId ) )
+					{
+						client.BirthDate = aBirthDate;
+						Save( FileName );
+
+						entity.ClientsList = new List<Client>( );
+					}
+
+					entity.OnSaveLoad = false;
+					return;
+				}
+			}
+		}
+
+		public void EditClientNif( int aEntityId, int aClientId, int aNif )
+		{
+			foreach ( var entity in mData.EntityList )
+			{
+				if ( entity.Id == aEntityId )
+				{
+					entity.OnSaveLoad = true;
+
+					foreach ( var client in entity.Clients.Where( client => client.Id == aClientId ) )
+					{
+						client.Nif = aNif;
+						Save( FileName );
+
+						entity.ClientsList = new List<Client>( );
+					}
+
+					entity.OnSaveLoad = false;
+					return;
+				}
+			}
+		}
+
+		public void EditClientAddress( int aEntityId, int aClientId, string aAddress )
+		{
+			foreach ( var entity in mData.EntityList )
+			{
+				if ( entity.Id == aEntityId )
+				{
+					entity.OnSaveLoad = true;
+
+					foreach ( var client in entity.Clients.Where( client => client.Id == aClientId ) )
+					{
+						client.Address = aAddress;
+						Save( FileName );
+
+						entity.ClientsList = new List<Client>( );
+					}
+
+					entity.OnSaveLoad = true;
+					return;
+				}
+			}
+		}
+
+		public void EditClientPhoneNumber( int aEntityId, int aClientId, int aPhoneNumber )
+		{
+			foreach ( var entity in mData.EntityList )
+			{
+				if ( entity.Id == aEntityId )
+				{
+					entity.OnSaveLoad = true;
+
+					foreach ( var client in entity.Clients.Where( client => client.Id == aClientId ) )
+					{
+						client.PhoneNumber = aPhoneNumber;
+						Save( FileName );
+
+						entity.ClientsList = new List<Client>( );
+					}
+
+					entity.OnSaveLoad = false;
+					return;
+				}
+			}
+		}
+
+		public void EditClientEmail( int aEntityId, int aClientId, string aEmail )
+		{
+			foreach ( var entity in mData.EntityList )
+			{
+				if ( entity.Id == aEntityId )
+				{
+					entity.OnSaveLoad = true;
+
+					foreach ( var client in entity.Clients.Where( client => client.Id == aClientId ) )
+					{
+						client.Email = aEmail;
+						Save( FileName );
+
+						entity.ClientsList = new List<Client>( );
+					}
+
+					entity.OnSaveLoad = false;
+					return;
+				}
+			}
+		}
+
+		
 		#endregion
 
 		/*

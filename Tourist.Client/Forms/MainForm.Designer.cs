@@ -44,7 +44,7 @@
 			this.HelpTile = new MetroFramework.Controls.MetroTile();
 			this.ReportsTile = new MetroFramework.Controls.MetroTile();
 			this.PaymentsTile = new MetroFramework.Controls.MetroTile();
-			this.AdminToolsTile = new MetroFramework.Controls.MetroTile();
+			this.ToolsTile = new MetroFramework.Controls.MetroTile();
 			this.ClientsTile = new MetroFramework.Controls.MetroTile();
 			this.BookingsTile = new MetroFramework.Controls.MetroTile();
 			this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -80,7 +80,7 @@
 			this.MainPanel.Controls.Add(this.HelpTile);
 			this.MainPanel.Controls.Add(this.ReportsTile);
 			this.MainPanel.Controls.Add(this.PaymentsTile);
-			this.MainPanel.Controls.Add(this.AdminToolsTile);
+			this.MainPanel.Controls.Add(this.ToolsTile);
 			this.MainPanel.Controls.Add(this.ClientsTile);
 			this.MainPanel.Controls.Add(this.BookingsTile);
 			this.MainPanel.HorizontalScrollbarBarColor = true;
@@ -251,6 +251,7 @@
 			this.HelpTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
 			this.HelpTile.UseSelectable = true;
 			this.HelpTile.UseTileImage = true;
+			this.HelpTile.Click += new System.EventHandler(this.HelpTile_Click);
 			// 
 			// ReportsTile
 			// 
@@ -285,21 +286,22 @@
 			this.PaymentsTile.UseTileImage = true;
 			this.PaymentsTile.Click += new System.EventHandler(this.PaymentsTile_Click);
 			// 
-			// AdminToolsTile
+			// ToolsTile
 			// 
-			this.AdminToolsTile.ActiveControl = null;
-			this.AdminToolsTile.Location = new System.Drawing.Point(286, 284);
-			this.AdminToolsTile.Margin = new System.Windows.Forms.Padding(2);
-			this.AdminToolsTile.Name = "AdminToolsTile";
-			this.AdminToolsTile.Size = new System.Drawing.Size(128, 122);
-			this.AdminToolsTile.TabIndex = 5;
-			this.AdminToolsTile.Text = "Tools";
-			this.AdminToolsTile.TileImage = global::Tourist.Server.Properties.Resources.Tools;
-			this.AdminToolsTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.AdminToolsTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-			this.AdminToolsTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-			this.AdminToolsTile.UseSelectable = true;
-			this.AdminToolsTile.UseTileImage = true;
+			this.ToolsTile.ActiveControl = null;
+			this.ToolsTile.Location = new System.Drawing.Point(286, 284);
+			this.ToolsTile.Margin = new System.Windows.Forms.Padding(2);
+			this.ToolsTile.Name = "ToolsTile";
+			this.ToolsTile.Size = new System.Drawing.Size(128, 122);
+			this.ToolsTile.TabIndex = 5;
+			this.ToolsTile.Text = "Tools";
+			this.ToolsTile.TileImage = global::Tourist.Server.Properties.Resources.Tools;
+			this.ToolsTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.ToolsTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+			this.ToolsTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+			this.ToolsTile.UseSelectable = true;
+			this.ToolsTile.UseTileImage = true;
+			this.ToolsTile.Click += new System.EventHandler(this.ToolsTile_Click);
 			// 
 			// ClientsTile
 			// 
@@ -358,7 +360,7 @@
 			this.SubTitleLabel.AutoSize = true;
 			this.SubTitleLabel.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.SubTitleLabel.ForeColor = System.Drawing.Color.White;
-			this.SubTitleLabel.Location = new System.Drawing.Point(24, 70);
+			this.SubTitleLabel.Location = new System.Drawing.Point(28, 70);
 			this.SubTitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.SubTitleLabel.Name = "SubTitleLabel";
 			this.SubTitleLabel.Size = new System.Drawing.Size(266, 30);
@@ -371,7 +373,7 @@
 			this.TitleLabel.BackColor = System.Drawing.Color.Transparent;
 			this.TitleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.TitleLabel.ForeColor = System.Drawing.Color.White;
-			this.TitleLabel.Location = new System.Drawing.Point(17, 5);
+			this.TitleLabel.Location = new System.Drawing.Point(18, 16);
 			this.TitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.TitleLabel.Name = "TitleLabel";
 			this.TitleLabel.Size = new System.Drawing.Size(109, 51);
@@ -526,7 +528,7 @@
 		private MetroFramework.Controls.MetroTile HelpTile;
 		private MetroFramework.Controls.MetroTile ReportsTile;
 		private MetroFramework.Controls.MetroTile PaymentsTile;
-		private MetroFramework.Controls.MetroTile AdminToolsTile;
+		private MetroFramework.Controls.MetroTile ToolsTile;
 		private System.ComponentModel.BackgroundWorker backgroundWorker1;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Panel ClockTile;

@@ -191,7 +191,7 @@ namespace Tourist.Server.Forms
 			var nextId = repository.MaxEmployerId( mEntityId ) + 1;
 
 			bookable.Id = nextId;
-			bookable.Type =
+			bookable.Type = args[0];
 			bookable.Description = args[ 1 ];
 			bookable.Price = Convert.ToInt32( args[ 2 ] );
 			bookable.Capacity = Convert.ToInt32( args[ 3 ] );
@@ -237,16 +237,6 @@ namespace Tourist.Server.Forms
 			}
 
 			CellErrorRemove( aRow.Cells[ "PriceColumn" ] );
-
-			/*
-			if ( !IsNumeric( aRow.Cells[ "CapacityColumn" ].EditedFormattedValue.ToString( ) ) )
-			{
-				aRow.Cells[ "CapacityColumn" ].ErrorText = "The cell is not a number";
-				return false;
-			}
-
-			CellErrorRemove( aRow.Cells[ "CapacityColumn" ] );
-			*/
 
 			return !cellHasError.Any( bolean => bolean );
 		}

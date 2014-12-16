@@ -111,7 +111,7 @@ namespace Tourist.Server.Forms
 				}
 
 				// gravar sempre que possivel porque pode acontecer falhar a energia
-				repository.Save( Program.FileName );
+				repository.Save( Repository.FileName );
 				//LoadDataToGrid();
 
 			}
@@ -202,7 +202,7 @@ namespace Tourist.Server.Forms
 			if ( RowCellsValidated( aRow ) )
 			{
 				repository.RemoveEntity( removeIndex );
-				repository.Save( Program.FileName );
+				repository.Save( Repository.FileName );
 			}
 			else
 			{
@@ -241,7 +241,7 @@ namespace Tourist.Server.Forms
 		{
 			mBackOrExit = true;
 			Close( );
-			mMainForm.Show( );
+			mMainForm.Show( ); // mudar para login
 		}
 
 	}

@@ -14,9 +14,9 @@ namespace Tourist.Server
 	static class Program
 	{
 
-		public const string FileName = @"..\..\Repository.xml";
-
 		public static Repository repository = Repository.Instance;
+
+		public static string FileName = repository.FileName;
 
 		/// <summary>
 		/// The main entry point for the application.
@@ -132,8 +132,8 @@ namespace Tourist.Server
 
 		static void RepositoryLoadTest( )
 		{
-			repository.Load( FileName );
-			repository.Load( );
+			//repository.Load( FileName );
+			//repository.Load( );
 		}
 
 	}

@@ -18,7 +18,6 @@ namespace Tourist.Server
 		[STAThread]
 		static void Main( )
 		{
-			
 			// Create an active tcp port
 			TcpChannel channel = new TcpChannel( );
 
@@ -28,9 +27,8 @@ namespace Tourist.Server
 			// Create a transparent proxy "obj" for the remote object
 			IRemote Remote = ( IRemote ) Activator.GetObject(
 				typeof( IRemote ), // Remote object type
+				//"tcp://192.168.10.109:3000/Tourist.Server" );
 				"tcp://localhost:3000/Tourist.Server" ); // Remote object URL
-
-			List<Entity> test = Remote.GetRepositoryEntities();
 
 			try
 			{
@@ -41,10 +39,10 @@ namespace Tourist.Server
 				MessageBox.Show( string.Format( "Server not found! Please check your internet connection." ) );
 				return;
 			}
-			
+
 			Application.EnableVisualStyles( );
 			Application.SetCompatibleTextRenderingDefault( false );
-			Application.Run( new LoginForm() );
+			Application.Run( new LoginForm( Remote ) );
 		}
 	}
 }

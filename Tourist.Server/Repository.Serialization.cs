@@ -8,7 +8,7 @@ using Tourist.Data.Interfaces;
 
 namespace Tourist.Server
 {
-	public sealed partial class Repository
+	public sealed partial class Repository 
 	{
 
 		#region Serialization

@@ -35,7 +35,7 @@ namespace Tourist.Data.Classes
 		{
 			get
 			{
-				return GetType( ).ToString();
+				return GetType( ).Name;
 			}
 			set { mType = value; }
 		}

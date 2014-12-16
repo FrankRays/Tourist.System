@@ -58,7 +58,6 @@ namespace Tourist.Server.Forms
 			DayOfWeekLabel.Text = DateTime.Today.DayOfWeek.ToString( );
 			MonthNameLabel.Text = MonthsName( DateTime.Today.Month );
 			YearLabel.Text = DateTime.Today.Year.ToString( );
-
 		}
 
 		private string MonthsName( int aMonth )
