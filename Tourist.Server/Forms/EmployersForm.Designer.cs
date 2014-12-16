@@ -40,9 +40,10 @@
 			this.EmployersDataGrid = new MetroFramework.Controls.MetroGrid();
 			this.IdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.GenderColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-			this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.NIFColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.AddressColunm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.FirstNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.LastNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.BirthDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.AddressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.PhoneColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.EmailColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.UsernameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -188,9 +189,10 @@
 			this.EmployersDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdColumn,
             this.GenderColumn,
-            this.NameColumn,
-            this.NIFColumn,
-            this.AddressColunm,
+            this.FirstNameColumn,
+            this.LastNameColumn,
+            this.BirthDateColumn,
+            this.AddressColumn,
             this.PhoneColumn,
             this.EmailColumn,
             this.UsernameColumn,
@@ -224,7 +226,8 @@
 			this.EmployersDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.EmployersDataGrid.Size = new System.Drawing.Size(949, 480);
 			this.EmployersDataGrid.TabIndex = 18;
-			this.EmployersDataGrid.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.EmployersDataGrid_RowValidating);
+			this.EmployersDataGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.EmployersDataGrid_RowValidating);
+			this.EmployersDataGrid.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.EmployersDataGrid_RowsRemoved);
 			// 
 			// IdColumn
 			// 
@@ -244,27 +247,30 @@
 			this.GenderColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
 			this.GenderColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
 			// 
-			// NameColumn
+			// FirstNameColumn
 			// 
-			this.NameColumn.HeaderText = "Name";
-			this.NameColumn.MinimumWidth = 150;
-			this.NameColumn.Name = "NameColumn";
-			this.NameColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.NameColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.FirstNameColumn.HeaderText = "First Name";
+			this.FirstNameColumn.MinimumWidth = 150;
+			this.FirstNameColumn.Name = "FirstNameColumn";
+			this.FirstNameColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
 			// 
-			// NIFColumn
+			// LastNameColumn
 			// 
-			this.NIFColumn.HeaderText = "NIF";
-			this.NIFColumn.MinimumWidth = 150;
-			this.NIFColumn.Name = "NIFColumn";
-			this.NIFColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.NIFColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.LastNameColumn.HeaderText = "Last Name";
+			this.LastNameColumn.MinimumWidth = 150;
+			this.LastNameColumn.Name = "LastNameColumn";
 			// 
-			// AddressColunm
+			// BirthDateColumn
 			// 
-			this.AddressColunm.HeaderText = "Address";
-			this.AddressColunm.MinimumWidth = 150;
-			this.AddressColunm.Name = "AddressColunm";
+			this.BirthDateColumn.HeaderText = "BirthDate";
+			this.BirthDateColumn.MinimumWidth = 150;
+			this.BirthDateColumn.Name = "BirthDateColumn";
+			// 
+			// AddressColumn
+			// 
+			this.AddressColumn.HeaderText = "Address";
+			this.AddressColumn.MinimumWidth = 150;
+			this.AddressColumn.Name = "AddressColumn";
 			// 
 			// PhoneColumn
 			// 
@@ -475,9 +481,10 @@
 		private MetroFramework.Controls.MetroGrid EmployersDataGrid;
 		private System.Windows.Forms.DataGridViewTextBoxColumn IdColumn;
 		private System.Windows.Forms.DataGridViewComboBoxColumn GenderColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn NIFColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn AddressColunm;
+		private System.Windows.Forms.DataGridViewTextBoxColumn FirstNameColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn LastNameColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn BirthDateColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn AddressColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn PhoneColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn EmailColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn UsernameColumn;

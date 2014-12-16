@@ -8,7 +8,7 @@ namespace Tourist.Data.Interfaces
 		string FirstName { get; set; }
 		string LastName { get; set; }
 		DateTime BirthDate { get; set; }
-		GenderEnum Gender { get; set; }
+		Gender Gender { get; set; }
 		int Nif { get; set; }
 		string Address { get; set; }
 		int PhoneNumber { get; set; }

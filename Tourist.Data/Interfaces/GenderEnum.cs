@@ -1,6 +1,6 @@
 ﻿namespace Tourist.Data.Interfaces
 {
-	public enum GenderEnum
+	public enum Gender
 	{
 		Male,Female
 	}

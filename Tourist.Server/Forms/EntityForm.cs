@@ -14,7 +14,7 @@ namespace Tourist.Server.Forms
 
 		private readonly Repository repository = Repository.Instance;
 		private readonly MainForm mMainForm;
-		private bool mBackOrExit = default (bool);
+		private bool mBackOrExit = default( bool );
 
 
 		public EntityForm( Form aForm )
@@ -60,20 +60,20 @@ namespace Tourist.Server.Forms
 
 		private void EntityDataGrid_RowValidating( object sender, DataGridViewCellValidatingEventArgs e )
 		{
-			
+
 			var row = EntityDataGrid.Rows[ e.RowIndex ];
-			
-			var entityIndex = e.RowIndex ;
+
+			var entityIndex = e.RowIndex;
 
 			int entityId;
-			
-			if (repository.ValidIndex(entityIndex))
+
+			if ( repository.IsEntityListIndexValid( entityIndex ) )
 			{
-				entityId = repository.GetEntityId(entityIndex);
+				entityId = repository.GetEntityId( entityIndex );
 			}
 			else
 			{
-				entityId = repository.MaxEntityId() + 1;
+				entityId = repository.MaxEntityId( ) + 1;
 			}
 
 			EntityDataGrid[ "EntityIdColunm", e.RowIndex ].Value = entityId;
@@ -120,9 +120,9 @@ namespace Tourist.Server.Forms
 		private void AddEntityToRepository( string[ ] args )
 		{
 			var entity = repository.Factory.CreateObject<Entity>( );
-			
-			var nextId = repository.MaxEntityId() + 1;
-			
+
+			var nextId = repository.MaxEntityId( ) + 1;
+
 			entity.Id = nextId;
 
 			entity.EntityType = ( EntityType ) Enum.Parse( typeof( EntityType ), args[ 0 ] );
@@ -196,10 +196,10 @@ namespace Tourist.Server.Forms
 		private void EntityDataGrid_RowsRemoved( object sender, DataGridViewRowsRemovedEventArgs e )
 		{
 			var removeIndex = e.RowIndex;
-			
+
 			var aRow = EntityDataGrid.Rows[ e.RowIndex ];
 
-			if (RowCellsValidated(aRow))
+			if ( RowCellsValidated( aRow ) )
 			{
 				repository.RemoveEntity( removeIndex );
 				repository.Save( Program.FileName );
@@ -207,17 +207,17 @@ namespace Tourist.Server.Forms
 			else
 			{
 
-				if (aRow.IsNewRow)
+				if ( aRow.IsNewRow )
 					return;
-				
+
 				for ( int i = 1 ; i < aRow.Cells.Count ; i++ )
 				{
 					CellErrorRemove( aRow.Cells[ i ] );
 				}
 
-				EntityDataGrid.Rows.Remove(aRow);
+				EntityDataGrid.Rows.Remove( aRow );
 			}
-	
+
 		}
 
 		protected override void OnFormClosing( FormClosingEventArgs e )

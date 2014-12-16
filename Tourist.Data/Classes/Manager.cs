@@ -14,7 +14,7 @@ namespace Tourist.Data.Classes
 		private string mFirstName;
 		private string mLastName;
 		private DateTime mBirthDate;
-		private GenderEnum mGender;
+		private Gender mGender;
 		private string mAddress;
 		private int mPhoneNumber;
 		private string mEmail;
@@ -46,7 +46,7 @@ namespace Tourist.Data.Classes
 			set { mBirthDate = value; }
 		}
 
-		public GenderEnum Gender
+		public Gender Gender
 		{
 			get { return mGender; }
 			set { mGender = value; }
@@ -89,7 +89,7 @@ namespace Tourist.Data.Classes
 		//pode ficar vazio e depois usa-se os sets
 		public Manager( ) { }
 
-		public Manager( string aFirstName, string aLastName, DateTime aBirthDate, GenderEnum aGender,
+		public Manager( string aFirstName, string aLastName, DateTime aBirthDate, Gender aGender,
 			int aPhoneNumber, string aEmail, string aAddress, string aUsername, string aPassword )
 		{
 			Id = ++counter;

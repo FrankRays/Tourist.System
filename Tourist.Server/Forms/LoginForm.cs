@@ -10,32 +10,33 @@ namespace Tourist.Server.Forms
 	{
 
 		private readonly Repository repository = Repository.Instance;
-		private readonly MainForm mMainForm;
+		private MainForm mMainForm;
 		private bool mLoginFormOrEntityForm = default( bool );
-		private int mEntityId = 0;
+		private int mEntityId = default( int );
 
 		public LoginForm( )
 		{
-			mMainForm = new MainForm( this );
 			InitializeComponent( );
+
 		}
 
 		private void LoginForm_Load( object sender, EventArgs e )
 		{
 			SetFormFullScreen( );
-			mLoginFormOrEntityForm = CanLoadEntityNamesComboBox( );
+			mLoginFormOrEntityForm = CanLoadEntityNamesComboBox();
+
 		}
 
 		private void SetFormFullScreen( )
 		{
-			
+
 			var x = Screen.PrimaryScreen.Bounds.Width;
 			var y = Screen.PrimaryScreen.Bounds.Height;
 			Location = new Point( 0, 0 );
 			Size = new Size( x, y );
 
 			FormBorderStyle = FormBorderStyle.None;
-			Focus();
+			Focus( );
 
 		}
 
@@ -59,17 +60,20 @@ namespace Tourist.Server.Forms
 
 		private void ShowLoginFormOrEntityForm( )
 		{
-			if ( mLoginFormOrEntityForm )
-			{
-				Hide( );
-				mMainForm.Show( );
-			}
-			else
+
+			if ( !mLoginFormOrEntityForm )
 			{
 				Hide( );
 				var entityForm = new EntityForm( this );
 				entityForm.Show( );
 			}
+
+			var selectedItem = EntityNameCombox.SelectedItem;
+			mEntityId = repository.GetEntityId( selectedItem.ToString( ) );
+			mMainForm = new MainForm( this, mEntityId );
+			Hide( );
+			mMainForm.Show( );
+
 		}
 
 		protected override void OnFormClosing( FormClosingEventArgs e )

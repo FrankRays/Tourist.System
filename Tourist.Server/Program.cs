@@ -71,7 +71,7 @@ namespace Tourist.Server
 			var employer = repository.Factory.CreateEmployer( );
 			employer.FirstName = "Jonas";
 			employer.LastName = "Rebo";
-			employer.Gender = GenderEnum.Male;
+			employer.Gender = Gender.Male;
 			employer.BirthDate = new DateTime( 1987, 6, 13 );
 			employer.Address = "Caminho das Lonas";
 			employer.PhoneNumber = 931111111;
@@ -80,7 +80,7 @@ namespace Tourist.Server
 			var client1 = repository.Factory.CreateClient( );
 			client1.FirstName = "Fabio";
 			client1.LastName = "Nobrega";
-			client1.Gender = GenderEnum.Male;
+			client1.Gender = Gender.Male;
 			client1.BirthDate = new DateTime( 1987, 5, 13 );
 			client1.Nif = 000000000;
 			client1.Address = "Caminho das Preces";
@@ -92,7 +92,7 @@ namespace Tourist.Server
 			var client2 = repository.Factory.CreateClient( );
 			client2.FirstName = "Joao";
 			client2.LastName = "Nobrega";
-			client2.Gender = GenderEnum.Male;
+			client2.Gender = Gender.Male;
 			client2.BirthDate = new DateTime( 1975, 5, 15 );
 			client2.Nif = 000000001;
 			client2.Address = "Caminho das Preces";

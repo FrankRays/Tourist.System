@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.IO;
 using System.Windows.Forms;
 using MetroFramework;
 using MetroFramework.Forms;
@@ -10,12 +9,19 @@ namespace Tourist.Server.Forms
 {
 	public partial class MainForm : MetroForm
 	{
+		private int mEntityId = default( int );
 
-		public MainForm( Form aForm )
+		public int EntityId
 		{
+			get { return mEntityId; }
+			private set { mEntityId = value; }
+		}
 
-			//this.ShowInTaskbar = false;
+		public MainForm( Form aForm, int entityId )
+		{
 			InitializeComponent( );
+
+			EntityId = entityId;
 		}
 
 		private void MainForm_Load( object sender, EventArgs e )
@@ -26,7 +32,6 @@ namespace Tourist.Server.Forms
 
 		private void SetFullScreen( )
 		{
-
 			var x = Screen.PrimaryScreen.Bounds.Width;
 			var y = Screen.PrimaryScreen.Bounds.Height;
 			Location = new Point( 0, 0 );
@@ -34,12 +39,10 @@ namespace Tourist.Server.Forms
 
 			FormBorderStyle = FormBorderStyle.None;
 			Focus( );
-
 		}
 
 		private void TimerClock_Tick( object sender, EventArgs e )
 		{
-
 			ClockLabel.Text = DateTime.Now.ToString( "HH:mm:ss" );
 
 			if ( DateTime.Now.Hour >= 12 && DateTime.Now.Minute >= 0 )
@@ -82,7 +85,7 @@ namespace Tourist.Server.Forms
 		{
 
 			var x = SideBarPanel.Location.X - SideBarPanel.Width;
-			// como esta escondido é preciso subtrarir o width do panel
+			// como esta escondido é preciso subtrair o width do panel
 			var y = SideBarPanel.Location.Y;
 
 			if ( x <= e.X || ( x <= e.X && y <= e.Y ) )
@@ -108,7 +111,6 @@ namespace Tourist.Server.Forms
 			Hide( );
 
 			var entityForm = new EntityForm( this );
-
 			entityForm.Show( );
 		}
 
@@ -117,7 +119,6 @@ namespace Tourist.Server.Forms
 			Hide( );
 
 			var employersForm = new EmployersForm( this );
-
 			employersForm.Show( );
 		}
 
@@ -134,7 +135,6 @@ namespace Tourist.Server.Forms
 			Hide( );
 
 			var clientsForm = new ClientsForm( this );
-
 			clientsForm.Show( );
 		}
 
@@ -191,7 +191,6 @@ namespace Tourist.Server.Forms
 
 		protected override void OnFormClosing( FormClosingEventArgs e )
 		{
-			
 			base.OnFormClosing( e );
 
 			var dialogResult = MetroMessageBox.Show( this, "\n Are you sure you want to exit the application?",
