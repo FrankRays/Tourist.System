@@ -32,6 +32,8 @@ namespace Tourist.Server.Forms
 			Focus( );
 		}
 
+
+
 		protected override void OnFormClosing( FormClosingEventArgs e )
 		{
 			if ( mBackOrExit ) return;
@@ -54,6 +56,16 @@ namespace Tourist.Server.Forms
 			mBackOrExit = true;
 			Close( );
 			mMainForm.Show( );
+		}
+
+		private void ServicesForm_RowsValidating( object sender, DataGridViewCellValidatingEventArgs e )
+		{
+
+		}
+
+		private void ServicesForm_RowsRemoved( object sender, DataGridViewRowsRemovedEventArgs e )
+		{
+
 		}
 	}
 }

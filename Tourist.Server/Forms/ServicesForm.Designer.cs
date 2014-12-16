@@ -63,6 +63,7 @@
 			this.DescriptionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.PriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.CapacityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.StateColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
 			this.HeaderPanel.SuspendLayout();
 			this.BodyPanel.SuspendLayout();
 			this.ClientsTabsControl.SuspendLayout();
@@ -456,7 +457,8 @@
             this.TypeColumn,
             this.DescriptionColumn,
             this.PriceColumn,
-            this.CapacityColumn});
+            this.CapacityColumn,
+            this.StateColumn});
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(172)))), ((int)(((byte)(219)))));
 			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 13F);
@@ -486,6 +488,8 @@
 			this.RoomDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.RoomDataGrid.Size = new System.Drawing.Size(955, 429);
 			this.RoomDataGrid.TabIndex = 18;
+			this.RoomDataGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.ServicesForm_RowsValidating);
+			this.RoomDataGrid.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.ServicesForm_RowsRemoved);
 			// 
 			// IdColumn
 			// 
@@ -524,6 +528,12 @@
 			this.CapacityColumn.Name = "CapacityColumn";
 			this.CapacityColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
 			this.CapacityColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			// 
+			// StateColumn
+			// 
+			this.StateColumn.HeaderText = "State";
+			this.StateColumn.MinimumWidth = 150;
+			this.StateColumn.Name = "StateColumn";
 			// 
 			// ServicesForm
 			// 
@@ -590,6 +600,7 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn DescriptionColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn PriceColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn CapacityColumn;
+		private System.Windows.Forms.DataGridViewComboBoxColumn StateColumn;
 
 	}
 }
