@@ -27,26 +27,31 @@ namespace Tourist.Data.Classes
 
 		#region Properties
 
+		[XmlElement( Order = 1 )]
 		public int Id { get; set; }
 
+		[XmlElement( Order = 2 )]
 		public EntityType EntityType
 		{
 			get { return mEntityType; } 
 			set { mEntityType = value; }
 		}
 
+		[XmlElement( Order = 3 )]
 		public string Name
 		{
 			get { return mName; }
 			set { mName = value; }
 		}
 
+		[XmlElement( Order = 4 )]
 		public string Address
 		{
 			get { return mAddress; }
 			set { mAddress = value; }
 		}
 
+		[XmlElement( Order = 5 )]
 		public int Nif
 		{
 			get { return mNif; } 
@@ -185,8 +190,8 @@ namespace Tourist.Data.Classes
 		private bool mSaveLoad = default( bool );
 
 
-		//teste se os Bookings for vazio 
-		public List<Booking> BookingsList
+		[XmlArray( ElementName = "BookingsList", Order = 6 )]
+		public List<Booking> TempBookingsList
 		{
 			get
 			{
@@ -207,7 +212,8 @@ namespace Tourist.Data.Classes
 			}
 		}
 
-		public List<Client> ClientsList
+		[XmlArray( ElementName = "ClientsList", Order = 7 )]
+		public List<Client> TempClientsList
 		{
 			get
 			{
@@ -230,7 +236,8 @@ namespace Tourist.Data.Classes
 
 		}
 
-		public List<Bookable> BookablesList
+		[XmlArray( ElementName = "BookablesList", Order = 8 )]
+		public List<Bookable> TempBookablesList
 		{
 			get
 			{
@@ -322,7 +329,8 @@ namespace Tourist.Data.Classes
 			}
 		}
 
-		public List<Employer> EmployersList
+		[XmlArray( ElementName = "EmployersList", Order = 9 )]
+		public List<Employer> TempEmployersList
 		{
 			get
 			{

@@ -91,7 +91,7 @@ namespace Tourist.Server
 			{
 				entity.OnSaveLoad = true;
 
-				foreach ( var booking in entity.BookingsList )
+				foreach ( var booking in entity.TempBookingsList )
 				{
 					booking.OnSaveLoad = true;
 
@@ -111,7 +111,7 @@ namespace Tourist.Server
 			{
 				entity.OnSaveLoad = false;
 
-				foreach ( var booking in entity.BookingsList )
+				foreach ( var booking in entity.TempBookingsList )
 				{
 					booking.OnSaveLoad = false;
 					booking.IClient = booking.Client;
@@ -135,28 +135,28 @@ namespace Tourist.Server
 					entity.Append( booking );
 				}
 
-				foreach ( var bookable in entity.BookablesList )
+				foreach ( var bookable in entity.TempBookablesList )
 				{
 
 					entity.Append( bookable );
 
 				}
 
-				foreach ( var client in entity.ClientsList )
+				foreach ( var client in entity.TempClientsList )
 				{
 					entity.Append( client );
 				}
 
-				foreach ( var employer in entity.EmployersList )
+				foreach ( var employer in entity.TempEmployersList )
 				{
 					entity.Append( employer );
 				}
 
 				// empty the lists for each entity
-				entity.BookingsList = new List<Booking>( );
-				entity.BookablesList = new List<Bookable>( );
-				entity.ClientsList = new List<Client>( );
-				entity.EmployersList = new List<Employer>( );
+				entity.TempBookingsList = new List<Booking>( );
+				entity.TempBookablesList = new List<Bookable>( );
+				entity.TempClientsList = new List<Client>( );
+				entity.TempEmployersList = new List<Employer>( );
 			}
 		}
 

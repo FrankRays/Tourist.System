@@ -133,8 +133,6 @@ namespace Tourist.Server.Forms
 		{
 			var removeIndex = e.RowIndex;
 
-			var aRow = RoomDataGrid.Rows[ e.RowIndex ];
-
 			repository.RemoveRoomBookableOfEntity( mEntityId, removeIndex );
 		}
 
@@ -188,7 +186,7 @@ namespace Tourist.Server.Forms
 					return;
 			}
 
-			var nextId = repository.MaxEmployerId( mEntityId ) + 1;
+			var nextId = repository.MaxRoomBookablesId( mEntityId ) + 1;
 
 			bookable.Id = nextId;
 			bookable.Type = args[0];
