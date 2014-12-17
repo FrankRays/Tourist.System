@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using MetroFramework;
 using MetroFramework.Forms;
 using Tourist.Data.Classes;
@@ -109,11 +110,6 @@ namespace Tourist.Server.Forms
 						repository.EditEntityNif( entityId, Convert.ToInt32( e.FormattedValue.ToString( ) ) );
 					}
 				}
-
-				// gravar sempre que possivel porque pode acontecer falhar a energia
-				repository.Save( Repository.FileName );
-				//LoadDataToGrid();
-
 			}
 		}
 
@@ -130,7 +126,6 @@ namespace Tourist.Server.Forms
 			entity.Address = args[ 2 ];
 			entity.Nif = Convert.ToInt32( args[ 3 ] );
 
-			// so adiciona no repositorio
 			repository.AddEntity( entity );
 		}
 
@@ -199,24 +194,7 @@ namespace Tourist.Server.Forms
 
 			var aRow = EntityDataGrid.Rows[ e.RowIndex ];
 
-			if ( RowCellsValidated( aRow ) )
-			{
-				repository.RemoveEntity( removeIndex );
-				repository.Save( Repository.FileName );
-			}
-			else
-			{
-
-				if ( aRow.IsNewRow )
-					return;
-
-				for ( int i = 1 ; i < aRow.Cells.Count ; i++ )
-				{
-					CellErrorRemove( aRow.Cells[ i ] );
-				}
-
-				EntityDataGrid.Rows.Remove( aRow );
-			}
+			repository.RemoveEntity( removeIndex );
 
 		}
 

@@ -83,6 +83,8 @@ namespace Tourist.Server
 		{
 			aEntity.OnSaveLoad = true;
 			mData.Append( aEntity as Entity );
+			
+			Save( FileName );
 		}
 
 		public void EditEntityType( int aId, EntityType aType )
@@ -90,7 +92,11 @@ namespace Tourist.Server
 			foreach ( var entity in mData.EntityList.Where( entity => entity.Id == aId ) )
 			{
 				entity.EntityType = aType;
+				Save( FileName );
+				return;
 			}
+
+			
 		}
 
 		public void EditEntityName( int aId, string aName )
@@ -98,7 +104,10 @@ namespace Tourist.Server
 			foreach ( var entity in mData.EntityList.Where( entity => entity.Id == aId ) )
 			{
 				entity.Name = aName;
+				Save( FileName );
+				return;
 			}
+			
 		}
 
 		public void EditEntityAddress( int aId, string aAddress )
@@ -106,6 +115,8 @@ namespace Tourist.Server
 			foreach ( var entity in mData.EntityList.Where( entity => entity.Id == aId ) )
 			{
 				entity.Address = aAddress;
+				Save( FileName );
+				return;
 			}
 		}
 
@@ -114,6 +125,8 @@ namespace Tourist.Server
 			foreach ( var entity in mData.EntityList.Where( entity => entity.Id == aId ) )
 			{
 				entity.Nif = aNif;
+				Save( FileName );
+				return;
 			}
 		}
 
@@ -137,6 +150,7 @@ namespace Tourist.Server
 			foreach ( var entity in mData.EntityList.Where( entity => entity.Id == aId ) )
 			{
 				mData.EntityList.Remove( entity );
+				Save( FileName );
 				return;
 			}
 		}
@@ -811,7 +825,7 @@ namespace Tourist.Server
 
 		public string[ , ] ClientsListToMatrix( int aEntityId, int columnsCount )
 		{
-			
+
 			var entity = GetEntity( aEntityId );
 
 			var rowsCount = ClientsListCount( aEntityId );
@@ -1058,7 +1072,7 @@ namespace Tourist.Server
 			}
 		}
 
-		
+
 		#endregion
 
 		/*

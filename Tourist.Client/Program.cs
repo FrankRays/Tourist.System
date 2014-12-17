@@ -27,8 +27,8 @@ namespace Tourist.Server
 			// Create a transparent proxy "obj" for the remote object
 			IRemote Remote = ( IRemote ) Activator.GetObject(
 				typeof( IRemote ), // Remote object type
-				//"tcp://192.168.10.109:3000/Tourist.Server" );
-				"tcp://localhost:3000/Tourist.Server" ); // Remote object URL
+				"tcp://192.168.10.109:3000/Tourist.Server" );
+				//"tcp://localhost:3000/Tourist.Server" ); // Remote object URL
 
 			try
 			{
