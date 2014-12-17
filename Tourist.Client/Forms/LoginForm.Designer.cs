@@ -29,12 +29,6 @@
 		private void InitializeComponent( )
 		{
 			this.BodyPanel = new System.Windows.Forms.Panel();
-			this.LoginLabel = new System.Windows.Forms.Label();
-			this.HeaderPanel = new System.Windows.Forms.Panel();
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.label2 = new System.Windows.Forms.Label();
-			this.FooterPanel = new System.Windows.Forms.Panel();
-			this.ImagePanel = new System.Windows.Forms.Panel();
 			this.LoginFrame = new System.Windows.Forms.Panel();
 			this.EntityNameCombox = new System.Windows.Forms.ComboBox();
 			this.label3 = new System.Windows.Forms.Label();
@@ -45,9 +39,15 @@
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.PasswordLabel = new System.Windows.Forms.Label();
 			this.UsernameLabel = new System.Windows.Forms.Label();
+			this.LoginLabel = new System.Windows.Forms.Label();
+			this.HeaderPanel = new System.Windows.Forms.Panel();
+			this.ImagePanel = new System.Windows.Forms.Panel();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.label2 = new System.Windows.Forms.Label();
+			this.FooterPanel = new System.Windows.Forms.Panel();
 			this.BodyPanel.SuspendLayout();
-			this.HeaderPanel.SuspendLayout();
 			this.LoginFrame.SuspendLayout();
+			this.HeaderPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// BodyPanel
@@ -62,78 +62,6 @@
 			this.BodyPanel.Name = "BodyPanel";
 			this.BodyPanel.Size = new System.Drawing.Size(1200, 521);
 			this.BodyPanel.TabIndex = 9;
-			// 
-			// LoginLabel
-			// 
-			this.LoginLabel.AutoSize = true;
-			this.LoginLabel.BackColor = System.Drawing.Color.Transparent;
-			this.LoginLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.LoginLabel.ForeColor = System.Drawing.Color.White;
-			this.LoginLabel.Location = new System.Drawing.Point(17, 3);
-			this.LoginLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.LoginLabel.Name = "LoginLabel";
-			this.LoginLabel.Size = new System.Drawing.Size(322, 51);
-			this.LoginLabel.TabIndex = 3;
-			this.LoginLabel.Text = "Login Credentials";
-			// 
-			// HeaderPanel
-			// 
-			this.HeaderPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.HeaderPanel.Controls.Add(this.ImagePanel);
-			this.HeaderPanel.Controls.Add(this.panel1);
-			this.HeaderPanel.Controls.Add(this.label2);
-			this.HeaderPanel.Controls.Add(this.LoginLabel);
-			this.HeaderPanel.Location = new System.Drawing.Point(0, 24);
-			this.HeaderPanel.Margin = new System.Windows.Forms.Padding(2);
-			this.HeaderPanel.Name = "HeaderPanel";
-			this.HeaderPanel.Size = new System.Drawing.Size(1200, 122);
-			this.HeaderPanel.TabIndex = 10;
-			// 
-			// panel1
-			// 
-			this.panel1.Location = new System.Drawing.Point(422, 124);
-			this.panel1.Margin = new System.Windows.Forms.Padding(2);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(150, 26);
-			this.panel1.TabIndex = 11;
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.ForeColor = System.Drawing.Color.White;
-			this.label2.Location = new System.Drawing.Point(24, 68);
-			this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(644, 30);
-			this.label2.TabIndex = 4;
-			this.label2.Text = "Welcome! Please enter your username and password to procede.";
-			// 
-			// FooterPanel
-			// 
-			this.FooterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.FooterPanel.Location = new System.Drawing.Point(0, 678);
-			this.FooterPanel.Margin = new System.Windows.Forms.Padding(2);
-			this.FooterPanel.Name = "FooterPanel";
-			this.FooterPanel.Size = new System.Drawing.Size(1200, 122);
-			this.FooterPanel.TabIndex = 11;
-			// 
-			// ImagePanel
-			// 
-			this.ImagePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.ImagePanel.AutoSize = true;
-			this.ImagePanel.BackgroundImage = global::Tourist.Server.Properties.Resources._lock;
-			this.ImagePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.ImagePanel.Location = new System.Drawing.Point(1080, 11);
-			this.ImagePanel.Margin = new System.Windows.Forms.Padding(2);
-			this.ImagePanel.Name = "ImagePanel";
-			this.ImagePanel.Size = new System.Drawing.Size(103, 95);
-			this.ImagePanel.TabIndex = 12;
 			// 
 			// LoginFrame
 			// 
@@ -202,6 +130,7 @@
 			this.ExitButton.TabIndex = 10;
 			this.ExitButton.Text = "Cancel";
 			this.ExitButton.UseVisualStyleBackColor = false;
+			this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
 			// 
 			// OkButton
 			// 
@@ -215,6 +144,7 @@
 			this.OkButton.TabIndex = 9;
 			this.OkButton.Text = "OK";
 			this.OkButton.UseVisualStyleBackColor = false;
+			this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
 			// 
 			// textBox2
 			// 
@@ -261,6 +191,78 @@
 			this.UsernameLabel.TabIndex = 5;
 			this.UsernameLabel.Text = "Username";
 			// 
+			// LoginLabel
+			// 
+			this.LoginLabel.AutoSize = true;
+			this.LoginLabel.BackColor = System.Drawing.Color.Transparent;
+			this.LoginLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.LoginLabel.ForeColor = System.Drawing.Color.White;
+			this.LoginLabel.Location = new System.Drawing.Point(17, 3);
+			this.LoginLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.LoginLabel.Name = "LoginLabel";
+			this.LoginLabel.Size = new System.Drawing.Size(322, 51);
+			this.LoginLabel.TabIndex = 3;
+			this.LoginLabel.Text = "Login Credentials";
+			// 
+			// HeaderPanel
+			// 
+			this.HeaderPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			this.HeaderPanel.Controls.Add(this.ImagePanel);
+			this.HeaderPanel.Controls.Add(this.panel1);
+			this.HeaderPanel.Controls.Add(this.label2);
+			this.HeaderPanel.Controls.Add(this.LoginLabel);
+			this.HeaderPanel.Location = new System.Drawing.Point(0, 24);
+			this.HeaderPanel.Margin = new System.Windows.Forms.Padding(2);
+			this.HeaderPanel.Name = "HeaderPanel";
+			this.HeaderPanel.Size = new System.Drawing.Size(1200, 122);
+			this.HeaderPanel.TabIndex = 10;
+			// 
+			// ImagePanel
+			// 
+			this.ImagePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.ImagePanel.AutoSize = true;
+			this.ImagePanel.BackgroundImage = global::Tourist.Server.Properties.Resources._lock;
+			this.ImagePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.ImagePanel.Location = new System.Drawing.Point(1080, 11);
+			this.ImagePanel.Margin = new System.Windows.Forms.Padding(2);
+			this.ImagePanel.Name = "ImagePanel";
+			this.ImagePanel.Size = new System.Drawing.Size(103, 95);
+			this.ImagePanel.TabIndex = 12;
+			// 
+			// panel1
+			// 
+			this.panel1.Location = new System.Drawing.Point(422, 124);
+			this.panel1.Margin = new System.Windows.Forms.Padding(2);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(150, 26);
+			this.panel1.TabIndex = 11;
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.ForeColor = System.Drawing.Color.White;
+			this.label2.Location = new System.Drawing.Point(24, 68);
+			this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(644, 30);
+			this.label2.TabIndex = 4;
+			this.label2.Text = "Welcome! Please enter your username and password to procede.";
+			// 
+			// FooterPanel
+			// 
+			this.FooterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			this.FooterPanel.Location = new System.Drawing.Point(0, 678);
+			this.FooterPanel.Margin = new System.Windows.Forms.Padding(2);
+			this.FooterPanel.Name = "FooterPanel";
+			this.FooterPanel.Size = new System.Drawing.Size(1200, 122);
+			this.FooterPanel.TabIndex = 11;
+			// 
 			// LoginForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -280,10 +282,10 @@
 			this.Load += new System.EventHandler(this.LoginForm_Load);
 			this.BodyPanel.ResumeLayout(false);
 			this.BodyPanel.PerformLayout();
-			this.HeaderPanel.ResumeLayout(false);
-			this.HeaderPanel.PerformLayout();
 			this.LoginFrame.ResumeLayout(false);
 			this.LoginFrame.PerformLayout();
+			this.HeaderPanel.ResumeLayout(false);
+			this.HeaderPanel.PerformLayout();
 			this.ResumeLayout(false);
 
 		}

@@ -42,11 +42,6 @@ namespace Tourist.Server.Forms
 
 		}
 
-		private void OkButton_Click( object sender, EventArgs e )
-		{
-			ShowMainForm( );
-		}
-
 		private bool CanLoadEntityNamesComboBox( )
 		{
 
@@ -84,6 +79,11 @@ namespace Tourist.Server.Forms
 				e.Cancel = true;
 		}
 
+		private void OkButton_Click( object sender, EventArgs e )
+		{
+			ShowMainForm( );
+		}
+		
 		private void ExitButton_Click( object sender, EventArgs e )
 		{
 			Close( );

@@ -8,14 +8,14 @@ namespace Tourist.Server
 	[Serializable]
 	public class Remote : MarshalByRefObject, IRemote
 	{
+
+		private readonly Factory mFactory;
+
+		public Factory Factory { get { return mFactory; } }
+
 		public bool ServerRunning( )
 		{
 			return true;
-		}
-
-		public Factory GetFactory()
-		{
-			return Repository.Instance.Factory;
 		}
 
 		public List<Entity> GetRepositoryEntityList( )

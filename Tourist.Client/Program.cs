@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
 using System.Windows.Forms;
@@ -24,6 +25,9 @@ namespace Tourist.Server
 			// Tell the remoting system to use the channel
 			ChannelServices.RegisterChannel( channel, false );
 
+
+			RemotingConfiguration.Configure( "Client.exe.config", false );
+			
 			// Create a transparent proxy "obj" for the remote object
 			IRemote Remote = ( IRemote ) Activator.GetObject(
 				typeof( IRemote ), // Remote object type

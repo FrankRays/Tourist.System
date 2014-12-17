@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
 using System.Windows.Forms;
-using Tourist.Data.Classes;
-using Tourist.Data.Interfaces;
 using Tourist.Server.Forms;
 
 namespace Tourist.Server
@@ -30,6 +27,8 @@ namespace Tourist.Server
 
 			// Lets the remoting system use the socket
 			ChannelServices.RegisterChannel( channel, false );
+
+			RemotingConfiguration.Configure( "Server.exe.config", false );
 
 			// Associate the class HelloServer with the URI "Tourist.Server"
 			RemotingConfiguration.RegisterWellKnownServiceType(

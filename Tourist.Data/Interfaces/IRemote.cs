@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Dynamic;
 using Tourist.Data.Classes;
 
 namespace Tourist.Data.Interfaces
@@ -9,7 +10,7 @@ namespace Tourist.Data.Interfaces
 	{
 
 		bool ServerRunning( );
-		Factory GetFactory();
+		Factory Factory { get; }
 
 		#region LoginForm Methods
 		

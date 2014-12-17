@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using MetroFramework;
 using MetroFramework.Forms;
+using Tourist.Data.Classes;
 using Tourist.Data.Interfaces;
 
 namespace Tourist.Server.Forms
@@ -66,7 +67,7 @@ namespace Tourist.Server.Forms
 
 		private void AddClientTomRemote( string[ ] args )
 		{
-			var client = mRemote.GetFactory( ).CreateClient( );
+			var client = mRemote.Factory.CreateObject<Client>();
 
 			var nextId = mRemote.MaxClientId( mEntityId ) + 1;
 
