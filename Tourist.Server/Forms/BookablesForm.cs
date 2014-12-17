@@ -63,6 +63,7 @@ namespace Tourist.Server.Forms
 
 				switch ( RoomDataGrid[ "TypeColumn", e.RowIndex ].FormattedValue.ToString() )
 				{
+					
 					case "SingleRoom":
 						RoomDataGrid["CapacityColumn", e.RowIndex].Value = 1;
 						break;
@@ -95,17 +96,21 @@ namespace Tourist.Server.Forms
 
 						AddRoomToRepository( buffer );
 
-						//MetroMessageBox.Show( this, "Do you like this metro message box?", "Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
+						RoomDataGrid["TypeColumn", e.RowIndex].ReadOnly = true;
+
+						MetroMessageBox.Show( this, "Service Added With Sucess !!!", "Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
 					}
 					else
 					{
+						/*
 						if ( e.ColumnIndex == RoomDataGrid.Columns[ "TypeColumn" ].Index )
 						{
 							repository.EditRoomBookableType( mEntityId,
 															 bookableId, Type.GetType( e.FormattedValue.ToString( ) ).Name );
 
 						}
-						else if ( e.ColumnIndex == RoomDataGrid.Columns[ "DescriptionColumn" ].Index )
+						 */
+						if ( e.ColumnIndex == RoomDataGrid.Columns[ "DescriptionColumn" ].Index )
 						{
 							repository.EditRoomBookableDescription( mEntityId, bookableId, e.FormattedValue.ToString( ) );
 
@@ -133,6 +138,11 @@ namespace Tourist.Server.Forms
 		{
 			var removeIndex = e.RowIndex;
 
+			DialogResult dialog = MetroMessageBox.Show( this, "Are you sure you want to remove the service at row number " + ( e.RowIndex + 1 ) + " ?", "Metro Title", MessageBoxButtons.YesNo, MessageBoxIcon.Information );
+
+			if ( dialog == DialogResult.No )
+				return;
+
 			repository.RemoveRoomBookableOfEntity( mEntityId, removeIndex );
 		}
 
@@ -153,6 +163,11 @@ namespace Tourist.Server.Forms
 				for ( var j = 0 ; j < RoomDataGrid.ColumnCount ; j++ )
 				{
 					RoomDataGrid.Rows[ i ].Cells[ j ].Value = bookablesMatrix[ i, j ];
+					if (j == 1)
+					{
+						RoomDataGrid.Rows[i].Cells[j].ReadOnly = true;
+					}
+
 				}
 			}
 		}

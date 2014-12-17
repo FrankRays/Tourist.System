@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using MetroFramework.Drawing;
 using Tourist.Data.Classes;
 using Tourist.Data.Interfaces;
 
@@ -83,7 +85,7 @@ namespace Tourist.Server
 		{
 			aEntity.OnSaveLoad = true;
 			mData.Append( aEntity as Entity );
-			
+
 			Save( FileName );
 		}
 
@@ -96,7 +98,7 @@ namespace Tourist.Server
 				return;
 			}
 
-			
+
 		}
 
 		public void EditEntityName( int aId, string aName )
@@ -107,7 +109,7 @@ namespace Tourist.Server
 				Save( FileName );
 				return;
 			}
-			
+
 		}
 
 		public void EditEntityAddress( int aId, string aAddress )
@@ -299,7 +301,7 @@ namespace Tourist.Server
 				entity.OnSaveLoad = true;
 				entity.Append( aEmployer as Employer );
 				Save( FileName );
-				CleanEntityTemporaryLists(entity);
+				CleanEntityTemporaryLists( entity );
 				entity.OnSaveLoad = false;
 				return;
 			}
@@ -361,7 +363,7 @@ namespace Tourist.Server
 						Save( FileName );
 						CleanEntityTemporaryLists( entity );
 					}
-					
+
 					entity.OnSaveLoad = false;
 					return;
 				}
@@ -542,14 +544,77 @@ namespace Tourist.Server
 			return ( aIndex <= RoomBookablesListCount( aEntityId ) - 1 );
 		}
 
-		// tenho que alterar isto 
+		// Retorna a ordem de criação do objecto
+		
 		public int GetRoomId( int aEntityId, int aIndex )
 		{
 			var entity = GetEntity( aEntityId );
 
 			return entity.Bookables.ElementAt( aIndex ).Id;
 		}
-
+		
+		/*
+		public int GetRoomId( int aEntityId ) 
+		{
+			var entity = GetEntity( aEntityId );
+			
+			foreach (var bookable in entity.Bookables)
+			{
+				switch ( bookable.Type )
+				{
+					case "SingleRoom":
+						var temp1 = ( SingleRoom ) bookable;
+						return temp1.Id;
+					case "DoubleSingleRoom":
+						var temp2 = ( DoubleSingleRoom ) bookable;
+						return temp2.Id;
+					case "DoubleRoom":
+						var temp3 = ( DoubleRoom ) bookable;
+						return temp3.Id;
+					case "SuiteRoom":
+						var temp4 = ( SuiteRoom ) bookable;
+						return temp4.Id;
+					case "FamilySuiteRoom":
+						var temp5 = ( FamilySuiteRoom ) bookable;
+						return temp5.Id;
+					case "MeetingRoom":
+						var temp6 = ( MeetingRoom ) bookable;
+						return temp6.Id;
+					default:
+						return 0;
+				}
+			}
+			return 0;
+		}
+		
+	 */
+		public int GetRoomId( Bookable aBookable )
+		{
+			switch ( aBookable.Type )
+			{
+				case "SingleRoom":
+					var temp1 = ( SingleRoom ) aBookable;
+					return temp1.Id;
+				case "DoubleSingleRoom":
+					var temp2 = ( DoubleSingleRoom ) aBookable;
+					return temp2.Id;
+				case "DoubleRoom":
+					var temp3 = ( DoubleRoom ) aBookable;
+					return temp3.Id;
+				case "SuiteRoom":
+					var temp4 = ( SuiteRoom ) aBookable;
+					return temp4.Id;
+				case "FamilySuiteRoom":
+					var temp5 = ( FamilySuiteRoom ) aBookable;
+					return temp5.Id;
+				case "MeetingRoom":
+					var temp6 = ( MeetingRoom ) aBookable;
+					return temp6.Id;
+				default:
+					return 0;
+			}
+		}
+		
 		public int MaxRoomBookablesId( int aEntityId )
 		{
 			if ( IsRoomBookablesListEmpty( aEntityId ) )
@@ -562,7 +627,32 @@ namespace Tourist.Server
 			return ids.Max( );
 		}
 
+		/*
 		public bool RoomBookablesAlreadyExists( int aEntityId, int aBookableId )
+		{
+			var entity = GetEntity( aEntityId );
+
+			foreach ( var bookable in entity.Bookables )
+			{
+				if ( bookable.Type == "SingleRoom" || 
+					bookable.Type == "DoubleSingleRoom" || 
+					bookable.Type == "DoubleRoom" || 
+					bookable.Type == "SuiteRoom" || 
+					bookable.Type == "FamilySuiteRoom" ||
+					bookable.Type == "MeetingRoom" )
+				{
+					if ( GetRoomId( bookable as Bookable ) == aBookableId )
+					{
+						return true;
+					}
+				}
+			}
+
+			return false;
+		}
+		*/
+
+		public bool RoomBookablesAlreadyExists(int aEntityId, int aBookableId)
 		{
 			var entity = GetEntity( aEntityId );
 
@@ -589,7 +679,7 @@ namespace Tourist.Server
 			{
 				for ( var j = 0 ; j < columnsCount ; )
 				{
-					matrix[ i, j ] = entity.Bookables.ElementAt( i ).Id.ToString( );
+					matrix[ i, j ] = GetRoomId( entity.Bookables.ElementAt( i ) as Bookable ).ToString( );
 					j++;
 					matrix[ i, j ] = entity.Bookables.ElementAt( i ).Type.ToString( );
 					j++;
@@ -614,7 +704,7 @@ namespace Tourist.Server
 				entity.OnSaveLoad = true;
 				entity.Append( aBookable as Room );
 				Save( FileName );
-				CleanEntityTemporaryLists(entity);
+				CleanEntityTemporaryLists( entity );
 				entity.OnSaveLoad = false;
 				return;
 			}
@@ -648,15 +738,49 @@ namespace Tourist.Server
 				{
 					entity.OnSaveLoad = true;
 
-					foreach ( var bookable in entity.Bookables.Where( bookable => bookable.Id == aBookableId ) )
+					foreach ( var bookable in entity.Bookables.Where( bookable => GetRoomId(bookable as Bookable) == aBookableId ) )
 					{
-						bookable.Type = aType;
+
+						var newBookable = bookable as Bookable;
+						
+						newBookable.Type = aType;
+
+						switch ( aType )
+						{
+							case "SingleRoom":
+								newBookable = bookable as SingleRoom;
+								break;
+							case "DoubleSingleRoom":
+								newBookable = bookable as DoubleSingleRoom;
+								break;
+							case "DoubleRoom":
+								newBookable = bookable as DoubleRoom;
+								break;
+							case "SuiteRoom":
+								newBookable = bookable as SuiteRoom;
+								break;
+							case "FamilySuiteRoom":
+								newBookable = bookable as FamilySuiteRoom;
+								break;
+							case "MeetingRoom":
+								newBookable = bookable as MeetingRoom;
+								break;
+							default:
+								return;
+						}
+
+						
+						//newBookable.Type = aType;
+
+						entity.Remove( bookable );
+						
+						entity.Append( newBookable );
+
 						Save( FileName );
 						CleanEntityTemporaryLists( entity );
+						entity.OnSaveLoad = false;
+						return;
 					}
-
-					entity.OnSaveLoad = false;
-					return;
 				}
 			}
 		}
@@ -672,8 +796,8 @@ namespace Tourist.Server
 					foreach ( var bookable in entity.Bookables.Where( bookable => bookable.Id == aBookableId ) )
 					{
 						bookable.Description = aDescription;
-						Save(FileName);
-						CleanEntityTemporaryLists(entity);
+						Save( FileName );
+						CleanEntityTemporaryLists( entity );
 					}
 
 					entity.OnSaveLoad = false;
@@ -694,7 +818,7 @@ namespace Tourist.Server
 					{
 						bookable.Price = aPrice;
 						Save( FileName );
-						CleanEntityTemporaryLists(entity);
+						CleanEntityTemporaryLists( entity );
 					}
 
 					entity.OnSaveLoad = false;
@@ -715,7 +839,7 @@ namespace Tourist.Server
 					{
 						bookable.Capacity = aCapacity;
 						Save( FileName );
-						CleanEntityTemporaryLists(entity);
+						CleanEntityTemporaryLists( entity );
 					}
 
 					entity.OnSaveLoad = false;
@@ -736,7 +860,7 @@ namespace Tourist.Server
 					{
 						bookable.State = aState;
 						Save( FileName );
-						CleanEntityTemporaryLists(entity);
+						CleanEntityTemporaryLists( entity );
 					}
 
 					entity.OnSaveLoad = true;
@@ -849,7 +973,7 @@ namespace Tourist.Server
 				entity.OnSaveLoad = true;
 				entity.Append( aClient as Client );
 				Save( FileName );
-				CleanEntityTemporaryLists(entity);
+				CleanEntityTemporaryLists( entity );
 				entity.OnSaveLoad = false;
 				return;
 			}
@@ -867,7 +991,7 @@ namespace Tourist.Server
 						var client = entity.Clients.ElementAt( aIndex );
 						entity.Remove( client );
 						Save( FileName );
-						CleanEntityTemporaryLists(entity);
+						CleanEntityTemporaryLists( entity );
 						entity.OnSaveLoad = false;
 						return;
 					}
@@ -887,7 +1011,7 @@ namespace Tourist.Server
 					{
 						client.Gender = aGender;
 						Save( FileName );
-						CleanEntityTemporaryLists(entity);
+						CleanEntityTemporaryLists( entity );
 					}
 
 					entity.OnSaveLoad = false;
@@ -908,7 +1032,7 @@ namespace Tourist.Server
 					{
 						client.FirstName = aFirstName;
 						Save( FileName );
-						CleanEntityTemporaryLists(entity);
+						CleanEntityTemporaryLists( entity );
 					}
 
 					entity.OnSaveLoad = false;
@@ -929,7 +1053,7 @@ namespace Tourist.Server
 					{
 						client.LastName = aLastName;
 						Save( FileName );
-						CleanEntityTemporaryLists(entity);
+						CleanEntityTemporaryLists( entity );
 					}
 
 					entity.OnSaveLoad = false;
@@ -950,7 +1074,7 @@ namespace Tourist.Server
 					{
 						client.BirthDate = aBirthDate;
 						Save( FileName );
-						CleanEntityTemporaryLists(entity);
+						CleanEntityTemporaryLists( entity );
 					}
 
 					entity.OnSaveLoad = false;
@@ -971,7 +1095,7 @@ namespace Tourist.Server
 					{
 						client.Nif = aNif;
 						Save( FileName );
-						CleanEntityTemporaryLists(entity);
+						CleanEntityTemporaryLists( entity );
 					}
 
 					entity.OnSaveLoad = false;
@@ -992,7 +1116,7 @@ namespace Tourist.Server
 					{
 						client.Address = aAddress;
 						Save( FileName );
-						CleanEntityTemporaryLists(entity);
+						CleanEntityTemporaryLists( entity );
 					}
 
 					entity.OnSaveLoad = true;
@@ -1013,7 +1137,7 @@ namespace Tourist.Server
 					{
 						client.PhoneNumber = aPhoneNumber;
 						Save( FileName );
-						CleanEntityTemporaryLists(entity);
+						CleanEntityTemporaryLists( entity );
 					}
 
 					entity.OnSaveLoad = false;
@@ -1034,7 +1158,7 @@ namespace Tourist.Server
 					{
 						client.Email = aEmail;
 						Save( FileName );
-						CleanEntityTemporaryLists(entity);
+						CleanEntityTemporaryLists( entity );
 					}
 
 					entity.OnSaveLoad = false;
@@ -1050,8 +1174,8 @@ namespace Tourist.Server
 		private void CleanEntityTemporaryLists( Entity aEntity )
 		{
 			aEntity.TempBookingsList = new List<Booking>( );
-			aEntity.TempClientsList = new List<Client>();
-			aEntity.TempBookablesList = new List<Bookable>();
+			aEntity.TempClientsList = new List<Client>( );
+			aEntity.TempBookablesList = new List<Bookable>( );
 			aEntity.TempEmployersList = new List<Employer>( );
 		}
 		/*

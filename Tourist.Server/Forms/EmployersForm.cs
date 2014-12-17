@@ -193,7 +193,10 @@ namespace Tourist.Server.Forms
 		{
 			var removeIndex = e.RowIndex;
 
-			var aRow = EmployersDataGrid.Rows[ e.RowIndex ];
+			DialogResult dialog = MetroMessageBox.Show( this, "Are you sure you want to remove employer at row number " + ( e.RowIndex + 1 ) + " ?", "Metro Title", MessageBoxButtons.YesNo, MessageBoxIcon.Information );
+
+			if ( dialog == DialogResult.No )
+				return;
 
 			repository.RemoveEmployerOfEntity( mEntityId, removeIndex );
 			
@@ -252,7 +255,7 @@ namespace Tourist.Server.Forms
 
 					AddEmployerToRepository( buffer );
 
-					//MetroMessageBox.Show( this, "Do you like this metro message box?", "Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
+					MetroMessageBox.Show( this, "Employer Added With Sucess !!!", "Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
 				}
 				else
 				{
