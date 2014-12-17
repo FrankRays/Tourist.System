@@ -13,6 +13,9 @@ namespace Tourist.Server
 {
 	static class Program
 	{
+
+		public static string ConfigFileName = "Tourist.Client.exe.config";
+		
 		/// <summary>
 		/// The main entry point for the application.
 		/// </summary>
@@ -26,7 +29,7 @@ namespace Tourist.Server
 			ChannelServices.RegisterChannel( channel, false );
 
 
-			RemotingConfiguration.Configure( "Client.exe.config", false );
+			RemotingConfiguration.Configure( ConfigFileName , false );
 			
 			// Create a transparent proxy "obj" for the remote object
 			IRemote Remote = ( IRemote ) Activator.GetObject(

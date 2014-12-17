@@ -87,56 +87,56 @@ namespace Tourist.Data.Classes
 
 		public void Append( IBooking aItem )
 		{
-			Trace.Assert( !Bookings.Contains( aItem ) );
+			
 			if ( Bookings.Contains( aItem ) ) return;
 			( ( ICollection<IBooking> ) Bookings ).Add( aItem );
 		}
 
 		public void Remove( IBooking aItem )
 		{
-			Trace.Assert( !Bookings.Contains( aItem ) );
+			
 			if ( !Bookings.Contains( aItem ) ) return;
 			( ( ICollection<IBooking> ) Bookings ).Remove( aItem );
 		}
 
 		public void Append( IBookable aItem )
 		{
-			Trace.Assert( !Bookables.Contains( aItem ) );
+			
 			if ( Bookables.Contains( aItem ) ) return;
 			( ( ICollection<IBookable> ) Bookables ).Add( aItem );
 		}
 
 		public void Remove( IBookable aItem )
 		{
-			Trace.Assert( !Bookables.Contains( aItem ) );
+			
 			if ( !Bookables.Contains( aItem ) ) return;
 			( ( ICollection<IBookable> ) Bookables ).Remove( aItem );
 		}
 
 		public void Append( IClient aItem )
 		{
-			Trace.Assert( !Clients.Contains( aItem ) );
+			
 			if ( Clients.Contains( aItem ) ) return;
 			( ( ICollection<IClient> ) Clients ).Add( aItem );
 		}
 
 		public void Remove( IClient aItem )
 		{
-			Trace.Assert( !Clients.Contains( aItem ) );
+			
 			if ( !Clients.Contains( aItem ) ) return;
 			( ( ICollection<IClient> ) Clients ).Remove( aItem );
 		}
 
 		public void Append( IEmployer aItem )
 		{
-			Trace.Assert( !Employers.Contains( aItem ) );
+			
 			if ( Employers.Contains( aItem ) ) return;
 			( ( ICollection<IEmployer> ) Employers ).Add( aItem );
 		}
 
 		public void Remove( IEmployer aItem )
 		{
-			Trace.Assert( !Employers.Contains( aItem ) );
+			
 			if ( !Employers.Contains( aItem ) ) return;
 			( ( ICollection<IEmployer> ) Employers ).Remove( aItem );
 		}

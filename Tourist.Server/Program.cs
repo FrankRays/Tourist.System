@@ -13,6 +13,8 @@ namespace Tourist.Server
 
 		public static Repository repository = Repository.Instance;
 
+		public static string ConfigFileName = "Tourist.Server.exe.config";
+
 		public static string FileName = repository.FileName;
 
 		/// <summary>
@@ -28,7 +30,7 @@ namespace Tourist.Server
 			// Lets the remoting system use the socket
 			ChannelServices.RegisterChannel( channel, false );
 
-			RemotingConfiguration.Configure( "Server.exe.config", false );
+			RemotingConfiguration.Configure( ConfigFileName , false );
 
 			// Associate the class HelloServer with the URI "Tourist.Server"
 			RemotingConfiguration.RegisterWellKnownServiceType(

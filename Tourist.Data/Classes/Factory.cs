@@ -3,6 +3,7 @@ using Tourist.Data.Interfaces;
 
 namespace Tourist.Data.Classes
 {
+	[Serializable]
 	public class Factory : IFactory
 	{
 
