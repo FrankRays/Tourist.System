@@ -901,7 +901,7 @@ namespace Tourist.Server
 			if ( IsBookingListEmpty( aEntityId ) )
 				return false;
 
-			return ( aIndex <= BookingListCount( aEntityId ) - 1 );
+			return ( aIndex <= ClientsListCount( aEntityId ) - 1 );
 		}
 
 		public int GetClientId( int aEntityId, int aIndex )
@@ -935,7 +935,7 @@ namespace Tourist.Server
 
 			var entity = GetEntity( aEntityId );
 
-			var rowsCount = BookingListCount( aEntityId );
+			var rowsCount = ClientsListCount( aEntityId );
 
 			var matrix = new string[ rowsCount, columnsCount ];
 
@@ -986,7 +986,7 @@ namespace Tourist.Server
 			{
 				if ( entity.Id == aEntityId )
 				{
-					if ( !( aIndex > BookingListCount( aEntityId ) - 1 ) )
+					if ( !( aIndex > ClientsListCount( aEntityId ) - 1 ) )
 					{
 						entity.OnSaveLoad = true;
 						var client = entity.Clients.ElementAt( aIndex );
