@@ -41,12 +41,12 @@ namespace Tourist.Server.Forms
 			if ( repository.IsEmpty( ) )
 				return;
 
-			if ( repository.IsClientListEmpty( mEntityId ) )
+			if ( repository.IsBookingListEmpty( mEntityId ) )
 				return;
 
 			var clientsMatrix = repository.ClientsListToMatrix( mEntityId, ClientsDataGrid.ColumnCount );
 
-			for ( var i = 0 ; i < repository.ClientsListCount( mEntityId ) ; i++ )
+			for ( var i = 0 ; i < repository.BookingListCount( mEntityId ) ; i++ )
 			{
 				ClientsDataGrid.Rows.Add( );
 

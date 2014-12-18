@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using MetroFramework.Drawing;
+using Microsoft.Win32;
 using Tourist.Data.Classes;
 using Tourist.Data.Interfaces;
 
@@ -897,10 +898,10 @@ namespace Tourist.Server
 
 		public bool IsClientsListIndexValid( int aEntityId, int aIndex )
 		{
-			if ( IsClientListEmpty( aEntityId ) )
+			if ( IsBookingListEmpty( aEntityId ) )
 				return false;
 
-			return ( aIndex <= ClientsListCount( aEntityId ) - 1 );
+			return ( aIndex <= BookingListCount( aEntityId ) - 1 );
 		}
 
 		public int GetClientId( int aEntityId, int aIndex )
@@ -912,7 +913,7 @@ namespace Tourist.Server
 
 		public int MaxClientId( int aEntityId )
 		{
-			if ( IsClientListEmpty( aEntityId ) )
+			if ( IsBookingListEmpty( aEntityId ) )
 				return 0;
 
 			var entity = GetEntity( aEntityId );
@@ -934,7 +935,7 @@ namespace Tourist.Server
 
 			var entity = GetEntity( aEntityId );
 
-			var rowsCount = ClientsListCount( aEntityId );
+			var rowsCount = BookingListCount( aEntityId );
 
 			var matrix = new string[ rowsCount, columnsCount ];
 
@@ -985,7 +986,7 @@ namespace Tourist.Server
 			{
 				if ( entity.Id == aEntityId )
 				{
-					if ( !( aIndex > ClientsListCount( aEntityId ) - 1 ) )
+					if ( !( aIndex > BookingListCount( aEntityId ) - 1 ) )
 					{
 						entity.OnSaveLoad = true;
 						var client = entity.Clients.ElementAt( aIndex );
@@ -1169,6 +1170,253 @@ namespace Tourist.Server
 
 
 		#endregion
+
+		#region BookingForm Methods
+
+		public bool IsBookingListEmpty( int aEntityId )
+		{
+			var entity = GetEntity( aEntityId );
+
+			if ( !entity.Bookings.Any( ) )
+				return true;
+
+			return false;
+		}
+
+		public int BookingListCount( int aEntityId )
+		{
+			var temp = 0;
+
+			foreach ( var entity in mData.EntityList.Where( entity => entity.Id == aEntityId ) )
+			{
+				temp = entity.Bookings.Count( );
+			}
+
+			return temp;
+		}
+
+		public bool IsBookingListIndexValid( int aEntityId, int aIndex )
+		{
+			if ( IsBookingListEmpty( aEntityId ) )
+				return false;
+
+			return ( aIndex <= BookingListCount( aEntityId ) - 1 );
+		}
+
+		public int GetBookingId( int aEntityId, int aIndex )
+		{
+			var entity = GetEntity( aEntityId );
+
+			return entity.Bookings.ElementAt( aIndex ).Id;
+		}
+
+		public int MaxBookingId( int aEntityId )
+		{
+			if ( IsBookingListEmpty( aEntityId ) )
+				return 0;
+
+			var entity = GetEntity( aEntityId );
+
+			var ids = entity.Bookings.Select( booking => booking.Id ).ToList( );
+
+			return ids.Max( );
+		}
+
+		public bool BookingAlreadyExists( int aEntityId, int aBookingId )
+		{
+			var entity = GetEntity( aEntityId );
+
+			return entity.Bookings.Any( booking => booking.Id == aBookingId );
+		}
+
+		public IClient GetClientFromClientList(int aEntityId, int aClientNif)
+		{
+			foreach (var entity in mData.EntityList)
+			{
+				if (entity.Id == aEntityId)
+				{
+					foreach (var client in entity.Clients)
+					{
+						if (client.Nif == aClientNif)
+							return client;
+					}
+				}
+
+			}
+
+			return null;
+		}
+
+		public List<int> GetAllClientsNif(int aEntityId)
+		{
+
+			var nifs = new List<int>();
+
+			foreach (var entity in mData.EntityList)
+			{
+				if (entity.Id == aEntityId)
+				{
+					foreach (var client in entity.Clients)
+					{
+						nifs.Add(client.Nif);
+					}
+				}
+			}
+
+			return nifs;
+		}
+
+		public string GetClientFullName(int aEntityId, int aNif)
+		{
+			string fullName = "";
+			
+			foreach (var entity in mData.EntityList)
+			{
+				if (entity.Id == aEntityId)
+				{
+					foreach (var client in entity.Clients)
+					{
+						if (client.Nif == aNif)
+						{
+							fullName = client.FirstName + " " + client.LastName;
+							return fullName;
+						}
+					}
+
+				}
+
+			}
+			return fullName;
+		}
+
+		public string[ , ] BookingsListToMatrix( int aEntityId, int columnsCount )
+		{
+
+			var entity = GetEntity( aEntityId );
+
+			var rowsCount = BookingListCount( aEntityId );
+
+			var matrix = new string[ rowsCount, columnsCount ];
+
+			for ( var i = 0 ; i < rowsCount ; i++ )
+			{
+				for ( var j = 0 ; j < columnsCount ; )
+				{
+					matrix[ i, j ] = entity.Bookings.ElementAt( i ).Id.ToString( );
+					j++;
+					matrix[ i, j ] = entity.Bookings.ElementAt( i ).IClient.Nif.ToString( );
+					j++;
+					matrix[ i, j ] = entity.Bookings.ElementAt( i ).IClient.FirstName + " " + entity.Bookings.ElementAt( i ).IClient.LastName;
+					j++;
+					matrix[ i, j ] = entity.Bookings.ElementAt( i ).BookingDateTime.ToString( "d" );
+					j++;
+					matrix[ i, j ] = entity.Bookings.ElementAt( i ).BookingItens.ElementAt( 0 ).BookAble.Type;
+					j++;
+					matrix[i, j] = entity.Bookings.ElementAt(i).BookingItens.ElementAt(0).BookAble.Price.ToString();
+					j++;
+					matrix[ i, j ] = entity.Bookings.ElementAt( i ).TimeRange.StartDateTime.ToString( "d" );
+					j++;
+					matrix[ i, j ] = entity.Bookings.ElementAt( i ).TimeRange.EndDateTime.ToString( "d" );
+					j++;
+					matrix[i, j] = (entity.Bookings.ElementAt(i).TimeRange.DiferenceTimeSpan().Days *
+									entity.Bookings.ElementAt(i).BookingItens.ElementAt(0).BookAble.Price).ToString();
+					j++;
+				}
+			}
+
+			return matrix;
+		}
+
+		public void AddBookingToEntity( int aEntityId, IBooking aBooking )
+		{
+			foreach ( var entity in mData.EntityList.Where( entity => entity.Id == aEntityId ) )
+			{
+				entity.OnSaveLoad = true;
+				entity.Append( aBooking as Booking );
+				Save( FileName );
+				CleanEntityTemporaryLists( entity );
+				entity.OnSaveLoad = false;
+				return;
+			}
+		}
+
+		public void RemoveBookingOfEntity( int aEntityId, int aIndex )
+		{
+			foreach ( var entity in mData.EntityList )
+			{
+				if ( entity.Id == aEntityId )
+				{
+					if ( !( aIndex > BookingListCount( aEntityId ) - 1 ) )
+					{
+						entity.OnSaveLoad = true;
+						var client = entity.Clients.ElementAt( aIndex );
+						entity.Remove( client );
+						Save( FileName );
+						CleanEntityTemporaryLists( entity );
+						entity.OnSaveLoad = false;
+						return;
+					}
+				}
+			}
+		}
+		
+		public void EditBookingCheckOutInDate( int aEntityId, int aBookingId, DateTime aCheckInOutDate, string aGridHeader)
+		{
+			foreach ( var entity in mData.EntityList )
+			{
+				if ( entity.Id == aEntityId )
+				{
+					entity.OnSaveLoad = true;
+
+					foreach ( var booking in entity.Bookings.Where( booking => booking.Id == aBookingId ) )
+					{
+						booking.OnSaveLoad = true;
+
+						if (aGridHeader.Equals("Check-In-Date"))
+							booking.TimeRange.StartDateTime = aCheckInOutDate;
+						else
+							booking.TimeRange.EndDateTime = aCheckInOutDate;
+
+						Save( FileName );
+						CleanEntityTemporaryLists( entity );
+
+						booking.OnSaveLoad = true;
+					}
+
+					entity.OnSaveLoad = false;
+					return;
+				}
+			}
+		}
+
+		public void EditBookingClientNif( int aEntityId, int aBookingId, int aNif )
+		{
+			foreach ( var entity in mData.EntityList )
+			{
+				if ( entity.Id == aEntityId )
+				{
+					entity.OnSaveLoad = true;
+
+					foreach ( var booking in entity.Bookings.Where( booking => booking.Id == aBookingId ) )
+					{
+						booking.OnSaveLoad = true;
+						booking.IClient.Nif = aNif;
+						Save( FileName );
+						CleanEntityTemporaryLists( entity );
+						//var book = (Booking) booking;
+						//book.BookingItensList = new List<BookingItem>();
+						//book.Client = 
+						booking.OnSaveLoad = false;
+					}
+
+					entity.OnSaveLoad = false;
+					return;
+				}
+			}
+		}
+
+		#endregion
+
 
 
 		private void CleanEntityTemporaryLists( Entity aEntity )

@@ -7,6 +7,7 @@ namespace Tourist.Server.Forms
 {
 	public partial class DisponibilityForm : MetroForm
 	{
+		
 		private readonly MainForm mMainForm;
 		private bool mBackOrExit = default(bool);
 		
@@ -55,6 +56,8 @@ namespace Tourist.Server.Forms
 			Close( );
 			mMainForm.Show( );
 		}
+
+		
 
 	}
 }

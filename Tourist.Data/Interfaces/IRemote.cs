@@ -13,14 +13,14 @@ namespace Tourist.Data.Interfaces
 		Factory Factory { get; }
 
 		#region LoginForm Methods
-		
+
 		List<Entity> GetRepositoryEntityList( );
 		bool IsRepositoryEmpty( );
 		List<string> GetEntityNameList( );
 		int GetEntityId( string aEntityName );
-		
+
 		#endregion
-		
+
 		#region ClientsForm Methods
 
 		bool IsClientListEmpty( int aEntityId );
@@ -40,6 +40,25 @@ namespace Tourist.Data.Interfaces
 		void EditClientAddress( int aEntityId, int aClientId, string aAddress );
 		void EditClientPhoneNumber( int aEntityId, int aClientId, int aPhoneNumber );
 		void EditClientEmail( int aEntityId, int aClientId, string aEmail );
+
+		#endregion
+
+		#region BookingForm Methods
+
+		bool IsBookingListEmpty( int aEntityId );
+		int BookingListCount( int aEntityId );
+		bool IsBookingListIndexValid( int aEntityId, int aIndex );
+		int GetBookingId( int aEntityId, int aIndex );
+		int MaxBookingId( int aEntityId );
+		bool BookingAlreadyExists( int aEntityId, int aBookingId );
+		string[ , ] BookingsListToMatrix( int aEntityId, int columnsCount );
+		void AddBookingToEntity( int aEntityId, IBooking aBooking );
+		void RemoveBookingOfEntity( int aEntityId, int aIndex );
+		void EditBookingCheckOutInDate( int aEntityId, int aBookingId, DateTime aCheckInOutDate, string aGridHeader );
+		void EditBookingClientNif( int aEntityId, int aBookingId, int aNif );
+		IClient GetClientFromClientList( int aEntityId, int aClientNif );
+		List<int> GetAllClientsNif( int aEntityId );
+		string GetClientFullName( int aEntityId, int aNif );
 		
 		#endregion
 

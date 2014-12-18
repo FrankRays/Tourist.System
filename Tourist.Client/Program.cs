@@ -29,7 +29,6 @@ namespace Tourist.Server
 			// Tell the remoting system to use the channel
 			ChannelServices.RegisterChannel( channel, false );
 
-
 			RemotingConfiguration.Configure( ConfigFileName , false );
 			
 			// Create a transparent proxy "obj" for the remote object
