@@ -29,7 +29,7 @@ namespace Tourist.Server.Forms
 		private void BookingsForm_Load( object sender, System.EventArgs e )
 		{
 			SetFormFullScreen( );
-			LoadComboBoxValues();
+			LoadComboBoxValues( );
 
 		}
 
@@ -44,17 +44,18 @@ namespace Tourist.Server.Forms
 			Focus( );
 		}
 
-		private void LoadComboBoxValues()
+		private void LoadComboBoxValues( )
 		{
+			List<int> nifs = mRemote.GetAllClientsNif( mEntityId );
+			List<string> bookables = mRemote.GetAllBookables( mEntityId );
 
-			List<int> nifs = mRemote.GetAllClientsNif(mEntityId);
+			var bindingSource1 = new BindingSource { DataSource = nifs };
+			var bindingSource2 = new BindingSource { DataSource = bookables };
 
-			var bindingSource = new BindingSource { DataSource = nifs };
-
-			ClientNifColumn.DataSource = bindingSource;
+			ClientNifColumn.DataSource = bindingSource1;
+			ServiceColumn.DataSource = bindingSource2;
 
 		}
-
 
 		private void LoadDataToGrid( )
 		{
@@ -77,7 +78,6 @@ namespace Tourist.Server.Forms
 			}
 		}
 
-		/*
 		private void AddBookingToRemote( string[ ] args )
 		{
 			var booking = mRemote.Factory.CreateObject<Booking>( );
@@ -86,17 +86,16 @@ namespace Tourist.Server.Forms
 
 			booking.Id = nextId;
 
-			var clientName = args[ 1 ].Split( ' ' );
+			var bookable = args[ 3 ].Split( '-' );
 
 			booking.IClient = mRemote.GetClientFromClientList( mEntityId, Convert.ToInt32( args[ 0 ] ) );
 
 			booking.BookingDateTime = ConvertStringToDateTime( args[ 2 ] );
 
-			booking.BookingItens.ElementAt( 0 ).BookAble 
-			
+			booking.BookingItens.ElementAt( 0 ).BookAble = mRemote.GetBookableFromBookablesList( mEntityId, Convert.ToInt32( bookable[ 0 ] ) );
+
 			booking.TimeRange.StartDateTime = ConvertStringToDateTime( args[ 5 ] );
 			booking.TimeRange.EndDateTime = ConvertStringToDateTime( args[ 6 ] );
-
 
 			mRemote.AddBookingToEntity( mEntityId, booking );
 		}
@@ -116,12 +115,14 @@ namespace Tourist.Server.Forms
 		{
 			aCell.ErrorText = string.Empty;
 		}
-		
+
 		private void BookingsDataGrid_RowsValidating( object sender, DataGridViewCellValidatingEventArgs e )
 		{
 			var row = BookingsDataGrid.Rows[ e.RowIndex ];
 
 			var bookingIndex = e.RowIndex;
+
+			var bookable = BookingsDataGrid["ServiceColumn", e.RowIndex].Value.ToString().Split('-');
 
 			int bookingId;
 
@@ -135,6 +136,33 @@ namespace Tourist.Server.Forms
 			}
 
 			BookingsDataGrid[ "IdColumn", e.RowIndex ].Value = bookingId;
+			
+			BookingsDataGrid["ClientNameColumn", e.RowIndex].Value = mRemote.GetClientFullName(mEntityId,
+			Convert.ToInt32(BookingsDataGrid["ClientNameColumn", e.RowIndex].FormattedValue.ToString()));
+			
+			BookingsDataGrid[ "BookingDateColumn", e.RowIndex ].Value = DateTime.Now.ToString("d");
+
+			BookingsDataGrid["UnitPriceColumn", e.RowIndex].Value =
+				mRemote.GetBookableFromBookablesList(mEntityId,Convert.ToInt32(bookable[0])).Type;
+
+			if ( ! (string.IsNullOrEmpty(BookingsDataGrid["CheckInDateColumn", e.RowIndex].Value.ToString()) &&
+			       string.IsNullOrEmpty(BookingsDataGrid["CheckOutDateColumn", e.RowIndex].Value.ToString())))
+			{
+				DateTimeRange dtr = new DateTimeRange();
+
+				dtr.StartDateTime = ConvertStringToDateTime(BookingsDataGrid["CheckInDateColumn", e.RowIndex].Value.ToString());
+				dtr.StartDateTime = ConvertStringToDateTime(BookingsDataGrid["CheckOutDateColumn", e.RowIndex].Value.ToString());
+
+				var days = dtr.DiferenceTimeSpan().Days;
+
+				BookingsDataGrid["TotalPriceColumn", e.RowIndex].Value =
+					Convert.ToInt32(BookingsDataGrid["UnitPriceColumn", e.RowIndex].Value.ToString())*days;
+
+			}
+			else
+			{
+				BookingsDataGrid["TotalPriceColumn", e.RowIndex].Value = 0;
+			}
 
 			var isRowValidated = RowCellsValidated( row );
 
@@ -144,63 +172,26 @@ namespace Tourist.Server.Forms
 				{
 					var buffer = RowCellValues( row );
 
-					AddBookingTomRemote( buffer );
+					AddBookingToRemote( buffer );
 
 					MetroMessageBox.Show( this, "Booking Added With Sucess !!!", "Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
 				}
 				else
 				{
-					if ( e.ColumnIndex == BookingsDataGrid.Columns[ "GenderColumn" ].Index )
+					if ( e.ColumnIndex == BookingsDataGrid.Columns[ "CheckInDateColumn" ].Index ) 
 					{
 
-						if ( BookingsDataGrid[ "GenderColumn", e.RowIndex ].FormattedValue.ToString( ) == e.FormattedValue.ToString( ) )
-							return;
-
-						mRemote.EditBookingGender( mEntityId,
-													   bookingId,
-													 ( Gender ) Enum.Parse( typeof( Gender ), e.FormattedValue.ToString( ) ) );
+						mRemote.EditBookingCheckOutInDate( mEntityId,
+													       bookingId,
+														   ConvertStringToDateTime( e.FormattedValue.ToString( ) ), "Check-In-Date" );
 
 					}
-					else if ( e.ColumnIndex == BookingsDataGrid.Columns[ "FirstNameColumn" ].Index )
+					else if ( e.ColumnIndex == BookingsDataGrid.Columns[ "CheckOutDateColumn" ].Index )
 					{
-						mRemote.EditBookingFirstName( mEntityId, bookingId, e.FormattedValue.ToString( ) );
 
-					}
-					else if ( e.ColumnIndex == BookingsDataGrid.Columns[ "LastNameColumn" ].Index )
-					{
-						mRemote.EditBookingLastName( mEntityId, bookingId, e.FormattedValue.ToString( ) );
-
-					}
-					else if ( e.ColumnIndex == BookingsDataGrid.Columns[ "BirthDateColumn" ].Index )
-					{
-						mRemote.EditBookingBirthDate( mEntityId,
-														  bookingId,
-														  ConvertStringToDateTime( e.FormattedValue.ToString( ) ) );
-
-					}
-					else if ( e.ColumnIndex == BookingsDataGrid.Columns[ "NifColumn" ].Index )
-					{
-						mRemote.EditBookingNif( mEntityId,
-							bookingId,
-							Convert.ToInt32( e.FormattedValue.ToString( ) ) );
-
-					}
-					else if ( e.ColumnIndex == BookingsDataGrid.Columns[ "AddressColumn" ].Index )
-					{
-						mRemote.EditBookingAddress( mEntityId, bookingId, e.FormattedValue.ToString( ) );
-
-					}
-					else if ( e.ColumnIndex == BookingsDataGrid.Columns[ "PhoneColumn" ].Index )
-					{
-						mRemote.EditBookingPhoneNumber( mEntityId,
-							bookingId,
-							Convert.ToInt32( e.FormattedValue.ToString( ) ) );
-
-					}
-					else if ( e.ColumnIndex == BookingsDataGrid.Columns[ "EmailColumn" ].Index )
-					{
-						mRemote.EditBookingEmail( mEntityId, bookingId, e.FormattedValue.ToString( ) );
-
+						mRemote.EditBookingCheckOutInDate( mEntityId,
+														   bookingId,
+														   ConvertStringToDateTime( e.FormattedValue.ToString( ) ), "Check-Out-Date" );
 					}
 				}
 			}
@@ -231,38 +222,24 @@ namespace Tourist.Server.Forms
 				}
 			}
 
-			if ( !IsDateFormat( aRow.Cells[ "BirthDateColumn" ].EditedFormattedValue.ToString( ) ) )
+			if ( !IsDateFormat( aRow.Cells[ "CheckInColumn" ].EditedFormattedValue.ToString( ) ) )
 			{
-				aRow.Cells[ "BirthDateColumn" ].ErrorText = "The date format is mm/dd/yy";
+				aRow.Cells[ "CheckInColumn" ].ErrorText = "The date format is mm/dd/yy";
 				return false;
 			}
 
-			if ( !IsNumeric( aRow.Cells[ "NifColumn" ].EditedFormattedValue.ToString( ) ) )
+			if ( !IsDateFormat( aRow.Cells[ "CheckOutColumn" ].EditedFormattedValue.ToString( ) ) )
 			{
-				aRow.Cells[ "NifColumn" ].ErrorText = "The cell is not a number";
+				aRow.Cells[ "CheckOutColumn" ].ErrorText = "The date format is mm/dd/yy";
 				return false;
 			}
 
-			if ( !IsNumeric( aRow.Cells[ "PhoneColumn" ].EditedFormattedValue.ToString( ) ) )
-			{
-				aRow.Cells[ "PhoneColumn" ].ErrorText = "The cell is not a number";
-				return false;
-			}
-
-			CellErrorRemove( aRow.Cells[ "BirthDateColumn" ] );
-			CellErrorRemove( aRow.Cells[ "NifColumn" ] );
-			CellErrorRemove( aRow.Cells[ "PhoneColumn" ] );
-
+			CellErrorRemove( aRow.Cells[ "CheckInColumn" ] );
+			CellErrorRemove( aRow.Cells[ "CheckOutColumn" ] );
 
 			return !cellHasError.Any( bolean => bolean );
 		}
 
-		private bool IsNumeric( string isNumber )
-		{
-			int retNum;
-
-			return ( int.TryParse( isNumber, out retNum ) );
-		}
 
 		private bool IsDateFormat( string aDate )
 		{
@@ -317,7 +294,7 @@ namespace Tourist.Server.Forms
 			MetroMessageBox.Show( this, "Booking at row number " + ( e.RowIndex + 1 ) + " removed with Sucess !!!", "Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
 		}
 
-		 * */
+
 		protected override void OnFormClosing( FormClosingEventArgs e )
 		{
 			if ( mBackOrExit ) return;

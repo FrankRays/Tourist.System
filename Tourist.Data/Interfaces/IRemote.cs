@@ -59,7 +59,9 @@ namespace Tourist.Data.Interfaces
 		IClient GetClientFromClientList( int aEntityId, int aClientNif );
 		List<int> GetAllClientsNif( int aEntityId );
 		string GetClientFullName( int aEntityId, int aNif );
-		
+		List<string> GetAllBookables( int aEntity );
+		IBookable GetBookableFromBookablesList( int aEntityId, int aBookableId );
+
 		#endregion
 
 

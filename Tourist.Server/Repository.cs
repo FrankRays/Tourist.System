@@ -898,7 +898,7 @@ namespace Tourist.Server
 
 		public bool IsClientsListIndexValid( int aEntityId, int aIndex )
 		{
-			if ( IsBookingListEmpty( aEntityId ) )
+			if ( IsClientListEmpty( aEntityId ) )
 				return false;
 
 			return ( aIndex <= ClientsListCount( aEntityId ) - 1 );
@@ -913,7 +913,7 @@ namespace Tourist.Server
 
 		public int MaxClientId( int aEntityId )
 		{
-			if ( IsBookingListEmpty( aEntityId ) )
+			if ( IsClientListEmpty( aEntityId ) )
 				return 0;
 
 			var entity = GetEntity( aEntityId );
@@ -1286,7 +1286,27 @@ namespace Tourist.Server
 				}
 
 			}
+			
 			return fullName;
+		}
+
+		public IBookable GetBookableFromBookablesList(int aEntityId, int aBookableId)
+		{
+			foreach ( var entity in mData.EntityList )
+			{
+				if ( entity.Id == aEntityId )
+				{
+					foreach ( var bookable in entity.Bookables )
+					{
+						if (bookable.Id == aBookableId)
+						{
+							return bookable;
+						}
+					}
+				}
+			}
+
+			return null;
 		}
 
 		public string[ , ] BookingsListToMatrix( int aEntityId, int columnsCount )
@@ -1359,7 +1379,22 @@ namespace Tourist.Server
 				}
 			}
 		}
-		
+
+		public List<string> GetAllBookables(int aEntity)
+		{
+			List<string> bookables = new List<string>();
+
+			foreach (var entity in mData.EntityList)
+			{
+				foreach (var bookable in entity.Bookables)
+				{
+					bookables.Add(bookable.Id + "-" + bookable.Type);
+				}
+			}
+
+			return bookables;
+		}
+
 		public void EditBookingCheckOutInDate( int aEntityId, int aBookingId, DateTime aCheckInOutDate, string aGridHeader)
 		{
 			foreach ( var entity in mData.EntityList )

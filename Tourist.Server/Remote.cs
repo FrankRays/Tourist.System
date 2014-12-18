@@ -61,12 +61,12 @@ namespace Tourist.Server
 
 		public bool IsClientListEmpty( int aEntityId )
 		{
-			return Repository.Instance.IsBookingListEmpty( aEntityId );
+			return Repository.Instance.IsClientListEmpty( aEntityId );
 		}
 
 		public int ClientsListCount( int aEntityId )
 		{
-			return Repository.Instance.BookingListCount( aEntityId );
+			return Repository.Instance.ClientsListCount( aEntityId );
 		}
 
 		public bool IsClientsListIndexValid( int aEntityId, int aIndex )
@@ -172,6 +172,16 @@ namespace Tourist.Server
 		public int MaxBookingId( int aEntityId )
 		{
 			return Repository.Instance.MaxBookingId( aEntityId );
+		}
+
+		public List<string> GetAllBookables(int aEntity)
+		{
+			return Repository.Instance.GetAllBookables(aEntity);
+		}
+
+		public IBookable GetBookableFromBookablesList(int aEntityId, int aBookableId)
+		{
+			return Repository.Instance.GetBookableFromBookablesList(aEntityId, aBookableId);
 		}
 
 		public bool BookingAlreadyExists( int aEntityId, int aBookingId )

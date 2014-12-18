@@ -51,15 +51,6 @@
 			this.ClientsTabsControl = new MetroFramework.Controls.MetroTabControl();
 			this.RoomsTab = new MetroFramework.Controls.MetroTabPage();
 			this.BookingsDataGrid = new MetroFramework.Controls.MetroGrid();
-			this.IdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ClientNifColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-			this.ClientNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.BookingDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ServiceColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-			this.UnitPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.CheckInDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.CheckOutColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.TotalPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ActivitiesTab = new MetroFramework.Controls.MetroTabPage();
 			this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
 			this.ActivityBookingIDHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -94,6 +85,15 @@
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
 			this.FooterPanel = new System.Windows.Forms.Panel();
+			this.IdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ClientNifColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+			this.ClientNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.BookingDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ServiceColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+			this.UnitPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.CheckInDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.CheckOutColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.TotalPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.HeaderPanel.SuspendLayout();
 			this.BodyPanel.SuspendLayout();
 			this.SideBarPanel.SuspendLayout();
@@ -331,7 +331,7 @@
             this.BookingDateColumn,
             this.ServiceColumn,
             this.UnitPriceColumn,
-            this.CheckInDate,
+            this.CheckInDateColumn,
             this.CheckOutColumn,
             this.TotalPriceColumn});
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -363,72 +363,8 @@
 			this.BookingsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.BookingsDataGrid.Size = new System.Drawing.Size(955, 429);
 			this.BookingsDataGrid.TabIndex = 19;
-			// 
-			// IdColumn
-			// 
-			this.IdColumn.HeaderText = "ID";
-			this.IdColumn.MinimumWidth = 150;
-			this.IdColumn.Name = "IdColumn";
-			this.IdColumn.ReadOnly = true;
-			this.IdColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			// 
-			// ClientNifColumn
-			// 
-			this.ClientNifColumn.HeaderText = "Client Nif";
-			this.ClientNifColumn.MinimumWidth = 150;
-			this.ClientNifColumn.Name = "ClientNifColumn";
-			this.ClientNifColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			// 
-			// ClientNameColumn
-			// 
-			this.ClientNameColumn.HeaderText = "Client Name";
-			this.ClientNameColumn.MinimumWidth = 150;
-			this.ClientNameColumn.Name = "ClientNameColumn";
-			this.ClientNameColumn.ReadOnly = true;
-			// 
-			// BookingDateColumn
-			// 
-			this.BookingDateColumn.HeaderText = "Booking Date";
-			this.BookingDateColumn.MinimumWidth = 150;
-			this.BookingDateColumn.Name = "BookingDateColumn";
-			this.BookingDateColumn.ReadOnly = true;
-			// 
-			// ServiceColumn
-			// 
-			this.ServiceColumn.HeaderText = "Service ";
-			this.ServiceColumn.MinimumWidth = 150;
-			this.ServiceColumn.Name = "ServiceColumn";
-			// 
-			// UnitPriceColumn
-			// 
-			this.UnitPriceColumn.HeaderText = "Unit Price";
-			this.UnitPriceColumn.MinimumWidth = 150;
-			this.UnitPriceColumn.Name = "UnitPriceColumn";
-			this.UnitPriceColumn.ReadOnly = true;
-			// 
-			// CheckInDate
-			// 
-			this.CheckInDate.HeaderText = "Check-In-Date";
-			this.CheckInDate.MinimumWidth = 150;
-			this.CheckInDate.Name = "CheckInDate";
-			this.CheckInDate.ReadOnly = true;
-			this.CheckInDate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.CheckInDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			// 
-			// CheckOutColumn
-			// 
-			this.CheckOutColumn.HeaderText = "Check-Out-Date";
-			this.CheckOutColumn.MinimumWidth = 150;
-			this.CheckOutColumn.Name = "CheckOutColumn";
-			this.CheckOutColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.CheckOutColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			// 
-			// TotalPriceColumn
-			// 
-			this.TotalPriceColumn.HeaderText = "Total Price";
-			this.TotalPriceColumn.MinimumWidth = 150;
-			this.TotalPriceColumn.Name = "TotalPriceColumn";
-			this.TotalPriceColumn.ReadOnly = true;
+			this.BookingsDataGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.BookingsDataGrid_RowsValidating);
+			this.BookingsDataGrid.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.BookingsDataGrid_RowsRemoved);
 			// 
 			// ActivitiesTab
 			// 
@@ -867,6 +803,72 @@
 			this.FooterPanel.Size = new System.Drawing.Size(1202, 122);
 			this.FooterPanel.TabIndex = 15;
 			// 
+			// IdColumn
+			// 
+			this.IdColumn.HeaderText = "ID";
+			this.IdColumn.MinimumWidth = 150;
+			this.IdColumn.Name = "IdColumn";
+			this.IdColumn.ReadOnly = true;
+			this.IdColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			// 
+			// ClientNifColumn
+			// 
+			this.ClientNifColumn.HeaderText = "Client Nif";
+			this.ClientNifColumn.MinimumWidth = 150;
+			this.ClientNifColumn.Name = "ClientNifColumn";
+			this.ClientNifColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			// 
+			// ClientNameColumn
+			// 
+			this.ClientNameColumn.HeaderText = "Client Name";
+			this.ClientNameColumn.MinimumWidth = 150;
+			this.ClientNameColumn.Name = "ClientNameColumn";
+			this.ClientNameColumn.ReadOnly = true;
+			// 
+			// BookingDateColumn
+			// 
+			this.BookingDateColumn.HeaderText = "Booking Date";
+			this.BookingDateColumn.MinimumWidth = 150;
+			this.BookingDateColumn.Name = "BookingDateColumn";
+			this.BookingDateColumn.ReadOnly = true;
+			// 
+			// ServiceColumn
+			// 
+			this.ServiceColumn.HeaderText = "Service ";
+			this.ServiceColumn.MinimumWidth = 150;
+			this.ServiceColumn.Name = "ServiceColumn";
+			// 
+			// UnitPriceColumn
+			// 
+			this.UnitPriceColumn.HeaderText = "Unit Price";
+			this.UnitPriceColumn.MinimumWidth = 150;
+			this.UnitPriceColumn.Name = "UnitPriceColumn";
+			this.UnitPriceColumn.ReadOnly = true;
+			// 
+			// CheckInDateColumn
+			// 
+			this.CheckInDateColumn.HeaderText = "Check-In-Date";
+			this.CheckInDateColumn.MinimumWidth = 150;
+			this.CheckInDateColumn.Name = "CheckInDateColumn";
+			this.CheckInDateColumn.ReadOnly = true;
+			this.CheckInDateColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.CheckInDateColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			// 
+			// CheckOutColumn
+			// 
+			this.CheckOutColumn.HeaderText = "Check-Out-Date";
+			this.CheckOutColumn.MinimumWidth = 150;
+			this.CheckOutColumn.Name = "CheckOutColumn";
+			this.CheckOutColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.CheckOutColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			// 
+			// TotalPriceColumn
+			// 
+			this.TotalPriceColumn.HeaderText = "Total Price";
+			this.TotalPriceColumn.MinimumWidth = 150;
+			this.TotalPriceColumn.Name = "TotalPriceColumn";
+			this.TotalPriceColumn.ReadOnly = true;
+			// 
 			// BookingsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -958,7 +960,7 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn BookingDateColumn;
 		private System.Windows.Forms.DataGridViewComboBoxColumn ServiceColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn UnitPriceColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn CheckInDate;
+		private System.Windows.Forms.DataGridViewTextBoxColumn CheckInDateColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn CheckOutColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn TotalPriceColumn;
 
