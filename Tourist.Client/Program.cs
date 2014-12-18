@@ -5,6 +5,7 @@ using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
 using System.Windows.Forms;
+using MetroFramework;
 using Tourist.Server.Forms;
 using Tourist.Data.Classes;
 using Tourist.Data.Interfaces;
@@ -34,7 +35,7 @@ namespace Tourist.Server
 			// Create a transparent proxy "obj" for the remote object
 			IRemote Remote = ( IRemote ) Activator.GetObject(
 				typeof( IRemote ), // Remote object type
-				"tcp://192.168.10.109:3000/Tourist.Server" );
+				"tcp://10.2.5.131:3000/Tourist.Server" );
 				//"tcp://localhost:3000/Tourist.Server" ); // Remote object URL
 
 			try
@@ -43,7 +44,7 @@ namespace Tourist.Server
 			}
 			catch ( Exception )
 			{
-				MessageBox.Show( string.Format( "Server not found! Please check your internet connection." ) );
+				MessageBox.Show("Server not found !!! Please check if server is running or your internet connection.", "NETWORKING ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error );
 				return;
 			}
 

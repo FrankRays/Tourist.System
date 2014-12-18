@@ -20,8 +20,8 @@ namespace Tourist.Server.Forms
 
 		public EntityForm( Form aForm )
 		{
-			mMainForm = aForm as MainForm;
 			InitializeComponent( );
+			mMainForm = aForm as MainForm;
 		}
 
 		private void EntitiesForm_Load( object sender, EventArgs e )
@@ -223,7 +223,13 @@ namespace Tourist.Server.Forms
 		{
 			mBackOrExit = true;
 			Close( );
-			mMainForm.Show( ); // mudar para login
+
+			if (repository.Count() <= 1)
+			{
+				mMainForm.LoginForm.Show();
+			}
+			else
+			mMainForm.Show( ); 
 		}
 
 	}

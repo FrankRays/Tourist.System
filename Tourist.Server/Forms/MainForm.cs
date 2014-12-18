@@ -10,6 +10,7 @@ namespace Tourist.Server.Forms
 	public partial class MainForm : MetroForm
 	{
 		private int mEntityId = default( int );
+		private LoginForm mLoginForm;
 
 		public int EntityId
 		{
@@ -17,10 +18,22 @@ namespace Tourist.Server.Forms
 			private set { mEntityId = value; }
 		}
 
+		public LoginForm LoginForm
+		{
+			get { return mLoginForm; }
+			set { mLoginForm = value; }
+		}
+
+		public MainForm( Form aForm )
+		{
+			InitializeComponent( );
+			LoginForm = aForm as LoginForm;
+		}
+		
 		public MainForm( Form aForm, int entityId )
 		{
 			InitializeComponent( );
-
+			LoginForm = aForm as LoginForm;
 			EntityId = entityId;
 		}
 

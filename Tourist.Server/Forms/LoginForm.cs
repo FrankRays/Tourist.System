@@ -17,13 +17,12 @@ namespace Tourist.Server.Forms
 		public LoginForm( )
 		{
 			InitializeComponent( );
-
 		}
 
 		private void LoginForm_Load( object sender, EventArgs e )
 		{
 			SetFormFullScreen( );
-			mLoginFormOrEntityForm = CanLoadEntityNamesComboBox();
+			mLoginFormOrEntityForm = CanLoadEntityNamesComboBox( );
 
 		}
 
@@ -69,9 +68,10 @@ namespace Tourist.Server.Forms
 				Hide( );
 				mMainForm.Show( );
 			}
-			else 
-			{ 
+			else
+			{
 				Hide( );
+				mMainForm = new MainForm( this );
 				var entityForm = new EntityForm( mMainForm );
 				entityForm.Show( );
 			}
@@ -94,6 +94,14 @@ namespace Tourist.Server.Forms
 		private void ExitButton_Click( object sender, EventArgs e )
 		{
 			Close( );
+		}
+
+		private void LoginForm_VisibilityChange( object sender, EventArgs e )
+		{
+			if ( Visible )
+			{
+				mLoginFormOrEntityForm = CanLoadEntityNamesComboBox( );
+			}
 		}
 	}
 }

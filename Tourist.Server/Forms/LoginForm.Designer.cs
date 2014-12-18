@@ -291,6 +291,7 @@
 			this.Resizable = false;
 			this.Style = MetroFramework.MetroColorStyle.White;
 			this.Load += new System.EventHandler(this.LoginForm_Load);
+			this.VisibleChanged += new System.EventHandler(this.LoginForm_VisibilityChange);
 			this.FooterPanel.ResumeLayout(false);
 			this.BodyPanel.ResumeLayout(false);
 			this.BodyPanel.PerformLayout();
