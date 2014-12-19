@@ -61,14 +61,12 @@ namespace Tourist.Data.Classes
 
 		public void Append( IBookingItem aItem )
 		{
-			System.Diagnostics.Trace.Assert( !BookingItens.Contains( aItem ) );
 			if ( BookingItens.Contains( aItem ) ) return;
 			( ( ICollection<IBookingItem> ) BookingItens ).Add( aItem );
 		}
 
 		public void Remove( IBookingItem aItem )
 		{
-			System.Diagnostics.Trace.Assert( !BookingItens.Contains( aItem ) );
 			if ( !BookingItens.Contains( aItem ) ) return;
 			( ( ICollection<IBookingItem> ) BookingItens ).Remove( aItem );
 		}

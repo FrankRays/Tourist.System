@@ -88,6 +88,11 @@ namespace Tourist.Data.Classes
 
 		//CreateActivities
 
+		public DateTimeRange CreateDateTimeRange()
+		{
+			return new DateTimeRange();
+		}
+
 		public IBookable CreateBoatRideActivity( )
 		{
 			return new BoatRideActivity( );
@@ -167,6 +172,8 @@ namespace Tourist.Data.Classes
 				case "Manager":
 					return CreateManager( );
 				//Bookable Room
+				case "DateTimeRange":
+					return CreateDateTimeRange();
 				case "SingleRoom":
 					return CreateSingleRoom( );
 				case "DoubleSingleRoom":

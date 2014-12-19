@@ -30,7 +30,7 @@ namespace Tourist.Server.Forms
 		{
 			SetFormFullScreen( );
 			LoadComboBoxValues( );
-
+			LoadDataToGrid( );
 		}
 
 		private void SetFormFullScreen( )
@@ -82,6 +82,8 @@ namespace Tourist.Server.Forms
 		{
 			var booking = mRemote.Factory.CreateObject<Booking>( );
 
+			booking.OnSaveLoad = true;
+
 			var nextId = mRemote.MaxBookingId( mEntityId ) + 1;
 
 			booking.Id = nextId;
@@ -90,9 +92,28 @@ namespace Tourist.Server.Forms
 
 			booking.IClient = mRemote.GetClientFromClientList( mEntityId, Convert.ToInt32( args[ 0 ] ) );
 
+			//serialization
+			booking.Client = booking.IClient as Client;
+
 			booking.BookingDateTime = ConvertStringToDateTime( args[ 2 ] );
 
-			booking.BookingItens.ElementAt( 0 ).BookAble = mRemote.GetBookableFromBookablesList( mEntityId, Convert.ToInt32( bookable[ 0 ] ) );
+			IBookingItem bookingItem = mRemote.Factory.CreateObject<BookingItem>( );
+
+			bookingItem.BookAble = mRemote.GetBookableFromBookablesList( mEntityId, Convert.ToInt32( bookable[ 0 ] ) );
+
+			BookingItem book = bookingItem as BookingItem;
+
+			book.Bookable = bookingItem.BookAble as Bookable;
+
+			booking.Append( bookingItem );
+			/*
+			foreach ( var bookingIt in booking.BookingItens )
+			{
+				booking.BookingItensList.Add( bookingIt as BookingItem );
+				break;
+			}
+			*/
+			booking.TimeRange = mRemote.Factory.CreateObject<DateTimeRange>( );
 
 			booking.TimeRange.StartDateTime = ConvertStringToDateTime( args[ 5 ] );
 			booking.TimeRange.EndDateTime = ConvertStringToDateTime( args[ 6 ] );
@@ -120,9 +141,12 @@ namespace Tourist.Server.Forms
 		{
 			var row = BookingsDataGrid.Rows[ e.RowIndex ];
 
-			var bookingIndex = e.RowIndex;
+			BookingsDataGrid[ "ClientNifColumn", e.RowIndex ].Value = ClientNifColumn.Items[ 0 ];
+			BookingsDataGrid[ "ServiceColumn", e.RowIndex ].Value = ServiceColumn.Items[ 0 ];
+			BookingsDataGrid[ "CheckInDateColumn", e.RowIndex ].Value = DateTime.Now.ToString( "d" );
+			BookingsDataGrid[ "CheckOutColumn", e.RowIndex ].Value = DateTime.Now.AddDays( 1 ).ToString( "d" );
 
-			var bookable = BookingsDataGrid["ServiceColumn", e.RowIndex].Value.ToString().Split('-');
+			var bookingIndex = e.RowIndex;
 
 			int bookingId;
 
@@ -136,32 +160,36 @@ namespace Tourist.Server.Forms
 			}
 
 			BookingsDataGrid[ "IdColumn", e.RowIndex ].Value = bookingId;
-			
-			BookingsDataGrid["ClientNameColumn", e.RowIndex].Value = mRemote.GetClientFullName(mEntityId,
-			Convert.ToInt32(BookingsDataGrid["ClientNameColumn", e.RowIndex].FormattedValue.ToString()));
-			
-			BookingsDataGrid[ "BookingDateColumn", e.RowIndex ].Value = DateTime.Now.ToString("d");
 
-			BookingsDataGrid["UnitPriceColumn", e.RowIndex].Value =
-				mRemote.GetBookableFromBookablesList(mEntityId,Convert.ToInt32(bookable[0])).Type;
+			BookingsDataGrid[ "ClientNameColumn", e.RowIndex ].Value = mRemote.GetClientFullName( mEntityId,
+					Convert.ToInt32( BookingsDataGrid[ "ClientNifColumn", e.RowIndex ].EditedFormattedValue.ToString( ) ) );
 
-			if ( ! (string.IsNullOrEmpty(BookingsDataGrid["CheckInDateColumn", e.RowIndex].Value.ToString()) &&
-			       string.IsNullOrEmpty(BookingsDataGrid["CheckOutDateColumn", e.RowIndex].Value.ToString())))
+			BookingsDataGrid[ "BookingDateColumn", e.RowIndex ].Value = DateTime.Now.ToString( "d" );
+
+			var bookable = BookingsDataGrid[ "ServiceColumn", e.RowIndex ].Value.ToString( ).Split( '-' );
+
+			BookingsDataGrid[ "UnitPriceColumn", e.RowIndex ].Value =
+				mRemote.GetBookableFromBookablesList( mEntityId, Convert.ToInt32( bookable[ 0 ] ) ).Price;
+
+			//var bookable = BookingsDataGrid[ "ServiceColumn", e.RowIndex ].Value.ToString( ).Split( '-' );
+
+			if ( !( string.IsNullOrEmpty( BookingsDataGrid[ "CheckInDateColumn", e.RowIndex ].Value.ToString( ) ) &&
+				   string.IsNullOrEmpty( BookingsDataGrid[ "CheckOutDateColumn", e.RowIndex ].Value.ToString( ) ) ) )
 			{
-				DateTimeRange dtr = new DateTimeRange();
+				DateTimeRange dtr = new DateTimeRange( );
 
-				dtr.StartDateTime = ConvertStringToDateTime(BookingsDataGrid["CheckInDateColumn", e.RowIndex].Value.ToString());
-				dtr.StartDateTime = ConvertStringToDateTime(BookingsDataGrid["CheckOutDateColumn", e.RowIndex].Value.ToString());
+				dtr.StartDateTime = ConvertStringToDateTime( BookingsDataGrid[ "CheckInDateColumn", e.RowIndex ].Value.ToString( ) );
+				dtr.EndDateTime = ConvertStringToDateTime( BookingsDataGrid[ "CheckOutColumn", e.RowIndex ].Value.ToString( ) );
 
-				var days = dtr.DiferenceTimeSpan().Days;
+				var days = dtr.DiferenceTimeSpan( ).Days;
 
-				BookingsDataGrid["TotalPriceColumn", e.RowIndex].Value =
-					Convert.ToInt32(BookingsDataGrid["UnitPriceColumn", e.RowIndex].Value.ToString())*days;
+				BookingsDataGrid[ "TotalPriceColumn", e.RowIndex ].Value =
+					Convert.ToInt32( BookingsDataGrid[ "UnitPriceColumn", e.RowIndex ].Value.ToString( ) ) * days;
 
 			}
 			else
 			{
-				BookingsDataGrid["TotalPriceColumn", e.RowIndex].Value = 0;
+				BookingsDataGrid[ "TotalPriceColumn", e.RowIndex ].Value = 0;
 			}
 
 			var isRowValidated = RowCellsValidated( row );
@@ -172,21 +200,21 @@ namespace Tourist.Server.Forms
 				{
 					var buffer = RowCellValues( row );
 
-					AddBookingToRemote( buffer );
+					//AddBookingToRemote( buffer );
 
-					MetroMessageBox.Show( this, "Booking Added With Sucess !!!", "Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
+					//MetroMessageBox.Show( this, "Booking Added With Sucess !!!", "Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
 				}
 				else
 				{
-					if ( e.ColumnIndex == BookingsDataGrid.Columns[ "CheckInDateColumn" ].Index ) 
+					if ( e.ColumnIndex == BookingsDataGrid.Columns[ "CheckInDateColumn" ].Index )
 					{
 
 						mRemote.EditBookingCheckOutInDate( mEntityId,
-													       bookingId,
+														   bookingId,
 														   ConvertStringToDateTime( e.FormattedValue.ToString( ) ), "Check-In-Date" );
 
 					}
-					else if ( e.ColumnIndex == BookingsDataGrid.Columns[ "CheckOutDateColumn" ].Index )
+					else if ( e.ColumnIndex == BookingsDataGrid.Columns[ "CheckOutColumn" ].Index )
 					{
 
 						mRemote.EditBookingCheckOutInDate( mEntityId,
@@ -222,7 +250,7 @@ namespace Tourist.Server.Forms
 				}
 			}
 
-			if ( !IsDateFormat( aRow.Cells[ "CheckInColumn" ].EditedFormattedValue.ToString( ) ) )
+			if ( !IsDateFormat( aRow.Cells[ "CheckInDateColumn" ].EditedFormattedValue.ToString( ) ) )
 			{
 				aRow.Cells[ "CheckInColumn" ].ErrorText = "The date format is mm/dd/yy";
 				return false;
@@ -234,7 +262,7 @@ namespace Tourist.Server.Forms
 				return false;
 			}
 
-			CellErrorRemove( aRow.Cells[ "CheckInColumn" ] );
+			CellErrorRemove( aRow.Cells[ "CheckInDateColumn" ] );
 			CellErrorRemove( aRow.Cells[ "CheckOutColumn" ] );
 
 			return !cellHasError.Any( bolean => bolean );

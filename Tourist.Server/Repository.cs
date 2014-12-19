@@ -1352,29 +1352,34 @@ namespace Tourist.Server
 			foreach ( var entity in mData.EntityList.Where( entity => entity.Id == aEntityId ) )
 			{
 				entity.OnSaveLoad = true;
-				entity.Append( aBooking as Booking );
+				entity.Append( aBooking );
 				Save( FileName );
+				aBooking.OnSaveLoad = false;
 				CleanEntityTemporaryLists( entity );
 				entity.OnSaveLoad = false;
 				return;
 			}
 		}
 
-		public void RemoveBookingOfEntity( int aEntityId, int aIndex )
+		public void RemoveBookingOfEntity( int aEntityId, int aBookingId )
 		{
 			foreach ( var entity in mData.EntityList )
 			{
 				if ( entity.Id == aEntityId )
 				{
-					if ( !( aIndex > BookingListCount( aEntityId ) - 1 ) )
+					foreach (var booking in entity.Bookings)
 					{
-						entity.OnSaveLoad = true;
-						var client = entity.Clients.ElementAt( aIndex );
-						entity.Remove( client );
-						Save( FileName );
-						CleanEntityTemporaryLists( entity );
-						entity.OnSaveLoad = false;
-						return;
+						if (booking.Id == aBookingId)
+						{
+							entity.OnSaveLoad = true;
+							booking.OnSaveLoad = true;
+							entity.Remove( booking );
+							Save( FileName );
+							booking.OnSaveLoad = false;
+							CleanEntityTemporaryLists( entity );
+							entity.OnSaveLoad = false;
+							return;
+						}
 					}
 				}
 			}
@@ -1415,7 +1420,7 @@ namespace Tourist.Server
 						Save( FileName );
 						CleanEntityTemporaryLists( entity );
 
-						booking.OnSaveLoad = true;
+						booking.OnSaveLoad = false;
 					}
 
 					entity.OnSaveLoad = false;
