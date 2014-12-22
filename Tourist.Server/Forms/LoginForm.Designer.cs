@@ -98,7 +98,7 @@
 			this.ImagePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.ImagePanel.AutoSize = true;
-			this.ImagePanel.BackgroundImage = global::Tourist.Server.Properties.Resources._lock;
+			this.ImagePanel.BackgroundImage = global::Tourist.Server.Properties.Resources.ClosedLock;
 			this.ImagePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.ImagePanel.Location = new System.Drawing.Point(578, 122);
 			this.ImagePanel.Margin = new System.Windows.Forms.Padding(2);

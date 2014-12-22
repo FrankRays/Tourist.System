@@ -49,11 +49,12 @@ namespace Tourist.Server
 			Application.SetCompatibleTextRenderingDefault( false );
 			Application.Run( new LoginForm( ) );
 		}
-
+		
+		/*
 		private static void RepositorySaveTest( )
 		{
 			
-			repository.MData.SetEntity("Porto Bay", EntityType.Hotel, 123456789,"Rua do Sabao");
+			repository.MData.SetEntityProperties("Porto Bay", EntityType.Hotel, 123456789,"Rua do Sabao");
 
 			var room = repository.Factory.CreateObject<Room>( );
 
@@ -127,6 +128,6 @@ namespace Tourist.Server
 		{
 			repository.Load( FileName );
 		}
-
+		*/
 	}
 }

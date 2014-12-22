@@ -130,7 +130,7 @@ namespace Tourist.Server.Forms
 		{
 			Hide( );
 
-			var employersForm = new EmployersForm( this );
+			var employersForm = new ManagersForm( this );
 			employersForm.Show( );
 		}
 
@@ -148,6 +148,14 @@ namespace Tourist.Server.Forms
 
 			var clientsForm = new ClientsForm( this );
 			clientsForm.Show( );
+		}
+
+		private void ManagersTile_Click( object sender, EventArgs e )
+		{
+			Hide( );
+
+			var managersForm = new ManagersForm( this );
+			managersForm.Show();
 		}
 
 		private void DisponibilityTile_Click( object sender, EventArgs e )
@@ -215,6 +223,5 @@ namespace Tourist.Server.Forms
 			else
 				System.Diagnostics.Process.GetCurrentProcess( ).Kill( );
 		}
-
 	}
 }

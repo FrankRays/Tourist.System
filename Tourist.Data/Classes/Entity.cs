@@ -29,7 +29,6 @@ namespace Tourist.Data.Classes
 
 		public int Id { get; set; }
 
-
 		public byte[ ] ImageBuffer
 		{
 			get { return mImageBuffer; }

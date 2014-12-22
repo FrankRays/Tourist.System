@@ -8,17 +8,19 @@ using Tourist.Data.Interfaces;
 
 namespace Tourist.Server.Forms
 {
-	public partial class EmployersForm : MetroForm
+	public partial class ManagersForm : MetroForm
 	{
 
 		private readonly Repository repository = Repository.Instance;
 		private readonly MainForm mMainForm;
 		private bool mBackOrExit = default( bool );
 
-		public EmployersForm( Form aForm )
+		public ManagersForm( Form aForm )
 		{
+
 			InitializeComponent( );
 			mMainForm = aForm as MainForm;
+			
 		}
 
 		private void EmployersForm_Load( object sender, EventArgs e )

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing;
+using System.IO;
 using Tourist.Data.Classes;
 
 namespace Tourist.Server
@@ -69,6 +71,40 @@ namespace Tourist.Server
 		public bool RepositoryHasAEmployer( )
 		{
 			return mData.Employees.Count != 0;
+		}
+
+		public byte[ ] ImageToByteArray(Image aImage)
+		{
+			MemoryStream ms = new MemoryStream( );
+			aImage.Save( ms, System.Drawing.Imaging.ImageFormat.Png);
+			return ms.ToArray( );
+		}
+
+		public Image byteArrayToImage( byte[ ] byteArrayIn )
+		{
+			MemoryStream ms = new MemoryStream( byteArrayIn );
+			Image returnImage = Image.FromStream( ms );
+			return returnImage;
+		}
+
+		public bool IsNumeric( string isNumber )
+		{
+			int retNum;
+
+			return ( int.TryParse( isNumber, out retNum ) );
+		}
+
+		public bool IsEmailValid( string email )
+		{
+			try
+			{
+				var addr = new System.Net.Mail.MailAddress( email );
+				return true;
+			}
+			catch
+			{
+				return false;
+			}
 		}
 
 		#endregion

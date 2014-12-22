@@ -47,12 +47,21 @@ namespace Tourist.Server
 			public readonly List<Employer> Employees = new List<Employer>();
 
 		
-			public void SetEntity(string aName, EntityType aEntityType, int aNif, string aAddress)
+			public void SetEntityProperties( byte[] aImageBuffer, 
+								   EntityType aEntityType, 
+								   string aName , 
+								   int aNif, 
+								   string aAddress,
+								   int aPhone, 
+								   string aEmail )
 			{
-				Entity.Name = aName;
+				Entity.ImageBuffer = aImageBuffer;
 				Entity.EntityType = aEntityType;
+				Entity.Name = aName;
 				Entity.Nif = aNif;
 				Entity.Address = aAddress;
+				Entity.PhoneNumber = aPhone;
+				Entity.Email = aEmail;
 			}
 
 			public void Append(IBooking aItem)

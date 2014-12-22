@@ -28,32 +28,41 @@
 		/// </summary>
 		private void InitializeComponent( )
 		{
+			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EntityForm));
 			this.BodyPanel = new System.Windows.Forms.Panel();
 			this.BasicInformation = new System.Windows.Forms.GroupBox();
-			this.label4 = new System.Windows.Forms.Label();
-			this.label5 = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
-			this.textBox3 = new System.Windows.Forms.TextBox();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.BookingTypeLabel = new System.Windows.Forms.Label();
-			this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
-			this.LogoBox = new System.Windows.Forms.PictureBox();
-			this.label1 = new System.Windows.Forms.Label();
-			this.textBox5 = new System.Windows.Forms.TextBox();
-			this.label2 = new System.Windows.Forms.Label();
-			this.textBox4 = new System.Windows.Forms.TextBox();
-			this.label3 = new System.Windows.Forms.Label();
+			this.SaveButton = new System.Windows.Forms.Button();
+			this.AddressLabel = new System.Windows.Forms.Label();
+			this.PhoneLabel = new System.Windows.Forms.Label();
+			this.EmailLabel = new System.Windows.Forms.Label();
+			this.EmailTextBox = new System.Windows.Forms.TextBox();
+			this.AddressTextBox = new System.Windows.Forms.TextBox();
+			this.PhoneTextBox = new System.Windows.Forms.TextBox();
+			this.LogoLabel = new System.Windows.Forms.Label();
+			this.TypeComboBox = new MetroFramework.Controls.MetroComboBox();
+			this.NameLabel = new System.Windows.Forms.Label();
+			this.NifTextBox = new System.Windows.Forms.TextBox();
+			this.TypeLabel = new System.Windows.Forms.Label();
+			this.NameTextBox = new System.Windows.Forms.TextBox();
+			this.NifLabel = new System.Windows.Forms.Label();
 			this.FooterPanel = new System.Windows.Forms.Panel();
 			this.HeaderPanel = new System.Windows.Forms.Panel();
-			this.BackPanel = new System.Windows.Forms.Panel();
-			this.ImagePanel = new System.Windows.Forms.Panel();
 			this.SubTitleLabel = new System.Windows.Forms.Label();
 			this.TitleLabel = new System.Windows.Forms.Label();
+			this.LogoLoad = new System.Windows.Forms.OpenFileDialog();
+			this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+			this.EditButton = new System.Windows.Forms.Button();
+			this.LogoWrapper = new System.Windows.Forms.Panel();
+			this.LogoPictureBox = new System.Windows.Forms.PictureBox();
+			this.BackPanel = new System.Windows.Forms.Panel();
+			this.ImagePanel = new System.Windows.Forms.Panel();
 			this.BodyPanel.SuspendLayout();
 			this.BasicInformation.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.LogoBox)).BeginInit();
 			this.HeaderPanel.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
+			this.LogoWrapper.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// BodyPanel
@@ -72,181 +81,204 @@
 			// BasicInformation
 			// 
 			this.BasicInformation.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.BasicInformation.Controls.Add(this.label4);
-			this.BasicInformation.Controls.Add(this.label5);
-			this.BasicInformation.Controls.Add(this.label6);
-			this.BasicInformation.Controls.Add(this.textBox3);
-			this.BasicInformation.Controls.Add(this.textBox1);
-			this.BasicInformation.Controls.Add(this.textBox2);
-			this.BasicInformation.Controls.Add(this.BookingTypeLabel);
-			this.BasicInformation.Controls.Add(this.metroComboBox1);
-			this.BasicInformation.Controls.Add(this.LogoBox);
-			this.BasicInformation.Controls.Add(this.label1);
-			this.BasicInformation.Controls.Add(this.textBox5);
-			this.BasicInformation.Controls.Add(this.label2);
-			this.BasicInformation.Controls.Add(this.textBox4);
-			this.BasicInformation.Controls.Add(this.label3);
+			this.BasicInformation.Controls.Add(this.EditButton);
+			this.BasicInformation.Controls.Add(this.LogoWrapper);
+			this.BasicInformation.Controls.Add(this.SaveButton);
+			this.BasicInformation.Controls.Add(this.AddressLabel);
+			this.BasicInformation.Controls.Add(this.PhoneLabel);
+			this.BasicInformation.Controls.Add(this.EmailLabel);
+			this.BasicInformation.Controls.Add(this.EmailTextBox);
+			this.BasicInformation.Controls.Add(this.AddressTextBox);
+			this.BasicInformation.Controls.Add(this.PhoneTextBox);
+			this.BasicInformation.Controls.Add(this.LogoLabel);
+			this.BasicInformation.Controls.Add(this.TypeComboBox);
+			this.BasicInformation.Controls.Add(this.NameLabel);
+			this.BasicInformation.Controls.Add(this.NifTextBox);
+			this.BasicInformation.Controls.Add(this.TypeLabel);
+			this.BasicInformation.Controls.Add(this.NameTextBox);
+			this.BasicInformation.Controls.Add(this.NifLabel);
 			this.BasicInformation.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BasicInformation.ForeColor = System.Drawing.Color.White;
-			this.BasicInformation.Location = new System.Drawing.Point(164, -2);
+			this.BasicInformation.Location = new System.Drawing.Point(164, 0);
 			this.BasicInformation.Margin = new System.Windows.Forms.Padding(2);
 			this.BasicInformation.Name = "BasicInformation";
 			this.BasicInformation.Padding = new System.Windows.Forms.Padding(2);
-			this.BasicInformation.Size = new System.Drawing.Size(892, 469);
+			this.BasicInformation.Size = new System.Drawing.Size(907, 468);
 			this.BasicInformation.TabIndex = 40;
 			this.BasicInformation.TabStop = false;
 			this.BasicInformation.Text = "Basic Information";
 			// 
-			// label4
+			// SaveButton
 			// 
-			this.label4.AutoSize = true;
-			this.label4.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.ForeColor = System.Drawing.Color.White;
-			this.label4.Location = new System.Drawing.Point(88, 272);
-			this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(82, 28);
-			this.label4.TabIndex = 40;
-			this.label4.Text = "Address";
+			this.SaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			this.SaveButton.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.SaveButton.ForeColor = System.Drawing.Color.White;
+			this.SaveButton.Location = new System.Drawing.Point(643, 346);
+			this.SaveButton.Margin = new System.Windows.Forms.Padding(2);
+			this.SaveButton.Name = "SaveButton";
+			this.SaveButton.Size = new System.Drawing.Size(110, 105);
+			this.SaveButton.TabIndex = 46;
+			this.SaveButton.Text = "SAVE";
+			this.SaveButton.UseVisualStyleBackColor = false;
+			this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
 			// 
-			// label5
+			// AddressLabel
 			// 
-			this.label5.AutoSize = true;
-			this.label5.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label5.ForeColor = System.Drawing.Color.White;
-			this.label5.Location = new System.Drawing.Point(88, 349);
-			this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(67, 28);
-			this.label5.TabIndex = 41;
-			this.label5.Text = "Phone";
+			this.AddressLabel.AutoSize = true;
+			this.AddressLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.AddressLabel.ForeColor = System.Drawing.Color.White;
+			this.AddressLabel.Location = new System.Drawing.Point(65, 272);
+			this.AddressLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.AddressLabel.Name = "AddressLabel";
+			this.AddressLabel.Size = new System.Drawing.Size(107, 28);
+			this.AddressLabel.TabIndex = 40;
+			this.AddressLabel.Text = "Address (*)";
 			// 
-			// label6
+			// PhoneLabel
 			// 
-			this.label6.AutoSize = true;
-			this.label6.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.ForeColor = System.Drawing.Color.White;
-			this.label6.Location = new System.Drawing.Point(88, 422);
-			this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(59, 28);
-			this.label6.TabIndex = 42;
-			this.label6.Text = "Email";
+			this.PhoneLabel.AutoSize = true;
+			this.PhoneLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.PhoneLabel.ForeColor = System.Drawing.Color.White;
+			this.PhoneLabel.Location = new System.Drawing.Point(80, 349);
+			this.PhoneLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.PhoneLabel.Name = "PhoneLabel";
+			this.PhoneLabel.Size = new System.Drawing.Size(92, 28);
+			this.PhoneLabel.TabIndex = 41;
+			this.PhoneLabel.Text = "Phone (*)";
 			// 
-			// textBox3
+			// EmailLabel
 			// 
-			this.textBox3.Font = new System.Drawing.Font("Segoe UI Semilight", 15F);
-			this.textBox3.Location = new System.Drawing.Point(179, 419);
-			this.textBox3.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(405, 34);
-			this.textBox3.TabIndex = 45;
+			this.EmailLabel.AutoSize = true;
+			this.EmailLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.EmailLabel.ForeColor = System.Drawing.Color.White;
+			this.EmailLabel.Location = new System.Drawing.Point(88, 416);
+			this.EmailLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.EmailLabel.Name = "EmailLabel";
+			this.EmailLabel.Size = new System.Drawing.Size(84, 28);
+			this.EmailLabel.TabIndex = 42;
+			this.EmailLabel.Text = "Email (*)";
 			// 
-			// textBox1
+			// EmailTextBox
 			// 
-			this.textBox1.Font = new System.Drawing.Font("Segoe UI Semilight", 15F);
-			this.textBox1.Location = new System.Drawing.Point(179, 269);
-			this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(577, 34);
-			this.textBox1.TabIndex = 43;
+			this.EmailTextBox.Font = new System.Drawing.Font("Segoe UI Semilight", 15F);
+			this.EmailTextBox.Location = new System.Drawing.Point(199, 416);
+			this.EmailTextBox.Margin = new System.Windows.Forms.Padding(2);
+			this.EmailTextBox.Name = "EmailTextBox";
+			this.EmailTextBox.Size = new System.Drawing.Size(405, 34);
+			this.EmailTextBox.TabIndex = 45;
+			this.EmailTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.EmailTextBox_Validating);
 			// 
-			// textBox2
+			// AddressTextBox
 			// 
-			this.textBox2.Font = new System.Drawing.Font("Segoe UI Semilight", 15F);
-			this.textBox2.Location = new System.Drawing.Point(179, 346);
-			this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(405, 34);
-			this.textBox2.TabIndex = 44;
+			this.AddressTextBox.Font = new System.Drawing.Font("Segoe UI Semilight", 15F);
+			this.AddressTextBox.Location = new System.Drawing.Point(199, 269);
+			this.AddressTextBox.Margin = new System.Windows.Forms.Padding(2);
+			this.AddressTextBox.Name = "AddressTextBox";
+			this.AddressTextBox.Size = new System.Drawing.Size(577, 34);
+			this.AddressTextBox.TabIndex = 43;
+			this.AddressTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.AddressTextBox_Validating);
 			// 
-			// BookingTypeLabel
+			// PhoneTextBox
 			// 
-			this.BookingTypeLabel.AutoSize = true;
-			this.BookingTypeLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.BookingTypeLabel.ForeColor = System.Drawing.Color.White;
-			this.BookingTypeLabel.Location = new System.Drawing.Point(90, 45);
-			this.BookingTypeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.BookingTypeLabel.Name = "BookingTypeLabel";
-			this.BookingTypeLabel.Size = new System.Drawing.Size(57, 28);
-			this.BookingTypeLabel.TabIndex = 26;
-			this.BookingTypeLabel.Text = "Logo";
+			this.PhoneTextBox.Font = new System.Drawing.Font("Segoe UI Semilight", 15F);
+			this.PhoneTextBox.Location = new System.Drawing.Point(199, 346);
+			this.PhoneTextBox.Margin = new System.Windows.Forms.Padding(2);
+			this.PhoneTextBox.Name = "PhoneTextBox";
+			this.PhoneTextBox.Size = new System.Drawing.Size(405, 34);
+			this.PhoneTextBox.TabIndex = 44;
+			this.PhoneTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.PhoneTextBox_Validating);
 			// 
-			// metroComboBox1
+			// LogoLabel
 			// 
-			this.metroComboBox1.FontSize = MetroFramework.MetroComboBoxSize.Tall;
-			this.metroComboBox1.FormattingEnabled = true;
-			this.metroComboBox1.ItemHeight = 29;
-			this.metroComboBox1.Location = new System.Drawing.Point(351, 126);
-			this.metroComboBox1.Margin = new System.Windows.Forms.Padding(2);
-			this.metroComboBox1.Name = "metroComboBox1";
-			this.metroComboBox1.Size = new System.Drawing.Size(405, 35);
-			this.metroComboBox1.TabIndex = 39;
-			this.metroComboBox1.UseSelectable = true;
+			this.LogoLabel.AutoSize = true;
+			this.LogoLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.LogoLabel.ForeColor = System.Drawing.Color.White;
+			this.LogoLabel.Location = new System.Drawing.Point(62, 45);
+			this.LogoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.LogoLabel.Name = "LogoLabel";
+			this.LogoLabel.Size = new System.Drawing.Size(57, 28);
+			this.LogoLabel.TabIndex = 26;
+			this.LogoLabel.Text = "Logo";
 			// 
-			// LogoBox
+			// TypeComboBox
 			// 
-			this.LogoBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.LogoBox.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.LogoBox.Location = new System.Drawing.Point(92, 85);
-			this.LogoBox.Name = "LogoBox";
-			this.LogoBox.Size = new System.Drawing.Size(150, 150);
-			this.LogoBox.TabIndex = 25;
-			this.LogoBox.TabStop = false;
+			this.TypeComboBox.AutoCompleteCustomSource.AddRange(new string[] {
+            "Hotel",
+            "ActivityAgency",
+            "TransportAgency",
+            "HotelierGroup"});
+			this.TypeComboBox.DisplayFocus = true;
+			this.TypeComboBox.FontSize = MetroFramework.MetroComboBoxSize.Tall;
+			this.TypeComboBox.FormattingEnabled = true;
+			this.TypeComboBox.ItemHeight = 29;
+			this.TypeComboBox.Items.AddRange(new object[] {
+            "Hotel",
+            "ActivityAgency",
+            "TransportAgency",
+            "HotelierGroup"});
+			this.TypeComboBox.Location = new System.Drawing.Point(351, 126);
+			this.TypeComboBox.Margin = new System.Windows.Forms.Padding(2);
+			this.TypeComboBox.Name = "TypeComboBox";
+			this.TypeComboBox.Size = new System.Drawing.Size(425, 35);
+			this.TypeComboBox.TabIndex = 39;
+			this.TypeComboBox.UseSelectable = true;
 			// 
-			// label1
+			// NameLabel
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.ForeColor = System.Drawing.Color.White;
-			this.label1.Location = new System.Drawing.Point(278, 48);
-			this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(64, 28);
-			this.label1.TabIndex = 27;
-			this.label1.Text = "Name";
+			this.NameLabel.AutoSize = true;
+			this.NameLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.NameLabel.ForeColor = System.Drawing.Color.White;
+			this.NameLabel.Location = new System.Drawing.Point(246, 45);
+			this.NameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.NameLabel.Name = "NameLabel";
+			this.NameLabel.Size = new System.Drawing.Size(89, 28);
+			this.NameLabel.TabIndex = 27;
+			this.NameLabel.Text = "Name (*)";
 			// 
-			// textBox5
+			// NifTextBox
 			// 
-			this.textBox5.Font = new System.Drawing.Font("Segoe UI Semilight", 15F);
-			this.textBox5.Location = new System.Drawing.Point(351, 204);
-			this.textBox5.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox5.Name = "textBox5";
-			this.textBox5.Size = new System.Drawing.Size(405, 34);
-			this.textBox5.TabIndex = 37;
+			this.NifTextBox.Font = new System.Drawing.Font("Segoe UI Semilight", 15F);
+			this.NifTextBox.ForeColor = System.Drawing.Color.Black;
+			this.NifTextBox.Location = new System.Drawing.Point(351, 204);
+			this.NifTextBox.Margin = new System.Windows.Forms.Padding(2);
+			this.NifTextBox.Name = "NifTextBox";
+			this.NifTextBox.Size = new System.Drawing.Size(425, 34);
+			this.NifTextBox.TabIndex = 37;
+			this.NifTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.NifTextBox_Validating);
 			// 
-			// label2
+			// TypeLabel
 			// 
-			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.ForeColor = System.Drawing.Color.White;
-			this.label2.Location = new System.Drawing.Point(281, 128);
-			this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(54, 28);
-			this.label2.TabIndex = 28;
-			this.label2.Text = "Type";
+			this.TypeLabel.AutoSize = true;
+			this.TypeLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.TypeLabel.ForeColor = System.Drawing.Color.White;
+			this.TypeLabel.Location = new System.Drawing.Point(256, 126);
+			this.TypeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.TypeLabel.Name = "TypeLabel";
+			this.TypeLabel.Size = new System.Drawing.Size(79, 28);
+			this.TypeLabel.TabIndex = 28;
+			this.TypeLabel.Text = "Type (*)";
 			// 
-			// textBox4
+			// NameTextBox
 			// 
-			this.textBox4.Font = new System.Drawing.Font("Segoe UI Semilight", 15F);
-			this.textBox4.Location = new System.Drawing.Point(351, 45);
-			this.textBox4.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(405, 34);
-			this.textBox4.TabIndex = 36;
+			this.NameTextBox.Font = new System.Drawing.Font("Segoe UI Semilight", 15F);
+			this.NameTextBox.Location = new System.Drawing.Point(351, 45);
+			this.NameTextBox.Margin = new System.Windows.Forms.Padding(2);
+			this.NameTextBox.Name = "NameTextBox";
+			this.NameTextBox.Size = new System.Drawing.Size(425, 34);
+			this.NameTextBox.TabIndex = 36;
+			this.NameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.NameTextBox_Validating);
 			// 
-			// label3
+			// NifLabel
 			// 
-			this.label3.AutoSize = true;
-			this.label3.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.ForeColor = System.Drawing.Color.White;
-			this.label3.Location = new System.Drawing.Point(281, 207);
-			this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(38, 28);
-			this.label3.TabIndex = 29;
-			this.label3.Text = "Nif";
+			this.NifLabel.AutoSize = true;
+			this.NifLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.NifLabel.ForeColor = System.Drawing.Color.White;
+			this.NifLabel.Location = new System.Drawing.Point(272, 204);
+			this.NifLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.NifLabel.Name = "NifLabel";
+			this.NifLabel.Size = new System.Drawing.Size(63, 28);
+			this.NifLabel.TabIndex = 29;
+			this.NifLabel.Text = "Nif (*)";
 			// 
 			// FooterPanel
 			// 
@@ -274,30 +306,6 @@
 			this.HeaderPanel.Size = new System.Drawing.Size(1202, 150);
 			this.HeaderPanel.TabIndex = 17;
 			// 
-			// BackPanel
-			// 
-			this.BackPanel.AutoSize = true;
-			this.BackPanel.BackgroundImage = global::Tourist.Server.Properties.Resources.LeftArrow;
-			this.BackPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.BackPanel.Location = new System.Drawing.Point(18, 32);
-			this.BackPanel.Margin = new System.Windows.Forms.Padding(2);
-			this.BackPanel.Name = "BackPanel";
-			this.BackPanel.Size = new System.Drawing.Size(64, 89);
-			this.BackPanel.TabIndex = 12;
-			this.BackPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BackPanel_MouseClick);
-			// 
-			// ImagePanel
-			// 
-			this.ImagePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.ImagePanel.BackgroundImage = global::Tourist.Server.Properties.Resources.Entity;
-			this.ImagePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.ImagePanel.Location = new System.Drawing.Point(1056, 26);
-			this.ImagePanel.Margin = new System.Windows.Forms.Padding(2);
-			this.ImagePanel.Name = "ImagePanel";
-			this.ImagePanel.Size = new System.Drawing.Size(128, 102);
-			this.ImagePanel.TabIndex = 13;
-			// 
 			// SubTitleLabel
 			// 
 			this.SubTitleLabel.AutoSize = true;
@@ -323,6 +331,73 @@
 			this.TitleLabel.TabIndex = 3;
 			this.TitleLabel.Text = "Entity";
 			// 
+			// LogoLoad
+			// 
+			this.LogoLoad.Filter = "PNG|*.png|JPEG|*.jpg";
+			// 
+			// ErrorProvider
+			// 
+			this.ErrorProvider.ContainerControl = this;
+			this.ErrorProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("ErrorProvider.Icon")));
+			// 
+			// EditButton
+			// 
+			this.EditButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			this.EditButton.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.EditButton.ForeColor = System.Drawing.Color.White;
+			this.EditButton.Location = new System.Drawing.Point(775, 346);
+			this.EditButton.Margin = new System.Windows.Forms.Padding(2);
+			this.EditButton.Name = "EditButton";
+			this.EditButton.Size = new System.Drawing.Size(110, 105);
+			this.EditButton.TabIndex = 48;
+			this.EditButton.Text = "EDIT ";
+			this.EditButton.UseVisualStyleBackColor = false;
+			this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
+			// 
+			// LogoWrapper
+			// 
+			this.LogoWrapper.BackgroundImage = global::Tourist.Server.Properties.Resources.LogoFrame;
+			this.LogoWrapper.Controls.Add(this.LogoPictureBox);
+			this.LogoWrapper.Location = new System.Drawing.Point(68, 81);
+			this.LogoWrapper.Name = "LogoWrapper";
+			this.LogoWrapper.Size = new System.Drawing.Size(160, 160);
+			this.LogoWrapper.TabIndex = 47;
+			// 
+			// LogoPictureBox
+			// 
+			this.LogoPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.LogoPictureBox.Location = new System.Drawing.Point(5, 5);
+			this.LogoPictureBox.Name = "LogoPictureBox";
+			this.LogoPictureBox.Size = new System.Drawing.Size(150, 150);
+			this.LogoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+			this.LogoPictureBox.TabIndex = 25;
+			this.LogoPictureBox.TabStop = false;
+			this.LogoPictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LogoPictureBox_MouseClick);
+			// 
+			// BackPanel
+			// 
+			this.BackPanel.AutoSize = true;
+			this.BackPanel.BackgroundImage = global::Tourist.Server.Properties.Resources.LeftArrow;
+			this.BackPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.BackPanel.Location = new System.Drawing.Point(18, 32);
+			this.BackPanel.Margin = new System.Windows.Forms.Padding(2);
+			this.BackPanel.Name = "BackPanel";
+			this.BackPanel.Size = new System.Drawing.Size(64, 89);
+			this.BackPanel.TabIndex = 12;
+			this.BackPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BackPanel_MouseClick);
+			// 
+			// ImagePanel
+			// 
+			this.ImagePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.ImagePanel.BackgroundImage = global::Tourist.Server.Properties.Resources.Entity;
+			this.ImagePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.ImagePanel.Location = new System.Drawing.Point(1056, 26);
+			this.ImagePanel.Margin = new System.Windows.Forms.Padding(2);
+			this.ImagePanel.Name = "ImagePanel";
+			this.ImagePanel.Size = new System.Drawing.Size(128, 102);
+			this.ImagePanel.TabIndex = 13;
+			// 
 			// EntityForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -343,9 +418,11 @@
 			this.BodyPanel.ResumeLayout(false);
 			this.BasicInformation.ResumeLayout(false);
 			this.BasicInformation.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.LogoBox)).EndInit();
 			this.HeaderPanel.ResumeLayout(false);
 			this.HeaderPanel.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
+			this.LogoWrapper.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -359,21 +436,26 @@
 		private System.Windows.Forms.Panel ImagePanel;
 		private System.Windows.Forms.Label SubTitleLabel;
 		private System.Windows.Forms.Label TitleLabel;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label BookingTypeLabel;
-		private System.Windows.Forms.PictureBox LogoBox;
-		private System.Windows.Forms.TextBox textBox5;
-		private System.Windows.Forms.TextBox textBox4;
+		private System.Windows.Forms.Label NifLabel;
+		private System.Windows.Forms.Label TypeLabel;
+		private System.Windows.Forms.Label NameLabel;
+		private System.Windows.Forms.Label LogoLabel;
+		private System.Windows.Forms.TextBox NifTextBox;
+		private System.Windows.Forms.TextBox NameTextBox;
 		private System.Windows.Forms.GroupBox BasicInformation;
-		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.TextBox textBox3;
-		private System.Windows.Forms.TextBox textBox1;
-		private System.Windows.Forms.TextBox textBox2;
-		private MetroFramework.Controls.MetroComboBox metroComboBox1;
+		private System.Windows.Forms.Label AddressLabel;
+		private System.Windows.Forms.Label PhoneLabel;
+		private System.Windows.Forms.Label EmailLabel;
+		private System.Windows.Forms.TextBox EmailTextBox;
+		private System.Windows.Forms.TextBox AddressTextBox;
+		private System.Windows.Forms.TextBox PhoneTextBox;
+		private MetroFramework.Controls.MetroComboBox TypeComboBox;
+		private System.Windows.Forms.OpenFileDialog LogoLoad;
+		private System.Windows.Forms.Button SaveButton;
+		private System.Windows.Forms.ErrorProvider ErrorProvider;
+		private System.Windows.Forms.Panel LogoWrapper;
+		private System.Windows.Forms.PictureBox LogoPictureBox;
+		private System.Windows.Forms.Button EditButton;
 
 
 	}
