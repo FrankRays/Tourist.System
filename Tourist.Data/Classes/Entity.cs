@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
 using Tourist.Data.Interfaces;
@@ -14,16 +15,26 @@ namespace Tourist.Data.Classes
 		#region Fields
 
 		private static int mCounter = 0;
-		private string mName;
-		private string mAddress;
+		private byte[ ] mImageBuffer;
 		private EntityType mEntityType;
+		private string mName;
 		private int mNif;
-		
+		private string mAddress;
+		private int mPhoneNumber;
+		private string mEmail;
+
 		#endregion
 
 		#region Properties
-		
+
 		public int Id { get; set; }
+
+
+		public byte[ ] ImageBuffer
+		{
+			get { return mImageBuffer; }
+			set { mImageBuffer = value; }
+		}
 
 		public EntityType EntityType
 		{
@@ -37,18 +48,30 @@ namespace Tourist.Data.Classes
 			set { mName = value; }
 		}
 
+		public int Nif
+		{
+			get { return mNif; }
+			set { mNif = value; }
+		}
+
 		public string Address
 		{
 			get { return mAddress; }
 			set { mAddress = value; }
 		}
 
-		public int Nif
+		public int PhoneNumber
 		{
-			get { return mNif; }
-			set { mNif = value; }
+			get { return mPhoneNumber; }
+			set { mPhoneNumber = value; }
 		}
-		
+
+		public string Email
+		{
+			get { return mEmail; }
+			set { mEmail = value; }
+		}
+
 		#endregion
 
 		#region Constructor
@@ -57,7 +80,7 @@ namespace Tourist.Data.Classes
 		{
 			Id = ++mCounter;
 		}
-		
+
 		#endregion
 
 	}

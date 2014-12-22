@@ -57,6 +57,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\OldEntityForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OldEntityForm.Designer.cs">
+      <DependentUpon>OldEntityForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\HelpForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +134,9 @@
     <Compile Include="Remote.cs" />
     <Compile Include="Repository.Serialization.cs" />
     <Compile Include="Repository.cs" />
+    <EmbeddedResource Include="Forms\OldEntityForm.resx">
+      <DependentUpon>OldEntityForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\HelpForm.resx">
       <DependentUpon>HelpForm.cs</DependentUpon>
     </EmbeddedResource>

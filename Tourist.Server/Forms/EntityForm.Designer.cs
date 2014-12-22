@@ -28,38 +28,32 @@
 		/// </summary>
 		private void InitializeComponent( )
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.BodyPanel = new System.Windows.Forms.Panel();
-			this.GroupSearch = new System.Windows.Forms.GroupBox();
-			this.OkButton = new System.Windows.Forms.Button();
+			this.BasicInformation = new System.Windows.Forms.GroupBox();
+			this.label4 = new System.Windows.Forms.Label();
+			this.label5 = new System.Windows.Forms.Label();
+			this.label6 = new System.Windows.Forms.Label();
+			this.textBox3 = new System.Windows.Forms.TextBox();
 			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.BookingTypeLabel = new System.Windows.Forms.Label();
 			this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
-			this.WrapperPanelGrid = new System.Windows.Forms.Panel();
-			this.EntityDataGrid = new MetroFramework.Controls.MetroGrid();
-			this.EntityIdColunm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.EntityTypeColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-			this.EntityNameColunm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.EntityAddressColunm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.EntityNifColunm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.LogoBox = new System.Windows.Forms.PictureBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.textBox5 = new System.Windows.Forms.TextBox();
+			this.label2 = new System.Windows.Forms.Label();
+			this.textBox4 = new System.Windows.Forms.TextBox();
+			this.label3 = new System.Windows.Forms.Label();
 			this.FooterPanel = new System.Windows.Forms.Panel();
-			this.BackPanel = new System.Windows.Forms.Panel();
 			this.HeaderPanel = new System.Windows.Forms.Panel();
+			this.BackPanel = new System.Windows.Forms.Panel();
 			this.ImagePanel = new System.Windows.Forms.Panel();
-			this.panel2 = new System.Windows.Forms.Panel();
 			this.SubTitleLabel = new System.Windows.Forms.Label();
 			this.TitleLabel = new System.Windows.Forms.Label();
-			this.SideBarPanel = new System.Windows.Forms.Panel();
-			this.SearchTile = new MetroFramework.Controls.MetroTile();
-			this.LogoffTile = new MetroFramework.Controls.MetroTile();
-			this.PrefrencesTile = new MetroFramework.Controls.MetroTile();
 			this.BodyPanel.SuspendLayout();
-			this.GroupSearch.SuspendLayout();
-			this.WrapperPanelGrid.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.EntityDataGrid)).BeginInit();
+			this.BasicInformation.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.LogoBox)).BeginInit();
 			this.HeaderPanel.SuspendLayout();
-			this.SideBarPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// BodyPanel
@@ -68,195 +62,204 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.BodyPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.BodyPanel.Controls.Add(this.GroupSearch);
-			this.BodyPanel.Controls.Add(this.WrapperPanelGrid);
-			this.BodyPanel.Location = new System.Drawing.Point(-1, 149);
+			this.BodyPanel.Controls.Add(this.BasicInformation);
+			this.BodyPanel.Location = new System.Drawing.Point(-1, 176);
 			this.BodyPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.BodyPanel.Name = "BodyPanel";
-			this.BodyPanel.Size = new System.Drawing.Size(1202, 524);
+			this.BodyPanel.Size = new System.Drawing.Size(1202, 468);
 			this.BodyPanel.TabIndex = 19;
 			// 
-			// GroupSearch
+			// BasicInformation
 			// 
-			this.GroupSearch.Controls.Add(this.OkButton);
-			this.GroupSearch.Controls.Add(this.textBox1);
-			this.GroupSearch.Controls.Add(this.metroComboBox1);
-			this.GroupSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.GroupSearch.ForeColor = System.Drawing.Color.White;
-			this.GroupSearch.Location = new System.Drawing.Point(22, 12);
-			this.GroupSearch.Margin = new System.Windows.Forms.Padding(2);
-			this.GroupSearch.Name = "GroupSearch";
-			this.GroupSearch.Padding = new System.Windows.Forms.Padding(2);
-			this.GroupSearch.Size = new System.Drawing.Size(197, 157);
-			this.GroupSearch.TabIndex = 24;
-			this.GroupSearch.TabStop = false;
-			this.GroupSearch.Text = "Search ";
+			this.BasicInformation.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.BasicInformation.Controls.Add(this.label4);
+			this.BasicInformation.Controls.Add(this.label5);
+			this.BasicInformation.Controls.Add(this.label6);
+			this.BasicInformation.Controls.Add(this.textBox3);
+			this.BasicInformation.Controls.Add(this.textBox1);
+			this.BasicInformation.Controls.Add(this.textBox2);
+			this.BasicInformation.Controls.Add(this.BookingTypeLabel);
+			this.BasicInformation.Controls.Add(this.metroComboBox1);
+			this.BasicInformation.Controls.Add(this.LogoBox);
+			this.BasicInformation.Controls.Add(this.label1);
+			this.BasicInformation.Controls.Add(this.textBox5);
+			this.BasicInformation.Controls.Add(this.label2);
+			this.BasicInformation.Controls.Add(this.textBox4);
+			this.BasicInformation.Controls.Add(this.label3);
+			this.BasicInformation.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BasicInformation.ForeColor = System.Drawing.Color.White;
+			this.BasicInformation.Location = new System.Drawing.Point(164, -3);
+			this.BasicInformation.Margin = new System.Windows.Forms.Padding(2);
+			this.BasicInformation.Name = "BasicInformation";
+			this.BasicInformation.Padding = new System.Windows.Forms.Padding(2);
+			this.BasicInformation.Size = new System.Drawing.Size(892, 469);
+			this.BasicInformation.TabIndex = 40;
+			this.BasicInformation.TabStop = false;
+			this.BasicInformation.Text = "Basic Information";
 			// 
-			// OkButton
+			// label4
 			// 
-			this.OkButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.OkButton.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.OkButton.ForeColor = System.Drawing.Color.White;
-			this.OkButton.Location = new System.Drawing.Point(12, 106);
-			this.OkButton.Margin = new System.Windows.Forms.Padding(2);
-			this.OkButton.Name = "OkButton";
-			this.OkButton.Size = new System.Drawing.Size(176, 32);
-			this.OkButton.TabIndex = 11;
-			this.OkButton.Text = "OK";
-			this.OkButton.UseVisualStyleBackColor = false;
+			this.label4.AutoSize = true;
+			this.label4.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.ForeColor = System.Drawing.Color.White;
+			this.label4.Location = new System.Drawing.Point(88, 272);
+			this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(82, 28);
+			this.label4.TabIndex = 40;
+			this.label4.Text = "Address";
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label5.ForeColor = System.Drawing.Color.White;
+			this.label5.Location = new System.Drawing.Point(88, 349);
+			this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(67, 28);
+			this.label5.TabIndex = 41;
+			this.label5.Text = "Phone";
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label6.ForeColor = System.Drawing.Color.White;
+			this.label6.Location = new System.Drawing.Point(88, 422);
+			this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(59, 28);
+			this.label6.TabIndex = 42;
+			this.label6.Text = "Email";
+			// 
+			// textBox3
+			// 
+			this.textBox3.Font = new System.Drawing.Font("Segoe UI Semilight", 15F);
+			this.textBox3.Location = new System.Drawing.Point(179, 419);
+			this.textBox3.Margin = new System.Windows.Forms.Padding(2);
+			this.textBox3.Name = "textBox3";
+			this.textBox3.Size = new System.Drawing.Size(405, 34);
+			this.textBox3.TabIndex = 45;
 			// 
 			// textBox1
 			// 
-			this.textBox1.Font = new System.Drawing.Font("Segoe UI Semilight", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBox1.Location = new System.Drawing.Point(12, 64);
+			this.textBox1.Font = new System.Drawing.Font("Segoe UI Semilight", 15F);
+			this.textBox1.Location = new System.Drawing.Point(179, 269);
 			this.textBox1.Margin = new System.Windows.Forms.Padding(2);
 			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(176, 32);
-			this.textBox1.TabIndex = 8;
-			this.textBox1.Text = " Search";
+			this.textBox1.Size = new System.Drawing.Size(577, 34);
+			this.textBox1.TabIndex = 43;
+			// 
+			// textBox2
+			// 
+			this.textBox2.Font = new System.Drawing.Font("Segoe UI Semilight", 15F);
+			this.textBox2.Location = new System.Drawing.Point(179, 346);
+			this.textBox2.Margin = new System.Windows.Forms.Padding(2);
+			this.textBox2.Name = "textBox2";
+			this.textBox2.Size = new System.Drawing.Size(405, 34);
+			this.textBox2.TabIndex = 44;
+			// 
+			// BookingTypeLabel
+			// 
+			this.BookingTypeLabel.AutoSize = true;
+			this.BookingTypeLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BookingTypeLabel.ForeColor = System.Drawing.Color.White;
+			this.BookingTypeLabel.Location = new System.Drawing.Point(90, 45);
+			this.BookingTypeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.BookingTypeLabel.Name = "BookingTypeLabel";
+			this.BookingTypeLabel.Size = new System.Drawing.Size(57, 28);
+			this.BookingTypeLabel.TabIndex = 26;
+			this.BookingTypeLabel.Text = "Logo";
 			// 
 			// metroComboBox1
 			// 
+			this.metroComboBox1.FontSize = MetroFramework.MetroComboBoxSize.Tall;
 			this.metroComboBox1.FormattingEnabled = true;
-			this.metroComboBox1.ItemHeight = 23;
-			this.metroComboBox1.Location = new System.Drawing.Point(12, 29);
+			this.metroComboBox1.ItemHeight = 29;
+			this.metroComboBox1.Location = new System.Drawing.Point(351, 126);
 			this.metroComboBox1.Margin = new System.Windows.Forms.Padding(2);
 			this.metroComboBox1.Name = "metroComboBox1";
-			this.metroComboBox1.Size = new System.Drawing.Size(176, 29);
-			this.metroComboBox1.TabIndex = 9;
+			this.metroComboBox1.Size = new System.Drawing.Size(405, 35);
+			this.metroComboBox1.TabIndex = 39;
 			this.metroComboBox1.UseSelectable = true;
 			// 
-			// WrapperPanelGrid
+			// LogoBox
 			// 
-			this.WrapperPanelGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.WrapperPanelGrid.BackColor = System.Drawing.Color.White;
-			this.WrapperPanelGrid.Controls.Add(this.EntityDataGrid);
-			this.WrapperPanelGrid.Location = new System.Drawing.Point(233, 24);
-			this.WrapperPanelGrid.Name = "WrapperPanelGrid";
-			this.WrapperPanelGrid.Size = new System.Drawing.Size(953, 482);
-			this.WrapperPanelGrid.TabIndex = 23;
+			this.LogoBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.LogoBox.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.LogoBox.Location = new System.Drawing.Point(92, 85);
+			this.LogoBox.Name = "LogoBox";
+			this.LogoBox.Size = new System.Drawing.Size(150, 150);
+			this.LogoBox.TabIndex = 25;
+			this.LogoBox.TabStop = false;
 			// 
-			// EntityDataGrid
+			// label1
 			// 
-			this.EntityDataGrid.AllowUserToOrderColumns = true;
-			this.EntityDataGrid.AllowUserToResizeColumns = false;
-			this.EntityDataGrid.AllowUserToResizeRows = false;
-			this.EntityDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.EntityDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.EntityDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-			this.EntityDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.EntityDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.EntityDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-			this.EntityDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semilight", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			this.EntityDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-			this.EntityDataGrid.ColumnHeadersHeight = 60;
-			this.EntityDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-			this.EntityDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.EntityIdColunm,
-            this.EntityTypeColumn,
-            this.EntityNameColunm,
-            this.EntityAddressColunm,
-            this.EntityNifColunm});
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(172)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 13F);
-			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.EntityDataGrid.DefaultCellStyle = dataGridViewCellStyle2;
-			this.EntityDataGrid.EnableHeadersVisualStyles = false;
-			this.EntityDataGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.EntityDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.EntityDataGrid.Location = new System.Drawing.Point(2, 1);
-			this.EntityDataGrid.Margin = new System.Windows.Forms.Padding(2);
-			this.EntityDataGrid.Name = "EntityDataGrid";
-			this.EntityDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.EntityDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-			this.EntityDataGrid.RowHeadersWidth = 50;
-			this.EntityDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-			this.EntityDataGrid.RowTemplate.Height = 25;
-			this.EntityDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.EntityDataGrid.Size = new System.Drawing.Size(949, 480);
-			this.EntityDataGrid.TabIndex = 17;
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.ForeColor = System.Drawing.Color.White;
+			this.label1.Location = new System.Drawing.Point(278, 48);
+			this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(64, 28);
+			this.label1.TabIndex = 27;
+			this.label1.Text = "Name";
 			// 
-			// EntityIdColunm
+			// textBox5
 			// 
-			this.EntityIdColunm.HeaderText = "ID";
-			this.EntityIdColunm.MinimumWidth = 150;
-			this.EntityIdColunm.Name = "EntityIdColunm";
-			this.EntityIdColunm.ReadOnly = true;
+			this.textBox5.Font = new System.Drawing.Font("Segoe UI Semilight", 15F);
+			this.textBox5.Location = new System.Drawing.Point(351, 204);
+			this.textBox5.Margin = new System.Windows.Forms.Padding(2);
+			this.textBox5.Name = "textBox5";
+			this.textBox5.Size = new System.Drawing.Size(405, 34);
+			this.textBox5.TabIndex = 37;
 			// 
-			// EntityTypeColumn
+			// label2
 			// 
-			this.EntityTypeColumn.HeaderText = "Type";
-			this.EntityTypeColumn.Items.AddRange(new object[] {
-            "Hotel",
-            "ActivityAgency",
-            "TransportAgency",
-            "HotelierGroup"});
-			this.EntityTypeColumn.MinimumWidth = 150;
-			this.EntityTypeColumn.Name = "EntityTypeColumn";
+			this.label2.AutoSize = true;
+			this.label2.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.ForeColor = System.Drawing.Color.White;
+			this.label2.Location = new System.Drawing.Point(281, 128);
+			this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(54, 28);
+			this.label2.TabIndex = 28;
+			this.label2.Text = "Type";
 			// 
-			// EntityNameColunm
+			// textBox4
 			// 
-			this.EntityNameColunm.HeaderText = "Name";
-			this.EntityNameColunm.MinimumWidth = 150;
-			this.EntityNameColunm.Name = "EntityNameColunm";
+			this.textBox4.Font = new System.Drawing.Font("Segoe UI Semilight", 15F);
+			this.textBox4.Location = new System.Drawing.Point(351, 45);
+			this.textBox4.Margin = new System.Windows.Forms.Padding(2);
+			this.textBox4.Name = "textBox4";
+			this.textBox4.Size = new System.Drawing.Size(405, 34);
+			this.textBox4.TabIndex = 36;
 			// 
-			// EntityAddressColunm
+			// label3
 			// 
-			this.EntityAddressColunm.HeaderText = "Address";
-			this.EntityAddressColunm.MinimumWidth = 150;
-			this.EntityAddressColunm.Name = "EntityAddressColunm";
-			// 
-			// EntityNifColunm
-			// 
-			this.EntityNifColunm.HeaderText = "NIF";
-			this.EntityNifColunm.MinimumWidth = 150;
-			this.EntityNifColunm.Name = "EntityNifColunm";
-			this.EntityNifColunm.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.EntityNifColunm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.label3.AutoSize = true;
+			this.label3.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label3.ForeColor = System.Drawing.Color.White;
+			this.label3.Location = new System.Drawing.Point(281, 207);
+			this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(38, 28);
+			this.label3.TabIndex = 29;
+			this.label3.Text = "Nif";
 			// 
 			// FooterPanel
 			// 
 			this.FooterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.FooterPanel.Location = new System.Drawing.Point(-1, 678);
+			this.FooterPanel.Location = new System.Drawing.Point(-1, 648);
 			this.FooterPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.FooterPanel.Name = "FooterPanel";
-			this.FooterPanel.Size = new System.Drawing.Size(1202, 122);
+			this.FooterPanel.Size = new System.Drawing.Size(1202, 150);
 			this.FooterPanel.TabIndex = 18;
-			// 
-			// BackPanel
-			// 
-			this.BackPanel.AutoSize = true;
-			this.BackPanel.BackgroundImage = global::Tourist.Server.Properties.Resources.LeftArrow;
-			this.BackPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.BackPanel.Location = new System.Drawing.Point(18, 16);
-			this.BackPanel.Margin = new System.Windows.Forms.Padding(2);
-			this.BackPanel.Name = "BackPanel";
-			this.BackPanel.Size = new System.Drawing.Size(64, 89);
-			this.BackPanel.TabIndex = 12;
-			this.BackPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BackPanel_MouseClick);
 			// 
 			// HeaderPanel
 			// 
@@ -265,14 +268,25 @@
 			this.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
 			this.HeaderPanel.Controls.Add(this.BackPanel);
 			this.HeaderPanel.Controls.Add(this.ImagePanel);
-			this.HeaderPanel.Controls.Add(this.panel2);
 			this.HeaderPanel.Controls.Add(this.SubTitleLabel);
 			this.HeaderPanel.Controls.Add(this.TitleLabel);
 			this.HeaderPanel.Location = new System.Drawing.Point(-1, 22);
 			this.HeaderPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.HeaderPanel.Name = "HeaderPanel";
-			this.HeaderPanel.Size = new System.Drawing.Size(1202, 122);
+			this.HeaderPanel.Size = new System.Drawing.Size(1202, 150);
 			this.HeaderPanel.TabIndex = 17;
+			// 
+			// BackPanel
+			// 
+			this.BackPanel.AutoSize = true;
+			this.BackPanel.BackgroundImage = global::Tourist.Server.Properties.Resources.LeftArrow;
+			this.BackPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.BackPanel.Location = new System.Drawing.Point(18, 32);
+			this.BackPanel.Margin = new System.Windows.Forms.Padding(2);
+			this.BackPanel.Name = "BackPanel";
+			this.BackPanel.Size = new System.Drawing.Size(64, 89);
+			this.BackPanel.TabIndex = 12;
+			this.BackPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BackPanel_MouseClick);
 			// 
 			// ImagePanel
 			// 
@@ -280,31 +294,23 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.ImagePanel.BackgroundImage = global::Tourist.Server.Properties.Resources.Entity;
 			this.ImagePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.ImagePanel.Location = new System.Drawing.Point(1051, 10);
+			this.ImagePanel.Location = new System.Drawing.Point(1056, 26);
 			this.ImagePanel.Margin = new System.Windows.Forms.Padding(2);
 			this.ImagePanel.Name = "ImagePanel";
-			this.ImagePanel.Size = new System.Drawing.Size(128, 105);
+			this.ImagePanel.Size = new System.Drawing.Size(128, 102);
 			this.ImagePanel.TabIndex = 13;
-			// 
-			// panel2
-			// 
-			this.panel2.Location = new System.Drawing.Point(422, 124);
-			this.panel2.Margin = new System.Windows.Forms.Padding(2);
-			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(150, 26);
-			this.panel2.TabIndex = 11;
 			// 
 			// SubTitleLabel
 			// 
 			this.SubTitleLabel.AutoSize = true;
 			this.SubTitleLabel.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.SubTitleLabel.ForeColor = System.Drawing.Color.White;
-			this.SubTitleLabel.Location = new System.Drawing.Point(105, 70);
+			this.SubTitleLabel.Location = new System.Drawing.Point(105, 86);
 			this.SubTitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.SubTitleLabel.Name = "SubTitleLabel";
-			this.SubTitleLabel.Size = new System.Drawing.Size(201, 30);
+			this.SubTitleLabel.Size = new System.Drawing.Size(242, 30);
 			this.SubTitleLabel.TabIndex = 4;
-			this.SubTitleLabel.Text = "Entity Management";
+			this.SubTitleLabel.Text = "Basic Information Setup";
 			// 
 			// TitleLabel
 			// 
@@ -312,81 +318,12 @@
 			this.TitleLabel.BackColor = System.Drawing.Color.Transparent;
 			this.TitleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.TitleLabel.ForeColor = System.Drawing.Color.White;
-			this.TitleLabel.Location = new System.Drawing.Point(98, 12);
+			this.TitleLabel.Location = new System.Drawing.Point(98, 28);
 			this.TitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.TitleLabel.Name = "TitleLabel";
 			this.TitleLabel.Size = new System.Drawing.Size(121, 51);
 			this.TitleLabel.TabIndex = 3;
 			this.TitleLabel.Text = "Entity";
-			// 
-			// SideBarPanel
-			// 
-			this.SideBarPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.SideBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.SideBarPanel.Controls.Add(this.SearchTile);
-			this.SideBarPanel.Controls.Add(this.LogoffTile);
-			this.SideBarPanel.Controls.Add(this.PrefrencesTile);
-			this.SideBarPanel.Location = new System.Drawing.Point(1197, 148);
-			this.SideBarPanel.Margin = new System.Windows.Forms.Padding(2);
-			this.SideBarPanel.Name = "SideBarPanel";
-			this.SideBarPanel.Size = new System.Drawing.Size(112, 525);
-			this.SideBarPanel.TabIndex = 24;
-			this.SideBarPanel.Visible = false;
-			// 
-			// SearchTile
-			// 
-			this.SearchTile.ActiveControl = null;
-			this.SearchTile.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.SearchTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(219)))));
-			this.SearchTile.Location = new System.Drawing.Point(2, 20);
-			this.SearchTile.Margin = new System.Windows.Forms.Padding(2);
-			this.SearchTile.Name = "SearchTile";
-			this.SearchTile.Size = new System.Drawing.Size(108, 85);
-			this.SearchTile.TabIndex = 1;
-			this.SearchTile.Text = "Search";
-			this.SearchTile.TileImage = global::Tourist.Server.Properties.Resources.Magnifier;
-			this.SearchTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.SearchTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-			this.SearchTile.UseCustomBackColor = true;
-			this.SearchTile.UseSelectable = true;
-			this.SearchTile.UseTileImage = true;
-			// 
-			// LogoffTile
-			// 
-			this.LogoffTile.ActiveControl = null;
-			this.LogoffTile.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.LogoffTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(219)))));
-			this.LogoffTile.Location = new System.Drawing.Point(0, 421);
-			this.LogoffTile.Margin = new System.Windows.Forms.Padding(2);
-			this.LogoffTile.Name = "LogoffTile";
-			this.LogoffTile.Size = new System.Drawing.Size(112, 85);
-			this.LogoffTile.TabIndex = 0;
-			this.LogoffTile.Text = "LogOff";
-			this.LogoffTile.TileImage = global::Tourist.Server.Properties.Resources.PowerOff;
-			this.LogoffTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.LogoffTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-			this.LogoffTile.UseCustomBackColor = true;
-			this.LogoffTile.UseSelectable = true;
-			this.LogoffTile.UseTileImage = true;
-			// 
-			// PrefrencesTile
-			// 
-			this.PrefrencesTile.ActiveControl = null;
-			this.PrefrencesTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.PrefrencesTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(219)))));
-			this.PrefrencesTile.Location = new System.Drawing.Point(0, 218);
-			this.PrefrencesTile.Margin = new System.Windows.Forms.Padding(2);
-			this.PrefrencesTile.Name = "PrefrencesTile";
-			this.PrefrencesTile.Size = new System.Drawing.Size(112, 85);
-			this.PrefrencesTile.TabIndex = 0;
-			this.PrefrencesTile.Text = "Preferences";
-			this.PrefrencesTile.TileImage = global::Tourist.Server.Properties.Resources.preferences;
-			this.PrefrencesTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.PrefrencesTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-			this.PrefrencesTile.UseCustomBackColor = true;
-			this.PrefrencesTile.UseSelectable = true;
-			this.PrefrencesTile.UseTileImage = true;
 			// 
 			// EntityForm
 			// 
@@ -394,7 +331,6 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSize = true;
 			this.ClientSize = new System.Drawing.Size(1200, 800);
-			this.Controls.Add(this.SideBarPanel);
 			this.Controls.Add(this.BodyPanel);
 			this.Controls.Add(this.FooterPanel);
 			this.Controls.Add(this.HeaderPanel);
@@ -407,13 +343,11 @@
 			this.Style = MetroFramework.MetroColorStyle.White;
 			this.Load += new System.EventHandler(this.EntitiesForm_Load);
 			this.BodyPanel.ResumeLayout(false);
-			this.GroupSearch.ResumeLayout(false);
-			this.GroupSearch.PerformLayout();
-			this.WrapperPanelGrid.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.EntityDataGrid)).EndInit();
+			this.BasicInformation.ResumeLayout(false);
+			this.BasicInformation.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.LogoBox)).EndInit();
 			this.HeaderPanel.ResumeLayout(false);
 			this.HeaderPanel.PerformLayout();
-			this.SideBarPanel.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -421,27 +355,26 @@
 		#endregion
 
 		private System.Windows.Forms.Panel BodyPanel;
-		private System.Windows.Forms.Panel WrapperPanelGrid;
 		private System.Windows.Forms.Panel FooterPanel;
 		private System.Windows.Forms.Panel BackPanel;
 		private System.Windows.Forms.Panel HeaderPanel;
 		private System.Windows.Forms.Panel ImagePanel;
-		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Label SubTitleLabel;
 		private System.Windows.Forms.Label TitleLabel;
-		private System.Windows.Forms.Panel SideBarPanel;
-		private MetroFramework.Controls.MetroTile SearchTile;
-		private MetroFramework.Controls.MetroTile LogoffTile;
-		private MetroFramework.Controls.MetroTile PrefrencesTile;
-		private MetroFramework.Controls.MetroGrid EntityDataGrid;
-		private System.Windows.Forms.DataGridViewTextBoxColumn EntityIdColunm;
-		private System.Windows.Forms.DataGridViewComboBoxColumn EntityTypeColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn EntityNameColunm;
-		private System.Windows.Forms.DataGridViewTextBoxColumn EntityAddressColunm;
-		private System.Windows.Forms.DataGridViewTextBoxColumn EntityNifColunm;
-		private System.Windows.Forms.GroupBox GroupSearch;
-		private System.Windows.Forms.Button OkButton;
+		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label BookingTypeLabel;
+		private System.Windows.Forms.PictureBox LogoBox;
+		private System.Windows.Forms.TextBox textBox5;
+		private System.Windows.Forms.TextBox textBox4;
+		private System.Windows.Forms.GroupBox BasicInformation;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.TextBox textBox3;
 		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox textBox2;
 		private MetroFramework.Controls.MetroComboBox metroComboBox1;
 
 

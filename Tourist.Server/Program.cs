@@ -45,10 +45,6 @@ namespace Tourist.Server
 			}
 			*/
 			
-			RepositorySaveTest();
-			//RepositoryLoadTest( );
-			
-		
 			Application.EnableVisualStyles( );
 			Application.SetCompatibleTextRenderingDefault( false );
 			Application.Run( new LoginForm( ) );
@@ -129,8 +125,7 @@ namespace Tourist.Server
 	
 		private static void RepositoryLoadTest( )
 		{
-			//repository.Load( FileName );
-			//repository.Load( );
+			repository.Load( FileName );
 		}
 
 	}

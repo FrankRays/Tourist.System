@@ -38,8 +38,8 @@
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.HeaderPanel = new System.Windows.Forms.Panel();
+			this.BackPanel = new System.Windows.Forms.Panel();
 			this.ImagePanel = new System.Windows.Forms.Panel();
-			this.panel2 = new System.Windows.Forms.Panel();
 			this.SubTitleLabel = new System.Windows.Forms.Label();
 			this.TitleLabel = new System.Windows.Forms.Label();
 			this.BodyPanel = new System.Windows.Forms.Panel();
@@ -95,7 +95,6 @@
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
 			this.FooterPanel = new System.Windows.Forms.Panel();
-			this.BackPanel = new System.Windows.Forms.Panel();
 			this.HeaderPanel.SuspendLayout();
 			this.BodyPanel.SuspendLayout();
 			this.SideBarPanel.SuspendLayout();
@@ -116,14 +115,24 @@
 			this.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
 			this.HeaderPanel.Controls.Add(this.BackPanel);
 			this.HeaderPanel.Controls.Add(this.ImagePanel);
-			this.HeaderPanel.Controls.Add(this.panel2);
 			this.HeaderPanel.Controls.Add(this.SubTitleLabel);
 			this.HeaderPanel.Controls.Add(this.TitleLabel);
 			this.HeaderPanel.Location = new System.Drawing.Point(-1, 23);
 			this.HeaderPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.HeaderPanel.Name = "HeaderPanel";
-			this.HeaderPanel.Size = new System.Drawing.Size(1202, 122);
+			this.HeaderPanel.Size = new System.Drawing.Size(1202, 150);
 			this.HeaderPanel.TabIndex = 14;
+			// 
+			// BackPanel
+			// 
+			this.BackPanel.AutoSize = true;
+			this.BackPanel.BackgroundImage = global::Tourist.Client.Properties.Resources.LeftArrow;
+			this.BackPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.BackPanel.Location = new System.Drawing.Point(18, 35);
+			this.BackPanel.Margin = new System.Windows.Forms.Padding(2);
+			this.BackPanel.Name = "BackPanel";
+			this.BackPanel.Size = new System.Drawing.Size(64, 89);
+			this.BackPanel.TabIndex = 12;
 			// 
 			// ImagePanel
 			// 
@@ -131,26 +140,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.ImagePanel.BackgroundImage = global::Tourist.Client.Properties.Resources.Payment;
 			this.ImagePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.ImagePanel.Location = new System.Drawing.Point(1086, 11);
+			this.ImagePanel.Location = new System.Drawing.Point(1086, 32);
 			this.ImagePanel.Margin = new System.Windows.Forms.Padding(2);
 			this.ImagePanel.Name = "ImagePanel";
-			this.ImagePanel.Size = new System.Drawing.Size(98, 97);
+			this.ImagePanel.Size = new System.Drawing.Size(98, 94);
 			this.ImagePanel.TabIndex = 13;
-			// 
-			// panel2
-			// 
-			this.panel2.Location = new System.Drawing.Point(422, 124);
-			this.panel2.Margin = new System.Windows.Forms.Padding(2);
-			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(150, 26);
-			this.panel2.TabIndex = 11;
 			// 
 			// SubTitleLabel
 			// 
 			this.SubTitleLabel.AutoSize = true;
 			this.SubTitleLabel.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.SubTitleLabel.ForeColor = System.Drawing.Color.White;
-			this.SubTitleLabel.Location = new System.Drawing.Point(105, 68);
+			this.SubTitleLabel.Location = new System.Drawing.Point(105, 87);
 			this.SubTitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.SubTitleLabel.Name = "SubTitleLabel";
 			this.SubTitleLabel.Size = new System.Drawing.Size(182, 30);
@@ -163,7 +164,7 @@
 			this.TitleLabel.BackColor = System.Drawing.Color.Transparent;
 			this.TitleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.TitleLabel.ForeColor = System.Drawing.Color.White;
-			this.TitleLabel.Location = new System.Drawing.Point(98, 12);
+			this.TitleLabel.Location = new System.Drawing.Point(98, 31);
 			this.TitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.TitleLabel.Name = "TitleLabel";
 			this.TitleLabel.Size = new System.Drawing.Size(188, 51);
@@ -179,10 +180,10 @@
 			this.BodyPanel.Controls.Add(this.SideBarPanel);
 			this.BodyPanel.Controls.Add(this.ClientsTabsControl);
 			this.BodyPanel.Controls.Add(this.GroupSearch);
-			this.BodyPanel.Location = new System.Drawing.Point(-1, 150);
+			this.BodyPanel.Location = new System.Drawing.Point(-1, 177);
 			this.BodyPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.BodyPanel.Name = "BodyPanel";
-			this.BodyPanel.Size = new System.Drawing.Size(1202, 524);
+			this.BodyPanel.Size = new System.Drawing.Size(1202, 467);
 			this.BodyPanel.TabIndex = 16;
 			// 
 			// SideBarPanel
@@ -196,7 +197,7 @@
 			this.SideBarPanel.Location = new System.Drawing.Point(1198, 1);
 			this.SideBarPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.SideBarPanel.Name = "SideBarPanel";
-			this.SideBarPanel.Size = new System.Drawing.Size(112, 525);
+			this.SideBarPanel.Size = new System.Drawing.Size(112, 468);
 			this.SideBarPanel.TabIndex = 23;
 			this.SideBarPanel.Visible = false;
 			// 
@@ -223,7 +224,7 @@
 			this.LogoffTile.ActiveControl = null;
 			this.LogoffTile.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.LogoffTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(219)))));
-			this.LogoffTile.Location = new System.Drawing.Point(0, 421);
+			this.LogoffTile.Location = new System.Drawing.Point(0, 364);
 			this.LogoffTile.Margin = new System.Windows.Forms.Padding(2);
 			this.LogoffTile.Name = "LogoffTile";
 			this.LogoffTile.Size = new System.Drawing.Size(112, 85);
@@ -241,7 +242,7 @@
 			this.PrefrencesTile.ActiveControl = null;
 			this.PrefrencesTile.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.PrefrencesTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(219)))));
-			this.PrefrencesTile.Location = new System.Drawing.Point(0, 218);
+			this.PrefrencesTile.Location = new System.Drawing.Point(0, 190);
 			this.PrefrencesTile.Margin = new System.Windows.Forms.Padding(2);
 			this.PrefrencesTile.Name = "PrefrencesTile";
 			this.PrefrencesTile.Size = new System.Drawing.Size(112, 85);
@@ -269,7 +270,7 @@
 			this.ClientsTabsControl.Margin = new System.Windows.Forms.Padding(0);
 			this.ClientsTabsControl.Name = "ClientsTabsControl";
 			this.ClientsTabsControl.SelectedIndex = 2;
-			this.ClientsTabsControl.Size = new System.Drawing.Size(952, 500);
+			this.ClientsTabsControl.Size = new System.Drawing.Size(952, 443);
 			this.ClientsTabsControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
 			this.ClientsTabsControl.TabIndex = 21;
 			this.ClientsTabsControl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -615,7 +616,7 @@
 			this.TransportsTab.Location = new System.Drawing.Point(4, 54);
 			this.TransportsTab.Margin = new System.Windows.Forms.Padding(2);
 			this.TransportsTab.Name = "TransportsTab";
-			this.TransportsTab.Size = new System.Drawing.Size(944, 442);
+			this.TransportsTab.Size = new System.Drawing.Size(944, 385);
 			this.TransportsTab.TabIndex = 2;
 			this.TransportsTab.Text = "TRANSPORTS";
 			this.TransportsTab.VerticalScrollbarBarColor = true;
@@ -684,7 +685,7 @@
 			this.metroGrid2.RowTemplate.Height = 24;
 			this.metroGrid2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.metroGrid2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.metroGrid2.Size = new System.Drawing.Size(949, 406);
+			this.metroGrid2.Size = new System.Drawing.Size(949, 349);
 			this.metroGrid2.TabIndex = 23;
 			// 
 			// TransportClientIDHeader
@@ -825,22 +826,11 @@
 			this.FooterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.FooterPanel.Location = new System.Drawing.Point(-1, 679);
+			this.FooterPanel.Location = new System.Drawing.Point(-1, 648);
 			this.FooterPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.FooterPanel.Name = "FooterPanel";
-			this.FooterPanel.Size = new System.Drawing.Size(1202, 122);
+			this.FooterPanel.Size = new System.Drawing.Size(1202, 150);
 			this.FooterPanel.TabIndex = 15;
-			// 
-			// BackPanel
-			// 
-			this.BackPanel.AutoSize = true;
-			this.BackPanel.BackgroundImage = global::Tourist.Client.Properties.Resources.LeftArrow;
-			this.BackPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.BackPanel.Location = new System.Drawing.Point(18, 16);
-			this.BackPanel.Margin = new System.Windows.Forms.Padding(2);
-			this.BackPanel.Name = "BackPanel";
-			this.BackPanel.Size = new System.Drawing.Size(64, 89);
-			this.BackPanel.TabIndex = 12;
 			// 
 			// PaymentsForm
 			// 
@@ -878,7 +868,6 @@
 		#endregion
 
 		private System.Windows.Forms.Panel HeaderPanel;
-		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Label SubTitleLabel;
 		private System.Windows.Forms.Label TitleLabel;
 		private System.Windows.Forms.Panel BodyPanel;

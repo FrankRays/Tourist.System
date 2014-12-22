@@ -7,7 +7,7 @@ using MetroFramework.Forms;
 
 namespace Tourist.Server.Forms
 {
-	public partial class EntityForm : MetroForm
+	public partial class OldEntityForm : MetroForm
 	{
 
 		//private readonly Repository repository = Repository.Instance;
@@ -15,7 +15,7 @@ namespace Tourist.Server.Forms
 		private bool mBackOrExit = default( bool );
 
 
-		public EntityForm( Form aForm )
+		public OldEntityForm( Form aForm )
 		{
 			InitializeComponent( );
 			mMainForm = aForm as MainForm;
@@ -58,7 +58,7 @@ namespace Tourist.Server.Forms
 		{
 			mBackOrExit = true;
 			Close( );
-			
+
 			mMainForm.Show( ); 
 		}
 

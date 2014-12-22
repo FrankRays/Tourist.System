@@ -29,9 +29,9 @@
 		private void InitializeComponent( )
 		{
 			this.FooterPanel = new System.Windows.Forms.Panel();
-			this.panel4 = new System.Windows.Forms.Panel();
 			this.BodyPanel = new System.Windows.Forms.Panel();
 			this.LoginFrame = new System.Windows.Forms.Panel();
+			this.ImagePanel = new System.Windows.Forms.Panel();
 			this.label1 = new System.Windows.Forms.Label();
 			this.ExitButton = new System.Windows.Forms.Button();
 			this.OkButton = new System.Windows.Forms.Button();
@@ -40,14 +40,13 @@
 			this.PasswordLabel = new System.Windows.Forms.Label();
 			this.UsernameLabel = new System.Windows.Forms.Label();
 			this.HeaderPanel = new System.Windows.Forms.Panel();
-			this.ImagePanel = new System.Windows.Forms.Panel();
-			this.panel1 = new System.Windows.Forms.Panel();
+			this.LogoBox = new System.Windows.Forms.PictureBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.LoginLabel = new System.Windows.Forms.Label();
-			this.FooterPanel.SuspendLayout();
 			this.BodyPanel.SuspendLayout();
 			this.LoginFrame.SuspendLayout();
 			this.HeaderPanel.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.LogoBox)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// FooterPanel
@@ -55,20 +54,11 @@
 			this.FooterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.FooterPanel.Controls.Add(this.panel4);
-			this.FooterPanel.Location = new System.Drawing.Point(0, 678);
+			this.FooterPanel.Location = new System.Drawing.Point(0, 650);
 			this.FooterPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.FooterPanel.Name = "FooterPanel";
-			this.FooterPanel.Size = new System.Drawing.Size(1200, 122);
+			this.FooterPanel.Size = new System.Drawing.Size(1200, 150);
 			this.FooterPanel.TabIndex = 14;
-			// 
-			// panel4
-			// 
-			this.panel4.Location = new System.Drawing.Point(422, 124);
-			this.panel4.Margin = new System.Windows.Forms.Padding(2);
-			this.panel4.Name = "panel4";
-			this.panel4.Size = new System.Drawing.Size(150, 26);
-			this.panel4.TabIndex = 11;
 			// 
 			// BodyPanel
 			// 
@@ -77,10 +67,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.BodyPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
 			this.BodyPanel.Controls.Add(this.LoginFrame);
-			this.BodyPanel.Location = new System.Drawing.Point(0, 151);
+			this.BodyPanel.Location = new System.Drawing.Point(0, 178);
 			this.BodyPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.BodyPanel.Name = "BodyPanel";
-			this.BodyPanel.Size = new System.Drawing.Size(1200, 521);
+			this.BodyPanel.Size = new System.Drawing.Size(1200, 468);
 			this.BodyPanel.TabIndex = 12;
 			// 
 			// LoginFrame
@@ -89,6 +79,7 @@
 			this.LoginFrame.AutoSize = true;
 			this.LoginFrame.BackgroundImage = global::Tourist.Server.Properties.Resources.LoginFrame;
 			this.LoginFrame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.LoginFrame.Controls.Add(this.ImagePanel);
 			this.LoginFrame.Controls.Add(this.label1);
 			this.LoginFrame.Controls.Add(this.ExitButton);
 			this.LoginFrame.Controls.Add(this.OkButton);
@@ -96,11 +87,24 @@
 			this.LoginFrame.Controls.Add(this.textBox1);
 			this.LoginFrame.Controls.Add(this.PasswordLabel);
 			this.LoginFrame.Controls.Add(this.UsernameLabel);
-			this.LoginFrame.Location = new System.Drawing.Point(257, 62);
+			this.LoginFrame.Location = new System.Drawing.Point(254, 36);
 			this.LoginFrame.Margin = new System.Windows.Forms.Padding(2);
 			this.LoginFrame.Name = "LoginFrame";
 			this.LoginFrame.Size = new System.Drawing.Size(702, 402);
 			this.LoginFrame.TabIndex = 11;
+			// 
+			// ImagePanel
+			// 
+			this.ImagePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.ImagePanel.AutoSize = true;
+			this.ImagePanel.BackgroundImage = global::Tourist.Server.Properties.Resources._lock;
+			this.ImagePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.ImagePanel.Location = new System.Drawing.Point(578, 122);
+			this.ImagePanel.Margin = new System.Windows.Forms.Padding(2);
+			this.ImagePanel.Name = "ImagePanel";
+			this.ImagePanel.Size = new System.Drawing.Size(96, 95);
+			this.ImagePanel.TabIndex = 12;
 			// 
 			// label1
 			// 
@@ -119,7 +123,7 @@
 			this.ExitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
 			this.ExitButton.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ExitButton.ForeColor = System.Drawing.Color.White;
-			this.ExitButton.Location = new System.Drawing.Point(369, 331);
+			this.ExitButton.Location = new System.Drawing.Point(350, 312);
 			this.ExitButton.Margin = new System.Windows.Forms.Padding(2);
 			this.ExitButton.Name = "ExitButton";
 			this.ExitButton.Size = new System.Drawing.Size(198, 40);
@@ -133,7 +137,7 @@
 			this.OkButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
 			this.OkButton.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.OkButton.ForeColor = System.Drawing.Color.White;
-			this.OkButton.Location = new System.Drawing.Point(149, 331);
+			this.OkButton.Location = new System.Drawing.Point(130, 312);
 			this.OkButton.Margin = new System.Windows.Forms.Padding(2);
 			this.OkButton.Name = "OkButton";
 			this.OkButton.Size = new System.Drawing.Size(199, 40);
@@ -145,7 +149,7 @@
 			// textBox2
 			// 
 			this.textBox2.Font = new System.Drawing.Font("Segoe UI Semilight", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBox2.Location = new System.Drawing.Point(149, 224);
+			this.textBox2.Location = new System.Drawing.Point(130, 216);
 			this.textBox2.Margin = new System.Windows.Forms.Padding(2);
 			this.textBox2.Name = "textBox2";
 			this.textBox2.PasswordChar = '*';
@@ -155,7 +159,7 @@
 			// textBox1
 			// 
 			this.textBox1.Font = new System.Drawing.Font("Segoe UI Semilight", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBox1.Location = new System.Drawing.Point(149, 123);
+			this.textBox1.Location = new System.Drawing.Point(130, 86);
 			this.textBox1.Margin = new System.Windows.Forms.Padding(2);
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(418, 39);
@@ -167,7 +171,7 @@
 			this.PasswordLabel.BackColor = System.Drawing.Color.Transparent;
 			this.PasswordLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.PasswordLabel.ForeColor = System.Drawing.Color.White;
-			this.PasswordLabel.Location = new System.Drawing.Point(143, 178);
+			this.PasswordLabel.Location = new System.Drawing.Point(124, 168);
 			this.PasswordLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.PasswordLabel.Name = "PasswordLabel";
 			this.PasswordLabel.Size = new System.Drawing.Size(116, 32);
@@ -180,7 +184,7 @@
 			this.UsernameLabel.BackColor = System.Drawing.Color.Transparent;
 			this.UsernameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.UsernameLabel.ForeColor = System.Drawing.Color.White;
-			this.UsernameLabel.Location = new System.Drawing.Point(143, 77);
+			this.UsernameLabel.Location = new System.Drawing.Point(124, 35);
 			this.UsernameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.UsernameLabel.Name = "UsernameLabel";
 			this.UsernameLabel.Size = new System.Drawing.Size(125, 32);
@@ -192,43 +196,30 @@
 			this.HeaderPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.HeaderPanel.Controls.Add(this.ImagePanel);
-			this.HeaderPanel.Controls.Add(this.panel1);
+			this.HeaderPanel.Controls.Add(this.LogoBox);
 			this.HeaderPanel.Controls.Add(this.label2);
 			this.HeaderPanel.Controls.Add(this.LoginLabel);
 			this.HeaderPanel.Location = new System.Drawing.Point(0, 24);
 			this.HeaderPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.HeaderPanel.Name = "HeaderPanel";
-			this.HeaderPanel.Size = new System.Drawing.Size(1200, 122);
+			this.HeaderPanel.Size = new System.Drawing.Size(1200, 150);
 			this.HeaderPanel.TabIndex = 13;
 			// 
-			// ImagePanel
+			// LogoBox
 			// 
-			this.ImagePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.ImagePanel.AutoSize = true;
-			this.ImagePanel.BackgroundImage = global::Tourist.Server.Properties.Resources._lock;
-			this.ImagePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.ImagePanel.Location = new System.Drawing.Point(1087, 11);
-			this.ImagePanel.Margin = new System.Windows.Forms.Padding(2);
-			this.ImagePanel.Name = "ImagePanel";
-			this.ImagePanel.Size = new System.Drawing.Size(96, 95);
-			this.ImagePanel.TabIndex = 12;
-			// 
-			// panel1
-			// 
-			this.panel1.Location = new System.Drawing.Point(422, 124);
-			this.panel1.Margin = new System.Windows.Forms.Padding(2);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(150, 26);
-			this.panel1.TabIndex = 11;
+			this.LogoBox.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.LogoBox.Location = new System.Drawing.Point(1033, 0);
+			this.LogoBox.Name = "LogoBox";
+			this.LogoBox.Size = new System.Drawing.Size(150, 150);
+			this.LogoBox.TabIndex = 26;
+			this.LogoBox.TabStop = false;
 			// 
 			// label2
 			// 
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label2.ForeColor = System.Drawing.Color.White;
-			this.label2.Location = new System.Drawing.Point(24, 70);
+			this.label2.Location = new System.Drawing.Point(24, 86);
 			this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(644, 30);
@@ -241,7 +232,7 @@
 			this.LoginLabel.BackColor = System.Drawing.Color.Transparent;
 			this.LoginLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.LoginLabel.ForeColor = System.Drawing.Color.White;
-			this.LoginLabel.Location = new System.Drawing.Point(17, 5);
+			this.LoginLabel.Location = new System.Drawing.Point(17, 21);
 			this.LoginLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.LoginLabel.Name = "LoginLabel";
 			this.LoginLabel.Size = new System.Drawing.Size(322, 51);
@@ -266,13 +257,13 @@
 			this.Style = MetroFramework.MetroColorStyle.White;
 			this.Load += new System.EventHandler(this.LoginForm_Load);
 			this.VisibleChanged += new System.EventHandler(this.LoginForm_VisibilityChange);
-			this.FooterPanel.ResumeLayout(false);
 			this.BodyPanel.ResumeLayout(false);
 			this.BodyPanel.PerformLayout();
 			this.LoginFrame.ResumeLayout(false);
 			this.LoginFrame.PerformLayout();
 			this.HeaderPanel.ResumeLayout(false);
 			this.HeaderPanel.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.LogoBox)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -280,7 +271,6 @@
 		#endregion
 
 		private System.Windows.Forms.Panel FooterPanel;
-		private System.Windows.Forms.Panel panel4;
 		private System.Windows.Forms.Panel BodyPanel;
 		private System.Windows.Forms.Panel LoginFrame;
 		private System.Windows.Forms.Button ExitButton;
@@ -291,10 +281,10 @@
 		private System.Windows.Forms.Label UsernameLabel;
 		private System.Windows.Forms.Panel HeaderPanel;
 		private System.Windows.Forms.Panel ImagePanel;
-		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label LoginLabel;
 		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.PictureBox LogoBox;
 
 	}
 }

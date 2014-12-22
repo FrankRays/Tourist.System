@@ -65,5 +65,25 @@ namespace Tourist.Client.Forms
 			mMainForm.Show( );
 		}
 
+		private void HeaderPanel_Paint( object sender, PaintEventArgs e )
+		{
+
+		}
+
+		private void BackPanel_Paint( object sender, PaintEventArgs e )
+		{
+
+		}
+
+		private void TitleLabel_Click( object sender, EventArgs e )
+		{
+
+		}
+
+		private void SubTitleLabel_Click( object sender, EventArgs e )
+		{
+
+		}
+
 	}
 }

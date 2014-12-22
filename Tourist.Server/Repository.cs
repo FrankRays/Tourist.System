@@ -24,10 +24,10 @@ namespace Tourist.Server
 		}
 
 		#endregion
-		
-		#region Fields
 
-		private readonly Factory mFactory = new Factory();
+		#region Factory
+
+		private readonly Factory mFactory = new Factory( );
 
 		public readonly string FileName = @"..\..\Repository.xml";
 
@@ -36,12 +36,34 @@ namespace Tourist.Server
 			get { return mFactory; }
 		}
 
-		public Type[] GetTypes()
+		public Type[ ] GetTypes( )
 		{
-			if (Factory == null) return null;
-			return Factory.GetTypes();
+			if ( Factory == null ) return null;
+			return Factory.GetTypes( );
 		}
 
-		#endregion	
+		#endregion
+
+		#region Methods
+
+		public bool RepositoryHasEntity( )
+		{
+			if ( string.IsNullOrEmpty( mData.Entity.Name )						||
+				 string.IsNullOrEmpty( mData.Entity.EntityType.ToString( ) )	||
+				 string.IsNullOrEmpty( mData.Entity.Address )					||
+				 string.IsNullOrEmpty( mData.Entity.Nif.ToString( ) )			||
+				 string.IsNullOrEmpty( mData.Entity.PhoneNumber.ToString( ) )	||
+				 string.IsNullOrEmpty( mData.Entity.Email ) )
+			{
+				return true;
+			}
+
+			return false;
+		}
+
+
+
+
+		#endregion
 	}
 }

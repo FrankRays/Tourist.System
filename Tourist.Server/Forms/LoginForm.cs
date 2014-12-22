@@ -9,15 +9,16 @@ namespace Tourist.Server.Forms
 	public partial class LoginForm : MetroForm
 	{
 
-		//private readonly Repository repository = Repository.Instance;
+		private readonly Repository Repository = Repository.Instance;
 		private MainForm mMainForm;
 		private bool mLoginFormOrEntityForm = default( bool );
 		private int mEntityId = default( int );
 
+
 		public LoginForm( )
 		{
 			InitializeComponent( );
-			mMainForm = new MainForm(this);
+			mMainForm = new MainForm( this );
 		}
 
 		private void LoginForm_Load( object sender, EventArgs e )
@@ -40,8 +41,17 @@ namespace Tourist.Server.Forms
 
 		private void OkButton_Click( object sender, EventArgs e )
 		{
-			Hide();
-			mMainForm.Show();
+			Hide( );
+
+			if (!Repository.RepositoryHasEntity())
+			{
+				var entityForm = new EntityForm(mMainForm);
+				entityForm.Show();
+			}
+			else
+			{
+				mMainForm.Show( );
+			}		
 		}
 
 		protected override void OnFormClosing( FormClosingEventArgs e )
@@ -64,7 +74,7 @@ namespace Tourist.Server.Forms
 
 		private void LoginForm_VisibilityChange( object sender, EventArgs e )
 		{
-			
+
 		}
 	}
 }
