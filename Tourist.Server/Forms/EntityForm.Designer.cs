@@ -196,8 +196,6 @@
 			this.EntityDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.EntityDataGrid.Size = new System.Drawing.Size(949, 480);
 			this.EntityDataGrid.TabIndex = 17;
-			this.EntityDataGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.EntityDataGrid_RowValidating);
-			this.EntityDataGrid.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.EntityDataGrid_RowsRemoved);
 			// 
 			// EntityIdColunm
 			// 

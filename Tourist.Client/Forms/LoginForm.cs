@@ -5,8 +5,7 @@ using MetroFramework;
 using MetroFramework.Forms;
 using Tourist.Data.Interfaces;
 
-
-namespace Tourist.Server.Forms
+namespace Tourist.Client.Forms
 {
 	public partial class LoginForm : MetroForm
 	{
@@ -20,12 +19,12 @@ namespace Tourist.Server.Forms
 		{
 			InitializeComponent( );
 			mRemote = aRemote;
+			mMainForm = new MainForm( this, mRemote );
 		}
 
 		private void LoginForm_Load( object sender, EventArgs e )
 		{
 			SetFormFullScreen( );
-			mLoginFormOrEntityForm = CanLoadEntityNamesComboBox( );
 
 		}
 
@@ -40,30 +39,6 @@ namespace Tourist.Server.Forms
 			FormBorderStyle = FormBorderStyle.None;
 			Focus( );
 
-		}
-
-		private bool CanLoadEntityNamesComboBox( )
-		{
-
-			if ( mRemote.IsRepositoryEmpty() )
-				return false;
-
-			var bindingSource = new BindingSource { DataSource = mRemote.GetEntityNameList() };
-
-			EntityNameCombox.DataSource = bindingSource;
-
-			return true;
-		}
-
-		private void ShowMainForm( )
-		{
-
-			var selectedItem = EntityNameCombox.SelectedItem;
-			mEntityId = mRemote.GetEntityId( selectedItem.ToString( ) );
-			mMainForm = new MainForm( this, mRemote, mEntityId );
-			Hide( );
-			mMainForm.Show( );
-			
 		}
 
 		protected override void OnFormClosing( FormClosingEventArgs e )
@@ -81,9 +56,9 @@ namespace Tourist.Server.Forms
 
 		private void OkButton_Click( object sender, EventArgs e )
 		{
-			ShowMainForm( );
+
 		}
-		
+
 		private void ExitButton_Click( object sender, EventArgs e )
 		{
 			Close( );

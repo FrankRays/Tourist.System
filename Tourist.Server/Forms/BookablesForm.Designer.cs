@@ -257,8 +257,6 @@
 			this.RoomDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.RoomDataGrid.Size = new System.Drawing.Size(955, 429);
 			this.RoomDataGrid.TabIndex = 18;
-			this.RoomDataGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.BookablesForm_RowsValidating);
-			this.RoomDataGrid.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.BookablesForm_RowsRemoved);
 			// 
 			// ActivitiesTab
 			// 

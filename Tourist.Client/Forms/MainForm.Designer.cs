@@ -1,4 +1,4 @@
-﻿namespace Tourist.Server.Forms
+﻿namespace Tourist.Client.Forms
 {
 	partial class MainForm
 	{
@@ -228,7 +228,7 @@
 			this.DisponibilityTile.Size = new System.Drawing.Size(263, 122);
 			this.DisponibilityTile.TabIndex = 9;
 			this.DisponibilityTile.Text = "Disponibility";
-			this.DisponibilityTile.TileImage = global::Tourist.Server.Properties.Resources.Disponibility;
+			this.DisponibilityTile.TileImage = global::Tourist.Client.Properties.Resources.Disponibility;
 			this.DisponibilityTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.DisponibilityTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
 			this.DisponibilityTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
@@ -245,7 +245,7 @@
 			this.HelpTile.Size = new System.Drawing.Size(128, 122);
 			this.HelpTile.TabIndex = 8;
 			this.HelpTile.Text = "Help";
-			this.HelpTile.TileImage = global::Tourist.Server.Properties.Resources.Help;
+			this.HelpTile.TileImage = global::Tourist.Client.Properties.Resources.Help;
 			this.HelpTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.HelpTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
 			this.HelpTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
@@ -262,7 +262,7 @@
 			this.ReportsTile.Size = new System.Drawing.Size(268, 122);
 			this.ReportsTile.TabIndex = 7;
 			this.ReportsTile.Text = "New Feature";
-			this.ReportsTile.TileImage = global::Tourist.Server.Properties.Resources.ComingSoon;
+			this.ReportsTile.TileImage = global::Tourist.Client.Properties.Resources.ComingSoon;
 			this.ReportsTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.ReportsTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
 			this.ReportsTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
@@ -278,7 +278,7 @@
 			this.PaymentsTile.Size = new System.Drawing.Size(267, 122);
 			this.PaymentsTile.TabIndex = 6;
 			this.PaymentsTile.Text = "Payments";
-			this.PaymentsTile.TileImage = global::Tourist.Server.Properties.Resources.Payment;
+			this.PaymentsTile.TileImage = global::Tourist.Client.Properties.Resources.Payment;
 			this.PaymentsTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.PaymentsTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
 			this.PaymentsTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
@@ -295,7 +295,7 @@
 			this.ToolsTile.Size = new System.Drawing.Size(128, 122);
 			this.ToolsTile.TabIndex = 5;
 			this.ToolsTile.Text = "Tools";
-			this.ToolsTile.TileImage = global::Tourist.Server.Properties.Resources.Tools;
+			this.ToolsTile.TileImage = global::Tourist.Client.Properties.Resources.Tools;
 			this.ToolsTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.ToolsTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
 			this.ToolsTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
@@ -312,7 +312,7 @@
 			this.ClientsTile.Size = new System.Drawing.Size(263, 122);
 			this.ClientsTile.TabIndex = 4;
 			this.ClientsTile.Text = "Clients";
-			this.ClientsTile.TileImage = global::Tourist.Server.Properties.Resources.clients;
+			this.ClientsTile.TileImage = global::Tourist.Client.Properties.Resources.clients;
 			this.ClientsTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.ClientsTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
 			this.ClientsTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
@@ -329,7 +329,7 @@
 			this.BookingsTile.Size = new System.Drawing.Size(263, 122);
 			this.BookingsTile.TabIndex = 3;
 			this.BookingsTile.Text = "Booking";
-			this.BookingsTile.TileImage = global::Tourist.Server.Properties.Resources.Bookings;
+			this.BookingsTile.TileImage = global::Tourist.Client.Properties.Resources.Bookings;
 			this.BookingsTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.BookingsTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
 			this.BookingsTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
@@ -385,7 +385,7 @@
 			this.ImagePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.ImagePanel.AutoSize = true;
-			this.ImagePanel.BackgroundImage = global::Tourist.Server.Properties.Resources.Home;
+			this.ImagePanel.BackgroundImage = global::Tourist.Client.Properties.Resources.Home;
 			this.ImagePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.ImagePanel.Location = new System.Drawing.Point(1085, 20);
 			this.ImagePanel.Margin = new System.Windows.Forms.Padding(2);
@@ -445,7 +445,7 @@
 			this.SearchTile.Size = new System.Drawing.Size(108, 85);
 			this.SearchTile.TabIndex = 1;
 			this.SearchTile.Text = "Search";
-			this.SearchTile.TileImage = global::Tourist.Server.Properties.Resources.Magnifier;
+			this.SearchTile.TileImage = global::Tourist.Client.Properties.Resources.Magnifier;
 			this.SearchTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.SearchTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
 			this.SearchTile.UseCustomBackColor = true;
@@ -463,7 +463,7 @@
 			this.LogoffTile.Size = new System.Drawing.Size(112, 85);
 			this.LogoffTile.TabIndex = 0;
 			this.LogoffTile.Text = "LogOff";
-			this.LogoffTile.TileImage = global::Tourist.Server.Properties.Resources.PowerOff;
+			this.LogoffTile.TileImage = global::Tourist.Client.Properties.Resources.PowerOff;
 			this.LogoffTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.LogoffTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
 			this.LogoffTile.UseCustomBackColor = true;
@@ -481,7 +481,7 @@
 			this.PrefrencesTile.Size = new System.Drawing.Size(112, 85);
 			this.PrefrencesTile.TabIndex = 0;
 			this.PrefrencesTile.Text = "Preferences";
-			this.PrefrencesTile.TileImage = global::Tourist.Server.Properties.Resources.preferences;
+			this.PrefrencesTile.TileImage = global::Tourist.Client.Properties.Resources.preferences;
 			this.PrefrencesTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.PrefrencesTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
 			this.PrefrencesTile.UseCustomBackColor = true;

@@ -1,7 +1,7 @@
 ﻿namespace Tourist.Data.Interfaces
 {
-	public interface IManager
+	public interface IManager : IEmployer
 	{
-			// cenas para o Manager 
+	  // Metodos especificos para o Manager 
 	}
 }

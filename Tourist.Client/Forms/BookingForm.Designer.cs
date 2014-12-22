@@ -1,4 +1,4 @@
-﻿namespace Tourist.Server.Forms
+﻿namespace Tourist.Client.Forms
 {
 	partial class BookingsForm
 	{
@@ -126,7 +126,7 @@
 			// BackPanel
 			// 
 			this.BackPanel.AutoSize = true;
-			this.BackPanel.BackgroundImage = global::Tourist.Server.Properties.Resources.LeftArrow;
+			this.BackPanel.BackgroundImage = global::Tourist.Client.Properties.Resources.LeftArrow;
 			this.BackPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			this.BackPanel.Location = new System.Drawing.Point(18, 16);
 			this.BackPanel.Margin = new System.Windows.Forms.Padding(2);
@@ -139,7 +139,7 @@
 			// 
 			this.ImagePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.ImagePanel.BackgroundImage = global::Tourist.Server.Properties.Resources.Bookings;
+			this.ImagePanel.BackgroundImage = global::Tourist.Client.Properties.Resources.Bookings;
 			this.ImagePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.ImagePanel.Location = new System.Drawing.Point(1049, 19);
 			this.ImagePanel.Margin = new System.Windows.Forms.Padding(2);
@@ -221,7 +221,7 @@
 			this.SearchTile.Size = new System.Drawing.Size(108, 85);
 			this.SearchTile.TabIndex = 1;
 			this.SearchTile.Text = "Search";
-			this.SearchTile.TileImage = global::Tourist.Server.Properties.Resources.Magnifier;
+			this.SearchTile.TileImage = global::Tourist.Client.Properties.Resources.Magnifier;
 			this.SearchTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.SearchTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
 			this.SearchTile.UseCustomBackColor = true;
@@ -239,7 +239,7 @@
 			this.LogoffTile.Size = new System.Drawing.Size(112, 85);
 			this.LogoffTile.TabIndex = 0;
 			this.LogoffTile.Text = "LogOff";
-			this.LogoffTile.TileImage = global::Tourist.Server.Properties.Resources.PowerOff;
+			this.LogoffTile.TileImage = global::Tourist.Client.Properties.Resources.PowerOff;
 			this.LogoffTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.LogoffTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
 			this.LogoffTile.UseCustomBackColor = true;
@@ -257,7 +257,7 @@
 			this.PrefrencesTile.Size = new System.Drawing.Size(112, 85);
 			this.PrefrencesTile.TabIndex = 0;
 			this.PrefrencesTile.Text = "Preferences";
-			this.PrefrencesTile.TileImage = global::Tourist.Server.Properties.Resources.preferences;
+			this.PrefrencesTile.TileImage = global::Tourist.Client.Properties.Resources.preferences;
 			this.PrefrencesTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.PrefrencesTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
 			this.PrefrencesTile.UseCustomBackColor = true;
@@ -363,8 +363,6 @@
 			this.BookingsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.BookingsDataGrid.Size = new System.Drawing.Size(955, 429);
 			this.BookingsDataGrid.TabIndex = 19;
-			this.BookingsDataGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.BookingsDataGrid_RowsValidating);
-			this.BookingsDataGrid.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.BookingsDataGrid_RowsRemoved);
 			// 
 			// ActivitiesTab
 			// 

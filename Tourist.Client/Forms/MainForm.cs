@@ -6,7 +6,7 @@ using MetroFramework.Forms;
 using Tourist.Data.Interfaces;
 using Transitions;
 
-namespace Tourist.Server.Forms
+namespace Tourist.Client.Forms
 {
 	public partial class MainForm : MetroForm
 	{
@@ -25,13 +25,12 @@ namespace Tourist.Server.Forms
 			get { return mEntityId; }
 		}
 
-		public MainForm( Form aForm, IRemote aRemote, int aEntityId )
+		public MainForm( Form aForm, IRemote aRemote)
 		{
 			InitializeComponent( );
 
 			mLoginForm = aForm as LoginForm;
 			mRemote = aRemote;
-			mEntityId = aEntityId;
 		}
 
 		private void MainForm_Load( object sender, EventArgs e )

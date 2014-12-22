@@ -1,4 +1,4 @@
-﻿namespace Tourist.Server.Forms
+﻿namespace Tourist.Client.Forms
 {
 	partial class LoginForm
 	{
@@ -30,8 +30,6 @@
 		{
 			this.BodyPanel = new System.Windows.Forms.Panel();
 			this.LoginFrame = new System.Windows.Forms.Panel();
-			this.EntityNameCombox = new System.Windows.Forms.ComboBox();
-			this.label3 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.ExitButton = new System.Windows.Forms.Button();
 			this.OkButton = new System.Windows.Forms.Button();
@@ -67,10 +65,8 @@
 			// 
 			this.LoginFrame.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.LoginFrame.AutoSize = true;
-			this.LoginFrame.BackgroundImage = global::Tourist.Server.Properties.Resources.LoginFrame;
+			this.LoginFrame.BackgroundImage = global::Tourist.Client.Properties.Resources.LoginFrame;
 			this.LoginFrame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.LoginFrame.Controls.Add(this.EntityNameCombox);
-			this.LoginFrame.Controls.Add(this.label3);
 			this.LoginFrame.Controls.Add(this.label1);
 			this.LoginFrame.Controls.Add(this.ExitButton);
 			this.LoginFrame.Controls.Add(this.OkButton);
@@ -83,28 +79,6 @@
 			this.LoginFrame.Name = "LoginFrame";
 			this.LoginFrame.Size = new System.Drawing.Size(702, 402);
 			this.LoginFrame.TabIndex = 12;
-			// 
-			// EntityNameCombox
-			// 
-			this.EntityNameCombox.Font = new System.Drawing.Font("Segoe UI Semilight", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.EntityNameCombox.FormattingEnabled = true;
-			this.EntityNameCombox.Location = new System.Drawing.Point(149, 67);
-			this.EntityNameCombox.Name = "EntityNameCombox";
-			this.EntityNameCombox.Size = new System.Drawing.Size(418, 40);
-			this.EntityNameCombox.TabIndex = 12;
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.BackColor = System.Drawing.Color.Transparent;
-			this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.ForeColor = System.Drawing.Color.White;
-			this.label3.Location = new System.Drawing.Point(143, 21);
-			this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(149, 32);
-			this.label3.TabIndex = 13;
-			this.label3.Text = "Entity Name";
 			// 
 			// label1
 			// 
@@ -149,7 +123,7 @@
 			// textBox2
 			// 
 			this.textBox2.Font = new System.Drawing.Font("Segoe UI Semilight", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBox2.Location = new System.Drawing.Point(149, 265);
+			this.textBox2.Location = new System.Drawing.Point(149, 216);
 			this.textBox2.Margin = new System.Windows.Forms.Padding(2);
 			this.textBox2.Name = "textBox2";
 			this.textBox2.PasswordChar = '*';
@@ -159,7 +133,7 @@
 			// textBox1
 			// 
 			this.textBox1.Font = new System.Drawing.Font("Segoe UI Semilight", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBox1.Location = new System.Drawing.Point(149, 164);
+			this.textBox1.Location = new System.Drawing.Point(149, 115);
 			this.textBox1.Margin = new System.Windows.Forms.Padding(2);
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(418, 39);
@@ -171,7 +145,7 @@
 			this.PasswordLabel.BackColor = System.Drawing.Color.Transparent;
 			this.PasswordLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.PasswordLabel.ForeColor = System.Drawing.Color.White;
-			this.PasswordLabel.Location = new System.Drawing.Point(143, 219);
+			this.PasswordLabel.Location = new System.Drawing.Point(143, 170);
 			this.PasswordLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.PasswordLabel.Name = "PasswordLabel";
 			this.PasswordLabel.Size = new System.Drawing.Size(116, 32);
@@ -184,7 +158,7 @@
 			this.UsernameLabel.BackColor = System.Drawing.Color.Transparent;
 			this.UsernameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.UsernameLabel.ForeColor = System.Drawing.Color.White;
-			this.UsernameLabel.Location = new System.Drawing.Point(143, 118);
+			this.UsernameLabel.Location = new System.Drawing.Point(143, 69);
 			this.UsernameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.UsernameLabel.Name = "UsernameLabel";
 			this.UsernameLabel.Size = new System.Drawing.Size(125, 32);
@@ -224,7 +198,7 @@
 			this.ImagePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.ImagePanel.AutoSize = true;
-			this.ImagePanel.BackgroundImage = global::Tourist.Server.Properties.Resources._lock;
+			this.ImagePanel.BackgroundImage = global::Tourist.Client.Properties.Resources._lock;
 			this.ImagePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.ImagePanel.Location = new System.Drawing.Point(1080, 11);
 			this.ImagePanel.Margin = new System.Windows.Forms.Padding(2);
@@ -300,8 +274,6 @@
 		private System.Windows.Forms.Panel ImagePanel;
 		private System.Windows.Forms.Panel FooterPanel;
 		private System.Windows.Forms.Panel LoginFrame;
-		private System.Windows.Forms.ComboBox EntityNameCombox;
-		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Button ExitButton;
 		private System.Windows.Forms.Button OkButton;

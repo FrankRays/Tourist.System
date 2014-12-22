@@ -18,134 +18,37 @@ namespace Tourist.Data.Classes
 		private string mAddress;
 		private EntityType mEntityType;
 		private int mNif;
-		private IEnumerable<IBooking> mBookings;
-		private IEnumerable<IClient> mClients;
-		private IEnumerable<IBookable> mBookables;
-		private IEnumerable<IEmployer> mEmployers;
-
+		
 		#endregion
 
 		#region Properties
-
-		[XmlElement( Order = 1 )]
+		
 		public int Id { get; set; }
 
-		[XmlElement( Order = 2 )]
 		public EntityType EntityType
 		{
-			get { return mEntityType; } 
+			get { return mEntityType; }
 			set { mEntityType = value; }
 		}
 
-		[XmlElement( Order = 3 )]
 		public string Name
 		{
 			get { return mName; }
 			set { mName = value; }
 		}
 
-		[XmlElement( Order = 4 )]
 		public string Address
 		{
 			get { return mAddress; }
 			set { mAddress = value; }
 		}
 
-		[XmlElement( Order = 5 )]
 		public int Nif
 		{
-			get { return mNif; } 
+			get { return mNif; }
 			set { mNif = value; }
 		}
-
-		[XmlIgnore]
-		public IEnumerable<IBooking> Bookings
-		{
-			get { return mBookings; }
-			set { mBookings = value; }
-		}
-
-		[XmlIgnore]
-		public IEnumerable<IClient> Clients
-		{
-			get { return mClients; }
-			set { mClients = value; }
-		}
-
-		[XmlIgnore]
-		public IEnumerable<IBookable> Bookables
-		{
-			get { return mBookables; }
-			set { mBookables = value; }
-		}
-
-		[XmlIgnore]
-		public IEnumerable<IEmployer> Employers
-		{
-			get { return mEmployers; }
-			set { mEmployers = value; }
-		}
-
-		#endregion
-
-		#region Methods
-
-		public void Append( IBooking aItem )
-		{
-			
-			if ( Bookings.Contains( aItem ) ) return;
-			( ( ICollection<IBooking> ) Bookings ).Add( aItem );
-		}
-
-		public void Remove( IBooking aItem )
-		{
-			
-			if ( !Bookings.Contains( aItem ) ) return;
-			( ( ICollection<IBooking> ) Bookings ).Remove( aItem );
-		}
-
-		public void Append( IBookable aItem )
-		{
-			
-			if ( Bookables.Contains( aItem ) ) return;
-			( ( ICollection<IBookable> ) Bookables ).Add( aItem );
-		}
-
-		public void Remove( IBookable aItem )
-		{
-			
-			if ( !Bookables.Contains( aItem ) ) return;
-			( ( ICollection<IBookable> ) Bookables ).Remove( aItem );
-		}
-
-		public void Append( IClient aItem )
-		{
-			
-			if ( Clients.Contains( aItem ) ) return;
-			( ( ICollection<IClient> ) Clients ).Add( aItem );
-		}
-
-		public void Remove( IClient aItem )
-		{
-			
-			if ( !Clients.Contains( aItem ) ) return;
-			( ( ICollection<IClient> ) Clients ).Remove( aItem );
-		}
-
-		public void Append( IEmployer aItem )
-		{
-			
-			if ( Employers.Contains( aItem ) ) return;
-			( ( ICollection<IEmployer> ) Employers ).Add( aItem );
-		}
-
-		public void Remove( IEmployer aItem )
-		{
-			
-			if ( !Employers.Contains( aItem ) ) return;
-			( ( ICollection<IEmployer> ) Employers ).Remove( aItem );
-		}
-
+		
 		#endregion
 
 		#region Constructor
@@ -153,212 +56,8 @@ namespace Tourist.Data.Classes
 		public Entity( )
 		{
 			Id = ++mCounter;
-
-			Bookings = new List<IBooking>( );
-			Clients = new List<IClient>( );
-			Bookables = new List<IBookable>( );
-			Employers = new List<IEmployer>( );
-
-			//serialization
-			mSBookings = new List<Booking>( );
-			mSClients = new List<Client>( );
-			mSBookables = new List<Bookable>( );
-			mSEmployers = new List<Employer>( );
 		}
-		/*
-		public Entity( string aName, string aCity )
-		{
-			Id = ++mCounter;
-
-			Name = aName;
-			City = aCity;
-
-			Bookings = new List<IBooking>( );
-			Clients = new List<IClient>( );
-			Bookables = new List<IBookable>( );
-			Employers = new List<IEmployer>( );
-		}
-		*/
-		#endregion
-
-		#region Serialization
-
-		private List<Booking> mSBookings;
-		private List<Client> mSClients;
-		private List<Bookable> mSBookables;
-		private List<Employer> mSEmployers;
-		private bool mSaveLoad = default( bool );
-
-
-		[XmlArray( ElementName = "BookingsList", Order = 6 )]
-		public List<Booking> TempBookingsList
-		{
-			get
-			{
-				if ( OnSaveLoad )
-				{
-					foreach ( var booking in Bookings )
-					{
-						mSBookings.Add( booking as Booking );
-					}
-				}
-
-				return mSBookings;
-			}
-
-			set
-			{
-				mSBookings = value;
-			}
-		}
-
-		[XmlArray( ElementName = "ClientsList", Order = 7 )]
-		public List<Client> TempClientsList
-		{
-			get
-			{
-				if ( OnSaveLoad )
-				{
-					foreach ( var client in Clients )
-					{
-						mSClients.Add( client as Client );
-					}
-				}
-
-				return mSClients;
-			}
-
-			set
-			{
-				mSClients = value;
-
-			}
-
-		}
-
-		[XmlArray( ElementName = "BookablesList", Order = 8 )]
-		public List<Bookable> TempBookablesList
-		{
-			get
-			{
-				if ( OnSaveLoad )
-				{
-					foreach ( var bookable in Bookables )
-					{
-						if ( bookable is SingleRoom )
-						{
-							mSBookables.Add( bookable as SingleRoom );
-						}
-						else if ( bookable is DoubleSingleRoom )
-						{
-							mSBookables.Add( bookable as DoubleSingleRoom );
-						}
-						else if ( bookable is DoubleRoom )
-						{
-							mSBookables.Add( bookable as DoubleRoom );
-						}
-						else if ( bookable is SuiteRoom )
-						{
-							mSBookables.Add( bookable as SuiteRoom );
-						}
-						else if ( bookable is FamilySuiteRoom)
-						{
-							mSBookables.Add( bookable as FamilySuiteRoom );
-						}
-						else if ( bookable is MeetingRoom )
-						{
-							mSBookables.Add( bookable as MeetingRoom );
-						}
-						else if ( bookable is BoatRideActivity )
-						{
-							mSBookables.Add( bookable as BoatRideActivity );
-						}
-						else if ( bookable is GolfActivity )
-						{
-							mSBookables.Add( bookable as GolfActivity );
-						}
-						else if ( bookable is CampingActivity )
-						{
-							mSBookables.Add( bookable as CampingActivity );
-						}
-						else if ( bookable is SkyDivingActivity )
-						{
-							mSBookables.Add( bookable as SkyDivingActivity );
-						}
-						else if ( bookable is SightSeeingActivity )
-						{
-							mSBookables.Add( bookable as SightSeeingActivity );
-						}
-						else if ( bookable is DivingActivity )
-						{
-							mSBookables.Add( bookable as DivingActivity );
-						}
-						else if ( bookable is TuckTuckTransport )
-						{
-							mSBookables.Add( bookable as TuckTuckTransport );
-						}
-						else if ( bookable is CableCarTransport )
-						{
-							mSBookables.Add( bookable as CableCarTransport );
-						}
-						else if ( bookable is CarTransport )
-						{
-							mSBookables.Add( bookable as CarTransport );
-						}
-						else if ( bookable is BicycleTransport )
-						{
-							mSBookables.Add( bookable as BicycleTransport );
-						}
-						else if ( bookable is BusTransport )
-						{
-							mSBookables.Add( bookable as BusTransport );
-						}
-						else if (bookable is MotoristTransport)
-						{
-							mSBookables.Add(bookable as MotoristTransport);
-						}
-					}
-				}
-
-				return mSBookables;
-			}
-
-			set
-			{
-				mSBookables = value;
-			}
-		}
-
-		[XmlArray( ElementName = "EmployersList", Order = 9 )]
-		public List<Employer> TempEmployersList
-		{
-			get
-			{
-				if ( OnSaveLoad )
-				{
-					foreach ( var employer in Employers )
-					{
-						mSEmployers.Add( employer as Employer );// cuidado pode ser um manager
-					}
-				}
-
-				return mSEmployers;
-			}
-
-			set
-			{
-				mSEmployers = value;
-			}
-
-		}
-
-		[XmlIgnore]
-		public bool OnSaveLoad
-		{
-			get { return mSaveLoad; }
-			set { mSaveLoad = value; }
-		}
-
+		
 		#endregion
 
 	}

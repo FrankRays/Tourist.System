@@ -1,9 +1,8 @@
 ﻿using System;
-using System.IO;
-using System.Runtime.Remoting;
-using System.Runtime.Remoting.Channels;
-using System.Runtime.Remoting.Channels.Tcp;
+using System.Diagnostics;
 using System.Windows.Forms;
+using Tourist.Data.Classes;
+using Tourist.Data.Interfaces;
 using Tourist.Server.Forms;
 
 namespace Tourist.Server
@@ -11,7 +10,7 @@ namespace Tourist.Server
 	static class Program
 	{
 
-		public static Repository repository = Repository.Instance;
+		public static readonly Repository repository = Repository.Instance;
 
 		public static string ConfigFileName = "Tourist.Server.exe.config";
 
@@ -23,7 +22,7 @@ namespace Tourist.Server
 		[STAThread]
 		static void Main( )
 		{
-
+			/*
 			//Create the tcp channel
 			TcpChannel channel = new TcpChannel( 3000 );
 
@@ -37,101 +36,98 @@ namespace Tourist.Server
 				typeof( Remote ),  //type
 				"Tourist.Server",  //uri
 				WellKnownObjectMode.Singleton ); //mode
-
-			
+			*/
+			/*
 			if ( File.Exists( FileName ) )
 			{
 				Repository.Instance.Load( FileName );
-				Repository.Instance.Load( );
 				// por enquanto mas fica so numa funcao	
 			}
+			*/
 			
-			
-			//RepositorySaveTest();
+			RepositorySaveTest();
 			//RepositoryLoadTest( );
-
-
+			
+		
 			Application.EnableVisualStyles( );
 			Application.SetCompatibleTextRenderingDefault( false );
 			Application.Run( new LoginForm( ) );
 		}
 
-		static void RepositorySaveTest( )
+		private static void RepositorySaveTest( )
 		{
-			/*
-			var entities = new List<IEntity>( );
+			
+			repository.MData.SetEntity("Porto Bay", EntityType.Hotel, 123456789,"Rua do Sabao");
 
-			var entity = repository.Factory.CreateEntity( );
-			entity.EntityType =EntityType.HotelierGroup;
-			entity.Name = "Hotel Porto Bay";
-			entity.Address = "Porto";
-			entity.Nif = 999999999;
+			var room = repository.Factory.CreateObject<Room>( );
 
-			var employer = repository.Factory.CreateEmployer( );
-			employer.FirstName = "Jonas";
-			employer.LastName = "Rebo";
+			room.Name = "SingleRoom";
+			room.Type = "SingleRoom";
+			room.State = BookableState.Available;
+			room.Price = BasePrice.SingleRoom;
+			room.Capacity = 1;
+
+
+			var client = repository.Factory.CreateObject<Client>( );
+
+			client.FirstName = "Fabio";
+			client.LastName = "Nobrega";
+			client.Gender = Gender.Male;
+			client.Nationality = "Portuguese";
+			client.BirthDate = new DateTime( 2000, 05, 10 );
+			client.Nif = 123456789;
+			client.Address = "Rua da avo";
+			client.PhoneNumber = 960000000;
+			client.Email = "fabio@gmail.com";
+
+			var manager = repository.Factory.CreateObject<Manager>( );
+
+			manager.FirstName = "JOAO";
+			manager.LastName = "Ras";
+			manager.Gender = Gender.Male;
+			manager.Nationality = "Portuguese";
+			manager.BirthDate = new DateTime( 2000, 05, 10 );
+			manager.Nif = 123456789;
+			manager.Address = "Rua da avo";
+			manager.PhoneNumber = 960000000;
+			manager.Email = "joao@gmail.com";
+			manager.Username = "joao";
+			manager.Password = "123456";
+
+
+			var employer = repository.Factory.CreateObject<Employer>( );
+
+			employer.FirstName = "jonas";
+			employer.LastName = "Rastas";
 			employer.Gender = Gender.Male;
-			employer.BirthDate = new DateTime( 1987, 6, 13 );
-			employer.Address = "Caminho das Lonas";
-			employer.PhoneNumber = 931111111;
-			employer.Email = "jonas@super.com";
+			employer.Nationality = "Portuguese";
+			employer.BirthDate = new DateTime( 2000, 05, 10 );
+			employer.Nif = 123456789;
+			employer.Address = "Rua da avo";
+			employer.PhoneNumber = 960000000;
+			employer.Email = "fabio@gmail.com";
+			employer.Username = "jonas";
+			employer.Password = "123456";
 
-			var client1 = repository.Factory.CreateClient( );
-			client1.FirstName = "Fabio";
-			client1.LastName = "Nobrega";
-			client1.Gender = Gender.Male;
-			client1.BirthDate = new DateTime( 1987, 5, 13 );
-			client1.Nif = 000000000;
-			client1.Address = "Caminho das Preces";
-			client1.PhoneNumber = 930000000;
-			client1.Email = "fabio@super.com";
-			client1.Id = 3;
+			var booking = repository.Factory.CreateObject<Booking>( );
 
-
-			var client2 = repository.Factory.CreateClient( );
-			client2.FirstName = "Joao";
-			client2.LastName = "Nobrega";
-			client2.Gender = Gender.Male;
-			client2.BirthDate = new DateTime( 1975, 5, 15 );
-			client2.Nif = 000000001;
-			client2.Address = "Caminho das Preces";
-			client2.PhoneNumber = 931111111;
-			client2.Email = "joao@super.com";
-			client2.Id = 2;
+			booking.Client = client;
+			booking.Bookable = room;
+			booking.BookingDateTime = DateTime.Now.Date;
+			booking.TimeRange = new DateTimeRange( DateTime.Now, DateTime.Now.AddDays( 1 ) );
 
 
-			var singleRoom = repository.Factory.CreateDoubleRoom( );
-			singleRoom.TimeRange = new DateTimeRange( );
-			singleRoom.TimeRange.StartDateTime = DateTime.Today;
-			singleRoom.TimeRange.EndDateTime = DateTime.Today.AddDays( 1 );
+			repository.MData.Append( booking );
+			repository.MData.Append( client );
+			repository.MData.Append( employer );
+			repository.MData.Append( manager );
+			repository.MData.Append( room, "Room" );
 
-			singleRoom.Price = UnitPrice.SingleRoom * singleRoom.TimeRange.DiferenceTimeSpan( ).Days;
-
-			var bookingItem = repository.Factory.CreateBookingItem( );
-			bookingItem.BookAble = singleRoom;
-
-			var booking = repository.Factory.CreateBooking( );
-			booking.IClient = client1;
-			booking.BookingDateTime = DateTime.Today;
-			booking.Append( bookingItem );
-
-
-			entity.Append( booking );
-			entity.Append( singleRoom );
-			entity.Append( client1 );
-			entity.Append( client2 );
-			entity.Append( employer );
-
-			entities.Add( entity );
-
-			repository.Save( entities );
 
 			repository.Save( FileName );
-
-			*/
 		}
-
-		static void RepositoryLoadTest( )
+	
+		private static void RepositoryLoadTest( )
 		{
 			//repository.Load( FileName );
 			//repository.Load( );

@@ -1,20 +1,21 @@
 ﻿using System;
-using System.Xml.Serialization;
 using Tourist.Data.Interfaces;
 
 namespace Tourist.Data.Classes
 {
 	[Serializable]
-	class Manager:IEmployer,IManager
+	public class Manager : IManager
 	{
 		#region Fields
 
-		private static int counter = 0;
+		private static int mCounter = 0;
 
 		private string mFirstName;
 		private string mLastName;
-		private DateTime mBirthDate;
 		private Gender mGender;
+		private string mNationality;
+		private DateTime mBirthDate;
+		private int mNif;
 		private string mAddress;
 		private int mPhoneNumber;
 		private string mEmail;
@@ -25,7 +26,6 @@ namespace Tourist.Data.Classes
 
 		#region Properties
 
-		[XmlIgnore]
 		public int Id { get; set; }
 
 		public string FirstName
@@ -40,6 +40,12 @@ namespace Tourist.Data.Classes
 			set { mLastName = value; }
 		}
 
+		public string Nationality
+		{
+			get { return mNationality; }
+			set { mNationality = value; }
+		}
+
 		public DateTime BirthDate
 		{
 			get { return mBirthDate; }
@@ -50,6 +56,12 @@ namespace Tourist.Data.Classes
 		{
 			get { return mGender; }
 			set { mGender = value; }
+		}
+
+		public int Nif
+		{
+			get { return mNif; }
+			set { mNif = value; }
 		}
 
 		public string Address
@@ -72,13 +84,13 @@ namespace Tourist.Data.Classes
 
 		public string Username
 		{
-			get { return mUsername; } 
+			get { return mUsername; }
 			set { mUsername = value; }
 		}
 
 		public string Password
 		{
-			get { return mPassword; } 
+			get { return mPassword; }
 			set { mPassword = value; }
 		}
 
@@ -86,23 +98,9 @@ namespace Tourist.Data.Classes
 
 		#region Constructors
 
-		//pode ficar vazio e depois usa-se os sets
-		public Manager( ) { }
-
-		public Manager( string aFirstName, string aLastName, DateTime aBirthDate, Gender aGender,
-			int aPhoneNumber, string aEmail, string aAddress, string aUsername, string aPassword )
+		public Manager( )
 		{
-			Id = ++counter;
-
-			FirstName = aFirstName;
-			LastName = aLastName;
-			BirthDate = aBirthDate;
-			Gender = aGender;
-			Address = aAddress;
-			PhoneNumber = aPhoneNumber;
-			Email = aEmail;
-			Username = aUsername;
-			Password = aPassword;
+			Id = ++mCounter;
 		}
 
 		#endregion

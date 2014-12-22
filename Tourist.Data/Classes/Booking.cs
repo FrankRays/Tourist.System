@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Xml;
 using System.Xml.Serialization;
 using Tourist.Data.Interfaces;
 
@@ -17,7 +13,7 @@ namespace Tourist.Data.Classes
 		private static int mCounter = 0;
 		private IClient mClient;
 		private DateTime mBookingDateTime;
-		private IEnumerable<IBookingItem> mBookingItems;
+		private IBookable mBookable;
 		private DateTimeRange mTimeRange;
 
 		#endregion
@@ -27,7 +23,7 @@ namespace Tourist.Data.Classes
 		public int Id { get; set; }
 
 		[XmlIgnore]
-		public IClient IClient
+		public IClient Client
 		{
 			get { return mClient; }
 
@@ -41,13 +37,6 @@ namespace Tourist.Data.Classes
 			set { mBookingDateTime = value; }
 		}
 
-		[XmlIgnore]
-		public IEnumerable<IBookingItem> BookingItens
-		{
-			get { return mBookingItems; }
-
-			private set { mBookingItems = value; }
-		}
 
 		public DateTimeRange TimeRange
 		{
@@ -55,37 +44,23 @@ namespace Tourist.Data.Classes
 			set { mTimeRange = value; }
 		}
 
+		[XmlIgnore]
+		public IBookable Bookable
+		{
+			get { return mBookable; }
+			set { mBookable = value; }
+		}
+
 		#endregion
 
 		#region Methods
 
-		public void Append( IBookingItem aItem )
-		{
-			if ( BookingItens.Contains( aItem ) ) return;
-			( ( ICollection<IBookingItem> ) BookingItens ).Add( aItem );
-		}
-
-		public void Remove( IBookingItem aItem )
-		{
-			if ( !BookingItens.Contains( aItem ) ) return;
-			( ( ICollection<IBookingItem> ) BookingItens ).Remove( aItem );
-		}
-
+		/*
 		public double TotalPrice( )
 		{
-			//pode ser feito em apenas uma linha 
-			//return BookingItens.Sum( aItem => aItem.BookingItemPrice );
-
-			double temp = 0.00;
-
-			foreach ( var aItem in BookingItens )
-			{
-				temp += aItem.BookingItemPrice;
-			}
-
-			return temp;
+			//
 		}
-
+		*/
 		#endregion
 
 		#region Constructor
@@ -93,71 +68,8 @@ namespace Tourist.Data.Classes
 		public Booking( )
 		{
 			Id = ++mCounter;
-			BookingItens = new List<IBookingItem>( );
-			BookingItensList = new List<BookingItem>( );
 		}
 
-		public Booking( IClient aClient )
-		{
-			Id = ++mCounter;
-
-			IClient = aClient;
-			BookingItens = new List<IBookingItem>( );
-		}
-
-		#endregion
-
-		#region Seralization
-
-		private List<BookingItem> mSBookingItems;
-		private Client mSClient;
-		private bool mSaveLoad = default( bool );
-
-
-		public List<BookingItem> BookingItensList
-		{
-			get
-			{
-				if ( OnSaveLoad )
-				{
-					foreach ( var item in BookingItens )
-					{
-						mSBookingItems.Add( item as BookingItem );
-					}
-				}
-
-				return mSBookingItems;
-			}
-
-			set { mSBookingItems = value; }
-
-		}
-
-		public Client Client
-		{
-			get
-			{
-				if ( OnSaveLoad )
-					mSClient = ( Client ) mClient;
-
-				return mSClient;
-			}
-			set { mSClient = value; }
-		}
-
-		[XmlIgnore]
-		public bool OnSaveLoad
-		{
-			get { return mSaveLoad; }
-			set { mSaveLoad = value; }
-		}
-
-		/*
-		public int BookingId
-		{
-			get { return mCounter; }
-		}
-		*/
 		#endregion
 
 	}

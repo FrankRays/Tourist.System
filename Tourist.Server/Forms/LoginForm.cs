@@ -9,7 +9,7 @@ namespace Tourist.Server.Forms
 	public partial class LoginForm : MetroForm
 	{
 
-		private readonly Repository repository = Repository.Instance;
+		//private readonly Repository repository = Repository.Instance;
 		private MainForm mMainForm;
 		private bool mLoginFormOrEntityForm = default( bool );
 		private int mEntityId = default( int );
@@ -17,13 +17,12 @@ namespace Tourist.Server.Forms
 		public LoginForm( )
 		{
 			InitializeComponent( );
+			mMainForm = new MainForm(this);
 		}
 
 		private void LoginForm_Load( object sender, EventArgs e )
 		{
 			SetFormFullScreen( );
-			mLoginFormOrEntityForm = CanLoadEntityNamesComboBox( );
-
 		}
 
 		private void SetFormFullScreen( )
@@ -41,41 +40,8 @@ namespace Tourist.Server.Forms
 
 		private void OkButton_Click( object sender, EventArgs e )
 		{
-			ShowLoginFormOrEntityForm( );
-		}
-
-		private bool CanLoadEntityNamesComboBox( )
-		{
-
-			if ( repository.IsEmpty( ) )
-				return false;
-
-			var bindingSource = new BindingSource { DataSource = repository.EntityNameList( ) };
-
-			EntityNameCombox.DataSource = bindingSource;
-
-			return true;
-		}
-
-		private void ShowLoginFormOrEntityForm( )
-		{
-
-			if ( mLoginFormOrEntityForm )
-			{
-				var selectedItem = EntityNameCombox.SelectedItem;
-				mEntityId = repository.GetEntityId( selectedItem.ToString( ) );
-				mMainForm = new MainForm( this, mEntityId );
-				Hide( );
-				mMainForm.Show( );
-			}
-			else
-			{
-				Hide( );
-				mMainForm = new MainForm( this );
-				var entityForm = new EntityForm( mMainForm );
-				entityForm.Show( );
-			}
-
+			Hide();
+			mMainForm.Show();
 		}
 
 		protected override void OnFormClosing( FormClosingEventArgs e )
@@ -98,10 +64,7 @@ namespace Tourist.Server.Forms
 
 		private void LoginForm_VisibilityChange( object sender, EventArgs e )
 		{
-			if ( Visible )
-			{
-				mLoginFormOrEntityForm = CanLoadEntityNamesComboBox( );
-			}
+			
 		}
 	}
 }

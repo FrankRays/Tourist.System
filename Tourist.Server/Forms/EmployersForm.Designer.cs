@@ -226,8 +226,6 @@
 			this.EmployersDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.EmployersDataGrid.Size = new System.Drawing.Size(949, 480);
 			this.EmployersDataGrid.TabIndex = 18;
-			this.EmployersDataGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.EmployersDataGrid_RowValidating);
-			this.EmployersDataGrid.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.EmployersDataGrid_RowsRemoved);
 			// 
 			// IdColumn
 			// 

@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
 using System.Windows.Forms;
-using MetroFramework;
-using Tourist.Server.Forms;
-using Tourist.Data.Classes;
+using Tourist.Client.Forms;
 using Tourist.Data.Interfaces;
 
-namespace Tourist.Server
+namespace Tourist.Client
 {
 	static class Program
 	{

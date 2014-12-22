@@ -11,16 +11,9 @@ namespace Tourist.Data.Classes
 		{
 			return new[ ]
 			{
-				typeof (Entity),				typeof (Booking),				typeof (BookingItem), 
-				typeof (Client),				typeof (Employer),				typeof (DateTimeRange),			
-				typeof(Bookable),				typeof (Activity),				typeof (Room),					
-				typeof (SingleRoom),			typeof (DoubleRoom),			typeof (DoubleSingleRoom), 
-				typeof (SuiteRoom),				typeof (FamilySuiteRoom),		typeof (MeetingRoom), 
-				typeof (Activity),				typeof (BoatRideActivity),		typeof (GolfActivity),			
-				typeof (CampingActivity),		typeof (SkyDivingActivity),		typeof (SightSeeingActivity),
-				typeof (DivingActivity),		typeof (Transport),				typeof (TuckTuckTransport),		
-				typeof (CableCarTransport),		typeof (BicycleTransport),		typeof (CarTransport),
-				typeof (BusTransport),			typeof (MotoristTransport)
+				typeof (Entity),	typeof (Booking),		typeof (Client),
+				typeof(Room),		typeof (Activity),		typeof (Transport),	
+				typeof (Employer),	typeof (Manager),		typeof (DateTimeRange)		
 			};
 		}
 
@@ -32,11 +25,6 @@ namespace Tourist.Data.Classes
 		public IBooking CreateBooking( )
 		{
 			return new Booking( );
-		}
-
-		public IBookingItem CreateBookingItem( )
-		{
-			return new BookingItem( );
 		}
 
 		public IClient CreateClient( )
@@ -54,105 +42,24 @@ namespace Tourist.Data.Classes
 			return new Manager( );
 		}
 
-		//CreateRoom
-
-		public IBookable CreateSingleRoom( )
+		public IBookable CreateRoom( )
 		{
-			return new SingleRoom( );
+			return new Room( );
 		}
 
-		public IBookable CreateDoubleSingleRoom( )
+		public IBookable CreateActivity( )
 		{
-			return new DoubleSingleRoom( );
+			return new Activity( );
 		}
 
-		public IBookable CreateDoubleRoom( )
+		public IBookable CreateTransport( )
 		{
-			return new DoubleRoom( );
+			return new Transport( );
 		}
 
-		public IBookable CreateSuiteRoom( )
+		public DateTimeRange CreateDateTimeRange( )
 		{
-			return new SuiteRoom( );
-		}
-
-		public IBookable CreateFamilySuiteRoom( )
-		{
-			return new FamilySuiteRoom( );
-		}
-
-		public IBookable CreateMeetingRoom( )
-		{
-			return new MeetingRoom( );
-		}
-
-		//CreateActivities
-
-		public DateTimeRange CreateDateTimeRange()
-		{
-			return new DateTimeRange();
-		}
-
-		public IBookable CreateBoatRideActivity( )
-		{
-			return new BoatRideActivity( );
-		}
-
-		public IBookable CreateGolfActivity( )
-		{
-			return new GolfActivity( );
-		}
-
-		public IBookable CreateCampingActivity( )
-		{
-			return new CampingActivity( );
-		}
-
-		public IBookable CreateSkyDivingActivity( )
-		{
-			return new SkyDivingActivity( );
-		}
-
-		public IBookable CreateSightSeeingActivity( )
-		{
-			return new SightSeeingActivity( );
-		}
-
-		public IBookable CreateDivingActivity( )
-		{
-			return new DivingActivity( );
-		}
-
-		//CreateTransport
-
-		public IBookable CreateTuckTuckTransport( )
-		{
-			return new TuckTuckTransport( );
-		}
-
-		public IBookable CreateCableCarTransport( )
-		{
-			return new CableCarTransport( );
-		}
-
-		public IBookable CreateBicycleTransport( )
-		{
-			return new BicycleTransport( );
-		}
-
-		public IBookable CreateCarTransport( )
-		{
-			return new CarTransport( );
-		}
-
-		public IBookable CreateBusTransport( )
-		{
-			return new BusTransport( );
-		}
-
-		public IBookable CreateMotoristTransport( )
-		{
-			return new MotoristTransport( );
+			return new DateTimeRange( );
 		}
 
 		public object CreateObject( string aType )
@@ -163,56 +70,20 @@ namespace Tourist.Data.Classes
 					return CreateEntity( );
 				case "Booking":
 					return CreateBooking( );
-				case "BookingItem":
-					return CreateBookingItem( );
 				case "Client":
 					return CreateClient( );
 				case "Employer":
 					return CreateEmployer( );
 				case "Manager":
 					return CreateManager( );
-				//Bookable Room
 				case "DateTimeRange":
 					return CreateDateTimeRange();
-				case "SingleRoom":
-					return CreateSingleRoom( );
-				case "DoubleSingleRoom":
-					return CreateDoubleSingleRoom( );
-				case "DoubleRoom":
-					return CreateDoubleRoom( );
-				case "SuiteRoom":
-					return CreateSuiteRoom( );
-				case "FamilySuiteRoom":
-					return CreateFamilySuiteRoom( );
-				case "MeetingRoom":
-					return CreateMeetingRoom( );
-				//Bookable Activity
-				case "BoatRideActivity":
-					return CreateBoatRideActivity( );
-				case "GolfActivity":
-					return CreateGolfActivity( );
-				case "CampingActivity":
-					return CreateCampingActivity( );
-				case "SkyDivingActivity":
-					return CreateSkyDivingActivity( );
-				case "SightSeeyingActivity":
-					return CreateSightSeeingActivity( );
-				case "DivingActivity":
-					return CreateDivingActivity( );
-				//Bookable Transport
-				case "TuckTuckTransport":
-					return CreateTuckTuckTransport( );
-				case "CacleCarTransport":
-					return CreateCableCarTransport( );
-				case "BicycleTransport":
-					return CreateBicycleTransport( );
-				case "CarTransport":
-					return CreateCarTransport( );
-				case "BusTransport":
-					return CreateBusTransport( );
-				case "MotorisTransport":
-					return CreateMotoristTransport( );
-
+				case "Room":
+					return CreateRoom( );
+				case "Activity":
+					return CreateActivity( );
+				case "Transport":
+					return CreateTransport( );
 				default:
 					return null;
 			}

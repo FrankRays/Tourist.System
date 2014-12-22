@@ -7,7 +7,7 @@
     <ProjectGuid>{F5645A12-4E26-4191-82D3-A8D0C4ED7AF2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tourist.Server</RootNamespace>
+    <RootNamespace>Tourist.Client</RootNamespace>
     <AssemblyName>Tourist.Client</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

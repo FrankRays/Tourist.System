@@ -8,7 +8,7 @@ namespace Tourist.Server.Forms
 	public partial class ClientsForm : MetroForm
 	{
 		private readonly MainForm mMainForm;
-		private readonly Repository repository = Repository.Instance;
+		//private readonly Repository repository = Repository.Instance;
 		private readonly int mEntityId;
 		private bool mBackOrExit = default( bool );
 
@@ -22,7 +22,6 @@ namespace Tourist.Server.Forms
 		private void ClientsForm_Load( object sender, System.EventArgs e )
 		{
 			SetFormFullScreen( );
-			LoadDataToGrid();
 		}
 
 		private void SetFormFullScreen( )
@@ -34,27 +33,6 @@ namespace Tourist.Server.Forms
 
 			FormBorderStyle = FormBorderStyle.None;
 			Focus( );
-		}
-
-		private void LoadDataToGrid( )
-		{
-			if ( repository.IsEmpty( ) )
-				return;
-
-			if ( repository.IsClientListEmpty( mEntityId ) )
-				return;
-
-			var clientsMatrix = repository.ClientsListToMatrix( mEntityId, ClientsDataGrid.ColumnCount );
-
-			for ( var i = 0 ; i < repository.ClientsListCount( mEntityId ) ; i++ )
-			{
-				ClientsDataGrid.Rows.Add( );
-
-				for ( var j = 0 ; j < ClientsDataGrid.ColumnCount ; j++ )
-				{
-					ClientsDataGrid.Rows[ i ].Cells[ j ].Value = clientsMatrix[ i, j ];
-				}
-			}
 		}
 
 		protected override void OnFormClosing( FormClosingEventArgs e )

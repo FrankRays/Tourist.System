@@ -1,9 +1,9 @@
 ﻿namespace Tourist.Data.Classes
 {
-	public static class UnitPrice
+	public static class BasePrice
 	{
 
-		#region ROOM_UNIT_PRICE
+		#region ROOM_BASE_PRICE
 
 		private static double mSingleRoom = 20.00;
 		private static double mDoubleSingleRoom = 35.00;
@@ -50,7 +50,7 @@
 
 		#endregion
 
-		#region ACTIVITIES_UNIT_PRICE
+		#region ACTIVITIES_BASE_PRICE
 
 		private static double mDivingActivity = 30.00;
 		private static double mSightSeeingActivity = 30.00;
@@ -97,7 +97,7 @@
 
 		#endregion
 
-		#region TRANSPORTATION_UNIT_PRICE
+		#region TRANSPORTATION_BASE_PRICE
 
 		private static double mBusTransportation = 15.00;
 		private static double mMotoristTransportation = 50.00;

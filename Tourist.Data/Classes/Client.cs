@@ -1,6 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Xml.Serialization;
 using Tourist.Data.Interfaces;
 
 namespace Tourist.Data.Classes
@@ -14,8 +12,9 @@ namespace Tourist.Data.Classes
 
 		private string mFirstName;
 		private string mLastName;
-		private DateTime mBirthDate;
 		private Gender mGender;
+		private string mNationality;
+		private DateTime mBirthDate;
 		private int mNif;
 		private string mAddress;
 		private int mPhoneNumber;
@@ -24,7 +23,6 @@ namespace Tourist.Data.Classes
 		#endregion
 
 		#region Properties
-
 
 		public int Id { get; set; }
 
@@ -38,6 +36,12 @@ namespace Tourist.Data.Classes
 		{
 			get { return mLastName; }
 			set { mLastName = value; }
+		}
+
+		public string Nationality
+		{
+			get { return mNationality; }
+			set { mNationality = value; }
 		}
 
 		public DateTime BirthDate
@@ -84,21 +88,6 @@ namespace Tourist.Data.Classes
 		public Client()
 		{
 			Id = ++mCounter;
-		}
-
-		public Client( string aFirstName, string aLastName, DateTime aBirthDate, Gender aGender,
-						 int aPhoneNumber, string aEmail, string aAddress )
-		{
-			Id = ++mCounter;
-
-			FirstName = aFirstName;
-			LastName = aLastName;
-			BirthDate = aBirthDate;
-			Gender = aGender;
-			Address = aAddress;
-			PhoneNumber = aPhoneNumber;
-			Email = aEmail;
-
 		}
 
 		#endregion

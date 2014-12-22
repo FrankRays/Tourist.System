@@ -1,8 +1,9 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
+using MetroFramework;
 using MetroFramework.Forms;
 
-namespace Tourist.Server.Forms
+namespace Tourist.Client.Forms
 {
 	public partial class PaymentsForm: MetroForm
 	{
@@ -33,7 +34,29 @@ namespace Tourist.Server.Forms
 			Focus( );
 		}
 
+		protected override void OnFormClosing( FormClosingEventArgs e )
+		{
+			if ( mBackOrExit ) return;
 
+			base.OnFormClosing( e );
+
+			var dialogResult = MetroMessageBox.Show( this, "\n Are you sure you want to exit the application?",
+				"Close Button Pressed", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
+
+			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
+
+			if ( dialogResult == DialogResult.No )
+				e.Cancel = true;
+			else
+				System.Diagnostics.Process.GetCurrentProcess( ).Kill( );
+		}
+
+		private void BackPanel_MouseClick( object sender, MouseEventArgs e )
+		{
+			mBackOrExit = true;
+			Close( );
+			mMainForm.Show( );
+		}
 
 	}
 }

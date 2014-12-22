@@ -13,8 +13,10 @@ namespace Tourist.Data.Classes
 
 		private string mFirstName;
 		private string mLastName;
-		private DateTime mBirthDate;
 		private Gender mGender;
+		private string mNationality;
+		private DateTime mBirthDate;
+		private int mNif;
 		private string mAddress;
 		private int mPhoneNumber;
 		private string mEmail;
@@ -39,6 +41,12 @@ namespace Tourist.Data.Classes
 			set { mLastName = value; }
 		}
 
+		public string Nationality
+		{
+			get { return mNationality; }
+			set { mNationality = value; }
+		}
+
 		public DateTime BirthDate
 		{
 			get { return mBirthDate; }
@@ -49,6 +57,12 @@ namespace Tourist.Data.Classes
 		{
 			get { return mGender; }
 			set { mGender = value; }
+		}
+
+		public int Nif
+		{
+			get { return mNif; }
+			set { mNif = value; }
 		}
 
 		public string Address
@@ -88,22 +102,6 @@ namespace Tourist.Data.Classes
 		public Employer( )
 		{
 			Id = ++mCounter;
-		}
-
-		public Employer( string aFirstName, string aLastName, DateTime aBirthDate, Gender aGender,
-			int aPhoneNumber, string aEmail, string aAddress, string aUsername, string aPassword )
-		{
-			Id = ++mCounter;
-
-			FirstName = aFirstName;
-			LastName = aLastName;
-			BirthDate = aBirthDate;
-			Gender = aGender;
-			Address = aAddress;
-			PhoneNumber = aPhoneNumber;
-			Email = aEmail;
-			Username = aUsername;
-			Password = aPassword;
 		}
 
 		#endregion
