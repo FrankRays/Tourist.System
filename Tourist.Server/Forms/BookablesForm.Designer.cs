@@ -143,7 +143,7 @@
 			this.BodyPanel.Location = new System.Drawing.Point(-1, 177);
 			this.BodyPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.BodyPanel.Name = "BodyPanel";
-			this.BodyPanel.Size = new System.Drawing.Size(1202, 469);
+			this.BodyPanel.Size = new System.Drawing.Size(1202, 470);
 			this.BodyPanel.TabIndex = 16;
 			// 
 			// ServicesTabsControl
@@ -161,7 +161,7 @@
 			this.ServicesTabsControl.Margin = new System.Windows.Forms.Padding(0);
 			this.ServicesTabsControl.Name = "ServicesTabsControl";
 			this.ServicesTabsControl.SelectedIndex = 0;
-			this.ServicesTabsControl.Size = new System.Drawing.Size(955, 445);
+			this.ServicesTabsControl.Size = new System.Drawing.Size(955, 446);
 			this.ServicesTabsControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
 			this.ServicesTabsControl.TabIndex = 21;
 			this.ServicesTabsControl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -176,7 +176,7 @@
 			this.RoomsTab.Location = new System.Drawing.Point(4, 54);
 			this.RoomsTab.Margin = new System.Windows.Forms.Padding(2);
 			this.RoomsTab.Name = "RoomsTab";
-			this.RoomsTab.Size = new System.Drawing.Size(947, 387);
+			this.RoomsTab.Size = new System.Drawing.Size(947, 388);
 			this.RoomsTab.TabIndex = 0;
 			this.RoomsTab.Text = "ROOMS";
 			this.RoomsTab.VerticalScrollbarBarColor = true;
@@ -240,7 +240,7 @@
 			this.RoomDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			this.RoomDataGrid.RowTemplate.Height = 25;
 			this.RoomDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.RoomDataGrid.Size = new System.Drawing.Size(955, 374);
+			this.RoomDataGrid.Size = new System.Drawing.Size(955, 375);
 			this.RoomDataGrid.TabIndex = 18;
 			// 
 			// IdColumn
@@ -449,7 +449,7 @@
 			this.FooterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.FooterPanel.Location = new System.Drawing.Point(-1, 650);
+			this.FooterPanel.Location = new System.Drawing.Point(-1, 651);
 			this.FooterPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.FooterPanel.Name = "FooterPanel";
 			this.FooterPanel.Size = new System.Drawing.Size(1202, 150);

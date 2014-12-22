@@ -43,10 +43,10 @@ namespace Tourist.Server.Forms
 		{
 			Hide( );
 
-			if (!Repository.RepositoryHasEntity())
+			if ( ! Repository.RepositoryHasAEntity())
 			{
-				var entityForm = new EntityForm(mMainForm);
-				entityForm.Show();
+				var entityForm = new EntityForm( mMainForm );
+				entityForm.Show( );
 			}
 			else
 			{

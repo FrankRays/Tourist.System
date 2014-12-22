@@ -95,7 +95,7 @@
 			this.MainPanel.HorizontalScrollbarBarColor = true;
 			this.MainPanel.HorizontalScrollbarHighlightOnWheel = false;
 			this.MainPanel.HorizontalScrollbarSize = 8;
-			this.MainPanel.Location = new System.Drawing.Point(40, 27);
+			this.MainPanel.Location = new System.Drawing.Point(40, 28);
 			this.MainPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.MainPanel.Name = "MainPanel";
 			this.MainPanel.Size = new System.Drawing.Size(1132, 416);
@@ -427,7 +427,7 @@
 			this.FooterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.FooterPanel.Location = new System.Drawing.Point(0, 649);
+			this.FooterPanel.Location = new System.Drawing.Point(0, 651);
 			this.FooterPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.FooterPanel.Name = "FooterPanel";
 			this.FooterPanel.Size = new System.Drawing.Size(1201, 150);
@@ -444,7 +444,7 @@
 			this.BodyPanel.Location = new System.Drawing.Point(0, 177);
 			this.BodyPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.BodyPanel.Name = "BodyPanel";
-			this.BodyPanel.Size = new System.Drawing.Size(1201, 468);
+			this.BodyPanel.Size = new System.Drawing.Size(1201, 470);
 			this.BodyPanel.TabIndex = 13;
 			this.BodyPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BodyPanel_MouseMove);
 			// 
@@ -459,7 +459,7 @@
 			this.SideBarPanel.Location = new System.Drawing.Point(1196, 0);
 			this.SideBarPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.SideBarPanel.Name = "SideBarPanel";
-			this.SideBarPanel.Size = new System.Drawing.Size(112, 468);
+			this.SideBarPanel.Size = new System.Drawing.Size(112, 470);
 			this.SideBarPanel.TabIndex = 14;
 			this.SideBarPanel.Visible = false;
 			// 
@@ -486,7 +486,7 @@
 			this.LogoffTile.ActiveControl = null;
 			this.LogoffTile.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.LogoffTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(219)))));
-			this.LogoffTile.Location = new System.Drawing.Point(0, 364);
+			this.LogoffTile.Location = new System.Drawing.Point(0, 366);
 			this.LogoffTile.Margin = new System.Windows.Forms.Padding(2);
 			this.LogoffTile.Name = "LogoffTile";
 			this.LogoffTile.Size = new System.Drawing.Size(112, 85);
@@ -504,7 +504,7 @@
 			this.PrefrencesTile.ActiveControl = null;
 			this.PrefrencesTile.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.PrefrencesTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(219)))));
-			this.PrefrencesTile.Location = new System.Drawing.Point(0, 190);
+			this.PrefrencesTile.Location = new System.Drawing.Point(0, 191);
 			this.PrefrencesTile.Margin = new System.Windows.Forms.Padding(2);
 			this.PrefrencesTile.Name = "PrefrencesTile";
 			this.PrefrencesTile.Size = new System.Drawing.Size(112, 85);

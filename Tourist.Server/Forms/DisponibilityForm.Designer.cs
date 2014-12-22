@@ -131,7 +131,7 @@
 			this.BodyPanel.Location = new System.Drawing.Point(-1, 177);
 			this.BodyPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.BodyPanel.Name = "BodyPanel";
-			this.BodyPanel.Size = new System.Drawing.Size(1202, 467);
+			this.BodyPanel.Size = new System.Drawing.Size(1202, 469);
 			this.BodyPanel.TabIndex = 16;
 			// 
 			// ClientsTabsControl
@@ -149,7 +149,7 @@
 			this.ClientsTabsControl.Margin = new System.Windows.Forms.Padding(0);
 			this.ClientsTabsControl.Name = "ClientsTabsControl";
 			this.ClientsTabsControl.SelectedIndex = 0;
-			this.ClientsTabsControl.Size = new System.Drawing.Size(955, 443);
+			this.ClientsTabsControl.Size = new System.Drawing.Size(955, 445);
 			this.ClientsTabsControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
 			this.ClientsTabsControl.TabIndex = 21;
 			this.ClientsTabsControl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -163,7 +163,7 @@
 			this.RoomsTab.Location = new System.Drawing.Point(4, 54);
 			this.RoomsTab.Margin = new System.Windows.Forms.Padding(2);
 			this.RoomsTab.Name = "RoomsTab";
-			this.RoomsTab.Size = new System.Drawing.Size(947, 385);
+			this.RoomsTab.Size = new System.Drawing.Size(947, 387);
 			this.RoomsTab.TabIndex = 0;
 			this.RoomsTab.Text = "ROOMS";
 			this.RoomsTab.VerticalScrollbarBarColor = true;
@@ -326,7 +326,7 @@
 			this.FooterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.FooterPanel.Location = new System.Drawing.Point(-1, 648);
+			this.FooterPanel.Location = new System.Drawing.Point(-1, 650);
 			this.FooterPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.FooterPanel.Name = "FooterPanel";
 			this.FooterPanel.Size = new System.Drawing.Size(1202, 150);

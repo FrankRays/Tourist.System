@@ -66,14 +66,12 @@
 			this.BodyPanel.Location = new System.Drawing.Point(-1, 176);
 			this.BodyPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.BodyPanel.Name = "BodyPanel";
-			this.BodyPanel.Size = new System.Drawing.Size(1202, 468);
+			this.BodyPanel.Size = new System.Drawing.Size(1202, 470);
 			this.BodyPanel.TabIndex = 19;
 			// 
 			// BasicInformation
 			// 
-			this.BasicInformation.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.BasicInformation.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.BasicInformation.Controls.Add(this.label4);
 			this.BasicInformation.Controls.Add(this.label5);
 			this.BasicInformation.Controls.Add(this.label6);
@@ -90,7 +88,7 @@
 			this.BasicInformation.Controls.Add(this.label3);
 			this.BasicInformation.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BasicInformation.ForeColor = System.Drawing.Color.White;
-			this.BasicInformation.Location = new System.Drawing.Point(164, -3);
+			this.BasicInformation.Location = new System.Drawing.Point(164, -2);
 			this.BasicInformation.Margin = new System.Windows.Forms.Padding(2);
 			this.BasicInformation.Name = "BasicInformation";
 			this.BasicInformation.Padding = new System.Windows.Forms.Padding(2);
@@ -255,7 +253,7 @@
 			this.FooterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.FooterPanel.Location = new System.Drawing.Point(-1, 648);
+			this.FooterPanel.Location = new System.Drawing.Point(-1, 650);
 			this.FooterPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.FooterPanel.Name = "FooterPanel";
 			this.FooterPanel.Size = new System.Drawing.Size(1202, 150);

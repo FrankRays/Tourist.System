@@ -71,7 +71,7 @@
 			this.BodyPanel.Location = new System.Drawing.Point(-1, 176);
 			this.BodyPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.BodyPanel.Name = "BodyPanel";
-			this.BodyPanel.Size = new System.Drawing.Size(1202, 468);
+			this.BodyPanel.Size = new System.Drawing.Size(1202, 471);
 			this.BodyPanel.TabIndex = 19;
 			// 
 			// WrapperPanelGrid
@@ -83,7 +83,7 @@
 			this.WrapperPanelGrid.Controls.Add(this.ClientsDataGrid);
 			this.WrapperPanelGrid.Location = new System.Drawing.Point(231, 24);
 			this.WrapperPanelGrid.Name = "WrapperPanelGrid";
-			this.WrapperPanelGrid.Size = new System.Drawing.Size(953, 426);
+			this.WrapperPanelGrid.Size = new System.Drawing.Size(953, 429);
 			this.WrapperPanelGrid.TabIndex = 23;
 			// 
 			// ClientsDataGrid
@@ -146,7 +146,7 @@
 			this.ClientsDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			this.ClientsDataGrid.RowTemplate.Height = 25;
 			this.ClientsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.ClientsDataGrid.Size = new System.Drawing.Size(949, 424);
+			this.ClientsDataGrid.Size = new System.Drawing.Size(949, 427);
 			this.ClientsDataGrid.TabIndex = 20;
 			// 
 			// IdColumn
@@ -273,7 +273,7 @@
 			this.FooterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.FooterPanel.Location = new System.Drawing.Point(-1, 648);
+			this.FooterPanel.Location = new System.Drawing.Point(-1, 651);
 			this.FooterPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.FooterPanel.Name = "FooterPanel";
 			this.FooterPanel.Size = new System.Drawing.Size(1202, 150);

@@ -10,7 +10,7 @@ namespace Tourist.Server.Forms
 	public partial class EntityForm : MetroForm
 	{
 
-		//private readonly Repository repository = Repository.Instance;
+		private readonly Repository repository = Repository.Instance;
 		private readonly MainForm mMainForm;
 		private bool mBackOrExit = default( bool );
 
@@ -58,8 +58,19 @@ namespace Tourist.Server.Forms
 		{
 			mBackOrExit = true;
 			Close( );
+
+			if (!repository.RepositoryHasAManager() && !repository.RepositoryHasAEmployer())
+			{
+				EmployersForm employersForm = new EmployersForm(mMainForm);
+				employersForm.Show();
+			}
+			else
+			{
+				mMainForm.Show( ); 
+			}
 			
-			mMainForm.Show( ); 
+			
+			
 		}
 
 	}
