@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using Tourist.Data.Classes;
+using Tourist.Data.Interfaces;
 
 namespace Tourist.Server
 {
@@ -49,163 +50,277 @@ namespace Tourist.Server
 
 		#endregion
 
-		#region Generic Methods
-
-		public byte[ ] ImageToByteArray( Image aImage )
-		{
-			MemoryStream ms = new MemoryStream( );
-			aImage.Save( ms, System.Drawing.Imaging.ImageFormat.Png );
-			return ms.ToArray( );
-		}
-
-		public Image byteArrayToImage( byte[ ] byteArrayIn )
-		{
-			MemoryStream ms = new MemoryStream( byteArrayIn );
-			Image returnImage = Image.FromStream( ms );
-			return returnImage;
-		}
-
-		public bool IsNumeric( string isNumber )
-		{
-			int retNum;
-
-			return ( int.TryParse( isNumber, out retNum ) );
-		}
-
-		public bool IsEmailValid( string email )
-		{
-			try
-			{
-				var addr = new System.Net.Mail.MailAddress( email );
-				return true;
-			}
-			catch
-			{
-				return false;
-			}
-		}
-
-		public DateTime ConvertStringToDateTime( string aDate )
-		{
-			try
-			{
-				var convertedDate = Convert.ToDateTime( aDate );
-
-				return convertedDate;
-			}
-			catch ( FormatException )
-			{
-				Console.WriteLine( "'{0}' is not in the proper format.", aDate );
-			}
-
-			return new DateTime( );
-		}
-
-		#endregion
-
 		#region Repository Methods
 
-		public bool isEntityEmpty( )
+		public int Count( string aList )
 		{
-			if ( string.IsNullOrEmpty( mData.Entity.Name ) &&
-				 string.IsNullOrEmpty( mData.Entity.EntityType.ToString( ) ) &&
-				 string.IsNullOrEmpty( mData.Entity.Address ) &&
-				 string.IsNullOrEmpty( mData.Entity.Nif.ToString( ) ) &&
-				 string.IsNullOrEmpty( mData.Entity.PhoneNumber.ToString( ) ) &&
-				 string.IsNullOrEmpty( mData.Entity.Email ) )
+			switch ( aList )
 			{
-				return false;
+				case "Bookings":
+					return mData.Bookings.Count;
+				case "Clients":
+					return mData.Clients.Count;
+				case "Rooms":
+					return mData.Rooms.Count;
+				case "Activities":
+					return mData.Activities.Count;
+				case "Transports":
+					return mData.Transports.Count;
+				case "Managers":
+					return mData.Managers.Count;
+				case "Employees":
+					return mData.Employees.Count;
+				default:
+					return 0;
 			}
-
-			return true;
 		}
 
-		public bool IsBookingsEmpty( )
+		public bool IsEmpty( string aList )
 		{
-			return mData.Bookings.Count == 0;
+			switch ( aList )
+			{
+				case "Entity":
+					if ( string.IsNullOrEmpty( mData.Entity.Name ) &&
+						string.IsNullOrEmpty( mData.Entity.EntityType.ToString( ) ) &&
+						string.IsNullOrEmpty( mData.Entity.Address ) &&
+						string.IsNullOrEmpty( mData.Entity.Nif.ToString( ) ) &&
+						string.IsNullOrEmpty( mData.Entity.PhoneNumber.ToString( ) ) &&
+						string.IsNullOrEmpty( mData.Entity.Email ) )
+					{
+						return false;
+					}
+					return true;
+				case "Bookings":
+					return Count( aList ) == 0;
+				case "Clients":
+					return Count( aList ) == 0;
+				case "Rooms":
+					return Count( aList ) == 0;
+				case "Activities":
+					return Count( aList ) == 0;
+				case "Transports":
+					return Count( aList ) == 0;
+				case "Managers":
+					return Count( aList ) == 0;
+				case "Employees":
+					return Count( aList ) == 0;
+				default:
+					return false;
+			}
 		}
 
-		public bool IsClientsEmpty( )
+		public void SetEntity( byte[ ] aImageBuffer, EntityType aEntityType, string aName, int aNif,
+																		string aAddress, int aPhone, string aEmail )
 		{
-			return mData.Clients.Count == 0;
+			mData.Entity.LogoBuffer = aImageBuffer;
+			mData.Entity.EntityType = aEntityType;
+			mData.Entity.Name = aName;
+			mData.Entity.Nif = aNif;
+			mData.Entity.Address = aAddress;
+			mData.Entity.PhoneNumber = aPhone;
+			mData.Entity.Email = aEmail;
 		}
 
-		public bool IsRoomsEmpty( )
+		public void Append( object aObject, string aType )
 		{
-			return mData.Rooms.Count == 0;
+			switch ( aType )
+			{
+				case "Booking":
+					if ( mData.Bookings.Contains( aObject as Booking ) ) return;
+					mData.Bookings.Add( aObject as Booking );
+					return;
+				case "Client":
+					if ( mData.Clients.Contains( aObject as Client ) ) return;
+					mData.Clients.Add( aObject as Client );
+					return;
+				case "Room":
+					if ( mData.Rooms.Contains( aObject as Room ) ) return;
+					mData.Rooms.Add( aObject as Room );
+					return;
+				case "Activity":
+					if ( mData.Activities.Contains( aObject as Activity ) ) return;
+					mData.Activities.Add( aObject as Activity );
+					return;
+				case "Transport":
+					if ( mData.Transports.Contains( aObject as Transport ) ) return;
+					mData.Transports.Add( aObject as Transport );
+					return;
+				case "Manager":
+					if ( mData.Managers.Contains( aObject as Manager ) ) return;
+					mData.Managers.Add( aObject as Manager );
+					return;
+				case "Employer":
+					if ( mData.Employees.Contains( aObject as Employer ) ) return;
+					mData.Employees.Add( aObject as Employer );
+					return;
+				default:
+					return;
+			}
 		}
 
-		public bool IsActivitiesEmpty( )
+		public void Remove( object aObject, string aType )
 		{
-			return mData.Activities.Count == 0;
+			switch ( aType )
+			{
+				case "Booking":
+					if ( !mData.Bookings.Contains( aObject as Booking ) ) return;
+					mData.Bookings.Add( aObject as Booking );
+					return;
+				case "Client":
+					if ( !mData.Clients.Contains( aObject as Client ) ) return;
+					mData.Clients.Add( aObject as Client );
+					return;
+				case "Room":
+					if ( !mData.Rooms.Contains( aObject as Room ) ) return;
+					mData.Rooms.Add( aObject as Room );
+					return;
+				case "Activity":
+					if ( !mData.Activities.Contains( aObject as Activity ) ) return;
+					mData.Activities.Add( aObject as Activity );
+					return;
+				case "Transport":
+					if ( !mData.Transports.Contains( aObject as Transport ) ) return;
+					mData.Transports.Add( aObject as Transport );
+					return;
+				case "Manager":
+					if ( !mData.Managers.Contains( aObject as Manager ) ) return;
+					mData.Managers.Add( aObject as Manager );
+					return;
+				case "Employer":
+					if ( !mData.Employees.Contains( aObject as Employer ) ) return;
+					mData.Employees.Add( aObject as Employer );
+					return;
+				default:
+					return;
+			}
 		}
 
-		public bool IsTransportsEmpty( )
+		public int GetId( int aIndex, string aList )
 		{
-			return mData.Transports.Count == 0;
+			switch ( aList )
+			{
+				case "Bookings":
+					return mData.Bookings[ aIndex ].Id;
+				case "Clients":
+					return mData.Clients[ aIndex ].Id;
+				case "Rooms":
+					return mData.Rooms[ aIndex ].Id;
+				case "Activities":
+					return mData.Activities[ aIndex ].Id;
+				case "Transports":
+					return mData.Transports[ aIndex ].Id;
+				case "Managers":
+					return mData.Managers[ aIndex ].Id;
+				case "Employees":
+					return mData.Employees[ aIndex ].Id;
+				default:
+					return 0;
+			}
 		}
 
-		public bool IsManagersEmpty( )
+		public bool ExistingId( int aId, string aList )
 		{
-			return mData.Managers.Count == 0;
+			switch ( aList )
+			{
+				case "Bookings":
+					return mData.Bookings.Any( booking => booking.Id == aId );
+				case "Clients":
+					return mData.Clients.Any( client => client.Id == aId );
+				case "Rooms":
+					return mData.Rooms.Any( room => room.Id == aId );
+				case "Activities":
+					return mData.Activities.Any( activity => activity.Id == aId );
+				case "Transports":
+					return mData.Transports.Any( transport => transport.Id == aId );
+				case "Managers":
+					return mData.Managers.Any( manager => manager.Id == aId );
+				case "Employees":
+					return mData.Employees.Any( employer => employer.Id == aId );
+				default:
+					return false;
+			}
 		}
 
-		public bool IsEmployeesEmpty( )
+		public int NextId( string aType )
 		{
-			return mData.Employees.Count == 0;
+			switch ( aType )
+			{
+				case "Booking":
+					if ( IsEmpty( "Bookings" ) ) return 1;
+					return mData.Bookings.Select( booking => booking.Id ).ToList( ).Max( ) + 1;
+				case "Client":
+					if ( IsEmpty( "Clients" ) ) return 1;
+					return mData.Clients.Select( client => client.Id ).ToList( ).Max( ) + 1;
+				case "Room":
+					if ( IsEmpty( "Room" ) ) return 1;
+					return mData.Rooms.Select( room => room.Id ).ToList( ).Max( ) + 1;
+				case "Activity":
+					if ( IsEmpty( "Activities" ) ) return 1;
+					return mData.Activities.Select( activity => activity.Id ).ToList( ).Max( ) + 1;
+				case "Transport":
+					if ( IsEmpty( "Transports" ) ) return 1;
+					return mData.Transports.Select( transport => transport.Id ).ToList( ).Max( ) + 1;
+				case "Manager":
+					if ( IsEmpty( "Managers" ) ) return 1;
+					return mData.Managers.Select( manager => manager.Id ).ToList( ).Max( ) + 1;
+				case "Employer":
+					if ( IsEmpty( "Employees" ) ) return 1;
+					return mData.Employees.Select( manager => manager.Id ).ToList( ).Max( ) + 1;
+				default:
+					return 0;
+			}
 		}
 
-		// Count
-
-		public int BookingsCount( )
+		public void EditManager( int aId, string aEditedCell )
 		{
-			return mData.Rooms.Count;
+			switch ( aEditedCell )
+			{
+				case "FirstName":
+					foreach ( var manager in mData.Managers.Where( manager => manager.Id == aId ) )
+						manager.FirstName = aEditedCell;
+					return;
+				case "LastName":
+					foreach ( var manager in mData.Managers.Where( manager => manager.Id == aId ) )
+						manager.LastName = aEditedCell;
+					return;
+				case "Gender":
+					foreach ( var manager in mData.Managers.Where( manager => manager.Id == aId ) )
+						manager.Gender = ( Gender ) Shared.ConvertStringToEnum( aEditedCell, "Gender" );
+					return;
+				case "Nationality":
+					foreach ( var manager in mData.Managers.Where( manager => manager.Id == aId ) )
+						manager.Nationality = aEditedCell;
+					return;
+				case "BirthDate":
+					foreach ( var manager in mData.Managers.Where( manager => manager.Id == aId ) )
+						manager.BirthDate = Shared.ConvertStringToDateTime( aEditedCell );
+					return;
+				case "Address":
+					foreach ( var manager in mData.Managers.Where( manager => manager.Id == aId ) )
+						manager.Address = aEditedCell;
+					return;
+				case "Phone":
+					foreach ( var manager in mData.Managers.Where( manager => manager.Id == aId ) )
+						manager.PhoneNumber = Shared.ConvertStringToInt( aEditedCell );
+					return;
+				case "Email":
+					foreach ( var manager in mData.Managers.Where( manager => manager.Id == aId ) )
+						manager.Email = aEditedCell ;
+					return;
+				case "Username":
+					foreach ( var manager in mData.Managers.Where( manager => manager.Id == aId ) )
+						manager.Username = aEditedCell ;
+					return;
+				case "Password":
+					foreach ( var manager in mData.Managers.Where( manager => manager.Id == aId ) )
+						manager.Password = aEditedCell ;
+					return;
+				default:
+					return;
+			}
 		}
 
-		public int ClientsCount( )
-		{
-			return mData.Rooms.Count;
-		}
-
-		public int RoomsCount( )
-		{
-			return mData.Rooms.Count;
-		}
-
-		public int ActivitiesCount( )
-		{
-			return mData.Activities.Count;
-		}
-
-		public int TransportCount( )
-		{
-			return mData.Transports.Count;
-		}
-
-		public int ManagersCount( )
-		{
-			return mData.Managers.Count;
-		}
-
-		public int EmployeesCount( )
-		{
-			return mData.Employees.Count;
-		}
-
-		public int NextManagersId( )
-		{
-			if ( ManagersCount( ) == 0 )
-				return 1;
-
-			var temp = mData.Managers.Select( manager => manager.Id ).ToList( );
-
-			return temp.Max( ) + 1;
-		}
 
 		#endregion
-
-
-
-
 	}
 }

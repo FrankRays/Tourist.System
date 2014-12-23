@@ -56,11 +56,11 @@ namespace Tourist.Server.Forms
 
 		private void BackPanel_MouseClick( object sender, MouseEventArgs e )
 		{
-			if ( !repository.IsEmployeesEmpty( ) )
+			if ( !repository.IsEmpty( "Employees" ) )
 			{
 				mBackOrExit = true;
 				Close( );
-				
+
 				mMainForm.Show( );
 			}
 		}

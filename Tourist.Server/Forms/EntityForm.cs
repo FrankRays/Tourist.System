@@ -27,7 +27,7 @@ namespace Tourist.Server.Forms
 
 		private void EntitiesForm_Load( object sender, EventArgs e )
 		{
-			LoadEntityData();
+			LoadEntityData( );
 			SetFormFullScreen( );
 		}
 
@@ -46,14 +46,14 @@ namespace Tourist.Server.Forms
 		{
 			var entity = repository.MData.Entity;
 
-			LogoPictureBox.Image = repository.byteArrayToImage( entity.LogoBuffer );
+			LogoPictureBox.Image = Shared.ByteArrayToImage( entity.LogoBuffer );
 			NameTextBox.Text = entity.Name;
 			TypeComboBox.Text = entity.EntityType.ToString( );
 			NifTextBox.Text = entity.Nif.ToString( );
 			AddressTextBox.Text = entity.Address;
 			PhoneTextBox.Text = entity.PhoneNumber.ToString( );
 			EmailTextBox.Text = entity.Email;
-			
+
 			ControlsToReadOnly( false );
 		}
 
@@ -65,27 +65,24 @@ namespace Tourist.Server.Forms
 				LogoPictureBox.Image = new Bitmap( Resources.NoImage );
 			}
 
-			var imageBuffer = repository.ImageToByteArray( LogoPictureBox.Image );
-			var entityType = ( EntityType ) Enum.Parse( typeof( EntityType ), TypeComboBox.Text );
+			var imageBuffer = Shared.ImageToByteArray( LogoPictureBox.Image );
+			var entityType = ( EntityType ) Shared.ConvertStringToEnum( TypeComboBox.Text, "EntityType" );
 			var entityName = NameTextBox.Text;
 			var entityNif = Convert.ToInt32( NifTextBox.Text );
 			var entityAddress = AddressTextBox.Text;
 			var entityPhone = Convert.ToInt32( PhoneTextBox.Text );
 			var entityEmail = EmailTextBox.Text;
 
-			repository.MData.SetEntityProperties( imageBuffer, entityType, entityName, entityNif,
-				entityAddress, entityPhone, entityEmail );
-
+			repository.SetEntity( imageBuffer, entityType, entityName, entityNif,
+																				entityAddress, entityPhone, entityEmail );
 			repository.Save( repository.FileName );
 
-			MetroMessageBox.Show( this, "Entity Information saved with Sucess !!!", "Metro Title", 
-			MessageBoxButtons.OK, MessageBoxIcon.Information );
-
+			MetroMessageBox.Show( this, "Entity Information saved with Sucess !!!", "Metro Title",
+																		MessageBoxButtons.OK, MessageBoxIcon.Information );
 		}
 
 		private void LogoPictureBox_MouseClick( object sender, MouseEventArgs e )
 		{
-
 			LogoLoad.AddExtension = true;
 			LogoLoad.Filter = "PNG|*.png|JPEG|*.jpg;*.jpeg";
 			LogoLoad.Title = "Save Entity Logo";
@@ -95,7 +92,6 @@ namespace Tourist.Server.Forms
 			{
 				LogoPictureBox.Image = new Bitmap( LogoLoad.FileName );
 			}
-
 		}
 
 		private void SaveButton_Click( object sender, EventArgs e )
@@ -150,7 +146,7 @@ namespace Tourist.Server.Forms
 				ErrorProvider.SetError( NifTextBox, "Error the nif field cant be empty." );
 				ErrorProvider.SetIconPadding( NifTextBox, -25 );
 			}
-			else if ( !repository.IsNumeric( NifTextBox.Text ) )
+			else if ( !Shared.IsNumeric( NifTextBox.Text ) )
 			{
 				e.Cancel = true;
 				//NifTextBox.Focus( );
@@ -189,7 +185,7 @@ namespace Tourist.Server.Forms
 				ErrorProvider.SetError( PhoneTextBox, "Error the phone field cant be empty." );
 				ErrorProvider.SetIconPadding( PhoneTextBox, -25 );
 			}
-			else if ( !repository.IsNumeric( PhoneTextBox.Text ) )
+			else if ( !Shared.IsNumeric( PhoneTextBox.Text ) )
 			{
 				e.Cancel = true;
 				//PhoneTextBox.Focus( );
@@ -212,7 +208,7 @@ namespace Tourist.Server.Forms
 				ErrorProvider.SetError( EmailTextBox, "Error the email field cant be empty." );
 				ErrorProvider.SetIconPadding( EmailTextBox, -25 );
 			}
-			else if ( !repository.IsEmailValid( EmailTextBox.Text ) )
+			else if ( !Shared.IsEmailValid( EmailTextBox.Text ) )
 			{
 				e.Cancel = true;
 				//EmailTextBox.Focus( );
@@ -245,9 +241,9 @@ namespace Tourist.Server.Forms
 
 		private void BackPanel_MouseClick( object sender, MouseEventArgs e )
 		{
-			if ( repository.isEntityEmpty( ) )
+			if ( repository.IsEmpty( "Entity" ) )
 			{
-				if ( !repository.HasAManager( ) && !repository.isEmployeesEmpty( ) )
+				if ( !repository.IsEmpty( "Managers" ) && !repository.IsEmpty( "Employees" ) )
 				{
 					mBackOrExit = true;
 					Close( );
@@ -264,7 +260,5 @@ namespace Tourist.Server.Forms
 				}
 			}
 		}
-
-
 	}
 }

@@ -39,24 +39,24 @@ namespace Tourist.Server.Forms
 
 		}
 
-		private void OkButton_Click(object sender, EventArgs e)
+		private void OkButton_Click( object sender, EventArgs e )
 		{
-			Hide();
+			Hide( );
 
-			if ( Repository.isEntityEmpty())
+			if ( Repository.IsEmpty( "Entity" ) )
 			{
-				var entityForm = new EntityForm(mMainForm);
-				entityForm.Show();
+				var entityForm = new EntityForm( mMainForm );
+				entityForm.Show( );
 
 			}
-			else if (Repository.IsManagersEmpty() && Repository.IsEmployeesEmpty())
+			else if ( Repository.IsEmpty( "Managers" ) && Repository.IsEmpty( "Employees" ) )
 			{
-				var managerForm = new ManagersForm(mMainForm);
-				managerForm.Show();
+				var managerForm = new ManagersForm( mMainForm );
+				managerForm.Show( );
 			}
 			else
 			{
-				mMainForm.Show();
+				mMainForm.Show( );
 			}
 
 		}
