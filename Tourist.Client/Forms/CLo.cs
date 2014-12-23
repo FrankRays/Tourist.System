@@ -4,26 +4,26 @@ using System.Windows.Forms;
 using MetroFramework;
 using MetroFramework.Forms;
 
-namespace Tourist.Server.Forms
+namespace Tourist.Client.Forms
 {
 	public partial class LoginForm : MetroForm
 	{
 
-		private readonly Repository Repository = Repository.Instance;
+		private readonly Repository repository = Repository.Instance;
 		private MainForm mMainForm;
 		private bool mLoginFormOrEntityForm = default( bool );
 		private int mEntityId = default( int );
 
-
 		public LoginForm( )
 		{
 			InitializeComponent( );
-			mMainForm = new MainForm( this );
 		}
 
 		private void LoginForm_Load( object sender, EventArgs e )
 		{
 			SetFormFullScreen( );
+			mLoginFormOrEntityForm = CanLoadEntityNamesComboBox( );
+
 		}
 
 		private void SetFormFullScreen( )
@@ -39,24 +39,41 @@ namespace Tourist.Server.Forms
 
 		}
 
-		private void OkButton_Click(object sender, EventArgs e)
+		private void OkButton_Click( object sender, EventArgs e )
 		{
-			Hide();
+			ShowLoginFormOrEntityForm( );
+		}
 
-			if ( Repository.isEntityEmpty())
-			{
-				var entityForm = new EntityForm(mMainForm);
-				entityForm.Show();
+		private bool CanLoadEntityNamesComboBox( )
+		{
 
-			}
-			else if (Repository.IsManagersEmpty() && Repository.IsEmployeesEmpty())
+			if ( repository.IsEmpty( ) )
+				return false;
+
+			var bindingSource = new BindingSource { DataSource = repository.EntityNameList( ) };
+
+			EntityNameCombox.DataSource = bindingSource;
+
+			return true;
+		}
+
+		private void ShowLoginFormOrEntityForm( )
+		{
+
+			if ( mLoginFormOrEntityForm )
 			{
-				var managerForm = new ManagersForm(mMainForm);
-				managerForm.Show();
+				var selectedItem = EntityNameCombox.SelectedItem;
+				mEntityId = repository.GetEntityId( selectedItem.ToString( ) );
+				mMainForm = new MainForm( this, mEntityId );
+				Hide( );
+				mMainForm.Show( );
 			}
 			else
 			{
-				mMainForm.Show();
+				Hide( );
+				mMainForm = new MainForm( this );
+				var entityForm = new EntityForm( mMainForm );
+				entityForm.Show( );
 			}
 
 		}
@@ -81,7 +98,10 @@ namespace Tourist.Server.Forms
 
 		private void LoginForm_VisibilityChange( object sender, EventArgs e )
 		{
-
+			if ( Visible )
+			{
+				mLoginFormOrEntityForm = CanLoadEntityNamesComboBox( );
+			}
 		}
 	}
 }

@@ -7,7 +7,5 @@
 		EntityType EntityType { get; set; }
 		string Name { get; set; }
 		int Nif { get; set; }
-
-		
 	}
 }

@@ -41,6 +41,12 @@ namespace Tourist.Data.Classes
 			set { mLastName = value; }
 		}
 
+		public Gender Gender
+		{
+			get { return mGender; }
+			set { mGender = value; }
+		}
+		
 		public string Nationality
 		{
 			get { return mNationality; }
@@ -51,12 +57,6 @@ namespace Tourist.Data.Classes
 		{
 			get { return mBirthDate; }
 			set { mBirthDate = value; }
-		}
-
-		public Gender Gender
-		{
-			get { return mGender; }
-			set { mGender = value; }
 		}
 
 		public int Nif

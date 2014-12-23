@@ -27,6 +27,7 @@ namespace Tourist.Server.Forms
 
 		private void EntitiesForm_Load( object sender, EventArgs e )
 		{
+			LoadEntityData();
 			SetFormFullScreen( );
 		}
 
@@ -39,6 +40,21 @@ namespace Tourist.Server.Forms
 
 			FormBorderStyle = FormBorderStyle.None;
 			Focus( );
+		}
+
+		private void LoadEntityData( )
+		{
+			var entity = repository.MData.Entity;
+
+			LogoPictureBox.Image = repository.byteArrayToImage( entity.LogoBuffer );
+			NameTextBox.Text = entity.Name;
+			TypeComboBox.Text = entity.EntityType.ToString( );
+			NifTextBox.Text = entity.Nif.ToString( );
+			AddressTextBox.Text = entity.Address;
+			PhoneTextBox.Text = entity.PhoneNumber.ToString( );
+			EmailTextBox.Text = entity.Email;
+			
+			ControlsToReadOnly( false );
 		}
 
 		private void SaveEntityData( )
@@ -62,8 +78,8 @@ namespace Tourist.Server.Forms
 
 			repository.Save( repository.FileName );
 
-			MetroMessageBox.Show( this, "Entity Information saved with Sucess !!!", "Metro Title", MessageBoxButtons.OK,
-				MessageBoxIcon.Information );
+			MetroMessageBox.Show( this, "Entity Information saved with Sucess !!!", "Metro Title", 
+			MessageBoxButtons.OK, MessageBoxIcon.Information );
 
 		}
 
@@ -106,7 +122,7 @@ namespace Tourist.Server.Forms
 			EmailTextBox.ReadOnly = aBool;
 			SaveButton.Enabled = aBool;
 			EditButton.Enabled = !aBool;
-			//LogoLoad.ReadOnlyChecked = aBool;
+			LogoPictureBox.Enabled = aBool;
 		}
 
 		private void NameTextBox_Validating( object sender, System.ComponentModel.CancelEventArgs e )
@@ -138,7 +154,7 @@ namespace Tourist.Server.Forms
 			{
 				e.Cancel = true;
 				//NifTextBox.Focus( );
-				ErrorProvider.SetError( NifTextBox, "Error the nif can only have numbers." );
+				ErrorProvider.SetError( NifTextBox, "Error the nif field is not valid." );
 				ErrorProvider.SetIconPadding( NifTextBox, -25 );
 			}
 			else
@@ -170,14 +186,14 @@ namespace Tourist.Server.Forms
 			{
 				e.Cancel = true;
 				//PhoneTextBox.Focus( );
-				ErrorProvider.SetError( PhoneTextBox, "Error the nif field cant be empty." );
+				ErrorProvider.SetError( PhoneTextBox, "Error the phone field cant be empty." );
 				ErrorProvider.SetIconPadding( PhoneTextBox, -25 );
 			}
 			else if ( !repository.IsNumeric( PhoneTextBox.Text ) )
 			{
 				e.Cancel = true;
 				//PhoneTextBox.Focus( );
-				ErrorProvider.SetError( PhoneTextBox, "Error the nif can only have numbers." );
+				ErrorProvider.SetError( PhoneTextBox, "Error the phone field is not valid." );
 				ErrorProvider.SetIconPadding( PhoneTextBox, -25 );
 			}
 			else
@@ -193,7 +209,14 @@ namespace Tourist.Server.Forms
 			{
 				e.Cancel = true;
 				//EmailTextBox.Focus( );
-				ErrorProvider.SetError( EmailTextBox, "Error the address field cant be empty." );
+				ErrorProvider.SetError( EmailTextBox, "Error the email field cant be empty." );
+				ErrorProvider.SetIconPadding( EmailTextBox, -25 );
+			}
+			else if ( !repository.IsEmailValid( EmailTextBox.Text ) )
+			{
+				e.Cancel = true;
+				//EmailTextBox.Focus( );
+				ErrorProvider.SetError( EmailTextBox, "Error the email field is not valid." );
 				ErrorProvider.SetIconPadding( EmailTextBox, -25 );
 			}
 			else
@@ -222,9 +245,9 @@ namespace Tourist.Server.Forms
 
 		private void BackPanel_MouseClick( object sender, MouseEventArgs e )
 		{
-			if ( repository.RepositoryHasAEntity( ) )
+			if ( repository.isEntityEmpty( ) )
 			{
-				if ( !repository.RepositoryHasAManager( ) && !repository.RepositoryHasAEmployer( ) )
+				if ( !repository.HasAManager( ) && !repository.isEmployeesEmpty( ) )
 				{
 					mBackOrExit = true;
 					Close( );

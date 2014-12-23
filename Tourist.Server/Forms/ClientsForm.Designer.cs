@@ -34,15 +34,6 @@
 			this.BodyPanel = new System.Windows.Forms.Panel();
 			this.WrapperPanelGrid = new System.Windows.Forms.Panel();
 			this.ClientsDataGrid = new MetroFramework.Controls.MetroGrid();
-			this.IdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.GenderColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-			this.FirstNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.LastNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.BirthDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.NifColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.AddressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.PhoneColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.EmailColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.GroupSearch = new System.Windows.Forms.GroupBox();
 			this.OkButton = new System.Windows.Forms.Button();
 			this.textBox1 = new System.Windows.Forms.TextBox();
@@ -53,6 +44,16 @@
 			this.ImagePanel = new System.Windows.Forms.Panel();
 			this.SubTitleLabel = new System.Windows.Forms.Label();
 			this.TitleLabel = new System.Windows.Forms.Label();
+			this.IdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.FirstNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.LastNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.GenderColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+			this.NationalityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.BirthDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.NifColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.AddressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.PhoneColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.EmailColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.BodyPanel.SuspendLayout();
 			this.WrapperPanelGrid.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ClientsDataGrid)).BeginInit();
@@ -111,9 +112,10 @@
 			this.ClientsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.ClientsDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdColumn,
-            this.GenderColumn,
             this.FirstNameColumn,
             this.LastNameColumn,
+            this.GenderColumn,
+            this.NationalityColumn,
             this.BirthDateColumn,
             this.NifColumn,
             this.AddressColumn,
@@ -148,75 +150,6 @@
 			this.ClientsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.ClientsDataGrid.Size = new System.Drawing.Size(949, 427);
 			this.ClientsDataGrid.TabIndex = 20;
-			// 
-			// IdColumn
-			// 
-			this.IdColumn.HeaderText = "ID";
-			this.IdColumn.MinimumWidth = 150;
-			this.IdColumn.Name = "IdColumn";
-			this.IdColumn.ReadOnly = true;
-			// 
-			// GenderColumn
-			// 
-			this.GenderColumn.HeaderText = "Gender";
-			this.GenderColumn.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-			this.GenderColumn.MinimumWidth = 150;
-			this.GenderColumn.Name = "GenderColumn";
-			this.GenderColumn.ReadOnly = true;
-			this.GenderColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.GenderColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-			// 
-			// FirstNameColumn
-			// 
-			this.FirstNameColumn.HeaderText = "First Name";
-			this.FirstNameColumn.MinimumWidth = 150;
-			this.FirstNameColumn.Name = "FirstNameColumn";
-			this.FirstNameColumn.ReadOnly = true;
-			this.FirstNameColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			// 
-			// LastNameColumn
-			// 
-			this.LastNameColumn.HeaderText = "Last Name";
-			this.LastNameColumn.MinimumWidth = 150;
-			this.LastNameColumn.Name = "LastNameColumn";
-			this.LastNameColumn.ReadOnly = true;
-			// 
-			// BirthDateColumn
-			// 
-			this.BirthDateColumn.HeaderText = "BirthDate";
-			this.BirthDateColumn.MinimumWidth = 150;
-			this.BirthDateColumn.Name = "BirthDateColumn";
-			this.BirthDateColumn.ReadOnly = true;
-			// 
-			// NifColumn
-			// 
-			this.NifColumn.HeaderText = "NIF";
-			this.NifColumn.MinimumWidth = 150;
-			this.NifColumn.Name = "NifColumn";
-			this.NifColumn.ReadOnly = true;
-			// 
-			// AddressColumn
-			// 
-			this.AddressColumn.HeaderText = "Address";
-			this.AddressColumn.MinimumWidth = 150;
-			this.AddressColumn.Name = "AddressColumn";
-			this.AddressColumn.ReadOnly = true;
-			// 
-			// PhoneColumn
-			// 
-			this.PhoneColumn.HeaderText = "Phone";
-			this.PhoneColumn.MinimumWidth = 150;
-			this.PhoneColumn.Name = "PhoneColumn";
-			this.PhoneColumn.ReadOnly = true;
-			// 
-			// EmailColumn
-			// 
-			this.EmailColumn.HeaderText = "Email";
-			this.EmailColumn.MinimumWidth = 150;
-			this.EmailColumn.Name = "EmailColumn";
-			this.EmailColumn.ReadOnly = true;
 			// 
 			// GroupSearch
 			// 
@@ -343,6 +276,81 @@
 			this.TitleLabel.TabIndex = 3;
 			this.TitleLabel.Text = "Clients";
 			// 
+			// IdColumn
+			// 
+			this.IdColumn.HeaderText = "ID";
+			this.IdColumn.MinimumWidth = 150;
+			this.IdColumn.Name = "IdColumn";
+			this.IdColumn.ReadOnly = true;
+			// 
+			// FirstNameColumn
+			// 
+			this.FirstNameColumn.HeaderText = "First Name";
+			this.FirstNameColumn.MinimumWidth = 150;
+			this.FirstNameColumn.Name = "FirstNameColumn";
+			this.FirstNameColumn.ReadOnly = true;
+			this.FirstNameColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			// 
+			// LastNameColumn
+			// 
+			this.LastNameColumn.HeaderText = "Last Name";
+			this.LastNameColumn.MinimumWidth = 150;
+			this.LastNameColumn.Name = "LastNameColumn";
+			this.LastNameColumn.ReadOnly = true;
+			// 
+			// GenderColumn
+			// 
+			this.GenderColumn.HeaderText = "Gender";
+			this.GenderColumn.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+			this.GenderColumn.MinimumWidth = 150;
+			this.GenderColumn.Name = "GenderColumn";
+			this.GenderColumn.ReadOnly = true;
+			this.GenderColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.GenderColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			// 
+			// NationalityColumn
+			// 
+			this.NationalityColumn.HeaderText = "Nationality";
+			this.NationalityColumn.MinimumWidth = 150;
+			this.NationalityColumn.Name = "NationalityColumn";
+			// 
+			// BirthDateColumn
+			// 
+			this.BirthDateColumn.HeaderText = "BirthDate";
+			this.BirthDateColumn.MinimumWidth = 150;
+			this.BirthDateColumn.Name = "BirthDateColumn";
+			this.BirthDateColumn.ReadOnly = true;
+			// 
+			// NifColumn
+			// 
+			this.NifColumn.HeaderText = "NIF";
+			this.NifColumn.MinimumWidth = 150;
+			this.NifColumn.Name = "NifColumn";
+			this.NifColumn.ReadOnly = true;
+			// 
+			// AddressColumn
+			// 
+			this.AddressColumn.HeaderText = "Address";
+			this.AddressColumn.MinimumWidth = 150;
+			this.AddressColumn.Name = "AddressColumn";
+			this.AddressColumn.ReadOnly = true;
+			// 
+			// PhoneColumn
+			// 
+			this.PhoneColumn.HeaderText = "Phone";
+			this.PhoneColumn.MinimumWidth = 150;
+			this.PhoneColumn.Name = "PhoneColumn";
+			this.PhoneColumn.ReadOnly = true;
+			// 
+			// EmailColumn
+			// 
+			this.EmailColumn.HeaderText = "Email";
+			this.EmailColumn.MinimumWidth = 150;
+			this.EmailColumn.Name = "EmailColumn";
+			this.EmailColumn.ReadOnly = true;
+			// 
 			// ClientsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -387,9 +395,10 @@
 		private System.Windows.Forms.Label TitleLabel;
 		private MetroFramework.Controls.MetroGrid ClientsDataGrid;
 		private System.Windows.Forms.DataGridViewTextBoxColumn IdColumn;
-		private System.Windows.Forms.DataGridViewComboBoxColumn GenderColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn FirstNameColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn LastNameColumn;
+		private System.Windows.Forms.DataGridViewComboBoxColumn GenderColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn NationalityColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn BirthDateColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn NifColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn AddressColumn;

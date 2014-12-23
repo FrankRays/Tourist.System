@@ -55,7 +55,7 @@ namespace Tourist.Server
 								   int aPhone, 
 								   string aEmail )
 			{
-				Entity.ImageBuffer = aImageBuffer;
+				Entity.LogoBuffer = aImageBuffer;
 				Entity.EntityType = aEntityType;
 				Entity.Name = aName;
 				Entity.Nif = aNif;

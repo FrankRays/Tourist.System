@@ -46,16 +46,16 @@ namespace Tourist.Data.Classes
 			set { mNationality = value; }
 		}
 
-		public DateTime BirthDate
-		{
-			get { return mBirthDate; }
-			set { mBirthDate = value; }
-		}
-
 		public Gender Gender
 		{
 			get { return mGender; }
 			set { mGender = value; }
+		}
+
+		public DateTime BirthDate
+		{
+			get { return mBirthDate; }
+			set { mBirthDate = value; }
 		}
 
 		public int Nif

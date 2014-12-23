@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Xml.Serialization;
 using Tourist.Data.Interfaces;
 
 namespace Tourist.Data.Classes
@@ -15,7 +10,7 @@ namespace Tourist.Data.Classes
 		#region Fields
 
 		private static int mCounter = 0;
-		private byte[ ] mImageBuffer;
+		private byte[ ] mLogoBuffer;
 		private EntityType mEntityType;
 		private string mName;
 		private int mNif;
@@ -29,10 +24,10 @@ namespace Tourist.Data.Classes
 
 		public int Id { get; set; }
 
-		public byte[ ] ImageBuffer
+		public byte[ ] LogoBuffer
 		{
-			get { return mImageBuffer; }
-			set { mImageBuffer = value; }
+			get { return mLogoBuffer; }
+			set { mLogoBuffer = value; }
 		}
 
 		public EntityType EntityType
