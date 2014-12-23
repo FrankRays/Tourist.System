@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Xml.Serialization;
 using Tourist.Data.Interfaces;
 
 namespace Tourist.Data.Classes
@@ -10,7 +9,8 @@ namespace Tourist.Data.Classes
 		
 		#region Fields
 
-		private static int mCounter = 0;
+		private static int mCounter = default( int );
+		private int mNumber = default( int );
 		private string mName;
 		private string mType;
 		private double mPrice;
@@ -21,45 +21,60 @@ namespace Tourist.Data.Classes
 
 		#region Properties
 
-		public int Id { get; set; }
+		public int Id
+		{
+			get { return mNumber; }
+			set { mNumber = value; Notify( this ); }
+		}
 
 		public string Name
 		{
 			get { return mName; }
-			set { mName = value; }
+			set { mName = value; Notify( this ); }
 		}
 
 		public string Type
 		{
 			get { return mType; }
-			set { mType = value; }
+			set { mType = value; Notify( this ); }
 		}
 
 		public double Price
 		{
 			get { return mPrice; }
-			set { mPrice = value; }
+			set { mPrice = value;  Notify(this); }
 		}
 
 		public int Capacity
 		{
 			get { return mCapacity; }
-			set { mCapacity = value; }
+			set { mCapacity = value; Notify( this ); }
 		}
 
 		public BookableState State
 		{
 			get { return mBookableState; }
-			set { mBookableState = value; }
+			set { mBookableState = value; Notify( this ); }
 		}
 
 		#endregion
 
 		#region Constructor
 
-		public Transport()
+		public Transport( )
 		{
 			Id = ++mCounter;
+		}
+
+		#endregion
+
+		#region ISubject Observer
+
+		public event UpdateEventHandler OnUpdate;
+
+		public void Notify( object aData = null )
+		{
+			if ( OnUpdate != null ) OnUpdate( this, aData );
 		}
 
 		#endregion

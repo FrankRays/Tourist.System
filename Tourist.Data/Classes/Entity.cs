@@ -9,9 +9,10 @@ namespace Tourist.Data.Classes
 
 		#region Fields
 
-		private static int mCounter = 0;
+		private static int mCounter = default( int );
+		private int mNumber = default (int);
 		private byte[ ] mLogoBuffer;
-		private EntityType mEntityType;
+		private EnumEntityType mEntityType;
 		private string mName;
 		private int mNif;
 		private string mAddress;
@@ -22,48 +23,52 @@ namespace Tourist.Data.Classes
 
 		#region Properties
 
-		public int Id { get; set; }
+		public int Id
+		{
+			get { return mNumber; }
+			set { mNumber = value; Notify( this ); }
+		}
 
 		public byte[ ] LogoBuffer
 		{
 			get { return mLogoBuffer; }
-			set { mLogoBuffer = value; }
+			set { mLogoBuffer = value; Notify( this ); }
 		}
 
-		public EntityType EntityType
+		public EnumEntityType EntityType
 		{
 			get { return mEntityType; }
-			set { mEntityType = value; }
+			set { mEntityType = value; Notify( this ); }
 		}
 
 		public string Name
 		{
 			get { return mName; }
-			set { mName = value; }
+			set { mName = value; Notify( this ); }
 		}
 
 		public int Nif
 		{
 			get { return mNif; }
-			set { mNif = value; }
+			set { mNif = value; Notify( this ); }
 		}
 
 		public string Address
 		{
 			get { return mAddress; }
-			set { mAddress = value; }
+			set { mAddress = value; Notify( this ); }
 		}
 
-		public int PhoneNumber
+		public int Phone
 		{
 			get { return mPhoneNumber; }
-			set { mPhoneNumber = value; }
+			set { mPhoneNumber = value; Notify( this ); }
 		}
 
 		public string Email
 		{
 			get { return mEmail; }
-			set { mEmail = value; }
+			set { mEmail = value; Notify( this ); }
 		}
 
 		#endregion
@@ -77,5 +82,15 @@ namespace Tourist.Data.Classes
 
 		#endregion
 
+		#region ISubject Observer
+
+		public event UpdateEventHandler OnUpdate;
+
+		public void Notify( object aData = null )
+		{
+			if ( OnUpdate != null ) OnUpdate( this, aData );
+		}
+
+		#endregion
 	}
 }

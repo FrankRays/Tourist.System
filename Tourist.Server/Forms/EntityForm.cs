@@ -51,7 +51,7 @@ namespace Tourist.Server.Forms
 			TypeComboBox.Text = entity.EntityType.ToString( );
 			NifTextBox.Text = entity.Nif.ToString( );
 			AddressTextBox.Text = entity.Address;
-			PhoneTextBox.Text = entity.PhoneNumber.ToString( );
+			PhoneTextBox.Text = entity.Phone.ToString( );
 			EmailTextBox.Text = entity.Email;
 
 			ControlsToReadOnly( false );
@@ -66,7 +66,7 @@ namespace Tourist.Server.Forms
 			}
 
 			var imageBuffer = Shared.ImageToByteArray( LogoPictureBox.Image );
-			var entityType = ( EntityType ) Shared.ConvertStringToEnum( TypeComboBox.Text, "EntityType" );
+			var entityType = ( EnumEntityType ) Shared.ConvertStringToEnum( TypeComboBox.Text, "EntityType" );
 			var entityName = NameTextBox.Text;
 			var entityNif = Convert.ToInt32( NifTextBox.Text );
 			var entityAddress = AddressTextBox.Text;

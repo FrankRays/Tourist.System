@@ -6,6 +6,7 @@ namespace Tourist.Data.Classes
 	[Serializable]
 	public class Factory : IFactory
 	{
+		#region Methods
 
 		public Type[ ] GetTypes( )
 		{
@@ -99,6 +100,7 @@ namespace Tourist.Data.Classes
 			return ( T ) o;
 		}
 
+		#endregion
 	}
 
 }

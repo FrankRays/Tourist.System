@@ -101,14 +101,14 @@ namespace Tourist.Server
 				case "EntityType":
 						try
 						{
-							return ( EntityType ) Enum.Parse( typeof( EntityType ), aEnum );
+							return ( EnumEntityType ) Enum.Parse( typeof( EnumEntityType ), aEnum );
 						}
 						catch ( Exception )
 						{
 							Console.WriteLine( "'{0}' is not a Enum.", aEnumType );
 							return null;
 						}
-				case "GenderEnum":
+				case "Gender":
 						try
 						{
 							return ( Gender ) Enum.Parse( typeof( Gender ), aEnum );
@@ -141,14 +141,14 @@ namespace Tourist.Server
 
 		public static List<string> RowCellValues( DataGridViewRow rows )
 		{
-			/*
-			for ( int i = 1, j = 0 ; i < rows.Cells.Count ; i++, j++ )
-			{
-				buffer[ j ] = rows.Cells[ i ].EditedFormattedValue.ToString( );
-			}
-			 */
+			var rowCellValues = new List<string>();
 
-			return ( from object cell in rows.Cells select cell.ToString( ) ).ToList( );
+			for ( int i = 0 ; i < rows.Cells.Count ; i++ )
+			{
+				rowCellValues.Add(rows.Cells[ i ].EditedFormattedValue.ToString( ));
+			}
+
+			return rowCellValues;
 		}
 
 		public static bool RowCellsValidated( DataGridViewRow aRow )

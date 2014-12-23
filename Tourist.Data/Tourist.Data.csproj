@@ -50,9 +50,9 @@
     <Compile Include="Classes\Manager.cs" />
     <Compile Include="Classes\Room.cs" />
     <Compile Include="Classes\UnitPrice.cs" />
-    <Compile Include="Interfaces\BookableState.cs" />
-    <Compile Include="Interfaces\EntityType.cs" />
-    <Compile Include="Interfaces\GenderEnum.cs" />
+    <Compile Include="Interfaces\EnumBookableState.cs" />
+    <Compile Include="Interfaces\EnumEntityType.cs" />
+    <Compile Include="Interfaces\EnumGender.cs" />
     <Compile Include="Interfaces\IBookable.cs" />
     <Compile Include="Interfaces\IBooking.cs" />
     <Compile Include="Interfaces\IContact.cs" />

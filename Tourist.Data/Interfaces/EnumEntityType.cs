@@ -1,6 +1,6 @@
 ﻿namespace Tourist.Data.Interfaces
 {
-	public enum EntityType
+	public enum EnumEntityType
 	{
 		Hotel, ActivityAgency, TransportAgency, HotelierGroup
 	}

@@ -10,7 +10,8 @@ namespace Tourist.Data.Classes
 
 		#region Fields
 
-		private static int mCounter = 0;
+		private static int mCounter = default (int);
+		private int mNumber = default (int);
 		private IClient mClient;
 		private DateTime mBookingDateTime;
 		private IBookable mBookable;
@@ -20,35 +21,39 @@ namespace Tourist.Data.Classes
 
 		#region Properties
 
-		public int Id { get; set; }
+		public int Id
+		{
+			get { return mNumber; }
+			set { mNumber = value; Notify( this ); }
+		}
 
 		[XmlIgnore]
 		public IClient Client
 		{
 			get { return mClient; }
 
-			set { mClient = value; }
+			set { mClient = value; Notify( this ); }
 		}
 
 		public DateTime BookingDateTime
 		{
 			get { return mBookingDateTime; }
 
-			set { mBookingDateTime = value; }
+			set { mBookingDateTime = value; Notify( this ); }
 		}
 
 
 		public DateTimeRange TimeRange
 		{
 			get { return mTimeRange; }
-			set { mTimeRange = value; }
+			set { mTimeRange = value; Notify( this ); }
 		}
 
 		[XmlIgnore]
 		public IBookable Bookable
 		{
 			get { return mBookable; }
-			set { mBookable = value; }
+			set { mBookable = value; Notify( this ); }
 		}
 
 		#endregion
@@ -68,6 +73,17 @@ namespace Tourist.Data.Classes
 		public Booking( )
 		{
 			Id = ++mCounter;
+		}
+
+		#endregion
+
+		#region ISubject Observer
+
+		public event UpdateEventHandler OnUpdate;
+
+		public void Notify( object aData = null )
+		{
+			if ( OnUpdate != null ) OnUpdate( this, aData );
 		}
 
 		#endregion

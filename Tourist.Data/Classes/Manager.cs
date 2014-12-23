@@ -8,8 +8,8 @@ namespace Tourist.Data.Classes
 	{
 		#region Fields
 
-		private static int mCounter = 0;
-
+		private static int mCounter = default( int );
+		private int mNumber = default( int );
 		private string mFirstName;
 		private string mLastName;
 		private Gender mGender;
@@ -26,72 +26,76 @@ namespace Tourist.Data.Classes
 
 		#region Properties
 
-		public int Id { get; set; }
+		public int Id
+		{
+			get { return mNumber; }
+			set { mNumber = value; Notify( this ); }
+		}
 
 		public string FirstName
 		{
 			get { return mFirstName; }
-			set { mFirstName = value; }
+			set { mFirstName = value; Notify( this ); }
 		}
 
 		public string LastName
 		{
 			get { return mLastName; }
-			set { mLastName = value; }
-		}
-
-		public string Nationality
-		{
-			get { return mNationality; }
-			set { mNationality = value; }
+			set { mLastName = value; Notify( this ); }
 		}
 
 		public Gender Gender
 		{
 			get { return mGender; }
-			set { mGender = value; }
+			set { mGender = value; Notify( this ); }
+		}
+
+		public string Nationality
+		{
+			get { return mNationality; }
+			set { mNationality = value; Notify( this ); }
 		}
 
 		public DateTime BirthDate
 		{
 			get { return mBirthDate; }
-			set { mBirthDate = value; }
+			set { mBirthDate = value; Notify( this ); }
 		}
 
 		public int Nif
 		{
 			get { return mNif; }
-			set { mNif = value; }
+			set { mNif = value; Notify( this ); }
 		}
 
 		public string Address
 		{
 			get { return mAddress; }
-			set { mAddress = value; }
+			set { mAddress = value; Notify( this ); }
 		}
 
-		public int PhoneNumber
+		public int Phone
 		{
 			get { return mPhoneNumber; }
-			set { mPhoneNumber = value; }
+			set { mPhoneNumber = value; Notify( this ); }
 		}
 
 		public string Email
 		{
 			get { return mEmail; }
-			set { mEmail = value; }
+			set { mEmail = value; Notify( this ); }
 		}
 
 		public string Username
 		{
 			get { return mUsername; }
-			set { mUsername = value; }
+			set { mUsername = value; Notify( this ); }
 		}
 
 		public string Password
 		{
 			get { return mPassword; }
-			set { mPassword = value; }
+			set { mPassword = value; Notify( this ); }
 		}
 
 		#endregion
@@ -101,6 +105,17 @@ namespace Tourist.Data.Classes
 		public Manager( )
 		{
 			Id = ++mCounter;
+		}
+
+		#endregion
+
+		#region ISubject Observer
+
+		public event UpdateEventHandler OnUpdate;
+
+		public void Notify( object aData = null )
+		{
+			if ( OnUpdate != null ) OnUpdate( this, aData );
 		}
 
 		#endregion

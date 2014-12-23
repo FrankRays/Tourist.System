@@ -127,6 +127,7 @@
 			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			this.ManagersDataGrid.DefaultCellStyle = dataGridViewCellStyle2;
+			this.ManagersDataGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
 			this.ManagersDataGrid.EnableHeadersVisualStyles = false;
 			this.ManagersDataGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
 			this.ManagersDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -149,6 +150,9 @@
 			this.ManagersDataGrid.Size = new System.Drawing.Size(1162, 426);
 			this.ManagersDataGrid.TabIndex = 18;
 			this.ManagersDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ManagersDataGrid_CellClick);
+			this.ManagersDataGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ManagersDataGrid_CellDoubleClick);
+			this.ManagersDataGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.ManagersDataGrid_CellValidating);
+			this.ManagersDataGrid.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.ManagersDataGrid_RowRemoved);
 			// 
 			// FooterPanel
 			// 
@@ -228,7 +232,7 @@
 			// IdColumn
 			// 
 			this.IdColumn.HeaderText = "ID";
-			this.IdColumn.MinimumWidth = 150;
+			this.IdColumn.MinimumWidth = 75;
 			this.IdColumn.Name = "IdColumn";
 			this.IdColumn.ReadOnly = true;
 			// 
@@ -251,7 +255,7 @@
 			this.GenderColumn.Items.AddRange(new object[] {
             "Male",
             "Female"});
-			this.GenderColumn.MinimumWidth = 150;
+			this.GenderColumn.MinimumWidth = 100;
 			this.GenderColumn.Name = "GenderColumn";
 			this.GenderColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
 			this.GenderColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
@@ -453,7 +457,7 @@
             "ZA  South Africa",
             "ZM  Zambia",
             "ZW  Zimbabwe"});
-			this.NationalityColumn.MinimumWidth = 150;
+			this.NationalityColumn.MinimumWidth = 175;
 			this.NationalityColumn.Name = "NationalityColumn";
 			this.NationalityColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
 			this.NationalityColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
@@ -461,19 +465,19 @@
 			// BirthDateColumn
 			// 
 			this.BirthDateColumn.HeaderText = "BirthDate";
-			this.BirthDateColumn.MinimumWidth = 150;
+			this.BirthDateColumn.MinimumWidth = 175;
 			this.BirthDateColumn.Name = "BirthDateColumn";
 			// 
 			// NifColumn
 			// 
 			this.NifColumn.HeaderText = "Nif";
-			this.NifColumn.MinimumWidth = 150;
+			this.NifColumn.MinimumWidth = 175;
 			this.NifColumn.Name = "NifColumn";
 			// 
 			// AddressColumn
 			// 
 			this.AddressColumn.HeaderText = "Address";
-			this.AddressColumn.MinimumWidth = 150;
+			this.AddressColumn.MinimumWidth = 200;
 			this.AddressColumn.Name = "AddressColumn";
 			// 
 			// PhoneColumn
@@ -485,7 +489,7 @@
 			// EmailColumn
 			// 
 			this.EmailColumn.HeaderText = "Email";
-			this.EmailColumn.MinimumWidth = 150;
+			this.EmailColumn.MinimumWidth = 175;
 			this.EmailColumn.Name = "EmailColumn";
 			// 
 			// UsernameColumn

@@ -1,9 +1,10 @@
 ﻿using System;
+using Tourist.Data.Interfaces;
 
 namespace Tourist.Data.Classes
 {
 	[Serializable]
-	public class DateTimeRange
+	public class DateTimeRange : ISubject
 	{
 
 		#region Fields
@@ -12,21 +13,21 @@ namespace Tourist.Data.Classes
 		private DateTime mEndDateTime;
 
 		#endregion
-		
+
 		#region Properties
-		
+
 		public DateTime StartDateTime
 		{
 			get { return mStartDateTime; }
 
-			set { mStartDateTime = value; }
+			set { mStartDateTime = value; Notify( this ); }
 		}
 
 		public DateTime EndDateTime
 		{
 			get { return mEndDateTime; }
 
-			set { mEndDateTime = value; }
+			set { mEndDateTime = value; Notify( this ); }
 		}
 
 		#endregion
@@ -51,5 +52,17 @@ namespace Tourist.Data.Classes
 		}
 
 		#endregion
+
+		#region ISubject Observer
+
+		public event UpdateEventHandler OnUpdate;
+
+		public void Notify( object aData = null )
+		{
+			if ( OnUpdate != null ) OnUpdate( this, aData );
+		}
+
+		#endregion
+
 	}
 }

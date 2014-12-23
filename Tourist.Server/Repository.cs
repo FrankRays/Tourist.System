@@ -1,9 +1,8 @@
 ﻿using System;
-using System.CodeDom.Compiler;
 using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using Tourist.Data.Classes;
 using Tourist.Data.Interfaces;
 
@@ -81,15 +80,15 @@ namespace Tourist.Server
 			{
 				case "Entity":
 					if ( string.IsNullOrEmpty( mData.Entity.Name ) &&
-						string.IsNullOrEmpty( mData.Entity.EntityType.ToString( ) ) &&
-						string.IsNullOrEmpty( mData.Entity.Address ) &&
-						string.IsNullOrEmpty( mData.Entity.Nif.ToString( ) ) &&
-						string.IsNullOrEmpty( mData.Entity.PhoneNumber.ToString( ) ) &&
-						string.IsNullOrEmpty( mData.Entity.Email ) )
+						 string.IsNullOrEmpty( mData.Entity.EntityType.ToString( ) ) &&
+						 string.IsNullOrEmpty( mData.Entity.Address ) &&
+						 string.IsNullOrEmpty( mData.Entity.Nif.ToString( ) ) &&
+						 string.IsNullOrEmpty( mData.Entity.Phone.ToString( ) ) &&
+						 string.IsNullOrEmpty( mData.Entity.Email ) )
 					{
-						return false;
+						return true;
 					}
-					return true;
+					return false;
 				case "Bookings":
 					return Count( aList ) == 0;
 				case "Clients":
@@ -109,7 +108,114 @@ namespace Tourist.Server
 			}
 		}
 
-		public void SetEntity( byte[ ] aImageBuffer, EntityType aEntityType, string aName, int aNif,
+		public string[ , ] ListToMatrixManagersEmployers( string aList )
+		{
+			if ( aList.Equals( "Managers" ) )
+			{
+				int rowsCount = Count( "Managers" );
+				int columnsCount = ObjectNumberOfProperties( "Manager" );
+
+				var matrix = new string[ rowsCount, columnsCount ];
+
+				for ( var i = 0 ; i < rowsCount ; i++ )
+				{
+					for ( var j = 0 ; j < columnsCount ; )
+					{
+						matrix[i, j] = mData.Managers.ElementAt(i).Id.ToString();
+						j++;
+						matrix[i, j] = mData.Managers.ElementAt(i).FirstName;
+						j++;
+						matrix[i, j] = mData.Managers.ElementAt(i).LastName;
+						j++;
+						matrix[i, j] = mData.Managers.ElementAt(i).Gender.ToString();
+						j++;
+						matrix[i, j] = mData.Managers.ElementAt(i).Nationality;
+						j++;
+						matrix[i, j] = mData.Managers.ElementAt(i).BirthDate.ToString("d");
+						j++;
+						matrix[i, j] = mData.Managers.ElementAt(i).Nif.ToString();
+						j++;
+						matrix[i, j] = mData.Managers.ElementAt(i).Address;
+						j++;
+						matrix[i, j] = mData.Managers.ElementAt(i).Phone.ToString();
+						j++;
+						matrix[i, j] = mData.Managers.ElementAt(i).Email;
+						j++;
+						matrix[i, j] = mData.Managers.ElementAt(i).Username;
+						j++;
+						matrix[i, j] = mData.Managers.ElementAt(i).Password;
+						j++;
+					}
+				}
+
+				return matrix;
+			}
+			else
+			{
+				int rowsCount = Count( "Employees" );
+				int columnsCount = ObjectNumberOfProperties( "Employer" );
+
+				var matrix = new string[ rowsCount, columnsCount ];
+
+				for ( var i = 0 ; i < rowsCount ; i++ )
+				{
+					for ( var j = 0 ; j < columnsCount ; )
+					{
+						matrix[ i, j ] = mData.Employees.ElementAt( i ).Id.ToString( );
+						j++;
+						matrix[ i, j ] = mData.Employees.ElementAt( i ).FirstName;
+						j++;
+						matrix[ i, j ] = mData.Employees.ElementAt( i ).LastName;
+						j++;
+						matrix[ i, j ] = mData.Employees.ElementAt( i ).Gender.ToString( );
+						j++;
+						matrix[ i, j ] = mData.Employees.ElementAt( i ).Nationality;
+						j++;
+						matrix[ i, j ] = mData.Employees.ElementAt( i ).BirthDate.ToString( "d" );
+						j++;
+						matrix[ i, j ] = mData.Employees.ElementAt( i ).Nif.ToString( );
+						j++;
+						matrix[ i, j ] = mData.Employees.ElementAt( i ).Address;
+						j++;
+						matrix[ i, j ] = mData.Employees.ElementAt( i ).Phone.ToString( );
+						j++;
+						matrix[ i, j ] = mData.Employees.ElementAt( i ).Email;
+						j++;
+						matrix[ i, j ] = mData.Employees.ElementAt( i ).Username;
+						j++;
+						matrix[ i, j ] = mData.Employees.ElementAt( i ).Password;
+						j++;
+					}
+				}
+
+				return matrix;
+			}
+		}
+
+		public int ObjectNumberOfProperties( string aType )
+		{
+			switch ( aType )
+			{
+				case "Booking":
+					return typeof( Booking ).GetProperties( ).Length;
+				case "Client":
+					return typeof( Client ).GetProperties( ).Length;
+				case "Room":
+					return typeof( Room ).GetProperties( ).Length;
+				case "Activity":
+					return typeof( Activity ).GetProperties( ).Length;
+				case "Transport":
+					return typeof( Transport ).GetProperties( ).Length;
+				case "Manager":
+					return typeof( Manager ).GetProperties( ).Length;
+				case "Employer":
+					return typeof( Employer ).GetProperties( ).Length;
+				default:
+					return 0;
+			}
+		}
+
+		public void SetEntity( byte[ ] aImageBuffer, EnumEntityType aEntityType, string aName, int aNif,
 																		string aAddress, int aPhone, string aEmail )
 		{
 			mData.Entity.LogoBuffer = aImageBuffer;
@@ -117,78 +223,93 @@ namespace Tourist.Server
 			mData.Entity.Name = aName;
 			mData.Entity.Nif = aNif;
 			mData.Entity.Address = aAddress;
-			mData.Entity.PhoneNumber = aPhone;
+			mData.Entity.Phone = aPhone;
 			mData.Entity.Email = aEmail;
 		}
 
-		public void Append( object aObject, string aType )
+		public void Append( object aObject, string aList )
 		{
-			switch ( aType )
+			switch ( aList )
 			{
-				case "Booking":
+				case "Bookings":
 					if ( mData.Bookings.Contains( aObject as Booking ) ) return;
 					mData.Bookings.Add( aObject as Booking );
+					Save( FileName );
 					return;
-				case "Client":
+				case "Clients":
 					if ( mData.Clients.Contains( aObject as Client ) ) return;
 					mData.Clients.Add( aObject as Client );
+					Save( FileName );
 					return;
-				case "Room":
+				case "Rooms":
 					if ( mData.Rooms.Contains( aObject as Room ) ) return;
 					mData.Rooms.Add( aObject as Room );
+					Save( FileName );
 					return;
-				case "Activity":
+				case "Activitys":
 					if ( mData.Activities.Contains( aObject as Activity ) ) return;
 					mData.Activities.Add( aObject as Activity );
+					Save( FileName );
 					return;
-				case "Transport":
+				case "Transports":
 					if ( mData.Transports.Contains( aObject as Transport ) ) return;
 					mData.Transports.Add( aObject as Transport );
+					Save( FileName );
 					return;
-				case "Manager":
+				case "Managers":
 					if ( mData.Managers.Contains( aObject as Manager ) ) return;
 					mData.Managers.Add( aObject as Manager );
+					Save( FileName );
 					return;
-				case "Employer":
+				case "Employees":
 					if ( mData.Employees.Contains( aObject as Employer ) ) return;
 					mData.Employees.Add( aObject as Employer );
+					Save( FileName );
 					return;
 				default:
 					return;
 			}
+
 		}
 
-		public void Remove( object aObject, string aType )
+		public void Remove( object aObject, string aList )
 		{
-			switch ( aType )
+			switch ( aList )
 			{
-				case "Booking":
+				case "Bookings":
 					if ( !mData.Bookings.Contains( aObject as Booking ) ) return;
-					mData.Bookings.Add( aObject as Booking );
+					mData.Bookings.Remove( aObject as Booking );
+					Save( FileName );
 					return;
-				case "Client":
+				case "Clients":
 					if ( !mData.Clients.Contains( aObject as Client ) ) return;
-					mData.Clients.Add( aObject as Client );
+					mData.Clients.Remove(aObject as Client );
+					Save( FileName );
 					return;
-				case "Room":
+				case "Rooms":
 					if ( !mData.Rooms.Contains( aObject as Room ) ) return;
-					mData.Rooms.Add( aObject as Room );
+					mData.Rooms.Remove( aObject as Room );
+					Save( FileName );
 					return;
-				case "Activity":
+				case "Activities":
 					if ( !mData.Activities.Contains( aObject as Activity ) ) return;
-					mData.Activities.Add( aObject as Activity );
+					mData.Activities.Remove( aObject as Activity );
+					Save( FileName );
 					return;
-				case "Transport":
+				case "Transports":
 					if ( !mData.Transports.Contains( aObject as Transport ) ) return;
-					mData.Transports.Add( aObject as Transport );
+					mData.Transports.Remove( aObject as Transport );
+					Save( FileName );
 					return;
-				case "Manager":
+				case "Managers":
 					if ( !mData.Managers.Contains( aObject as Manager ) ) return;
-					mData.Managers.Add( aObject as Manager );
+					mData.Managers.Remove( aObject as Manager );
+					Save( FileName );
 					return;
-				case "Employer":
+				case "Employees":
 					if ( !mData.Employees.Contains( aObject as Employer ) ) return;
-					mData.Employees.Add( aObject as Employer );
+					mData.Employees.Remove( aObject as Employer );
+					Save( FileName );
 					return;
 				default:
 					return;
@@ -213,6 +334,29 @@ namespace Tourist.Server
 					return mData.Managers[ aIndex ].Id;
 				case "Employees":
 					return mData.Employees[ aIndex ].Id;
+				default:
+					return 0;
+			}
+		}
+
+		public object GetObject( int aIndex, string aList )
+		{
+			switch ( aList )
+			{
+				case "Bookings":
+					return mData.Bookings[ aIndex ];
+				case "Clients":
+					return mData.Clients[ aIndex ];
+				case "Rooms":
+					return mData.Rooms[ aIndex ];
+				case "Activitys":
+					return mData.Activities[ aIndex ];
+				case "Transports":
+					return mData.Transports[ aIndex ];
+				case "Managers":
+					return mData.Managers[ aIndex ];
+				case "Employees":
+					return mData.Employees[ aIndex ];
 				default:
 					return 0;
 			}
@@ -271,55 +415,79 @@ namespace Tourist.Server
 			}
 		}
 
-		public void EditManager( int aId, string aEditedCell )
+		private void EditManager( int aId, string aPropertie, string aNewValue )
 		{
-			switch ( aEditedCell )
+			switch ( aPropertie )
 			{
 				case "FirstName":
 					foreach ( var manager in mData.Managers.Where( manager => manager.Id == aId ) )
-						manager.FirstName = aEditedCell;
+						manager.FirstName = aNewValue;
 					return;
 				case "LastName":
 					foreach ( var manager in mData.Managers.Where( manager => manager.Id == aId ) )
-						manager.LastName = aEditedCell;
+						manager.LastName = aNewValue;
 					return;
 				case "Gender":
 					foreach ( var manager in mData.Managers.Where( manager => manager.Id == aId ) )
-						manager.Gender = ( Gender ) Shared.ConvertStringToEnum( aEditedCell, "Gender" );
+						manager.Gender = ( Gender ) Shared.ConvertStringToEnum( aNewValue, "Gender" );
 					return;
 				case "Nationality":
 					foreach ( var manager in mData.Managers.Where( manager => manager.Id == aId ) )
-						manager.Nationality = aEditedCell;
+						manager.Nationality = aNewValue;
 					return;
 				case "BirthDate":
 					foreach ( var manager in mData.Managers.Where( manager => manager.Id == aId ) )
-						manager.BirthDate = Shared.ConvertStringToDateTime( aEditedCell );
+						manager.BirthDate = Shared.ConvertStringToDateTime( aNewValue );
 					return;
 				case "Address":
 					foreach ( var manager in mData.Managers.Where( manager => manager.Id == aId ) )
-						manager.Address = aEditedCell;
+						manager.Address = aNewValue;
 					return;
 				case "Phone":
 					foreach ( var manager in mData.Managers.Where( manager => manager.Id == aId ) )
-						manager.PhoneNumber = Shared.ConvertStringToInt( aEditedCell );
+						manager.Phone = Shared.ConvertStringToInt( aNewValue );
 					return;
 				case "Email":
 					foreach ( var manager in mData.Managers.Where( manager => manager.Id == aId ) )
-						manager.Email = aEditedCell ;
+						manager.Email = aNewValue;
 					return;
 				case "Username":
 					foreach ( var manager in mData.Managers.Where( manager => manager.Id == aId ) )
-						manager.Username = aEditedCell ;
+						manager.Username = aNewValue;
 					return;
 				case "Password":
 					foreach ( var manager in mData.Managers.Where( manager => manager.Id == aId ) )
-						manager.Password = aEditedCell ;
+						manager.Password = aNewValue;
 					return;
 				default:
 					return;
 			}
 		}
 
+		public void Edit( string aType, int aId, string aPropertie, string aNewValue )
+		{
+			switch ( aType )
+			{
+				case "Booking":
+					break;
+				case "Client":
+					break;
+				case "Room":
+					break;
+				case "Activity":
+					break;
+				case "Transport":
+					break;
+				case "Manager":
+					EditManager( aId, aPropertie, aNewValue );
+					Save( FileName );
+					break;
+				case "Employer":
+					break;
+				default:
+					return;
+			}
+		}
 
 		#endregion
 	}

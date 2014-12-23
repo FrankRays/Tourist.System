@@ -1,6 +1,6 @@
 ﻿namespace Tourist.Data.Interfaces
 {
-    public interface IBookable
+    public interface IBookable : ISubject
     {
 		int Id { get; set; }
 		string Name { get; set; }
