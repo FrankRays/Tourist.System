@@ -11,6 +11,7 @@ namespace Tourist.Data.Classes
 
 		private DateTime mStartDateTime;
 		private DateTime mEndDateTime;
+		
 
 		#endregion
 

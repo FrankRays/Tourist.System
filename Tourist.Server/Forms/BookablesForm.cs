@@ -36,24 +36,66 @@ namespace Tourist.Server.Forms
 		private void ServicesForm_Load( object sender, System.EventArgs e )
 		{
 			Shared.SetFormFullScreen( this );
+			LoadDataToGrid();
+
+
 		}
 
 		private void LoadDataToGrid( )
 		{
-			if ( Repository.IsEmpty( "Managers" ) )
-				return;
 
-			var managersMatrix = Repository.ListToMatrix( "Managers" );
-
-			for ( var i = 0 ; i < Repository.Count( "Managers" ) ; i++ )
+			if ( BookablesTabsControl.SelectedTab == RoomsTab )
 			{
-				RoomDataGrid.Rows.Add( );
+				if ( Repository.IsEmpty( "Rooms" ) )
+					return;
 
-				for ( var j = 0 ; j < RoomDataGrid.ColumnCount ; j++ )
+				var roomMatrix = Repository.ListToMatrix( "Rooms" );
+
+				for ( var i = 0 ; i < Repository.Count( "Rooms" ) ; i++ )
 				{
-					RoomDataGrid.Rows[ i ].Cells[ j ].Value = managersMatrix[ i, j ];
+					RoomDataGrid.Rows.Add( );
+
+					for ( var j = 0 ; j < RoomDataGrid.ColumnCount ; j++ )
+					{
+						RoomDataGrid.Rows[ i ].Cells[ j ].Value = roomMatrix[ i, j ];
+					}
 				}
 			}
+			else if (BookablesTabsControl.SelectedTab == ActivitiesTab)
+			{
+				if ( Repository.IsEmpty( "Activities" ) )
+					return;
+
+				var activityMatrix = Repository.ListToMatrix( "Activities" );
+
+				for ( var i = 0 ; i < Repository.Count( "Activities" ) ; i++ )
+				{
+					ActivitiesDataGrid.Rows.Add( );
+
+					for ( var j = 0 ; j < ActivitiesDataGrid.ColumnCount ; j++ )
+					{
+						ActivitiesDataGrid.Rows[ i ].Cells[ j ].Value = activityMatrix[ i, j ];
+					}
+				}
+			}
+			else
+			{
+				if ( Repository.IsEmpty( "Transports" ) )
+					return;
+
+				var transportMatrix = Repository.ListToMatrix( "Transports" );
+
+				for ( var i = 0 ; i < Repository.Count( "Transports" ) ; i++ )
+				{
+					TransportsDataGrid.Rows.Add( );
+
+					for ( var j = 0 ; j < TransportsDataGrid.ColumnCount ; j++ )
+					{
+						TransportsDataGrid.Rows[ i ].Cells[ j ].Value = transportMatrix[ i, j ];
+					}
+				}
+			}
+			
 		}
 
 		private void AddToRepository( List<string> rowValues )
@@ -78,42 +120,41 @@ namespace Tourist.Server.Forms
 
 		#endregion
 
-		#region Events
+		#region Rooms Events
 
-		private void ManagersDataGrid_CellValidating( object sender, DataGridViewCellValidatingEventArgs e )
+		private void RoomsDataGrid_CellValidating( object sender, DataGridViewCellValidatingEventArgs e )
 		{
 
 			if ( BookablesTabsControl.SelectedTab == RoomsTab )
 			{
-
+				RoomsTabData(e.RowIndex, e.ColumnIndex, e.FormattedValue.ToString());
 			}
 
-
 		}
-
 
 		private void RoomsTabData( int aRowIndex, int aColumnIndex, string aEditedValue )
 		{
 
 			var row = RoomDataGrid.Rows[ aRowIndex ];
-			var mangerIndex = aRowIndex;
-			int managerId;
+			var roomIndex = aRowIndex;
+			int roomId;
 
-			if ( mangerIndex <= Repository.Count( "Managers" ) - 1 )
-				managerId = Repository.GetId( mangerIndex, "Managers" );
+			if ( roomIndex <= Repository.Count( "Rooms" ) - 1 )
+				roomId = Repository.GetId( roomIndex, "Rooms" );
 			else
-				managerId = Repository.NextId( "Manager" );
+				roomId = Repository.NextId( "Rooms" );
 
-			RoomDataGrid[ "IdColumn", aRowIndex ].Value = managerId;
+			RoomDataGrid[ "IdColumn", aRowIndex ].Value = roomId;
+
 			var isRowValidated = Shared.RowCellsValidated( row );
 
 			if ( isRowValidated )
 			{
-				if ( !Repository.ExistingId( managerId, "Managers" ) )
+				if ( !Repository.ExistingId( roomId, "Rooms" ) )
 				{
 					var rowValues = Shared.RowCellValues( row );
 					AddToRepository( rowValues );
-					MetroMessageBox.Show( this, "Manager Added With Sucess !!!", "Metro Title",
+					MetroMessageBox.Show( this, "Room Added With Sucess !!!", "Metro Title",
 																			MessageBoxButtons.OK, MessageBoxIcon.Information );
 				}
 				else
@@ -122,70 +163,22 @@ namespace Tourist.Server.Forms
 
 					switch ( aColumnIndex )
 					{
-						//FirstName
+						//RoomType
 						case 1:
-							Repository.Edit( "Manager", managerId, "FirstName", aNewValue );
-							MetroMessageBox.Show( this, "Manager First Name Edited With Sucess !!!",
+							Repository.Edit( "Room", roomId, "Type", aNewValue );
+							MetroMessageBox.Show( this, "Room Type edited With Sucess !!!",
 															"Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
-						//LastName	
-						case 2:
-							Repository.Edit( "Manager", managerId, "LastName", aNewValue );
-							MetroMessageBox.Show( this, "Manager Last Name Edited With Sucess !!!",
-															"Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
-							return;
-						//Gender	
+						//Description
 						case 3:
-							Repository.Edit( "Manager", managerId, "Gender", aNewValue );
-							MetroMessageBox.Show( this, "Manager Gender Edited With Sucess !!!",
+							Repository.Edit( "Room", roomId, "Description", aNewValue );
+							MetroMessageBox.Show( this, "Room description edited With Sucess !!!",
 															"Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
-						//Nationality
+						//state
 						case 4:
-							Repository.Edit( "Manager", managerId, "Nationality", aNewValue );
-							MetroMessageBox.Show( this, "Manager Nationality Edited With Sucess !!!",
-															"Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
-							return;
-						//BirthDate
-						case 5:
-							Repository.Edit( "Manager", managerId, "BirthDate", aNewValue );
-							MetroMessageBox.Show( this, "Manager Birth Date Edited With Sucess !!!",
-															"Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
-							return;
-						//Nif
-						case 6:
-							Repository.Edit( "Manager", managerId, "Nif", aNewValue );
-							MetroMessageBox.Show( this, "Manager Nif Edited With Sucess !!!",
-															"Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
-							return;
-						//Address
-						case 7:
-							Repository.Edit( "Manager", managerId, "Address", aNewValue );
-							MetroMessageBox.Show( this, "Manager Address Edited With Sucess !!!",
-															"Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
-							return;
-						//Phone
-						case 8:
-							Repository.Edit( "Manager", managerId, "Phone", aNewValue );
-							MetroMessageBox.Show( this, "Manager Phone Edited With Sucess !!!",
-															"Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
-							return;
-						//Email
-						case 9:
-							Repository.Edit( "Manager", managerId, "Email", aNewValue );
-							MetroMessageBox.Show( this, "Manager Email Edited With Sucess !!!",
-															"Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
-							return;
-						//Username
-						case 10:
-							Repository.Edit( "Manager", managerId, "Username", aNewValue );
-							MetroMessageBox.Show( this, "Manager Username Edited With Sucess !!!",
-															"Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
-							return;
-						//Password
-						case 11:
-							Repository.Edit( "Manager", managerId, "Password", aNewValue );
-							MetroMessageBox.Show( this, "Manager Password Edited With Sucess !!!",
+							Repository.Edit( "Room", roomId, "StartDate", aNewValue );
+							MetroMessageBox.Show( this, "Room State Edited With Sucess !!!",
 															"Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						default:
@@ -193,23 +186,226 @@ namespace Tourist.Server.Forms
 					}
 				}
 			}
-
 		}
 
-		private void ManagersDataGrid_RowRemoved( object sender, DataGridViewRowsRemovedEventArgs e )
+		private void RoomsDataGrid_RowRemoved( object sender, DataGridViewRowsRemovedEventArgs e )
 		{
 			var removeIndex = e.RowIndex;
 
-			var managerToRemove = ( IManager ) Repository.GetObject( removeIndex, "Managers" );
+			var roomToRemove = ( IBookable ) Repository.GetObject( removeIndex, "Rooms" );
 
-			DialogResult dialog = MetroMessageBox.Show( this, "Are you sure you want to remove manager at row number " +
+			DialogResult dialog = MetroMessageBox.Show( this, "Are you sure you want to remove room at row number " +
 							   ( e.RowIndex + 1 ) + " ?", "Metro Title", MessageBoxButtons.YesNo, MessageBoxIcon.Information );
 
 			if ( dialog == DialogResult.No )
 				return;
 
-			Repository.Remove( managerToRemove, "Managers" );
+			Repository.Remove( roomToRemove, "Rooms" );
 		}
+
+		private void RoomsDataGrid_CellDoubleClick( object sender, DataGridViewCellEventArgs e )
+		{
+			if ( e.ColumnIndex >= 0 && e.RowIndex >= 0 )
+			{
+				DataGridViewCell cell = RoomDataGrid[ e.ColumnIndex, e.RowIndex ];
+				RoomDataGrid.CurrentCell = cell;
+				RoomDataGrid.BeginEdit( true );
+			}
+		}
+
+		#endregion
+
+		#region Activities Events
+
+		private void ActivitiesDataGrid_CellValidating( object sender, DataGridViewCellValidatingEventArgs e )
+		{
+
+			if ( BookablesTabsControl.SelectedTab == ActivitiesTab )
+			{
+				ActivitiesTabData( e.RowIndex, e.ColumnIndex, e.FormattedValue.ToString( ) );
+			}
+
+		}
+
+		private void ActivitiesTabData( int aRowIndex, int aColumnIndex, string aEditedValue )
+		{
+
+			var row = ActivitiesDataGrid.Rows[ aRowIndex ];
+			var activityIndex = aRowIndex;
+			int activityId;
+
+			if ( activityIndex <= Repository.Count( "Activities" ) - 1 )
+				activityId = Repository.GetId( activityIndex, "Activities" );
+			else
+				activityId = Repository.NextId( "Activities" );
+
+			ActivitiesDataGrid[ "IdColumn", aRowIndex ].Value = activityId;
+
+			var isRowValidated = Shared.RowCellsValidated( row );
+
+			if ( isRowValidated )
+			{
+				if ( !Repository.ExistingId( activityId, "Activities" ) )
+				{
+					var rowValues = Shared.RowCellValues( row );
+					AddToRepository( rowValues );
+					MetroMessageBox.Show( this, "Activity Added With Sucess !!!", "Metro Title",
+																			MessageBoxButtons.OK, MessageBoxIcon.Information );
+				}
+				else
+				{
+					var aNewValue = aEditedValue;
+
+					switch ( aColumnIndex )
+					{
+						//ActivityType
+						case 1:
+							Repository.Edit( "Activity", activityId, "Type", aNewValue );
+							MetroMessageBox.Show( this, "Activity Type edited With Sucess !!!",
+															"Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							return;
+						//Description
+						case 3:
+							Repository.Edit( "Activity", activityId, "Description", aNewValue );
+							MetroMessageBox.Show( this, "Activity description edited With Sucess !!!",
+															"Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							return;
+						//state
+						case 4:
+							Repository.Edit( "Activity", activityId, "StartDate", aNewValue );
+							MetroMessageBox.Show( this, "Activity State Edited With Sucess !!!",
+															"Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							return;
+						default:
+							return;
+					}
+				}
+			}
+		}
+
+		private void ActivitiesDataGrid_RowRemoved( object sender, DataGridViewRowsRemovedEventArgs e )
+		{
+			var removeIndex = e.RowIndex;
+
+			var activityToRemove = ( IBookable ) Repository.GetObject( removeIndex, "Activities" );
+
+			DialogResult dialog = MetroMessageBox.Show( this, "Are you sure you want to remove activity at row number " +
+							   ( e.RowIndex + 1 ) + " ?", "Metro Title", MessageBoxButtons.YesNo, MessageBoxIcon.Information );
+
+			if ( dialog == DialogResult.No )
+				return;
+
+			Repository.Remove( activityToRemove, "Activities" );
+		}
+
+		private void ActivitiesDataGrid_CellDoubleClick( object sender, DataGridViewCellEventArgs e )
+		{
+			if ( e.ColumnIndex >= 0 && e.RowIndex >= 0 )
+			{
+				DataGridViewCell cell = ActivitiesDataGrid[ e.ColumnIndex, e.RowIndex ];
+				ActivitiesDataGrid.CurrentCell = cell;
+				ActivitiesDataGrid.BeginEdit( true );
+			}
+		}
+
+		#endregion
+
+		#region Transports Events
+
+		private void TransportsDataGrid_CellValidating( object sender, DataGridViewCellValidatingEventArgs e )
+		{
+
+			if ( BookablesTabsControl.SelectedTab == TransportsTab )
+			{
+				TransportsTabData( e.RowIndex, e.ColumnIndex, e.FormattedValue.ToString( ) );
+			}
+
+		}
+
+		private void TransportsTabData( int aRowIndex, int aColumnIndex, string aEditedValue )
+		{
+
+			var row = TransportsDataGrid.Rows[ aRowIndex ];
+			var transportIndex = aRowIndex;
+			int transportId;
+
+			if ( transportIndex <= Repository.Count( "Transports" ) - 1 )
+				transportId = Repository.GetId( transportIndex, "Transports" );
+			else
+				transportId = Repository.NextId( "Transports" );
+
+			TransportsDataGrid[ "IdColumn", aRowIndex ].Value = transportId;
+
+			var isRowValidated = Shared.RowCellsValidated( row );
+
+			if ( isRowValidated )
+			{
+				if ( !Repository.ExistingId( transportId, "Rooms" ) )
+				{
+					var rowValues = Shared.RowCellValues( row );
+					AddToRepository( rowValues );
+					MetroMessageBox.Show( this, "Transport Added With Sucess !!!", "Metro Title",
+																			MessageBoxButtons.OK, MessageBoxIcon.Information );
+				}
+				else
+				{
+					var aNewValue = aEditedValue;
+
+					switch ( aColumnIndex )
+					{
+						//TransportType
+						case 1:
+							Repository.Edit( "Transport", transportId, "Type", aNewValue );
+							MetroMessageBox.Show( this, "Transport Type edited With Sucess !!!",
+															"Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							return;
+						//Description
+						case 3:
+							Repository.Edit( "Transport", transportId, "Description", aNewValue );
+							MetroMessageBox.Show( this, "Transport description edited With Sucess !!!",
+															"Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							return;
+						//state
+						case 4:
+							Repository.Edit( "Transport", transportId, "StartDate", aNewValue );
+							MetroMessageBox.Show( this, "Transport State Edited With Sucess !!!",
+															"Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							return;
+						default:
+							return;
+					}
+				}
+			}
+		}
+
+		private void TransportsDataGrid_RowRemoved( object sender, DataGridViewRowsRemovedEventArgs e )
+		{
+			var removeIndex = e.RowIndex;
+
+			var transportToRemove = ( IBookable ) Repository.GetObject( removeIndex, "Transports" );
+
+			DialogResult dialog = MetroMessageBox.Show( this, "Are you sure you want to remove transport at row number " +
+							   ( e.RowIndex + 1 ) + " ?", "Metro Title", MessageBoxButtons.YesNo, MessageBoxIcon.Information );
+
+			if ( dialog == DialogResult.No )
+				return;
+
+			Repository.Remove( transportToRemove, "Transports" );
+		}
+
+		private void TransportsDataGrid_CellDoubleClick( object sender, DataGridViewCellEventArgs e )
+		{
+			if ( e.ColumnIndex >= 0 && e.RowIndex >= 0 )
+			{
+				DataGridViewCell cell = TransportsDataGrid[ e.ColumnIndex, e.RowIndex ];
+				TransportsDataGrid.CurrentCell = cell;
+				TransportsDataGrid.BeginEdit( true );
+			}
+		}
+
+		#endregion
+
+		#region Close Events
 
 		protected override void OnFormClosing( FormClosingEventArgs e )
 		{
@@ -233,16 +429,6 @@ namespace Tourist.Server.Forms
 			mBackOrExit = true;
 			Close( );
 			mMainForm.Show( );
-		}
-
-		private void ManagersDataGrid_CellDoubleClick( object sender, DataGridViewCellEventArgs e )
-		{
-			if ( e.ColumnIndex >= 0 && e.RowIndex >= 0 )
-			{
-				DataGridViewCell cell = RoomDataGrid[ e.ColumnIndex, e.RowIndex ];
-				RoomDataGrid.CurrentCell = cell;
-				RoomDataGrid.BeginEdit( true );
-			}
 		}
 
 		#endregion

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Windows.Forms;
 using Tourist.Data.Classes;
 using Tourist.Data.Interfaces;
 
@@ -445,6 +444,11 @@ namespace Tourist.Server
 			}
 		}
 
+		private Client GetClientByNif( int aNif )
+		{
+			return mData.Clients.FirstOrDefault( client => client.Nif == aNif );
+		}
+
 		#endregion
 
 		#region Edit Methods
@@ -454,6 +458,8 @@ namespace Tourist.Server
 			switch ( aType )
 			{
 				case "Booking":
+					EditBooking( aId, aPropertie, aNewValue );
+					Save( FileName );
 					return;
 				case "Client":
 					EditClient( aId, aPropertie, aNewValue );
@@ -470,7 +476,7 @@ namespace Tourist.Server
 				case "Transport":
 					EditTransport( aId, aPropertie, aNewValue );
 					Save( FileName );
-					return;;
+					return; ;
 				case "Manager":
 					EditManager( aId, aPropertie, aNewValue );
 					Save( FileName );
@@ -484,43 +490,27 @@ namespace Tourist.Server
 			}
 		}
 
-		//Editar uma reserva
-
+		#region Private Edit Methods
+		
 		private void EditBooking( int aId, string aPropertie, string aNewValue )
 		{
 			switch ( aPropertie )
 			{
 				case "Client":
-					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
-						client.FirstName = aNewValue;
+					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aId ) )
+						booking.Client = GetClientByNif( Shared.ConvertStringToInt( aNewValue ) );
 					return;
-				case "LastName":
-					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
-						client.LastName = aNewValue;
+				case "Bookable":
+					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aId ) )
+						booking.Bookable.Type = Shared.ConvertStringToEnum( aNewValue, "RoomType" );
 					return;
-				case "Gender":
-					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
-						client.Gender = ( Gender ) Shared.ConvertStringToEnum( aNewValue, "Gender" );
+				case "StartDate":
+					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aId ) )
+						booking.TimeRange.StartDateTime = Shared.ConvertStringToDateTime( aNewValue );
 					return;
-				case "Nationality":
-					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
-						client.Nationality = aNewValue;
-					return;
-				case "BirthDate":
-					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
-						client.BirthDate = Shared.ConvertStringToDateTime( aNewValue );
-					return;
-				case "Address":
-					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
-						client.Address = aNewValue;
-					return;
-				case "Phone":
-					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
-						client.Phone = Shared.ConvertStringToInt( aNewValue );
-					return;
-				case "Email":
-					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
-						client.Email = aNewValue;
+				case "EndDate":
+					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aId ) )
+						booking.TimeRange.EndDateTime = Shared.ConvertStringToDateTime( aNewValue );
 					return;
 				default:
 					return;
@@ -584,14 +574,6 @@ namespace Tourist.Server
 					foreach ( var room in mData.Rooms.Where( room => room.Id == aId ) )
 						room.Description = aNewValue;
 					return;
-				case "Price":
-					foreach (var room in mData.Rooms.Where(room => room.Id == aId))
-						room.Price = Shared.ConvertStringToInt(aNewValue);
-					return;
-				case "Capacity":
-					foreach ( var room in mData.Rooms.Where( room => room.Id == aId ) )
-						room.Capacity = Shared.ConvertStringToInt( aNewValue );
-					return;
 				default:
 					return;
 			}
@@ -613,14 +595,6 @@ namespace Tourist.Server
 					foreach ( var activity in mData.Activities.Where( activity => activity.Id == aId ) )
 						activity.Description = aNewValue;
 					return;
-				case "Price":
-					foreach ( var activity in mData.Activities.Where( activity => activity.Id == aId ) )
-						activity.Price = Shared.ConvertStringToInt( aNewValue );
-					return;
-				case "Capacity":
-					foreach ( var activity in mData.Activities.Where( activity => activity.Id == aId ) )
-						activity.Capacity = Shared.ConvertStringToInt( aNewValue );
-					return;
 				default:
 					return;
 			}
@@ -641,14 +615,6 @@ namespace Tourist.Server
 				case "Description":
 					foreach ( var transport in mData.Transports.Where( transport => transport.Id == aId ) )
 						transport.Description = aNewValue;
-					return;
-				case "Price":
-					foreach ( var transport in mData.Transports.Where( transport => transport.Id == aId ) )
-						transport.Price = Shared.ConvertStringToInt( aNewValue );
-					return;
-				case "Capacity":
-					foreach ( var transport in mData.Transports.Where( transport => transport.Id == aId ) )
-						transport.Capacity = Shared.ConvertStringToInt( aNewValue );
 					return;
 				default:
 					return;
@@ -752,6 +718,8 @@ namespace Tourist.Server
 					return;
 			}
 		}
+
+		#endregion
 
 		#endregion
 
