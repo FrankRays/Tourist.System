@@ -11,12 +11,12 @@ namespace Tourist.Data.Classes
 
 		private static int mCounter = default( int );
 		private int mNumber = default( int );
-		private string mName;
-		private string mType;
+		private Enum mType;
+		private BookableState mBookableState;
+		private string mDescription;
 		private double mPrice;
 		private int mCapacity;
-		private BookableState mBookableState;
-
+		
 		#endregion
 
 		#region Properties
@@ -27,16 +27,22 @@ namespace Tourist.Data.Classes
 			set { mNumber = value; Notify( this ); }
 		}
 
-		public string Name
-		{
-			get { return mName; }
-			set { mName = value; Notify( this ); }
-		}
-
-		public string Type
+		public Enum Type
 		{
 			get { return mType; }
 			set { mType = value; Notify( this ); }
+		}
+
+		public BookableState State
+		{
+			get { return mBookableState; }
+			set { mBookableState = value; Notify( this ); }
+		}
+
+		public string Description
+		{
+			get { return mDescription; }
+			set { mDescription = value; Notify( this ); }
 		}
 
 		public double Price
@@ -49,12 +55,6 @@ namespace Tourist.Data.Classes
 		{
 			get { return mCapacity; }
 			set { mCapacity = value; Notify( this ); }
-		}
-
-		public BookableState State
-		{
-			get { return mBookableState; }
-			set { mBookableState = value; Notify( this ); }
 		}
 
 		#endregion

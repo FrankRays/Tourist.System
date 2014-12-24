@@ -50,6 +50,7 @@
     <Compile Include="Classes\Manager.cs" />
     <Compile Include="Classes\Room.cs" />
     <Compile Include="Classes\UnitPrice.cs" />
+    <Compile Include="Interfaces\EnumActivityType.cs" />
     <Compile Include="Interfaces\EnumBookableState.cs" />
     <Compile Include="Interfaces\EnumEntityType.cs" />
     <Compile Include="Interfaces\EnumGender.cs" />
@@ -64,6 +65,8 @@
     <Compile Include="Interfaces\IManager.cs" />
     <Compile Include="Interfaces\IRemote.cs" />
     <Compile Include="Interfaces\ISubject.cs" />
+    <Compile Include="Interfaces\EnumRoomType.cs" />
+    <Compile Include="Interfaces\EnumTransportType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

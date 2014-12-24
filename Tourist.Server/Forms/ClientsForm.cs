@@ -16,7 +16,6 @@ namespace Tourist.Server.Forms
 		{
 			InitializeComponent( );
 			mMainForm = aForm as MainForm;
-			mEntityId = mMainForm.EntityId;
 		}
 
 		private void ClientsForm_Load( object sender, System.EventArgs e )

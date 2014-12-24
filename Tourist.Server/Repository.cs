@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Reflection;
+using System.Windows.Forms;
 using Tourist.Data.Classes;
 using Tourist.Data.Interfaces;
 
@@ -49,7 +47,7 @@ namespace Tourist.Server
 
 		#endregion
 
-		#region Repository Methods
+		#region Count && Bool Methods
 
 		public int Count( string aList )
 		{
@@ -108,91 +106,59 @@ namespace Tourist.Server
 			}
 		}
 
-		public string[ , ] ListToMatrixManagersEmployers( string aList )
+		public bool ExistingId( int aId, string aList )
 		{
-			if ( aList.Equals( "Managers" ) )
+			switch ( aList )
 			{
-				int rowsCount = Count( "Managers" );
-				int columnsCount = ObjectNumberOfProperties( "Manager" );
-
-				var matrix = new string[ rowsCount, columnsCount ];
-
-				for ( var i = 0 ; i < rowsCount ; i++ )
-				{
-					for ( var j = 0 ; j < columnsCount ; )
-					{
-						matrix[i, j] = mData.Managers.ElementAt(i).Id.ToString();
-						j++;
-						matrix[i, j] = mData.Managers.ElementAt(i).FirstName;
-						j++;
-						matrix[i, j] = mData.Managers.ElementAt(i).LastName;
-						j++;
-						matrix[i, j] = mData.Managers.ElementAt(i).Gender.ToString();
-						j++;
-						matrix[i, j] = mData.Managers.ElementAt(i).Nationality;
-						j++;
-						matrix[i, j] = mData.Managers.ElementAt(i).BirthDate.ToString("d");
-						j++;
-						matrix[i, j] = mData.Managers.ElementAt(i).Nif.ToString();
-						j++;
-						matrix[i, j] = mData.Managers.ElementAt(i).Address;
-						j++;
-						matrix[i, j] = mData.Managers.ElementAt(i).Phone.ToString();
-						j++;
-						matrix[i, j] = mData.Managers.ElementAt(i).Email;
-						j++;
-						matrix[i, j] = mData.Managers.ElementAt(i).Username;
-						j++;
-						matrix[i, j] = mData.Managers.ElementAt(i).Password;
-						j++;
-					}
-				}
-
-				return matrix;
-			}
-			else
-			{
-				int rowsCount = Count( "Employees" );
-				int columnsCount = ObjectNumberOfProperties( "Employer" );
-
-				var matrix = new string[ rowsCount, columnsCount ];
-
-				for ( var i = 0 ; i < rowsCount ; i++ )
-				{
-					for ( var j = 0 ; j < columnsCount ; )
-					{
-						matrix[ i, j ] = mData.Employees.ElementAt( i ).Id.ToString( );
-						j++;
-						matrix[ i, j ] = mData.Employees.ElementAt( i ).FirstName;
-						j++;
-						matrix[ i, j ] = mData.Employees.ElementAt( i ).LastName;
-						j++;
-						matrix[ i, j ] = mData.Employees.ElementAt( i ).Gender.ToString( );
-						j++;
-						matrix[ i, j ] = mData.Employees.ElementAt( i ).Nationality;
-						j++;
-						matrix[ i, j ] = mData.Employees.ElementAt( i ).BirthDate.ToString( "d" );
-						j++;
-						matrix[ i, j ] = mData.Employees.ElementAt( i ).Nif.ToString( );
-						j++;
-						matrix[ i, j ] = mData.Employees.ElementAt( i ).Address;
-						j++;
-						matrix[ i, j ] = mData.Employees.ElementAt( i ).Phone.ToString( );
-						j++;
-						matrix[ i, j ] = mData.Employees.ElementAt( i ).Email;
-						j++;
-						matrix[ i, j ] = mData.Employees.ElementAt( i ).Username;
-						j++;
-						matrix[ i, j ] = mData.Employees.ElementAt( i ).Password;
-						j++;
-					}
-				}
-
-				return matrix;
+				case "Bookings":
+					return mData.Bookings.Any( booking => booking.Id == aId );
+				case "Clients":
+					return mData.Clients.Any( client => client.Id == aId );
+				case "Rooms":
+					return mData.Rooms.Any( room => room.Id == aId );
+				case "Activities":
+					return mData.Activities.Any( activity => activity.Id == aId );
+				case "Transports":
+					return mData.Transports.Any( transport => transport.Id == aId );
+				case "Managers":
+					return mData.Managers.Any( manager => manager.Id == aId );
+				case "Employees":
+					return mData.Employees.Any( employer => employer.Id == aId );
+				default:
+					return false;
 			}
 		}
 
-		public int ObjectNumberOfProperties( string aType )
+		#endregion
+
+		#region LoadDataToForm Methods
+
+		public string[ , ] ListToMatrix( string aList )
+		{
+			switch ( aList )
+			{
+				case "Bookings":
+					break;
+				case "Clients":
+					break;
+				case "Rooms":
+					break;
+				case "Activitys":
+					break;
+				case "Transports":
+					break;
+				case "Managers":
+					return ListToMatrixManagers( );
+				case "Employees":
+					return ListToMatrixEmployees( );
+				default:
+					return null;
+			}
+
+			return null;
+		}
+
+		private int ObjectNumberOfProperties( string aType )
 		{
 			switch ( aType )
 			{
@@ -214,6 +180,93 @@ namespace Tourist.Server
 					return 0;
 			}
 		}
+
+		private string[ , ] ListToMatrixManagers( )
+		{
+			int rowsCount = Count( "Managers" );
+			int columnsCount = ObjectNumberOfProperties( "Manager" );
+
+			var matrix = new string[ rowsCount, columnsCount ];
+
+			for ( var i = 0 ; i < rowsCount ; i++ )
+			{
+				for ( var j = 0 ; j < columnsCount ; )
+				{
+					matrix[ i, j ] = mData.Managers.ElementAt( i ).Id.ToString( );
+					j++;
+					matrix[ i, j ] = mData.Managers.ElementAt( i ).FirstName;
+					j++;
+					matrix[ i, j ] = mData.Managers.ElementAt( i ).LastName;
+					j++;
+					matrix[ i, j ] = mData.Managers.ElementAt( i ).Gender.ToString( );
+					j++;
+					matrix[ i, j ] = mData.Managers.ElementAt( i ).Nationality;
+					j++;
+					matrix[ i, j ] = mData.Managers.ElementAt( i ).BirthDate.ToString( "d" );
+					j++;
+					matrix[ i, j ] = mData.Managers.ElementAt( i ).Nif.ToString( );
+					j++;
+					matrix[ i, j ] = mData.Managers.ElementAt( i ).Address;
+					j++;
+					matrix[ i, j ] = mData.Managers.ElementAt( i ).Phone.ToString( );
+					j++;
+					matrix[ i, j ] = mData.Managers.ElementAt( i ).Email;
+					j++;
+					matrix[ i, j ] = mData.Managers.ElementAt( i ).Username;
+					j++;
+					matrix[ i, j ] = mData.Managers.ElementAt( i ).Password;
+					j++;
+				}
+			}
+
+			return matrix;
+		}
+
+		private string[ , ] ListToMatrixEmployees( )
+		{
+
+			int rowsCount = Count( "Employees" );
+			int columnsCount = ObjectNumberOfProperties( "Employer" );
+
+			var matrix = new string[ rowsCount, columnsCount ];
+
+			for ( var i = 0 ; i < rowsCount ; i++ )
+			{
+				for ( var j = 0 ; j < columnsCount ; )
+				{
+					matrix[ i, j ] = mData.Employees.ElementAt( i ).Id.ToString( );
+					j++;
+					matrix[ i, j ] = mData.Employees.ElementAt( i ).FirstName;
+					j++;
+					matrix[ i, j ] = mData.Employees.ElementAt( i ).LastName;
+					j++;
+					matrix[ i, j ] = mData.Employees.ElementAt( i ).Gender.ToString( );
+					j++;
+					matrix[ i, j ] = mData.Employees.ElementAt( i ).Nationality;
+					j++;
+					matrix[ i, j ] = mData.Employees.ElementAt( i ).BirthDate.ToString( "d" );
+					j++;
+					matrix[ i, j ] = mData.Employees.ElementAt( i ).Nif.ToString( );
+					j++;
+					matrix[ i, j ] = mData.Employees.ElementAt( i ).Address;
+					j++;
+					matrix[ i, j ] = mData.Employees.ElementAt( i ).Phone.ToString( );
+					j++;
+					matrix[ i, j ] = mData.Employees.ElementAt( i ).Email;
+					j++;
+					matrix[ i, j ] = mData.Employees.ElementAt( i ).Username;
+					j++;
+					matrix[ i, j ] = mData.Employees.ElementAt( i ).Password;
+					j++;
+				}
+			}
+
+			return matrix;
+		}
+
+		#endregion
+
+		#region Append Remove Get/Set Methods
 
 		public void SetEntity( byte[ ] aImageBuffer, EnumEntityType aEntityType, string aName, int aNif,
 																		string aAddress, int aPhone, string aEmail )
@@ -283,7 +336,7 @@ namespace Tourist.Server
 					return;
 				case "Clients":
 					if ( !mData.Clients.Contains( aObject as Client ) ) return;
-					mData.Clients.Remove(aObject as Client );
+					mData.Clients.Remove( aObject as Client );
 					Save( FileName );
 					return;
 				case "Rooms":
@@ -362,29 +415,6 @@ namespace Tourist.Server
 			}
 		}
 
-		public bool ExistingId( int aId, string aList )
-		{
-			switch ( aList )
-			{
-				case "Bookings":
-					return mData.Bookings.Any( booking => booking.Id == aId );
-				case "Clients":
-					return mData.Clients.Any( client => client.Id == aId );
-				case "Rooms":
-					return mData.Rooms.Any( room => room.Id == aId );
-				case "Activities":
-					return mData.Activities.Any( activity => activity.Id == aId );
-				case "Transports":
-					return mData.Transports.Any( transport => transport.Id == aId );
-				case "Managers":
-					return mData.Managers.Any( manager => manager.Id == aId );
-				case "Employees":
-					return mData.Employees.Any( employer => employer.Id == aId );
-				default:
-					return false;
-			}
-		}
-
 		public int NextId( string aType )
 		{
 			switch ( aType )
@@ -412,6 +442,216 @@ namespace Tourist.Server
 					return mData.Employees.Select( manager => manager.Id ).ToList( ).Max( ) + 1;
 				default:
 					return 0;
+			}
+		}
+
+		#endregion
+
+		#region Edit Methods
+
+		public void Edit( string aType, int aId, string aPropertie, string aNewValue )
+		{
+			switch ( aType )
+			{
+				case "Booking":
+					return;
+				case "Client":
+					EditClient( aId, aPropertie, aNewValue );
+					Save( FileName );
+					return;
+				case "Room":
+					EditRoom( aId, aPropertie, aNewValue );
+					Save( FileName );
+					return;
+				case "Activity":
+					EditActivity( aId, aPropertie, aNewValue );
+					Save( FileName );
+					return;
+				case "Transport":
+					EditTransport( aId, aPropertie, aNewValue );
+					Save( FileName );
+					return;;
+				case "Manager":
+					EditManager( aId, aPropertie, aNewValue );
+					Save( FileName );
+					return;
+				case "Employer":
+					EditEmployer( aId, aPropertie, aNewValue );
+					Save( FileName );
+					return;
+				default:
+					return;
+			}
+		}
+
+		//Editar uma reserva
+
+		private void EditBooking( int aId, string aPropertie, string aNewValue )
+		{
+			switch ( aPropertie )
+			{
+				case "Client":
+					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
+						client.FirstName = aNewValue;
+					return;
+				case "LastName":
+					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
+						client.LastName = aNewValue;
+					return;
+				case "Gender":
+					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
+						client.Gender = ( Gender ) Shared.ConvertStringToEnum( aNewValue, "Gender" );
+					return;
+				case "Nationality":
+					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
+						client.Nationality = aNewValue;
+					return;
+				case "BirthDate":
+					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
+						client.BirthDate = Shared.ConvertStringToDateTime( aNewValue );
+					return;
+				case "Address":
+					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
+						client.Address = aNewValue;
+					return;
+				case "Phone":
+					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
+						client.Phone = Shared.ConvertStringToInt( aNewValue );
+					return;
+				case "Email":
+					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
+						client.Email = aNewValue;
+					return;
+				default:
+					return;
+			}
+		}
+
+		private void EditClient( int aId, string aPropertie, string aNewValue )
+		{
+			switch ( aPropertie )
+			{
+				case "FirstName":
+					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
+						client.FirstName = aNewValue;
+					return;
+				case "LastName":
+					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
+						client.LastName = aNewValue;
+					return;
+				case "Gender":
+					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
+						client.Gender = ( Gender ) Shared.ConvertStringToEnum( aNewValue, "Gender" );
+					return;
+				case "Nationality":
+					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
+						client.Nationality = aNewValue;
+					return;
+				case "BirthDate":
+					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
+						client.BirthDate = Shared.ConvertStringToDateTime( aNewValue );
+					return;
+				case "Address":
+					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
+						client.Address = aNewValue;
+					return;
+				case "Phone":
+					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
+						client.Phone = Shared.ConvertStringToInt( aNewValue );
+					return;
+				case "Email":
+					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
+						client.Email = aNewValue;
+					return;
+				default:
+					return;
+			}
+		}
+
+		private void EditRoom( int aId, string aPropertie, string aNewValue )
+		{
+			switch ( aPropertie )
+			{
+				case "Type":
+					foreach ( var room in mData.Rooms.Where( room => room.Id == aId ) )
+						room.Type = ( RoomType ) Shared.ConvertStringToEnum( aNewValue, "RoomType" );
+					return;
+				case "BookableState":
+					foreach ( var room in mData.Rooms.Where( room => room.Id == aId ) )
+						room.State = ( BookableState ) Shared.ConvertStringToEnum( aNewValue, "BookableState" );
+					return;
+				case "Description":
+					foreach ( var room in mData.Rooms.Where( room => room.Id == aId ) )
+						room.Description = aNewValue;
+					return;
+				case "Price":
+					foreach (var room in mData.Rooms.Where(room => room.Id == aId))
+						room.Price = Shared.ConvertStringToInt(aNewValue);
+					return;
+				case "Capacity":
+					foreach ( var room in mData.Rooms.Where( room => room.Id == aId ) )
+						room.Capacity = Shared.ConvertStringToInt( aNewValue );
+					return;
+				default:
+					return;
+			}
+		}
+
+		private void EditActivity( int aId, string aPropertie, string aNewValue )
+		{
+			switch ( aPropertie )
+			{
+				case "Type":
+					foreach ( var activity in mData.Activities.Where( activity => activity.Id == aId ) )
+						activity.Type = ( RoomType ) Shared.ConvertStringToEnum( aNewValue, "RoomType" );
+					return;
+				case "BookableState":
+					foreach ( var activity in mData.Activities.Where( activity => activity.Id == aId ) )
+						activity.State = ( BookableState ) Shared.ConvertStringToEnum( aNewValue, "BookableState" );
+					return;
+				case "Description":
+					foreach ( var activity in mData.Activities.Where( activity => activity.Id == aId ) )
+						activity.Description = aNewValue;
+					return;
+				case "Price":
+					foreach ( var activity in mData.Activities.Where( activity => activity.Id == aId ) )
+						activity.Price = Shared.ConvertStringToInt( aNewValue );
+					return;
+				case "Capacity":
+					foreach ( var activity in mData.Activities.Where( activity => activity.Id == aId ) )
+						activity.Capacity = Shared.ConvertStringToInt( aNewValue );
+					return;
+				default:
+					return;
+			}
+		}
+
+		private void EditTransport( int aId, string aPropertie, string aNewValue )
+		{
+			switch ( aPropertie )
+			{
+				case "Type":
+					foreach ( var transport in mData.Transports.Where( transport => transport.Id == aId ) )
+						transport.Type = ( RoomType ) Shared.ConvertStringToEnum( aNewValue, "RoomType" );
+					return;
+				case "BookableState":
+					foreach ( var transport in mData.Transports.Where( transport => transport.Id == aId ) )
+						transport.State = ( BookableState ) Shared.ConvertStringToEnum( aNewValue, "BookableState" );
+					return;
+				case "Description":
+					foreach ( var transport in mData.Transports.Where( transport => transport.Id == aId ) )
+						transport.Description = aNewValue;
+					return;
+				case "Price":
+					foreach ( var transport in mData.Transports.Where( transport => transport.Id == aId ) )
+						transport.Price = Shared.ConvertStringToInt( aNewValue );
+					return;
+				case "Capacity":
+					foreach ( var transport in mData.Transports.Where( transport => transport.Id == aId ) )
+						transport.Capacity = Shared.ConvertStringToInt( aNewValue );
+					return;
+				default:
+					return;
 			}
 		}
 
@@ -464,31 +704,56 @@ namespace Tourist.Server
 			}
 		}
 
-		public void Edit( string aType, int aId, string aPropertie, string aNewValue )
+		private void EditEmployer( int aId, string aPropertie, string aNewValue )
 		{
-			switch ( aType )
+			switch ( aPropertie )
 			{
-				case "Booking":
-					break;
-				case "Client":
-					break;
-				case "Room":
-					break;
-				case "Activity":
-					break;
-				case "Transport":
-					break;
-				case "Manager":
-					EditManager( aId, aPropertie, aNewValue );
-					Save( FileName );
-					break;
-				case "Employer":
-					break;
+				case "FirstName":
+					foreach ( var employer in mData.Employees.Where( employer => employer.Id == aId ) )
+						employer.FirstName = aNewValue;
+					return;
+				case "LastName":
+					foreach ( var employer in mData.Employees.Where( employer => employer.Id == aId ) )
+						employer.LastName = aNewValue;
+					return;
+				case "Gender":
+					foreach ( var employer in mData.Employees.Where( employer => employer.Id == aId ) )
+						employer.Gender = ( Gender ) Shared.ConvertStringToEnum( aNewValue, "Gender" );
+					return;
+				case "Nationality":
+					foreach ( var employer in mData.Employees.Where( employer => employer.Id == aId ) )
+						employer.Nationality = aNewValue;
+					return;
+				case "BirthDate":
+					foreach ( var employer in mData.Employees.Where( employer => employer.Id == aId ) )
+						employer.BirthDate = Shared.ConvertStringToDateTime( aNewValue );
+					return;
+				case "Address":
+					foreach ( var employer in mData.Employees.Where( employer => employer.Id == aId ) )
+						employer.Address = aNewValue;
+					return;
+				case "Phone":
+					foreach ( var employer in mData.Employees.Where( employer => employer.Id == aId ) )
+						employer.Phone = Shared.ConvertStringToInt( aNewValue );
+					return;
+				case "Email":
+					foreach ( var employer in mData.Employees.Where( employer => employer.Id == aId ) )
+						employer.Email = aNewValue;
+					return;
+				case "Username":
+					foreach ( var employer in mData.Employees.Where( employer => employer.Id == aId ) )
+						employer.Username = aNewValue;
+					return;
+				case "Password":
+					foreach ( var employer in mData.Employees.Where( employer => employer.Id == aId ) )
+						employer.Password = aNewValue;
+					return;
 				default:
 					return;
 			}
 		}
 
 		#endregion
+
 	}
 }

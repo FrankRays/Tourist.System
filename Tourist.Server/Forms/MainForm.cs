@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Drawing;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Windows.Forms;
 using MetroFramework;
 using MetroFramework.Forms;
@@ -9,49 +10,35 @@ namespace Tourist.Server.Forms
 {
 	public partial class MainForm : MetroForm
 	{
-		private int mEntityId = default( int );
-		private LoginForm mLoginForm;
 
-		public int EntityId
-		{
-			get { return mEntityId; }
-			private set { mEntityId = value; }
-		}
+		#region Fields
+		
+		private LoginForm mLoginForm;
 
 		public LoginForm LoginForm
 		{
 			get { return mLoginForm; }
 			set { mLoginForm = value; }
 		}
+		
+		#endregion
 
+		#region Constructor
+		
 		public MainForm( Form aForm )
 		{
 			InitializeComponent( );
 			LoginForm = aForm as LoginForm;
 		}
-		
-		public MainForm( Form aForm, int entityId )
-		{
-			InitializeComponent( );
-			LoginForm = aForm as LoginForm;
-			EntityId = entityId;
-		}
 
+		#endregion
+
+		#region Events
+		
 		private void MainForm_Load( object sender, EventArgs e )
 		{
-			SetFullScreen( );
+			Shared.SetFormFullScreen(this);
 			TimerClock.Start( );//conta segundos relogio
-		}
-
-		private void SetFullScreen( )
-		{
-			var x = Screen.PrimaryScreen.Bounds.Width;
-			var y = Screen.PrimaryScreen.Bounds.Height;
-			Location = new Point( 0, 0 );
-			Size = new Size( x, y );
-
-			FormBorderStyle = FormBorderStyle.None;
-			Focus( );
 		}
 
 		private void TimerClock_Tick( object sender, EventArgs e )
@@ -138,7 +125,7 @@ namespace Tourist.Server.Forms
 		{
 			Hide( );
 
-			var servicesForm = new BookablesForm( this, EntityId );
+			var servicesForm = new BookablesForm( this );
 			servicesForm.Show( );
 		}
 
@@ -204,7 +191,7 @@ namespace Tourist.Server.Forms
 
 		}
 
-		private void BackupFile_OK( object sender, System.ComponentModel.CancelEventArgs e )
+		private void BackupFile_OK( object sender, CancelEventArgs e )
 		{
 			// se houver tempo
 		}
@@ -221,7 +208,10 @@ namespace Tourist.Server.Forms
 			if ( dialogResult == DialogResult.No )
 				e.Cancel = true;
 			else
-				System.Diagnostics.Process.GetCurrentProcess( ).Kill( );
+				Process.GetCurrentProcess( ).Kill( );
 		}
+
+		#endregion
+
 	}
 }

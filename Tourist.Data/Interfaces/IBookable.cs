@@ -1,12 +1,16 @@
-﻿namespace Tourist.Data.Interfaces
+﻿using System;
+
+namespace Tourist.Data.Interfaces
 {
     public interface IBookable : ISubject
     {
 		int Id { get; set; }
-		string Name { get; set; }
-		string Type { get; set; }
+
+		Enum Type { get; set; }
+		BookableState State { get; set; }
+		string Description { get; set; }
 		double Price { get; set; }
 		int Capacity { get; set; }
-		BookableState State { get; set; }
+		
 	}
 }

@@ -9,35 +9,35 @@ namespace Tourist.Server.Forms
 	public partial class LoginForm : MetroForm
 	{
 
+		#region Fields
+		
 		private readonly Repository Repository = Repository.Instance;
 		private MainForm mMainForm;
 		private bool mLoginFormOrEntityForm = default( bool );
 		private int mEntityId = default( int );
 
+		#endregion
 
+		#region Constructor
+		
 		public LoginForm( )
 		{
 			InitializeComponent( );
 			mMainForm = new MainForm( this );
 		}
 
+		#endregion
+
+		#region Private Methods
+		
 		private void LoginForm_Load( object sender, EventArgs e )
 		{
-			SetFormFullScreen( );
+			Shared.SetFormFullScreen(this);
 		}
 
-		private void SetFormFullScreen( )
-		{
+		#endregion
 
-			var x = Screen.PrimaryScreen.Bounds.Width;
-			var y = Screen.PrimaryScreen.Bounds.Height;
-			Location = new Point( 0, 0 );
-			Size = new Size( x, y );
-
-			FormBorderStyle = FormBorderStyle.None;
-			Focus( );
-
-		}
+		#region Events
 
 		private void OkButton_Click( object sender, EventArgs e )
 		{
@@ -47,18 +47,21 @@ namespace Tourist.Server.Forms
 			{
 				var entityForm = new EntityForm( mMainForm );
 				entityForm.Show( );
-
 			}
 			else if ( Repository.IsEmpty( "Managers" ) && Repository.IsEmpty( "Employees" ) )
 			{
 				var managerForm = new ManagersForm( mMainForm );
 				managerForm.Show( );
 			}
+			else if ( !Repository.IsEmpty( "Managers" ) && Repository.IsEmpty( "Employees" ) )
+			{
+				var employersForm = new EmployersForm( mMainForm );
+				employersForm.Show( );
+			}
 			else
 			{
 				mMainForm.Show( );
 			}
-
 		}
 
 		protected override void OnFormClosing( FormClosingEventArgs e )
@@ -79,9 +82,7 @@ namespace Tourist.Server.Forms
 			Close( );
 		}
 
-		private void LoginForm_VisibilityChange( object sender, EventArgs e )
-		{
-
-		}
+		
+		#endregion
 	}
 }

@@ -128,6 +128,36 @@ namespace Tourist.Server
 							Console.WriteLine( "'{0}' is not a Enum.", aEnumType );
 							return null;
 						}
+				case "RoomType":
+						try
+						{
+							return ( RoomType ) Enum.Parse( typeof( RoomType ), aEnum );
+						}
+						catch ( Exception )
+						{
+							Console.WriteLine( "'{0}' is not a Enum.", aEnumType );
+							return null;
+						}
+				case "ActivityType":
+						try
+						{
+							return ( ActivityType ) Enum.Parse( typeof( ActivityType ), aEnum );
+						}
+						catch ( Exception )
+						{
+							Console.WriteLine( "'{0}' is not a Enum.", aEnumType );
+							return null;
+						}
+				case "TransportType":
+						try
+						{
+							return ( TransportType ) Enum.Parse( typeof( TransportType ), aEnum );
+						}
+						catch ( Exception )
+						{
+							Console.WriteLine( "'{0}' is not a Enum.", aEnumType );
+							return null;
+						}
 				default :
 					return null;
 			}

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
@@ -48,7 +47,7 @@ namespace Tourist.Server.Forms
 			if ( Repository.IsEmpty( "Managers" ) )
 				return;
 
-			var managersMatrix = Repository.ListToMatrixManagersEmployers( "Managers" );
+			var managersMatrix = Repository.ListToMatrix( "Managers" );
 
 			for ( var i = 0 ; i < Repository.Count( "Managers" ) ; i++ )
 			{
@@ -298,7 +297,6 @@ namespace Tourist.Server.Forms
 
 		#endregion
 
-		
 	}
 }
 

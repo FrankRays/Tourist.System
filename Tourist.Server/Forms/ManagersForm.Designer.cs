@@ -471,7 +471,7 @@
 			// NifColumn
 			// 
 			this.NifColumn.HeaderText = "Nif";
-			this.NifColumn.MinimumWidth = 175;
+			this.NifColumn.MinimumWidth = 150;
 			this.NifColumn.Name = "NifColumn";
 			// 
 			// AddressColumn

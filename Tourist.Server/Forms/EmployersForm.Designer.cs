@@ -33,17 +33,7 @@
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.BodyPanel = new System.Windows.Forms.Panel();
 			this.WrapperPanelGrid = new System.Windows.Forms.Panel();
-			this.EmployersDataGrid = new MetroFramework.Controls.MetroGrid();
-			this.GroupSearch = new System.Windows.Forms.GroupBox();
-			this.OkButton = new System.Windows.Forms.Button();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
-			this.FooterPanel = new System.Windows.Forms.Panel();
-			this.BackPanel = new System.Windows.Forms.Panel();
-			this.HeaderPanel = new System.Windows.Forms.Panel();
-			this.ImagePanel = new System.Windows.Forms.Panel();
-			this.SubTitleLabel = new System.Windows.Forms.Label();
-			this.TitleLabel = new System.Windows.Forms.Label();
+			this.EmployeesDataGrid = new MetroFramework.Controls.MetroGrid();
 			this.IdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.FirstNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.LastNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,10 +46,15 @@
 			this.EmailColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.UsernameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.PasswordColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.FooterPanel = new System.Windows.Forms.Panel();
+			this.BackPanel = new System.Windows.Forms.Panel();
+			this.HeaderPanel = new System.Windows.Forms.Panel();
+			this.ImagePanel = new System.Windows.Forms.Panel();
+			this.SubTitleLabel = new System.Windows.Forms.Label();
+			this.TitleLabel = new System.Windows.Forms.Label();
 			this.BodyPanel.SuspendLayout();
 			this.WrapperPanelGrid.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.EmployersDataGrid)).BeginInit();
-			this.GroupSearch.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.EmployeesDataGrid)).BeginInit();
 			this.HeaderPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -70,7 +65,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.BodyPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
 			this.BodyPanel.Controls.Add(this.WrapperPanelGrid);
-			this.BodyPanel.Controls.Add(this.GroupSearch);
 			this.BodyPanel.Location = new System.Drawing.Point(-1, 176);
 			this.BodyPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.BodyPanel.Name = "BodyPanel";
@@ -83,36 +77,36 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.WrapperPanelGrid.BackColor = System.Drawing.Color.White;
-			this.WrapperPanelGrid.Controls.Add(this.EmployersDataGrid);
-			this.WrapperPanelGrid.Location = new System.Drawing.Point(231, 27);
+			this.WrapperPanelGrid.Controls.Add(this.EmployeesDataGrid);
+			this.WrapperPanelGrid.Location = new System.Drawing.Point(18, 27);
 			this.WrapperPanelGrid.Name = "WrapperPanelGrid";
-			this.WrapperPanelGrid.Size = new System.Drawing.Size(953, 428);
+			this.WrapperPanelGrid.Size = new System.Drawing.Size(1166, 428);
 			this.WrapperPanelGrid.TabIndex = 25;
 			// 
-			// EmployersDataGrid
+			// EmployeesDataGrid
 			// 
-			this.EmployersDataGrid.AllowUserToOrderColumns = true;
-			this.EmployersDataGrid.AllowUserToResizeColumns = false;
-			this.EmployersDataGrid.AllowUserToResizeRows = false;
-			this.EmployersDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this.EmployeesDataGrid.AllowUserToOrderColumns = true;
+			this.EmployeesDataGrid.AllowUserToResizeColumns = false;
+			this.EmployeesDataGrid.AllowUserToResizeRows = false;
+			this.EmployeesDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.EmployersDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.EmployersDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-			this.EmployersDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.EmployersDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.EmployersDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-			this.EmployersDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+			this.EmployeesDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.EmployeesDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+			this.EmployeesDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.EmployeesDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.EmployeesDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+			this.EmployeesDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
 			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
 			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semilight", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
 			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			this.EmployersDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-			this.EmployersDataGrid.ColumnHeadersHeight = 60;
-			this.EmployersDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-			this.EmployersDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+			this.EmployeesDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			this.EmployeesDataGrid.ColumnHeadersHeight = 60;
+			this.EmployeesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+			this.EmployeesDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdColumn,
             this.FirstNameColumn,
             this.LastNameColumn,
@@ -132,14 +126,14 @@
 			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
 			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.EmployersDataGrid.DefaultCellStyle = dataGridViewCellStyle2;
-			this.EmployersDataGrid.EnableHeadersVisualStyles = false;
-			this.EmployersDataGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.EmployersDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.EmployersDataGrid.Location = new System.Drawing.Point(2, 1);
-			this.EmployersDataGrid.Margin = new System.Windows.Forms.Padding(2);
-			this.EmployersDataGrid.Name = "EmployersDataGrid";
-			this.EmployersDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+			this.EmployeesDataGrid.DefaultCellStyle = dataGridViewCellStyle2;
+			this.EmployeesDataGrid.EnableHeadersVisualStyles = false;
+			this.EmployeesDataGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.EmployeesDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.EmployeesDataGrid.Location = new System.Drawing.Point(2, 1);
+			this.EmployeesDataGrid.Margin = new System.Windows.Forms.Padding(2);
+			this.EmployeesDataGrid.Name = "EmployeesDataGrid";
+			this.EmployeesDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
 			dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -147,143 +141,22 @@
 			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
 			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
 			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.EmployersDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-			this.EmployersDataGrid.RowHeadersWidth = 50;
-			this.EmployersDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-			this.EmployersDataGrid.RowTemplate.Height = 25;
-			this.EmployersDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.EmployersDataGrid.Size = new System.Drawing.Size(949, 426);
-			this.EmployersDataGrid.TabIndex = 18;
-			// 
-			// GroupSearch
-			// 
-			this.GroupSearch.Controls.Add(this.OkButton);
-			this.GroupSearch.Controls.Add(this.textBox1);
-			this.GroupSearch.Controls.Add(this.metroComboBox1);
-			this.GroupSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.GroupSearch.ForeColor = System.Drawing.Color.White;
-			this.GroupSearch.Location = new System.Drawing.Point(18, 15);
-			this.GroupSearch.Margin = new System.Windows.Forms.Padding(2);
-			this.GroupSearch.Name = "GroupSearch";
-			this.GroupSearch.Padding = new System.Windows.Forms.Padding(2);
-			this.GroupSearch.Size = new System.Drawing.Size(197, 157);
-			this.GroupSearch.TabIndex = 24;
-			this.GroupSearch.TabStop = false;
-			this.GroupSearch.Text = "Search ";
-			// 
-			// OkButton
-			// 
-			this.OkButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.OkButton.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.OkButton.ForeColor = System.Drawing.Color.White;
-			this.OkButton.Location = new System.Drawing.Point(12, 106);
-			this.OkButton.Margin = new System.Windows.Forms.Padding(2);
-			this.OkButton.Name = "OkButton";
-			this.OkButton.Size = new System.Drawing.Size(176, 32);
-			this.OkButton.TabIndex = 11;
-			this.OkButton.Text = "OK";
-			this.OkButton.UseVisualStyleBackColor = false;
-			// 
-			// textBox1
-			// 
-			this.textBox1.Font = new System.Drawing.Font("Segoe UI Semilight", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBox1.Location = new System.Drawing.Point(12, 64);
-			this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(176, 32);
-			this.textBox1.TabIndex = 8;
-			this.textBox1.Text = " Search";
-			// 
-			// metroComboBox1
-			// 
-			this.metroComboBox1.FormattingEnabled = true;
-			this.metroComboBox1.ItemHeight = 23;
-			this.metroComboBox1.Location = new System.Drawing.Point(12, 29);
-			this.metroComboBox1.Margin = new System.Windows.Forms.Padding(2);
-			this.metroComboBox1.Name = "metroComboBox1";
-			this.metroComboBox1.Size = new System.Drawing.Size(176, 29);
-			this.metroComboBox1.TabIndex = 9;
-			this.metroComboBox1.UseSelectable = true;
-			// 
-			// FooterPanel
-			// 
-			this.FooterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.FooterPanel.Location = new System.Drawing.Point(-1, 651);
-			this.FooterPanel.Margin = new System.Windows.Forms.Padding(2);
-			this.FooterPanel.Name = "FooterPanel";
-			this.FooterPanel.Size = new System.Drawing.Size(1202, 150);
-			this.FooterPanel.TabIndex = 18;
-			// 
-			// BackPanel
-			// 
-			this.BackPanel.AutoSize = true;
-			this.BackPanel.BackgroundImage = global::Tourist.Server.Properties.Resources.LeftArrow;
-			this.BackPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.BackPanel.Location = new System.Drawing.Point(18, 33);
-			this.BackPanel.Margin = new System.Windows.Forms.Padding(2);
-			this.BackPanel.Name = "BackPanel";
-			this.BackPanel.Size = new System.Drawing.Size(64, 88);
-			this.BackPanel.TabIndex = 15;
-			this.BackPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BackPanel_MouseClick);
-			// 
-			// HeaderPanel
-			// 
-			this.HeaderPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.HeaderPanel.Controls.Add(this.BackPanel);
-			this.HeaderPanel.Controls.Add(this.ImagePanel);
-			this.HeaderPanel.Controls.Add(this.SubTitleLabel);
-			this.HeaderPanel.Controls.Add(this.TitleLabel);
-			this.HeaderPanel.Location = new System.Drawing.Point(-1, 22);
-			this.HeaderPanel.Margin = new System.Windows.Forms.Padding(2);
-			this.HeaderPanel.Name = "HeaderPanel";
-			this.HeaderPanel.Size = new System.Drawing.Size(1202, 150);
-			this.HeaderPanel.TabIndex = 17;
-			// 
-			// ImagePanel
-			// 
-			this.ImagePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.ImagePanel.BackgroundImage = global::Tourist.Server.Properties.Resources.employers;
-			this.ImagePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.ImagePanel.Location = new System.Drawing.Point(1010, 34);
-			this.ImagePanel.Margin = new System.Windows.Forms.Padding(2);
-			this.ImagePanel.Name = "ImagePanel";
-			this.ImagePanel.Size = new System.Drawing.Size(174, 87);
-			this.ImagePanel.TabIndex = 14;
-			// 
-			// SubTitleLabel
-			// 
-			this.SubTitleLabel.AutoSize = true;
-			this.SubTitleLabel.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.SubTitleLabel.ForeColor = System.Drawing.Color.White;
-			this.SubTitleLabel.Location = new System.Drawing.Point(104, 87);
-			this.SubTitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.SubTitleLabel.Name = "SubTitleLabel";
-			this.SubTitleLabel.Size = new System.Drawing.Size(205, 30);
-			this.SubTitleLabel.TabIndex = 4;
-			this.SubTitleLabel.Text = "Manage Employers ";
-			// 
-			// TitleLabel
-			// 
-			this.TitleLabel.AutoSize = true;
-			this.TitleLabel.BackColor = System.Drawing.Color.Transparent;
-			this.TitleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TitleLabel.ForeColor = System.Drawing.Color.White;
-			this.TitleLabel.Location = new System.Drawing.Point(98, 29);
-			this.TitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.TitleLabel.Name = "TitleLabel";
-			this.TitleLabel.Size = new System.Drawing.Size(328, 51);
-			this.TitleLabel.TabIndex = 3;
-			this.TitleLabel.Text = "Employers Details";
+			this.EmployeesDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+			this.EmployeesDataGrid.RowHeadersWidth = 50;
+			this.EmployeesDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+			this.EmployeesDataGrid.RowTemplate.Height = 25;
+			this.EmployeesDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.EmployeesDataGrid.Size = new System.Drawing.Size(1162, 426);
+			this.EmployeesDataGrid.TabIndex = 18;
+			this.EmployeesDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.EmployeesDataGrid_CellClick);
+			this.EmployeesDataGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.EmployeesDataGrid_CellDoubleClick);
+			this.EmployeesDataGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.EmployeesDataGrid_CellValidating);
+			this.EmployeesDataGrid.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.EmployeesDataGrid_RowsRemoved);
 			// 
 			// IdColumn
 			// 
 			this.IdColumn.HeaderText = "ID";
-			this.IdColumn.MinimumWidth = 150;
+			this.IdColumn.MinimumWidth = 75;
 			this.IdColumn.Name = "IdColumn";
 			this.IdColumn.ReadOnly = true;
 			// 
@@ -306,7 +179,7 @@
 			this.GenderColumn.Items.AddRange(new object[] {
             "Male",
             "Female"});
-			this.GenderColumn.MinimumWidth = 150;
+			this.GenderColumn.MinimumWidth = 100;
 			this.GenderColumn.Name = "GenderColumn";
 			this.GenderColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
 			this.GenderColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
@@ -508,7 +381,7 @@
             "ZA  South Africa",
             "ZM  Zambia",
             "ZW  Zimbabwe"});
-			this.NationalityColumn.MinimumWidth = 150;
+			this.NationalityColumn.MinimumWidth = 175;
 			this.NationalityColumn.Name = "NationalityColumn";
 			this.NationalityColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
 			this.NationalityColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
@@ -516,7 +389,7 @@
 			// BirthDateColumn
 			// 
 			this.BirthDateColumn.HeaderText = "BirthDate";
-			this.BirthDateColumn.MinimumWidth = 150;
+			this.BirthDateColumn.MinimumWidth = 175;
 			this.BirthDateColumn.Name = "BirthDateColumn";
 			// 
 			// NifColumn
@@ -528,7 +401,7 @@
 			// AddressColumn
 			// 
 			this.AddressColumn.HeaderText = "Address";
-			this.AddressColumn.MinimumWidth = 150;
+			this.AddressColumn.MinimumWidth = 200;
 			this.AddressColumn.Name = "AddressColumn";
 			// 
 			// PhoneColumn
@@ -540,7 +413,7 @@
 			// EmailColumn
 			// 
 			this.EmailColumn.HeaderText = "Email";
-			this.EmailColumn.MinimumWidth = 150;
+			this.EmailColumn.MinimumWidth = 175;
 			this.EmailColumn.Name = "EmailColumn";
 			// 
 			// UsernameColumn
@@ -554,6 +427,81 @@
 			this.PasswordColumn.HeaderText = "Password";
 			this.PasswordColumn.MinimumWidth = 150;
 			this.PasswordColumn.Name = "PasswordColumn";
+			// 
+			// FooterPanel
+			// 
+			this.FooterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			this.FooterPanel.Location = new System.Drawing.Point(-1, 651);
+			this.FooterPanel.Margin = new System.Windows.Forms.Padding(2);
+			this.FooterPanel.Name = "FooterPanel";
+			this.FooterPanel.Size = new System.Drawing.Size(1202, 150);
+			this.FooterPanel.TabIndex = 18;
+			// 
+			// BackPanel
+			// 
+			this.BackPanel.AutoSize = true;
+			this.BackPanel.BackgroundImage = global::Tourist.Server.Properties.Resources.LeftArrow;
+			this.BackPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.BackPanel.Location = new System.Drawing.Point(18, 33);
+			this.BackPanel.Margin = new System.Windows.Forms.Padding(2);
+			this.BackPanel.Name = "BackPanel";
+			this.BackPanel.Size = new System.Drawing.Size(64, 88);
+			this.BackPanel.TabIndex = 15;
+			this.BackPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BackPanel_MouseClick);
+			// 
+			// HeaderPanel
+			// 
+			this.HeaderPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			this.HeaderPanel.Controls.Add(this.BackPanel);
+			this.HeaderPanel.Controls.Add(this.ImagePanel);
+			this.HeaderPanel.Controls.Add(this.SubTitleLabel);
+			this.HeaderPanel.Controls.Add(this.TitleLabel);
+			this.HeaderPanel.Location = new System.Drawing.Point(-1, 22);
+			this.HeaderPanel.Margin = new System.Windows.Forms.Padding(2);
+			this.HeaderPanel.Name = "HeaderPanel";
+			this.HeaderPanel.Size = new System.Drawing.Size(1202, 150);
+			this.HeaderPanel.TabIndex = 17;
+			// 
+			// ImagePanel
+			// 
+			this.ImagePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.ImagePanel.BackgroundImage = global::Tourist.Server.Properties.Resources.employers;
+			this.ImagePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.ImagePanel.Location = new System.Drawing.Point(1010, 34);
+			this.ImagePanel.Margin = new System.Windows.Forms.Padding(2);
+			this.ImagePanel.Name = "ImagePanel";
+			this.ImagePanel.Size = new System.Drawing.Size(174, 87);
+			this.ImagePanel.TabIndex = 14;
+			// 
+			// SubTitleLabel
+			// 
+			this.SubTitleLabel.AutoSize = true;
+			this.SubTitleLabel.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.SubTitleLabel.ForeColor = System.Drawing.Color.White;
+			this.SubTitleLabel.Location = new System.Drawing.Point(104, 87);
+			this.SubTitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.SubTitleLabel.Name = "SubTitleLabel";
+			this.SubTitleLabel.Size = new System.Drawing.Size(203, 30);
+			this.SubTitleLabel.TabIndex = 4;
+			this.SubTitleLabel.Text = "Manage Employees";
+			// 
+			// TitleLabel
+			// 
+			this.TitleLabel.AutoSize = true;
+			this.TitleLabel.BackColor = System.Drawing.Color.Transparent;
+			this.TitleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.TitleLabel.ForeColor = System.Drawing.Color.White;
+			this.TitleLabel.Location = new System.Drawing.Point(98, 29);
+			this.TitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.TitleLabel.Name = "TitleLabel";
+			this.TitleLabel.Size = new System.Drawing.Size(334, 51);
+			this.TitleLabel.TabIndex = 3;
+			this.TitleLabel.Text = "Employees Details";
 			// 
 			// EmployersForm
 			// 
@@ -574,9 +522,7 @@
 			this.Load += new System.EventHandler(this.EmployersForm_Load);
 			this.BodyPanel.ResumeLayout(false);
 			this.WrapperPanelGrid.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.EmployersDataGrid)).EndInit();
-			this.GroupSearch.ResumeLayout(false);
-			this.GroupSearch.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.EmployeesDataGrid)).EndInit();
 			this.HeaderPanel.ResumeLayout(false);
 			this.HeaderPanel.PerformLayout();
 			this.ResumeLayout(false);
@@ -591,13 +537,9 @@
 		private System.Windows.Forms.Label SubTitleLabel;
 		private System.Windows.Forms.Label TitleLabel;
 		private System.Windows.Forms.Panel WrapperPanelGrid;
-		private System.Windows.Forms.GroupBox GroupSearch;
-		private System.Windows.Forms.Button OkButton;
-		private System.Windows.Forms.TextBox textBox1;
-		private MetroFramework.Controls.MetroComboBox metroComboBox1;
 		private System.Windows.Forms.Panel BackPanel;
 		private System.Windows.Forms.Panel ImagePanel;
-		private MetroFramework.Controls.MetroGrid EmployersDataGrid;
+		private MetroFramework.Controls.MetroGrid EmployeesDataGrid;
 		private System.Windows.Forms.DataGridViewTextBoxColumn IdColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn FirstNameColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn LastNameColumn;
