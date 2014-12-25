@@ -238,31 +238,31 @@
 			// 
 			// FirstNameColumn
 			// 
-			this.FirstNameColumn.HeaderText = "First Name";
+			this.FirstNameColumn.HeaderText = "First Name (*)";
 			this.FirstNameColumn.MinimumWidth = 150;
 			this.FirstNameColumn.Name = "FirstNameColumn";
 			this.FirstNameColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
 			// 
 			// LastNameColumn
 			// 
-			this.LastNameColumn.HeaderText = "Last Name";
+			this.LastNameColumn.HeaderText = "Last Name (*)";
 			this.LastNameColumn.MinimumWidth = 150;
 			this.LastNameColumn.Name = "LastNameColumn";
 			// 
 			// GenderColumn
 			// 
-			this.GenderColumn.HeaderText = "Gender";
+			this.GenderColumn.HeaderText = "Gender (*)";
 			this.GenderColumn.Items.AddRange(new object[] {
             "Male",
             "Female"});
-			this.GenderColumn.MinimumWidth = 100;
+			this.GenderColumn.MinimumWidth = 110;
 			this.GenderColumn.Name = "GenderColumn";
 			this.GenderColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
 			this.GenderColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
 			// 
 			// NationalityColumn
 			// 
-			this.NationalityColumn.HeaderText = "Nationality";
+			this.NationalityColumn.HeaderText = "Nationality (*)";
 			this.NationalityColumn.Items.AddRange(new object[] {
             "AD  Andorra",
             "AE  United Arab Emirates",
@@ -464,43 +464,43 @@
 			// 
 			// BirthDateColumn
 			// 
-			this.BirthDateColumn.HeaderText = "BirthDate";
+			this.BirthDateColumn.HeaderText = "BirthDate (*)";
 			this.BirthDateColumn.MinimumWidth = 175;
 			this.BirthDateColumn.Name = "BirthDateColumn";
 			// 
 			// NifColumn
 			// 
-			this.NifColumn.HeaderText = "Nif";
+			this.NifColumn.HeaderText = "Nif (*)";
 			this.NifColumn.MinimumWidth = 150;
 			this.NifColumn.Name = "NifColumn";
 			// 
 			// AddressColumn
 			// 
-			this.AddressColumn.HeaderText = "Address";
+			this.AddressColumn.HeaderText = "Address (*)";
 			this.AddressColumn.MinimumWidth = 200;
 			this.AddressColumn.Name = "AddressColumn";
 			// 
 			// PhoneColumn
 			// 
-			this.PhoneColumn.HeaderText = "Phone";
+			this.PhoneColumn.HeaderText = "Phone (*)";
 			this.PhoneColumn.MinimumWidth = 150;
 			this.PhoneColumn.Name = "PhoneColumn";
 			// 
 			// EmailColumn
 			// 
-			this.EmailColumn.HeaderText = "Email";
+			this.EmailColumn.HeaderText = "Email (*)";
 			this.EmailColumn.MinimumWidth = 175;
 			this.EmailColumn.Name = "EmailColumn";
 			// 
 			// UsernameColumn
 			// 
-			this.UsernameColumn.HeaderText = "Username";
+			this.UsernameColumn.HeaderText = "Username (*)";
 			this.UsernameColumn.MinimumWidth = 150;
 			this.UsernameColumn.Name = "UsernameColumn";
 			// 
 			// PasswordColumn
 			// 
-			this.PasswordColumn.HeaderText = "Password";
+			this.PasswordColumn.HeaderText = "Password (*)";
 			this.PasswordColumn.MinimumWidth = 150;
 			this.PasswordColumn.Name = "PasswordColumn";
 			// 

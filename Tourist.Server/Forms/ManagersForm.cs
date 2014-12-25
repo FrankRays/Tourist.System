@@ -24,14 +24,14 @@ namespace Tourist.Server.Forms
 		#endregion
 
 		#region Constructor
-		
+
 		public ManagersForm( Form aForm )
 		{
 			InitializeComponent( );
 			mMainForm = aForm as MainForm;
 			mDateTimePicker = new MetroDateTime( );
 		}
-		
+
 		#endregion
 
 		#region Private Methods
@@ -202,45 +202,6 @@ namespace Tourist.Server.Forms
 			Repository.Remove( managerToRemove, "Managers" );
 		}
 
-		protected override void OnFormClosing( FormClosingEventArgs e )
-		{
-			if ( mBackOrExit ) return;
-
-			base.OnFormClosing( e );
-
-			var dialogResult = MetroMessageBox.Show( this, "\n Are you sure you want to exit the application?",
-													"Close Button Pressed", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
-
-			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
-
-			if ( dialogResult == DialogResult.No )
-				e.Cancel = true;
-			else
-				Process.GetCurrentProcess( ).Kill( );
-		}
-
-		private void BackPanel_MouseClick( object sender, MouseEventArgs e )
-		{
-			if ( !Repository.IsEmpty( "Managers" ) )
-			{
-				if ( !Repository.IsEmpty( "Managers" ) && Repository.IsEmpty( "Employees" ) )
-				{
-					mBackOrExit = true;
-					Close( );
-
-					var employersForm = new EmployersForm( mMainForm );
-					employersForm.Show( );
-				}
-				else
-				{
-					mBackOrExit = true;
-					Close( );
-
-					mMainForm.Show( );
-				}
-			}
-		}
-
 		private void ManagersDataGrid_CellDoubleClick( object sender, DataGridViewCellEventArgs e )
 		{
 			if ( e.ColumnIndex >= 0 && e.RowIndex >= 0 )
@@ -250,7 +211,7 @@ namespace Tourist.Server.Forms
 				ManagersDataGrid.BeginEdit( true );
 			}
 		}
-		
+
 		private void ManagersDataGrid_CellClick( object sender, DataGridViewCellEventArgs e )
 		{
 			//BirthDateColumn
@@ -280,7 +241,6 @@ namespace Tourist.Server.Forms
 				// Now make it visible  
 				mDateTimePicker.Visible = true;
 			}
-
 		}
 
 		private void dateTimePicker_OnTextChange( object sender, EventArgs e )
@@ -293,6 +253,54 @@ namespace Tourist.Server.Forms
 		{
 			// Hiding the control after use   
 			mDateTimePicker.Visible = false;
+		}
+
+		#endregion
+
+		#region Close Events
+
+		protected override void OnFormClosing( FormClosingEventArgs e )
+		{
+			if ( mBackOrExit ) return;
+
+			base.OnFormClosing( e );
+
+			var dialogResult = MetroMessageBox.Show( this, "\n Are you sure you want to exit the application?",
+													"Close Button Pressed", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
+
+			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
+
+			if ( dialogResult == DialogResult.No )
+				e.Cancel = true;
+			else
+				Process.GetCurrentProcess( ).Kill( );
+		}
+
+		private void BackPanel_MouseClick( object sender, MouseEventArgs e )
+		{
+			if ( !Repository.IsEmpty( "Managers" ) )
+			{
+				if ( Repository.IsEmpty( "Employees" ) )
+				{
+					mBackOrExit = true;
+					Close( );
+
+					var employersForm = new EmployersForm( mMainForm );
+					employersForm.Show( );
+				}
+				else
+				{
+					mBackOrExit = true;
+					Close( );
+
+					mMainForm.Show( );
+				}
+			}
+			else
+			{
+				MetroMessageBox.Show( this, "\n Please insert a complete row before going to next Screen.",
+								"Manager Data Empty or Not complete!!! ", MessageBoxButtons.OK, MessageBoxIcon.Information );
+			}
 		}
 
 		#endregion

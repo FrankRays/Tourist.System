@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Capacity.cs" />
     <Compile Include="Classes\Transport.cs" />
     <Compile Include="Classes\Activity.cs" />
     <Compile Include="Classes\Booking.cs" />
@@ -49,7 +50,7 @@
     <Compile Include="Classes\Factory.cs" />
     <Compile Include="Classes\Manager.cs" />
     <Compile Include="Classes\Room.cs" />
-    <Compile Include="Classes\UnitPrice.cs" />
+    <Compile Include="Classes\BasePrice.cs" />
     <Compile Include="Interfaces\EnumActivityType.cs" />
     <Compile Include="Interfaces\EnumBookableState.cs" />
     <Compile Include="Interfaces\EnumEntityType.cs" />

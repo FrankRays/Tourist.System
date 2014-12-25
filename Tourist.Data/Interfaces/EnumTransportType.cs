@@ -2,6 +2,6 @@
 {
 	public enum TransportType
 	{
-		TuckTuck, CableCar, Bicycle, Car, Bus, PrivateDriver
+		TuckTuck, CableCar, Bicycle, Car, Bus, Motorist
 	}
 }

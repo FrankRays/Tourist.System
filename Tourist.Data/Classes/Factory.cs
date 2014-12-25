@@ -12,9 +12,11 @@ namespace Tourist.Data.Classes
 		{
 			return new[ ]
 			{
-				typeof (Entity),	typeof (Booking),		typeof (Client),
+				typeof (Entity),	typeof (Booking),		typeof (Client), 
 				typeof(Room),		typeof (Activity),		typeof (Transport),	
-				typeof (Employer),	typeof (Manager),		typeof (DateTimeRange)		
+				typeof (Employer),	typeof (Manager),		typeof (DateTimeRange),
+ 			    typeof(EntityType), typeof(BookableState),	typeof(Gender), 
+				typeof(RoomType),	typeof(ActivityType),	typeof(TransportType)		
 			};
 		}
 

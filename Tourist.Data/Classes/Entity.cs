@@ -12,7 +12,7 @@ namespace Tourist.Data.Classes
 		private static int mCounter = default( int );
 		private int mNumber = default (int);
 		private byte[ ] mLogoBuffer;
-		private EnumEntityType mEntityType;
+		private EntityType mEntityType;
 		private string mName;
 		private int mNif;
 		private string mAddress;
@@ -35,7 +35,7 @@ namespace Tourist.Data.Classes
 			set { mLogoBuffer = value; Notify( this ); }
 		}
 
-		public EnumEntityType EntityType
+		public EntityType EntityType
 		{
 			get { return mEntityType; }
 			set { mEntityType = value; Notify( this ); }

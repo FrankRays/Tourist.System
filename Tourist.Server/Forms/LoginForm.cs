@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 using MetroFramework;
 using MetroFramework.Forms;
@@ -48,7 +47,7 @@ namespace Tourist.Server.Forms
 				var entityForm = new EntityForm( mMainForm );
 				entityForm.Show( );
 			}
-			else if ( Repository.IsEmpty( "Managers" ) && Repository.IsEmpty( "Employees" ) )
+			else if ( Repository.IsEmpty( "Managers" ) )
 			{
 				var managerForm = new ManagersForm( mMainForm );
 				managerForm.Show( );
@@ -84,5 +83,6 @@ namespace Tourist.Server.Forms
 
 		
 		#endregion
+
 	}
 }

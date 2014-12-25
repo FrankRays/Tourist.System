@@ -15,7 +15,7 @@ namespace Tourist.Server.Forms
 	{
 
 		#region Fields
-		
+
 		private readonly Repository Repository = Repository.Instance;
 		private readonly MainForm mMainForm;
 		private readonly MetroDateTime mDateTimePicker;
@@ -29,17 +29,17 @@ namespace Tourist.Server.Forms
 		{
 			InitializeComponent( );
 			mMainForm = aForm as MainForm;
-			mDateTimePicker = new MetroDateTime();
+			mDateTimePicker = new MetroDateTime( );
 		}
 
 		#endregion
-		
+
 		#region Private Methods
 
 		private void EmployersForm_Load( object sender, EventArgs e )
 		{
-			Shared.SetFormFullScreen(this);
-			LoadDataToGrid();
+			Shared.SetFormFullScreen( this );
+			LoadDataToGrid( );
 		}
 
 		private void LoadDataToGrid( )
@@ -256,6 +256,10 @@ namespace Tourist.Server.Forms
 			mDateTimePicker.Visible = false;
 		}
 
+		#endregion
+
+		#region Close Events
+
 		protected override void OnFormClosing( FormClosingEventArgs e )
 		{
 			if ( mBackOrExit ) return;
@@ -281,6 +285,11 @@ namespace Tourist.Server.Forms
 				Close( );
 
 				mMainForm.Show( );
+			}
+			else
+			{
+				MetroMessageBox.Show( this, "\n Please insert a complete row before going to next Screen.",
+								"Employer Data Empty or Not complete!!! ", MessageBoxButtons.OK, MessageBoxIcon.Information );
 			}
 		}
 

@@ -12,40 +12,40 @@ namespace Tourist.Server.Forms
 	public partial class EntityForm : MetroForm
 	{
 
-		private readonly Repository repository = Repository.Instance;
+		#region Fields
+
+		private readonly Repository Repository = Repository.Instance;
 		private readonly MainForm mMainForm;
 		private bool mBackOrExit = default( bool );
 
+		#endregion
+
+		#region Constructor
 
 		public EntityForm( Form aForm )
 		{
 			InitializeComponent( );
 			mMainForm = aForm as MainForm;
-			TypeComboBox.Text = TypeComboBox.Items[ 0 ].ToString( );
+			SelectDefaultType( );
 			EditButton.Enabled = false;
 		}
 
+		#endregion
+
+		#region Private Methods
+
 		private void EntitiesForm_Load( object sender, EventArgs e )
 		{
+			Shared.SetFormFullScreen( this );
 			LoadEntityData( );
-			SetFormFullScreen( );
-		}
-
-		private void SetFormFullScreen( )
-		{
-			var x = Screen.PrimaryScreen.Bounds.Width;
-			var y = Screen.PrimaryScreen.Bounds.Height;
-			Location = new Point( 0, 0 );
-			Size = new Size( x, y );
-
-			FormBorderStyle = FormBorderStyle.None;
-			Focus( );
 		}
 
 		private void LoadEntityData( )
 		{
-			var entity = repository.MData.Entity;
-
+			if (Repository.IsEmpty("Entity"))
+				return;
+			
+			var entity = Repository.MData.Entity;
 			LogoPictureBox.Image = Shared.ByteArrayToImage( entity.LogoBuffer );
 			NameTextBox.Text = entity.Name;
 			TypeComboBox.Text = entity.EntityType.ToString( );
@@ -57,6 +57,11 @@ namespace Tourist.Server.Forms
 			ControlsToReadOnly( false );
 		}
 
+		private void SelectDefaultType( )
+		{
+			TypeComboBox.Text = TypeComboBox.Items[ 0 ].ToString( );
+		}
+
 		private void SaveEntityData( )
 		{
 
@@ -66,20 +71,37 @@ namespace Tourist.Server.Forms
 			}
 
 			var imageBuffer = Shared.ImageToByteArray( LogoPictureBox.Image );
-			var entityType = ( EnumEntityType ) Shared.ConvertStringToEnum( TypeComboBox.Text, "EntityType" );
+			var entityType = ( EntityType ) Shared.ConvertStringToEnum( TypeComboBox.Text, "EntityType" );
 			var entityName = NameTextBox.Text;
 			var entityNif = Convert.ToInt32( NifTextBox.Text );
 			var entityAddress = AddressTextBox.Text;
 			var entityPhone = Convert.ToInt32( PhoneTextBox.Text );
 			var entityEmail = EmailTextBox.Text;
 
-			repository.SetEntity( imageBuffer, entityType, entityName, entityNif,
+			Repository.SetEntity( imageBuffer, entityType, entityName, entityNif,
 																				entityAddress, entityPhone, entityEmail );
-			repository.Save( repository.FileName );
+			Repository.Save( Repository.FileName );
 
 			MetroMessageBox.Show( this, "Entity Information saved with Sucess !!!", "Metro Title",
 																		MessageBoxButtons.OK, MessageBoxIcon.Information );
 		}
+
+		private void ControlsToReadOnly( bool aBool )
+		{
+			NameTextBox.ReadOnly = aBool;
+			TypeComboBox.Enabled = aBool;
+			NifTextBox.ReadOnly = aBool;
+			AddressTextBox.ReadOnly = aBool;
+			PhoneTextBox.ReadOnly = aBool;
+			EmailTextBox.ReadOnly = aBool;
+			SaveButton.Enabled = aBool;
+			EditButton.Enabled = !aBool;
+			LogoPictureBox.Enabled = aBool;
+		}
+
+		#endregion
+
+		#region Events
 
 		private void LogoPictureBox_MouseClick( object sender, MouseEventArgs e )
 		{
@@ -106,19 +128,6 @@ namespace Tourist.Server.Forms
 		private void EditButton_Click( object sender, EventArgs e )
 		{
 			ControlsToReadOnly( true );
-		}
-
-		private void ControlsToReadOnly( bool aBool )
-		{
-			NameTextBox.ReadOnly = aBool;
-			TypeComboBox.Enabled = aBool;
-			NifTextBox.ReadOnly = aBool;
-			AddressTextBox.ReadOnly = aBool;
-			PhoneTextBox.ReadOnly = aBool;
-			EmailTextBox.ReadOnly = aBool;
-			SaveButton.Enabled = aBool;
-			EditButton.Enabled = !aBool;
-			LogoPictureBox.Enabled = aBool;
 		}
 
 		private void NameTextBox_Validating( object sender, System.ComponentModel.CancelEventArgs e )
@@ -151,6 +160,13 @@ namespace Tourist.Server.Forms
 				e.Cancel = true;
 				//NifTextBox.Focus( );
 				ErrorProvider.SetError( NifTextBox, "Error the nif field is not valid." );
+				ErrorProvider.SetIconPadding( NifTextBox, -25 );
+			}
+			else if ( NifTextBox.Text.Length < 9 || NifTextBox.Text.Length > 9 )
+			{
+				e.Cancel = true;
+				//NifTextBox.Focus( );
+				ErrorProvider.SetError( NifTextBox, "Error the nif has to have 9 digits." );
 				ErrorProvider.SetIconPadding( NifTextBox, -25 );
 			}
 			else
@@ -222,6 +238,10 @@ namespace Tourist.Server.Forms
 			}
 		}
 
+		#endregion
+
+		#region Close Events
+
 		protected override void OnFormClosing( FormClosingEventArgs e )
 		{
 			if ( mBackOrExit ) return;
@@ -241,14 +261,22 @@ namespace Tourist.Server.Forms
 
 		private void BackPanel_MouseClick( object sender, MouseEventArgs e )
 		{
-			if ( repository.IsEmpty( "Entity" ) )
+			if ( !Repository.IsEmpty( "Entity" ) )
 			{
-				if ( !repository.IsEmpty( "Managers" ) && !repository.IsEmpty( "Employees" ) )
+				if ( Repository.IsEmpty( "Managers" ) )
 				{
 					mBackOrExit = true;
 					Close( );
 
-					var employersForm = new ManagersForm( mMainForm );
+					var managerForm = new ManagersForm( mMainForm );
+					managerForm.Show( );
+				}
+				else if ( !Repository.IsEmpty( "Managers" ) && Repository.IsEmpty( "Employees" ) )
+				{
+					mBackOrExit = true;
+					Close( );
+
+					var employersForm = new EmployersForm( mMainForm );
 					employersForm.Show( );
 				}
 				else
@@ -259,6 +287,14 @@ namespace Tourist.Server.Forms
 					mMainForm.Show( );
 				}
 			}
+			else
+			{
+				MetroMessageBox.Show( this, "\n Please insert all entity form field before going To Main Screen.",
+								"Entity Data Empty or Not complete!!! ", MessageBoxButtons.OK, MessageBoxIcon.Information );
+			}
 		}
+
+		#endregion
+
 	}
 }

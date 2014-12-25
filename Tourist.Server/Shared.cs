@@ -5,6 +5,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 using Tourist.Data.Interfaces;
 
@@ -51,18 +52,24 @@ namespace Tourist.Server
 		{
 			try
 			{
-				var addr = new MailAddress( aEmail );
-				
-				return true;
+				var emailParts = aEmail.Split( '@' );
+
+				if ( !string.IsNullOrEmpty( emailParts[ 0 ] ) )
+				{
+					var domainParts = emailParts[ 1 ].Split( '.' );
+
+					if ( !string.IsNullOrEmpty( domainParts[ 0 ] ) && !string.IsNullOrEmpty( domainParts[ 1 ] ) )
+					{
+						return true;
+					}
+				}
 			}
-			catch ( FormatException )
-			{
-				Console.WriteLine( "'{0}' is not a valid email address.", aEmail );
-				return false;
-			}
+			catch ( Exception e ) { }
+
+			return false;
 		}
 
-		public static int ConvertStringToInt(string aInt)
+		public static int ConvertStringToInt( string aInt )
 		{
 			try
 			{
@@ -73,6 +80,22 @@ namespace Tourist.Server
 			catch ( FormatException )
 			{
 				Console.WriteLine( "'{0}' is not a integer.", aInt );
+			}
+
+			return 0;
+		}
+
+		public static double ConvertStringToDouble( string aDouble )
+		{
+			try
+			{
+				var convertedInt = Convert.ToDouble( aDouble );
+
+				return convertedInt;
+			}
+			catch ( FormatException )
+			{
+				Console.WriteLine( "'{0}' is not a integer.", aDouble );
 			}
 
 			return 0;
@@ -94,71 +117,71 @@ namespace Tourist.Server
 			return new DateTime( );
 		}
 
-		public static Enum ConvertStringToEnum(string aEnum, string aEnumType)
+		public static Enum ConvertStringToEnum( string aEnum, string aEnumType )
 		{
-			switch (aEnumType)
+			switch ( aEnumType )
 			{
 				case "EntityType":
-						try
-						{
-							return ( EnumEntityType ) Enum.Parse( typeof( EnumEntityType ), aEnum );
-						}
-						catch ( Exception )
-						{
-							Console.WriteLine( "'{0}' is not a Enum.", aEnumType );
-							return null;
-						}
+					try
+					{
+						return ( EntityType ) Enum.Parse( typeof( EntityType ), aEnum );
+					}
+					catch ( Exception )
+					{
+						Console.WriteLine( "'{0}' is not a Enum.", aEnumType );
+						return null;
+					}
 				case "Gender":
-						try
-						{
-							return ( Gender ) Enum.Parse( typeof( Gender ), aEnum );
-						}
-						catch ( Exception )
-						{
-							Console.WriteLine( "'{0}' is not a Enum.", aEnumType );
-							return null;
-						}
+					try
+					{
+						return ( Gender ) Enum.Parse( typeof( Gender ), aEnum );
+					}
+					catch ( Exception )
+					{
+						Console.WriteLine( "'{0}' is not a Enum.", aEnumType );
+						return null;
+					}
 				case "BookableState":
-						try
-						{
-							return ( BookableState ) Enum.Parse( typeof( BookableState ), aEnum );
-						}
-						catch ( Exception )
-						{
-							Console.WriteLine( "'{0}' is not a Enum.", aEnumType );
-							return null;
-						}
+					try
+					{
+						return ( BookableState ) Enum.Parse( typeof( BookableState ), aEnum );
+					}
+					catch ( Exception )
+					{
+						Console.WriteLine( "'{0}' is not a Enum.", aEnumType );
+						return null;
+					}
 				case "RoomType":
-						try
-						{
-							return ( RoomType ) Enum.Parse( typeof( RoomType ), aEnum );
-						}
-						catch ( Exception )
-						{
-							Console.WriteLine( "'{0}' is not a Enum.", aEnumType );
-							return null;
-						}
+					try
+					{
+						return ( RoomType ) Enum.Parse( typeof( RoomType ), aEnum );
+					}
+					catch ( Exception )
+					{
+						Console.WriteLine( "'{0}' is not a Enum.", aEnumType );
+						return null;
+					}
 				case "ActivityType":
-						try
-						{
-							return ( ActivityType ) Enum.Parse( typeof( ActivityType ), aEnum );
-						}
-						catch ( Exception )
-						{
-							Console.WriteLine( "'{0}' is not a Enum.", aEnumType );
-							return null;
-						}
+					try
+					{
+						return ( ActivityType ) Enum.Parse( typeof( ActivityType ), aEnum );
+					}
+					catch ( Exception )
+					{
+						Console.WriteLine( "'{0}' is not a Enum.", aEnumType );
+						return null;
+					}
 				case "TransportType":
-						try
-						{
-							return ( TransportType ) Enum.Parse( typeof( TransportType ), aEnum );
-						}
-						catch ( Exception )
-						{
-							Console.WriteLine( "'{0}' is not a Enum.", aEnumType );
-							return null;
-						}
-				default :
+					try
+					{
+						return ( TransportType ) Enum.Parse( typeof( TransportType ), aEnum );
+					}
+					catch ( Exception )
+					{
+						Console.WriteLine( "'{0}' is not a Enum.", aEnumType );
+						return null;
+					}
+				default:
 					return null;
 			}
 		}
@@ -171,11 +194,11 @@ namespace Tourist.Server
 
 		public static List<string> RowCellValues( DataGridViewRow rows )
 		{
-			var rowCellValues = new List<string>();
+			var rowCellValues = new List<string>( );
 
 			for ( int i = 0 ; i < rows.Cells.Count ; i++ )
 			{
-				rowCellValues.Add(rows.Cells[ i ].EditedFormattedValue.ToString( ));
+				rowCellValues.Add( rows.Cells[ i ].EditedFormattedValue.ToString( ) );
 			}
 
 			return rowCellValues;
@@ -193,7 +216,7 @@ namespace Tourist.Server
 
 			for ( var i = 0 ; i < aRow.Cells.Count ; i++ ) //for ( var i = 1 ; i < aRow.Cells.Count ; i++ )
 			{
-				if ( aRow.Cells[ i ].EditedFormattedValue.ToString( ).Length == 0 )
+				if ( string.IsNullOrEmpty( aRow.Cells[ i ].EditedFormattedValue.ToString( ) ) )
 				{
 					aRow.Cells[ i ].ErrorText = "This Cell can´t be empty!";
 
@@ -204,28 +227,56 @@ namespace Tourist.Server
 					CellErrorRemove( aRow.Cells[ i ] );
 				}
 			}
-
-			if ( aRow.Cells[ "NifColumn" ].Value != null )
+			try
 			{
-				if ( !IsNumeric( aRow.Cells[ "NifColumn" ].EditedFormattedValue.ToString( ) ) )
+				if ( aRow.Cells[ "NifColumn" ].Value != null )
 				{
-					aRow.Cells[ "NifColumn" ].ErrorText = "The Nif has only numbers!";
-					return false;
+					if ( !IsNumeric( aRow.Cells[ "NifColumn" ].EditedFormattedValue.ToString( ) ) )
+					{
+						aRow.Cells[ "NifColumn" ].ErrorText = "The Nif has only numbers!";
+						return false;
+					}
+
+					if ( ( aRow.Cells[ "NifColumn" ].EditedFormattedValue.ToString( ).Length < 9 ) || ( aRow.Cells[ "NifColumn" ].EditedFormattedValue.ToString( ).Length > 9 ) )
+					{
+						aRow.Cells[ "NifColumn" ].ErrorText = "The Nif has to have 9 digits !";
+						return false;
+					}
+
+					CellErrorRemove( aRow.Cells[ "NifColumn" ] );
 				}
-
-				CellErrorRemove( aRow.Cells[ "NifColumn" ] );
 			}
+			catch ( Exception ) { }
 
-			if ( aRow.Cells[ "PhoneColumn" ].Value != null )
+			try
 			{
-				if ( !IsNumeric( aRow.Cells[ "PhoneColumn" ].EditedFormattedValue.ToString( ) ) )
+				if ( aRow.Cells[ "PhoneColumn" ].Value != null )
 				{
-					aRow.Cells[ "PhoneColumn" ].ErrorText = "The Phone has only numbers !";
-					return false;
+					if ( !IsNumeric( aRow.Cells[ "PhoneColumn" ].EditedFormattedValue.ToString( ) ) )
+					{
+						aRow.Cells[ "PhoneColumn" ].ErrorText = "The Phone has only numbers !";
+						return false;
+					}
+					// other phone verifications
+					CellErrorRemove( aRow.Cells[ "PhoneColumn" ] );
 				}
-
-				CellErrorRemove( aRow.Cells[ "PhoneColumn" ] );
 			}
+			catch ( Exception ) { }
+
+			try
+			{
+				if ( aRow.Cells[ "EmailColumn" ].Value != null )
+				{
+					if ( !IsEmailValid( aRow.Cells[ "EmailColumn" ].EditedFormattedValue.ToString( ) ) )
+					{
+						aRow.Cells[ "EmailColumn" ].ErrorText = "The email is not valid!";
+						return false;
+					}
+
+					CellErrorRemove( aRow.Cells[ "EmailColumn" ] );
+				}
+			}
+			catch ( Exception ) { }
 
 
 			return !cellHasError.Any( bolean => bolean );

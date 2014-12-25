@@ -34,6 +34,12 @@
 			this.BodyPanel = new System.Windows.Forms.Panel();
 			this.WrapperPanelGrid = new System.Windows.Forms.Panel();
 			this.EmployeesDataGrid = new MetroFramework.Controls.MetroGrid();
+			this.FooterPanel = new System.Windows.Forms.Panel();
+			this.BackPanel = new System.Windows.Forms.Panel();
+			this.HeaderPanel = new System.Windows.Forms.Panel();
+			this.ImagePanel = new System.Windows.Forms.Panel();
+			this.SubTitleLabel = new System.Windows.Forms.Label();
+			this.TitleLabel = new System.Windows.Forms.Label();
 			this.IdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.FirstNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.LastNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,12 +52,6 @@
 			this.EmailColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.UsernameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.PasswordColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.FooterPanel = new System.Windows.Forms.Panel();
-			this.BackPanel = new System.Windows.Forms.Panel();
-			this.HeaderPanel = new System.Windows.Forms.Panel();
-			this.ImagePanel = new System.Windows.Forms.Panel();
-			this.SubTitleLabel = new System.Windows.Forms.Label();
-			this.TitleLabel = new System.Windows.Forms.Label();
 			this.BodyPanel.SuspendLayout();
 			this.WrapperPanelGrid.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.EmployeesDataGrid)).BeginInit();
@@ -153,6 +153,81 @@
 			this.EmployeesDataGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.EmployeesDataGrid_CellValidating);
 			this.EmployeesDataGrid.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.EmployeesDataGrid_RowsRemoved);
 			// 
+			// FooterPanel
+			// 
+			this.FooterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			this.FooterPanel.Location = new System.Drawing.Point(-1, 651);
+			this.FooterPanel.Margin = new System.Windows.Forms.Padding(2);
+			this.FooterPanel.Name = "FooterPanel";
+			this.FooterPanel.Size = new System.Drawing.Size(1202, 150);
+			this.FooterPanel.TabIndex = 18;
+			// 
+			// BackPanel
+			// 
+			this.BackPanel.AutoSize = true;
+			this.BackPanel.BackgroundImage = global::Tourist.Server.Properties.Resources.LeftArrow;
+			this.BackPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.BackPanel.Location = new System.Drawing.Point(18, 33);
+			this.BackPanel.Margin = new System.Windows.Forms.Padding(2);
+			this.BackPanel.Name = "BackPanel";
+			this.BackPanel.Size = new System.Drawing.Size(64, 88);
+			this.BackPanel.TabIndex = 15;
+			this.BackPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BackPanel_MouseClick);
+			// 
+			// HeaderPanel
+			// 
+			this.HeaderPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			this.HeaderPanel.Controls.Add(this.BackPanel);
+			this.HeaderPanel.Controls.Add(this.ImagePanel);
+			this.HeaderPanel.Controls.Add(this.SubTitleLabel);
+			this.HeaderPanel.Controls.Add(this.TitleLabel);
+			this.HeaderPanel.Location = new System.Drawing.Point(-1, 22);
+			this.HeaderPanel.Margin = new System.Windows.Forms.Padding(2);
+			this.HeaderPanel.Name = "HeaderPanel";
+			this.HeaderPanel.Size = new System.Drawing.Size(1202, 150);
+			this.HeaderPanel.TabIndex = 17;
+			// 
+			// ImagePanel
+			// 
+			this.ImagePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.ImagePanel.BackgroundImage = global::Tourist.Server.Properties.Resources.employers;
+			this.ImagePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.ImagePanel.Location = new System.Drawing.Point(1010, 34);
+			this.ImagePanel.Margin = new System.Windows.Forms.Padding(2);
+			this.ImagePanel.Name = "ImagePanel";
+			this.ImagePanel.Size = new System.Drawing.Size(174, 87);
+			this.ImagePanel.TabIndex = 14;
+			// 
+			// SubTitleLabel
+			// 
+			this.SubTitleLabel.AutoSize = true;
+			this.SubTitleLabel.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.SubTitleLabel.ForeColor = System.Drawing.Color.White;
+			this.SubTitleLabel.Location = new System.Drawing.Point(104, 87);
+			this.SubTitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.SubTitleLabel.Name = "SubTitleLabel";
+			this.SubTitleLabel.Size = new System.Drawing.Size(203, 30);
+			this.SubTitleLabel.TabIndex = 4;
+			this.SubTitleLabel.Text = "Manage Employees";
+			// 
+			// TitleLabel
+			// 
+			this.TitleLabel.AutoSize = true;
+			this.TitleLabel.BackColor = System.Drawing.Color.Transparent;
+			this.TitleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.TitleLabel.ForeColor = System.Drawing.Color.White;
+			this.TitleLabel.Location = new System.Drawing.Point(98, 29);
+			this.TitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.TitleLabel.Name = "TitleLabel";
+			this.TitleLabel.Size = new System.Drawing.Size(334, 51);
+			this.TitleLabel.TabIndex = 3;
+			this.TitleLabel.Text = "Employees Details";
+			// 
 			// IdColumn
 			// 
 			this.IdColumn.HeaderText = "ID";
@@ -162,31 +237,31 @@
 			// 
 			// FirstNameColumn
 			// 
-			this.FirstNameColumn.HeaderText = "First Name";
+			this.FirstNameColumn.HeaderText = "First Name (*)";
 			this.FirstNameColumn.MinimumWidth = 150;
 			this.FirstNameColumn.Name = "FirstNameColumn";
 			this.FirstNameColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
 			// 
 			// LastNameColumn
 			// 
-			this.LastNameColumn.HeaderText = "Last Name";
+			this.LastNameColumn.HeaderText = "Last Name (*)";
 			this.LastNameColumn.MinimumWidth = 150;
 			this.LastNameColumn.Name = "LastNameColumn";
 			// 
 			// GenderColumn
 			// 
-			this.GenderColumn.HeaderText = "Gender";
+			this.GenderColumn.HeaderText = "Gender (*)";
 			this.GenderColumn.Items.AddRange(new object[] {
             "Male",
             "Female"});
-			this.GenderColumn.MinimumWidth = 100;
+			this.GenderColumn.MinimumWidth = 110;
 			this.GenderColumn.Name = "GenderColumn";
 			this.GenderColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
 			this.GenderColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
 			// 
 			// NationalityColumn
 			// 
-			this.NationalityColumn.HeaderText = "Nationality";
+			this.NationalityColumn.HeaderText = "Nationality (*)";
 			this.NationalityColumn.Items.AddRange(new object[] {
             "AD  Andorra",
             "AE  United Arab Emirates",
@@ -388,120 +463,45 @@
 			// 
 			// BirthDateColumn
 			// 
-			this.BirthDateColumn.HeaderText = "BirthDate";
+			this.BirthDateColumn.HeaderText = "BirthDate (*)";
 			this.BirthDateColumn.MinimumWidth = 175;
 			this.BirthDateColumn.Name = "BirthDateColumn";
 			// 
 			// NifColumn
 			// 
-			this.NifColumn.HeaderText = "Nif";
+			this.NifColumn.HeaderText = "Nif (*)";
 			this.NifColumn.MinimumWidth = 150;
 			this.NifColumn.Name = "NifColumn";
 			// 
 			// AddressColumn
 			// 
-			this.AddressColumn.HeaderText = "Address";
+			this.AddressColumn.HeaderText = "Address (*)";
 			this.AddressColumn.MinimumWidth = 200;
 			this.AddressColumn.Name = "AddressColumn";
 			// 
 			// PhoneColumn
 			// 
-			this.PhoneColumn.HeaderText = "Phone";
+			this.PhoneColumn.HeaderText = "Phone (*)";
 			this.PhoneColumn.MinimumWidth = 150;
 			this.PhoneColumn.Name = "PhoneColumn";
 			// 
 			// EmailColumn
 			// 
-			this.EmailColumn.HeaderText = "Email";
+			this.EmailColumn.HeaderText = "Email (*)";
 			this.EmailColumn.MinimumWidth = 175;
 			this.EmailColumn.Name = "EmailColumn";
 			// 
 			// UsernameColumn
 			// 
-			this.UsernameColumn.HeaderText = "Username";
+			this.UsernameColumn.HeaderText = "Username (*)";
 			this.UsernameColumn.MinimumWidth = 150;
 			this.UsernameColumn.Name = "UsernameColumn";
 			// 
 			// PasswordColumn
 			// 
-			this.PasswordColumn.HeaderText = "Password";
+			this.PasswordColumn.HeaderText = "Password (*)";
 			this.PasswordColumn.MinimumWidth = 150;
 			this.PasswordColumn.Name = "PasswordColumn";
-			// 
-			// FooterPanel
-			// 
-			this.FooterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.FooterPanel.Location = new System.Drawing.Point(-1, 651);
-			this.FooterPanel.Margin = new System.Windows.Forms.Padding(2);
-			this.FooterPanel.Name = "FooterPanel";
-			this.FooterPanel.Size = new System.Drawing.Size(1202, 150);
-			this.FooterPanel.TabIndex = 18;
-			// 
-			// BackPanel
-			// 
-			this.BackPanel.AutoSize = true;
-			this.BackPanel.BackgroundImage = global::Tourist.Server.Properties.Resources.LeftArrow;
-			this.BackPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.BackPanel.Location = new System.Drawing.Point(18, 33);
-			this.BackPanel.Margin = new System.Windows.Forms.Padding(2);
-			this.BackPanel.Name = "BackPanel";
-			this.BackPanel.Size = new System.Drawing.Size(64, 88);
-			this.BackPanel.TabIndex = 15;
-			this.BackPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BackPanel_MouseClick);
-			// 
-			// HeaderPanel
-			// 
-			this.HeaderPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.HeaderPanel.Controls.Add(this.BackPanel);
-			this.HeaderPanel.Controls.Add(this.ImagePanel);
-			this.HeaderPanel.Controls.Add(this.SubTitleLabel);
-			this.HeaderPanel.Controls.Add(this.TitleLabel);
-			this.HeaderPanel.Location = new System.Drawing.Point(-1, 22);
-			this.HeaderPanel.Margin = new System.Windows.Forms.Padding(2);
-			this.HeaderPanel.Name = "HeaderPanel";
-			this.HeaderPanel.Size = new System.Drawing.Size(1202, 150);
-			this.HeaderPanel.TabIndex = 17;
-			// 
-			// ImagePanel
-			// 
-			this.ImagePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.ImagePanel.BackgroundImage = global::Tourist.Server.Properties.Resources.employers;
-			this.ImagePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.ImagePanel.Location = new System.Drawing.Point(1010, 34);
-			this.ImagePanel.Margin = new System.Windows.Forms.Padding(2);
-			this.ImagePanel.Name = "ImagePanel";
-			this.ImagePanel.Size = new System.Drawing.Size(174, 87);
-			this.ImagePanel.TabIndex = 14;
-			// 
-			// SubTitleLabel
-			// 
-			this.SubTitleLabel.AutoSize = true;
-			this.SubTitleLabel.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.SubTitleLabel.ForeColor = System.Drawing.Color.White;
-			this.SubTitleLabel.Location = new System.Drawing.Point(104, 87);
-			this.SubTitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.SubTitleLabel.Name = "SubTitleLabel";
-			this.SubTitleLabel.Size = new System.Drawing.Size(203, 30);
-			this.SubTitleLabel.TabIndex = 4;
-			this.SubTitleLabel.Text = "Manage Employees";
-			// 
-			// TitleLabel
-			// 
-			this.TitleLabel.AutoSize = true;
-			this.TitleLabel.BackColor = System.Drawing.Color.Transparent;
-			this.TitleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TitleLabel.ForeColor = System.Drawing.Color.White;
-			this.TitleLabel.Location = new System.Drawing.Point(98, 29);
-			this.TitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.TitleLabel.Name = "TitleLabel";
-			this.TitleLabel.Size = new System.Drawing.Size(334, 51);
-			this.TitleLabel.TabIndex = 3;
-			this.TitleLabel.Text = "Employees Details";
 			// 
 			// EmployersForm
 			// 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml.Serialization;
 using Tourist.Data.Interfaces;
 
 namespace Tourist.Data.Classes
@@ -16,7 +17,7 @@ namespace Tourist.Data.Classes
 		private string mDescription;
 		private double mPrice;
 		private int mCapacity;
-		
+
 		#endregion
 
 		#region Properties
@@ -27,10 +28,19 @@ namespace Tourist.Data.Classes
 			set { mNumber = value; Notify( this ); }
 		}
 
+		[XmlIgnore]
 		public Enum Type
 		{
 			get { return mType; }
 			set { mType = value; Notify( this ); }
+		}
+
+		[XmlElement( "Type" )]
+		public string SerializationType
+		{
+			get { return Type.ToString( ); }
+
+			set { Type = ( RoomType ) Enum.Parse( typeof( RoomType ), value ); }
 		}
 
 		public BookableState State
@@ -48,7 +58,7 @@ namespace Tourist.Data.Classes
 		public double Price
 		{
 			get { return mPrice; }
-			set { mPrice = value;  Notify(this); }
+			set { mPrice = value; Notify( this ); }
 		}
 
 		public int Capacity

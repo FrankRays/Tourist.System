@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
 using Tourist.Data.Classes;
 using Tourist.Data.Interfaces;
@@ -76,11 +77,11 @@ namespace Tourist.Server
 			switch ( aList )
 			{
 				case "Entity":
-					if ( string.IsNullOrEmpty( mData.Entity.Name ) &&
-						 string.IsNullOrEmpty( mData.Entity.EntityType.ToString( ) ) &&
-						 string.IsNullOrEmpty( mData.Entity.Address ) &&
-						 string.IsNullOrEmpty( mData.Entity.Nif.ToString( ) ) &&
-						 string.IsNullOrEmpty( mData.Entity.Phone.ToString( ) ) &&
+					if ( string.IsNullOrEmpty( mData.Entity.Name ) ||
+						 string.IsNullOrEmpty( mData.Entity.EntityType.ToString( ) ) ||
+						 string.IsNullOrEmpty( mData.Entity.Address ) ||
+						 string.IsNullOrEmpty( mData.Entity.Nif.ToString( ) ) ||
+						 string.IsNullOrEmpty( mData.Entity.Phone.ToString( ) ) ||
 						 string.IsNullOrEmpty( mData.Entity.Email ) )
 					{
 						return true;
@@ -141,11 +142,11 @@ namespace Tourist.Server
 				case "Clients":
 					break;
 				case "Rooms":
-					break;
-				case "Activitys":
-					break;
+					return ListToMatrixRooms( );
+				case "Activities":
+					return ListToMatrixActivities( );
 				case "Transports":
-					break;
+					return ListToMatrixTransports( );
 				case "Managers":
 					return ListToMatrixManagers( );
 				case "Employees":
@@ -178,6 +179,96 @@ namespace Tourist.Server
 				default:
 					return 0;
 			}
+		}
+
+		private string[ , ] ListToMatrixRooms( )
+		{
+			int rowsCount = Count( "Rooms" );
+			// has an adicional property because of the serialization
+			int columnsCount = ObjectNumberOfProperties( "Room" ); 
+
+			var matrix = new string[ rowsCount, columnsCount ];
+
+			for ( var i = 0 ; i < rowsCount ; i++ )
+			{
+				for ( var j = 0 ; j < columnsCount - 1; )
+				{
+					matrix[ i, j ] = mData.Rooms.ElementAt( i ).Id.ToString( );
+					j++;
+					matrix[ i, j ] = mData.Rooms.ElementAt( i ).Type.ToString( );
+					j++;
+					matrix[ i, j ] = mData.Rooms.ElementAt( i ).State.ToString( );
+					j++;
+					matrix[ i, j ] = mData.Rooms.ElementAt( i ).Description;
+					j++;
+					matrix[ i, j ] = mData.Rooms.ElementAt( i ).Capacity.ToString( );
+					j++;
+					matrix[ i, j ] = mData.Rooms.ElementAt( i ).Price.ToString( "0.00", CultureInfo.InvariantCulture );
+					j++;
+				}
+			}
+
+			return matrix;
+		}
+
+		private string[ , ] ListToMatrixActivities( )
+		{
+			int rowsCount = Count( "Activities" );
+			// has an adicional property for the serialization 
+			int columnsCount = ObjectNumberOfProperties( "Activity" );
+
+			var matrix = new string[ rowsCount, columnsCount ];
+
+			for ( var i = 0 ; i < rowsCount ; i++ )
+			{
+				for ( var j = 0 ; j < columnsCount - 1 ; )
+				{
+					matrix[ i, j ] = mData.Activities.ElementAt( i ).Id.ToString( );
+					j++;
+					matrix[ i, j ] = mData.Activities.ElementAt( i ).Type.ToString( );
+					j++;
+					matrix[ i, j ] = mData.Activities.ElementAt( i ).State.ToString( );
+					j++;
+					matrix[ i, j ] = mData.Activities.ElementAt( i ).Description;
+					j++;
+					matrix[ i, j ] = mData.Activities.ElementAt( i ).Capacity.ToString( );
+					j++;
+					matrix[ i, j ] = mData.Activities.ElementAt( i ).Price.ToString( "0.00", CultureInfo.InvariantCulture );
+					j++;
+				}
+			}
+
+			return matrix;
+		}
+
+		private string[ , ] ListToMatrixTransports( )
+		{
+			int rowsCount = Count( "Transports" );
+			// has an adicional property for the serialization
+			int columnsCount = ObjectNumberOfProperties( "Transport" );
+
+			var matrix = new string[ rowsCount, columnsCount ];
+
+			for ( var i = 0 ; i < rowsCount ; i++ )
+			{
+				for ( var j = 0 ; j < columnsCount - 1 ; )
+				{
+					matrix[ i, j ] = mData.Transports.ElementAt( i ).Id.ToString( );
+					j++;
+					matrix[ i, j ] = mData.Transports.ElementAt( i ).Type.ToString( );
+					j++;
+					matrix[ i, j ] = mData.Transports.ElementAt( i ).State.ToString( );
+					j++;
+					matrix[ i, j ] = mData.Transports.ElementAt( i ).Description;
+					j++;
+					matrix[ i, j ] = mData.Transports.ElementAt( i ).Capacity.ToString( );
+					j++;
+					matrix[ i, j ] = mData.Transports.ElementAt( i ).Price.ToString( "0.00", CultureInfo.InvariantCulture );
+					j++;
+				}
+			}
+
+			return matrix;
 		}
 
 		private string[ , ] ListToMatrixManagers( )
@@ -267,7 +358,7 @@ namespace Tourist.Server
 
 		#region Append Remove Get/Set Methods
 
-		public void SetEntity( byte[ ] aImageBuffer, EnumEntityType aEntityType, string aName, int aNif,
+		public void SetEntity( byte[ ] aImageBuffer, EntityType aEntityType, string aName, int aNif,
 																		string aAddress, int aPhone, string aEmail )
 		{
 			mData.Entity.LogoBuffer = aImageBuffer;
@@ -425,7 +516,7 @@ namespace Tourist.Server
 					if ( IsEmpty( "Clients" ) ) return 1;
 					return mData.Clients.Select( client => client.Id ).ToList( ).Max( ) + 1;
 				case "Room":
-					if ( IsEmpty( "Room" ) ) return 1;
+					if ( IsEmpty( "Rooms" ) ) return 1;
 					return mData.Rooms.Select( room => room.Id ).ToList( ).Max( ) + 1;
 				case "Activity":
 					if ( IsEmpty( "Activities" ) ) return 1;
@@ -491,7 +582,7 @@ namespace Tourist.Server
 		}
 
 		#region Private Edit Methods
-		
+
 		private void EditBooking( int aId, string aPropertie, string aNewValue )
 		{
 			switch ( aPropertie )
@@ -574,6 +665,14 @@ namespace Tourist.Server
 					foreach ( var room in mData.Rooms.Where( room => room.Id == aId ) )
 						room.Description = aNewValue;
 					return;
+				case "Capacity":
+					foreach ( var room in mData.Rooms.Where( room => room.Id == aId ) )
+						room.Capacity = Shared.ConvertStringToInt( aNewValue );
+					return;
+				case "Price":
+					foreach ( var room in mData.Rooms.Where( room => room.Id == aId ) )
+						room.Price = Shared.ConvertStringToDouble( aNewValue );
+					return;
 				default:
 					return;
 			}
@@ -595,6 +694,14 @@ namespace Tourist.Server
 					foreach ( var activity in mData.Activities.Where( activity => activity.Id == aId ) )
 						activity.Description = aNewValue;
 					return;
+				case "Capacity":
+					foreach ( var activity in mData.Rooms.Where( activity => activity.Id == aId ) )
+						activity.Capacity = Shared.ConvertStringToInt( aNewValue );
+					return;
+				case "Price":
+					foreach ( var activity in mData.Rooms.Where( activity => activity.Id == aId ) )
+						activity.Price = Shared.ConvertStringToDouble( aNewValue );
+					return;
 				default:
 					return;
 			}
@@ -615,6 +722,14 @@ namespace Tourist.Server
 				case "Description":
 					foreach ( var transport in mData.Transports.Where( transport => transport.Id == aId ) )
 						transport.Description = aNewValue;
+					return;
+				case "Capacity":
+					foreach ( var transport in mData.Rooms.Where( transport => transport.Id == aId ) )
+						transport.Capacity = Shared.ConvertStringToInt( aNewValue );
+					return;
+				case "Price":
+					foreach ( var transport in mData.Rooms.Where( transport => transport.Id == aId ) )
+						transport.Price = Shared.ConvertStringToDouble( aNewValue );
 					return;
 				default:
 					return;
