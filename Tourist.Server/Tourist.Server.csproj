@@ -111,10 +111,10 @@
     <Compile Include="Forms\ClientsForm.Designer.cs">
       <DependentUpon>ClientsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\EmployersForm.cs">
+    <Compile Include="EmployersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EmployersForm.Designer.cs">
+    <Compile Include="EmployersForm.Designer.cs">
       <DependentUpon>EmployersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\LoginForm.cs">
@@ -168,7 +168,7 @@
     <EmbeddedResource Include="Forms\ClientsForm.resx">
       <DependentUpon>ClientsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EmployersForm.resx">
+    <EmbeddedResource Include="EmployersForm.resx">
       <DependentUpon>EmployersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">

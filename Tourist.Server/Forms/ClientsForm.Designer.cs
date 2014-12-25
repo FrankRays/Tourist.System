@@ -34,10 +34,6 @@
 			this.BodyPanel = new System.Windows.Forms.Panel();
 			this.WrapperPanelGrid = new System.Windows.Forms.Panel();
 			this.ClientsDataGrid = new MetroFramework.Controls.MetroGrid();
-			this.GroupSearch = new System.Windows.Forms.GroupBox();
-			this.OkButton = new System.Windows.Forms.Button();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
 			this.FooterPanel = new System.Windows.Forms.Panel();
 			this.BackPanel = new System.Windows.Forms.Panel();
 			this.HeaderPanel = new System.Windows.Forms.Panel();
@@ -47,7 +43,7 @@
 			this.IdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.FirstNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.LastNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.GenderColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+			this.GenderColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.NationalityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.BirthDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.NifColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,7 +53,6 @@
 			this.BodyPanel.SuspendLayout();
 			this.WrapperPanelGrid.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ClientsDataGrid)).BeginInit();
-			this.GroupSearch.SuspendLayout();
 			this.HeaderPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -68,7 +63,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.BodyPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
 			this.BodyPanel.Controls.Add(this.WrapperPanelGrid);
-			this.BodyPanel.Controls.Add(this.GroupSearch);
 			this.BodyPanel.Location = new System.Drawing.Point(-1, 176);
 			this.BodyPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.BodyPanel.Name = "BodyPanel";
@@ -82,9 +76,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.WrapperPanelGrid.BackColor = System.Drawing.Color.White;
 			this.WrapperPanelGrid.Controls.Add(this.ClientsDataGrid);
-			this.WrapperPanelGrid.Location = new System.Drawing.Point(231, 24);
+			this.WrapperPanelGrid.Location = new System.Drawing.Point(19, 24);
 			this.WrapperPanelGrid.Name = "WrapperPanelGrid";
-			this.WrapperPanelGrid.Size = new System.Drawing.Size(953, 429);
+			this.WrapperPanelGrid.Size = new System.Drawing.Size(1165, 429);
 			this.WrapperPanelGrid.TabIndex = 23;
 			// 
 			// ClientsDataGrid
@@ -148,58 +142,8 @@
 			this.ClientsDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			this.ClientsDataGrid.RowTemplate.Height = 25;
 			this.ClientsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.ClientsDataGrid.Size = new System.Drawing.Size(949, 427);
+			this.ClientsDataGrid.Size = new System.Drawing.Size(1161, 427);
 			this.ClientsDataGrid.TabIndex = 20;
-			// 
-			// GroupSearch
-			// 
-			this.GroupSearch.Controls.Add(this.OkButton);
-			this.GroupSearch.Controls.Add(this.textBox1);
-			this.GroupSearch.Controls.Add(this.metroComboBox1);
-			this.GroupSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.GroupSearch.ForeColor = System.Drawing.Color.White;
-			this.GroupSearch.Location = new System.Drawing.Point(18, 12);
-			this.GroupSearch.Margin = new System.Windows.Forms.Padding(2);
-			this.GroupSearch.Name = "GroupSearch";
-			this.GroupSearch.Padding = new System.Windows.Forms.Padding(2);
-			this.GroupSearch.Size = new System.Drawing.Size(197, 157);
-			this.GroupSearch.TabIndex = 22;
-			this.GroupSearch.TabStop = false;
-			this.GroupSearch.Text = "Search ";
-			// 
-			// OkButton
-			// 
-			this.OkButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.OkButton.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.OkButton.ForeColor = System.Drawing.Color.White;
-			this.OkButton.Location = new System.Drawing.Point(12, 106);
-			this.OkButton.Margin = new System.Windows.Forms.Padding(2);
-			this.OkButton.Name = "OkButton";
-			this.OkButton.Size = new System.Drawing.Size(176, 32);
-			this.OkButton.TabIndex = 11;
-			this.OkButton.Text = "OK";
-			this.OkButton.UseVisualStyleBackColor = false;
-			// 
-			// textBox1
-			// 
-			this.textBox1.Font = new System.Drawing.Font("Segoe UI Semilight", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBox1.Location = new System.Drawing.Point(12, 64);
-			this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(176, 32);
-			this.textBox1.TabIndex = 8;
-			this.textBox1.Text = " Search";
-			// 
-			// metroComboBox1
-			// 
-			this.metroComboBox1.FormattingEnabled = true;
-			this.metroComboBox1.ItemHeight = 23;
-			this.metroComboBox1.Location = new System.Drawing.Point(12, 29);
-			this.metroComboBox1.Margin = new System.Windows.Forms.Padding(2);
-			this.metroComboBox1.Name = "metroComboBox1";
-			this.metroComboBox1.Size = new System.Drawing.Size(176, 29);
-			this.metroComboBox1.TabIndex = 9;
-			this.metroComboBox1.UseSelectable = true;
 			// 
 			// FooterPanel
 			// 
@@ -301,20 +245,17 @@
 			// GenderColumn
 			// 
 			this.GenderColumn.HeaderText = "Gender";
-			this.GenderColumn.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
 			this.GenderColumn.MinimumWidth = 150;
 			this.GenderColumn.Name = "GenderColumn";
 			this.GenderColumn.ReadOnly = true;
 			this.GenderColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.GenderColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
 			// 
 			// NationalityColumn
 			// 
 			this.NationalityColumn.HeaderText = "Nationality";
 			this.NationalityColumn.MinimumWidth = 150;
 			this.NationalityColumn.Name = "NationalityColumn";
+			this.NationalityColumn.ReadOnly = true;
 			// 
 			// BirthDateColumn
 			// 
@@ -371,8 +312,6 @@
 			this.BodyPanel.ResumeLayout(false);
 			this.WrapperPanelGrid.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.ClientsDataGrid)).EndInit();
-			this.GroupSearch.ResumeLayout(false);
-			this.GroupSearch.PerformLayout();
 			this.HeaderPanel.ResumeLayout(false);
 			this.HeaderPanel.PerformLayout();
 			this.ResumeLayout(false);
@@ -383,10 +322,6 @@
 
 		private System.Windows.Forms.Panel BodyPanel;
 		private System.Windows.Forms.Panel WrapperPanelGrid;
-		private System.Windows.Forms.GroupBox GroupSearch;
-		private System.Windows.Forms.Button OkButton;
-		private System.Windows.Forms.TextBox textBox1;
-		private MetroFramework.Controls.MetroComboBox metroComboBox1;
 		private System.Windows.Forms.Panel FooterPanel;
 		private System.Windows.Forms.Panel BackPanel;
 		private System.Windows.Forms.Panel HeaderPanel;
@@ -397,7 +332,7 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn IdColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn FirstNameColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn LastNameColumn;
-		private System.Windows.Forms.DataGridViewComboBoxColumn GenderColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn GenderColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn NationalityColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn BirthDateColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn NifColumn;

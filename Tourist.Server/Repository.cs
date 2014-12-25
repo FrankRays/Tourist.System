@@ -140,7 +140,7 @@ namespace Tourist.Server
 				case "Bookings":
 					break;
 				case "Clients":
-					break;
+					return ListToMatrixClients( );
 				case "Rooms":
 					return ListToMatrixRooms( );
 				case "Activities":
@@ -181,17 +181,54 @@ namespace Tourist.Server
 			}
 		}
 
-		private string[ , ] ListToMatrixRooms( )
+		private string[ , ] ListToMatrixClients( )
 		{
-			int rowsCount = Count( "Rooms" );
-			// has an adicional property because of the serializationl
-			int columnsCount = ObjectNumberOfProperties( "Room" ); 
+			int rowsCount = Count( "Clients" );
+			int columnsCount = ObjectNumberOfProperties( "Client" );
 
 			var matrix = new string[ rowsCount, columnsCount ];
 
 			for ( var i = 0 ; i < rowsCount ; i++ )
 			{
-				for ( var j = 0 ; j < columnsCount - 1; )
+				for ( var j = 0 ; j < columnsCount ; )
+				{
+					matrix[ i, j ] = mData.Clients.ElementAt( i ).Id.ToString( );
+					j++;
+					matrix[ i, j ] = mData.Clients.ElementAt( i ).FirstName;
+					j++;
+					matrix[ i, j ] = mData.Clients.ElementAt( i ).LastName;
+					j++;
+					matrix[ i, j ] = mData.Clients.ElementAt( i ).Gender.ToString( );
+					j++;
+					matrix[ i, j ] = mData.Clients.ElementAt( i ).Nationality;
+					j++;
+					matrix[ i, j ] = mData.Clients.ElementAt( i ).BirthDate.ToString( "d" );
+					j++;
+					matrix[ i, j ] = mData.Clients.ElementAt( i ).Nif.ToString( );
+					j++;
+					matrix[ i, j ] = mData.Clients.ElementAt( i ).Address;
+					j++;
+					matrix[ i, j ] = mData.Clients.ElementAt( i ).Phone.ToString( );
+					j++;
+					matrix[ i, j ] = mData.Clients.ElementAt( i ).Email;
+					j++;
+				}
+			}
+
+			return matrix;
+		}
+
+		private string[ , ] ListToMatrixRooms( )
+		{
+			int rowsCount = Count( "Rooms" );
+			// has an adicional property because of the serializationl
+			int columnsCount = ObjectNumberOfProperties( "Room" );
+
+			var matrix = new string[ rowsCount, columnsCount ];
+
+			for ( var i = 0 ; i < rowsCount ; i++ )
+			{
+				for ( var j = 0 ; j < columnsCount - 1 ; )
 				{
 					matrix[ i, j ] = mData.Rooms.ElementAt( i ).Id.ToString( );
 					j++;
@@ -592,8 +629,7 @@ namespace Tourist.Server
 						booking.Client = GetClientByNif( Shared.ConvertStringToInt( aNewValue ) );
 					return;
 				case "Bookable":
-					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aId ) )
-						booking.Bookable.Type = Shared.ConvertStringToEnum( aNewValue, "RoomType" );
+					TypeOf( aNewValue, aId );
 					return;
 				case "StartDate":
 					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aId ) )
@@ -602,6 +638,88 @@ namespace Tourist.Server
 				case "EndDate":
 					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aId ) )
 						booking.TimeRange.EndDateTime = Shared.ConvertStringToDateTime( aNewValue );
+					return;
+				default:
+					return;
+			}
+		}
+
+
+		private void TypeOf( string aType, int aBookingId )
+		{
+			switch ( aType )
+			{
+				case "Single":
+					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
+						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "RoomType" );
+					return;
+				case "DoubleSingle":
+					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
+						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "RoomType" );
+					return;
+				case "Double":
+					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
+						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "RoomType" );
+					return;
+				case "Suite":
+					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
+						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "RoomType" );
+					return;
+				case "FamilySuite":
+					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
+						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "RoomType" );
+					return;
+				case "Meeting":
+					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
+						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "RoomType" );
+					return;
+				case "BoatRide":
+					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
+						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "ActivityType" );
+					return;
+				case "Golf":
+					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
+						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "ActivityType" );
+					return;
+				case "Camping":
+					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
+						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "ActivityType" );
+					return;
+				case "Diving":
+					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
+						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "ActivityType" );
+					return;
+				case "SightSeeing":
+					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
+						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "ActivityType" );
+					return;
+				case "SkyDiving":
+					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
+						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "ActivityType" );
+					return;
+				case "TuckTuck":
+					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
+						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "TransportType" );
+					return;
+				case "CableCar":
+					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
+						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "TransportType" );
+					return;
+				case "Bicycle":
+					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
+						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "TransportType" );
+					return;
+				case "Car":
+					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
+						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "TransportType" );
+					return;
+				case "Bus":
+					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
+						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "TransportType" );
+					return;
+				case "Motorist":
+					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
+						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "TransportType" );
 					return;
 				default:
 					return;

@@ -42,16 +42,6 @@
 			this.LogoffTile = new MetroFramework.Controls.MetroTile();
 			this.PrefrencesTile = new MetroFramework.Controls.MetroTile();
 			this.WrapperPanelGrid = new System.Windows.Forms.Panel();
-			this.ClientsDataGrid = new MetroFramework.Controls.MetroGrid();
-			this.IdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.GenderColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-			this.FirstNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.LastNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.BirthDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.NifColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.AddressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.PhoneColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.EmailColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.GroupSearch = new System.Windows.Forms.GroupBox();
 			this.OkButton = new System.Windows.Forms.Button();
 			this.textBox1 = new System.Windows.Forms.TextBox();
@@ -66,12 +56,23 @@
 			this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ClientsDataGrid = new MetroFramework.Controls.MetroGrid();
+			this.IdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.FirstNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.LastNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.GenderColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+			this.NationalityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.BirthDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.NifColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.AddressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.PhoneColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.EmailColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.HeaderPanel.SuspendLayout();
 			this.BodyPanel.SuspendLayout();
 			this.SideBarPanel.SuspendLayout();
 			this.WrapperPanelGrid.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.ClientsDataGrid)).BeginInit();
 			this.GroupSearch.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.ClientsDataGrid)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// HeaderPanel
@@ -234,130 +235,6 @@
 			this.WrapperPanelGrid.Size = new System.Drawing.Size(953, 426);
 			this.WrapperPanelGrid.TabIndex = 23;
 			// 
-			// ClientsDataGrid
-			// 
-			this.ClientsDataGrid.AllowUserToOrderColumns = true;
-			this.ClientsDataGrid.AllowUserToResizeColumns = false;
-			this.ClientsDataGrid.AllowUserToResizeRows = false;
-			this.ClientsDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.ClientsDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.ClientsDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-			this.ClientsDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.ClientsDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.ClientsDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-			this.ClientsDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semilight", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			this.ClientsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-			this.ClientsDataGrid.ColumnHeadersHeight = 60;
-			this.ClientsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-			this.ClientsDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IdColumn,
-            this.GenderColumn,
-            this.FirstNameColumn,
-            this.LastNameColumn,
-            this.BirthDateColumn,
-            this.NifColumn,
-            this.AddressColumn,
-            this.PhoneColumn,
-            this.EmailColumn});
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(172)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 13F);
-			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.ClientsDataGrid.DefaultCellStyle = dataGridViewCellStyle2;
-			this.ClientsDataGrid.EnableHeadersVisualStyles = false;
-			this.ClientsDataGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.ClientsDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.ClientsDataGrid.Location = new System.Drawing.Point(2, 1);
-			this.ClientsDataGrid.Margin = new System.Windows.Forms.Padding(2);
-			this.ClientsDataGrid.Name = "ClientsDataGrid";
-			this.ClientsDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.ClientsDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-			this.ClientsDataGrid.RowHeadersWidth = 50;
-			this.ClientsDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-			this.ClientsDataGrid.RowTemplate.Height = 25;
-			this.ClientsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.ClientsDataGrid.Size = new System.Drawing.Size(949, 424);
-			this.ClientsDataGrid.TabIndex = 19;
-			// 
-			// IdColumn
-			// 
-			this.IdColumn.HeaderText = "ID";
-			this.IdColumn.MinimumWidth = 150;
-			this.IdColumn.Name = "IdColumn";
-			this.IdColumn.ReadOnly = true;
-			// 
-			// GenderColumn
-			// 
-			this.GenderColumn.HeaderText = "Gender";
-			this.GenderColumn.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-			this.GenderColumn.MinimumWidth = 150;
-			this.GenderColumn.Name = "GenderColumn";
-			this.GenderColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.GenderColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-			// 
-			// FirstNameColumn
-			// 
-			this.FirstNameColumn.HeaderText = "First Name";
-			this.FirstNameColumn.MinimumWidth = 150;
-			this.FirstNameColumn.Name = "FirstNameColumn";
-			this.FirstNameColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			// 
-			// LastNameColumn
-			// 
-			this.LastNameColumn.HeaderText = "Last Name";
-			this.LastNameColumn.MinimumWidth = 150;
-			this.LastNameColumn.Name = "LastNameColumn";
-			// 
-			// BirthDateColumn
-			// 
-			this.BirthDateColumn.HeaderText = "BirthDate";
-			this.BirthDateColumn.MinimumWidth = 150;
-			this.BirthDateColumn.Name = "BirthDateColumn";
-			// 
-			// NifColumn
-			// 
-			this.NifColumn.HeaderText = "NIF";
-			this.NifColumn.MinimumWidth = 150;
-			this.NifColumn.Name = "NifColumn";
-			// 
-			// AddressColumn
-			// 
-			this.AddressColumn.HeaderText = "Address";
-			this.AddressColumn.MinimumWidth = 150;
-			this.AddressColumn.Name = "AddressColumn";
-			// 
-			// PhoneColumn
-			// 
-			this.PhoneColumn.HeaderText = "Phone";
-			this.PhoneColumn.MinimumWidth = 150;
-			this.PhoneColumn.Name = "PhoneColumn";
-			// 
-			// EmailColumn
-			// 
-			this.EmailColumn.HeaderText = "Email";
-			this.EmailColumn.MinimumWidth = 150;
-			this.EmailColumn.Name = "EmailColumn";
-			// 
 			// GroupSearch
 			// 
 			this.GroupSearch.Controls.Add(this.OkButton);
@@ -473,6 +350,145 @@
 			this.dataGridViewTextBoxColumn19.HeaderText = "Client ID";
 			this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
 			// 
+			// ClientsDataGrid
+			// 
+			this.ClientsDataGrid.AllowUserToOrderColumns = true;
+			this.ClientsDataGrid.AllowUserToResizeColumns = false;
+			this.ClientsDataGrid.AllowUserToResizeRows = false;
+			this.ClientsDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.ClientsDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.ClientsDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+			this.ClientsDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.ClientsDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClientsDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+			this.ClientsDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semilight", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			this.ClientsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			this.ClientsDataGrid.ColumnHeadersHeight = 60;
+			this.ClientsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+			this.ClientsDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IdColumn,
+            this.FirstNameColumn,
+            this.LastNameColumn,
+            this.GenderColumn,
+            this.NationalityColumn,
+            this.BirthDateColumn,
+            this.NifColumn,
+            this.AddressColumn,
+            this.PhoneColumn,
+            this.EmailColumn});
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(172)))), ((int)(((byte)(219)))));
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 13F);
+			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.ClientsDataGrid.DefaultCellStyle = dataGridViewCellStyle2;
+			this.ClientsDataGrid.EnableHeadersVisualStyles = false;
+			this.ClientsDataGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.ClientsDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.ClientsDataGrid.Location = new System.Drawing.Point(2, 0);
+			this.ClientsDataGrid.Margin = new System.Windows.Forms.Padding(2);
+			this.ClientsDataGrid.Name = "ClientsDataGrid";
+			this.ClientsDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.ClientsDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+			this.ClientsDataGrid.RowHeadersWidth = 50;
+			this.ClientsDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+			this.ClientsDataGrid.RowTemplate.Height = 25;
+			this.ClientsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.ClientsDataGrid.Size = new System.Drawing.Size(949, 427);
+			this.ClientsDataGrid.TabIndex = 21;
+			// 
+			// IdColumn
+			// 
+			this.IdColumn.HeaderText = "ID";
+			this.IdColumn.MinimumWidth = 150;
+			this.IdColumn.Name = "IdColumn";
+			this.IdColumn.ReadOnly = true;
+			// 
+			// FirstNameColumn
+			// 
+			this.FirstNameColumn.HeaderText = "First Name";
+			this.FirstNameColumn.MinimumWidth = 150;
+			this.FirstNameColumn.Name = "FirstNameColumn";
+			this.FirstNameColumn.ReadOnly = true;
+			this.FirstNameColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			// 
+			// LastNameColumn
+			// 
+			this.LastNameColumn.HeaderText = "Last Name";
+			this.LastNameColumn.MinimumWidth = 150;
+			this.LastNameColumn.Name = "LastNameColumn";
+			this.LastNameColumn.ReadOnly = true;
+			// 
+			// GenderColumn
+			// 
+			this.GenderColumn.HeaderText = "Gender";
+			this.GenderColumn.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+			this.GenderColumn.MinimumWidth = 150;
+			this.GenderColumn.Name = "GenderColumn";
+			this.GenderColumn.ReadOnly = true;
+			this.GenderColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.GenderColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			// 
+			// NationalityColumn
+			// 
+			this.NationalityColumn.HeaderText = "Nationality";
+			this.NationalityColumn.MinimumWidth = 150;
+			this.NationalityColumn.Name = "NationalityColumn";
+			// 
+			// BirthDateColumn
+			// 
+			this.BirthDateColumn.HeaderText = "BirthDate";
+			this.BirthDateColumn.MinimumWidth = 150;
+			this.BirthDateColumn.Name = "BirthDateColumn";
+			this.BirthDateColumn.ReadOnly = true;
+			// 
+			// NifColumn
+			// 
+			this.NifColumn.HeaderText = "NIF";
+			this.NifColumn.MinimumWidth = 150;
+			this.NifColumn.Name = "NifColumn";
+			this.NifColumn.ReadOnly = true;
+			// 
+			// AddressColumn
+			// 
+			this.AddressColumn.HeaderText = "Address";
+			this.AddressColumn.MinimumWidth = 150;
+			this.AddressColumn.Name = "AddressColumn";
+			this.AddressColumn.ReadOnly = true;
+			// 
+			// PhoneColumn
+			// 
+			this.PhoneColumn.HeaderText = "Phone";
+			this.PhoneColumn.MinimumWidth = 150;
+			this.PhoneColumn.Name = "PhoneColumn";
+			this.PhoneColumn.ReadOnly = true;
+			// 
+			// EmailColumn
+			// 
+			this.EmailColumn.HeaderText = "Email";
+			this.EmailColumn.MinimumWidth = 150;
+			this.EmailColumn.Name = "EmailColumn";
+			this.EmailColumn.ReadOnly = true;
+			// 
 			// ClientsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -494,9 +510,9 @@
 			this.BodyPanel.ResumeLayout(false);
 			this.SideBarPanel.ResumeLayout(false);
 			this.WrapperPanelGrid.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.ClientsDataGrid)).EndInit();
 			this.GroupSearch.ResumeLayout(false);
 			this.GroupSearch.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.ClientsDataGrid)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -530,9 +546,10 @@
 		private MetroFramework.Controls.MetroTile PrefrencesTile;
 		private MetroFramework.Controls.MetroGrid ClientsDataGrid;
 		private System.Windows.Forms.DataGridViewTextBoxColumn IdColumn;
-		private System.Windows.Forms.DataGridViewComboBoxColumn GenderColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn FirstNameColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn LastNameColumn;
+		private System.Windows.Forms.DataGridViewComboBoxColumn GenderColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn NationalityColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn BirthDateColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn NifColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn AddressColumn;
