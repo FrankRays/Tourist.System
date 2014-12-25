@@ -42,60 +42,67 @@ namespace Tourist.Server.Forms
 
 		private void LoadDataToGrid( )
 		{
+			LoadRoomsDataToGrid();
+			LoadActivitiesDataToGrid();
+			LoadTransportsDataToGrid();
+		}
 
-			if ( BookablesTabsControl.SelectedTab == RoomsTab )
+		private void LoadRoomsDataToGrid()
+		{
+			if ( Repository.IsEmpty( "Rooms" ) )
+				return;
+
+			var roomMatrix = Repository.ListToMatrix( "Rooms" );
+
+			for ( var i = 0 ; i < Repository.Count( "Rooms" ) ; i++ )
 			{
-				if ( Repository.IsEmpty( "Rooms" ) )
-					return;
+				RoomDataGrid.Rows.Add( );
 
-				var roomMatrix = Repository.ListToMatrix( "Rooms" );
-
-				for ( var i = 0 ; i < Repository.Count( "Rooms" ) ; i++ )
+				for ( var j = 0 ; j < RoomDataGrid.ColumnCount ; j++ )
 				{
-					RoomDataGrid.Rows.Add( );
-
-					for ( var j = 0 ; j < RoomDataGrid.ColumnCount ; j++ )
-					{
-						RoomDataGrid.Rows[ i ].Cells[ j ].Value = roomMatrix[ i, j ];
-					}
-				}
-			}
-			else if ( BookablesTabsControl.SelectedTab == ActivitiesTab )
-			{
-				if ( Repository.IsEmpty( "Activities" ) )
-					return;
-
-				var activityMatrix = Repository.ListToMatrix( "Activities" );
-
-				for ( var i = 0 ; i < Repository.Count( "Activities" ) ; i++ )
-				{
-					ActivitiesDataGrid.Rows.Add( );
-
-					for ( var j = 0 ; j < ActivitiesDataGrid.ColumnCount ; j++ )
-					{
-						ActivitiesDataGrid.Rows[ i ].Cells[ j ].Value = activityMatrix[ i, j ];
-					}
-				}
-			}
-			else if ( BookablesTabsControl.SelectedTab == TransportsTab )
-			{
-				if ( Repository.IsEmpty( "Transports" ) )
-					return;
-
-				var transportMatrix = Repository.ListToMatrix( "Transports" );
-
-				for ( var i = 0 ; i < Repository.Count( "Transports" ) ; i++ )
-				{
-					TransportsDataGrid.Rows.Add( );
-
-					for ( var j = 0 ; j < TransportsDataGrid.ColumnCount ; j++ )
-					{
-						TransportsDataGrid.Rows[ i ].Cells[ j ].Value = transportMatrix[ i, j ];
-					}
+					RoomDataGrid.Rows[ i ].Cells[ j ].Value = roomMatrix[ i, j ];
 				}
 			}
 		}
 
+		private void LoadActivitiesDataToGrid( )
+		{
+
+			if ( Repository.IsEmpty( "Activities" ) )
+				return;
+
+			var activityMatrix = Repository.ListToMatrix( "Activities" );
+
+			for ( var i = 0 ; i < Repository.Count( "Activities" ) ; i++ )
+			{
+				ActivitiesDataGrid.Rows.Add( );
+
+				for ( var j = 0 ; j < ActivitiesDataGrid.ColumnCount ; j++ )
+				{
+					ActivitiesDataGrid.Rows[ i ].Cells[ j ].Value = activityMatrix[ i, j ];
+				}
+			}
+		}
+
+		private void LoadTransportsDataToGrid( )
+		{
+
+			if ( Repository.IsEmpty( "Transports" ) )
+				return;
+
+			var transportMatrix = Repository.ListToMatrix( "Transports" );
+
+			for ( var i = 0 ; i < Repository.Count( "Transports" ) ; i++ )
+			{
+				TransportsDataGrid.Rows.Add( );
+
+				for ( var j = 0 ; j < TransportsDataGrid.ColumnCount ; j++ )
+				{
+					TransportsDataGrid.Rows[ i ].Cells[ j ].Value = transportMatrix[ i, j ];
+				}
+			}
+		}
+		
 		private void AddToRepository( List<string> rowValues, string aType )
 		{
 			switch ( aType )
@@ -435,7 +442,7 @@ namespace Tourist.Server.Forms
 
 			if ( isRowValidated )
 			{
-				if ( !Repository.ExistingId( transportId, "Rooms" ) )
+				if ( !Repository.ExistingId( transportId, "Transports" ) )
 				{
 					var rowValues = Shared.RowCellValues( row );
 					AddToRepository( rowValues, "Transport" );

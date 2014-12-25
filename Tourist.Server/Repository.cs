@@ -184,7 +184,7 @@ namespace Tourist.Server
 		private string[ , ] ListToMatrixRooms( )
 		{
 			int rowsCount = Count( "Rooms" );
-			// has an adicional property because of the serialization
+			// has an adicional property because of the serializationl
 			int columnsCount = ObjectNumberOfProperties( "Room" ); 
 
 			var matrix = new string[ rowsCount, columnsCount ];
@@ -389,7 +389,7 @@ namespace Tourist.Server
 					mData.Rooms.Add( aObject as Room );
 					Save( FileName );
 					return;
-				case "Activitys":
+				case "Activities":
 					if ( mData.Activities.Contains( aObject as Activity ) ) return;
 					mData.Activities.Add( aObject as Activity );
 					Save( FileName );
@@ -684,7 +684,7 @@ namespace Tourist.Server
 			{
 				case "Type":
 					foreach ( var activity in mData.Activities.Where( activity => activity.Id == aId ) )
-						activity.Type = ( RoomType ) Shared.ConvertStringToEnum( aNewValue, "RoomType" );
+						activity.Type = ( ActivityType ) Shared.ConvertStringToEnum( aNewValue, "ActivityType" );
 					return;
 				case "BookableState":
 					foreach ( var activity in mData.Activities.Where( activity => activity.Id == aId ) )
@@ -695,11 +695,11 @@ namespace Tourist.Server
 						activity.Description = aNewValue;
 					return;
 				case "Capacity":
-					foreach ( var activity in mData.Rooms.Where( activity => activity.Id == aId ) )
+					foreach ( var activity in mData.Activities.Where( activity => activity.Id == aId ) )
 						activity.Capacity = Shared.ConvertStringToInt( aNewValue );
 					return;
 				case "Price":
-					foreach ( var activity in mData.Rooms.Where( activity => activity.Id == aId ) )
+					foreach ( var activity in mData.Activities.Where( activity => activity.Id == aId ) )
 						activity.Price = Shared.ConvertStringToDouble( aNewValue );
 					return;
 				default:
@@ -713,7 +713,7 @@ namespace Tourist.Server
 			{
 				case "Type":
 					foreach ( var transport in mData.Transports.Where( transport => transport.Id == aId ) )
-						transport.Type = ( RoomType ) Shared.ConvertStringToEnum( aNewValue, "RoomType" );
+						transport.Type = ( TransportType ) Shared.ConvertStringToEnum( aNewValue, "TransportType" );
 					return;
 				case "BookableState":
 					foreach ( var transport in mData.Transports.Where( transport => transport.Id == aId ) )
@@ -724,11 +724,11 @@ namespace Tourist.Server
 						transport.Description = aNewValue;
 					return;
 				case "Capacity":
-					foreach ( var transport in mData.Rooms.Where( transport => transport.Id == aId ) )
+					foreach ( var transport in mData.Transports.Where( transport => transport.Id == aId ) )
 						transport.Capacity = Shared.ConvertStringToInt( aNewValue );
 					return;
 				case "Price":
-					foreach ( var transport in mData.Rooms.Where( transport => transport.Id == aId ) )
+					foreach ( var transport in mData.Transports.Where( transport => transport.Id == aId ) )
 						transport.Price = Shared.ConvertStringToDouble( aNewValue );
 					return;
 				default:

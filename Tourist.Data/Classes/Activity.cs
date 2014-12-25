@@ -40,7 +40,7 @@ namespace Tourist.Data.Classes
 		{
 			get { return Type.ToString( ); }
 
-			set { Type = ( RoomType ) Enum.Parse( typeof( RoomType ), value ); }
+			set { Type = ( ActivityType ) Enum.Parse( typeof( ActivityType ), value ); }
 		}
 
 		public BookableState State
