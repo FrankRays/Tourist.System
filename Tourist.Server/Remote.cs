@@ -55,6 +55,11 @@ namespace Tourist.Server
 			return Repository.ExistingId( aId, aList );
 		}
 
+		public bool CheckLogin(string aUsername, string aPassword, string aType)
+		{
+			return Repository.CheckLogin(aUsername, aPassword, aType);
+		}
+
 		public string[ , ] ListToMatrix( string aList )
 		{
 			return Repository.ListToMatrix( aList );

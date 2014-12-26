@@ -9,6 +9,7 @@ namespace Tourist.Data.Interfaces
 		int Count(string aList);
 		bool IsEmpty(string aList);
 		bool ExistingId(int aId, string aList);
+		bool CheckLogin(string aUsername, string aPassword, string aType);
 		string[,] ListToMatrix(string aList);
 		void Append(object aObject, string aList);
 		void Remove(object aObject, string aList);

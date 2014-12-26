@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using MetroFramework;
 using MetroFramework.Forms;
 using Tourist.Data.Classes;
+using Tourist.Data.Shared;
 
 namespace Tourist.Server.Forms
 {
@@ -13,7 +13,6 @@ namespace Tourist.Server.Forms
 
 		private readonly Repository Repository = Repository.Instance;
 		private MainForm mMainForm;
-		private int mEntityId = default( int );
 
 		#endregion
 
@@ -31,7 +30,7 @@ namespace Tourist.Server.Forms
 
 		private void LoginForm_Load( object sender, EventArgs e )
 		{
-			Shared.SetFormFullScreen( this );
+			SharedMethods.SetFormFullScreen( this );
 		}
 
 		#endregion
@@ -100,13 +99,13 @@ namespace Tourist.Server.Forms
 				if (Repository.CheckLogin(UsernameTextBox.Text, PasswordTextBox.Text, "Server"))
 				{
 					//entra
-					Hide();
-					MessageBox.Show( "Login Successful !!!", "Welcome " + LoginInfoServer.Username + " !", MessageBoxButtons.OK, MessageBoxIcon.Information );
+					MessageBox.Show( "Welcome " + LoginInfoServer.Username + " !", "Login Successful !!!", MessageBoxButtons.OK, MessageBoxIcon.Information );
+					Hide( );
 					mMainForm.Show();
 				}
 				else
 				{
-					MessageBox.Show( "Error !!! Check your username or password.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error );
+					MessageBox.Show( "Error !!! Check your username or password.", "Login Error !!!", MessageBoxButtons.OK, MessageBoxIcon.Error );
 				}
 			}
 		}
@@ -115,7 +114,7 @@ namespace Tourist.Server.Forms
 		{
 			base.OnFormClosing( e );
 
-			var dialogResult = MetroMessageBox.Show( this, "\n Are you sure you want to exit the application?",
+			var dialogResult = MessageBox.Show( this, "\n Are you sure you want to exit the application?",
 				"Close Button Pressed", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
 
 			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;

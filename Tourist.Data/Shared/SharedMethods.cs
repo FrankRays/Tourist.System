@@ -8,9 +8,9 @@ using System.Linq;
 using System.Windows.Forms;
 using Tourist.Data.Enums;
 
-namespace Tourist.Server
+namespace Tourist.Data.Shared
 {
-	public static class Shared
+	public static class SharedMethods
 	{
 
 		#region Shared Methods
@@ -63,7 +63,7 @@ namespace Tourist.Server
 					}
 				}
 			}
-			catch ( Exception e ) { }
+			catch ( Exception ) { }
 
 			return false;
 		}

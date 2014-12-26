@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.Windows.Forms;
-using MetroFramework;
 using MetroFramework.Forms;
 using Tourist.Data.Classes;
 using Tourist.Data.Enums;
 using Tourist.Data.Interfaces;
+using Tourist.Data.Shared;
 
 namespace Tourist.Server.Forms
 {
@@ -36,7 +36,7 @@ namespace Tourist.Server.Forms
 
 		private void ServicesForm_Load( object sender, EventArgs e )
 		{
-			Shared.SetFormFullScreen( this );
+			SharedMethods.SetFormFullScreen( this );
 			LoadDataToGrid( );
 			//BookablesTabsControl.SelectedTab = RoomsTab;
 		}
@@ -110,32 +110,32 @@ namespace Tourist.Server.Forms
 			{
 				case "Room":
 					var room = Repository.Factory.CreateObject<Room>( );
-					room.Id = Shared.ConvertStringToInt( rowValues[ 0 ] );
-					room.Type = ( RoomType ) Shared.ConvertStringToEnum( rowValues[ 1 ], "RoomType" );
-					room.State = ( BookableState ) Shared.ConvertStringToEnum( rowValues[ 2 ], "BookableState" );
+					room.Id = SharedMethods.ConvertStringToInt( rowValues[ 0 ] );
+					room.Type = ( RoomType ) SharedMethods.ConvertStringToEnum( rowValues[ 1 ], "RoomType" );
+					room.State = ( BookableState ) SharedMethods.ConvertStringToEnum( rowValues[ 2 ], "BookableState" );
 					room.Description = rowValues[ 3 ];
-					room.Capacity = Shared.ConvertStringToInt( rowValues[ 4 ] );
-					room.Price = Shared.ConvertStringToDouble( rowValues[ 5 ] );
+					room.Capacity = SharedMethods.ConvertStringToInt( rowValues[ 4 ] );
+					room.Price = SharedMethods.ConvertStringToDouble( rowValues[ 5 ] );
 					Repository.Append( room, "Rooms" );
 					return;
 				case "Activity":
 					var activity = Repository.Factory.CreateObject<Activity>( );
-					activity.Id = Shared.ConvertStringToInt( rowValues[ 0 ] );
-					activity.Type = ( ActivityType ) Shared.ConvertStringToEnum( rowValues[ 1 ], "ActivityType" );
-					activity.State = ( BookableState ) Shared.ConvertStringToEnum( rowValues[ 2 ], "BookableState" );
+					activity.Id = SharedMethods.ConvertStringToInt( rowValues[ 0 ] );
+					activity.Type = ( ActivityType ) SharedMethods.ConvertStringToEnum( rowValues[ 1 ], "ActivityType" );
+					activity.State = ( BookableState ) SharedMethods.ConvertStringToEnum( rowValues[ 2 ], "BookableState" );
 					activity.Description = rowValues[ 3 ];
-					activity.Capacity = Shared.ConvertStringToInt( rowValues[ 4 ] );
-					activity.Price = Shared.ConvertStringToDouble( rowValues[ 5 ] );
+					activity.Capacity = SharedMethods.ConvertStringToInt( rowValues[ 4 ] );
+					activity.Price = SharedMethods.ConvertStringToDouble( rowValues[ 5 ] );
 					Repository.Append( activity, "Activities" );
 					return;
 				case "Transport":
 					var transport = Repository.Factory.CreateObject<Transport>( );
-					transport.Id = Shared.ConvertStringToInt( rowValues[ 0 ] );
-					transport.Type = ( TransportType ) Shared.ConvertStringToEnum( rowValues[ 1 ], "TransportType" );
-					transport.State = ( BookableState ) Shared.ConvertStringToEnum( rowValues[ 2 ], "BookableState" );
+					transport.Id = SharedMethods.ConvertStringToInt( rowValues[ 0 ] );
+					transport.Type = ( TransportType ) SharedMethods.ConvertStringToEnum( rowValues[ 1 ], "TransportType" );
+					transport.State = ( BookableState ) SharedMethods.ConvertStringToEnum( rowValues[ 2 ], "BookableState" );
 					transport.Description = rowValues[ 3 ];
-					transport.Capacity = Shared.ConvertStringToInt( rowValues[ 4 ] );
-					transport.Price = Shared.ConvertStringToDouble( rowValues[ 5 ] );
+					transport.Capacity = SharedMethods.ConvertStringToInt( rowValues[ 4 ] );
+					transport.Price = SharedMethods.ConvertStringToDouble( rowValues[ 5 ] );
 					Repository.Append( transport, "Transports" );
 					return;
 				default:
@@ -263,15 +263,15 @@ namespace Tourist.Server.Forms
 
 			AutoFillPriceAndCapacity( aNewValue, e.RowIndex );
 
-			var isRowValidated = Shared.RowCellsValidated( row );
+			var isRowValidated = SharedMethods.RowCellsValidated( row );
 
 			if ( isRowValidated )
 			{
 				if ( !Repository.ExistingId( roomId, "Rooms" ) )
 				{
-					var rowValues = Shared.RowCellValues( row );
+					var rowValues = SharedMethods.RowCellValues( row );
 					AddToRepository( rowValues, "Room" );
-					MetroMessageBox.Show( this, "Room Added With Sucess !!!", "Metro Title",
+					MessageBox.Show( this, "Room Added With Sucess !!!", "Operation Sucessfull",
 																			MessageBoxButtons.OK, MessageBoxIcon.Information );
 				}
 				else
@@ -283,20 +283,20 @@ namespace Tourist.Server.Forms
 							Repository.Edit( "Room", roomId, "Type", aNewValue );
 							Repository.Edit( "Room", roomId, "Capacity", RoomDataGrid[ "R_CapacityColumn", e.RowIndex ].Value.ToString( ) );
 							Repository.Edit( "Room", roomId, "Price", RoomDataGrid[ "R_PriceColumn", e.RowIndex ].Value.ToString( ) );
-							MetroMessageBox.Show( this, "Room Type edited With Sucess !!!",
-															"Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, "Room Type edited With Sucess !!!",
+															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//state
 						case 2:
 							Repository.Edit( "Room", roomId, "State", aNewValue );
-							MetroMessageBox.Show( this, "Room State Edited With Sucess !!!",
-															"Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, "Room State Edited With Sucess !!!",
+															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Description
 						case 3:
 							Repository.Edit( "Room", roomId, "Description", aNewValue );
-							MetroMessageBox.Show( this, "Room description edited With Sucess !!!",
-															"Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, "Room description edited With Sucess !!!",
+															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						default:
 							return;
@@ -311,8 +311,8 @@ namespace Tourist.Server.Forms
 
 			var roomToRemove = ( IBookable ) Repository.GetObject( removeIndex, "Rooms" );
 
-			DialogResult dialog = MetroMessageBox.Show( this, "Are you sure you want to remove room at row number " +
-							   ( e.RowIndex + 1 ) + " ?", "Metro Title", MessageBoxButtons.YesNo, MessageBoxIcon.Information );
+			DialogResult dialog = MessageBox.Show( this, "Are you sure you want to remove room at row number " +
+							   ( e.RowIndex + 1 ) + " ?", "Operation Sucessfull", MessageBoxButtons.YesNo, MessageBoxIcon.Information );
 
 			if ( dialog == DialogResult.No )
 				return;
@@ -351,15 +351,15 @@ namespace Tourist.Server.Forms
 
 			AutoFillPriceAndCapacity( aNewValue, e.RowIndex );
 
-			var isRowValidated = Shared.RowCellsValidated( row );
+			var isRowValidated = SharedMethods.RowCellsValidated( row );
 
 			if ( isRowValidated )
 			{
 				if ( !Repository.ExistingId( activityId, "Activities" ) )
 				{
-					var rowValues = Shared.RowCellValues( row );
+					var rowValues = SharedMethods.RowCellValues( row );
 					AddToRepository( rowValues, "Activity" );
-					MetroMessageBox.Show( this, "Activity Added With Sucess !!!", "Metro Title",
+					MessageBox.Show( this, "Activity Added With Sucess !!!", "Operation Sucessfull",
 																			MessageBoxButtons.OK, MessageBoxIcon.Information );
 				}
 				else
@@ -371,20 +371,20 @@ namespace Tourist.Server.Forms
 							Repository.Edit( "Activity", activityId, "Type", aNewValue );
 							Repository.Edit( "Activity", activityId, "Capacity", ActivitiesDataGrid[ "A_CapacityColumn", e.RowIndex ].Value.ToString( ) );
 							Repository.Edit( "Activity", activityId, "Price", ActivitiesDataGrid[ "A_PriceColumn", e.RowIndex ].Value.ToString( ) );
-							MetroMessageBox.Show( this, "Activity Type edited With Sucess !!!",
-															"Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, "Activity Type edited With Sucess !!!",
+															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//state
 						case 2:
 							Repository.Edit( "Activity", activityId, "State", aNewValue );
-							MetroMessageBox.Show( this, "Activity State Edited With Sucess !!!",
-															"Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, "Activity State Edited With Sucess !!!",
+															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Description
 						case 3:
 							Repository.Edit( "Activity", activityId, "Description", aNewValue );
-							MetroMessageBox.Show( this, "Activity description edited With Sucess !!!",
-															"Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, "Activity description edited With Sucess !!!",
+															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						default:
 							return;
@@ -399,8 +399,8 @@ namespace Tourist.Server.Forms
 
 			var activityToRemove = ( IBookable ) Repository.GetObject( removeIndex, "Activities" );
 
-			DialogResult dialog = MetroMessageBox.Show( this, "Are you sure you want to remove activity at row number " +
-							   ( e.RowIndex + 1 ) + " ?", "Metro Title", MessageBoxButtons.YesNo, MessageBoxIcon.Information );
+			DialogResult dialog = MessageBox.Show( this, "Are you sure you want to remove activity at row number " +
+							   ( e.RowIndex + 1 ) + " ?", "Operation Sucessfull", MessageBoxButtons.YesNo, MessageBoxIcon.Information );
 
 			if ( dialog == DialogResult.No )
 				return;
@@ -439,15 +439,15 @@ namespace Tourist.Server.Forms
 
 			AutoFillPriceAndCapacity( aNewValue, e.RowIndex );
 
-			var isRowValidated = Shared.RowCellsValidated( row );
+			var isRowValidated = SharedMethods.RowCellsValidated( row );
 
 			if ( isRowValidated )
 			{
 				if ( !Repository.ExistingId( transportId, "Transports" ) )
 				{
-					var rowValues = Shared.RowCellValues( row );
+					var rowValues = SharedMethods.RowCellValues( row );
 					AddToRepository( rowValues, "Transport" );
-					MetroMessageBox.Show( this, "Transport Added With Sucess !!!", "Metro Title",
+					MessageBox.Show( this, "Transport Added With Sucess !!!", "Operation Sucessfull",
 																			MessageBoxButtons.OK, MessageBoxIcon.Information );
 				}
 				else
@@ -459,20 +459,20 @@ namespace Tourist.Server.Forms
 							Repository.Edit( "Transport", transportId, "Type", aNewValue );
 							Repository.Edit( "Transport", transportId, "Capacity", TransportsDataGrid[ "T_CapacityColumn", e.RowIndex ].Value.ToString( ) );
 							Repository.Edit( "Transport", transportId, "Price", TransportsDataGrid[ "T_PriceColumn", e.RowIndex ].Value.ToString( ) );
-							MetroMessageBox.Show( this, "Transport Type edited With Sucess !!!",
-															"Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, "Transport Type edited With Sucess !!!",
+															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//state
 						case 4:
 							Repository.Edit( "Transport", transportId, "StartDate", aNewValue );
-							MetroMessageBox.Show( this, "Transport State Edited With Sucess !!!",
-															"Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, "Transport State Edited With Sucess !!!",
+															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Description
 						case 3:
 							Repository.Edit( "Transport", transportId, "Description", aNewValue );
-							MetroMessageBox.Show( this, "Transport description edited With Sucess !!!",
-															"Metro Title", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, "Transport description edited With Sucess !!!",
+															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						default:
 							return;
@@ -487,8 +487,8 @@ namespace Tourist.Server.Forms
 
 			var transportToRemove = ( IBookable ) Repository.GetObject( removeIndex, "Transports" );
 
-			DialogResult dialog = MetroMessageBox.Show( this, "Are you sure you want to remove transport at row number " +
-							   ( e.RowIndex + 1 ) + " ?", "Metro Title", MessageBoxButtons.YesNo, MessageBoxIcon.Information );
+			DialogResult dialog = MessageBox.Show( this, "Are you sure you want to remove transport at row number " +
+							   ( e.RowIndex + 1 ) + " ?", "Operation Sucessfull", MessageBoxButtons.YesNo, MessageBoxIcon.Information );
 
 			if ( dialog == DialogResult.No )
 				return;
@@ -516,7 +516,7 @@ namespace Tourist.Server.Forms
 
 			base.OnFormClosing( e );
 
-			var dialogResult = MetroMessageBox.Show( this, "\n Are you sure you want to exit the application?",
+			var dialogResult = MessageBox.Show( this, "\n Are you sure you want to exit the application?",
 				"Close Button Pressed", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
 
 			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;

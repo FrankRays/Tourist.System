@@ -2,10 +2,9 @@
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
-using MetroFramework;
 using MetroFramework.Forms;
 using Tourist.Data.Enums;
-using Tourist.Data.Interfaces;
+using Tourist.Data.Shared;
 using Tourist.Server.Properties;
 
 namespace Tourist.Server.Forms
@@ -37,7 +36,7 @@ namespace Tourist.Server.Forms
 
 		private void EntitiesForm_Load( object sender, EventArgs e )
 		{
-			Shared.SetFormFullScreen( this );
+			SharedMethods.SetFormFullScreen( this );
 			LoadEntityData( );
 		}
 
@@ -47,7 +46,7 @@ namespace Tourist.Server.Forms
 				return;
 			
 			var entity = Repository.MData.Entity;
-			LogoPictureBox.Image = Shared.ByteArrayToImage( entity.LogoBuffer );
+			LogoPictureBox.Image = SharedMethods.ByteArrayToImage( entity.LogoBuffer );
 			NameTextBox.Text = entity.Name;
 			TypeComboBox.Text = entity.EntityType.ToString( );
 			NifTextBox.Text = entity.Nif.ToString( );
@@ -71,8 +70,8 @@ namespace Tourist.Server.Forms
 				LogoPictureBox.Image = new Bitmap( Resources.NoImage );
 			}
 
-			var imageBuffer = Shared.ImageToByteArray( LogoPictureBox.Image );
-			var entityType = ( EntityType ) Shared.ConvertStringToEnum( TypeComboBox.Text, "EntityType" );
+			var imageBuffer = SharedMethods.ImageToByteArray( LogoPictureBox.Image );
+			var entityType = ( EntityType ) SharedMethods.ConvertStringToEnum( TypeComboBox.Text, "EntityType" );
 			var entityName = NameTextBox.Text;
 			var entityNif = Convert.ToInt32( NifTextBox.Text );
 			var entityAddress = AddressTextBox.Text;
@@ -83,7 +82,7 @@ namespace Tourist.Server.Forms
 																				entityAddress, entityPhone, entityEmail );
 			Repository.Save( Repository.FileName );
 
-			MetroMessageBox.Show( this, "Entity Information saved with Sucess !!!", "Metro Title",
+			MessageBox.Show( this, "Entity Information saved with Sucess !!!", "Operation Sucessfull",
 																		MessageBoxButtons.OK, MessageBoxIcon.Information );
 		}
 
@@ -156,7 +155,7 @@ namespace Tourist.Server.Forms
 				ErrorProvider.SetError( NifTextBox, "Error the nif field cant be empty." );
 				ErrorProvider.SetIconPadding( NifTextBox, -25 );
 			}
-			else if ( !Shared.IsNumeric( NifTextBox.Text ) )
+			else if ( !SharedMethods.IsNumeric( NifTextBox.Text ) )
 			{
 				e.Cancel = true;
 				//NifTextBox.Focus( );
@@ -202,7 +201,7 @@ namespace Tourist.Server.Forms
 				ErrorProvider.SetError( PhoneTextBox, "Error the phone field cant be empty." );
 				ErrorProvider.SetIconPadding( PhoneTextBox, -25 );
 			}
-			else if ( !Shared.IsNumeric( PhoneTextBox.Text ) )
+			else if ( !SharedMethods.IsNumeric( PhoneTextBox.Text ) )
 			{
 				e.Cancel = true;
 				//PhoneTextBox.Focus( );
@@ -225,7 +224,7 @@ namespace Tourist.Server.Forms
 				ErrorProvider.SetError( EmailTextBox, "Error the email field cant be empty." );
 				ErrorProvider.SetIconPadding( EmailTextBox, -25 );
 			}
-			else if ( !Shared.IsEmailValid( EmailTextBox.Text ) )
+			else if ( !SharedMethods.IsEmailValid( EmailTextBox.Text ) )
 			{
 				e.Cancel = true;
 				//EmailTextBox.Focus( );
@@ -249,7 +248,7 @@ namespace Tourist.Server.Forms
 
 			base.OnFormClosing( e );
 
-			var dialogResult = MetroMessageBox.Show( this, "\n Are you sure you want to exit the application?",
+			var dialogResult = MessageBox.Show( this, "\n Are you sure you want to exit the application?",
 				"Close Button Pressed", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
 
 			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
@@ -290,7 +289,7 @@ namespace Tourist.Server.Forms
 			}
 			else
 			{
-				MetroMessageBox.Show( this, "\n Please insert all entity form field before going To Main Screen.",
+				MessageBox.Show( this, "\n Please insert all entity form field before going To Main Screen.",
 								"Entity Data Empty or Not complete!!! ", MessageBoxButtons.OK, MessageBoxIcon.Information );
 			}
 		}

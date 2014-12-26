@@ -2,8 +2,8 @@
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Forms;
-using MetroFramework;
 using MetroFramework.Forms;
+using Tourist.Data.Shared;
 using Transitions;
 
 namespace Tourist.Server.Forms
@@ -37,7 +37,7 @@ namespace Tourist.Server.Forms
 		
 		private void MainForm_Load( object sender, EventArgs e )
 		{
-			Shared.SetFormFullScreen(this);
+			SharedMethods.SetFormFullScreen(this);
 			TimerClock.Start( );//conta segundos relogio
 		}
 
@@ -200,7 +200,7 @@ namespace Tourist.Server.Forms
 		{
 			base.OnFormClosing( e );
 
-			var dialogResult = MetroMessageBox.Show( this, "\n Are you sure you want to exit the application?",
+			var dialogResult = MessageBox.Show( this, "\n Are you sure you want to exit the application?",
 				"Close Button Pressed", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
 
 			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;

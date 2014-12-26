@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Linq;
 using Tourist.Data.Classes;
 using Tourist.Data.Enums;
+using Tourist.Data.Shared;
 
 namespace Tourist.Server
 {
@@ -658,18 +659,18 @@ namespace Tourist.Server
 			{
 				case "Client":
 					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aId ) )
-						booking.Client = GetClientByNif( Shared.ConvertStringToInt( aNewValue ) );
+						booking.Client = GetClientByNif( SharedMethods.ConvertStringToInt( aNewValue ) );
 					return;
 				case "Bookable":
 					TypeOf( aNewValue, aId );
 					return;
 				case "StartDate":
 					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aId ) )
-						booking.TimeRange.StartDateTime = Shared.ConvertStringToDateTime( aNewValue );
+						booking.TimeRange.StartDateTime = SharedMethods.ConvertStringToDateTime( aNewValue );
 					return;
 				case "EndDate":
 					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aId ) )
-						booking.TimeRange.EndDateTime = Shared.ConvertStringToDateTime( aNewValue );
+						booking.TimeRange.EndDateTime = SharedMethods.ConvertStringToDateTime( aNewValue );
 					return;
 				default:
 					return;
@@ -683,75 +684,75 @@ namespace Tourist.Server
 			{
 				case "Single":
 					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
-						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "RoomType" );
+						booking.Bookable.Type = SharedMethods.ConvertStringToEnum( aType, "RoomType" );
 					return;
 				case "DoubleSingle":
 					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
-						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "RoomType" );
+						booking.Bookable.Type = SharedMethods.ConvertStringToEnum( aType, "RoomType" );
 					return;
 				case "Double":
 					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
-						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "RoomType" );
+						booking.Bookable.Type = SharedMethods.ConvertStringToEnum( aType, "RoomType" );
 					return;
 				case "Suite":
 					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
-						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "RoomType" );
+						booking.Bookable.Type = SharedMethods.ConvertStringToEnum( aType, "RoomType" );
 					return;
 				case "FamilySuite":
 					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
-						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "RoomType" );
+						booking.Bookable.Type = SharedMethods.ConvertStringToEnum( aType, "RoomType" );
 					return;
 				case "Meeting":
 					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
-						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "RoomType" );
+						booking.Bookable.Type = SharedMethods.ConvertStringToEnum( aType, "RoomType" );
 					return;
 				case "BoatRide":
 					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
-						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "ActivityType" );
+						booking.Bookable.Type = SharedMethods.ConvertStringToEnum( aType, "ActivityType" );
 					return;
 				case "Golf":
 					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
-						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "ActivityType" );
+						booking.Bookable.Type = SharedMethods.ConvertStringToEnum( aType, "ActivityType" );
 					return;
 				case "Camping":
 					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
-						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "ActivityType" );
+						booking.Bookable.Type = SharedMethods.ConvertStringToEnum( aType, "ActivityType" );
 					return;
 				case "Diving":
 					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
-						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "ActivityType" );
+						booking.Bookable.Type = SharedMethods.ConvertStringToEnum( aType, "ActivityType" );
 					return;
 				case "SightSeeing":
 					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
-						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "ActivityType" );
+						booking.Bookable.Type = SharedMethods.ConvertStringToEnum( aType, "ActivityType" );
 					return;
 				case "SkyDiving":
 					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
-						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "ActivityType" );
+						booking.Bookable.Type = SharedMethods.ConvertStringToEnum( aType, "ActivityType" );
 					return;
 				case "TuckTuck":
 					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
-						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "TransportType" );
+						booking.Bookable.Type = SharedMethods.ConvertStringToEnum( aType, "TransportType" );
 					return;
 				case "CableCar":
 					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
-						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "TransportType" );
+						booking.Bookable.Type = SharedMethods.ConvertStringToEnum( aType, "TransportType" );
 					return;
 				case "Bicycle":
 					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
-						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "TransportType" );
+						booking.Bookable.Type = SharedMethods.ConvertStringToEnum( aType, "TransportType" );
 					return;
 				case "Car":
 					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
-						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "TransportType" );
+						booking.Bookable.Type = SharedMethods.ConvertStringToEnum( aType, "TransportType" );
 					return;
 				case "Bus":
 					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
-						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "TransportType" );
+						booking.Bookable.Type = SharedMethods.ConvertStringToEnum( aType, "TransportType" );
 					return;
 				case "Motorist":
 					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aBookingId ) )
-						booking.Bookable.Type = Shared.ConvertStringToEnum( aType, "TransportType" );
+						booking.Bookable.Type = SharedMethods.ConvertStringToEnum( aType, "TransportType" );
 					return;
 				default:
 					return;
@@ -772,7 +773,7 @@ namespace Tourist.Server
 					return;
 				case "Gender":
 					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
-						client.Gender = ( Gender ) Shared.ConvertStringToEnum( aNewValue, "Gender" );
+						client.Gender = ( Gender ) SharedMethods.ConvertStringToEnum( aNewValue, "Gender" );
 					return;
 				case "Nationality":
 					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
@@ -780,7 +781,7 @@ namespace Tourist.Server
 					return;
 				case "BirthDate":
 					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
-						client.BirthDate = Shared.ConvertStringToDateTime( aNewValue );
+						client.BirthDate = SharedMethods.ConvertStringToDateTime( aNewValue );
 					return;
 				case "Address":
 					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
@@ -788,7 +789,7 @@ namespace Tourist.Server
 					return;
 				case "Phone":
 					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
-						client.Phone = Shared.ConvertStringToInt( aNewValue );
+						client.Phone = SharedMethods.ConvertStringToInt( aNewValue );
 					return;
 				case "Email":
 					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
@@ -805,11 +806,11 @@ namespace Tourist.Server
 			{
 				case "Type":
 					foreach ( var room in mData.Rooms.Where( room => room.Id == aId ) )
-						room.Type = ( RoomType ) Shared.ConvertStringToEnum( aNewValue, "RoomType" );
+						room.Type = ( RoomType ) SharedMethods.ConvertStringToEnum( aNewValue, "RoomType" );
 					return;
 				case "BookableState":
 					foreach ( var room in mData.Rooms.Where( room => room.Id == aId ) )
-						room.State = ( BookableState ) Shared.ConvertStringToEnum( aNewValue, "BookableState" );
+						room.State = ( BookableState ) SharedMethods.ConvertStringToEnum( aNewValue, "BookableState" );
 					return;
 				case "Description":
 					foreach ( var room in mData.Rooms.Where( room => room.Id == aId ) )
@@ -817,11 +818,11 @@ namespace Tourist.Server
 					return;
 				case "Capacity":
 					foreach ( var room in mData.Rooms.Where( room => room.Id == aId ) )
-						room.Capacity = Shared.ConvertStringToInt( aNewValue );
+						room.Capacity = SharedMethods.ConvertStringToInt( aNewValue );
 					return;
 				case "Price":
 					foreach ( var room in mData.Rooms.Where( room => room.Id == aId ) )
-						room.Price = Shared.ConvertStringToDouble( aNewValue );
+						room.Price = SharedMethods.ConvertStringToDouble( aNewValue );
 					return;
 				default:
 					return;
@@ -834,11 +835,11 @@ namespace Tourist.Server
 			{
 				case "Type":
 					foreach ( var activity in mData.Activities.Where( activity => activity.Id == aId ) )
-						activity.Type = ( ActivityType ) Shared.ConvertStringToEnum( aNewValue, "ActivityType" );
+						activity.Type = ( ActivityType ) SharedMethods.ConvertStringToEnum( aNewValue, "ActivityType" );
 					return;
 				case "BookableState":
 					foreach ( var activity in mData.Activities.Where( activity => activity.Id == aId ) )
-						activity.State = ( BookableState ) Shared.ConvertStringToEnum( aNewValue, "BookableState" );
+						activity.State = ( BookableState ) SharedMethods.ConvertStringToEnum( aNewValue, "BookableState" );
 					return;
 				case "Description":
 					foreach ( var activity in mData.Activities.Where( activity => activity.Id == aId ) )
@@ -846,11 +847,11 @@ namespace Tourist.Server
 					return;
 				case "Capacity":
 					foreach ( var activity in mData.Activities.Where( activity => activity.Id == aId ) )
-						activity.Capacity = Shared.ConvertStringToInt( aNewValue );
+						activity.Capacity = SharedMethods.ConvertStringToInt( aNewValue );
 					return;
 				case "Price":
 					foreach ( var activity in mData.Activities.Where( activity => activity.Id == aId ) )
-						activity.Price = Shared.ConvertStringToDouble( aNewValue );
+						activity.Price = SharedMethods.ConvertStringToDouble( aNewValue );
 					return;
 				default:
 					return;
@@ -863,11 +864,11 @@ namespace Tourist.Server
 			{
 				case "Type":
 					foreach ( var transport in mData.Transports.Where( transport => transport.Id == aId ) )
-						transport.Type = ( TransportType ) Shared.ConvertStringToEnum( aNewValue, "TransportType" );
+						transport.Type = ( TransportType ) SharedMethods.ConvertStringToEnum( aNewValue, "TransportType" );
 					return;
 				case "BookableState":
 					foreach ( var transport in mData.Transports.Where( transport => transport.Id == aId ) )
-						transport.State = ( BookableState ) Shared.ConvertStringToEnum( aNewValue, "BookableState" );
+						transport.State = ( BookableState ) SharedMethods.ConvertStringToEnum( aNewValue, "BookableState" );
 					return;
 				case "Description":
 					foreach ( var transport in mData.Transports.Where( transport => transport.Id == aId ) )
@@ -875,11 +876,11 @@ namespace Tourist.Server
 					return;
 				case "Capacity":
 					foreach ( var transport in mData.Transports.Where( transport => transport.Id == aId ) )
-						transport.Capacity = Shared.ConvertStringToInt( aNewValue );
+						transport.Capacity = SharedMethods.ConvertStringToInt( aNewValue );
 					return;
 				case "Price":
 					foreach ( var transport in mData.Transports.Where( transport => transport.Id == aId ) )
-						transport.Price = Shared.ConvertStringToDouble( aNewValue );
+						transport.Price = SharedMethods.ConvertStringToDouble( aNewValue );
 					return;
 				default:
 					return;
@@ -900,7 +901,7 @@ namespace Tourist.Server
 					return;
 				case "Gender":
 					foreach ( var manager in mData.Managers.Where( manager => manager.Id == aId ) )
-						manager.Gender = ( Gender ) Shared.ConvertStringToEnum( aNewValue, "Gender" );
+						manager.Gender = ( Gender ) SharedMethods.ConvertStringToEnum( aNewValue, "Gender" );
 					return;
 				case "Nationality":
 					foreach ( var manager in mData.Managers.Where( manager => manager.Id == aId ) )
@@ -908,7 +909,7 @@ namespace Tourist.Server
 					return;
 				case "BirthDate":
 					foreach ( var manager in mData.Managers.Where( manager => manager.Id == aId ) )
-						manager.BirthDate = Shared.ConvertStringToDateTime( aNewValue );
+						manager.BirthDate = SharedMethods.ConvertStringToDateTime( aNewValue );
 					return;
 				case "Address":
 					foreach ( var manager in mData.Managers.Where( manager => manager.Id == aId ) )
@@ -916,7 +917,7 @@ namespace Tourist.Server
 					return;
 				case "Phone":
 					foreach ( var manager in mData.Managers.Where( manager => manager.Id == aId ) )
-						manager.Phone = Shared.ConvertStringToInt( aNewValue );
+						manager.Phone = SharedMethods.ConvertStringToInt( aNewValue );
 					return;
 				case "Email":
 					foreach ( var manager in mData.Managers.Where( manager => manager.Id == aId ) )
@@ -949,7 +950,7 @@ namespace Tourist.Server
 					return;
 				case "Gender":
 					foreach ( var employer in mData.Employees.Where( employer => employer.Id == aId ) )
-						employer.Gender = ( Gender ) Shared.ConvertStringToEnum( aNewValue, "Gender" );
+						employer.Gender = ( Gender ) SharedMethods.ConvertStringToEnum( aNewValue, "Gender" );
 					return;
 				case "Nationality":
 					foreach ( var employer in mData.Employees.Where( employer => employer.Id == aId ) )
@@ -957,7 +958,7 @@ namespace Tourist.Server
 					return;
 				case "BirthDate":
 					foreach ( var employer in mData.Employees.Where( employer => employer.Id == aId ) )
-						employer.BirthDate = Shared.ConvertStringToDateTime( aNewValue );
+						employer.BirthDate = SharedMethods.ConvertStringToDateTime( aNewValue );
 					return;
 				case "Address":
 					foreach ( var employer in mData.Employees.Where( employer => employer.Id == aId ) )
@@ -965,7 +966,7 @@ namespace Tourist.Server
 					return;
 				case "Phone":
 					foreach ( var employer in mData.Employees.Where( employer => employer.Id == aId ) )
-						employer.Phone = Shared.ConvertStringToInt( aNewValue );
+						employer.Phone = SharedMethods.ConvertStringToInt( aNewValue );
 					return;
 				case "Email":
 					foreach ( var employer in mData.Employees.Where( employer => employer.Id == aId ) )

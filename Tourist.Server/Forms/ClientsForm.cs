@@ -1,7 +1,9 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 using MetroFramework;
 using MetroFramework.Forms;
+using Tourist.Data.Shared;
 
 namespace Tourist.Server.Forms
 {
@@ -17,9 +19,9 @@ namespace Tourist.Server.Forms
 			mMainForm = aForm as MainForm;
 		}
 
-		private void ClientsForm_Load( object sender, System.EventArgs e )
+		private void ClientsForm_Load( object sender, EventArgs e )
 		{
-			Shared.SetFormFullScreen(this);
+			SharedMethods.SetFormFullScreen(this);
 			LoadDataToGrid();
 		}
 
@@ -55,7 +57,7 @@ namespace Tourist.Server.Forms
 			if ( dialogResult == DialogResult.No )
 				e.Cancel = true;
 			else
-				System.Diagnostics.Process.GetCurrentProcess( ).Kill( );
+				Process.GetCurrentProcess( ).Kill( );
 		}
 
 		private void BackPanel_MouseClick( object sender, MouseEventArgs e )

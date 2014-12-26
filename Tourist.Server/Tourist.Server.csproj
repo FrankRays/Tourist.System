@@ -140,7 +140,6 @@
     <Compile Include="Remote.cs" />
     <Compile Include="Repository.Serialization.cs" />
     <Compile Include="Repository.cs" />
-    <Compile Include="Shared.cs" />
     <EmbeddedResource Include="Forms\ManagersForm.resx">
       <DependentUpon>ManagersForm.cs</DependentUpon>
     </EmbeddedResource>
