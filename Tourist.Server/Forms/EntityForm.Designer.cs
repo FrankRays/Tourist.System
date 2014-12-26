@@ -32,6 +32,9 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EntityForm));
 			this.BodyPanel = new System.Windows.Forms.Panel();
 			this.BasicInformation = new System.Windows.Forms.GroupBox();
+			this.EditButton = new System.Windows.Forms.Button();
+			this.LogoWrapper = new System.Windows.Forms.Panel();
+			this.LogoPictureBox = new System.Windows.Forms.PictureBox();
 			this.SaveButton = new System.Windows.Forms.Button();
 			this.AddressLabel = new System.Windows.Forms.Label();
 			this.PhoneLabel = new System.Windows.Forms.Label();
@@ -48,21 +51,18 @@
 			this.NifLabel = new System.Windows.Forms.Label();
 			this.FooterPanel = new System.Windows.Forms.Panel();
 			this.HeaderPanel = new System.Windows.Forms.Panel();
+			this.BackPanel = new System.Windows.Forms.Panel();
+			this.ImagePanel = new System.Windows.Forms.Panel();
 			this.SubTitleLabel = new System.Windows.Forms.Label();
 			this.TitleLabel = new System.Windows.Forms.Label();
 			this.LogoLoad = new System.Windows.Forms.OpenFileDialog();
 			this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-			this.EditButton = new System.Windows.Forms.Button();
-			this.LogoWrapper = new System.Windows.Forms.Panel();
-			this.LogoPictureBox = new System.Windows.Forms.PictureBox();
-			this.BackPanel = new System.Windows.Forms.Panel();
-			this.ImagePanel = new System.Windows.Forms.Panel();
 			this.BodyPanel.SuspendLayout();
 			this.BasicInformation.SuspendLayout();
-			this.HeaderPanel.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
 			this.LogoWrapper.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
+			this.HeaderPanel.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// BodyPanel
@@ -107,6 +107,40 @@
 			this.BasicInformation.TabIndex = 40;
 			this.BasicInformation.TabStop = false;
 			this.BasicInformation.Text = "Basic Information";
+			// 
+			// EditButton
+			// 
+			this.EditButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			this.EditButton.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.EditButton.ForeColor = System.Drawing.Color.White;
+			this.EditButton.Location = new System.Drawing.Point(775, 346);
+			this.EditButton.Margin = new System.Windows.Forms.Padding(2);
+			this.EditButton.Name = "EditButton";
+			this.EditButton.Size = new System.Drawing.Size(110, 105);
+			this.EditButton.TabIndex = 48;
+			this.EditButton.Text = "EDIT ";
+			this.EditButton.UseVisualStyleBackColor = false;
+			this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
+			// 
+			// LogoWrapper
+			// 
+			this.LogoWrapper.BackgroundImage = global::Tourist.Server.Properties.Resources.LogoFrame;
+			this.LogoWrapper.Controls.Add(this.LogoPictureBox);
+			this.LogoWrapper.Location = new System.Drawing.Point(68, 81);
+			this.LogoWrapper.Name = "LogoWrapper";
+			this.LogoWrapper.Size = new System.Drawing.Size(160, 160);
+			this.LogoWrapper.TabIndex = 47;
+			// 
+			// LogoPictureBox
+			// 
+			this.LogoPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.LogoPictureBox.Location = new System.Drawing.Point(5, 5);
+			this.LogoPictureBox.Name = "LogoPictureBox";
+			this.LogoPictureBox.Size = new System.Drawing.Size(150, 150);
+			this.LogoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+			this.LogoPictureBox.TabIndex = 25;
+			this.LogoPictureBox.TabStop = false;
+			this.LogoPictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LogoPictureBox_MouseClick);
 			// 
 			// SaveButton
 			// 
@@ -306,6 +340,30 @@
 			this.HeaderPanel.Size = new System.Drawing.Size(1202, 150);
 			this.HeaderPanel.TabIndex = 17;
 			// 
+			// BackPanel
+			// 
+			this.BackPanel.AutoSize = true;
+			this.BackPanel.BackgroundImage = global::Tourist.Server.Properties.Resources.LeftArrow;
+			this.BackPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.BackPanel.Location = new System.Drawing.Point(18, 32);
+			this.BackPanel.Margin = new System.Windows.Forms.Padding(2);
+			this.BackPanel.Name = "BackPanel";
+			this.BackPanel.Size = new System.Drawing.Size(64, 89);
+			this.BackPanel.TabIndex = 12;
+			this.BackPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BackPanel_MouseClick);
+			// 
+			// ImagePanel
+			// 
+			this.ImagePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.ImagePanel.BackgroundImage = global::Tourist.Server.Properties.Resources.Entity;
+			this.ImagePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.ImagePanel.Location = new System.Drawing.Point(1056, 26);
+			this.ImagePanel.Margin = new System.Windows.Forms.Padding(2);
+			this.ImagePanel.Name = "ImagePanel";
+			this.ImagePanel.Size = new System.Drawing.Size(128, 102);
+			this.ImagePanel.TabIndex = 13;
+			// 
 			// SubTitleLabel
 			// 
 			this.SubTitleLabel.AutoSize = true;
@@ -340,64 +398,6 @@
 			this.ErrorProvider.ContainerControl = this;
 			this.ErrorProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("ErrorProvider.Icon")));
 			// 
-			// EditButton
-			// 
-			this.EditButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.EditButton.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.EditButton.ForeColor = System.Drawing.Color.White;
-			this.EditButton.Location = new System.Drawing.Point(775, 346);
-			this.EditButton.Margin = new System.Windows.Forms.Padding(2);
-			this.EditButton.Name = "EditButton";
-			this.EditButton.Size = new System.Drawing.Size(110, 105);
-			this.EditButton.TabIndex = 48;
-			this.EditButton.Text = "EDIT ";
-			this.EditButton.UseVisualStyleBackColor = false;
-			this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
-			// 
-			// LogoWrapper
-			// 
-			this.LogoWrapper.BackgroundImage = global::Tourist.Server.Properties.Resources.LogoFrame;
-			this.LogoWrapper.Controls.Add(this.LogoPictureBox);
-			this.LogoWrapper.Location = new System.Drawing.Point(68, 81);
-			this.LogoWrapper.Name = "LogoWrapper";
-			this.LogoWrapper.Size = new System.Drawing.Size(160, 160);
-			this.LogoWrapper.TabIndex = 47;
-			// 
-			// LogoPictureBox
-			// 
-			this.LogoPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.LogoPictureBox.Location = new System.Drawing.Point(5, 5);
-			this.LogoPictureBox.Name = "LogoPictureBox";
-			this.LogoPictureBox.Size = new System.Drawing.Size(150, 150);
-			this.LogoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-			this.LogoPictureBox.TabIndex = 25;
-			this.LogoPictureBox.TabStop = false;
-			this.LogoPictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LogoPictureBox_MouseClick);
-			// 
-			// BackPanel
-			// 
-			this.BackPanel.AutoSize = true;
-			this.BackPanel.BackgroundImage = global::Tourist.Server.Properties.Resources.LeftArrow;
-			this.BackPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.BackPanel.Location = new System.Drawing.Point(18, 32);
-			this.BackPanel.Margin = new System.Windows.Forms.Padding(2);
-			this.BackPanel.Name = "BackPanel";
-			this.BackPanel.Size = new System.Drawing.Size(64, 89);
-			this.BackPanel.TabIndex = 12;
-			this.BackPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BackPanel_MouseClick);
-			// 
-			// ImagePanel
-			// 
-			this.ImagePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.ImagePanel.BackgroundImage = global::Tourist.Server.Properties.Resources.Entity;
-			this.ImagePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.ImagePanel.Location = new System.Drawing.Point(1056, 26);
-			this.ImagePanel.Margin = new System.Windows.Forms.Padding(2);
-			this.ImagePanel.Name = "ImagePanel";
-			this.ImagePanel.Size = new System.Drawing.Size(128, 102);
-			this.ImagePanel.TabIndex = 13;
-			// 
 			// EntityForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -418,11 +418,11 @@
 			this.BodyPanel.ResumeLayout(false);
 			this.BasicInformation.ResumeLayout(false);
 			this.BasicInformation.PerformLayout();
+			this.LogoWrapper.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).EndInit();
 			this.HeaderPanel.ResumeLayout(false);
 			this.HeaderPanel.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
-			this.LogoWrapper.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).EndInit();
 			this.ResumeLayout(false);
 
 		}

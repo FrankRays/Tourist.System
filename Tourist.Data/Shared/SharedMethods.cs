@@ -63,7 +63,10 @@ namespace Tourist.Data.Shared
 					}
 				}
 			}
-			catch ( Exception ) { }
+			catch (Exception)
+			{
+				// ignored
+			}
 
 			return false;
 		}
@@ -78,7 +81,7 @@ namespace Tourist.Data.Shared
 			}
 			catch ( FormatException )
 			{
-				Console.WriteLine( "'{0}' is not a integer.", aInt );
+				Console.WriteLine( Strings.IsNotInteger );
 			}
 
 			return 0;
@@ -94,7 +97,7 @@ namespace Tourist.Data.Shared
 			}
 			catch ( FormatException )
 			{
-				Console.WriteLine( "'{0}' is not a integer.", aDouble );
+				Console.WriteLine( Strings.IsNotDouble );
 			}
 
 			return 0;
@@ -110,7 +113,7 @@ namespace Tourist.Data.Shared
 			}
 			catch ( FormatException )
 			{
-				Console.WriteLine( "'{0}' is not in the proper format.", aDate );
+				Console.WriteLine( Strings.IsNotDateFormat );
 			}
 
 			return new DateTime( );
@@ -127,7 +130,7 @@ namespace Tourist.Data.Shared
 					}
 					catch ( Exception )
 					{
-						Console.WriteLine( "'{0}' is not a Enum.", aEnumType );
+						Console.WriteLine( Strings.IsNotEnum );
 						return null;
 					}
 				case "Gender":
@@ -137,7 +140,7 @@ namespace Tourist.Data.Shared
 					}
 					catch ( Exception )
 					{
-						Console.WriteLine( "'{0}' is not a Enum.", aEnumType );
+						Console.WriteLine( Strings.IsNotEnum );
 						return null;
 					}
 				case "BookableState":
@@ -147,7 +150,7 @@ namespace Tourist.Data.Shared
 					}
 					catch ( Exception )
 					{
-						Console.WriteLine( "'{0}' is not a Enum.", aEnumType );
+						Console.WriteLine( Strings.IsNotEnum, aEnumType );
 						return null;
 					}
 				case "RoomType":
@@ -157,7 +160,7 @@ namespace Tourist.Data.Shared
 					}
 					catch ( Exception )
 					{
-						Console.WriteLine( "'{0}' is not a Enum.", aEnumType );
+						Console.WriteLine( Strings.IsNotEnum, aEnumType );
 						return null;
 					}
 				case "ActivityType":
@@ -167,7 +170,7 @@ namespace Tourist.Data.Shared
 					}
 					catch ( Exception )
 					{
-						Console.WriteLine( "'{0}' is not a Enum.", aEnumType );
+						Console.WriteLine( Strings.IsNotEnum, aEnumType );
 						return null;
 					}
 				case "TransportType":
@@ -177,7 +180,7 @@ namespace Tourist.Data.Shared
 					}
 					catch ( Exception )
 					{
-						Console.WriteLine( "'{0}' is not a Enum.", aEnumType );
+						Console.WriteLine( Strings.IsNotEnum, aEnumType );
 						return null;
 					}
 				default:
@@ -217,7 +220,7 @@ namespace Tourist.Data.Shared
 			{
 				if ( string.IsNullOrEmpty( aRow.Cells[ i ].EditedFormattedValue.ToString( ) ) )
 				{
-					aRow.Cells[ i ].ErrorText = "This Cell can´t be empty!";
+					aRow.Cells[ i ].ErrorText = Strings.ErrorCellEmpty;
 
 					cellHasError[ i - 1 ] = true;
 				}
@@ -232,20 +235,23 @@ namespace Tourist.Data.Shared
 				{
 					if ( !IsNumeric( aRow.Cells[ "NifColumn" ].EditedFormattedValue.ToString( ) ) )
 					{
-						aRow.Cells[ "NifColumn" ].ErrorText = "The Nif has only numbers!";
+						aRow.Cells[ "NifColumn" ].ErrorText = Strings.ErrorNifOnlyDigits;
 						return false;
 					}
 
 					if ( ( aRow.Cells[ "NifColumn" ].EditedFormattedValue.ToString( ).Length < 9 ) || ( aRow.Cells[ "NifColumn" ].EditedFormattedValue.ToString( ).Length > 9 ) )
 					{
-						aRow.Cells[ "NifColumn" ].ErrorText = "The Nif has to have 9 digits !";
+						aRow.Cells[ "NifColumn" ].ErrorText = Strings.ErrorNifNineDigits;
 						return false;
 					}
 
 					CellErrorRemove( aRow.Cells[ "NifColumn" ] );
 				}
 			}
-			catch ( Exception ) { }
+			catch (Exception)
+			{
+				// ignored
+			}
 
 			try
 			{
@@ -253,14 +259,17 @@ namespace Tourist.Data.Shared
 				{
 					if ( !IsNumeric( aRow.Cells[ "PhoneColumn" ].EditedFormattedValue.ToString( ) ) )
 					{
-						aRow.Cells[ "PhoneColumn" ].ErrorText = "The Phone has only numbers !";
+						aRow.Cells[ "PhoneColumn" ].ErrorText = Strings.ErrorPhoneOnlyDigits;
 						return false;
 					}
 					// other phone verifications
 					CellErrorRemove( aRow.Cells[ "PhoneColumn" ] );
 				}
 			}
-			catch ( Exception ) { }
+			catch (Exception)
+			{
+				// ignored
+			}
 
 			try
 			{
@@ -268,20 +277,23 @@ namespace Tourist.Data.Shared
 				{
 					if ( !IsEmailValid( aRow.Cells[ "EmailColumn" ].EditedFormattedValue.ToString( ) ) )
 					{
-						aRow.Cells[ "EmailColumn" ].ErrorText = "The email is not valid!";
+						aRow.Cells[ "EmailColumn" ].ErrorText = Strings.ErrorEmailNotValid;
 						return false;
 					}
 
 					CellErrorRemove( aRow.Cells[ "EmailColumn" ] );
 				}
 			}
-			catch ( Exception ) { }
+			catch (Exception)
+			{
+				// ignored
+			}
 
 
 			return !cellHasError.Any( bolean => bolean );
 		}
 
 		#endregion
-
+	
 	}
 }

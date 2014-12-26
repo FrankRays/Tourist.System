@@ -5,7 +5,6 @@ using System.Windows.Forms;
 using MetroFramework.Forms;
 using Tourist.Data.Enums;
 using Tourist.Data.Shared;
-using Tourist.Server.Properties;
 
 namespace Tourist.Server.Forms
 {
@@ -42,9 +41,9 @@ namespace Tourist.Server.Forms
 
 		private void LoadEntityData( )
 		{
-			if (Repository.IsEmpty("Entity"))
+			if ( Repository.IsEmpty( "Entity" ) )
 				return;
-			
+
 			var entity = Repository.MData.Entity;
 			LogoPictureBox.Image = SharedMethods.ByteArrayToImage( entity.LogoBuffer );
 			NameTextBox.Text = entity.Name;
@@ -67,7 +66,7 @@ namespace Tourist.Server.Forms
 
 			if ( LogoPictureBox.Image == null )
 			{
-				LogoPictureBox.Image = new Bitmap( Resources.NoImage );
+				LogoPictureBox.Image = new Bitmap( Properties.Resources.NoImage );
 			}
 
 			var imageBuffer = SharedMethods.ImageToByteArray( LogoPictureBox.Image );
@@ -82,7 +81,7 @@ namespace Tourist.Server.Forms
 																				entityAddress, entityPhone, entityEmail );
 			Repository.Save( Repository.FileName );
 
-			MessageBox.Show( this, "Entity Information saved with Sucess !!!", "Operation Sucessfull",
+			MessageBox.Show( this, Resources.Text.Strings.InformationSaved , Resources.Text.Strings.OperationSucessfull,
 																		MessageBoxButtons.OK, MessageBoxIcon.Information );
 		}
 
@@ -106,8 +105,8 @@ namespace Tourist.Server.Forms
 		private void LogoPictureBox_MouseClick( object sender, MouseEventArgs e )
 		{
 			LogoLoad.AddExtension = true;
-			LogoLoad.Filter = "PNG|*.png|JPEG|*.jpg;*.jpeg";
-			LogoLoad.Title = "Save Entity Logo";
+			LogoLoad.Filter = Resources.Text.Strings.LogoFilter;
+			LogoLoad.Title = Resources.Text.Strings.SaveLogoTitle;
 			LogoLoad.InitialDirectory = Environment.GetFolderPath( Environment.SpecialFolder.Desktop );
 
 			if ( LogoLoad.ShowDialog( ) == DialogResult.OK )
@@ -136,7 +135,7 @@ namespace Tourist.Server.Forms
 			{
 				e.Cancel = true;
 				//NameTextBox.Focus();
-				ErrorProvider.SetError( NameTextBox, "Error the entity name field cant be empty." );
+				ErrorProvider.SetError( NameTextBox, Resources.Text.Strings.ErrorNameEmpty );
 				ErrorProvider.SetIconPadding( NameTextBox, -25 );
 			}
 			else
@@ -152,21 +151,21 @@ namespace Tourist.Server.Forms
 			{
 				e.Cancel = true;
 				//NifTextBox.Focus( );
-				ErrorProvider.SetError( NifTextBox, "Error the nif field cant be empty." );
+				ErrorProvider.SetError( NifTextBox, Resources.Text.Strings.ErrorNIfEmpty );
 				ErrorProvider.SetIconPadding( NifTextBox, -25 );
 			}
 			else if ( !SharedMethods.IsNumeric( NifTextBox.Text ) )
 			{
 				e.Cancel = true;
 				//NifTextBox.Focus( );
-				ErrorProvider.SetError( NifTextBox, "Error the nif field is not valid." );
+				ErrorProvider.SetError( NifTextBox, Resources.Text.Strings.ErrorNifOnlyDigits );
 				ErrorProvider.SetIconPadding( NifTextBox, -25 );
 			}
 			else if ( NifTextBox.Text.Length < 9 || NifTextBox.Text.Length > 9 )
 			{
 				e.Cancel = true;
 				//NifTextBox.Focus( );
-				ErrorProvider.SetError( NifTextBox, "Error the nif has to have 9 digits." );
+				ErrorProvider.SetError( NifTextBox, Resources.Text.Strings.ErrorNifNineDigits );
 				ErrorProvider.SetIconPadding( NifTextBox, -25 );
 			}
 			else
@@ -182,7 +181,7 @@ namespace Tourist.Server.Forms
 			{
 				e.Cancel = true;
 				//AddressTextBox.Focus( );
-				ErrorProvider.SetError( AddressTextBox, "Error the address field cant be empty." );
+				ErrorProvider.SetError( AddressTextBox, Resources.Text.Strings.ErrorAddressEmpty );
 				ErrorProvider.SetIconPadding( AddressTextBox, -25 );
 			}
 			else
@@ -198,14 +197,14 @@ namespace Tourist.Server.Forms
 			{
 				e.Cancel = true;
 				//PhoneTextBox.Focus( );
-				ErrorProvider.SetError( PhoneTextBox, "Error the phone field cant be empty." );
+				ErrorProvider.SetError( PhoneTextBox, Resources.Text.Strings.ErrorPhoneEmpty );
 				ErrorProvider.SetIconPadding( PhoneTextBox, -25 );
 			}
 			else if ( !SharedMethods.IsNumeric( PhoneTextBox.Text ) )
 			{
 				e.Cancel = true;
 				//PhoneTextBox.Focus( );
-				ErrorProvider.SetError( PhoneTextBox, "Error the phone field is not valid." );
+				ErrorProvider.SetError( PhoneTextBox, Resources.Text.Strings.ErrorPhoneOnlyDigits );
 				ErrorProvider.SetIconPadding( PhoneTextBox, -25 );
 			}
 			else
@@ -221,14 +220,14 @@ namespace Tourist.Server.Forms
 			{
 				e.Cancel = true;
 				//EmailTextBox.Focus( );
-				ErrorProvider.SetError( EmailTextBox, "Error the email field cant be empty." );
+				ErrorProvider.SetError( EmailTextBox, Resources.Text.Strings.ErrorEmailEmpty );
 				ErrorProvider.SetIconPadding( EmailTextBox, -25 );
 			}
 			else if ( !SharedMethods.IsEmailValid( EmailTextBox.Text ) )
 			{
 				e.Cancel = true;
 				//EmailTextBox.Focus( );
-				ErrorProvider.SetError( EmailTextBox, "Error the email field is not valid." );
+				ErrorProvider.SetError( EmailTextBox, Resources.Text.Strings.ErrorEmailNotValid );
 				ErrorProvider.SetIconPadding( EmailTextBox, -25 );
 			}
 			else
@@ -248,8 +247,8 @@ namespace Tourist.Server.Forms
 
 			base.OnFormClosing( e );
 
-			var dialogResult = MessageBox.Show( this, "\n Are you sure you want to exit the application?",
-				"Close Button Pressed", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
+			var dialogResult = MessageBox.Show( this, Resources.Text.Strings.ExitMessage, Resources.Text.Strings.ExitMessageTitle
+				, MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
 
 			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
 
@@ -289,8 +288,8 @@ namespace Tourist.Server.Forms
 			}
 			else
 			{
-				MessageBox.Show( this, "\n Please insert all entity form field before going To Main Screen.",
-								"Entity Data Empty or Not complete!!! ", MessageBoxButtons.OK, MessageBoxIcon.Information );
+				MessageBox.Show( this, Resources.Text.Strings.InformationDataNotComplete,
+								Resources.Text.Strings.DataEmptyOrNotComplete, MessageBoxButtons.OK, MessageBoxIcon.Information );
 			}
 		}
 
