@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using MetroFramework;
 using MetroFramework.Forms;
+using Tourist.Data.Classes;
 
 namespace Tourist.Server.Forms
 {
@@ -9,16 +10,15 @@ namespace Tourist.Server.Forms
 	{
 
 		#region Fields
-		
+
 		private readonly Repository Repository = Repository.Instance;
 		private MainForm mMainForm;
-		private bool mLoginFormOrEntityForm = default( bool );
 		private int mEntityId = default( int );
 
 		#endregion
 
 		#region Constructor
-		
+
 		public LoginForm( )
 		{
 			InitializeComponent( );
@@ -28,10 +28,10 @@ namespace Tourist.Server.Forms
 		#endregion
 
 		#region Private Methods
-		
+
 		private void LoginForm_Load( object sender, EventArgs e )
 		{
-			Shared.SetFormFullScreen(this);
+			Shared.SetFormFullScreen( this );
 		}
 
 		#endregion
@@ -40,26 +40,74 @@ namespace Tourist.Server.Forms
 
 		private void OkButton_Click( object sender, EventArgs e )
 		{
-			Hide( );
 
 			if ( Repository.IsEmpty( "Entity" ) )
 			{
+				Hide( );
 				var entityForm = new EntityForm( mMainForm );
 				entityForm.Show( );
 			}
 			else if ( Repository.IsEmpty( "Managers" ) )
 			{
+				Hide( );
 				var managerForm = new ManagersForm( mMainForm );
 				managerForm.Show( );
 			}
 			else if ( !Repository.IsEmpty( "Managers" ) && Repository.IsEmpty( "Employees" ) )
 			{
+				Hide( );
 				var employersForm = new EmployersForm( mMainForm );
 				employersForm.Show( );
 			}
-			else
+			else if ( !Repository.IsEmpty( "Managers" ) && !Repository.IsEmpty( "Employees" ) )
 			{
-				mMainForm.Show( );
+				LoginErrorChecking( );
+			}
+		}
+
+		private void LoginErrorChecking( )
+		{
+
+			if ( string.IsNullOrEmpty( UsernameTextBox.Text ) && string.IsNullOrEmpty( PasswordTextBox.Text ) )
+			{
+				ErrorProvider.SetError( UsernameTextBox, "Error the username field can't be empty." );
+				ErrorProvider.SetIconPadding( UsernameTextBox, -25 );
+				ErrorProvider.SetError( PasswordTextBox, "Error the password field can't be empty." );
+				ErrorProvider.SetIconPadding( PasswordTextBox, -25 );
+				return;
+			}
+
+			if ( string.IsNullOrEmpty( UsernameTextBox.Text ) && !string.IsNullOrEmpty( PasswordTextBox.Text ) )
+			{
+				ErrorProvider.SetError( UsernameTextBox, "Error the username field can't be empty." );
+				ErrorProvider.SetIconPadding( UsernameTextBox, -25 );
+				return;
+			}
+
+			if ( !string.IsNullOrEmpty( UsernameTextBox.Text ) && string.IsNullOrEmpty( PasswordTextBox.Text ) )
+			{
+
+				ErrorProvider.SetError( PasswordTextBox, "Error the password field can't be empty." );
+				ErrorProvider.SetIconPadding( PasswordTextBox, -25 );
+				return;
+			}
+
+			if ( !string.IsNullOrEmpty( UsernameTextBox.Text ) && !string.IsNullOrEmpty( PasswordTextBox.Text ) )
+			{
+				ErrorProvider.SetError( UsernameTextBox, "" );
+				ErrorProvider.SetError( PasswordTextBox, "" );
+
+				if (Repository.CheckLogin(UsernameTextBox.Text, PasswordTextBox.Text, "Server"))
+				{
+					//entra
+					Hide();
+					MessageBox.Show( "Login Successful !!!", "Welcome " + LoginInfoServer.Username + " !", MessageBoxButtons.OK, MessageBoxIcon.Information );
+					mMainForm.Show();
+				}
+				else
+				{
+					MessageBox.Show( "Error !!! Check your username or password.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error );
+				}
 			}
 		}
 
@@ -81,7 +129,7 @@ namespace Tourist.Server.Forms
 			Close( );
 		}
 
-		
+
 		#endregion
 
 	}

@@ -1,4 +1,6 @@
-﻿namespace Tourist.Data.Interfaces
+﻿using Tourist.Data.Enums;
+
+namespace Tourist.Data.Interfaces
 {
 	public interface IEntity : IContact, ISubject
 	{

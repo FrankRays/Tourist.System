@@ -11,19 +11,16 @@ namespace Tourist.Client.Forms
 	public partial class ClientsForm : MetroForm
 	{
 
-		private MainForm mMainForm;
 		private IRemote mRemote;
-		private int mEntityId;
+		private MainForm mMainForm;
 		private bool mBackOrExit = default( bool );
 
 
 		public ClientsForm( Form aForm )
 		{
 			InitializeComponent( );
-
-			mMainForm = aForm as MainForm;
-			mEntityId = mMainForm.EntityId;
 			mRemote = mMainForm.Remote;
+			mMainForm = aForm as MainForm;
 		}
 
 		private void ClientsForm_Load( object sender, System.EventArgs e )

@@ -5,10 +5,8 @@ using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Net.Mail;
-using System.Runtime.CompilerServices;
 using System.Windows.Forms;
-using Tourist.Data.Interfaces;
+using Tourist.Data.Enums;
 
 namespace Tourist.Server
 {

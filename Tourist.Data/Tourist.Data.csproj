@@ -40,6 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Capacity.cs" />
+    <Compile Include="Classes\LoginInfoClient.cs" />
+    <Compile Include="Classes\LoginInfoServer.cs" />
     <Compile Include="Classes\Transport.cs" />
     <Compile Include="Classes\Activity.cs" />
     <Compile Include="Classes\Booking.cs" />
@@ -51,10 +53,10 @@
     <Compile Include="Classes\Manager.cs" />
     <Compile Include="Classes\Room.cs" />
     <Compile Include="Classes\BasePrice.cs" />
-    <Compile Include="Interfaces\EnumActivityType.cs" />
-    <Compile Include="Interfaces\EnumBookableState.cs" />
-    <Compile Include="Interfaces\EnumEntityType.cs" />
-    <Compile Include="Interfaces\EnumGender.cs" />
+    <Compile Include="Enums\EnumActivityType.cs" />
+    <Compile Include="Enums\EnumBookableState.cs" />
+    <Compile Include="Enums\EnumEntityType.cs" />
+    <Compile Include="Enums\EnumGender.cs" />
     <Compile Include="Interfaces\IBookable.cs" />
     <Compile Include="Interfaces\IBooking.cs" />
     <Compile Include="Interfaces\IContact.cs" />
@@ -66,8 +68,8 @@
     <Compile Include="Interfaces\IManager.cs" />
     <Compile Include="Interfaces\IRemote.cs" />
     <Compile Include="Interfaces\ISubject.cs" />
-    <Compile Include="Interfaces\EnumRoomType.cs" />
-    <Compile Include="Interfaces\EnumTransportType.cs" />
+    <Compile Include="Enums\EnumRoomType.cs" />
+    <Compile Include="Enums\EnumTransportType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

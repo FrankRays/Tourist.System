@@ -28,6 +28,8 @@
 		/// </summary>
 		private void InitializeComponent( )
 		{
+			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
 			this.FooterPanel = new System.Windows.Forms.Panel();
 			this.BodyPanel = new System.Windows.Forms.Panel();
 			this.LoginFrame = new System.Windows.Forms.Panel();
@@ -35,18 +37,20 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.ExitButton = new System.Windows.Forms.Button();
 			this.OkButton = new System.Windows.Forms.Button();
-			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.PasswordTextBox = new System.Windows.Forms.TextBox();
+			this.UsernameTextBox = new System.Windows.Forms.TextBox();
 			this.PasswordLabel = new System.Windows.Forms.Label();
 			this.UsernameLabel = new System.Windows.Forms.Label();
 			this.HeaderPanel = new System.Windows.Forms.Panel();
 			this.LogoBox = new System.Windows.Forms.PictureBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.LoginLabel = new System.Windows.Forms.Label();
+			this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
 			this.BodyPanel.SuspendLayout();
 			this.LoginFrame.SuspendLayout();
 			this.HeaderPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.LogoBox)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// FooterPanel
@@ -83,8 +87,8 @@
 			this.LoginFrame.Controls.Add(this.label1);
 			this.LoginFrame.Controls.Add(this.ExitButton);
 			this.LoginFrame.Controls.Add(this.OkButton);
-			this.LoginFrame.Controls.Add(this.textBox2);
-			this.LoginFrame.Controls.Add(this.textBox1);
+			this.LoginFrame.Controls.Add(this.PasswordTextBox);
+			this.LoginFrame.Controls.Add(this.UsernameTextBox);
 			this.LoginFrame.Controls.Add(this.PasswordLabel);
 			this.LoginFrame.Controls.Add(this.UsernameLabel);
 			this.LoginFrame.Location = new System.Drawing.Point(254, 36);
@@ -146,24 +150,24 @@
 			this.OkButton.UseVisualStyleBackColor = false;
 			this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
 			// 
-			// textBox2
+			// PasswordTextBox
 			// 
-			this.textBox2.Font = new System.Drawing.Font("Segoe UI Semilight", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBox2.Location = new System.Drawing.Point(130, 216);
-			this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.PasswordChar = '*';
-			this.textBox2.Size = new System.Drawing.Size(418, 39);
-			this.textBox2.TabIndex = 8;
+			this.PasswordTextBox.Font = new System.Drawing.Font("Segoe UI Semilight", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.PasswordTextBox.Location = new System.Drawing.Point(130, 216);
+			this.PasswordTextBox.Margin = new System.Windows.Forms.Padding(2);
+			this.PasswordTextBox.Name = "PasswordTextBox";
+			this.PasswordTextBox.PasswordChar = '*';
+			this.PasswordTextBox.Size = new System.Drawing.Size(418, 39);
+			this.PasswordTextBox.TabIndex = 8;
 			// 
-			// textBox1
+			// UsernameTextBox
 			// 
-			this.textBox1.Font = new System.Drawing.Font("Segoe UI Semilight", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBox1.Location = new System.Drawing.Point(130, 86);
-			this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(418, 39);
-			this.textBox1.TabIndex = 7;
+			this.UsernameTextBox.Font = new System.Drawing.Font("Segoe UI Semilight", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.UsernameTextBox.Location = new System.Drawing.Point(130, 86);
+			this.UsernameTextBox.Margin = new System.Windows.Forms.Padding(2);
+			this.UsernameTextBox.Name = "UsernameTextBox";
+			this.UsernameTextBox.Size = new System.Drawing.Size(418, 39);
+			this.UsernameTextBox.TabIndex = 7;
 			// 
 			// PasswordLabel
 			// 
@@ -239,6 +243,11 @@
 			this.LoginLabel.TabIndex = 3;
 			this.LoginLabel.Text = "Login Credentials";
 			// 
+			// ErrorProvider
+			// 
+			this.ErrorProvider.ContainerControl = this;
+			this.ErrorProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("ErrorProvider.Icon")));
+			// 
 			// LoginForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -263,6 +272,7 @@
 			this.HeaderPanel.ResumeLayout(false);
 			this.HeaderPanel.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.LogoBox)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -274,8 +284,8 @@
 		private System.Windows.Forms.Panel LoginFrame;
 		private System.Windows.Forms.Button ExitButton;
 		private System.Windows.Forms.Button OkButton;
-		private System.Windows.Forms.TextBox textBox2;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox PasswordTextBox;
+		private System.Windows.Forms.TextBox UsernameTextBox;
 		private System.Windows.Forms.Label PasswordLabel;
 		private System.Windows.Forms.Label UsernameLabel;
 		private System.Windows.Forms.Panel HeaderPanel;
@@ -284,6 +294,7 @@
 		private System.Windows.Forms.Label LoginLabel;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.PictureBox LogoBox;
+		private System.Windows.Forms.ErrorProvider ErrorProvider;
 
 	}
 }

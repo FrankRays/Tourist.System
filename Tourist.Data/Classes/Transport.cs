@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Xml.Serialization;
+using Tourist.Data.Enums;
 using Tourist.Data.Interfaces;
 
 namespace Tourist.Data.Classes

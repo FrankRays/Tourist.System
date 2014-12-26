@@ -21,6 +21,7 @@ namespace Tourist.Server
 			return true;
 		}
 
+		/*
 		public override Object InitializeLifetimeService( )
 		{
 			var lease = ( ILease ) base.InitializeLifetimeService( );
@@ -35,7 +36,8 @@ namespace Tourist.Server
 			}
 			return lease;
 		}
-
+		*/
+		
 		//Wrapper Repository Methods 
 		
 		public int Count( string aList )

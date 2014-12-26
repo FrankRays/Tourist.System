@@ -77,6 +77,7 @@
 			// 
 			this.LoginFrame.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.LoginFrame.AutoSize = true;
+			this.LoginFrame.BackgroundImage = global::Tourist.Client.Properties.Resources.LoginFrame;
 			this.LoginFrame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.LoginFrame.Controls.Add(this.ImagePanel);
 			this.LoginFrame.Controls.Add(this.label1);

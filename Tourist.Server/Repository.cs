@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Linq;
 using Tourist.Data.Classes;
-using Tourist.Data.Interfaces;
+using Tourist.Data.Enums;
 
 namespace Tourist.Server
 {
@@ -129,6 +129,38 @@ namespace Tourist.Server
 			}
 		}
 
+		public bool CheckLogin( string aUsername, string aPassword, string aType )
+		{
+			switch ( aType )
+			{
+				case "Server":
+					foreach ( var manager in mData.Managers )
+					{
+						if ( manager.Username.Equals( aUsername ) && manager.Password.Equals( aPassword ) )
+						{
+							LoginInfoServer.Id = manager.Id;
+							LoginInfoServer.Username = aUsername;
+							LoginInfoServer.Password = aPassword;
+							return true;
+						}
+					}
+					return false;
+				case "Client":
+					foreach ( var employer in mData.Employees )
+					{
+						if ( employer.Username.Equals( aUsername ) && employer.Password.Equals( aPassword ) )
+						{
+							LoginInfoClient.Id = employer.Id;
+							LoginInfoClient.Username = aUsername;
+							LoginInfoClient.Password = aPassword;
+							return true;
+						}
+					}
+					return false;
+				default:
+					return false;
+			}
+		}
 		#endregion
 
 		#region LoadDataToForm Methods
@@ -955,6 +987,8 @@ namespace Tourist.Server
 		#endregion
 
 		#endregion
+
+
 
 	}
 }

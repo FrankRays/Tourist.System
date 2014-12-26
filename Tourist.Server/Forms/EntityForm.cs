@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using MetroFramework;
 using MetroFramework.Forms;
+using Tourist.Data.Enums;
 using Tourist.Data.Interfaces;
 using Tourist.Server.Properties;
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using Tourist.Data.Enums;
 using Tourist.Data.Interfaces;
 
 namespace Tourist.Data.Classes

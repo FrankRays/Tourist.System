@@ -1,4 +1,4 @@
-﻿namespace Tourist.Data.Interfaces
+﻿namespace Tourist.Data.Enums
 {
 	public enum BookableState
 	{
