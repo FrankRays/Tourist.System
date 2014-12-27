@@ -30,73 +30,73 @@ namespace Tourist.Data.Classes
 		public int Id
 		{
 			get { return mNumber; }
-			set { mNumber = value; Notify( this ); }
+			set { mNumber = value; Notify( "Id" ); }
 		}
 
 		public string FirstName
 		{
 			get { return mFirstName; }
-			set { mFirstName = value; Notify( this ); }
+			set { mFirstName = value; Notify( "FirstName" ); }
 		}
 
 		public string LastName
 		{
 			get { return mLastName; }
-			set { mLastName = value; Notify( this ); }
+			set { mLastName = value; Notify( "LastName" ); }
 		}
 
 		public Gender Gender
 		{
 			get { return mGender; }
-			set { mGender = value; Notify( this ); }
+			set { mGender = value; Notify( "Gender" ); }
 		}
 		
 		public string Nationality
 		{
 			get { return mNationality; }
-			set { mNationality = value; Notify( this ); }
+			set { mNationality = value; Notify( "Nationality" ); }
 		}
 
 		public DateTime BirthDate
 		{
 			get { return mBirthDate; }
-			set { mBirthDate = value; Notify( this ); }
+			set { mBirthDate = value; Notify( "BirthDate" ); }
 		}
 
 		public int Nif
 		{
 			get { return mNif; }
-			set { mNif = value; Notify( this ); }
+			set { mNif = value; Notify( "Nif" ); }
 		}
 
 		public string Address
 		{
 			get { return mAddress; }
-			set { mAddress = value; Notify( this ); }
+			set { mAddress = value; Notify( "Address" ); }
 		}
 
 		public int Phone
 		{
 			get { return mPhoneNumber; }
-			set { mPhoneNumber = value; Notify( this ); }
+			set { mPhoneNumber = value; Notify( "Phone" ); }
 		}
 
 		public string Email
 		{
 			get { return mEmail; }
-			set { mEmail = value; Notify( this ); }
+			set { mEmail = value; Notify( "Email" ); }
 		}
 
 		public string Username
 		{
 			get { return mUsername; }
-			set { mUsername = value; Notify( this ); }
+			set { mUsername = value; Notify( "Username" ); }
 		}
 
 		public string Password
 		{
 			get { return mPassword; }
-			set { mPassword = value; Notify( this ); }
+			set { mPassword = value; Notify( "Password" ); }
 		}
 
 		#endregion
@@ -114,9 +114,9 @@ namespace Tourist.Data.Classes
 
 		public event UpdateEventHandler OnUpdate;
 
-		public void Notify( object aData = null )
+		public void Notify( string aPropertie = null )
 		{
-			if ( OnUpdate != null ) OnUpdate( this, aData );
+			if ( OnUpdate != null ) OnUpdate( this, aPropertie );
 		}
 
 		#endregion

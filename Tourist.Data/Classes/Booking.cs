@@ -13,9 +13,10 @@ namespace Tourist.Data.Classes
 		private static int mCounter = default (int);
 		private int mNumber = default (int);
 		private IClient mClient;
-		private DateTime mBookingDateTime;
+		private DateTime mBookingDate;
+		private DateTimeRange mTimeFrame;
 		private IBookable mBookable;
-		private DateTimeRange mTimeRange;
+		
 
 		#endregion
 
@@ -24,7 +25,7 @@ namespace Tourist.Data.Classes
 		public int Id
 		{
 			get { return mNumber; }
-			set { mNumber = value; Notify( this ); }
+			set { mNumber = value; Notify( "Id" ); }
 		}
 
 		[XmlIgnore]
@@ -32,28 +33,27 @@ namespace Tourist.Data.Classes
 		{
 			get { return mClient; }
 
-			set { mClient = value; Notify( this ); }
+			set { mClient = value; Notify( "Client" ); }
 		}
 
-		public DateTime BookingDateTime
+		public DateTime BookingDate
 		{
-			get { return mBookingDateTime; }
+			get { return mBookingDate; }
 
-			set { mBookingDateTime = value; Notify( this ); }
+			set { mBookingDate = value; Notify( "BookingDate" ); }
 		}
 
-
-		public DateTimeRange TimeRange
+		public DateTimeRange TimeFrame
 		{
-			get { return mTimeRange; }
-			set { mTimeRange = value; Notify( this ); }
+			get { return mTimeFrame; }
+			set { mTimeFrame = value; Notify( "TimeRange" ); }
 		}
 
 		[XmlIgnore]
 		public IBookable Bookable
 		{
 			get { return mBookable; }
-			set { mBookable = value; Notify( this ); }
+			set { mBookable = value; Notify( "Bookable" ); }
 		}
 
 		#endregion
@@ -81,9 +81,9 @@ namespace Tourist.Data.Classes
 
 		public event UpdateEventHandler OnUpdate;
 
-		public void Notify( object aData = null )
+		public void Notify( string aPropertie = null )
 		{
-			if ( OnUpdate != null ) OnUpdate( this, aData );
+			if ( OnUpdate != null ) OnUpdate( this, aPropertie );
 		}
 
 		#endregion

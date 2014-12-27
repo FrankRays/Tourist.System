@@ -9,8 +9,8 @@ namespace Tourist.Data.Classes
 
 		#region Fields
 
-		private DateTime mStartDateTime;
-		private DateTime mEndDateTime;
+		private DateTime mCheckInDate;
+		private DateTime mCheckOutDate;
 		
 
 		#endregion
@@ -19,16 +19,16 @@ namespace Tourist.Data.Classes
 
 		public DateTime StartDateTime
 		{
-			get { return mStartDateTime; }
+			get { return mCheckInDate; }
 
-			set { mStartDateTime = value; Notify( this ); }
+			set { mCheckInDate = value; Notify( "CheckInDate" ); }
 		}
 
 		public DateTime EndDateTime
 		{
-			get { return mEndDateTime; }
+			get { return mCheckOutDate; }
 
-			set { mEndDateTime = value; Notify( this ); }
+			set { mCheckOutDate = value; Notify( "CheckOutDate" ); }
 		}
 
 		#endregion
@@ -37,10 +37,10 @@ namespace Tourist.Data.Classes
 
 		public DateTimeRange( ) { }
 
-		public DateTimeRange( DateTime aStartDateTime, DateTime aEndDateTime )
+		public DateTimeRange( DateTime aCheckInDate, DateTime aCheckOutDate )
 		{
-			StartDateTime = aStartDateTime;
-			EndDateTime = aEndDateTime;
+			StartDateTime = aCheckInDate;
+			EndDateTime = aCheckOutDate;
 		}
 
 		#endregion
@@ -58,9 +58,9 @@ namespace Tourist.Data.Classes
 
 		public event UpdateEventHandler OnUpdate;
 
-		public void Notify( object aData = null )
+		public void Notify( string aPropertie = null )
 		{
-			if ( OnUpdate != null ) OnUpdate( this, aData );
+			if ( OnUpdate != null ) OnUpdate( this, aPropertie );
 		}
 
 		#endregion

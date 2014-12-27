@@ -1,11 +1,11 @@
 ﻿namespace Tourist.Data.Interfaces
 {
-	public delegate void UpdateEventHandler( ISubject aSubject, object aData );
+	public delegate void UpdateEventHandler( ISubject aSubject, string aPropertie );
 	
 	public interface ISubject
 	{
 		event UpdateEventHandler OnUpdate;
 
-		void Notify( object aData );
+		void Notify( string aPropertie );
 	}
 }

@@ -159,37 +159,38 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\backup.png" />
+    <None Include="Resources\Images\backup.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\BarGraph.png" />
+    <None Include="Resources\Images\BarGraph.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\clients.png" />
+    <None Include="Resources\Images\clients.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Disponibility.png" />
+    <None Include="Resources\Images\Disponibility.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Add.png" />
-    <None Include="Resources\Bookings.png" />
-    <None Include="Resources\ComingSoon.png" />
-    <Content Include="Resources\employers.png" />
-    <None Include="Resources\Remove.png" />
-    <None Include="Resources\Payment.png" />
-    <None Include="Resources\Help.png" />
-    <Content Include="Resources\unlock.png" />
-    <None Include="Resources\Tools.png" />
-    <None Include="Resources\services.png" />
-    <None Include="Resources\RightArrow.png" />
-    <None Include="Resources\preferences.png" />
-    <None Include="Resources\PowerOff.png" />
-    <None Include="Resources\Message.png" />
-    <None Include="Resources\Magnifier.png" />
-    <None Include="Resources\LoginFrame.png" />
-    <None Include="Resources\lock.png" />
-    <None Include="Resources\LeftArrow.png" />
-    <None Include="Resources\Home.png" />
+    <None Include="Resources\Images\Add.png" />
+    <None Include="Resources\Images\Bookings.png" />
+    <None Include="Resources\Images\ComingSoon.png" />
+    <None Include="Resources\Icons\error.ico" />
+    <Content Include="Resources\Images\employers.png" />
+    <None Include="Resources\Images\Remove.png" />
+    <None Include="Resources\Images\Payment.png" />
+    <None Include="Resources\Images\Help.png" />
+    <Content Include="Resources\Images\unlock.png" />
+    <None Include="Resources\Images\Tools.png" />
+    <None Include="Resources\Images\services.png" />
+    <None Include="Resources\Images\RightArrow.png" />
+    <None Include="Resources\Images\preferences.png" />
+    <None Include="Resources\Images\PowerOff.png" />
+    <None Include="Resources\Images\Message.png" />
+    <None Include="Resources\Images\Magnifier.png" />
+    <None Include="Resources\Images\LoginFrame.png" />
+    <None Include="Resources\Images\ClosedLock.png" />
+    <None Include="Resources\Images\LeftArrow.png" />
+    <None Include="Resources\Images\Home.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tourist.Data\Tourist.Data.csproj">

@@ -2,20 +2,22 @@
 using System.Windows.Forms;
 using MetroFramework;
 using MetroFramework.Forms;
+using Tourist.Data.Interfaces;
 
 namespace Tourist.Client.Forms
 {
 	public partial class DisponibilityForm : MetroForm
 	{
-		private MainForm mMainForm;
-		private int mEntityId;
+		private readonly IRemote Remote;
+		private readonly MainForm mMainForm;
 		private bool mBackOrExit = default( bool );
 		
-		public DisponibilityForm(Form aForm )
+		public DisponibilityForm(Form aForm, IRemote aRemote)
 		{
 			InitializeComponent( );
 			
 			mMainForm = aForm as MainForm;
+			Remote = aRemote;
 		}
 
 		private void DisponibilityForm_Load( object sender, System.EventArgs e )

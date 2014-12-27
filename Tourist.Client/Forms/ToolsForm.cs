@@ -2,20 +2,22 @@
 using System.Windows.Forms;
 using MetroFramework;
 using MetroFramework.Forms;
+using Tourist.Data.Interfaces;
 
 namespace Tourist.Client.Forms
 {
 	public partial class ToolsForm : MetroForm
 	{
-		private MainForm mMainForm;
-		private int mEntityId;
+		private readonly IRemote Remote;
+		private readonly MainForm mMainForm;
 		private bool mBackOrExit = default( bool );
 
-		public ToolsForm( Form aForm )
+		public ToolsForm( Form aForm, IRemote aRemote )
 		{
 			InitializeComponent( );
 
 			mMainForm = aForm as MainForm;
+			Remote = aRemote;
 		}
 
 		private void ToolsForm_Load( object sender, System.EventArgs e )

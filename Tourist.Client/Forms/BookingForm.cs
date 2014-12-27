@@ -10,18 +10,16 @@ namespace Tourist.Client.Forms
 {
 	public partial class BookingsForm : MetroForm
 	{
-		private MainForm mMainForm;
-		private IRemote mRemote;
-		private int mEntityId;
+		private readonly MainForm mMainForm;
+		private readonly IRemote Remote;
 		private bool mBackOrExit = default( bool );
 
-		public BookingsForm( Form aForm )
+		public BookingsForm( Form aForm,IRemote aRemote )
 		{
 			InitializeComponent( );
 
 			mMainForm = aForm as MainForm;
-			mEntityId = mMainForm.EntityId;
-			mRemote = mMainForm.Remote;
+			Remote = aRemote;
 		}
 
 		private void BookingsForm_Load( object sender, EventArgs e )
@@ -63,26 +61,6 @@ namespace Tourist.Client.Forms
 			mBackOrExit = true;
 			Close( );
 			mMainForm.Show( );
-		}
-
-		private void HeaderPanel_Paint( object sender, PaintEventArgs e )
-		{
-
-		}
-
-		private void BackPanel_Paint( object sender, PaintEventArgs e )
-		{
-
-		}
-
-		private void TitleLabel_Click( object sender, EventArgs e )
-		{
-
-		}
-
-		private void SubTitleLabel_Click( object sender, EventArgs e )
-		{
-
 		}
 
 	}

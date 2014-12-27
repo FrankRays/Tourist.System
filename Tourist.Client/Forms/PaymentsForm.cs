@@ -2,20 +2,22 @@
 using System.Windows.Forms;
 using MetroFramework;
 using MetroFramework.Forms;
+using Tourist.Data.Interfaces;
 
 namespace Tourist.Client.Forms
 {
 	public partial class PaymentsForm: MetroForm
 	{
-		private MainForm mMainForm;
-		private int mEntityId;
+		private readonly IRemote Remote;
+		private readonly MainForm mMainForm;
 		private bool mBackOrExit = default( bool );
 		
-		public PaymentsForm(Form aForm )
+		public PaymentsForm(Form aForm, IRemote aRemote )
 		{
 			InitializeComponent( );
 			
 			mMainForm = aForm as MainForm;
+			Remote = aRemote;
 		}
 
 		private void PaymentsForm_Load( object sender, System.EventArgs e )

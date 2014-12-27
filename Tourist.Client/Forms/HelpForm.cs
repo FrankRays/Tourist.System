@@ -2,20 +2,25 @@
 using System.Windows.Forms;
 using MetroFramework;
 using MetroFramework.Forms;
+using Tourist.Data.Interfaces;
 
 namespace Tourist.Client.Forms
 {
 	public partial class HelpForm: MetroForm
 	{
+
+		private readonly IRemote Remote;
 		private MainForm mMainForm;
-		private int mEntityId;
+		
 		private bool mBackOrExit = default( bool );
 		
-		public HelpForm( Form aForm)
+		public HelpForm( Form aForm, IRemote aRemote)
 		{
 			InitializeComponent( );
 			
 			mMainForm = aForm as MainForm;
+			Remote = aRemote;
+
 		}
 
 		private void HelpForm_Load( object sender, System.EventArgs e )

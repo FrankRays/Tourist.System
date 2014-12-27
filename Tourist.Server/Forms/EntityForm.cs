@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using MetroFramework.Forms;
 using Tourist.Data.Enums;
 using Tourist.Data.Shared;
+using Tourist.Server.Properties;
 
 namespace Tourist.Server.Forms
 {
@@ -81,7 +82,7 @@ namespace Tourist.Server.Forms
 																				entityAddress, entityPhone, entityEmail );
 			Repository.Save( Repository.FileName );
 
-			MessageBox.Show( this, Resources.Text.Strings.InformationSaved , Resources.Text.Strings.OperationSucessfull,
+			MessageBox.Show( this, Resources.InformationSaved , Resources.OperationSucessfull,
 																		MessageBoxButtons.OK, MessageBoxIcon.Information );
 		}
 
@@ -105,8 +106,8 @@ namespace Tourist.Server.Forms
 		private void LogoPictureBox_MouseClick( object sender, MouseEventArgs e )
 		{
 			LogoLoad.AddExtension = true;
-			LogoLoad.Filter = Resources.Text.Strings.LogoFilter;
-			LogoLoad.Title = Resources.Text.Strings.SaveLogoTitle;
+			LogoLoad.Filter = Resources.LogoFilter;
+			LogoLoad.Title = Resources.SaveLogoTitle;
 			LogoLoad.InitialDirectory = Environment.GetFolderPath( Environment.SpecialFolder.Desktop );
 
 			if ( LogoLoad.ShowDialog( ) == DialogResult.OK )
@@ -135,7 +136,7 @@ namespace Tourist.Server.Forms
 			{
 				e.Cancel = true;
 				//NameTextBox.Focus();
-				ErrorProvider.SetError( NameTextBox, Resources.Text.Strings.ErrorNameEmpty );
+				ErrorProvider.SetError( NameTextBox, Resources.ErrorNameEmpty );
 				ErrorProvider.SetIconPadding( NameTextBox, -25 );
 			}
 			else
@@ -151,21 +152,21 @@ namespace Tourist.Server.Forms
 			{
 				e.Cancel = true;
 				//NifTextBox.Focus( );
-				ErrorProvider.SetError( NifTextBox, Resources.Text.Strings.ErrorNIfEmpty );
+				ErrorProvider.SetError( NifTextBox, Resources.ErrorNIfEmpty );
 				ErrorProvider.SetIconPadding( NifTextBox, -25 );
 			}
 			else if ( !SharedMethods.IsNumeric( NifTextBox.Text ) )
 			{
 				e.Cancel = true;
 				//NifTextBox.Focus( );
-				ErrorProvider.SetError( NifTextBox, Resources.Text.Strings.ErrorNifOnlyDigits );
+				ErrorProvider.SetError( NifTextBox, Resources.ErrorNifOnlyDigits );
 				ErrorProvider.SetIconPadding( NifTextBox, -25 );
 			}
 			else if ( NifTextBox.Text.Length < 9 || NifTextBox.Text.Length > 9 )
 			{
 				e.Cancel = true;
 				//NifTextBox.Focus( );
-				ErrorProvider.SetError( NifTextBox, Resources.Text.Strings.ErrorNifNineDigits );
+				ErrorProvider.SetError( NifTextBox, Resources.ErrorNifNineDigits );
 				ErrorProvider.SetIconPadding( NifTextBox, -25 );
 			}
 			else
@@ -181,7 +182,7 @@ namespace Tourist.Server.Forms
 			{
 				e.Cancel = true;
 				//AddressTextBox.Focus( );
-				ErrorProvider.SetError( AddressTextBox, Resources.Text.Strings.ErrorAddressEmpty );
+				ErrorProvider.SetError( AddressTextBox, Resources.ErrorAddressEmpty );
 				ErrorProvider.SetIconPadding( AddressTextBox, -25 );
 			}
 			else
@@ -197,14 +198,14 @@ namespace Tourist.Server.Forms
 			{
 				e.Cancel = true;
 				//PhoneTextBox.Focus( );
-				ErrorProvider.SetError( PhoneTextBox, Resources.Text.Strings.ErrorPhoneEmpty );
+				ErrorProvider.SetError( PhoneTextBox, Resources.ErrorPhoneEmpty );
 				ErrorProvider.SetIconPadding( PhoneTextBox, -25 );
 			}
 			else if ( !SharedMethods.IsNumeric( PhoneTextBox.Text ) )
 			{
 				e.Cancel = true;
 				//PhoneTextBox.Focus( );
-				ErrorProvider.SetError( PhoneTextBox, Resources.Text.Strings.ErrorPhoneOnlyDigits );
+				ErrorProvider.SetError( PhoneTextBox, Resources.ErrorPhoneOnlyDigits );
 				ErrorProvider.SetIconPadding( PhoneTextBox, -25 );
 			}
 			else
@@ -220,14 +221,14 @@ namespace Tourist.Server.Forms
 			{
 				e.Cancel = true;
 				//EmailTextBox.Focus( );
-				ErrorProvider.SetError( EmailTextBox, Resources.Text.Strings.ErrorEmailEmpty );
+				ErrorProvider.SetError( EmailTextBox, Resources.ErrorEmailEmpty );
 				ErrorProvider.SetIconPadding( EmailTextBox, -25 );
 			}
 			else if ( !SharedMethods.IsEmailValid( EmailTextBox.Text ) )
 			{
 				e.Cancel = true;
 				//EmailTextBox.Focus( );
-				ErrorProvider.SetError( EmailTextBox, Resources.Text.Strings.ErrorEmailNotValid );
+				ErrorProvider.SetError( EmailTextBox, Resources.ErrorEmailNotValid );
 				ErrorProvider.SetIconPadding( EmailTextBox, -25 );
 			}
 			else
@@ -247,7 +248,7 @@ namespace Tourist.Server.Forms
 
 			base.OnFormClosing( e );
 
-			var dialogResult = MessageBox.Show( this, Resources.Text.Strings.ExitMessage, Resources.Text.Strings.ExitMessageTitle
+			var dialogResult = MessageBox.Show( this, Resources.ExitMessage, Resources.ExitMessageTitle
 				, MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
 
 			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
@@ -288,8 +289,8 @@ namespace Tourist.Server.Forms
 			}
 			else
 			{
-				MessageBox.Show( this, Resources.Text.Strings.InformationDataNotComplete,
-								Resources.Text.Strings.DataEmptyOrNotComplete, MessageBoxButtons.OK, MessageBoxIcon.Information );
+				MessageBox.Show( this, Resources.InformationDataNotComplete,
+								Resources.DataEmptyOrNotComplete, MessageBoxButtons.OK, MessageBoxIcon.Information );
 			}
 		}
 

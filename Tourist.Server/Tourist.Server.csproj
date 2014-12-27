@@ -139,11 +139,6 @@
     <Compile Include="Remote.cs" />
     <Compile Include="Repository.Serialization.cs" />
     <Compile Include="Repository.cs" />
-    <Compile Include="Resources\Text\Strings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Strings.resx</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Forms\ManagersForm.resx">
       <DependentUpon>ManagersForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,10 +179,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Text\Strings.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

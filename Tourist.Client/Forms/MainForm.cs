@@ -11,26 +11,16 @@ namespace Tourist.Client.Forms
 	public partial class MainForm : MetroForm
 	{
 
-		private LoginForm mLoginForm;
-		private IRemote mRemote;
-		private int mEntityId;
+		private readonly LoginForm mLoginForm;
+		private readonly IRemote Remote;
 
-		public IRemote Remote
-		{
-			get { return mRemote; }
-		}
-
-		public int EntityId
-		{
-			get { return mEntityId; }
-		}
 
 		public MainForm( Form aForm, IRemote aRemote)
 		{
 			InitializeComponent( );
 
 			mLoginForm = aForm as LoginForm;
-			mRemote = aRemote;
+			Remote = aRemote;
 		}
 
 		private void MainForm_Load( object sender, EventArgs e )
@@ -120,21 +110,21 @@ namespace Tourist.Client.Forms
 		private void BookingsTile_Click( object sender, EventArgs e )
 		{
 			Hide( );
-			BookingsForm booking = new BookingsForm( this );
+			BookingsForm booking = new BookingsForm( this,Remote );
 			booking.Show( );
 		}
 
 		private void ClientsTile_Click( object sender, EventArgs e )
 		{
 			Hide( );
-			var clients = new ClientsForm( this );
+			var clients = new ClientsForm( this, Remote );
 			clients.Show( );
 		}
 
 		private void DisponibilityTile_Click( object sender, EventArgs e )
 		{
 			Hide( );
-			var disponibility = new DisponibilityForm( this );
+			var disponibility = new DisponibilityForm( this,Remote );
 			disponibility.Show( );
 
 		}
@@ -142,21 +132,21 @@ namespace Tourist.Client.Forms
 		private void PaymentsTile_Click( object sender, EventArgs e )
 		{
 			Hide( );
-			var payementForm = new PaymentsForm( this );
+			var payementForm = new PaymentsForm( this,Remote );
 			payementForm.Show( );
 		}
 
 		private void ToolsTile_Click( object sender, EventArgs e )
 		{
 			Hide( );
-			var toolsForm = new ToolsForm( this );
+			var toolsForm = new ToolsForm( this,Remote );
 			toolsForm.Show( );
 		}
 
 		private void HelpTile_Click( object sender, EventArgs e )
 		{
 			Hide( );
-			var helpForm = new HelpForm( this );
+			var helpForm = new HelpForm( this,Remote );
 			helpForm.Show( );
 
 		}

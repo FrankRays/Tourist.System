@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Tourist.Server.Resources.Text {
+namespace Tourist.Client.Resources.Text {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Tourist.Server.Resources.Text {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Tourist.Server.Resources.Text.Strings", typeof(Strings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Tourist.Client.Resources.Text.Strings", typeof(Strings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -187,6 +187,42 @@ namespace Tourist.Server.Resources.Text {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Login Error !!!.
+        /// </summary>
+        internal static string LoginError {
+            get {
+                return ResourceManager.GetString("LoginError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check your username or password..
+        /// </summary>
+        internal static string LoginErrorMessage {
+            get {
+                return ResourceManager.GetString("LoginErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login Sucessfull !!!.
+        /// </summary>
+        internal static string LoginSucessfull {
+            get {
+                return ResourceManager.GetString("LoginSucessfull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome  .
+        /// </summary>
+        internal static string LoginSucessfullMessage {
+            get {
+                return ResourceManager.GetString("LoginSucessfullMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PNG|*.png|JPEG|*.jpg;*.jpeg.
         /// </summary>
         internal static string LogoFilter {
@@ -205,11 +241,29 @@ namespace Tourist.Server.Resources.Text {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error the password field can&apos;t be empty..
+        /// </summary>
+        internal static string PasswordEmpty {
+            get {
+                return ResourceManager.GetString("PasswordEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save Entity Logo.
         /// </summary>
         internal static string SaveLogoTitle {
             get {
                 return ResourceManager.GetString("SaveLogoTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error the username field can&apos;t be empty..
+        /// </summary>
+        internal static string UsernameEmpty {
+            get {
+                return ResourceManager.GetString("UsernameEmpty", resourceCulture);
             }
         }
     }

@@ -111,12 +111,39 @@ namespace Tourist.Server.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Data Empty or Not complete!!!.
+        /// </summary>
+        internal static string DataEmptyOrNotComplete {
+            get {
+                return ResourceManager.GetString("DataEmptyOrNotComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Disponibility {
             get {
                 object obj = ResourceManager.GetObject("Disponibility", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Employees registered. .
+        /// </summary>
+        internal static string EmployeesListEmpty {
+            get {
+                return ResourceManager.GetString("EmployeesListEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are no employees registered. Please contact a manager to register a employer to proceed..
+        /// </summary>
+        internal static string EmployeesListEmptyMessage {
+            get {
+                return ResourceManager.GetString("EmployeesListEmptyMessage", resourceCulture);
             }
         }
         
@@ -151,6 +178,105 @@ namespace Tourist.Server.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error the address field can&apos;t be empty..
+        /// </summary>
+        internal static string ErrorAddressEmpty {
+            get {
+                return ResourceManager.GetString("ErrorAddressEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error the email field can&apos;t be empty..
+        /// </summary>
+        internal static string ErrorEmailEmpty {
+            get {
+                return ResourceManager.GetString("ErrorEmailEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error the email field isn&apos;t valid..
+        /// </summary>
+        internal static string ErrorEmailNotValid {
+            get {
+                return ResourceManager.GetString("ErrorEmailNotValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error the name field can&apos;t be empty..
+        /// </summary>
+        internal static string ErrorNameEmpty {
+            get {
+                return ResourceManager.GetString("ErrorNameEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error the nif field can&apos;t be empty..
+        /// </summary>
+        internal static string ErrorNIfEmpty {
+            get {
+                return ResourceManager.GetString("ErrorNIfEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error the nif field has only 9 digits..
+        /// </summary>
+        internal static string ErrorNifNineDigits {
+            get {
+                return ResourceManager.GetString("ErrorNifNineDigits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error the nif field has only digits..
+        /// </summary>
+        internal static string ErrorNifOnlyDigits {
+            get {
+                return ResourceManager.GetString("ErrorNifOnlyDigits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error the phone field can&apos;t be empty..
+        /// </summary>
+        internal static string ErrorPhoneEmpty {
+            get {
+                return ResourceManager.GetString("ErrorPhoneEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error the phone field has only digits..
+        /// </summary>
+        internal static string ErrorPhoneOnlyDigits {
+            get {
+                return ResourceManager.GetString("ErrorPhoneOnlyDigits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to exit the application?.
+        /// </summary>
+        internal static string ExitMessage {
+            get {
+                return ResourceManager.GetString("ExitMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Closed Button Pressed.
+        /// </summary>
+        internal static string ExitMessageTitle {
+            get {
+                return ResourceManager.GetString("ExitMessageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Help {
@@ -171,6 +297,24 @@ namespace Tourist.Server.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please insert all required fields to proceed..
+        /// </summary>
+        internal static string InformationDataNotComplete {
+            get {
+                return ResourceManager.GetString("InformationDataNotComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Entity Information saved with Sucess !!!.
+        /// </summary>
+        internal static string InformationSaved {
+            get {
+                return ResourceManager.GetString("InformationSaved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap LeftArrow {
@@ -181,12 +325,57 @@ namespace Tourist.Server.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Login Error !!!.
+        /// </summary>
+        internal static string LoginError {
+            get {
+                return ResourceManager.GetString("LoginError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check your username or password..
+        /// </summary>
+        internal static string LoginErrorMessage {
+            get {
+                return ResourceManager.GetString("LoginErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap LoginFrame {
             get {
                 object obj = ResourceManager.GetObject("LoginFrame", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login Sucessfull !!!.
+        /// </summary>
+        internal static string LoginSucessfull {
+            get {
+                return ResourceManager.GetString("LoginSucessfull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome  .
+        /// </summary>
+        internal static string LoginSucessfullMessage {
+            get {
+                return ResourceManager.GetString("LoginSucessfullMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PNG|*.png|JPEG|*.jpg;*.jpeg.
+        /// </summary>
+        internal static string LogoFilter {
+            get {
+                return ResourceManager.GetString("LogoFilter", resourceCulture);
             }
         }
         
@@ -241,6 +430,24 @@ namespace Tourist.Server.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Operation Sucessfull.
+        /// </summary>
+        internal static string OperationSucessfull {
+            get {
+                return ResourceManager.GetString("OperationSucessfull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error the password field can&apos;t be empty..
+        /// </summary>
+        internal static string PasswordEmpty {
+            get {
+                return ResourceManager.GetString("PasswordEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap PowerOff {
@@ -271,62 +478,21 @@ namespace Tourist.Server.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Save Entity Logo.
+        /// </summary>
+        internal static string SaveLogoTitle {
+            get {
+                return ResourceManager.GetString("SaveLogoTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap services {
             get {
                 object obj = ResourceManager.GetObject("services", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;root&gt;
-        ///	&lt;!-- 
-        ///		Microsoft ResX Schema
-        ///
-        ///		Version 1.3
-        ///
-        ///		The primary goals of this format is to allow a simple XML format 
-        ///		that is mostly human readable. The generation and parsing of the 
-        ///		various data types are done through the TypeConverter classes 
-        ///		associated with the data types.
-        ///
-        ///		Example:
-        ///
-        ///		... ado.net/XML headers &amp; schema ...
-        ///		&lt;resheader name=&quot;resmimetype&quot;&gt;text/microsoft-resx&lt;/resheader&gt;
-        ///		&lt;resheader name=&quot;version&quot;&gt;1.3&lt;/resheader&gt;
-        ///		&lt;resh [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string Strings {
-            get {
-                return ResourceManager.GetString("Strings", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to //------------------------------------------------------------------------------
-        ///// &lt;auto-generated&gt;
-        /////     This code was generated by a tool.
-        /////     Runtime Version:4.0.30319.34014
-        /////
-        /////     Changes to this file may cause incorrect behavior and will be lost if
-        /////     the code is regenerated.
-        ///// &lt;/auto-generated&gt;
-        /////------------------------------------------------------------------------------
-        ///
-        ///namespace Tourist.Server.Resources.Text {
-        ///    using System;
-        ///    
-        ///    
-        ///    /// &lt;summary&gt;
-        ///    ///   A  [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string Strings_Designer {
-            get {
-                return ResourceManager.GetString("Strings_Designer", resourceCulture);
             }
         }
         
@@ -347,6 +513,15 @@ namespace Tourist.Server.Properties {
             get {
                 object obj = ResourceManager.GetObject("unlock", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error the username field can&apos;t be empty..
+        /// </summary>
+        internal static string UsernameEmpty {
+            get {
+                return ResourceManager.GetString("UsernameEmpty", resourceCulture);
             }
         }
     }

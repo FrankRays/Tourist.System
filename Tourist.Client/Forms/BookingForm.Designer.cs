@@ -120,7 +120,6 @@
 			this.HeaderPanel.Name = "HeaderPanel";
 			this.HeaderPanel.Size = new System.Drawing.Size(1202, 150);
 			this.HeaderPanel.TabIndex = 14;
-			this.HeaderPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.HeaderPanel_Paint);
 			// 
 			// BackPanel
 			// 
@@ -132,7 +131,6 @@
 			this.BackPanel.Name = "BackPanel";
 			this.BackPanel.Size = new System.Drawing.Size(64, 89);
 			this.BackPanel.TabIndex = 15;
-			this.BackPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BackPanel_Paint);
 			this.BackPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BackPanel_MouseClick);
 			// 
 			// ImagePanel
@@ -158,7 +156,6 @@
 			this.SubTitleLabel.Size = new System.Drawing.Size(178, 30);
 			this.SubTitleLabel.TabIndex = 4;
 			this.SubTitleLabel.Text = "Booking Services";
-			this.SubTitleLabel.Click += new System.EventHandler(this.SubTitleLabel_Click);
 			// 
 			// TitleLabel
 			// 
@@ -172,7 +169,6 @@
 			this.TitleLabel.Size = new System.Drawing.Size(176, 51);
 			this.TitleLabel.TabIndex = 3;
 			this.TitleLabel.Text = "Booking ";
-			this.TitleLabel.Click += new System.EventHandler(this.TitleLabel_Click);
 			// 
 			// BodyPanel
 			// 

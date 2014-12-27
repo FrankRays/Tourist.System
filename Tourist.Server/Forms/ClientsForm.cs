@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using MetroFramework;
 using MetroFramework.Forms;
+using Tourist.Data.Enums;
 using Tourist.Data.Shared;
 
 namespace Tourist.Server.Forms
@@ -17,12 +18,23 @@ namespace Tourist.Server.Forms
 		{
 			InitializeComponent( );
 			mMainForm = aForm as MainForm;
+			
+			IdColumn.DataPropertyName = "Id";
+			FirstNameColumn.DataPropertyName = "FirstName";
+			LastNameColumn.DataPropertyName = "LastName";
+			GenderColumn.DataPropertyName = "Gender";
+			NifColumn.DataPropertyName = "Nif";
+			AddressColumn.DataPropertyName = "Address";
+			PhoneColumn.DataPropertyName = "Phone";
+			EmailColumn.DataPropertyName = "Email";
+
 		}
 
 		private void ClientsForm_Load( object sender, EventArgs e )
 		{
 			SharedMethods.SetFormFullScreen(this);
 			LoadDataToGrid();
+			
 		}
 
 		private void LoadDataToGrid( )

@@ -168,4 +168,22 @@
   <data name="SaveLogoTitle" xml:space="preserve">
     <value>Save Entity Logo</value>
   </data>
+  <data name="LoginError" xml:space="preserve">
+    <value>Login Error !!!</value>
+  </data>
+  <data name="LoginErrorMessage" xml:space="preserve">
+    <value>Check your username or password.</value>
+  </data>
+  <data name="LoginSucessfull" xml:space="preserve">
+    <value>Login Sucessfull !!!</value>
+  </data>
+  <data name="LoginSucessfullMessage" xml:space="preserve">
+    <value>Welcome  </value>
+  </data>
+  <data name="PasswordEmpty" xml:space="preserve">
+    <value>Error the password field can't be empty.</value>
+  </data>
+  <data name="UsernameEmpty" xml:space="preserve">
+    <value>Error the username field can't be empty.</value>
+  </data>
 </root>

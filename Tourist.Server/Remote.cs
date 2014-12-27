@@ -22,7 +22,7 @@ namespace Tourist.Server
 		}
 
 		/*
-		public override Object InitializeLifetimeService( )
+		public override object InitializeLifetimeService( )
 		{
 			var lease = ( ILease ) base.InitializeLifetimeService( );
 
@@ -36,8 +36,8 @@ namespace Tourist.Server
 			}
 			return lease;
 		}
-		*/
 		
+		 * */
 		//Wrapper Repository Methods 
 		
 		public int Count( string aList )
@@ -69,10 +69,15 @@ namespace Tourist.Server
 		{
 			Repository.Append( aObject, aList );
 		}
-
+		
 		public void Remove( object aObject, string aList )
 		{
 			Repository.Remove( aObject, aList );
+		}
+
+		public void Remove( int aIndex, string aList )
+		{
+			Repository.Remove( aIndex, aList );
 		}
 
 		public int GetId( int aIndex, string aList )
@@ -82,9 +87,9 @@ namespace Tourist.Server
 
 		public object GetObject( int aIndex, string aList )
 		{
-			return Repository.GetObject( aIndex, aList );
+			return Repository.Instance.GetObject( aIndex, aList );
 		}
-
+		
 		public int NextId( string aType )
 		{
 			return Repository.NextId( aType );

@@ -7,8 +7,8 @@ namespace Tourist.Data.Interfaces
 	{
 		int Id { get; set; }
 		IClient Client { get; set; } //set alterado
-		DateTime BookingDateTime { get; set; }
-		DateTimeRange TimeRange { get; set; }
+		DateTime BookingDate { get; set; }
+		DateTimeRange TimeFrame { get; set; }
 		IBookable Bookable { get; set; }
 	}
 }

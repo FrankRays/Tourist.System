@@ -10,59 +10,59 @@ namespace Tourist.Server
 	{
 		#region Serialization
 
-		private static Data mData = new Data();
+		private static Data mData = new Data( );
 
 		public Data MData
 		{
 			get { return mData; }
 		}
 
-		[Serializable, XmlRoot("Repository")]
+		[Serializable, XmlRoot( "Repository" )]
 		public class Data
 		{
 			[XmlElement( Order = 1 )]
-			public Entity Entity = new Entity();
+			public Entity Entity = new Entity( );
 
 			[XmlArray( ElementName = "BookingList", Order = 2 )]
-			public readonly List<Booking> Bookings = new List<Booking>( );
+			public List<Booking> Bookings = new List<Booking>( );
 
 			[XmlArray( ElementName = "ClientList", Order = 3 )]
-			public readonly List<Client> Clients = new List<Client>( );
+			public List<Client> Clients = new List<Client>( );
 
 			[XmlArray( ElementName = "RoomList", Order = 4 )]
-			public readonly List<Room> Rooms = new List<Room>( );
+			public List<Room> Rooms = new List<Room>( );
 
 			[XmlArray( ElementName = "ActivityList", Order = 5 )]
-			public readonly List<Activity> Activities = new List<Activity>();
+			public List<Activity> Activities = new List<Activity>( );
 
 			[XmlArray( ElementName = "TransportList", Order = 6 )]
-			public readonly List<Transport> Transports = new List<Transport>( );
+			public List<Transport> Transports = new List<Transport>( );
 
 			[XmlArray( ElementName = "ManagersList", Order = 7 )]
-			public readonly List<Manager> Managers = new List<Manager>( );
+			public List<Manager> Managers = new List<Manager>( );
 
 			[XmlArray( ElementName = "EmployeesList", Order = 8 )]
-			public readonly List<Employer> Employees = new List<Employer>();
-		
+			public List<Employer> Employees = new List<Employer>( );
+
 		}
 
-		public void Save(string aFileName)
+		public void Save( string aFileName )
 		{
-			var formatter = new XmlSerializer(typeof (Data), GetTypes());
+			var formatter = new XmlSerializer( typeof( Data ), GetTypes( ) );
 
-			using (Stream stream = new FileStream(aFileName, FileMode.Create, FileAccess.Write, FileShare.None))
+			using ( Stream stream = new FileStream( aFileName, FileMode.Create, FileAccess.Write, FileShare.None ) )
 			{
-				formatter.Serialize(stream, mData);
+				formatter.Serialize( stream, mData );
 			}
 		}
 
-		public void Load(string aFileName)
+		public void Load( string aFileName )
 		{
-			var formatter = new XmlSerializer(typeof (Data), GetTypes());
+			var formatter = new XmlSerializer( typeof( Data ), GetTypes( ) );
 
-			using (Stream stream = File.OpenRead(aFileName))
+			using ( Stream stream = File.OpenRead( aFileName ) )
 			{
-				mData = formatter.Deserialize(stream) as Data;
+				mData = formatter.Deserialize( stream ) as Data;
 			}
 		}
 

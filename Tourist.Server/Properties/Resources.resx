@@ -181,12 +181,6 @@
   <data name="services" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\images\services.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Strings" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\text\strings.resx;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="Strings_Designer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\text\strings.designer.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
   <data name="Tools" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\images\tools.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -195,5 +189,80 @@
   </data>
   <data name="ClosedLock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\images\closedlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DataEmptyOrNotComplete" xml:space="preserve">
+    <value>Data Empty or Not complete!!!</value>
+  </data>
+  <data name="EmployeesListEmpty" xml:space="preserve">
+    <value>No Employees registered. </value>
+  </data>
+  <data name="EmployeesListEmptyMessage" xml:space="preserve">
+    <value>There are no employees registered. Please contact a manager to register a employer to proceed.</value>
+  </data>
+  <data name="ErrorAddressEmpty" xml:space="preserve">
+    <value>Error the address field can't be empty.</value>
+  </data>
+  <data name="ErrorEmailEmpty" xml:space="preserve">
+    <value>Error the email field can't be empty.</value>
+  </data>
+  <data name="ErrorEmailNotValid" xml:space="preserve">
+    <value>Error the email field isn't valid.</value>
+  </data>
+  <data name="ErrorNameEmpty" xml:space="preserve">
+    <value>Error the name field can't be empty.</value>
+  </data>
+  <data name="ErrorNIfEmpty" xml:space="preserve">
+    <value>Error the nif field can't be empty.</value>
+  </data>
+  <data name="ErrorNifNineDigits" xml:space="preserve">
+    <value>Error the nif field has only 9 digits.</value>
+  </data>
+  <data name="ErrorNifOnlyDigits" xml:space="preserve">
+    <value>Error the nif field has only digits.</value>
+  </data>
+  <data name="ErrorPhoneEmpty" xml:space="preserve">
+    <value>Error the phone field can't be empty.</value>
+  </data>
+  <data name="ErrorPhoneOnlyDigits" xml:space="preserve">
+    <value>Error the phone field has only digits.</value>
+  </data>
+  <data name="ExitMessage" xml:space="preserve">
+    <value>Are you sure you want to exit the application?</value>
+  </data>
+  <data name="ExitMessageTitle" xml:space="preserve">
+    <value>Closed Button Pressed</value>
+  </data>
+  <data name="InformationDataNotComplete" xml:space="preserve">
+    <value>Please insert all required fields to proceed.</value>
+  </data>
+  <data name="InformationSaved" xml:space="preserve">
+    <value>Entity Information saved with Sucess !!!</value>
+  </data>
+  <data name="LoginError" xml:space="preserve">
+    <value>Login Error !!!</value>
+  </data>
+  <data name="LoginErrorMessage" xml:space="preserve">
+    <value>Check your username or password.</value>
+  </data>
+  <data name="LoginSucessfull" xml:space="preserve">
+    <value>Login Sucessfull !!!</value>
+  </data>
+  <data name="LoginSucessfullMessage" xml:space="preserve">
+    <value>Welcome  </value>
+  </data>
+  <data name="LogoFilter" xml:space="preserve">
+    <value>PNG|*.png|JPEG|*.jpg;*.jpeg</value>
+  </data>
+  <data name="OperationSucessfull" xml:space="preserve">
+    <value>Operation Sucessfull</value>
+  </data>
+  <data name="PasswordEmpty" xml:space="preserve">
+    <value>Error the password field can't be empty.</value>
+  </data>
+  <data name="SaveLogoTitle" xml:space="preserve">
+    <value>Save Entity Logo</value>
+  </data>
+  <data name="UsernameEmpty" xml:space="preserve">
+    <value>Error the username field can't be empty.</value>
   </data>
 </root>

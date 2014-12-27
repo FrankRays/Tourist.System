@@ -81,6 +81,7 @@
 			this.BackPanel.Name = "BackPanel";
 			this.BackPanel.Size = new System.Drawing.Size(64, 89);
 			this.BackPanel.TabIndex = 15;
+			this.BackPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BackPanel_MouseClick);
 			// 
 			// SubTitleLabel
 			// 

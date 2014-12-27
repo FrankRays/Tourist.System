@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Linq;
 using Tourist.Data.Classes;
 using Tourist.Data.Enums;
+using Tourist.Data.Interfaces;
 using Tourist.Data.Shared;
 
 namespace Tourist.Server
@@ -485,6 +486,7 @@ namespace Tourist.Server
 
 		}
 
+
 		public void Remove( object aObject, string aList )
 		{
 			switch ( aList )
@@ -529,6 +531,140 @@ namespace Tourist.Server
 			}
 		}
 
+		/*
+		public void Remove( int aId, string aList )
+		{
+			switch ( aList )
+			{
+				case "Bookings":
+					foreach (var booking in mData.Bookings.Where(booking => booking.Id == aId))
+					{
+						mData.Bookings.Remove( booking );
+						Save( FileName );
+						return;
+					}
+					return;
+				case "Clients":
+					foreach (var client in mData.Clients.Where(client => client.Id == aId))
+					{
+						mData.Clients.Remove(client);
+						Save(FileName);
+						return;
+					}
+					return;
+				case "Rooms":
+					foreach ( var room in mData.Rooms.Where( room => room.Id == aId ) )
+					{ 
+						mData.Rooms.Remove( room );
+						Save( FileName );
+						return;
+					}
+					return;
+				case "Activities":
+					foreach (var activity in mData.Activities.Where(activity => activity.Id == aId))
+					{
+						mData.Activities.Remove( activity );
+						Save( FileName );
+						return;
+					}
+					return;
+				case "Transports":
+					foreach ( var transport in mData.Transports.Where( transport => transport.Id == aId ) )
+					{ 
+						mData.Transports.Remove( transport );
+						Save( FileName );
+						return;
+					}
+					return;
+				case "Managers":
+					foreach (var manager in mData.Managers.Where(manager => manager.Id == aId))
+					{
+						mData.Managers.Remove( manager );
+						Save( FileName );
+						return;
+					}	
+					return;
+				case "Employees":
+					foreach (var employer in mData.Employees.Where(employer => employer.Id == aId))
+					{
+						mData.Employees.Remove( employer );
+						Save( FileName );
+						return;
+					}
+					return;
+				default:
+					return;
+			}
+		}
+
+		 */
+
+		public void Remove( int aIndex, string aList )
+		{
+			switch ( aList )
+			{
+				case "Bookings":
+					if ( !IsEmpty( "Bookings" ) || aIndex <= Count( "Bookings" ) - 1 )
+					{
+						mData.Bookings.RemoveAt( aIndex );
+						Save( FileName );
+						return;
+					}
+					return;
+				case "Clients":
+					if ( !IsEmpty( "Clients" ) || aIndex <= Count( "Clients" ) - 1 )
+					{
+						mData.Clients.RemoveAt( aIndex );
+						Save( FileName );
+						return;
+					}
+					return;
+				case "Rooms":
+					if ( !IsEmpty( "Rooms" ) || aIndex <= Count( "Rooms" ) - 1 )
+					{
+						mData.Rooms.RemoveAt( aIndex );
+						Save( FileName );
+						return;
+					}
+					return;
+				case "Activities":
+					if ( !IsEmpty( "Activities" ) || aIndex <= Count( "Activities" ) - 1 )
+					{
+						mData.Activities.RemoveAt( aIndex );
+						Save( FileName );
+						return;
+					}
+					return;
+				case "Transports":
+					if ( !IsEmpty( "Transports" ) || aIndex <= Count( "Transports" ) - 1 )
+					{
+						mData.Transports.RemoveAt( aIndex );
+						Save( FileName );
+						return;
+					}
+					return;
+				case "Managers":
+					if ( !IsEmpty( "Managers" ) || aIndex <= Count( "Managers" ) - 1 )
+					{
+						mData.Managers.RemoveAt( aIndex );
+						Save( FileName );
+						return;
+					}
+					return;
+				case "Employees":
+					if ( !IsEmpty( "Employees" ) || aIndex <= Count( "Employees" ) - 1 )
+					{
+						mData.Employees.RemoveAt( aIndex );
+						Save( FileName );
+						return;
+					}
+					return;
+				default:
+					return;
+			}
+		}
+
+
 		public int GetId( int aIndex, string aList )
 		{
 			switch ( aList )
@@ -571,7 +707,7 @@ namespace Tourist.Server
 				case "Employees":
 					return mData.Employees[ aIndex ];
 				default:
-					return 0;
+					return null;
 			}
 		}
 
@@ -637,7 +773,7 @@ namespace Tourist.Server
 				case "Transport":
 					EditTransport( aId, aPropertie, aNewValue );
 					Save( FileName );
-					return; ;
+					return;
 				case "Manager":
 					EditManager( aId, aPropertie, aNewValue );
 					Save( FileName );
@@ -666,11 +802,11 @@ namespace Tourist.Server
 					return;
 				case "StartDate":
 					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aId ) )
-						booking.TimeRange.StartDateTime = SharedMethods.ConvertStringToDateTime( aNewValue );
+						booking.TimeFrame.StartDateTime = SharedMethods.ConvertStringToDateTime( aNewValue );
 					return;
 				case "EndDate":
 					foreach ( var booking in mData.Bookings.Where( booking => booking.Id == aId ) )
-						booking.TimeRange.EndDateTime = SharedMethods.ConvertStringToDateTime( aNewValue );
+						booking.TimeFrame.EndDateTime = SharedMethods.ConvertStringToDateTime( aNewValue );
 					return;
 				default:
 					return;
@@ -988,8 +1124,6 @@ namespace Tourist.Server
 		#endregion
 
 		#endregion
-
-
 
 	}
 }
