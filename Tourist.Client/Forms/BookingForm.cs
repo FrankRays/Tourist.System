@@ -2,19 +2,20 @@
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
-using MetroFramework;
 using MetroFramework.Forms;
 using Tourist.Data.Interfaces;
+using Tourist.Data.Shared;
 
 namespace Tourist.Client.Forms
 {
 	public partial class BookingsForm : MetroForm
 	{
+		
 		private readonly MainForm mMainForm;
 		private readonly IRemote Remote;
 		private bool mBackOrExit = default( bool );
 
-		public BookingsForm( Form aForm,IRemote aRemote )
+		public BookingsForm( Form aForm, IRemote aRemote )
 		{
 			InitializeComponent( );
 
@@ -24,19 +25,8 @@ namespace Tourist.Client.Forms
 
 		private void BookingsForm_Load( object sender, EventArgs e )
 		{
-			SetFormFullScreen( );
+			SharedMethods.SetFormFullScreen( this );
 
-		}
-
-		private void SetFormFullScreen( )
-		{
-			var x = Screen.PrimaryScreen.Bounds.Width;
-			var y = Screen.PrimaryScreen.Bounds.Height;
-			Location = new Point( 0, 0 );
-			Size = new Size( x, y );
-
-			FormBorderStyle = FormBorderStyle.None;
-			Focus( );
 		}
 
 		protected override void OnFormClosing( FormClosingEventArgs e )

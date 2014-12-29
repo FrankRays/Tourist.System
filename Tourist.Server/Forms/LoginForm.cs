@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using MetroFramework.Forms;
-using Tourist.Data.Classes;
 using Tourist.Data.Shared;
 
 namespace Tourist.Server.Forms
@@ -28,9 +27,20 @@ namespace Tourist.Server.Forms
 
 		#region Private Methods
 
+		private void LoadEntityLogo( )
+		{
+			var buffer = Repository.MData.Entity.LogoBuffer;
+
+			if ( buffer != null )
+			{
+				LogoPicBox.Image = SharedMethods.ByteArrayToImage( buffer );
+			}
+		}
+
 		private void LoginForm_Load( object sender, EventArgs e )
 		{
 			SharedMethods.SetFormFullScreen( this );
+			LoadEntityLogo( );
 		}
 
 		#endregion
@@ -96,11 +106,11 @@ namespace Tourist.Server.Forms
 				ErrorProvider.SetError( UsernameTextBox, "" );
 				ErrorProvider.SetError( PasswordTextBox, "" );
 
-				if (Repository.CheckLogin(UsernameTextBox.Text, PasswordTextBox.Text, "Server"))
+				if ( Repository.CheckLogin( UsernameTextBox.Text, PasswordTextBox.Text, "Server" ) )
 				{
 					MessageBox.Show( "Welcome " + Repository.ServerLoginSession.Username + " !", "Login Successful !!!", MessageBoxButtons.OK, MessageBoxIcon.Information );
 					Hide( );
-					mMainForm.Show();
+					mMainForm.Show( );
 				}
 				else
 				{

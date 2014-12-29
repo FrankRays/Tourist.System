@@ -8,6 +8,7 @@ namespace Tourist.Data.Interfaces
 
 		bool ServerRunning( );
 		Factory Factory { get; }
+		Entity Entity { get; }
 		int Count( string aList );
 		bool IsEmpty( string aList );
 		bool ExistingId( int aId, string aList );

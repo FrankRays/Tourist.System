@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using MetroFramework;
 using MetroFramework.Forms;
 using Tourist.Client.Properties;
 using Tourist.Data.Interfaces;
@@ -11,20 +10,30 @@ namespace Tourist.Client.Forms
 	public partial class LoginForm : MetroForm
 	{
 
+		#region Fields
+
 		private readonly IRemote Remote;
 		private readonly MainForm mMainForm;
 
+		#endregion
+
+		#region Constructor
+		
 		public LoginForm( IRemote aRemote )
 		{
 			InitializeComponent( );
 			Remote = aRemote;
 			mMainForm = new MainForm( this, Remote );
 		}
+		
+		#endregion
+
+		#region Events 
 
 		private void LoginForm_Load( object sender, EventArgs e )
 		{
-			SharedMethods.SetFormFullScreen(this);
-			
+			SharedMethods.SetFormFullScreen( this );
+			LoadEntityLogo( );
 		}
 
 		protected override void OnFormClosing( FormClosingEventArgs e )
@@ -52,17 +61,30 @@ namespace Tourist.Client.Forms
 			{
 				MessageBox.Show( Resources.EmployeesListEmptyMessage,
 						Resources.EmployeesListEmpty, MessageBoxButtons.OK, MessageBoxIcon.Information );
-				Close();
+				Close( );
 			}
-			else 
+			else
 			{
 				LoginErrorChecking( );
 			}
 		}
 
+		#endregion
+
+		#region Private Methods
+		
+		private void LoadEntityLogo( )
+		{
+			var buffer = Remote.Entity.LogoBuffer;
+
+			if ( buffer != null )
+			{
+				LogoPicBox.Image = SharedMethods.ByteArrayToImage( buffer );
+			}
+		}
+
 		private void LoginErrorChecking( )
 		{
-
 			if ( string.IsNullOrEmpty( UsernameTextBox.Text ) && string.IsNullOrEmpty( PasswordTextBox.Text ) )
 			{
 				ErrorProvider.SetError( UsernameTextBox, Resources.UsernameEmpty );
@@ -71,14 +93,12 @@ namespace Tourist.Client.Forms
 				ErrorProvider.SetIconPadding( PasswordTextBox, -25 );
 				return;
 			}
-
 			if ( string.IsNullOrEmpty( UsernameTextBox.Text ) && !string.IsNullOrEmpty( PasswordTextBox.Text ) )
 			{
 				ErrorProvider.SetError( UsernameTextBox, Resources.UsernameEmpty );
 				ErrorProvider.SetIconPadding( UsernameTextBox, -25 );
 				return;
 			}
-
 			if ( !string.IsNullOrEmpty( UsernameTextBox.Text ) && string.IsNullOrEmpty( PasswordTextBox.Text ) )
 			{
 
@@ -86,7 +106,6 @@ namespace Tourist.Client.Forms
 				ErrorProvider.SetIconPadding( PasswordTextBox, -25 );
 				return;
 			}
-
 			if ( !string.IsNullOrEmpty( UsernameTextBox.Text ) && !string.IsNullOrEmpty( PasswordTextBox.Text ) )
 			{
 				ErrorProvider.SetError( UsernameTextBox, "" );
@@ -102,10 +121,13 @@ namespace Tourist.Client.Forms
 				}
 				else
 				{
-					MessageBox.Show( Resources.LoginErrorMessage , Resources.LoginError, 
-																			  MessageBoxButtons.OK, MessageBoxIcon.Error );
+					MessageBox.Show( Resources.LoginErrorMessage, Resources.LoginError,
+																  MessageBoxButtons.OK, MessageBoxIcon.Error );
 				}
 			}
 		}
+
+		#endregion
+
 	}
 }

@@ -42,6 +42,11 @@ namespace Tourist.Server
 		
 		//Wrapper Repository Methods 
 
+		public Entity Entity
+		{
+			get { return Repository.MData.Entity; }
+		}
+		
 		public int Count( string aList )
 		{
 			return Repository.Count( aList );
@@ -59,7 +64,6 @@ namespace Tourist.Server
 
 		public bool CheckLogin(string aUsername, string aPassword, string aType)
 		{
-		
 			return Repository.CheckLogin(aUsername, aPassword, aType);
 		}
 

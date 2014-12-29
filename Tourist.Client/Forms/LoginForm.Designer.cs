@@ -41,14 +41,14 @@
 			this.PasswordLabel = new System.Windows.Forms.Label();
 			this.UsernameLabel = new System.Windows.Forms.Label();
 			this.HeaderPanel = new System.Windows.Forms.Panel();
-			this.LogoBox = new System.Windows.Forms.PictureBox();
+			this.LogoPicBox = new System.Windows.Forms.PictureBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.LoginLabel = new System.Windows.Forms.Label();
 			this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
 			this.BodyPanel.SuspendLayout();
 			this.LoginFrame.SuspendLayout();
 			this.HeaderPanel.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.LogoBox)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.LogoPicBox)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -199,7 +199,7 @@
 			this.HeaderPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.HeaderPanel.Controls.Add(this.LogoBox);
+			this.HeaderPanel.Controls.Add(this.LogoPicBox);
 			this.HeaderPanel.Controls.Add(this.label2);
 			this.HeaderPanel.Controls.Add(this.LoginLabel);
 			this.HeaderPanel.Location = new System.Drawing.Point(0, 23);
@@ -208,14 +208,15 @@
 			this.HeaderPanel.Size = new System.Drawing.Size(1200, 150);
 			this.HeaderPanel.TabIndex = 16;
 			// 
-			// LogoBox
+			// LogoPicBox
 			// 
-			this.LogoBox.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.LogoBox.Location = new System.Drawing.Point(1033, 0);
-			this.LogoBox.Name = "LogoBox";
-			this.LogoBox.Size = new System.Drawing.Size(150, 150);
-			this.LogoBox.TabIndex = 26;
-			this.LogoBox.TabStop = false;
+			this.LogoPicBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.LogoPicBox.Cursor = System.Windows.Forms.Cursors.Arrow;
+			this.LogoPicBox.Location = new System.Drawing.Point(1032, 0);
+			this.LogoPicBox.Name = "LogoPicBox";
+			this.LogoPicBox.Size = new System.Drawing.Size(150, 150);
+			this.LogoPicBox.TabIndex = 26;
+			this.LogoPicBox.TabStop = false;
 			// 
 			// label2
 			// 
@@ -269,7 +270,7 @@
 			this.LoginFrame.PerformLayout();
 			this.HeaderPanel.ResumeLayout(false);
 			this.HeaderPanel.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.LogoBox)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.LogoPicBox)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
 			this.ResumeLayout(false);
 
@@ -289,7 +290,7 @@
 		private System.Windows.Forms.Label PasswordLabel;
 		private System.Windows.Forms.Label UsernameLabel;
 		private System.Windows.Forms.Panel HeaderPanel;
-		private System.Windows.Forms.PictureBox LogoBox;
+		private System.Windows.Forms.PictureBox LogoPicBox;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label LoginLabel;
 		private System.Windows.Forms.ErrorProvider ErrorProvider;

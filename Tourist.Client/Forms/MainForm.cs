@@ -20,7 +20,7 @@ namespace Tourist.Client.Forms
 
 		#region Constructor
 
-		public MainForm( Form aForm, IRemote aRemote)
+		public MainForm( Form aForm, IRemote aRemote )
 		{
 			InitializeComponent( );
 
@@ -34,14 +34,14 @@ namespace Tourist.Client.Forms
 
 		private void MainForm_Load( object sender, EventArgs e )
 		{
-			SharedMethods.SetFormFullScreen(this);
+			SharedMethods.SetFormFullScreen( this );
 			TimerClock.Start( );
 		}
 
 		private void TimerClock_Tick( object sender, EventArgs e )
 		{
-			SharedMethods.TimerClockAnimation(ClockLabel,AmPmLabel,DayNumberLabel,
-												DayOfWeekLabel,MonthNameLabel,YearLabel);
+			SharedMethods.TimerClockAnimation( ClockLabel, AmPmLabel, DayNumberLabel,
+												DayOfWeekLabel, MonthNameLabel, YearLabel );
 		}
 
 		private void BodyPanel_MouseMove( object sender, MouseEventArgs e )
