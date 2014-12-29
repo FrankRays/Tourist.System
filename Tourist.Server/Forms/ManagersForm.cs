@@ -148,16 +148,15 @@ namespace Tourist.Server.Forms
 
 		private void ManagersDataGrid_RowRemoved( object sender, DataGridViewRowsRemovedEventArgs e )
 		{
-			var removeIndex = e.RowIndex;
-
-			var managerToRemove = ( IManager ) Repository.GetObject( removeIndex, "Managers" );
-
-			DialogResult dialog = MessageBox.Show( this, Properties.Resources.RemoveString, Properties.Resources.RemoveTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Information );
+			var dialog = MessageBox.Show( this, Properties.Resources.RemoveString,
+			Properties.Resources.RemoveTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Information );
 
 			if ( dialog == DialogResult.No )
 				return;
 
-			Repository.Remove( managerToRemove, "Managers" );
+			var removeIndex = e.RowIndex;
+
+			Repository.Remove( removeIndex, "Manager" );
 		}
 
 		private void ManagersDataGrid_CellDoubleClick( object sender, DataGridViewCellEventArgs e )

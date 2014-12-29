@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.Windows.Forms;
 using MetroFramework.Forms;
+using Tourist.Data.Classes;
+using Tourist.Data.Enums;
 using Tourist.Data.Interfaces;
 using Tourist.Data.Shared;
 
@@ -29,14 +33,16 @@ namespace Tourist.Client.Forms
 
 		}
 
+		#region Close Events
+
 		protected override void OnFormClosing( FormClosingEventArgs e )
 		{
 			if ( mBackOrExit ) return;
 
 			base.OnFormClosing( e );
 
-			var dialogResult = MessageBox.Show( this, "\n Are you sure you want to exit the application?",
-				"Close Button Pressed", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
+			var dialogResult = MessageBox.Show( this, Properties.Resources.ExitMessage,
+				Properties.Resources.ExitMessageTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
 
 			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
 
@@ -52,6 +58,8 @@ namespace Tourist.Client.Forms
 			Close( );
 			mMainForm.Show( );
 		}
+
+		#endregion
 
 	}
 }

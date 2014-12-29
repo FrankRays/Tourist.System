@@ -10,5 +10,6 @@ namespace Tourist.Data.Interfaces
 		DateTime BookingDate { get; set; }
 		DateTimeRange TimeFrame { get; set; }
 		IBookable Bookable { get; set; }
+		double TotaPrice { get; set; }
 	}
 }

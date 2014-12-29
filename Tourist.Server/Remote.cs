@@ -79,11 +79,6 @@ namespace Tourist.Server
 			Repository.Append( aObject, aList );
 		}
 		
-		public void Remove( object aObject, string aList )
-		{
-			Repository.Remove( aObject, aList );
-		}
-
 		public void Remove( int aIndex, string aList )
 		{
 			Repository.Remove( aIndex, aList );

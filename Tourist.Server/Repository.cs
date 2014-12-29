@@ -235,6 +235,93 @@ namespace Tourist.Server
 			}
 		}
 
+		private string[ , ] ListToMatrixBookings( )
+		{
+			int rowsCount = Count( "Bookings" );
+			int columnsCount = ObjectNumberOfProperties( "Bookings" );
+
+			var matrix = new string[ rowsCount, columnsCount ];
+
+			for ( var i = 0 ; i < rowsCount ; i++ )
+			{
+				for ( var j = 0 ; j < columnsCount ; )
+				{
+					if (mData.Bookings.ElementAt(i).Bookable is Room)
+					{
+
+						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Id.ToString( );
+						j++;
+						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Client.Nif.ToString( );
+						j++;
+						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Client.FirstName + " " + mData.Bookings.ElementAt( i ).Client.LastName;
+						j++;
+						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Type.ToString( );
+						j++;
+						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Price.ToString( "0.00", CultureInfo.InvariantCulture );
+						j++;
+						matrix[ i, j ] = mData.Bookings.ElementAt( i ).BookingDate.ToString( "d" );
+						j++;
+						matrix[ i, j ] = mData.Bookings.ElementAt( i ).TimeFrame.StartDateTime.ToString( "d" );
+						j++;
+						matrix[ i, j ] = mData.Bookings.ElementAt( i ).TimeFrame.EndDateTime.ToString( "d" );
+						j++;
+						matrix[ i, j ] = mData.Bookings.ElementAt( i ).TotaPrice.ToString( "0.00", CultureInfo.InvariantCulture );
+						j++;
+					}
+
+					if ( mData.Bookings.ElementAt( i ).Bookable is Activity )
+					{
+
+						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Id.ToString( );
+						j++;
+						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Client.Nif.ToString( );
+						j++;
+						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Client.FirstName + " " + mData.Bookings.ElementAt( i ).Client.LastName;
+						j++;
+						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Type.ToString( );
+						j++;
+						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Price.ToString( "0.00", CultureInfo.InvariantCulture );
+						j++;
+						matrix[ i, j ] = mData.Bookings.ElementAt( i ).BookingDate.ToString( "d" );
+						j++;
+						matrix[ i, j ] = mData.Bookings.ElementAt( i ).TimeFrame.StartDateTime.ToString( "d" );
+						j++;
+						matrix[ i, j ] = mData.Bookings.ElementAt( i ).TimeFrame.EndDateTime.ToString( "d" );
+						j++;
+						matrix[ i, j ] = mData.Bookings.ElementAt( i ).TotaPrice.ToString( "0.00", CultureInfo.InvariantCulture );
+						j++;
+					}
+
+					if ( mData.Bookings.ElementAt( i ).Bookable is Transport )
+					{
+
+						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Id.ToString( );
+						j++;
+						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Client.Nif.ToString( );
+						j++;
+						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Client.FirstName + " " + mData.Bookings.ElementAt( i ).Client.LastName;
+						j++;
+						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Type.ToString( );
+						j++;
+						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Price.ToString( "0.00", CultureInfo.InvariantCulture );
+						j++;
+						matrix[ i, j ] = mData.Bookings.ElementAt( i ).BookingDate.ToString( "d" );
+						j++;
+						matrix[ i, j ] = mData.Bookings.ElementAt( i ).TimeFrame.StartDateTime.ToString( "d" );
+						j++;
+						matrix[ i, j ] = mData.Bookings.ElementAt( i ).TimeFrame.EndDateTime.ToString( "d" );
+						j++;
+						matrix[ i, j ] = mData.Bookings.ElementAt( i ).TotaPrice.ToString( "0.00", CultureInfo.InvariantCulture );
+						j++;
+					}
+
+
+				}
+			}
+
+			return matrix;
+		}
+
 		private string[ , ] ListToMatrixClients( )
 		{
 			int rowsCount = Count( "Clients" );
@@ -506,120 +593,6 @@ namespace Tourist.Server
 			}
 
 		}
-
-		public void Remove( object aObject, string aList )
-		{
-			switch ( aList )
-			{
-				case "Bookings":
-					if ( !mData.Bookings.Contains( aObject as Booking ) ) return;
-					mData.Bookings.Remove( aObject as Booking );
-					Save( FileName );
-					return;
-				case "Clients":
-					if ( !mData.Clients.Contains( aObject as Client ) ) return;
-					mData.Clients.Remove( aObject as Client );
-					Save( FileName );
-					return;
-				case "Rooms":
-					if ( !mData.Rooms.Contains( aObject as Room ) ) return;
-					mData.Rooms.Remove( aObject as Room );
-					Save( FileName );
-					return;
-				case "Activities":
-					if ( !mData.Activities.Contains( aObject as Activity ) ) return;
-					mData.Activities.Remove( aObject as Activity );
-					Save( FileName );
-					return;
-				case "Transports":
-					if ( !mData.Transports.Contains( aObject as Transport ) ) return;
-					mData.Transports.Remove( aObject as Transport );
-					Save( FileName );
-					return;
-				case "Managers":
-					if ( !mData.Managers.Contains( aObject as Manager ) ) return;
-					mData.Managers.Remove( aObject as Manager );
-					Save( FileName );
-					return;
-				case "Employees":
-					if ( !mData.Employees.Contains( aObject as Employer ) ) return;
-					mData.Employees.Remove( aObject as Employer );
-					Save( FileName );
-					return;
-				default:
-					return;
-			}
-		}
-
-
-
-		/*
-		public void Remove( int aId, string aList )
-		{
-			switch ( aList )
-			{
-				case "Bookings":
-					foreach (var booking in mData.Bookings.Where(booking => booking.Id == aId))
-					{
-						mData.Bookings.Remove( booking );
-						Save( FileName );
-						return;
-					}
-					return;
-				case "Clients":
-					foreach (var client in mData.Clients.Where(client => client.Id == aId))
-					{
-						mData.Clients.Remove(client);
-						Save(FileName);
-						return;
-					}
-					return;
-				case "Rooms":
-					foreach ( var room in mData.Rooms.Where( room => room.Id == aId ) )
-					{ 
-						mData.Rooms.Remove( room );
-						Save( FileName );
-						return;
-					}
-					return;
-				case "Activities":
-					foreach (var activity in mData.Activities.Where(activity => activity.Id == aId))
-					{
-						mData.Activities.Remove( activity );
-						Save( FileName );
-						return;
-					}
-					return;
-				case "Transports":
-					foreach ( var transport in mData.Transports.Where( transport => transport.Id == aId ) )
-					{ 
-						mData.Transports.Remove( transport );
-						Save( FileName );
-						return;
-					}
-					return;
-				case "Managers":
-					foreach (var manager in mData.Managers.Where(manager => manager.Id == aId))
-					{
-						mData.Managers.Remove( manager );
-						Save( FileName );
-						return;
-					}	
-					return;
-				case "Employees":
-					foreach (var employer in mData.Employees.Where(employer => employer.Id == aId))
-					{
-						mData.Employees.Remove( employer );
-						Save( FileName );
-						return;
-					}
-					return;
-				default:
-					return;
-			}
-		}
-
-		 */
 
 		public void Remove( int aIndex, string aList )
 		{

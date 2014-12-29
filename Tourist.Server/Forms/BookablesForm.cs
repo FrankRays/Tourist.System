@@ -308,17 +308,15 @@ namespace Tourist.Server.Forms
 		// falta atualizar para a novo metodo remove do repositorio
 		private void RoomsDataGrid_RowRemoved( object sender, DataGridViewRowsRemovedEventArgs e )
 		{
-			var removeIndex = e.RowIndex;
-
-			var roomToRemove = ( IBookable ) Repository.GetObject( removeIndex, "Rooms" );
-
-			DialogResult dialog = MessageBox.Show( this, Properties.Resources.RemoveString,
-					Properties.Resources.RemoveTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Information );
+			var dialog = MessageBox.Show( this, Properties.Resources.RemoveString,
+			Properties.Resources.RemoveTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Information );
 
 			if ( dialog == DialogResult.No )
 				return;
 
-			Repository.Remove( roomToRemove, "Rooms" );
+			var removeIndex = e.RowIndex;
+
+			Repository.Remove( removeIndex, "Rooms" );
 		}
 
 		private void RoomsDataGrid_CellDoubleClick( object sender, DataGridViewCellEventArgs e )
@@ -396,17 +394,15 @@ namespace Tourist.Server.Forms
 
 		private void ActivitiesDataGrid_RowRemoved( object sender, DataGridViewRowsRemovedEventArgs e )
 		{
-			var removeIndex = e.RowIndex;
-
-			var activityToRemove = ( IBookable ) Repository.GetObject( removeIndex, "Activities" );
-
-			DialogResult dialog = MessageBox.Show( this, Properties.Resources.RemoveString,
+			var dialog = MessageBox.Show( this, Properties.Resources.RemoveString,
 			Properties.Resources.RemoveTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Information );
 
 			if ( dialog == DialogResult.No )
 				return;
 
-			Repository.Remove( activityToRemove, "Activities" );
+			var removeIndex = e.RowIndex;
+
+			Repository.Remove( removeIndex, "Activities" );
 		}
 
 		private void ActivitiesDataGrid_CellDoubleClick( object sender, DataGridViewCellEventArgs e )
@@ -484,17 +480,15 @@ namespace Tourist.Server.Forms
 
 		private void TransportsDataGrid_RowRemoved( object sender, DataGridViewRowsRemovedEventArgs e )
 		{
-			var removeIndex = e.RowIndex;
-
-			var transportToRemove = ( IBookable ) Repository.GetObject( removeIndex, "Transports" );
-
-			DialogResult dialog = MessageBox.Show( this, Properties.Resources.RemoveString,
+			var dialog = MessageBox.Show( this, Properties.Resources.RemoveString,
 			Properties.Resources.RemoveTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Information );
 
 			if ( dialog == DialogResult.No )
 				return;
 
-			Repository.Remove( transportToRemove, "Transports" );
+			var removeIndex = e.RowIndex;
+
+			Repository.Remove( removeIndex, "Transports" );
 		}
 
 		private void TransportsDataGrid_CellDoubleClick( object sender, DataGridViewCellEventArgs e )

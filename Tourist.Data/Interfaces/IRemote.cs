@@ -1,11 +1,9 @@
-﻿using System.Windows.Forms;
-using Tourist.Data.Classes;
+﻿using Tourist.Data.Classes;
 
 namespace Tourist.Data.Interfaces
 {
 	public interface IRemote
 	{
-
 		bool ServerRunning( );
 		Factory Factory { get; }
 		Entity Entity { get; }
@@ -16,7 +14,6 @@ namespace Tourist.Data.Interfaces
 		Session ClientLoginSession { get; }
 		string[ , ] ListToMatrix( string aList );
 		void Append( object aObject, string aList );
-		void Remove( object aObject, string aList );
 		void Remove( int aIndex, string aList );
 		int GetId( int aIndex, string aList );
 		object GetObject( int aIndex, string aList );

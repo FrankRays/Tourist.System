@@ -56,6 +56,12 @@ namespace Tourist.Data.Classes
 			set { mBookable = value;  }
 		}
 
+		public double TotaPrice
+		{
+			get { return Bookable.Price * TimeFrame.DiferenceTimeSpan( ).Days; }
+			set {  }
+		}
+
 		#endregion
 
 		#region Methods
