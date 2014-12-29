@@ -43,41 +43,8 @@ namespace Tourist.Server.Forms
 
 		private void TimerClock_Tick( object sender, EventArgs e )
 		{
-			ClockLabel.Text = DateTime.Now.ToString( "HH:mm:ss" );
-
-			if ( DateTime.Now.Hour >= 12 && DateTime.Now.Minute >= 0 )
-				AmPmLabel.Text = "PM";
-			else
-				AmPmLabel.Text = "AM";
-
-			if ( DateTime.Today.Day < 10 )
-				DayNumberLabel.Text = "0" + DateTime.Today.Day;
-			else
-				DayNumberLabel.Text = DateTime.Today.Day.ToString( );
-
-			DayOfWeekLabel.Text = DateTime.Today.DayOfWeek.ToString( );
-			MonthNameLabel.Text = MonthsName( DateTime.Today.Month );
-			YearLabel.Text = DateTime.Today.Year.ToString( );
-		}
-
-		private string MonthsName( int aMonth )
-		{
-			switch ( aMonth )
-			{
-				case 1: return "January";
-				case 2: return "February";
-				case 3: return "March";
-				case 4: return "April";
-				case 5: return "May";
-				case 6: return "June";
-				case 7: return "July";
-				case 8: return "August";
-				case 9: return "September";
-				case 10: return "October";
-				case 11: return "November";
-				case 12: return "December";
-				default: return "Error";
-			}
+			SharedMethods.TimerClockAnimation( ClockLabel, AmPmLabel, DayNumberLabel,
+												DayOfWeekLabel, MonthNameLabel, YearLabel );
 		}
 
 		private void BodyPanel_MouseMove( object sender, MouseEventArgs e )

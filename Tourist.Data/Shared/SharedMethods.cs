@@ -293,6 +293,46 @@ namespace Tourist.Data.Shared
 			return !cellHasError.Any( bolean => bolean );
 		}
 
+		public static void TimerClockAnimation( Label aClock, Label aAmPm, Label aDayNumber,
+										Label aDayOfWeek, Label aMonth, Label aYear )
+		{
+			aClock.Text = DateTime.Now.ToString( "HH:mm:ss" );
+
+			if ( DateTime.Now.Hour >= 12 && DateTime.Now.Minute >= 0 )
+				aAmPm.Text = "PM";
+			else
+				aAmPm.Text = "AM";
+
+			if ( DateTime.Today.Day < 10 )
+				aDayNumber.Text = "0" + DateTime.Today.Day;
+			else
+				aDayNumber.Text = DateTime.Today.Day.ToString( );
+
+			aDayOfWeek.Text = DateTime.Today.DayOfWeek.ToString( );
+			aMonth.Text = MonthsName( DateTime.Today.Month );
+			aYear.Text = DateTime.Today.Year.ToString( );
+		}
+
+		public static string MonthsName( int aMonth )
+		{
+			switch ( aMonth )
+			{
+				case 1: return "January";
+				case 2: return "February";
+				case 3: return "March";
+				case 4: return "April";
+				case 5: return "May";
+				case 6: return "June";
+				case 7: return "July";
+				case 8: return "August";
+				case 9: return "September";
+				case 10: return "October";
+				case 11: return "November";
+				case 12: return "December";
+				default: return "Error";
+			}
+		}
+
 		#endregion
 	
 	}

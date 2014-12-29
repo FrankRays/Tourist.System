@@ -3,7 +3,7 @@ using Tourist.Data.Enums;
 
 namespace Tourist.Data.Interfaces
 {
-    public interface IBookable : ISubject
+    public interface IBookable 
     {
 		int Id { get; set; }
 

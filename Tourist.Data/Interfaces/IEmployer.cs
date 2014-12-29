@@ -2,7 +2,7 @@
 
 namespace Tourist.Data.Interfaces
 {
-	public interface IEmployer : IPersonalInformation, IContact, ISubject
+	public interface IEmployer : IPersonalInformation, IContact
 	{
 		int Id { get; set; }
 		string Username { get; set; }

@@ -16,6 +16,8 @@ namespace Tourist.Client.Forms
 	public partial class ClientsForm : MetroForm
 	{
 
+		// Hardcoded strings need to move them to the strings file 
+	
 		#region Fields
 
 		private readonly IRemote Remote;
@@ -33,70 +35,17 @@ namespace Tourist.Client.Forms
 			Remote = aRemote;
 			mMainForm = aForm as MainForm;
 			mDateTimePicker = new MetroDateTime( );
-
-			IdColumn.DataPropertyName = "Id";
-			FirstNameColumn.DataPropertyName = "FirstName";
-			LastNameColumn.DataPropertyName = "LastName";
-			GenderColumn.DataPropertyName = "Gender";
-			NifColumn.DataPropertyName = "Nif";
-			AddressColumn.DataPropertyName = "Address";
-			PhoneColumn.DataPropertyName = "Phone";
-			EmailColumn.DataPropertyName = "Email";
 		}
 
 		#endregion
 
-		#region Private Methods
+		#region Events
 
 		private void ClientsForm_Load( object sender, EventArgs e )
 		{
 			SharedMethods.SetFormFullScreen( this );
 			LoadDataToGrid( );
 		}
-
-		private void LoadDataToGrid( )
-		{
-			if ( Remote.IsEmpty( "Clients" ) )
-				return;
-
-			var clientsMatrix = Remote.ListToMatrix( "Clients" );
-
-			for ( var i = 0 ; i < Remote.Count( "Clients" ) ; i++ )
-			{
-				ClientsDataGrid.Rows.Add( );
-
-				for ( var j = 0 ; j < ClientsDataGrid.ColumnCount ; j++ )
-				{
-					ClientsDataGrid.Rows[ i ].Cells[ j ].Value = clientsMatrix[ i, j ];
-				}
-			}
-		}
-
-		private void AddToRepository( List<string> rowValues )
-		{
-			var client = Remote.Factory.CreateObject<Data.Classes.Client>( );
-
-			//var subject = (ISubject) client;
-
-			//subject.OnUpdate += (aSubject, data) => 
-
-			client.Id = SharedMethods.ConvertStringToInt( rowValues[ 0 ] );
-			client.FirstName = rowValues[ 1 ];
-			client.LastName = rowValues[ 2 ];
-			client.Gender = ( Gender ) SharedMethods.ConvertStringToEnum( rowValues[ 3 ], "Gender" );
-			client.Nationality = rowValues[ 4 ];
-			client.BirthDate = SharedMethods.ConvertStringToDateTime( rowValues[ 5 ] );
-			client.Nif = SharedMethods.ConvertStringToInt( rowValues[ 6 ] );
-			client.Address = rowValues[ 7 ];
-			client.Phone = SharedMethods.ConvertStringToInt( rowValues[ 8 ] );
-			client.Email = rowValues[ 9 ];
-
-			Remote.Append( client, "Clients" );
-		}
-
-		#endregion
-
-		#region Events
 
 		private void ClientsDataGrid_CellValidating( object sender, DataGridViewCellValidatingEventArgs e )
 		{
@@ -120,7 +69,7 @@ namespace Tourist.Client.Forms
 					var rowValues = SharedMethods.RowCellValues( row );
 					AddToRepository( rowValues );
 					MessageBox.Show( this, "Client Added With Sucess !!!", "Operation Sucessfull",
-																			MessageBoxButtons.OK, MessageBoxIcon.Information );
+																MessageBoxButtons.OK, MessageBoxIcon.Information );
 				}
 				else
 				{
@@ -132,55 +81,55 @@ namespace Tourist.Client.Forms
 						case 1:
 							Remote.Edit( "Client", clientId, "FirstName", aNewValue );
 							MessageBox.Show( this, "Client First Name Edited With Sucess !!!",
-															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+										"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//LastName	
 						case 2:
 							Remote.Edit( "Client", clientId, "LastName", aNewValue );
 							MessageBox.Show( this, "Client Last Name Edited With Sucess !!!",
-															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+										"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Gender	
 						case 3:
 							Remote.Edit( "Client", clientId, "Gender", aNewValue );
 							MessageBox.Show( this, "Client Gender Edited With Sucess !!!",
-															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+										"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Nationality
 						case 4:
 							Remote.Edit( "Client", clientId, "Nationality", aNewValue );
 							MessageBox.Show( this, "Client Nationality Edited With Sucess !!!",
-															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+										"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//BirthDate
 						case 5:
 							Remote.Edit( "Client", clientId, "BirthDate", aNewValue );
 							MessageBox.Show( this, "Client Birth Date Edited With Sucess !!!",
-															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+										"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Nif
 						case 6:
 							Remote.Edit( "Client", clientId, "Nif", aNewValue );
 							MessageBox.Show( this, "Client Nif Edited With Sucess !!!",
-															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+										"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Address
 						case 7:
 							Remote.Edit( "Client", clientId, "Address", aNewValue );
 							MessageBox.Show( this, "Client Address Edited With Sucess !!!",
-															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+										"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Phone
 						case 8:
 							Remote.Edit( "Client", clientId, "Phone", aNewValue );
 							MessageBox.Show( this, "Client Phone Edited With Sucess !!!",
-															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+										"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Email
 						case 9:
 							Remote.Edit( "Client", clientId, "Email", aNewValue );
 							MessageBox.Show( this, "Client Email Edited With Sucess !!!",
-															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+										"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						default:
 							return;
@@ -191,7 +140,7 @@ namespace Tourist.Client.Forms
 
 		private void ClientsDataGrid_RowRemoved( object sender, DataGridViewRowsRemovedEventArgs e )
 		{
-			
+
 			var dialog = MessageBox.Show( this, "Are you sure you want to remove client at row number " +
 			( e.RowIndex + 1 ) + " ?", "Operation Sucessfull", MessageBoxButtons.YesNo, MessageBoxIcon.Information );
 
@@ -202,29 +151,13 @@ namespace Tourist.Client.Forms
 
 			Remote.Remove( removeIndex, "Clients" );
 
-			/*
-			var removeIndex = e.RowIndex;
-
-			var clientToRemoveId = Remote.GetId(removeIndex, "Clients");
-
-			Remote.Remove( clientToRemoveId, "Clients" );
-			*/
-			  
-			/*
-			var removeIndex = e.RowIndex;
-
-			var clientToRemove = Remote.GetObject(removeIndex, "Clients");
-
-			Remote.Remove( clientToRemove, "Clients" );
-			 * */
-
 		}
 
 		private void ClientsDataGrid_CellDoubleClick( object sender, DataGridViewCellEventArgs e )
 		{
 			if ( e.ColumnIndex >= 0 && e.RowIndex >= 0 )
 			{
-				DataGridViewCell cell = ClientsDataGrid[ e.ColumnIndex, e.RowIndex ];
+				var cell = ClientsDataGrid[ e.ColumnIndex, e.RowIndex ];
 				ClientsDataGrid.CurrentCell = cell;
 				ClientsDataGrid.BeginEdit( true );
 			}
@@ -235,28 +168,13 @@ namespace Tourist.Client.Forms
 			//BirthDateColumn
 			if ( e.ColumnIndex == 5 )
 			{
-				//Adding DateTimePicker control into DataGridView   
 				ClientsDataGrid.Controls.Add( mDateTimePicker );
-
-				// Setting the format (i.e. 2014-10-10)  
 				mDateTimePicker.Format = DateTimePickerFormat.Short;
-
-				// It returns the retangular area that represents the Display area for a cell  
 				var aRectangle = ClientsDataGrid.GetCellDisplayRectangle( e.ColumnIndex, e.RowIndex, true );
-
-				//Setting area for DateTimePicker Control  
 				mDateTimePicker.Size = new Size( aRectangle.Width, aRectangle.Height );
-
-				// Setting Location  
 				mDateTimePicker.Location = new Point( aRectangle.X, aRectangle.Y );
-
-				// An event attached to dateTimePicker Control which is fired when DateTimeControl is closed  
 				mDateTimePicker.CloseUp += oDateTimePicker_CloseUp;
-
-				// An event attached to dateTimePicker Control which is fired when any date is selected  
 				mDateTimePicker.TextChanged += dateTimePicker_OnTextChange;
-
-				// Now make it visible  
 				mDateTimePicker.Visible = true;
 			}
 		}
@@ -272,10 +190,6 @@ namespace Tourist.Client.Forms
 			// Hiding the control after use   
 			mDateTimePicker.Visible = false;
 		}
-
-		#endregion
-
-		#region Close Events
 
 		protected override void OnFormClosing( FormClosingEventArgs e )
 		{
@@ -302,5 +216,46 @@ namespace Tourist.Client.Forms
 		}
 
 		#endregion
+
+		#region Private Methods
+
+		private void LoadDataToGrid( )
+		{
+			if ( Remote.IsEmpty( "Clients" ) )
+				return;
+
+			var clientsMatrix = Remote.ListToMatrix( "Clients" );
+
+			for ( var i = 0 ; i < Remote.Count( "Clients" ) ; i++ )
+			{
+				ClientsDataGrid.Rows.Add( );
+
+				for ( var j = 0 ; j < ClientsDataGrid.ColumnCount ; j++ )
+				{
+					ClientsDataGrid.Rows[ i ].Cells[ j ].Value = clientsMatrix[ i, j ];
+				}
+			}
+		}
+
+		private void AddToRepository( List<string> rowValues )
+		{
+			var client = Remote.Factory.CreateObject<Data.Classes.Client>( );
+
+			client.Id = SharedMethods.ConvertStringToInt( rowValues[ 0 ] );
+			client.FirstName = rowValues[ 1 ];
+			client.LastName = rowValues[ 2 ];
+			client.Gender = ( Gender ) SharedMethods.ConvertStringToEnum( rowValues[ 3 ], "Gender" );
+			client.Nationality = rowValues[ 4 ];
+			client.BirthDate = SharedMethods.ConvertStringToDateTime( rowValues[ 5 ] );
+			client.Nif = SharedMethods.ConvertStringToInt( rowValues[ 6 ] );
+			client.Address = rowValues[ 7 ];
+			client.Phone = SharedMethods.ConvertStringToInt( rowValues[ 8 ] );
+			client.Email = rowValues[ 9 ];
+
+			Remote.Append( client, "Clients" );
+		}
+
+		#endregion
+
 	}
 }

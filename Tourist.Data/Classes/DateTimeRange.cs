@@ -4,7 +4,7 @@ using Tourist.Data.Interfaces;
 namespace Tourist.Data.Classes
 {
 	[Serializable]
-	public class DateTimeRange : ISubject
+	public class DateTimeRange 
 	{
 
 		#region Fields
@@ -21,14 +21,14 @@ namespace Tourist.Data.Classes
 		{
 			get { return mCheckInDate; }
 
-			set { mCheckInDate = value; Notify( "CheckInDate" ); }
+			set { mCheckInDate = value; }
 		}
 
 		public DateTime EndDateTime
 		{
 			get { return mCheckOutDate; }
 
-			set { mCheckOutDate = value; Notify( "CheckOutDate" ); }
+			set { mCheckOutDate = value;  }
 		}
 
 		#endregion
@@ -54,16 +54,7 @@ namespace Tourist.Data.Classes
 
 		#endregion
 
-		#region ISubject Observer
-
-		public event UpdateEventHandler OnUpdate;
-
-		public void Notify( string aPropertie = null )
-		{
-			if ( OnUpdate != null ) OnUpdate( this, aPropertie );
-		}
-
-		#endregion
+		
 
 	}
 }

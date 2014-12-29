@@ -27,14 +27,14 @@ namespace Tourist.Data.Classes
 		public int Id
 		{
 			get { return mNumber; }
-			set { mNumber = value; Notify( "Id" ); }
+			set { mNumber = value; }
 		}
 
 		[XmlIgnore]
 		public Enum Type
 		{
 			get { return mType; }
-			set { mType = value; Notify( "Type" ); }
+			set { mType = value; }
 		}
 
 		[XmlElement( "Type" )]
@@ -48,25 +48,25 @@ namespace Tourist.Data.Classes
 		public BookableState State
 		{
 			get { return mBookableState; }
-			set { mBookableState = value; Notify( "State" ); }
+			set { mBookableState = value; }
 		}
 
 		public string Description
 		{
 			get { return mDescription; }
-			set { mDescription = value; Notify( "Description" ); }
+			set { mDescription = value; }
 		}
 
 		public double Price
 		{
 			get { return mPrice; }
-			set { mPrice = value; Notify( "Price" ); }
+			set { mPrice = value; }
 		}
 
 		public int Capacity
 		{
 			get { return mCapacity; }
-			set { mCapacity = value; Notify( "Capacity" ); }
+			set { mCapacity = value; }
 		}
 
 		#endregion
@@ -76,17 +76,6 @@ namespace Tourist.Data.Classes
 		public Transport( )
 		{
 			Id = ++mCounter;
-		}
-
-		#endregion
-
-		#region ISubject Observer
-
-		public event UpdateEventHandler OnUpdate;
-
-		public void Notify( string aPropertie = null )
-		{
-			if ( OnUpdate != null ) OnUpdate( this, aPropertie );
 		}
 
 		#endregion

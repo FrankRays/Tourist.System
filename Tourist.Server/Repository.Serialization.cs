@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Xml.Serialization;
 using Tourist.Data.Classes;
@@ -24,25 +26,25 @@ namespace Tourist.Server
 			public Entity Entity = new Entity( );
 
 			[XmlArray( ElementName = "BookingList", Order = 2 )]
-			public List<Booking> Bookings = new List<Booking>( );
+			public ObservableCollection<Booking> Bookings = new ObservableCollection<Booking>( );
 
 			[XmlArray( ElementName = "ClientList", Order = 3 )]
-			public List<Client> Clients = new List<Client>( );
+			public ObservableCollection<Client> Clients = new ObservableCollection<Client>( );
 
 			[XmlArray( ElementName = "RoomList", Order = 4 )]
-			public List<Room> Rooms = new List<Room>( );
+			public ObservableCollection<Room> Rooms = new ObservableCollection<Room>( );
 
 			[XmlArray( ElementName = "ActivityList", Order = 5 )]
-			public List<Activity> Activities = new List<Activity>( );
+			public ObservableCollection<Activity> Activities = new ObservableCollection<Activity>( );
 
 			[XmlArray( ElementName = "TransportList", Order = 6 )]
-			public List<Transport> Transports = new List<Transport>( );
+			public ObservableCollection<Transport> Transports = new ObservableCollection<Transport>( );
 
 			[XmlArray( ElementName = "ManagersList", Order = 7 )]
-			public List<Manager> Managers = new List<Manager>( );
+			public ObservableCollection<Manager> Managers = new ObservableCollection<Manager>( );
 
 			[XmlArray( ElementName = "EmployeesList", Order = 8 )]
-			public List<Employer> Employees = new List<Employer>( );
+			public ObservableCollection<Employer> Employees = new ObservableCollection<Employer>( );
 
 		}
 

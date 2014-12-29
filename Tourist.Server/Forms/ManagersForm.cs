@@ -15,6 +15,8 @@ namespace Tourist.Server.Forms
 	public partial class ManagersForm : MetroForm
 	{
 
+		// Hardcoded strings need to move them to the strings file 
+
 		#region Fields
 
 		private readonly Repository Repository = Repository.Instance;
@@ -35,55 +37,13 @@ namespace Tourist.Server.Forms
 
 		#endregion
 
-		#region Private Methods
+		#region Events
 
 		private void EmployersForm_Load( object sender, EventArgs e )
 		{
 			SharedMethods.SetFormFullScreen( this );
 			LoadDataToGrid( );
 		}
-
-		private void LoadDataToGrid( )
-		{
-			if ( Repository.IsEmpty( "Managers" ) )
-				return;
-
-			var managersMatrix = Repository.ListToMatrix( "Managers" );
-
-			for ( var i = 0 ; i < Repository.Count( "Managers" ) ; i++ )
-			{
-				ManagersDataGrid.Rows.Add( );
-
-				for ( var j = 0 ; j < ManagersDataGrid.ColumnCount ; j++ )
-				{
-					ManagersDataGrid.Rows[ i ].Cells[ j ].Value = managersMatrix[ i, j ];
-				}
-			}
-		}
-
-		private void AddToRepository( List<string> rowValues )
-		{
-			var manager = Repository.Factory.CreateObject<Manager>( );
-
-			manager.Id = SharedMethods.ConvertStringToInt( rowValues[ 0 ] );
-			manager.FirstName = rowValues[ 1 ];
-			manager.LastName = rowValues[ 2 ];
-			manager.Gender = ( Gender ) SharedMethods.ConvertStringToEnum( rowValues[ 3 ], "Gender" );
-			manager.Nationality = rowValues[ 4 ];
-			manager.BirthDate = SharedMethods.ConvertStringToDateTime( rowValues[ 5 ] );
-			manager.Nif = SharedMethods.ConvertStringToInt( rowValues[ 6 ] );
-			manager.Address = rowValues[ 7 ];
-			manager.Phone = SharedMethods.ConvertStringToInt( rowValues[ 8 ] );
-			manager.Email = rowValues[ 9 ];
-			manager.Username = rowValues[ 10 ];
-			manager.Password = rowValues[ 11 ];
-
-			Repository.Append( manager, "Managers" );
-		}
-
-		#endregion
-
-		#region Events
 
 		private void ManagersDataGrid_CellValidating( object sender, DataGridViewCellValidatingEventArgs e )
 		{
@@ -119,67 +79,67 @@ namespace Tourist.Server.Forms
 						case 1:
 							Repository.Edit( "Manager", managerId, "FirstName", aNewValue );
 							MessageBox.Show( this, "Manager First Name Edited With Sucess !!!",
-															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+											"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//LastName	
 						case 2:
 							Repository.Edit( "Manager", managerId, "LastName", aNewValue );
 							MessageBox.Show( this, "Manager Last Name Edited With Sucess !!!",
-															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+											"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Gender	
 						case 3:
 							Repository.Edit( "Manager", managerId, "Gender", aNewValue );
 							MessageBox.Show( this, "Manager Gender Edited With Sucess !!!",
-															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+											"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Nationality
 						case 4:
 							Repository.Edit( "Manager", managerId, "Nationality", aNewValue );
 							MessageBox.Show( this, "Manager Nationality Edited With Sucess !!!",
-															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+											"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//BirthDate
 						case 5:
 							Repository.Edit( "Manager", managerId, "BirthDate", aNewValue );
 							MessageBox.Show( this, "Manager Birth Date Edited With Sucess !!!",
-															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+											"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Nif
 						case 6:
 							Repository.Edit( "Manager", managerId, "Nif", aNewValue );
 							MessageBox.Show( this, "Manager Nif Edited With Sucess !!!",
-															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+											"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Address
 						case 7:
 							Repository.Edit( "Manager", managerId, "Address", aNewValue );
 							MessageBox.Show( this, "Manager Address Edited With Sucess !!!",
-															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+											"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Phone
 						case 8:
 							Repository.Edit( "Manager", managerId, "Phone", aNewValue );
 							MessageBox.Show( this, "Manager Phone Edited With Sucess !!!",
-															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+											"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Email
 						case 9:
 							Repository.Edit( "Manager", managerId, "Email", aNewValue );
 							MessageBox.Show( this, "Manager Email Edited With Sucess !!!",
-															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+											"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Username
 						case 10:
 							Repository.Edit( "Manager", managerId, "Username", aNewValue );
 							MessageBox.Show( this, "Manager Username Edited With Sucess !!!",
-															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+											"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Password
 						case 11:
 							Repository.Edit( "Manager", managerId, "Password", aNewValue );
 							MessageBox.Show( this, "Manager Password Edited With Sucess !!!",
-															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+											"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						default:
 							return;
@@ -207,7 +167,7 @@ namespace Tourist.Server.Forms
 		{
 			if ( e.ColumnIndex >= 0 && e.RowIndex >= 0 )
 			{
-				DataGridViewCell cell = ManagersDataGrid[ e.ColumnIndex, e.RowIndex ];
+				var cell = ManagersDataGrid[ e.ColumnIndex, e.RowIndex ];
 				ManagersDataGrid.CurrentCell = cell;
 				ManagersDataGrid.BeginEdit( true );
 			}
@@ -218,28 +178,14 @@ namespace Tourist.Server.Forms
 			//BirthDateColumn
 			if ( e.ColumnIndex == 5 )
 			{
-				//Adding DateTimePicker control into DataGridView   
-				ManagersDataGrid.Controls.Add( mDateTimePicker );
-
-				// Setting the format (i.e. 2014-10-10)  
-				mDateTimePicker.Format = DateTimePickerFormat.Short;
-
-				// It returns the retangular area that represents the Display area for a cell  
 				var aRectangle = ManagersDataGrid.GetCellDisplayRectangle( e.ColumnIndex, e.RowIndex, true );
-
-				//Setting area for DateTimePicker Control  
+				
+				ManagersDataGrid.Controls.Add( mDateTimePicker );
+				mDateTimePicker.Format = DateTimePickerFormat.Short;
 				mDateTimePicker.Size = new Size( aRectangle.Width, aRectangle.Height );
-
-				// Setting Location  
 				mDateTimePicker.Location = new Point( aRectangle.X, aRectangle.Y );
-
-				// An event attached to dateTimePicker Control which is fired when DateTimeControl is closed  
 				mDateTimePicker.CloseUp += oDateTimePicker_CloseUp;
-
-				// An event attached to dateTimePicker Control which is fired when any date is selected  
 				mDateTimePicker.TextChanged += dateTimePicker_OnTextChange;
-
-				// Now make it visible  
 				mDateTimePicker.Visible = true;
 			}
 		}
@@ -256,9 +202,6 @@ namespace Tourist.Server.Forms
 			mDateTimePicker.Visible = false;
 		}
 
-		#endregion
-
-		#region Close Events
 
 		protected override void OnFormClosing( FormClosingEventArgs e )
 		{
@@ -300,8 +243,50 @@ namespace Tourist.Server.Forms
 			else
 			{
 				MessageBox.Show( this, "\n Please insert a complete row before going to next Screen.",
-								"Manager Data Empty or Not complete!!! ", MessageBoxButtons.OK, MessageBoxIcon.Information );
+						"Manager Data Empty or Not complete!!! ", MessageBoxButtons.OK, MessageBoxIcon.Information );
 			}
+		}
+
+		#endregion
+
+		#region Private Methods
+
+		private void LoadDataToGrid( )
+		{
+			if ( Repository.IsEmpty( "Managers" ) )
+				return;
+
+			var managersMatrix = Repository.ListToMatrix( "Managers" );
+
+			for ( var i = 0 ; i < Repository.Count( "Managers" ) ; i++ )
+			{
+				ManagersDataGrid.Rows.Add( );
+
+				for ( var j = 0 ; j < ManagersDataGrid.ColumnCount ; j++ )
+				{
+					ManagersDataGrid.Rows[ i ].Cells[ j ].Value = managersMatrix[ i, j ];
+				}
+			}
+		}
+
+		private void AddToRepository( List<string> rowValues )
+		{
+			var manager = Repository.Factory.CreateObject<Manager>( );
+
+			manager.Id = SharedMethods.ConvertStringToInt( rowValues[ 0 ] );
+			manager.FirstName = rowValues[ 1 ];
+			manager.LastName = rowValues[ 2 ];
+			manager.Gender = ( Gender ) SharedMethods.ConvertStringToEnum( rowValues[ 3 ], "Gender" );
+			manager.Nationality = rowValues[ 4 ];
+			manager.BirthDate = SharedMethods.ConvertStringToDateTime( rowValues[ 5 ] );
+			manager.Nif = SharedMethods.ConvertStringToInt( rowValues[ 6 ] );
+			manager.Address = rowValues[ 7 ];
+			manager.Phone = SharedMethods.ConvertStringToInt( rowValues[ 8 ] );
+			manager.Email = rowValues[ 9 ];
+			manager.Username = rowValues[ 10 ];
+			manager.Password = rowValues[ 11 ];
+
+			Repository.Append( manager, "Managers" );
 		}
 
 		#endregion

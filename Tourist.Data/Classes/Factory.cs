@@ -66,6 +66,11 @@ namespace Tourist.Data.Classes
 			return new DateTimeRange( );
 		}
 
+		public Session CreateSession()
+		{
+			return new Session();
+		}
+
 		public object CreateObject( string aType )
 		{
 			switch ( aType )
@@ -88,6 +93,8 @@ namespace Tourist.Data.Classes
 					return CreateActivity( );
 				case "Transport":
 					return CreateTransport( );
+				case "Session":
+					return CreateSession( );
 				default:
 					return null;
 			}

@@ -25,7 +25,7 @@ namespace Tourist.Data.Classes
 		public int Id
 		{
 			get { return mNumber; }
-			set { mNumber = value; Notify( "Id" ); }
+			set { mNumber = value;  }
 		}
 
 		[XmlIgnore]
@@ -33,27 +33,27 @@ namespace Tourist.Data.Classes
 		{
 			get { return mClient; }
 
-			set { mClient = value; Notify( "Client" ); }
+			set { mClient = value;  }
 		}
 
 		public DateTime BookingDate
 		{
 			get { return mBookingDate; }
 
-			set { mBookingDate = value; Notify( "BookingDate" ); }
+			set { mBookingDate = value; }
 		}
 
 		public DateTimeRange TimeFrame
 		{
 			get { return mTimeFrame; }
-			set { mTimeFrame = value; Notify( "TimeRange" ); }
+			set { mTimeFrame = value;  }
 		}
 
 		[XmlIgnore]
 		public IBookable Bookable
 		{
 			get { return mBookable; }
-			set { mBookable = value; Notify( "Bookable" ); }
+			set { mBookable = value;  }
 		}
 
 		#endregion
@@ -73,17 +73,6 @@ namespace Tourist.Data.Classes
 		public Booking( )
 		{
 			Id = ++mCounter;
-		}
-
-		#endregion
-
-		#region ISubject Observer
-
-		public event UpdateEventHandler OnUpdate;
-
-		public void Notify( string aPropertie = null )
-		{
-			if ( OnUpdate != null ) OnUpdate( this, aPropertie );
 		}
 
 		#endregion

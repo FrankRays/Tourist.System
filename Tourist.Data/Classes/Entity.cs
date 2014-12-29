@@ -27,49 +27,49 @@ namespace Tourist.Data.Classes
 		public int Id
 		{
 			get { return mNumber; }
-			set { mNumber = value; Notify("Id" ); }
+			set { mNumber = value; Notify( ); }
 		}
 
 		public byte[ ] LogoBuffer
 		{
 			get { return mLogoBuffer; }
-			set { mLogoBuffer = value; Notify( "LogoBuffer" ); }
+			set { mLogoBuffer = value; Notify(  ); }
 		}
 
 		public EntityType EntityType
 		{
 			get { return mEntityType; }
-			set { mEntityType = value; Notify( "EntityType" ); }
+			set { mEntityType = value; Notify(  ); }
 		}
 
 		public string Name
 		{
 			get { return mName; }
-			set { mName = value; Notify( "Name" ); }
+			set { mName = value; Notify(  ); }
 		}
 
 		public int Nif
 		{
 			get { return mNif; }
-			set { mNif = value; Notify( "Nif" ); }
+			set { mNif = value; Notify(  ); }
 		}
 
 		public string Address
 		{
 			get { return mAddress; }
-			set { mAddress = value; Notify( "Address" ); }
+			set { mAddress = value; Notify(  ); }
 		}
 
 		public int Phone
 		{
 			get { return mPhoneNumber; }
-			set { mPhoneNumber = value; Notify( "Phone" ); }
+			set { mPhoneNumber = value; Notify( ); }
 		}
 
 		public string Email
 		{
 			get { return mEmail; }
-			set { mEmail = value; Notify( "Email" ); }
+			set { mEmail = value; Notify(  ); }
 		}
 
 		#endregion
@@ -87,9 +87,9 @@ namespace Tourist.Data.Classes
 
 		public event UpdateEventHandler OnUpdate;
 
-		public void Notify( string aPropertie = null )
+		public void Notify( object aData = null )
 		{
-			if ( OnUpdate != null ) OnUpdate( this, aPropertie );
+			if ( OnUpdate != null ) OnUpdate( this, aData );
 		}
 
 		#endregion

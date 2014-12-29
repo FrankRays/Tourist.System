@@ -42,8 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Capacity.cs" />
-    <Compile Include="Classes\LoginInfoClient.cs" />
-    <Compile Include="Classes\LoginInfoServer.cs" />
+    <Compile Include="Classes\ObservableList.cs" />
+    <Compile Include="Classes\Session.cs" />
     <Compile Include="Classes\Transport.cs" />
     <Compile Include="Classes\Activity.cs" />
     <Compile Include="Classes\Booking.cs" />

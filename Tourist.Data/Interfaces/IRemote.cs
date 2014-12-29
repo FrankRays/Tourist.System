@@ -1,4 +1,5 @@
-﻿using Tourist.Data.Classes;
+﻿using System.Windows.Forms;
+using Tourist.Data.Classes;
 
 namespace Tourist.Data.Interfaces
 {
@@ -11,6 +12,7 @@ namespace Tourist.Data.Interfaces
 		bool IsEmpty( string aList );
 		bool ExistingId( int aId, string aList );
 		bool CheckLogin( string aUsername, string aPassword, string aType );
+		Session ClientLoginSession { get; }
 		string[ , ] ListToMatrix( string aList );
 		void Append( object aObject, string aList );
 		void Remove( object aObject, string aList );

@@ -3,7 +3,6 @@ using System.Windows.Forms;
 using MetroFramework;
 using MetroFramework.Forms;
 using Tourist.Client.Properties;
-using Tourist.Data.Classes;
 using Tourist.Data.Interfaces;
 using Tourist.Data.Shared;
 
@@ -12,7 +11,7 @@ namespace Tourist.Client.Forms
 	public partial class LoginForm : MetroForm
 	{
 
-		private IRemote Remote;
+		private readonly IRemote Remote;
 		private readonly MainForm mMainForm;
 
 		public LoginForm( IRemote aRemote )
@@ -32,7 +31,7 @@ namespace Tourist.Client.Forms
 		{
 			base.OnFormClosing( e );
 
-			var dialogResult = MetroMessageBox.Show( this, Resources.ExitMessage,
+			var dialogResult = MessageBox.Show( this, Resources.ExitMessage,
 				Resources.ExitMessageTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
 
 			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
@@ -96,14 +95,14 @@ namespace Tourist.Client.Forms
 				if ( Remote.CheckLogin( UsernameTextBox.Text, PasswordTextBox.Text, "Client" ) )
 				{
 					//entra
-					MessageBox.Show( Resources.LoginSucessfullMessage + " " + LoginInfoClient.Username,
+					MessageBox.Show( Resources.LoginSucessfullMessage + " " + Remote.ClientLoginSession.Username,
 								Resources.LoginSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 					Hide( );
 					mMainForm.Show( );
 				}
 				else
 				{
-					MessageBox.Show( Resources.LoginErrorMessage +" "+LoginInfoClient.Username, Resources.LoginError, 
+					MessageBox.Show( Resources.LoginErrorMessage , Resources.LoginError, 
 																			  MessageBoxButtons.OK, MessageBoxIcon.Error );
 				}
 			}

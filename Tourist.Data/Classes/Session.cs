@@ -1,24 +1,28 @@
+﻿using System;
+
 namespace Tourist.Data.Classes
 {
-	public static class LoginInfoClient
+	[Serializable]
+	public class Session
 	{
-		private static int mId;
-		private static string mUsername;
-		private static string mPassword;
+		//more data if needed
+		private int mId;
+		private string mUsername;
+		private string mPassword;
 
-		public static int Id
+		public int Id
 		{
 			get { return mId; }
 			set { mId = value; }
 		}
 
-		public static string Username
+		public string Username
 		{
 			get { return mUsername; }
 			set { mUsername = value; }
 		}
 
-		public static string Password
+		public string Password
 		{
 			get { return mPassword; }
 			set { mPassword = value; }

@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Drawing;
+using System.Diagnostics;
 using System.Windows.Forms;
-using MetroFramework;
 using MetroFramework.Forms;
 using Tourist.Data.Interfaces;
+using Tourist.Data.Shared;
 using Transitions;
 
 namespace Tourist.Client.Forms
@@ -11,9 +11,14 @@ namespace Tourist.Client.Forms
 	public partial class MainForm : MetroForm
 	{
 
+		#region Fields
+
 		private readonly LoginForm mLoginForm;
 		private readonly IRemote Remote;
 
+		#endregion
+
+		#region Constructor
 
 		public MainForm( Form aForm, IRemote aRemote)
 		{
@@ -23,62 +28,20 @@ namespace Tourist.Client.Forms
 			Remote = aRemote;
 		}
 
+		#endregion
+
+		#region Events
+
 		private void MainForm_Load( object sender, EventArgs e )
 		{
-			SetFullScreen( );
+			SharedMethods.SetFormFullScreen(this);
 			TimerClock.Start( );
-		}
-
-		private void SetFullScreen( )
-		{
-			var x = Screen.PrimaryScreen.Bounds.Width;
-			var y = Screen.PrimaryScreen.Bounds.Height;
-
-			Location = new Point( 0, 0 );
-			Size = new Size( x, y );
-			FormBorderStyle = FormBorderStyle.None;
-			Focus( );
 		}
 
 		private void TimerClock_Tick( object sender, EventArgs e )
 		{
-			ClockLabel.Text = DateTime.Now.ToString( "HH:mm:ss" );
-
-			if ( DateTime.Now.Hour >= 12 && DateTime.Now.Minute >= 0 )
-				AmPmLabel.Text = "PM";
-			else
-				AmPmLabel.Text = "AM";
-
-			if ( DateTime.Today.Day < 10 )
-				DayNumberLabel.Text = "0" + DateTime.Today.Day;
-			else
-				DayNumberLabel.Text = DateTime.Today.Day.ToString( );
-
-
-			DayOfWeekLabel.Text = DateTime.Today.DayOfWeek.ToString( );
-			MonthNameLabel.Text = MonthsName( DateTime.Today.Month );
-			YearLabel.Text = DateTime.Today.Year.ToString( );
-
-		}
-
-		private string MonthsName( int aMonth )
-		{
-			switch ( aMonth )
-			{
-				case 1: return "January";
-				case 2: return "February";
-				case 3: return "March";
-				case 4: return "April";
-				case 5: return "May";
-				case 6: return "June";
-				case 7: return "July";
-				case 8: return "August";
-				case 9: return "September";
-				case 10: return "October";
-				case 11: return "November";
-				case 12: return "December";
-				default: return "Error";
-			}
+			SharedMethods.TimerClockAnimation(ClockLabel,AmPmLabel,DayNumberLabel,
+												DayOfWeekLabel,MonthNameLabel,YearLabel);
 		}
 
 		private void BodyPanel_MouseMove( object sender, MouseEventArgs e )
@@ -110,7 +73,7 @@ namespace Tourist.Client.Forms
 		private void BookingsTile_Click( object sender, EventArgs e )
 		{
 			Hide( );
-			BookingsForm booking = new BookingsForm( this,Remote );
+			BookingsForm booking = new BookingsForm( this, Remote );
 			booking.Show( );
 		}
 
@@ -124,7 +87,7 @@ namespace Tourist.Client.Forms
 		private void DisponibilityTile_Click( object sender, EventArgs e )
 		{
 			Hide( );
-			var disponibility = new DisponibilityForm( this,Remote );
+			var disponibility = new DisponibilityForm( this, Remote );
 			disponibility.Show( );
 
 		}
@@ -132,21 +95,21 @@ namespace Tourist.Client.Forms
 		private void PaymentsTile_Click( object sender, EventArgs e )
 		{
 			Hide( );
-			var payementForm = new PaymentsForm( this,Remote );
+			var payementForm = new PaymentsForm( this, Remote );
 			payementForm.Show( );
 		}
 
 		private void ToolsTile_Click( object sender, EventArgs e )
 		{
 			Hide( );
-			var toolsForm = new ToolsForm( this,Remote );
+			var toolsForm = new ToolsForm( this, Remote );
 			toolsForm.Show( );
 		}
 
 		private void HelpTile_Click( object sender, EventArgs e )
 		{
 			Hide( );
-			var helpForm = new HelpForm( this,Remote );
+			var helpForm = new HelpForm( this, Remote );
 			helpForm.Show( );
 
 		}
@@ -155,7 +118,7 @@ namespace Tourist.Client.Forms
 		{
 			base.OnFormClosing( e );
 
-			var dialogResult = MetroMessageBox.Show( this, "\n Are you sure you want to exit the application?",
+			var dialogResult = MessageBox.Show( this, "\n Are you sure you want to exit the application?",
 				"Close Button Pressed", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
 
 			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
@@ -163,7 +126,10 @@ namespace Tourist.Client.Forms
 			if ( dialogResult == DialogResult.No )
 				e.Cancel = true;
 			else
-				System.Diagnostics.Process.GetCurrentProcess( ).Kill( );
+				Process.GetCurrentProcess( ).Kill( );
 		}
+
+		#endregion
+
 	}
 }

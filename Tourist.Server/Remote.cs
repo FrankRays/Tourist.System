@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.Remoting.Lifetime;
+using System.Windows.Forms;
 using Tourist.Data.Classes;
 using Tourist.Data.Interfaces;
 
@@ -21,25 +22,26 @@ namespace Tourist.Server
 			return true;
 		}
 
-		/*
 		public override object InitializeLifetimeService( )
 		{
-			var lease = ( ILease ) base.InitializeLifetimeService( );
 
-			// Normally, the initial lease time would be much longer.
-			// It is shortened here for demonstration purposes.
+			return null;
+			/*
+			ILease lease = ( ILease ) base.InitializeLifetimeService( );
+
 			if ( lease.CurrentState == LeaseState.Initial )
 			{
-				lease.InitialLeaseTime = TimeSpan.FromSeconds( 3 );
-				lease.SponsorshipTimeout = TimeSpan.FromSeconds( 10 );
-				lease.RenewOnCallTime = TimeSpan.FromSeconds( 2 );
+				// set times very short for demonstration purposes
+				lease.InitialLeaseTime = TimeSpan.FromMinutes( 30 );
+				lease.SponsorshipTimeout = TimeSpan.FromMinutes( 30 );
+				lease.RenewOnCallTime = TimeSpan.FromMinutes( 1 );
 			}
 			return lease;
+			 * */
 		}
 		
-		 * */
 		//Wrapper Repository Methods 
-		
+
 		public int Count( string aList )
 		{
 			return Repository.Count( aList );
@@ -57,8 +59,11 @@ namespace Tourist.Server
 
 		public bool CheckLogin(string aUsername, string aPassword, string aType)
 		{
+		
 			return Repository.CheckLogin(aUsername, aPassword, aType);
 		}
+
+		public Session ClientLoginSession { get { return Repository.ClientLoginSession; } }
 
 		public string[ , ] ListToMatrix( string aList )
 		{

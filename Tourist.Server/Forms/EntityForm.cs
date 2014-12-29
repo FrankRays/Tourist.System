@@ -32,76 +32,13 @@ namespace Tourist.Server.Forms
 
 		#endregion
 
-		#region Private Methods
+		#region Events
 
 		private void EntitiesForm_Load( object sender, EventArgs e )
 		{
 			SharedMethods.SetFormFullScreen( this );
 			LoadEntityData( );
 		}
-
-		private void LoadEntityData( )
-		{
-			if ( Repository.IsEmpty( "Entity" ) )
-				return;
-
-			var entity = Repository.MData.Entity;
-			LogoPictureBox.Image = SharedMethods.ByteArrayToImage( entity.LogoBuffer );
-			NameTextBox.Text = entity.Name;
-			TypeComboBox.Text = entity.EntityType.ToString( );
-			NifTextBox.Text = entity.Nif.ToString( );
-			AddressTextBox.Text = entity.Address;
-			PhoneTextBox.Text = entity.Phone.ToString( );
-			EmailTextBox.Text = entity.Email;
-
-			ControlsToReadOnly( false );
-		}
-
-		private void SelectDefaultType( )
-		{
-			TypeComboBox.Text = TypeComboBox.Items[ 0 ].ToString( );
-		}
-
-		private void SaveEntityData( )
-		{
-
-			if ( LogoPictureBox.Image == null )
-			{
-				LogoPictureBox.Image = new Bitmap( Properties.Resources.NoImage );
-			}
-
-			var imageBuffer = SharedMethods.ImageToByteArray( LogoPictureBox.Image );
-			var entityType = ( EntityType ) SharedMethods.ConvertStringToEnum( TypeComboBox.Text, "EntityType" );
-			var entityName = NameTextBox.Text;
-			var entityNif = Convert.ToInt32( NifTextBox.Text );
-			var entityAddress = AddressTextBox.Text;
-			var entityPhone = Convert.ToInt32( PhoneTextBox.Text );
-			var entityEmail = EmailTextBox.Text;
-
-			Repository.SetEntity( imageBuffer, entityType, entityName, entityNif,
-																				entityAddress, entityPhone, entityEmail );
-			Repository.Save( Repository.FileName );
-
-			MessageBox.Show( this, Resources.InformationSaved , Resources.OperationSucessfull,
-																		MessageBoxButtons.OK, MessageBoxIcon.Information );
-		}
-
-		private void ControlsToReadOnly( bool aBool )
-		{
-			NameTextBox.ReadOnly = aBool;
-			TypeComboBox.Enabled = aBool;
-			NifTextBox.ReadOnly = aBool;
-			AddressTextBox.ReadOnly = aBool;
-			PhoneTextBox.ReadOnly = aBool;
-			EmailTextBox.ReadOnly = aBool;
-			SaveButton.Enabled = aBool;
-			EditButton.Enabled = !aBool;
-			LogoPictureBox.Enabled = aBool;
-		}
-
-		#endregion
-
-		#region Events
 
 		private void LogoPictureBox_MouseClick( object sender, MouseEventArgs e )
 		{
@@ -135,7 +72,6 @@ namespace Tourist.Server.Forms
 			if ( string.IsNullOrEmpty( NameTextBox.Text ) )
 			{
 				e.Cancel = true;
-				//NameTextBox.Focus();
 				ErrorProvider.SetError( NameTextBox, Resources.ErrorNameEmpty );
 				ErrorProvider.SetIconPadding( NameTextBox, -25 );
 			}
@@ -151,21 +87,18 @@ namespace Tourist.Server.Forms
 			if ( string.IsNullOrEmpty( NifTextBox.Text ) )
 			{
 				e.Cancel = true;
-				//NifTextBox.Focus( );
 				ErrorProvider.SetError( NifTextBox, Resources.ErrorNIfEmpty );
 				ErrorProvider.SetIconPadding( NifTextBox, -25 );
 			}
 			else if ( !SharedMethods.IsNumeric( NifTextBox.Text ) )
 			{
 				e.Cancel = true;
-				//NifTextBox.Focus( );
 				ErrorProvider.SetError( NifTextBox, Resources.ErrorNifOnlyDigits );
 				ErrorProvider.SetIconPadding( NifTextBox, -25 );
 			}
 			else if ( NifTextBox.Text.Length < 9 || NifTextBox.Text.Length > 9 )
 			{
 				e.Cancel = true;
-				//NifTextBox.Focus( );
 				ErrorProvider.SetError( NifTextBox, Resources.ErrorNifNineDigits );
 				ErrorProvider.SetIconPadding( NifTextBox, -25 );
 			}
@@ -181,7 +114,6 @@ namespace Tourist.Server.Forms
 			if ( string.IsNullOrEmpty( AddressTextBox.Text ) )
 			{
 				e.Cancel = true;
-				//AddressTextBox.Focus( );
 				ErrorProvider.SetError( AddressTextBox, Resources.ErrorAddressEmpty );
 				ErrorProvider.SetIconPadding( AddressTextBox, -25 );
 			}
@@ -197,14 +129,12 @@ namespace Tourist.Server.Forms
 			if ( string.IsNullOrEmpty( PhoneTextBox.Text ) )
 			{
 				e.Cancel = true;
-				//PhoneTextBox.Focus( );
 				ErrorProvider.SetError( PhoneTextBox, Resources.ErrorPhoneEmpty );
 				ErrorProvider.SetIconPadding( PhoneTextBox, -25 );
 			}
 			else if ( !SharedMethods.IsNumeric( PhoneTextBox.Text ) )
 			{
 				e.Cancel = true;
-				//PhoneTextBox.Focus( );
 				ErrorProvider.SetError( PhoneTextBox, Resources.ErrorPhoneOnlyDigits );
 				ErrorProvider.SetIconPadding( PhoneTextBox, -25 );
 			}
@@ -220,14 +150,12 @@ namespace Tourist.Server.Forms
 			if ( string.IsNullOrEmpty( EmailTextBox.Text ) )
 			{
 				e.Cancel = true;
-				//EmailTextBox.Focus( );
 				ErrorProvider.SetError( EmailTextBox, Resources.ErrorEmailEmpty );
 				ErrorProvider.SetIconPadding( EmailTextBox, -25 );
 			}
 			else if ( !SharedMethods.IsEmailValid( EmailTextBox.Text ) )
 			{
 				e.Cancel = true;
-				//EmailTextBox.Focus( );
 				ErrorProvider.SetError( EmailTextBox, Resources.ErrorEmailNotValid );
 				ErrorProvider.SetIconPadding( EmailTextBox, -25 );
 			}
@@ -237,10 +165,6 @@ namespace Tourist.Server.Forms
 				ErrorProvider.SetError( EmailTextBox, "" );
 			}
 		}
-
-		#endregion
-
-		#region Close Events
 
 		protected override void OnFormClosing( FormClosingEventArgs e )
 		{
@@ -292,6 +216,69 @@ namespace Tourist.Server.Forms
 				MessageBox.Show( this, Resources.InformationDataNotComplete,
 								Resources.DataEmptyOrNotComplete, MessageBoxButtons.OK, MessageBoxIcon.Information );
 			}
+		}
+
+		#endregion
+
+		#region Private Methods
+
+		private void LoadEntityData( )
+		{
+			if ( Repository.IsEmpty( "Entity" ) )
+				return;
+
+			var entity = Repository.MData.Entity;
+			LogoPictureBox.Image = SharedMethods.ByteArrayToImage( entity.LogoBuffer );
+			NameTextBox.Text = entity.Name;
+			TypeComboBox.Text = entity.EntityType.ToString( );
+			NifTextBox.Text = entity.Nif.ToString( );
+			AddressTextBox.Text = entity.Address;
+			PhoneTextBox.Text = entity.Phone.ToString( );
+			EmailTextBox.Text = entity.Email;
+
+			ControlsToReadOnly( false );
+		}
+
+		private void SelectDefaultType( )
+		{
+			TypeComboBox.Text = TypeComboBox.Items[ 0 ].ToString( );
+		}
+
+		private void SaveEntityData( )
+		{
+
+			if ( LogoPictureBox.Image == null )
+			{
+				LogoPictureBox.Image = new Bitmap( Properties.Resources.NoImage );
+			}
+
+			var imageBuffer = SharedMethods.ImageToByteArray( LogoPictureBox.Image );
+			var entityType = ( EntityType ) SharedMethods.ConvertStringToEnum( TypeComboBox.Text, "EntityType" );
+			var entityName = NameTextBox.Text;
+			var entityNif = Convert.ToInt32( NifTextBox.Text );
+			var entityAddress = AddressTextBox.Text;
+			var entityPhone = Convert.ToInt32( PhoneTextBox.Text );
+			var entityEmail = EmailTextBox.Text;
+
+			Repository.SetEntity( imageBuffer, entityType, entityName, entityNif,
+																				entityAddress, entityPhone, entityEmail );
+			Repository.Save( Repository.FileName );
+
+			MessageBox.Show( this, Resources.InformationSaved, Resources.OperationSucessfull,
+																		MessageBoxButtons.OK, MessageBoxIcon.Information );
+		}
+
+		private void ControlsToReadOnly( bool aBool )
+		{
+			NameTextBox.ReadOnly = aBool;
+			TypeComboBox.Enabled = aBool;
+			NifTextBox.ReadOnly = aBool;
+			AddressTextBox.ReadOnly = aBool;
+			PhoneTextBox.ReadOnly = aBool;
+			EmailTextBox.ReadOnly = aBool;
+			SaveButton.Enabled = aBool;
+			EditButton.Enabled = !aBool;
+			LogoPictureBox.Enabled = aBool;
 		}
 
 		#endregion

@@ -29,61 +29,61 @@ namespace Tourist.Data.Classes
 		public int Id
 		{
 			get { return mNumber; }
-			set { mNumber = value; Notify( "Id" ); }
+			set { mNumber = value;  }
 		}
 
 		public string FirstName
 		{
 			get { return mFirstName; }
-			set { mFirstName = value; Notify( "FirstName" ); }
+			set { mFirstName = value;  }
 		}
 
 		public string LastName
 		{
 			get { return mLastName; }
-			set { mLastName = value; Notify( "LastName" ); }
+			set { mLastName = value;  }
 		}
 
 		public string Nationality
 		{
 			get { return mNationality; }
-			set { mNationality = value; Notify( "Nationality" ); }
+			set { mNationality = value; }
 		}
 
 		public DateTime BirthDate
 		{
 			get { return mBirthDate; }
-			set { mBirthDate = value; Notify( "BirthDate" ); }
+			set { mBirthDate = value;  }
 		}
 
 		public Gender Gender
 		{
 			get { return mGender; }
-			set { mGender = value; Notify( "Gender" ); }
+			set { mGender = value;  }
 		}
 
 		public int Nif
 		{
 			get { return mNif; }
-			set { mNif = value; Notify( "Nif" ); }
+			set { mNif = value;  }
 		}
 
 		public string Address
 		{
 			get { return mAddress; }
-			set { mAddress = value; Notify( "Address" ); }
+			set { mAddress = value;  }
 		}
 
 		public int Phone
 		{
 			get { return mPhoneNumber; }
-			set { mPhoneNumber = value; Notify( "Phone" ); }
+			set { mPhoneNumber = value;  }
 		}
 
 		public string Email
 		{
 			get { return mEmail; }
-			set { mEmail = value; Notify( "Email" ); }
+			set { mEmail = value;  }
 		}
 
 		#endregion
@@ -98,16 +98,7 @@ namespace Tourist.Data.Classes
 
 		#endregion
 
-		#region ISubject Observer
-
-		public event UpdateEventHandler OnUpdate;
-
-		public void Notify( string aPropertie = null )
-		{
-			if ( OnUpdate != null ) OnUpdate( this, aPropertie );
-		}
-
-		#endregion
+	
 
 	}
 }

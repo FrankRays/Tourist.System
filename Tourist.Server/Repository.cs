@@ -3,7 +3,6 @@ using System.Globalization;
 using System.Linq;
 using Tourist.Data.Classes;
 using Tourist.Data.Enums;
-using Tourist.Data.Interfaces;
 using Tourist.Data.Shared;
 
 namespace Tourist.Server
@@ -30,13 +29,14 @@ namespace Tourist.Server
 
 		#endregion
 
+		//Made Factory Static 
 		#region Factory
 
-		private readonly Factory mFactory = new Factory( );
+		private static readonly Factory mFactory = new Factory( );
 
 		public readonly string FileName = @"..\..\Repository.xml";
 
-		public Factory Factory
+		public static Factory Factory
 		{
 			get { return mFactory; }
 		}
@@ -45,6 +45,23 @@ namespace Tourist.Server
 		{
 			if ( Factory == null ) return null;
 			return Factory.GetTypes( );
+		}
+
+		#endregion
+
+		#region Login Session
+
+		private static readonly Session mServerLoginSession = Factory.CreateObject<Session>( );
+		private static readonly Session mClientLoginSession = Factory.CreateObject<Session>( );
+
+		public static Session ServerLoginSession
+		{
+			get { return mServerLoginSession; }
+		}
+
+		public static Session ClientLoginSession
+		{
+			get { return mClientLoginSession; }
 		}
 
 		#endregion
@@ -140,9 +157,9 @@ namespace Tourist.Server
 					{
 						if ( manager.Username.Equals( aUsername ) && manager.Password.Equals( aPassword ) )
 						{
-							LoginInfoServer.Id = manager.Id;
-							LoginInfoServer.Username = aUsername;
-							LoginInfoServer.Password = aPassword;
+							ServerLoginSession.Id = manager.Id;
+							ServerLoginSession.Username = aUsername;
+							ServerLoginSession.Password = aPassword;
 							return true;
 						}
 					}
@@ -152,9 +169,9 @@ namespace Tourist.Server
 					{
 						if ( employer.Username.Equals( aUsername ) && employer.Password.Equals( aPassword ) )
 						{
-							LoginInfoClient.Id = employer.Id;
-							LoginInfoClient.Username = aUsername;
-							LoginInfoClient.Password = aPassword;
+							ClientLoginSession.Id = employer.Id;
+							ClientLoginSession.Username = aUsername;
+							ClientLoginSession.Password = aPassword;
 							return true;
 						}
 					}
@@ -163,6 +180,9 @@ namespace Tourist.Server
 					return false;
 			}
 		}
+
+		public bool RefreshGrid { get; set; }
+
 		#endregion
 
 		#region LoadDataToForm Methods
@@ -454,6 +474,7 @@ namespace Tourist.Server
 					if ( mData.Clients.Contains( aObject as Client ) ) return;
 					mData.Clients.Add( aObject as Client );
 					Save( FileName );
+					RefreshGrid = true;
 					return;
 				case "Rooms":
 					if ( mData.Rooms.Contains( aObject as Room ) ) return;
@@ -485,7 +506,6 @@ namespace Tourist.Server
 			}
 
 		}
-
 
 		public void Remove( object aObject, string aList )
 		{
@@ -530,6 +550,8 @@ namespace Tourist.Server
 					return;
 			}
 		}
+
+
 
 		/*
 		public void Remove( int aId, string aList )
@@ -616,6 +638,7 @@ namespace Tourist.Server
 					{
 						mData.Clients.RemoveAt( aIndex );
 						Save( FileName );
+						RefreshGrid = true;
 						return;
 					}
 					return;

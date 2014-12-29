@@ -98,8 +98,7 @@ namespace Tourist.Server.Forms
 
 				if (Repository.CheckLogin(UsernameTextBox.Text, PasswordTextBox.Text, "Server"))
 				{
-					//entra
-					MessageBox.Show( "Welcome " + LoginInfoServer.Username + " !", "Login Successful !!!", MessageBoxButtons.OK, MessageBoxIcon.Information );
+					MessageBox.Show( "Welcome " + Repository.ServerLoginSession.Username + " !", "Login Successful !!!", MessageBoxButtons.OK, MessageBoxIcon.Information );
 					Hide( );
 					mMainForm.Show();
 				}
