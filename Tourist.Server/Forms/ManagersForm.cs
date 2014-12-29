@@ -15,8 +15,6 @@ namespace Tourist.Server.Forms
 	public partial class ManagersForm : MetroForm
 	{
 
-		// Hardcoded strings need to move them to the strings file 
-
 		#region Fields
 
 		private readonly Repository Repository = Repository.Instance;
@@ -66,8 +64,8 @@ namespace Tourist.Server.Forms
 				{
 					var rowValues = SharedMethods.RowCellValues( row );
 					AddToRepository( rowValues );
-					MessageBox.Show( this, "Manager Added With Sucess !!!", "Operation Sucessfull",
-																			MessageBoxButtons.OK, MessageBoxIcon.Information );
+					MessageBox.Show( this, Properties.Resources.ManagerString + Properties.Resources.AddString, 
+						Properties.Resources.OperationSucessfull,MessageBoxButtons.OK, MessageBoxIcon.Information );
 				}
 				else
 				{
@@ -78,68 +76,68 @@ namespace Tourist.Server.Forms
 						//FirstName
 						case 1:
 							Repository.Edit( "Manager", managerId, "FirstName", aNewValue );
-							MessageBox.Show( this, "Manager First Name Edited With Sucess !!!",
-											"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.ManagerString + Properties.Resources.FirstNameEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//LastName	
 						case 2:
 							Repository.Edit( "Manager", managerId, "LastName", aNewValue );
-							MessageBox.Show( this, "Manager Last Name Edited With Sucess !!!",
-											"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.ManagerString + Properties.Resources.LastNameEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Gender	
 						case 3:
 							Repository.Edit( "Manager", managerId, "Gender", aNewValue );
-							MessageBox.Show( this, "Manager Gender Edited With Sucess !!!",
-											"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.ManagerString + Properties.Resources.GenderEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Nationality
 						case 4:
 							Repository.Edit( "Manager", managerId, "Nationality", aNewValue );
-							MessageBox.Show( this, "Manager Nationality Edited With Sucess !!!",
-											"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.ManagerString + Properties.Resources.NationalityEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//BirthDate
 						case 5:
 							Repository.Edit( "Manager", managerId, "BirthDate", aNewValue );
-							MessageBox.Show( this, "Manager Birth Date Edited With Sucess !!!",
-											"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.ManagerString + Properties.Resources.BirthDateEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Nif
 						case 6:
 							Repository.Edit( "Manager", managerId, "Nif", aNewValue );
-							MessageBox.Show( this, "Manager Nif Edited With Sucess !!!",
-											"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.ManagerString + Properties.Resources.NifEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Address
 						case 7:
 							Repository.Edit( "Manager", managerId, "Address", aNewValue );
-							MessageBox.Show( this, "Manager Address Edited With Sucess !!!",
-											"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.ManagerString + Properties.Resources.AddressEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Phone
 						case 8:
 							Repository.Edit( "Manager", managerId, "Phone", aNewValue );
-							MessageBox.Show( this, "Manager Phone Edited With Sucess !!!",
-											"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.ManagerString + Properties.Resources.PhoneEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Email
 						case 9:
 							Repository.Edit( "Manager", managerId, "Email", aNewValue );
-							MessageBox.Show( this, "Manager Email Edited With Sucess !!!",
-											"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.ManagerString + Properties.Resources.EmailEdited,
+											Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Username
 						case 10:
 							Repository.Edit( "Manager", managerId, "Username", aNewValue );
-							MessageBox.Show( this, "Manager Username Edited With Sucess !!!",
-											"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.ManagerString + Properties.Resources.UsernameEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Password
 						case 11:
 							Repository.Edit( "Manager", managerId, "Password", aNewValue );
-							MessageBox.Show( this, "Manager Password Edited With Sucess !!!",
-											"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.ManagerString + Properties.Resources.PasswordEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						default:
 							return;
@@ -154,8 +152,7 @@ namespace Tourist.Server.Forms
 
 			var managerToRemove = ( IManager ) Repository.GetObject( removeIndex, "Managers" );
 
-			DialogResult dialog = MessageBox.Show( this, "Are you sure you want to remove manager at row number " +
-							   ( e.RowIndex + 1 ) + " ?", "Operation Sucessfull", MessageBoxButtons.YesNo, MessageBoxIcon.Information );
+			DialogResult dialog = MessageBox.Show( this, Properties.Resources.RemoveString, Properties.Resources.RemoveTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Information );
 
 			if ( dialog == DialogResult.No )
 				return;
@@ -209,8 +206,8 @@ namespace Tourist.Server.Forms
 
 			base.OnFormClosing( e );
 
-			var dialogResult = MessageBox.Show( this, "\n Are you sure you want to exit the application?",
-													"Close Button Pressed", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
+			var dialogResult = MessageBox.Show( this, Properties.Resources.ExitMessage,
+			Properties.Resources.ExitMessageTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
 
 			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
 
@@ -242,8 +239,8 @@ namespace Tourist.Server.Forms
 			}
 			else
 			{
-				MessageBox.Show( this, "\n Please insert a complete row before going to next Screen.",
-						"Manager Data Empty or Not complete!!! ", MessageBoxButtons.OK, MessageBoxIcon.Information );
+				MessageBox.Show( this, Properties.Resources.CompleteRow,Properties.Resources.CompleteRowTitle, 
+				MessageBoxButtons.OK, MessageBoxIcon.Information );
 			}
 		}
 

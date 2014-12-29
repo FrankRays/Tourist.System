@@ -249,7 +249,7 @@ namespace Tourist.Server.Forms
 
 			if ( LogoPictureBox.Image == null )
 			{
-				LogoPictureBox.Image = new Bitmap( Properties.Resources.NoImage );
+				LogoPictureBox.Image = new Bitmap( Resources.NoImage );
 			}
 
 			var imageBuffer = SharedMethods.ImageToByteArray( LogoPictureBox.Image );

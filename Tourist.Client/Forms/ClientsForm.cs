@@ -16,8 +16,6 @@ namespace Tourist.Client.Forms
 	public partial class ClientsForm : MetroForm
 	{
 
-		// Hardcoded strings need to move them to the strings file 
-	
 		#region Fields
 
 		private readonly IRemote Remote;
@@ -68,8 +66,8 @@ namespace Tourist.Client.Forms
 				{
 					var rowValues = SharedMethods.RowCellValues( row );
 					AddToRepository( rowValues );
-					MessageBox.Show( this, "Client Added With Sucess !!!", "Operation Sucessfull",
-																MessageBoxButtons.OK, MessageBoxIcon.Information );
+					MessageBox.Show( this, Properties.Resources.ClientString + Properties.Resources.AddString,
+					Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 				}
 				else
 				{
@@ -80,56 +78,56 @@ namespace Tourist.Client.Forms
 						//FirstName
 						case 1:
 							Remote.Edit( "Client", clientId, "FirstName", aNewValue );
-							MessageBox.Show( this, "Client First Name Edited With Sucess !!!",
-										"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.ClientString + Properties.Resources.FirstNameEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//LastName	
 						case 2:
 							Remote.Edit( "Client", clientId, "LastName", aNewValue );
-							MessageBox.Show( this, "Client Last Name Edited With Sucess !!!",
-										"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.ClientString + Properties.Resources.LastNameEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Gender	
 						case 3:
 							Remote.Edit( "Client", clientId, "Gender", aNewValue );
-							MessageBox.Show( this, "Client Gender Edited With Sucess !!!",
-										"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.ClientString + Properties.Resources.GenderEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Nationality
 						case 4:
 							Remote.Edit( "Client", clientId, "Nationality", aNewValue );
-							MessageBox.Show( this, "Client Nationality Edited With Sucess !!!",
-										"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.ClientString + Properties.Resources.NationalityEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//BirthDate
 						case 5:
 							Remote.Edit( "Client", clientId, "BirthDate", aNewValue );
-							MessageBox.Show( this, "Client Birth Date Edited With Sucess !!!",
-										"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.ClientString + Properties.Resources.BirthDateEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Nif
 						case 6:
 							Remote.Edit( "Client", clientId, "Nif", aNewValue );
-							MessageBox.Show( this, "Client Nif Edited With Sucess !!!",
-										"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.ClientString + Properties.Resources.NifEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Address
 						case 7:
 							Remote.Edit( "Client", clientId, "Address", aNewValue );
-							MessageBox.Show( this, "Client Address Edited With Sucess !!!",
-										"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.ClientString + Properties.Resources.AddressEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Phone
 						case 8:
 							Remote.Edit( "Client", clientId, "Phone", aNewValue );
-							MessageBox.Show( this, "Client Phone Edited With Sucess !!!",
-										"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.ClientString + Properties.Resources.PhoneEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Email
 						case 9:
 							Remote.Edit( "Client", clientId, "Email", aNewValue );
-							MessageBox.Show( this, "Client Email Edited With Sucess !!!",
-										"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.ClientString + Properties.Resources.EmailEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						default:
 							return;
@@ -141,8 +139,8 @@ namespace Tourist.Client.Forms
 		private void ClientsDataGrid_RowRemoved( object sender, DataGridViewRowsRemovedEventArgs e )
 		{
 
-			var dialog = MessageBox.Show( this, "Are you sure you want to remove client at row number " +
-			( e.RowIndex + 1 ) + " ?", "Operation Sucessfull", MessageBoxButtons.YesNo, MessageBoxIcon.Information );
+			var dialog = MessageBox.Show( this, Properties.Resources.RemoveString,
+			Properties.Resources.RemoveTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Information );
 
 			if ( dialog == DialogResult.No )
 				return;
@@ -197,8 +195,8 @@ namespace Tourist.Client.Forms
 
 			base.OnFormClosing( e );
 
-			var dialogResult = MetroMessageBox.Show( this, "\n Are you sure you want to exit the application?",
-				"Close Button Pressed", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
+			var dialogResult = MetroMessageBox.Show( this, Properties.Resources.ExitMessage,
+			Properties.Resources.ExitMessageTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
 
 			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
 

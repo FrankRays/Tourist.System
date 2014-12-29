@@ -271,8 +271,8 @@ namespace Tourist.Server.Forms
 				{
 					var rowValues = SharedMethods.RowCellValues( row );
 					AddToRepository( rowValues, "Room" );
-					MessageBox.Show( this, "Room Added With Sucess !!!", "Operation Sucessfull",
-																			MessageBoxButtons.OK, MessageBoxIcon.Information );
+					MessageBox.Show( this, Properties.Resources.RoomString + Properties.Resources.AddString, 
+					Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 				}
 				else
 				{
@@ -283,20 +283,20 @@ namespace Tourist.Server.Forms
 							Repository.Edit( "Room", roomId, "Type", aNewValue );
 							Repository.Edit( "Room", roomId, "Capacity", RoomDataGrid[ "R_CapacityColumn", e.RowIndex ].Value.ToString( ) );
 							Repository.Edit( "Room", roomId, "Price", RoomDataGrid[ "R_PriceColumn", e.RowIndex ].Value.ToString( ) );
-							MessageBox.Show( this, "Room Type edited With Sucess !!!",
-															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.RoomString + Properties.Resources.TypeEditedString,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//state
 						case 2:
 							Repository.Edit( "Room", roomId, "State", aNewValue );
-							MessageBox.Show( this, "Room State Edited With Sucess !!!",
-															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.RoomString + Properties.Resources.StateEditedString,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Description
 						case 3:
 							Repository.Edit( "Room", roomId, "Description", aNewValue );
-							MessageBox.Show( this, "Room description edited With Sucess !!!",
-															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.RoomString + Properties.Resources.DescriptionEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						default:
 							return;
@@ -304,15 +304,16 @@ namespace Tourist.Server.Forms
 				}
 			}
 		}
-
+		
+		// falta atualizar para a novo metodo remove do repositorio
 		private void RoomsDataGrid_RowRemoved( object sender, DataGridViewRowsRemovedEventArgs e )
 		{
 			var removeIndex = e.RowIndex;
 
 			var roomToRemove = ( IBookable ) Repository.GetObject( removeIndex, "Rooms" );
 
-			DialogResult dialog = MessageBox.Show( this, "Are you sure you want to remove room at row number " +
-							   ( e.RowIndex + 1 ) + " ?", "Operation Sucessfull", MessageBoxButtons.YesNo, MessageBoxIcon.Information );
+			DialogResult dialog = MessageBox.Show( this, Properties.Resources.RemoveString,
+					Properties.Resources.RemoveTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Information );
 
 			if ( dialog == DialogResult.No )
 				return;
@@ -359,8 +360,8 @@ namespace Tourist.Server.Forms
 				{
 					var rowValues = SharedMethods.RowCellValues( row );
 					AddToRepository( rowValues, "Activity" );
-					MessageBox.Show( this, "Activity Added With Sucess !!!", "Operation Sucessfull",
-																			MessageBoxButtons.OK, MessageBoxIcon.Information );
+					MessageBox.Show( this, Properties.Resources.ActivityString + Properties.Resources.AddString,
+					Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 				}
 				else
 				{
@@ -371,20 +372,20 @@ namespace Tourist.Server.Forms
 							Repository.Edit( "Activity", activityId, "Type", aNewValue );
 							Repository.Edit( "Activity", activityId, "Capacity", ActivitiesDataGrid[ "A_CapacityColumn", e.RowIndex ].Value.ToString( ) );
 							Repository.Edit( "Activity", activityId, "Price", ActivitiesDataGrid[ "A_PriceColumn", e.RowIndex ].Value.ToString( ) );
-							MessageBox.Show( this, "Activity Type edited With Sucess !!!",
-															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.ActivityString + Properties.Resources.TypeEditedString,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//state
 						case 2:
 							Repository.Edit( "Activity", activityId, "State", aNewValue );
-							MessageBox.Show( this, "Activity State Edited With Sucess !!!",
-															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.ActivityString + Properties.Resources.StateEditedString,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Description
 						case 3:
 							Repository.Edit( "Activity", activityId, "Description", aNewValue );
-							MessageBox.Show( this, "Activity description edited With Sucess !!!",
-															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.ActivityString + Properties.Resources.DescriptionEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						default:
 							return;
@@ -399,8 +400,8 @@ namespace Tourist.Server.Forms
 
 			var activityToRemove = ( IBookable ) Repository.GetObject( removeIndex, "Activities" );
 
-			DialogResult dialog = MessageBox.Show( this, "Are you sure you want to remove activity at row number " +
-							   ( e.RowIndex + 1 ) + " ?", "Operation Sucessfull", MessageBoxButtons.YesNo, MessageBoxIcon.Information );
+			DialogResult dialog = MessageBox.Show( this, Properties.Resources.RemoveString,
+			Properties.Resources.RemoveTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Information );
 
 			if ( dialog == DialogResult.No )
 				return;
@@ -447,8 +448,8 @@ namespace Tourist.Server.Forms
 				{
 					var rowValues = SharedMethods.RowCellValues( row );
 					AddToRepository( rowValues, "Transport" );
-					MessageBox.Show( this, "Transport Added With Sucess !!!", "Operation Sucessfull",
-																			MessageBoxButtons.OK, MessageBoxIcon.Information );
+					MessageBox.Show( this, Properties.Resources.TransportString + Properties.Resources.AddString,
+					Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 				}
 				else
 				{
@@ -459,20 +460,20 @@ namespace Tourist.Server.Forms
 							Repository.Edit( "Transport", transportId, "Type", aNewValue );
 							Repository.Edit( "Transport", transportId, "Capacity", TransportsDataGrid[ "T_CapacityColumn", e.RowIndex ].Value.ToString( ) );
 							Repository.Edit( "Transport", transportId, "Price", TransportsDataGrid[ "T_PriceColumn", e.RowIndex ].Value.ToString( ) );
-							MessageBox.Show( this, "Transport Type edited With Sucess !!!",
-															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.TransportString + Properties.Resources.TypeEditedString,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//state
 						case 4:
 							Repository.Edit( "Transport", transportId, "StartDate", aNewValue );
-							MessageBox.Show( this, "Transport State Edited With Sucess !!!",
-															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.TransportString + Properties.Resources.StateEditedString,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Description
 						case 3:
 							Repository.Edit( "Transport", transportId, "Description", aNewValue );
-							MessageBox.Show( this, "Transport description edited With Sucess !!!",
-															"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.TransportString + Properties.Resources.DescriptionEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						default:
 							return;
@@ -487,8 +488,8 @@ namespace Tourist.Server.Forms
 
 			var transportToRemove = ( IBookable ) Repository.GetObject( removeIndex, "Transports" );
 
-			DialogResult dialog = MessageBox.Show( this, "Are you sure you want to remove transport at row number " +
-							   ( e.RowIndex + 1 ) + " ?", "Operation Sucessfull", MessageBoxButtons.YesNo, MessageBoxIcon.Information );
+			DialogResult dialog = MessageBox.Show( this, Properties.Resources.RemoveString,
+			Properties.Resources.RemoveTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Information );
 
 			if ( dialog == DialogResult.No )
 				return;
@@ -516,8 +517,8 @@ namespace Tourist.Server.Forms
 
 			base.OnFormClosing( e );
 
-			var dialogResult = MessageBox.Show( this, "\n Are you sure you want to exit the application?",
-				"Close Button Pressed", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
+			var dialogResult = MessageBox.Show( this, Properties.Resources.ExitMessage,
+				Properties.Resources.ExitMessageTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
 
 			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
 

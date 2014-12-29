@@ -230,7 +230,7 @@
     <value>Are you sure you want to exit the application?</value>
   </data>
   <data name="ExitMessageTitle" xml:space="preserve">
-    <value>Closed Button Pressed</value>
+    <value>Exit Button Pressed !!!</value>
   </data>
   <data name="InformationDataNotComplete" xml:space="preserve">
     <value>Please insert all required fields to proceed.</value>
@@ -264,5 +264,83 @@
   </data>
   <data name="UsernameEmpty" xml:space="preserve">
     <value>Error the username field can't be empty.</value>
+  </data>
+  <data name="ActivityString" xml:space="preserve">
+    <value>Activity</value>
+  </data>
+  <data name="AddressEdited" xml:space="preserve">
+    <value> AddressEdited With Sucess !!!</value>
+  </data>
+  <data name="AddString" xml:space="preserve">
+    <value> Added With Sucess !!!</value>
+  </data>
+  <data name="BirthDateEdited" xml:space="preserve">
+    <value> BithDate Edited With Sucess !!!</value>
+  </data>
+  <data name="ClientString" xml:space="preserve">
+    <value> Client</value>
+  </data>
+  <data name="CompleteRow" xml:space="preserve">
+    <value>Please insert a complete row before going to next Screen.</value>
+  </data>
+  <data name="CompleteRowTitle" xml:space="preserve">
+    <value>Data Empty or Not complete </value>
+  </data>
+  <data name="DescriptionEdited" xml:space="preserve">
+    <value> Description Edited WIth Sucess !!!</value>
+  </data>
+  <data name="EmailEdited" xml:space="preserve">
+    <value> Email Edited With Sucess !!!</value>
+  </data>
+  <data name="EmployerString" xml:space="preserve">
+    <value>Employer</value>
+  </data>
+  <data name="FirstNameEdited" xml:space="preserve">
+    <value> First Name Edited With Sucess !!!</value>
+  </data>
+  <data name="GenderEdited" xml:space="preserve">
+    <value> Gender Edited With Sucess !!!</value>
+  </data>
+  <data name="LastNameEdited" xml:space="preserve">
+    <value> Last Name Edited With Sucess !!!</value>
+  </data>
+  <data name="ManagerString" xml:space="preserve">
+    <value>Manager</value>
+  </data>
+  <data name="NationalityEdited" xml:space="preserve">
+    <value> Nationality Edited With Sucess !!!</value>
+  </data>
+  <data name="NifEdited" xml:space="preserve">
+    <value> Nif Edited With Sucess !!!</value>
+  </data>
+  <data name="PasswordEdited" xml:space="preserve">
+    <value> Password Edited With Sucess !!!</value>
+  </data>
+  <data name="PhoneEdited" xml:space="preserve">
+    <value> Phone Edited With Sucess !!!</value>
+  </data>
+  <data name="RemoveString" xml:space="preserve">
+    <value>Are you sure you want to remove the row selected ?</value>
+  </data>
+  <data name="RemoveTitle" xml:space="preserve">
+    <value>Remove Operation </value>
+  </data>
+  <data name="RoomString" xml:space="preserve">
+    <value>Room</value>
+  </data>
+  <data name="StateEditedString" xml:space="preserve">
+    <value> State Edited With Sucess !!!</value>
+  </data>
+  <data name="TransportString" xml:space="preserve">
+    <value>Transport</value>
+  </data>
+  <data name="TypeEditedString" xml:space="preserve">
+    <value> Type Edited With Sucess !!!</value>
+  </data>
+  <data name="UsernameEdited" xml:space="preserve">
+    <value> Username Edited With Sucess !!!</value>
+  </data>
+  <data name="WelcomeString" xml:space="preserve">
+    <value>Welcome </value>
   </data>
 </root>

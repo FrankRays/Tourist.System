@@ -114,7 +114,7 @@ namespace Tourist.Client.Forms
 				if ( Remote.CheckLogin( UsernameTextBox.Text, PasswordTextBox.Text, "Client" ) )
 				{
 					//entra
-					MessageBox.Show( Resources.LoginSucessfullMessage + " " + Remote.ClientLoginSession.Username,
+					MessageBox.Show( Resources.LoginSucessfullMessage + Remote.ClientLoginSession.Username,
 								Resources.LoginSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 					Hide( );
 					mMainForm.Show( );

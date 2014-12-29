@@ -15,8 +15,6 @@ namespace Tourist.Server.Forms
 	public partial class EmployersForm : MetroForm
 	{
 
-		// Hardcoded strings need to move them to the strings file 
-
 		#region Fields
 
 		private readonly Repository Repository = Repository.Instance;
@@ -66,8 +64,8 @@ namespace Tourist.Server.Forms
 				{
 					var rowValues = SharedMethods.RowCellValues( row );
 					AddToRepository( rowValues );
-					MessageBox.Show( this, "Employer Added With Sucess !!!", "Operation Sucessfull",
-																MessageBoxButtons.OK, MessageBoxIcon.Information );
+					MessageBox.Show( this, Properties.Resources.EmployerString + Properties.Resources.AddString, 
+					Properties.Resources.OperationSucessfull,MessageBoxButtons.OK, MessageBoxIcon.Information );
 				}
 				else
 				{
@@ -78,68 +76,68 @@ namespace Tourist.Server.Forms
 						//FirstName
 						case 1:
 							Repository.Edit( "Employer", managerId, "FirstName", aNewValue );
-							MessageBox.Show( this, "Employer First Name Edited With Sucess !!!",
-										"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.EmployerString + Properties.Resources.FirstNameEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//LastName	
 						case 2:
 							Repository.Edit( "Employer", managerId, "LastName", aNewValue );
-							MessageBox.Show( this, "Employer Last Name Edited With Sucess !!!",
-										"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.EmployerString + Properties.Resources.LastNameEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Gender	
 						case 3:
 							Repository.Edit( "Employer", managerId, "Gender", aNewValue );
-							MessageBox.Show( this, "Employer Gender Edited With Sucess !!!",
-										"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.EmployerString + Properties.Resources.GenderEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Nationality
 						case 4:
 							Repository.Edit( "Employer", managerId, "Nationality", aNewValue );
-							MessageBox.Show( this, "Employer Nationality Edited With Sucess !!!",
-										"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.EmployerString + Properties.Resources.NationalityEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//BirthDate
 						case 5:
 							Repository.Edit( "Employer", managerId, "BirthDate", aNewValue );
-							MessageBox.Show( this, "Employer Birth Date Edited With Sucess !!!",
-										"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.EmployerString + Properties.Resources.BirthDateEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Nif
 						case 6:
 							Repository.Edit( "Employer", managerId, "Nif", aNewValue );
-							MessageBox.Show( this, "Employer Nif Edited With Sucess !!!",
-										"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.EmployerString + Properties.Resources.NifEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Address
 						case 7:
 							Repository.Edit( "Employer", managerId, "Address", aNewValue );
-							MessageBox.Show( this, "Employer Address Edited With Sucess !!!",
-										"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.EmployerString + Properties.Resources.AddressEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Phone
 						case 8:
 							Repository.Edit( "Employer", managerId, "Phone", aNewValue );
-							MessageBox.Show( this, "Employer Phone Edited With Sucess !!!",
-										"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.EmployerString + Properties.Resources.PhoneEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Email
 						case 9:
 							Repository.Edit( "Employer", managerId, "Email", aNewValue );
-							MessageBox.Show( this, "Employer Email Edited With Sucess !!!",
-										"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.EmployerString + Properties.Resources.EmailEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Username
 						case 10:
 							Repository.Edit( "Employer", managerId, "Username", aNewValue );
-							MessageBox.Show( this, "Employer Username Edited With Sucess !!!",
-										"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.EmployerString + Properties.Resources.UsernameEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Password
 						case 11:
 							Repository.Edit( "Employer", managerId, "Password", aNewValue );
-							MessageBox.Show( this, "Employer Password Edited With Sucess !!!",
-										"Operation Sucessfull", MessageBoxButtons.OK, MessageBoxIcon.Information );
+							MessageBox.Show( this, Properties.Resources.EmployerString + Properties.Resources.PasswordEdited,
+							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						default:
 							return;
@@ -154,8 +152,8 @@ namespace Tourist.Server.Forms
 
 			var managerToRemove = ( IEmployer ) Repository.GetObject( removeIndex, "Employees" );
 
-			DialogResult dialog = MessageBox.Show( this, "Are you sure you want to remove employer at row number " +
-							   ( e.RowIndex + 1 ) + " ?", "Operation Sucessfull", MessageBoxButtons.YesNo, MessageBoxIcon.Information );
+			DialogResult dialog = MessageBox.Show( this, Properties.Resources.RemoveString, Properties.Resources.RemoveTitle, 
+			MessageBoxButtons.YesNo, MessageBoxIcon.Information );
 
 			if ( dialog == DialogResult.No )
 				return;
@@ -209,8 +207,8 @@ namespace Tourist.Server.Forms
 
 			base.OnFormClosing( e );
 
-			var dialogResult = MessageBox.Show( this, "\n Are you sure you want to exit the application?",
-				"Close Button Pressed", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
+			var dialogResult = MessageBox.Show( this, Properties.Resources.ExitMessage,
+				Properties.Resources.ExitMessageTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
 
 			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
 
@@ -231,8 +229,8 @@ namespace Tourist.Server.Forms
 			}
 			else
 			{
-				MessageBox.Show( this, "\n Please insert a complete row before going to next Screen.",
-								"Employer Data Empty or Not complete!!! ", MessageBoxButtons.OK, MessageBoxIcon.Information );
+				MessageBox.Show( this, Properties.Resources.CompleteRow, Properties.Resources.CompleteRowTitle, 
+				MessageBoxButtons.OK, MessageBoxIcon.Information );
 			}
 		}
 

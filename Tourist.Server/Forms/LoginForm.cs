@@ -11,7 +11,7 @@ namespace Tourist.Server.Forms
 		#region Fields
 
 		private readonly Repository Repository = Repository.Instance;
-		private MainForm mMainForm;
+		private readonly MainForm mMainForm;
 
 		#endregion
 
@@ -108,13 +108,15 @@ namespace Tourist.Server.Forms
 
 				if ( Repository.CheckLogin( UsernameTextBox.Text, PasswordTextBox.Text, "Server" ) )
 				{
-					MessageBox.Show( "Welcome " + Repository.ServerLoginSession.Username + " !", "Login Successful !!!", MessageBoxButtons.OK, MessageBoxIcon.Information );
+					MessageBox.Show( Properties.Resources.WelcomeString + Repository.ServerLoginSession.Username + 
+					" !", Properties.Resources.LoginSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 					Hide( );
 					mMainForm.Show( );
 				}
 				else
 				{
-					MessageBox.Show( "Error !!! Check your username or password.", "Login Error !!!", MessageBoxButtons.OK, MessageBoxIcon.Error );
+					MessageBox.Show( Properties.Resources.LoginErrorMessage,Properties.Resources.LoginError, 
+					MessageBoxButtons.OK, MessageBoxIcon.Error );
 				}
 			}
 		}
@@ -123,8 +125,8 @@ namespace Tourist.Server.Forms
 		{
 			base.OnFormClosing( e );
 
-			var dialogResult = MessageBox.Show( this, "\n Are you sure you want to exit the application?",
-				"Close Button Pressed", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
+			var dialogResult = MessageBox.Show( this, Properties.Resources.ExitMessage,
+			Properties.Resources.ExitMessageTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
 
 			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
 
