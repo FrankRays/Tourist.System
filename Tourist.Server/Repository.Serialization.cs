@@ -25,9 +25,20 @@ namespace Tourist.Server
 			[XmlElement( Order = 1 )]
 			public Entity Entity = new Entity( );
 
-			[XmlArray( ElementName = "BookingList", Order = 2 )]
+			[XmlArray( ElementName = "BookingsList", Order = 2 )]
 			public ObservableCollection<Booking> Bookings = new ObservableCollection<Booking>( );
+			
+			/*
+			[XmlIgnore]
+			public ObservableCollection<Booking> BookedRooms = new ObservableCollection<Booking>( );
 
+			[XmlIgnore]
+			public ObservableCollection<Booking> BookedActivities = new ObservableCollection<Booking>( );
+
+			[XmlIgnore]
+			public ObservableCollection<Booking> BookedTransports = new ObservableCollection<Booking>( );
+
+			*/
 			[XmlArray( ElementName = "ClientList", Order = 3 )]
 			public ObservableCollection<Client> Clients = new ObservableCollection<Client>( );
 

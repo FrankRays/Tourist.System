@@ -1,4 +1,5 @@
-﻿using Tourist.Data.Classes;
+﻿using System.Collections.Generic;
+using Tourist.Data.Classes;
 
 namespace Tourist.Data.Interfaces
 {
@@ -7,16 +8,24 @@ namespace Tourist.Data.Interfaces
 		bool ServerRunning( );
 		Factory Factory { get; }
 		Entity Entity { get; }
+		Session ClientLoginSession { get; }
 		int Count( string aList );
+		int CountBooked( string aType );
 		bool IsEmpty( string aList );
 		bool ExistingId( int aId, string aList );
 		bool CheckLogin( string aUsername, string aPassword, string aType );
-		Session ClientLoginSession { get; }
 		string[ , ] ListToMatrix( string aList );
+		string[ , ] ListToMatrix( string aList, string aType );
 		void Append( object aObject, string aList );
 		void Remove( int aIndex, string aList );
 		int GetId( int aIndex, string aList );
 		object GetObject( int aIndex, string aList );
+		Client GetClientByNif( int aNif );
+		IBookable GetBookable( string aType, int aId );
+		List<int> ClientsNifList( );
+		List<int> GetBooKablesIds( string aType, string aSubType );
+		double GetBasePrice( string aType );
+		string GetBookableDescription( int aId, string aType );
 		int NextId( string aType );
 		void Edit( string aType, int aId, string aPropertie, string aNewValue );
 	}

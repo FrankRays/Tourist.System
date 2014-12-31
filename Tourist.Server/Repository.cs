@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using Tourist.Data.Classes;
 using Tourist.Data.Enums;
+using Tourist.Data.Interfaces;
 using Tourist.Data.Shared;
 
 namespace Tourist.Server
@@ -90,6 +92,138 @@ namespace Tourist.Server
 					return 0;
 			}
 		}
+
+		public int CountBooked( string aType )
+		{
+			switch (aType)
+			{
+				case "Rooms":
+					return mData.Bookings.Count(booking => booking.Bookable is Room);
+				case "Activities":
+					return mData.Bookings.Count( booking => booking.Bookable is Activity );
+				case "Transports":
+					return mData.Bookings.Count( booking => booking.Bookable is Transport );
+				default:
+					return 0;
+			}
+		}
+
+		public List<int> GetBooKablesIds(string aType, string aSubType)
+		{
+			var temp = new List<int>();
+
+			if (aType.Equals("Room"))
+			{
+				switch (aSubType)
+				{
+					case "Single":
+						temp.AddRange(from room in mData.Rooms where room.Type.ToString().Equals(aSubType) select room.Id);
+						return temp;
+					case "DoubleSingle":
+						temp.AddRange(from room in mData.Rooms where room.Type.ToString().Equals(aSubType) select room.Id);
+						return temp;
+					case "Double":
+						temp.AddRange(from room in mData.Rooms where room.Type.ToString().Equals(aSubType) select room.Id);
+						return temp;
+					case "Suite":
+						temp.AddRange(from room in mData.Rooms where room.Type.ToString().Equals(aSubType) select room.Id);
+						return temp;
+					case "FamilySuite":
+						temp.AddRange(from room in mData.Rooms where room.Type.ToString().Equals(aSubType) select room.Id);
+						return temp;
+					case "Meeting":
+						temp.AddRange(from room in mData.Rooms where room.Type.ToString().Equals(aSubType) select room.Id);
+						return temp;
+					default:
+						return null;
+
+				}
+			}
+			if (aType.Equals("Activity"))
+			{
+				switch (aSubType)
+				{
+					case "BoatRide":
+						temp.AddRange(from activity in mData.Activities where activity.Type.ToString().Equals(aSubType) select activity.Id);
+						return temp;
+					case "Golf":
+						temp.AddRange(from activity in mData.Activities where activity.Type.ToString().Equals(aSubType) select activity.Id);
+						return temp;
+					case "Camping":
+						temp.AddRange(from activity in mData.Activities where activity.Type.ToString().Equals(aSubType) select activity.Id);
+						return temp;
+					case "Diving":
+						temp.AddRange(from activity in mData.Activities where activity.Type.ToString().Equals(aSubType) select activity.Id);
+						return temp;
+					case "SightSeeing":
+						temp.AddRange(from activity in mData.Activities where activity.Type.ToString().Equals(aSubType) select activity.Id);
+						return temp;
+					case "SkyDiving":
+						temp.AddRange(from activity in mData.Activities where activity.Type.ToString().Equals(aSubType) select activity.Id);
+						return temp;
+					default:
+						return null;
+
+				}
+			}
+			if ( aType.Equals( "Transport" ) )
+			{
+				switch ( aSubType )
+				{
+					case "TuckTuck":
+						temp.AddRange(from transport in mData.Transports where transport.Type.ToString().Equals(aSubType) select transport.Id);
+						return temp;
+					case "CableCar":
+						temp.AddRange(from transport in mData.Transports where transport.Type.ToString().Equals(aSubType) select transport.Id);
+						return temp;
+					case "Bicycle":
+						temp.AddRange(from transport in mData.Transports where transport.Type.ToString().Equals(aSubType) select transport.Id);
+						return temp;
+					case "Car":
+						temp.AddRange(from transport in mData.Transports where transport.Type.ToString().Equals(aSubType) select transport.Id);
+						return temp;
+					case "Bus":
+						temp.AddRange(from transport in mData.Transports where transport.Type.ToString().Equals(aSubType) select transport.Id);
+						return temp;
+					case "Motorist":
+						temp.AddRange(from transport in mData.Transports where transport.Type.ToString().Equals(aSubType) select transport.Id);
+						return temp;
+					default:
+						return null;
+
+				}
+			}
+
+			return temp;
+		}
+
+		public string GetBookableDescription(int aId, string aType)
+		{
+			switch (aType)
+			{
+				case "Room":
+					foreach (var room in mData.Rooms.Where(room => room.Id == aId))
+					{
+						return room.Description;
+					}
+					return "";
+				case "Activity":
+					foreach ( var activity in mData.Activities.Where( activity => activity.Id == aId ) )
+				{
+					return activity.Description;
+				}
+					return "";
+				case "Transport":
+					foreach ( var transport in mData.Transports.Where( transport => transport.Id == aId ) )
+				{
+					return transport.Description;
+				}
+					return "";
+				default:
+					return "";
+			}
+		}
+
 
 		public bool IsEmpty( string aList )
 		{
@@ -212,6 +346,128 @@ namespace Tourist.Server
 			return null;
 		}
 
+		public string[ , ] ListToMatrix( string aList, string aType )
+		{
+			if ( aList.Equals( "Bookings" ) )
+			{
+				var rowsCount = Count( "Bookings" );
+				const int columnsCount = 11;
+				var matrix = new string[ rowsCount, columnsCount ];
+
+				switch ( aList )
+				{
+					case "Room":
+						for ( var i = 0 ; i < rowsCount ; i++ )
+						{
+							for ( var j = 0 ; j < columnsCount ; )
+							{
+								if ( mData.Bookings.ElementAt( i ).Bookable is Room )
+								{
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Id.ToString( );
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Client.Nif.ToString( );
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Client.FirstName + " " +
+												   mData.Bookings.ElementAt( i ).Client.LastName;
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Type.ToString( );
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Id.ToString( );
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Description;
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Price.ToString( "0.00", CultureInfo.InvariantCulture );
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).BookingDate.ToString( "d" );
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).TimeFrame.StartDateTime.ToString( "d" );
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).TimeFrame.EndDateTime.ToString( "d" );
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).TotaPrice.ToString( "0.00", CultureInfo.InvariantCulture );
+									j++;
+								}
+							}
+						}
+						return matrix;
+					case "Activity":
+						for ( var i = 0 ; i < rowsCount ; i++ )
+						{
+							for ( var j = 0 ; j < columnsCount ; )
+							{
+								if ( mData.Bookings.ElementAt( i ).Bookable is Activity )
+								{
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Id.ToString( );
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Client.Nif.ToString( );
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Client.FirstName + " " +
+												   mData.Bookings.ElementAt( i ).Client.LastName;
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Type.ToString( );
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Id.ToString( );
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Description;
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Price.ToString( "0.00", CultureInfo.InvariantCulture );
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).BookingDate.ToString( "d" );
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).TimeFrame.StartDateTime.ToString( "d" );
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).TimeFrame.EndDateTime.ToString( "d" );
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).TotaPrice.ToString( "0.00", CultureInfo.InvariantCulture );
+									j++;
+								}
+							}
+						}
+						return matrix;
+					case "Transport":
+						for ( var i = 0 ; i < rowsCount ; i++ )
+						{
+							for ( var j = 0 ; j < columnsCount ; )
+							{
+								if ( mData.Bookings.ElementAt( i ).Bookable is Transport )
+								{
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Id.ToString( );
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Client.Nif.ToString( );
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Client.FirstName + " " +
+												   mData.Bookings.ElementAt( i ).Client.LastName;
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Type.ToString( );
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Id.ToString( );
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Description;
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Price.ToString( "0.00", CultureInfo.InvariantCulture );
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).BookingDate.ToString( "d" );
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).TimeFrame.StartDateTime.ToString( "d" );
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).TimeFrame.EndDateTime.ToString( "d" );
+									j++;
+									matrix[ i, j ] = mData.Bookings.ElementAt( i ).TotaPrice.ToString( "0.00", CultureInfo.InvariantCulture );
+									j++;
+								}
+							}
+						}
+						return matrix;
+					default:
+						return null;
+				}
+
+			}
+
+			return null;
+		}
+
+
 		private int ObjectNumberOfProperties( string aType )
 		{
 			switch ( aType )
@@ -233,93 +489,6 @@ namespace Tourist.Server
 				default:
 					return 0;
 			}
-		}
-
-		private string[ , ] ListToMatrixBookings( )
-		{
-			int rowsCount = Count( "Bookings" );
-			int columnsCount = ObjectNumberOfProperties( "Bookings" );
-
-			var matrix = new string[ rowsCount, columnsCount ];
-
-			for ( var i = 0 ; i < rowsCount ; i++ )
-			{
-				for ( var j = 0 ; j < columnsCount ; )
-				{
-					if (mData.Bookings.ElementAt(i).Bookable is Room)
-					{
-
-						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Id.ToString( );
-						j++;
-						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Client.Nif.ToString( );
-						j++;
-						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Client.FirstName + " " + mData.Bookings.ElementAt( i ).Client.LastName;
-						j++;
-						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Type.ToString( );
-						j++;
-						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Price.ToString( "0.00", CultureInfo.InvariantCulture );
-						j++;
-						matrix[ i, j ] = mData.Bookings.ElementAt( i ).BookingDate.ToString( "d" );
-						j++;
-						matrix[ i, j ] = mData.Bookings.ElementAt( i ).TimeFrame.StartDateTime.ToString( "d" );
-						j++;
-						matrix[ i, j ] = mData.Bookings.ElementAt( i ).TimeFrame.EndDateTime.ToString( "d" );
-						j++;
-						matrix[ i, j ] = mData.Bookings.ElementAt( i ).TotaPrice.ToString( "0.00", CultureInfo.InvariantCulture );
-						j++;
-					}
-
-					if ( mData.Bookings.ElementAt( i ).Bookable is Activity )
-					{
-
-						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Id.ToString( );
-						j++;
-						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Client.Nif.ToString( );
-						j++;
-						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Client.FirstName + " " + mData.Bookings.ElementAt( i ).Client.LastName;
-						j++;
-						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Type.ToString( );
-						j++;
-						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Price.ToString( "0.00", CultureInfo.InvariantCulture );
-						j++;
-						matrix[ i, j ] = mData.Bookings.ElementAt( i ).BookingDate.ToString( "d" );
-						j++;
-						matrix[ i, j ] = mData.Bookings.ElementAt( i ).TimeFrame.StartDateTime.ToString( "d" );
-						j++;
-						matrix[ i, j ] = mData.Bookings.ElementAt( i ).TimeFrame.EndDateTime.ToString( "d" );
-						j++;
-						matrix[ i, j ] = mData.Bookings.ElementAt( i ).TotaPrice.ToString( "0.00", CultureInfo.InvariantCulture );
-						j++;
-					}
-
-					if ( mData.Bookings.ElementAt( i ).Bookable is Transport )
-					{
-
-						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Id.ToString( );
-						j++;
-						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Client.Nif.ToString( );
-						j++;
-						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Client.FirstName + " " + mData.Bookings.ElementAt( i ).Client.LastName;
-						j++;
-						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Type.ToString( );
-						j++;
-						matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Price.ToString( "0.00", CultureInfo.InvariantCulture );
-						j++;
-						matrix[ i, j ] = mData.Bookings.ElementAt( i ).BookingDate.ToString( "d" );
-						j++;
-						matrix[ i, j ] = mData.Bookings.ElementAt( i ).TimeFrame.StartDateTime.ToString( "d" );
-						j++;
-						matrix[ i, j ] = mData.Bookings.ElementAt( i ).TimeFrame.EndDateTime.ToString( "d" );
-						j++;
-						matrix[ i, j ] = mData.Bookings.ElementAt( i ).TotaPrice.ToString( "0.00", CultureInfo.InvariantCulture );
-						j++;
-					}
-
-
-				}
-			}
-
-			return matrix;
 		}
 
 		private string[ , ] ListToMatrixClients( )
@@ -532,6 +701,97 @@ namespace Tourist.Server
 			return matrix;
 		}
 
+		public double BookableBasePrice( string aType)
+		{
+			switch ( aType )
+			{
+				case "Single":
+					return BasePrice.Single;
+				case "DoubleSingle":
+					return BasePrice.DoubleSingle;
+				case "Double":
+					return BasePrice.Double;
+				case "Suite":
+					return BasePrice.Suite;
+				case "FamilySuite":
+					return BasePrice.FamilySuite;
+				case "Meeting":
+					return BasePrice.Meeting;
+				case "BoatRide":
+					return BasePrice.BoatRide;
+				case "Golf":
+					return BasePrice.Golf;
+				case "Camping":
+					return BasePrice.Camping;
+				case "Diving":
+					return BasePrice.Diving;
+				case "SightSeeing":
+					return BasePrice.SightSeeing;
+				case "SkyDiving":
+					return BasePrice.SkyDiving;
+				case "TuckTuck":
+					return BasePrice.TuckTuck;
+				case "CableCar":
+					return BasePrice.CableCar;
+				case "Bicycle":
+					return BasePrice.Bicycle;
+				case "Car":
+					return BasePrice.Car;
+				case "Bus":
+					return BasePrice.Bus;
+				case "Motorist":
+					return BasePrice.Motorist;
+				default:
+					return 0;
+			}
+		}
+
+		public int BookableCapacity( string aType )
+		{
+			switch ( aType )
+			{
+				case "Single":
+					return Capacity.Single;
+				case "DoubleSingle":
+					return Capacity.DoubleSingle;
+				case "Double":
+					return Capacity.Double;
+				case "Suite":
+					return Capacity.Suite;
+				case "FamilySuite":
+					return Capacity.FamilySuite;
+				case "Meeting":
+					return Capacity.Meeting;
+				case "BoatRide":
+					return Capacity.BoatRide;
+				case "Golf":
+					return Capacity.Golf;
+				case "Camping":
+					return Capacity.Camping;
+				case "Diving":
+					return Capacity.Diving;
+				case "SightSeeing":
+					return Capacity.SightSeeing;
+				case "SkyDiving":
+					return Capacity.SkyDiving;
+				case "TuckTuck":
+					return Capacity.TuckTuck;
+				case "CableCar":
+					return Capacity.CableCar;
+				case "Bicycle":
+					return Capacity.Bicycle;
+				case "Car":
+					return Capacity.Car;
+				case "Bus":
+					return Capacity.Bus;
+				case "Motorist":
+					return Capacity.Motorist;
+				default:
+					return 0;
+			}
+		}
+
+
 		#endregion
 
 		#region Append Remove Get/Set Methods
@@ -553,39 +813,39 @@ namespace Tourist.Server
 			switch ( aList )
 			{
 				case "Bookings":
-					if ( mData.Bookings.Contains( aObject as Booking ) ) return;
-					mData.Bookings.Add( aObject as Booking );
+					if ( mData.Bookings.Contains( (Booking) aObject ) ) return;
+					mData.Bookings.Add( (Booking) aObject );
 					Save( FileName );
 					return;
 				case "Clients":
-					if ( mData.Clients.Contains( aObject as Client ) ) return;
-					mData.Clients.Add( aObject as Client );
+					if ( mData.Clients.Contains( (Client) aObject ) ) return;
+					mData.Clients.Add( (Client) aObject );
 					Save( FileName );
 					RefreshGrid = true;
 					return;
 				case "Rooms":
-					if ( mData.Rooms.Contains( aObject as Room ) ) return;
-					mData.Rooms.Add( aObject as Room );
+					if ( mData.Rooms.Contains( (Room) aObject ) ) return;
+					mData.Rooms.Add( (Room) aObject );
 					Save( FileName );
 					return;
 				case "Activities":
-					if ( mData.Activities.Contains( aObject as Activity ) ) return;
-					mData.Activities.Add( aObject as Activity );
+					if ( mData.Activities.Contains( (Activity) aObject ) ) return;
+					mData.Activities.Add( (Activity) aObject );
 					Save( FileName );
 					return;
 				case "Transports":
-					if ( mData.Transports.Contains( aObject as Transport ) ) return;
-					mData.Transports.Add( aObject as Transport );
+					if ( mData.Transports.Contains( (Transport) aObject ) ) return;
+					mData.Transports.Add( (Transport) aObject );
 					Save( FileName );
 					return;
 				case "Managers":
-					if ( mData.Managers.Contains( aObject as Manager ) ) return;
-					mData.Managers.Add( aObject as Manager );
+					if ( mData.Managers.Contains( (Manager) aObject ) ) return;
+					mData.Managers.Add( (Manager) aObject );
 					Save( FileName );
 					return;
 				case "Employees":
-					if ( mData.Employees.Contains( aObject as Employer ) ) return;
-					mData.Employees.Add( aObject as Employer );
+					if ( mData.Employees.Contains( (Employer) aObject ) ) return;
+					mData.Employees.Add( (Employer) aObject );
 					Save( FileName );
 					return;
 				default:
@@ -737,9 +997,38 @@ namespace Tourist.Server
 			}
 		}
 
-		private Client GetClientByNif( int aNif )
+		public Client GetClientByNif( int aNif )
 		{
 			return mData.Clients.FirstOrDefault( client => client.Nif == aNif );
+		}
+
+		public List<int> ClientsNifList( )
+		{
+			return mData.Clients.Select( client => client.Nif ).ToList( );
+		}
+		
+		public IBookable GetBookable( string aType, int aId )
+		{
+
+			if ( aType.Equals( "Single" ) || aType.Equals( "DoubleSingle" ) || aType.Equals( "Double" ) ||
+				 aType.Equals( "Suite" ) || aType.Equals( "FamilySuite" ) || aType.Equals( "Meeting" ) )
+			{
+				return mData.Rooms.FirstOrDefault( room => room.Id == aId );
+			}
+
+			if ( aType.Equals( "BoatRide" ) || aType.Equals( "Golf" ) || aType.Equals( "Camping" ) ||
+				 aType.Equals( "Diving" ) || aType.Equals( "SightSeeing" ) || aType.Equals( "SkyDiving" ) )
+			{
+				return mData.Activities.FirstOrDefault( activity => activity.Id == aId );
+			}
+
+			if ( aType.Equals( "TuckTuck" ) || aType.Equals( "CableCar" ) || aType.Equals( "Bicycle" ) ||
+				 aType.Equals( "Car" ) || aType.Equals( "Bus" ) || aType.Equals( "Motorist" ) )
+			{
+				return mData.Transports.FirstOrDefault( transport => transport.Id == aId );
+			}
+
+			return null;
 		}
 
 		#endregion

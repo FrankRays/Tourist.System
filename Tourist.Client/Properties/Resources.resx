@@ -343,4 +343,7 @@
   <data name="WelcomeString" xml:space="preserve">
     <value>Welcome </value>
   </data>
+  <data name="BookingString" xml:space="preserve">
+    <value>Booking </value>
+  </data>
 </root>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Remoting.Lifetime;
 using System.Windows.Forms;
 using Tourist.Data.Classes;
@@ -39,17 +40,22 @@ namespace Tourist.Server
 			return lease;
 			 * */
 		}
-		
+
 		//Wrapper Repository Methods 
 
 		public Entity Entity
 		{
 			get { return Repository.MData.Entity; }
 		}
-		
+
 		public int Count( string aList )
 		{
 			return Repository.Count( aList );
+		}
+
+		public int CountBooked( string aType )
+		{
+			return Repository.CountBooked( aType );
 		}
 
 		public bool IsEmpty( string aList )
@@ -62,9 +68,9 @@ namespace Tourist.Server
 			return Repository.ExistingId( aId, aList );
 		}
 
-		public bool CheckLogin(string aUsername, string aPassword, string aType)
+		public bool CheckLogin( string aUsername, string aPassword, string aType )
 		{
-			return Repository.CheckLogin(aUsername, aPassword, aType);
+			return Repository.CheckLogin( aUsername, aPassword, aType );
 		}
 
 		public Session ClientLoginSession { get { return Repository.ClientLoginSession; } }
@@ -74,11 +80,16 @@ namespace Tourist.Server
 			return Repository.ListToMatrix( aList );
 		}
 
+		public string[ , ] ListToMatrix( string aList, string aType )
+		{
+			return Repository.ListToMatrix( aList, aType );
+		}
+
 		public void Append( object aObject, string aList )
 		{
 			Repository.Append( aObject, aList );
 		}
-		
+
 		public void Remove( int aIndex, string aList )
 		{
 			Repository.Remove( aIndex, aList );
@@ -93,7 +104,7 @@ namespace Tourist.Server
 		{
 			return Repository.Instance.GetObject( aIndex, aList );
 		}
-		
+
 		public int NextId( string aType )
 		{
 			return Repository.NextId( aType );
@@ -104,5 +115,34 @@ namespace Tourist.Server
 			Repository.Edit( aType, aId, aPropertie, aNewValue );
 		}
 
+		public Client GetClientByNif( int aNif )
+		{
+			return Repository.GetClientByNif( aNif );
+		}
+
+		public List<int> ClientsNifList( )
+		{
+			return Repository.ClientsNifList( );
+		}
+
+		public List<int> GetBooKablesIds( string aType, string aSubType )
+		{
+			return Repository.GetBooKablesIds( aType, aSubType );
+		}
+
+		public string GetBookableDescription( int aId, string aType )
+		{
+			return Repository.GetBookableDescription( aId, aType );
+		}
+
+		public double GetBasePrice(string aType)
+		{
+			return Repository.BookableBasePrice(aType);
+		}
+
+		public IBookable GetBookable( string aType, int aId )
+		{
+			return Repository.GetBookable( aType, aId );
+		}
 	}
 }
