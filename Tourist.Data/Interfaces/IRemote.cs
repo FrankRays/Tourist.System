@@ -22,8 +22,9 @@ namespace Tourist.Data.Interfaces
 		object GetObject( int aIndex, string aList );
 		Client GetClientByNif( int aNif );
 		IBookable GetBookable( string aType, int aId );
-		List<int> ClientsNifList( );
-		List<int> GetBooKablesIds( string aType, string aSubType );
+		List<string> ClientsNifList( );
+		List<string> BookableSubTypesList(string aType);
+		List<string> GetBooKablesIds( string aType, string aSubType );
 		double GetBasePrice( string aType );
 		string GetBookableDescription( int aId, string aType );
 		int NextId( string aType );

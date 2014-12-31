@@ -28,71 +28,58 @@
 		/// </summary>
 		private void InitializeComponent( )
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookingsForm));
 			this.HeaderPanel = new System.Windows.Forms.Panel();
 			this.BackPanel = new System.Windows.Forms.Panel();
 			this.ImagePanel = new System.Windows.Forms.Panel();
 			this.SubTitleLabel = new System.Windows.Forms.Label();
 			this.TitleLabel = new System.Windows.Forms.Label();
 			this.BodyPanel = new System.Windows.Forms.Panel();
-			this.BookablesTabsControl = new MetroFramework.Controls.MetroTabControl();
-			this.RoomsTab = new MetroFramework.Controls.MetroTabPage();
-			this.RoomBookingsDataGrid = new MetroFramework.Controls.MetroGrid();
-			this.ActivitiesTab = new MetroFramework.Controls.MetroTabPage();
-			this.ActivitiesBookingDataGrid = new MetroFramework.Controls.MetroGrid();
-			this.A_BookingIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.A_ClientNifColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-			this.A_ClientNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.A_TypeColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-			this.A_ActivityIdColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-			this.A_Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.A_BasePriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.A_BookingDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.A_StartDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.A_EndDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.A_TotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.TransportsTab = new MetroFramework.Controls.MetroTabPage();
-			this.TransportBookingsDataGrid = new MetroFramework.Controls.MetroGrid();
-			this.T_BookingIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.T_ClientNifColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-			this.T_ClientNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewComboBoxColumn4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-			this.T_BookableIdColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-			this.T_Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.T_BasePriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.T_BookingDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.T_StartDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.T_EndDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.T_TotalPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.BookingInfo = new System.Windows.Forms.GroupBox();
+			this.BookingData = new System.Windows.Forms.GroupBox();
+			this.BookingDateTextBox = new System.Windows.Forms.TextBox();
+			this.SaveButton = new System.Windows.Forms.Button();
+			this.TotalPriceLabel = new System.Windows.Forms.TextBox();
+			this.EditButton = new System.Windows.Forms.Button();
+			this.BookingIDLabel = new System.Windows.Forms.Label();
+			this.BookingIdTextBox = new System.Windows.Forms.TextBox();
+			this.label3 = new System.Windows.Forms.Label();
+			this.EndDatePicker = new MetroFramework.Controls.MetroDateTime();
+			this.StartDatePicker = new MetroFramework.Controls.MetroDateTime();
+			this.EndDateLabel = new System.Windows.Forms.Label();
+			this.StartDateLabel = new System.Windows.Forms.Label();
+			this.BookingDateLabel = new System.Windows.Forms.Label();
+			this.BookableData = new System.Windows.Forms.GroupBox();
+			this.BasePriceTextBox = new System.Windows.Forms.TextBox();
+			this.BasePriceLabel = new System.Windows.Forms.Label();
+			this.BookableIdComboBox = new MetroFramework.Controls.MetroComboBox();
+			this.SubTypeComboBox = new MetroFramework.Controls.MetroComboBox();
+			this.SubTypeLabel = new System.Windows.Forms.Label();
+			this.TypeCombox = new MetroFramework.Controls.MetroComboBox();
+			this.BookableIdLabel = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
+			this.textBox4 = new System.Windows.Forms.TextBox();
+			this.DescriptionTextBox = new System.Windows.Forms.TextBox();
+			this.DescriptionLabel = new System.Windows.Forms.Label();
+			this.TypeLabel = new System.Windows.Forms.Label();
+			this.ClientData = new System.Windows.Forms.GroupBox();
+			this.NewClientButton = new System.Windows.Forms.Button();
+			this.ClientIdLabel = new System.Windows.Forms.Label();
+			this.NifComboBox = new MetroFramework.Controls.MetroComboBox();
+			this.ClientIdTextBox = new System.Windows.Forms.TextBox();
+			this.NifLabel = new System.Windows.Forms.Label();
+			this.NameTextBox = new System.Windows.Forms.TextBox();
+			this.NameLabel = new System.Windows.Forms.Label();
 			this.FooterPanel = new System.Windows.Forms.Panel();
-			this.R_IdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.R_ClientNifColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-			this.R_ClientNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.R_TypeColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-			this.R_RoomIdColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-			this.R_DescriptionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.R_BasePriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.R_BookingDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.R_CheckInDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.R_CheckOutColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.R_TotalPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
 			this.HeaderPanel.SuspendLayout();
 			this.BodyPanel.SuspendLayout();
-			this.BookablesTabsControl.SuspendLayout();
-			this.RoomsTab.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.RoomBookingsDataGrid)).BeginInit();
-			this.ActivitiesTab.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.ActivitiesBookingDataGrid)).BeginInit();
-			this.TransportsTab.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.TransportBookingsDataGrid)).BeginInit();
+			this.BookingInfo.SuspendLayout();
+			this.BookingData.SuspendLayout();
+			this.BookableData.SuspendLayout();
+			this.ClientData.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// HeaderPanel
@@ -165,441 +152,506 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.BodyPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.BodyPanel.Controls.Add(this.BookablesTabsControl);
+			this.BodyPanel.Controls.Add(this.BookingInfo);
 			this.BodyPanel.Location = new System.Drawing.Point(-1, 177);
 			this.BodyPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.BodyPanel.Name = "BodyPanel";
 			this.BodyPanel.Size = new System.Drawing.Size(1202, 468);
 			this.BodyPanel.TabIndex = 16;
 			// 
-			// BookablesTabsControl
+			// BookingInfo
 			// 
-			this.BookablesTabsControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.BookablesTabsControl.Controls.Add(this.RoomsTab);
-			this.BookablesTabsControl.Controls.Add(this.ActivitiesTab);
-			this.BookablesTabsControl.Controls.Add(this.TransportsTab);
-			this.BookablesTabsControl.FontSize = MetroFramework.MetroTabControlSize.Tall;
-			this.BookablesTabsControl.FontWeight = MetroFramework.MetroTabControlWeight.Regular;
-			this.BookablesTabsControl.ItemSize = new System.Drawing.Size(150, 50);
-			this.BookablesTabsControl.Location = new System.Drawing.Point(18, 12);
-			this.BookablesTabsControl.Margin = new System.Windows.Forms.Padding(0);
-			this.BookablesTabsControl.Name = "BookablesTabsControl";
-			this.BookablesTabsControl.SelectedIndex = 0;
-			this.BookablesTabsControl.Size = new System.Drawing.Size(1166, 446);
-			this.BookablesTabsControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-			this.BookablesTabsControl.TabIndex = 22;
-			this.BookablesTabsControl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.BookablesTabsControl.UseSelectable = true;
+			this.BookingInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.BookingInfo.Controls.Add(this.BookingData);
+			this.BookingInfo.Controls.Add(this.BookableData);
+			this.BookingInfo.Controls.Add(this.ClientData);
+			this.BookingInfo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BookingInfo.ForeColor = System.Drawing.Color.White;
+			this.BookingInfo.Location = new System.Drawing.Point(80, -5);
+			this.BookingInfo.Margin = new System.Windows.Forms.Padding(2);
+			this.BookingInfo.Name = "BookingInfo";
+			this.BookingInfo.Padding = new System.Windows.Forms.Padding(2);
+			this.BookingInfo.Size = new System.Drawing.Size(1036, 468);
+			this.BookingInfo.TabIndex = 41;
+			this.BookingInfo.TabStop = false;
 			// 
-			// RoomsTab
+			// BookingData
 			// 
-			this.RoomsTab.Controls.Add(this.RoomBookingsDataGrid);
-			this.RoomsTab.HorizontalScrollbarBarColor = true;
-			this.RoomsTab.HorizontalScrollbarHighlightOnWheel = false;
-			this.RoomsTab.HorizontalScrollbarSize = 8;
-			this.RoomsTab.Location = new System.Drawing.Point(4, 54);
-			this.RoomsTab.Margin = new System.Windows.Forms.Padding(2);
-			this.RoomsTab.Name = "RoomsTab";
-			this.RoomsTab.Size = new System.Drawing.Size(1158, 388);
-			this.RoomsTab.TabIndex = 0;
-			this.RoomsTab.Text = "ROOMS";
-			this.RoomsTab.VerticalScrollbarBarColor = true;
-			this.RoomsTab.VerticalScrollbarHighlightOnWheel = false;
-			this.RoomsTab.VerticalScrollbarSize = 8;
+			this.BookingData.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.BookingData.Controls.Add(this.BookingDateTextBox);
+			this.BookingData.Controls.Add(this.SaveButton);
+			this.BookingData.Controls.Add(this.TotalPriceLabel);
+			this.BookingData.Controls.Add(this.EditButton);
+			this.BookingData.Controls.Add(this.BookingIDLabel);
+			this.BookingData.Controls.Add(this.BookingIdTextBox);
+			this.BookingData.Controls.Add(this.label3);
+			this.BookingData.Controls.Add(this.EndDatePicker);
+			this.BookingData.Controls.Add(this.StartDatePicker);
+			this.BookingData.Controls.Add(this.EndDateLabel);
+			this.BookingData.Controls.Add(this.StartDateLabel);
+			this.BookingData.Controls.Add(this.BookingDateLabel);
+			this.BookingData.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BookingData.ForeColor = System.Drawing.Color.White;
+			this.BookingData.Location = new System.Drawing.Point(16, 18);
+			this.BookingData.Margin = new System.Windows.Forms.Padding(2);
+			this.BookingData.Name = "BookingData";
+			this.BookingData.Padding = new System.Windows.Forms.Padding(2);
+			this.BookingData.Size = new System.Drawing.Size(539, 434);
+			this.BookingData.TabIndex = 51;
+			this.BookingData.TabStop = false;
+			this.BookingData.Text = "Booking";
 			// 
-			// RoomBookingsDataGrid
+			// BookingDateTextBox
 			// 
-			this.RoomBookingsDataGrid.AllowUserToOrderColumns = true;
-			this.RoomBookingsDataGrid.AllowUserToResizeColumns = false;
-			this.RoomBookingsDataGrid.AllowUserToResizeRows = false;
-			this.RoomBookingsDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.RoomBookingsDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.RoomBookingsDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-			this.RoomBookingsDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.RoomBookingsDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.RoomBookingsDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-			this.RoomBookingsDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semilight", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			this.RoomBookingsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-			this.RoomBookingsDataGrid.ColumnHeadersHeight = 60;
-			this.RoomBookingsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-			this.RoomBookingsDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.R_IdColumn,
-            this.R_ClientNifColumn,
-            this.R_ClientNameColumn,
-            this.R_TypeColumn,
-            this.R_RoomIdColumn,
-            this.R_DescriptionColumn,
-            this.R_BasePriceColumn,
-            this.R_BookingDateColumn,
-            this.R_CheckInDateColumn,
-            this.R_CheckOutColumn,
-            this.R_TotalPriceColumn});
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(172)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 13F);
-			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.RoomBookingsDataGrid.DefaultCellStyle = dataGridViewCellStyle2;
-			this.RoomBookingsDataGrid.EnableHeadersVisualStyles = false;
-			this.RoomBookingsDataGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.RoomBookingsDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.RoomBookingsDataGrid.Location = new System.Drawing.Point(2, 13);
-			this.RoomBookingsDataGrid.Margin = new System.Windows.Forms.Padding(2);
-			this.RoomBookingsDataGrid.Name = "RoomBookingsDataGrid";
-			this.RoomBookingsDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.RoomBookingsDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-			this.RoomBookingsDataGrid.RowHeadersWidth = 50;
-			this.RoomBookingsDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-			this.RoomBookingsDataGrid.RowTemplate.Height = 25;
-			this.RoomBookingsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.RoomBookingsDataGrid.Size = new System.Drawing.Size(1154, 379);
-			this.RoomBookingsDataGrid.TabIndex = 21;
+			this.BookingDateTextBox.Font = new System.Drawing.Font("Segoe UI Semilight", 15F);
+			this.BookingDateTextBox.Location = new System.Drawing.Point(301, 43);
+			this.BookingDateTextBox.Margin = new System.Windows.Forms.Padding(2);
+			this.BookingDateTextBox.Name = "BookingDateTextBox";
+			this.BookingDateTextBox.Size = new System.Drawing.Size(216, 34);
+			this.BookingDateTextBox.TabIndex = 57;
+			this.BookingDateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
-			// ActivitiesTab
+			// SaveButton
 			// 
-			this.ActivitiesTab.Controls.Add(this.ActivitiesBookingDataGrid);
-			this.ActivitiesTab.HorizontalScrollbarBarColor = true;
-			this.ActivitiesTab.HorizontalScrollbarHighlightOnWheel = false;
-			this.ActivitiesTab.HorizontalScrollbarSize = 8;
-			this.ActivitiesTab.Location = new System.Drawing.Point(4, 54);
-			this.ActivitiesTab.Margin = new System.Windows.Forms.Padding(2);
-			this.ActivitiesTab.Name = "ActivitiesTab";
-			this.ActivitiesTab.Size = new System.Drawing.Size(1158, 388);
-			this.ActivitiesTab.TabIndex = 1;
-			this.ActivitiesTab.Text = "ACTIVITIES";
-			this.ActivitiesTab.VerticalScrollbarBarColor = true;
-			this.ActivitiesTab.VerticalScrollbarHighlightOnWheel = false;
-			this.ActivitiesTab.VerticalScrollbarSize = 8;
+			this.SaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			this.SaveButton.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.SaveButton.ForeColor = System.Drawing.Color.White;
+			this.SaveButton.Location = new System.Drawing.Point(20, 359);
+			this.SaveButton.Margin = new System.Windows.Forms.Padding(2);
+			this.SaveButton.Name = "SaveButton";
+			this.SaveButton.Size = new System.Drawing.Size(240, 63);
+			this.SaveButton.TabIndex = 46;
+			this.SaveButton.Text = "SAVE";
+			this.SaveButton.UseVisualStyleBackColor = false;
+			this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
 			// 
-			// ActivitiesBookingDataGrid
+			// TotalPriceLabel
 			// 
-			this.ActivitiesBookingDataGrid.AllowUserToOrderColumns = true;
-			this.ActivitiesBookingDataGrid.AllowUserToResizeColumns = false;
-			this.ActivitiesBookingDataGrid.AllowUserToResizeRows = false;
-			this.ActivitiesBookingDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.ActivitiesBookingDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.ActivitiesBookingDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-			this.ActivitiesBookingDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.ActivitiesBookingDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.ActivitiesBookingDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-			this.ActivitiesBookingDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semilight", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			this.ActivitiesBookingDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-			this.ActivitiesBookingDataGrid.ColumnHeadersHeight = 60;
-			this.ActivitiesBookingDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-			this.ActivitiesBookingDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.A_BookingIdColumn,
-            this.A_ClientNifColumn,
-            this.A_ClientNameColumn,
-            this.A_TypeColumn,
-            this.A_ActivityIdColumn,
-            this.A_Description,
-            this.A_BasePriceColumn,
-            this.A_BookingDateColumn,
-            this.A_StartDateColumn,
-            this.A_EndDateColumn,
-            this.A_TotalPrice});
-			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(172)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 13F);
-			dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.ActivitiesBookingDataGrid.DefaultCellStyle = dataGridViewCellStyle5;
-			this.ActivitiesBookingDataGrid.EnableHeadersVisualStyles = false;
-			this.ActivitiesBookingDataGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.ActivitiesBookingDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.ActivitiesBookingDataGrid.Location = new System.Drawing.Point(2, 12);
-			this.ActivitiesBookingDataGrid.Margin = new System.Windows.Forms.Padding(2);
-			this.ActivitiesBookingDataGrid.Name = "ActivitiesBookingDataGrid";
-			this.ActivitiesBookingDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.ActivitiesBookingDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-			this.ActivitiesBookingDataGrid.RowHeadersWidth = 50;
-			this.ActivitiesBookingDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-			this.ActivitiesBookingDataGrid.RowTemplate.Height = 25;
-			this.ActivitiesBookingDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.ActivitiesBookingDataGrid.Size = new System.Drawing.Size(1154, 379);
-			this.ActivitiesBookingDataGrid.TabIndex = 22;
+			this.TotalPriceLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			this.TotalPriceLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.TotalPriceLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 50.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.TotalPriceLabel.ForeColor = System.Drawing.Color.White;
+			this.TotalPriceLabel.Location = new System.Drawing.Point(5, 255);
+			this.TotalPriceLabel.Margin = new System.Windows.Forms.Padding(2);
+			this.TotalPriceLabel.Name = "TotalPriceLabel";
+			this.TotalPriceLabel.Size = new System.Drawing.Size(531, 90);
+			this.TotalPriceLabel.TabIndex = 56;
+			this.TotalPriceLabel.Text = "150.00€";
+			this.TotalPriceLabel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
-			// A_BookingIdColumn
+			// EditButton
 			// 
-			this.A_BookingIdColumn.HeaderText = "Booking ID";
-			this.A_BookingIdColumn.MinimumWidth = 150;
-			this.A_BookingIdColumn.Name = "A_BookingIdColumn";
-			this.A_BookingIdColumn.ReadOnly = true;
-			this.A_BookingIdColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.EditButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			this.EditButton.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.EditButton.ForeColor = System.Drawing.Color.White;
+			this.EditButton.Location = new System.Drawing.Point(278, 359);
+			this.EditButton.Margin = new System.Windows.Forms.Padding(2);
+			this.EditButton.Name = "EditButton";
+			this.EditButton.Size = new System.Drawing.Size(240, 63);
+			this.EditButton.TabIndex = 48;
+			this.EditButton.Text = "EDIT ";
+			this.EditButton.UseVisualStyleBackColor = false;
+			this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
 			// 
-			// A_ClientNifColumn
+			// BookingIDLabel
 			// 
-			this.A_ClientNifColumn.HeaderText = "Client Nif (*)";
-			this.A_ClientNifColumn.MinimumWidth = 150;
-			this.A_ClientNifColumn.Name = "A_ClientNifColumn";
-			this.A_ClientNifColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.BookingIDLabel.AutoSize = true;
+			this.BookingIDLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BookingIDLabel.ForeColor = System.Drawing.Color.White;
+			this.BookingIDLabel.Location = new System.Drawing.Point(25, 43);
+			this.BookingIDLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.BookingIDLabel.Name = "BookingIDLabel";
+			this.BookingIDLabel.Size = new System.Drawing.Size(31, 28);
+			this.BookingIDLabel.TabIndex = 55;
+			this.BookingIDLabel.Text = "ID";
 			// 
-			// A_ClientNameColumn
+			// BookingIdTextBox
 			// 
-			this.A_ClientNameColumn.HeaderText = "Client Name";
-			this.A_ClientNameColumn.MinimumWidth = 200;
-			this.A_ClientNameColumn.Name = "A_ClientNameColumn";
-			this.A_ClientNameColumn.ReadOnly = true;
+			this.BookingIdTextBox.Font = new System.Drawing.Font("Segoe UI Semilight", 15F);
+			this.BookingIdTextBox.ForeColor = System.Drawing.Color.Black;
+			this.BookingIdTextBox.Location = new System.Drawing.Point(62, 43);
+			this.BookingIdTextBox.Margin = new System.Windows.Forms.Padding(2);
+			this.BookingIdTextBox.Name = "BookingIdTextBox";
+			this.BookingIdTextBox.Size = new System.Drawing.Size(81, 34);
+			this.BookingIdTextBox.TabIndex = 54;
+			this.BookingIdTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
-			// A_TypeColumn
+			// label3
 			// 
-			this.A_TypeColumn.HeaderText = "Type (*)";
-			this.A_TypeColumn.MinimumWidth = 150;
-			this.A_TypeColumn.Name = "A_TypeColumn";
-			this.A_TypeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.A_TypeColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			this.label3.AutoSize = true;
+			this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label3.ForeColor = System.Drawing.Color.White;
+			this.label3.Location = new System.Drawing.Point(174, 205);
+			this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(195, 50);
+			this.label3.TabIndex = 50;
+			this.label3.Text = "Total Price";
 			// 
-			// A_ActivityIdColumn
+			// EndDatePicker
 			// 
-			this.A_ActivityIdColumn.HeaderText = "Activity ID";
-			this.A_ActivityIdColumn.MinimumWidth = 150;
-			this.A_ActivityIdColumn.Name = "A_ActivityIdColumn";
-			this.A_ActivityIdColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.A_ActivityIdColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			this.EndDatePicker.FontSize = MetroFramework.MetroDateTimeSize.Tall;
+			this.EndDatePicker.Location = new System.Drawing.Point(163, 159);
+			this.EndDatePicker.MinimumSize = new System.Drawing.Size(0, 35);
+			this.EndDatePicker.Name = "EndDatePicker";
+			this.EndDatePicker.Size = new System.Drawing.Size(355, 35);
+			this.EndDatePicker.TabIndex = 49;
+			this.EndDatePicker.Value = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
+			this.EndDatePicker.Validating += new System.ComponentModel.CancelEventHandler(this.EndDatePicker_Validating);
 			// 
-			// A_Description
+			// StartDatePicker
 			// 
-			this.A_Description.HeaderText = "Activity Description";
-			this.A_Description.MinimumWidth = 200;
-			this.A_Description.Name = "A_Description";
+			this.StartDatePicker.FontSize = MetroFramework.MetroDateTimeSize.Tall;
+			this.StartDatePicker.Location = new System.Drawing.Point(163, 102);
+			this.StartDatePicker.MinimumSize = new System.Drawing.Size(0, 35);
+			this.StartDatePicker.Name = "StartDatePicker";
+			this.StartDatePicker.Size = new System.Drawing.Size(354, 35);
+			this.StartDatePicker.TabIndex = 49;
+			this.StartDatePicker.Validating += new System.ComponentModel.CancelEventHandler(this.StartDatePicker_Validating);
 			// 
-			// A_BasePriceColumn
+			// EndDateLabel
 			// 
-			this.A_BasePriceColumn.HeaderText = "Base Price";
-			this.A_BasePriceColumn.MinimumWidth = 110;
-			this.A_BasePriceColumn.Name = "A_BasePriceColumn";
-			this.A_BasePriceColumn.ReadOnly = true;
+			this.EndDateLabel.AutoSize = true;
+			this.EndDateLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.EndDateLabel.ForeColor = System.Drawing.Color.White;
+			this.EndDateLabel.Location = new System.Drawing.Point(34, 162);
+			this.EndDateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.EndDateLabel.Name = "EndDateLabel";
+			this.EndDateLabel.Size = new System.Drawing.Size(119, 28);
+			this.EndDateLabel.TabIndex = 27;
+			this.EndDateLabel.Text = "End-Date (*)";
 			// 
-			// A_BookingDateColumn
+			// StartDateLabel
 			// 
-			this.A_BookingDateColumn.HeaderText = "Booking Date";
-			this.A_BookingDateColumn.MinimumWidth = 200;
-			this.A_BookingDateColumn.Name = "A_BookingDateColumn";
-			this.A_BookingDateColumn.ReadOnly = true;
+			this.StartDateLabel.AutoSize = true;
+			this.StartDateLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.StartDateLabel.ForeColor = System.Drawing.Color.White;
+			this.StartDateLabel.Location = new System.Drawing.Point(25, 105);
+			this.StartDateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.StartDateLabel.Name = "StartDateLabel";
+			this.StartDateLabel.Size = new System.Drawing.Size(128, 28);
+			this.StartDateLabel.TabIndex = 27;
+			this.StartDateLabel.Text = "Start-Date (*)";
 			// 
-			// A_StartDateColumn
+			// BookingDateLabel
 			// 
-			this.A_StartDateColumn.HeaderText = "Start - Date (*)";
-			this.A_StartDateColumn.MinimumWidth = 200;
-			this.A_StartDateColumn.Name = "A_StartDateColumn";
-			this.A_StartDateColumn.ReadOnly = true;
-			this.A_StartDateColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.A_StartDateColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.BookingDateLabel.AutoSize = true;
+			this.BookingDateLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BookingDateLabel.ForeColor = System.Drawing.Color.White;
+			this.BookingDateLabel.Location = new System.Drawing.Point(158, 43);
+			this.BookingDateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.BookingDateLabel.Name = "BookingDateLabel";
+			this.BookingDateLabel.Size = new System.Drawing.Size(131, 28);
+			this.BookingDateLabel.TabIndex = 27;
+			this.BookingDateLabel.Text = "Booking Date";
 			// 
-			// A_EndDateColumn
+			// BookableData
 			// 
-			this.A_EndDateColumn.HeaderText = "End - Date (*)";
-			this.A_EndDateColumn.MinimumWidth = 200;
-			this.A_EndDateColumn.Name = "A_EndDateColumn";
-			this.A_EndDateColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.A_EndDateColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.BookableData.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.BookableData.Controls.Add(this.BasePriceTextBox);
+			this.BookableData.Controls.Add(this.BasePriceLabel);
+			this.BookableData.Controls.Add(this.BookableIdComboBox);
+			this.BookableData.Controls.Add(this.SubTypeComboBox);
+			this.BookableData.Controls.Add(this.SubTypeLabel);
+			this.BookableData.Controls.Add(this.TypeCombox);
+			this.BookableData.Controls.Add(this.BookableIdLabel);
+			this.BookableData.Controls.Add(this.label4);
+			this.BookableData.Controls.Add(this.textBox4);
+			this.BookableData.Controls.Add(this.DescriptionTextBox);
+			this.BookableData.Controls.Add(this.DescriptionLabel);
+			this.BookableData.Controls.Add(this.TypeLabel);
+			this.BookableData.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BookableData.ForeColor = System.Drawing.Color.White;
+			this.BookableData.Location = new System.Drawing.Point(572, 195);
+			this.BookableData.Margin = new System.Windows.Forms.Padding(2);
+			this.BookableData.Name = "BookableData";
+			this.BookableData.Padding = new System.Windows.Forms.Padding(2);
+			this.BookableData.Size = new System.Drawing.Size(450, 256);
+			this.BookableData.TabIndex = 50;
+			this.BookableData.TabStop = false;
+			this.BookableData.Text = "Bookable";
 			// 
-			// A_TotalPrice
+			// BasePriceTextBox
 			// 
-			this.A_TotalPrice.HeaderText = "Total Price";
-			this.A_TotalPrice.MinimumWidth = 100;
-			this.A_TotalPrice.Name = "A_TotalPrice";
-			this.A_TotalPrice.ReadOnly = true;
+			this.BasePriceTextBox.Font = new System.Drawing.Font("Segoe UI Semilight", 15F);
+			this.BasePriceTextBox.Location = new System.Drawing.Point(331, 149);
+			this.BasePriceTextBox.Margin = new System.Windows.Forms.Padding(2);
+			this.BasePriceTextBox.Name = "BasePriceTextBox";
+			this.BasePriceTextBox.Size = new System.Drawing.Size(100, 34);
+			this.BasePriceTextBox.TabIndex = 53;
+			this.BasePriceTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
-			// TransportsTab
+			// BasePriceLabel
 			// 
-			this.TransportsTab.Controls.Add(this.TransportBookingsDataGrid);
-			this.TransportsTab.HorizontalScrollbarBarColor = true;
-			this.TransportsTab.HorizontalScrollbarHighlightOnWheel = false;
-			this.TransportsTab.HorizontalScrollbarSize = 8;
-			this.TransportsTab.Location = new System.Drawing.Point(4, 54);
-			this.TransportsTab.Margin = new System.Windows.Forms.Padding(2);
-			this.TransportsTab.Name = "TransportsTab";
-			this.TransportsTab.Size = new System.Drawing.Size(1158, 388);
-			this.TransportsTab.TabIndex = 2;
-			this.TransportsTab.Text = "TRANSPORTS";
-			this.TransportsTab.VerticalScrollbarBarColor = true;
-			this.TransportsTab.VerticalScrollbarHighlightOnWheel = false;
-			this.TransportsTab.VerticalScrollbarSize = 8;
+			this.BasePriceLabel.AutoSize = true;
+			this.BasePriceLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BasePriceLabel.ForeColor = System.Drawing.Color.White;
+			this.BasePriceLabel.Location = new System.Drawing.Point(229, 151);
+			this.BasePriceLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.BasePriceLabel.Name = "BasePriceLabel";
+			this.BasePriceLabel.Size = new System.Drawing.Size(98, 28);
+			this.BasePriceLabel.TabIndex = 52;
+			this.BasePriceLabel.Text = "Base Price";
 			// 
-			// TransportBookingsDataGrid
+			// BookableIdComboBox
 			// 
-			this.TransportBookingsDataGrid.AllowUserToOrderColumns = true;
-			this.TransportBookingsDataGrid.AllowUserToResizeColumns = false;
-			this.TransportBookingsDataGrid.AllowUserToResizeRows = false;
-			this.TransportBookingsDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.TransportBookingsDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.TransportBookingsDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-			this.TransportBookingsDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.TransportBookingsDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.TransportBookingsDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-			this.TransportBookingsDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semilight", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			this.TransportBookingsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-			this.TransportBookingsDataGrid.ColumnHeadersHeight = 60;
-			this.TransportBookingsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-			this.TransportBookingsDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.T_BookingIdColumn,
-            this.T_ClientNifColumn,
-            this.T_ClientNameColumn,
-            this.dataGridViewComboBoxColumn4,
-            this.T_BookableIdColumn,
-            this.T_Description,
-            this.T_BasePriceColumn,
-            this.T_BookingDate,
-            this.T_StartDateColumn,
-            this.T_EndDateColumn,
-            this.T_TotalPriceColumn});
-			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(172)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 13F);
-			dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.TransportBookingsDataGrid.DefaultCellStyle = dataGridViewCellStyle8;
-			this.TransportBookingsDataGrid.EnableHeadersVisualStyles = false;
-			this.TransportBookingsDataGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.TransportBookingsDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.TransportBookingsDataGrid.Location = new System.Drawing.Point(2, 13);
-			this.TransportBookingsDataGrid.Margin = new System.Windows.Forms.Padding(2);
-			this.TransportBookingsDataGrid.Name = "TransportBookingsDataGrid";
-			this.TransportBookingsDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-			dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-			dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.TransportBookingsDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-			this.TransportBookingsDataGrid.RowHeadersWidth = 50;
-			this.TransportBookingsDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-			this.TransportBookingsDataGrid.RowTemplate.Height = 25;
-			this.TransportBookingsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.TransportBookingsDataGrid.Size = new System.Drawing.Size(1154, 379);
-			this.TransportBookingsDataGrid.TabIndex = 22;
+			this.BookableIdComboBox.DisplayFocus = true;
+			this.BookableIdComboBox.FontSize = MetroFramework.MetroComboBoxSize.Tall;
+			this.BookableIdComboBox.FormattingEnabled = true;
+			this.BookableIdComboBox.ItemHeight = 29;
+			this.BookableIdComboBox.Items.AddRange(new object[] {
+            "Hotel",
+            "ActivityAgency",
+            "TransportAgency",
+            "HotelierGroup"});
+			this.BookableIdComboBox.Location = new System.Drawing.Point(142, 148);
+			this.BookableIdComboBox.Margin = new System.Windows.Forms.Padding(2);
+			this.BookableIdComboBox.Name = "BookableIdComboBox";
+			this.BookableIdComboBox.Size = new System.Drawing.Size(83, 35);
+			this.BookableIdComboBox.TabIndex = 51;
+			this.BookableIdComboBox.UseSelectable = true;
+			this.BookableIdComboBox.SelectedValueChanged += new System.EventHandler(this.BookableIdComboBox_SelectedValueChanged);
 			// 
-			// T_BookingIdColumn
+			// SubTypeComboBox
 			// 
-			this.T_BookingIdColumn.HeaderText = "Booking ID";
-			this.T_BookingIdColumn.MinimumWidth = 150;
-			this.T_BookingIdColumn.Name = "T_BookingIdColumn";
-			this.T_BookingIdColumn.ReadOnly = true;
-			this.T_BookingIdColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.SubTypeComboBox.AutoCompleteCustomSource.AddRange(new string[] {
+            "Hotel",
+            "ActivityAgency",
+            "TransportAgency",
+            "HotelierGroup"});
+			this.SubTypeComboBox.DisplayFocus = true;
+			this.SubTypeComboBox.FontSize = MetroFramework.MetroComboBoxSize.Tall;
+			this.SubTypeComboBox.FormattingEnabled = true;
+			this.SubTypeComboBox.ItemHeight = 29;
+			this.SubTypeComboBox.Items.AddRange(new object[] {
+            "Hotel",
+            "ActivityAgency",
+            "TransportAgency",
+            "HotelierGroup"});
+			this.SubTypeComboBox.Location = new System.Drawing.Point(142, 89);
+			this.SubTypeComboBox.Margin = new System.Windows.Forms.Padding(2);
+			this.SubTypeComboBox.Name = "SubTypeComboBox";
+			this.SubTypeComboBox.Size = new System.Drawing.Size(289, 35);
+			this.SubTypeComboBox.TabIndex = 50;
+			this.SubTypeComboBox.UseSelectable = true;
+			this.SubTypeComboBox.SelectedValueChanged += new System.EventHandler(this.SubTypeComboBox_SelectedValueChanged);
 			// 
-			// T_ClientNifColumn
+			// SubTypeLabel
 			// 
-			this.T_ClientNifColumn.HeaderText = "Client Nif (*)";
-			this.T_ClientNifColumn.MinimumWidth = 150;
-			this.T_ClientNifColumn.Name = "T_ClientNifColumn";
-			this.T_ClientNifColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.SubTypeLabel.AutoSize = true;
+			this.SubTypeLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.SubTypeLabel.ForeColor = System.Drawing.Color.White;
+			this.SubTypeLabel.Location = new System.Drawing.Point(14, 93);
+			this.SubTypeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.SubTypeLabel.Name = "SubTypeLabel";
+			this.SubTypeLabel.Size = new System.Drawing.Size(113, 28);
+			this.SubTypeLabel.TabIndex = 49;
+			this.SubTypeLabel.Text = "SubType (*)";
 			// 
-			// T_ClientNameColumn
+			// TypeCombox
 			// 
-			this.T_ClientNameColumn.HeaderText = "Client Name";
-			this.T_ClientNameColumn.MinimumWidth = 200;
-			this.T_ClientNameColumn.Name = "T_ClientNameColumn";
-			this.T_ClientNameColumn.ReadOnly = true;
+			this.TypeCombox.AutoCompleteCustomSource.AddRange(new string[] {
+            "Hotel",
+            "ActivityAgency",
+            "TransportAgency",
+            "HotelierGroup"});
+			this.TypeCombox.DisplayFocus = true;
+			this.TypeCombox.FontSize = MetroFramework.MetroComboBoxSize.Tall;
+			this.TypeCombox.FormattingEnabled = true;
+			this.TypeCombox.ItemHeight = 29;
+			this.TypeCombox.Items.AddRange(new object[] {
+            "Room",
+            "Activity",
+            "Transport"});
+			this.TypeCombox.Location = new System.Drawing.Point(142, 31);
+			this.TypeCombox.Margin = new System.Windows.Forms.Padding(2);
+			this.TypeCombox.Name = "TypeCombox";
+			this.TypeCombox.Size = new System.Drawing.Size(289, 35);
+			this.TypeCombox.TabIndex = 48;
+			this.TypeCombox.UseSelectable = true;
+			this.TypeCombox.SelectedValueChanged += new System.EventHandler(this.TypeCombox_SelectedValueChanged);
 			// 
-			// dataGridViewComboBoxColumn4
+			// BookableIdLabel
 			// 
-			this.dataGridViewComboBoxColumn4.HeaderText = "Type (*)";
-			this.dataGridViewComboBoxColumn4.MinimumWidth = 150;
-			this.dataGridViewComboBoxColumn4.Name = "dataGridViewComboBoxColumn4";
-			this.dataGridViewComboBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.dataGridViewComboBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			this.BookableIdLabel.AutoSize = true;
+			this.BookableIdLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BookableIdLabel.ForeColor = System.Drawing.Color.White;
+			this.BookableIdLabel.Location = new System.Drawing.Point(92, 151);
+			this.BookableIdLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.BookableIdLabel.Name = "BookableIdLabel";
+			this.BookableIdLabel.Size = new System.Drawing.Size(31, 28);
+			this.BookableIdLabel.TabIndex = 46;
+			this.BookableIdLabel.Text = "ID";
 			// 
-			// T_BookableIdColumn
+			// label4
 			// 
-			this.T_BookableIdColumn.HeaderText = "Transport ID";
-			this.T_BookableIdColumn.MinimumWidth = 150;
-			this.T_BookableIdColumn.Name = "T_BookableIdColumn";
-			this.T_BookableIdColumn.ReadOnly = true;
-			this.T_BookableIdColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.T_BookableIdColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			this.label4.AutoSize = true;
+			this.label4.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.ForeColor = System.Drawing.Color.White;
+			this.label4.Location = new System.Drawing.Point(88, 416);
+			this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(84, 28);
+			this.label4.TabIndex = 42;
+			this.label4.Text = "Email (*)";
 			// 
-			// T_Description
+			// textBox4
 			// 
-			this.T_Description.HeaderText = "Transport Description";
-			this.T_Description.MinimumWidth = 200;
-			this.T_Description.Name = "T_Description";
+			this.textBox4.Font = new System.Drawing.Font("Segoe UI Semilight", 15F);
+			this.textBox4.Location = new System.Drawing.Point(199, 416);
+			this.textBox4.Margin = new System.Windows.Forms.Padding(2);
+			this.textBox4.Name = "textBox4";
+			this.textBox4.Size = new System.Drawing.Size(234, 34);
+			this.textBox4.TabIndex = 45;
 			// 
-			// T_BasePriceColumn
+			// DescriptionTextBox
 			// 
-			this.T_BasePriceColumn.HeaderText = "Base Price";
-			this.T_BasePriceColumn.MinimumWidth = 110;
-			this.T_BasePriceColumn.Name = "T_BasePriceColumn";
-			this.T_BasePriceColumn.ReadOnly = true;
+			this.DescriptionTextBox.Font = new System.Drawing.Font("Segoe UI Semilight", 15F);
+			this.DescriptionTextBox.Location = new System.Drawing.Point(142, 207);
+			this.DescriptionTextBox.Margin = new System.Windows.Forms.Padding(2);
+			this.DescriptionTextBox.Name = "DescriptionTextBox";
+			this.DescriptionTextBox.Size = new System.Drawing.Size(289, 34);
+			this.DescriptionTextBox.TabIndex = 36;
 			// 
-			// T_BookingDate
+			// DescriptionLabel
 			// 
-			this.T_BookingDate.HeaderText = "Booking Date";
-			this.T_BookingDate.MinimumWidth = 200;
-			this.T_BookingDate.Name = "T_BookingDate";
-			this.T_BookingDate.ReadOnly = true;
+			this.DescriptionLabel.AutoSize = true;
+			this.DescriptionLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.DescriptionLabel.ForeColor = System.Drawing.Color.White;
+			this.DescriptionLabel.Location = new System.Drawing.Point(15, 207);
+			this.DescriptionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.DescriptionLabel.Name = "DescriptionLabel";
+			this.DescriptionLabel.Size = new System.Drawing.Size(112, 28);
+			this.DescriptionLabel.TabIndex = 27;
+			this.DescriptionLabel.Text = "Description";
 			// 
-			// T_StartDateColumn
+			// TypeLabel
 			// 
-			this.T_StartDateColumn.HeaderText = "Start - Date (*)";
-			this.T_StartDateColumn.MinimumWidth = 200;
-			this.T_StartDateColumn.Name = "T_StartDateColumn";
-			this.T_StartDateColumn.ReadOnly = true;
-			this.T_StartDateColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.T_StartDateColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.TypeLabel.AutoSize = true;
+			this.TypeLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.TypeLabel.ForeColor = System.Drawing.Color.White;
+			this.TypeLabel.Location = new System.Drawing.Point(47, 35);
+			this.TypeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.TypeLabel.Name = "TypeLabel";
+			this.TypeLabel.Size = new System.Drawing.Size(79, 28);
+			this.TypeLabel.TabIndex = 28;
+			this.TypeLabel.Text = "Type (*)";
 			// 
-			// T_EndDateColumn
+			// ClientData
 			// 
-			this.T_EndDateColumn.HeaderText = "End - Date (*)";
-			this.T_EndDateColumn.MinimumWidth = 200;
-			this.T_EndDateColumn.Name = "T_EndDateColumn";
-			this.T_EndDateColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.T_EndDateColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.ClientData.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.ClientData.Controls.Add(this.NewClientButton);
+			this.ClientData.Controls.Add(this.ClientIdLabel);
+			this.ClientData.Controls.Add(this.NifComboBox);
+			this.ClientData.Controls.Add(this.ClientIdTextBox);
+			this.ClientData.Controls.Add(this.NifLabel);
+			this.ClientData.Controls.Add(this.NameTextBox);
+			this.ClientData.Controls.Add(this.NameLabel);
+			this.ClientData.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ClientData.ForeColor = System.Drawing.Color.White;
+			this.ClientData.Location = new System.Drawing.Point(572, 18);
+			this.ClientData.Margin = new System.Windows.Forms.Padding(2);
+			this.ClientData.Name = "ClientData";
+			this.ClientData.Padding = new System.Windows.Forms.Padding(2);
+			this.ClientData.Size = new System.Drawing.Size(450, 173);
+			this.ClientData.TabIndex = 49;
+			this.ClientData.TabStop = false;
+			this.ClientData.Text = "Client";
 			// 
-			// T_TotalPriceColumn
+			// NewClientButton
 			// 
-			this.T_TotalPriceColumn.HeaderText = "Total Price";
-			this.T_TotalPriceColumn.MinimumWidth = 100;
-			this.T_TotalPriceColumn.Name = "T_TotalPriceColumn";
-			this.T_TotalPriceColumn.ReadOnly = true;
+			this.NewClientButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			this.NewClientButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.NewClientButton.ForeColor = System.Drawing.Color.White;
+			this.NewClientButton.Location = new System.Drawing.Point(141, 129);
+			this.NewClientButton.Margin = new System.Windows.Forms.Padding(2);
+			this.NewClientButton.Name = "NewClientButton";
+			this.NewClientButton.Size = new System.Drawing.Size(186, 40);
+			this.NewClientButton.TabIndex = 54;
+			this.NewClientButton.Text = "New Client";
+			this.NewClientButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.NewClientButton.UseVisualStyleBackColor = false;
+			this.NewClientButton.Click += new System.EventHandler(this.NewClientButton_Click);
+			// 
+			// ClientIdLabel
+			// 
+			this.ClientIdLabel.AutoSize = true;
+			this.ClientIdLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ClientIdLabel.ForeColor = System.Drawing.Color.White;
+			this.ClientIdLabel.Location = new System.Drawing.Point(311, 34);
+			this.ClientIdLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.ClientIdLabel.Name = "ClientIdLabel";
+			this.ClientIdLabel.Size = new System.Drawing.Size(31, 28);
+			this.ClientIdLabel.TabIndex = 53;
+			this.ClientIdLabel.Text = "ID";
+			// 
+			// NifComboBox
+			// 
+			this.NifComboBox.AutoCompleteCustomSource.AddRange(new string[] {
+            "Hotel",
+            "ActivityAgency",
+            "TransportAgency",
+            "HotelierGroup"});
+			this.NifComboBox.DisplayFocus = true;
+			this.NifComboBox.FontSize = MetroFramework.MetroComboBoxSize.Tall;
+			this.NifComboBox.FormattingEnabled = true;
+			this.NifComboBox.ItemHeight = 29;
+			this.NifComboBox.Items.AddRange(new object[] {
+            "Hotel",
+            "ActivityAgency",
+            "TransportAgency",
+            "HotelierGroup"});
+			this.NifComboBox.Location = new System.Drawing.Point(141, 31);
+			this.NifComboBox.Margin = new System.Windows.Forms.Padding(2);
+			this.NifComboBox.Name = "NifComboBox";
+			this.NifComboBox.Size = new System.Drawing.Size(162, 35);
+			this.NifComboBox.TabIndex = 52;
+			this.NifComboBox.UseSelectable = true;
+			this.NifComboBox.SelectedValueChanged += new System.EventHandler(this.NifComboBox_SelectedValueChanged);
+			// 
+			// ClientIdTextBox
+			// 
+			this.ClientIdTextBox.Font = new System.Drawing.Font("Segoe UI Semilight", 15F);
+			this.ClientIdTextBox.ForeColor = System.Drawing.Color.Black;
+			this.ClientIdTextBox.Location = new System.Drawing.Point(349, 31);
+			this.ClientIdTextBox.Margin = new System.Windows.Forms.Padding(2);
+			this.ClientIdTextBox.Name = "ClientIdTextBox";
+			this.ClientIdTextBox.Size = new System.Drawing.Size(81, 34);
+			this.ClientIdTextBox.TabIndex = 37;
+			this.ClientIdTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			// 
+			// NifLabel
+			// 
+			this.NifLabel.AutoSize = true;
+			this.NifLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.NifLabel.ForeColor = System.Drawing.Color.White;
+			this.NifLabel.Location = new System.Drawing.Point(57, 34);
+			this.NifLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.NifLabel.Name = "NifLabel";
+			this.NifLabel.Size = new System.Drawing.Size(63, 28);
+			this.NifLabel.TabIndex = 29;
+			this.NifLabel.Text = "Nif (*)";
+			// 
+			// NameTextBox
+			// 
+			this.NameTextBox.Font = new System.Drawing.Font("Segoe UI Semilight", 15F);
+			this.NameTextBox.Location = new System.Drawing.Point(141, 81);
+			this.NameTextBox.Margin = new System.Windows.Forms.Padding(2);
+			this.NameTextBox.Name = "NameTextBox";
+			this.NameTextBox.Size = new System.Drawing.Size(291, 34);
+			this.NameTextBox.TabIndex = 36;
+			// 
+			// NameLabel
+			// 
+			this.NameLabel.AutoSize = true;
+			this.NameLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.NameLabel.ForeColor = System.Drawing.Color.White;
+			this.NameLabel.Location = new System.Drawing.Point(56, 83);
+			this.NameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.NameLabel.Name = "NameLabel";
+			this.NameLabel.Size = new System.Drawing.Size(69, 28);
+			this.NameLabel.TabIndex = 27;
+			this.NameLabel.Text = "Name ";
 			// 
 			// FooterPanel
 			// 
@@ -612,95 +664,10 @@
 			this.FooterPanel.Size = new System.Drawing.Size(1202, 150);
 			this.FooterPanel.TabIndex = 15;
 			// 
-			// R_IdColumn
+			// errorProvider
 			// 
-			this.R_IdColumn.HeaderText = "Booking ID";
-			this.R_IdColumn.MinimumWidth = 150;
-			this.R_IdColumn.Name = "R_IdColumn";
-			this.R_IdColumn.ReadOnly = true;
-			this.R_IdColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			// 
-			// R_ClientNifColumn
-			// 
-			this.R_ClientNifColumn.HeaderText = "Client Nif (*)";
-			this.R_ClientNifColumn.MinimumWidth = 150;
-			this.R_ClientNifColumn.Name = "R_ClientNifColumn";
-			this.R_ClientNifColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			// 
-			// R_ClientNameColumn
-			// 
-			this.R_ClientNameColumn.HeaderText = "Client Name";
-			this.R_ClientNameColumn.MinimumWidth = 200;
-			this.R_ClientNameColumn.Name = "R_ClientNameColumn";
-			this.R_ClientNameColumn.ReadOnly = true;
-			// 
-			// R_TypeColumn
-			// 
-			this.R_TypeColumn.HeaderText = "Type (*)";
-			this.R_TypeColumn.Items.AddRange(new object[] {
-            "Single",
-            "DoubleSingle",
-            "Double",
-            "Suite",
-            "FamilySuite",
-            "Meeting"});
-			this.R_TypeColumn.MinimumWidth = 150;
-			this.R_TypeColumn.Name = "R_TypeColumn";
-			this.R_TypeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.R_TypeColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-			// 
-			// R_RoomIdColumn
-			// 
-			this.R_RoomIdColumn.HeaderText = "Room ID (*)";
-			this.R_RoomIdColumn.MinimumWidth = 150;
-			this.R_RoomIdColumn.Name = "R_RoomIdColumn";
-			this.R_RoomIdColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.R_RoomIdColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-			// 
-			// R_DescriptionColumn
-			// 
-			this.R_DescriptionColumn.HeaderText = "Room Description";
-			this.R_DescriptionColumn.MinimumWidth = 200;
-			this.R_DescriptionColumn.Name = "R_DescriptionColumn";
-			this.R_DescriptionColumn.ReadOnly = true;
-			// 
-			// R_BasePriceColumn
-			// 
-			this.R_BasePriceColumn.HeaderText = "Base Price";
-			this.R_BasePriceColumn.MinimumWidth = 110;
-			this.R_BasePriceColumn.Name = "R_BasePriceColumn";
-			this.R_BasePriceColumn.ReadOnly = true;
-			// 
-			// R_BookingDateColumn
-			// 
-			this.R_BookingDateColumn.HeaderText = "Booking Date";
-			this.R_BookingDateColumn.MinimumWidth = 200;
-			this.R_BookingDateColumn.Name = "R_BookingDateColumn";
-			this.R_BookingDateColumn.ReadOnly = true;
-			// 
-			// R_CheckInDateColumn
-			// 
-			this.R_CheckInDateColumn.HeaderText = "Check-In-Date (*)";
-			this.R_CheckInDateColumn.MinimumWidth = 175;
-			this.R_CheckInDateColumn.Name = "R_CheckInDateColumn";
-			this.R_CheckInDateColumn.ReadOnly = true;
-			this.R_CheckInDateColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.R_CheckInDateColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			// 
-			// R_CheckOutColumn
-			// 
-			this.R_CheckOutColumn.HeaderText = "Check-Out-Date (*)";
-			this.R_CheckOutColumn.MinimumWidth = 175;
-			this.R_CheckOutColumn.Name = "R_CheckOutColumn";
-			this.R_CheckOutColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.R_CheckOutColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			// 
-			// R_TotalPriceColumn
-			// 
-			this.R_TotalPriceColumn.HeaderText = "Total Price";
-			this.R_TotalPriceColumn.MinimumWidth = 100;
-			this.R_TotalPriceColumn.Name = "R_TotalPriceColumn";
-			this.R_TotalPriceColumn.ReadOnly = true;
+			this.errorProvider.ContainerControl = this;
+			this.errorProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider.Icon")));
 			// 
 			// BookingsForm
 			// 
@@ -721,13 +688,14 @@
 			this.HeaderPanel.ResumeLayout(false);
 			this.HeaderPanel.PerformLayout();
 			this.BodyPanel.ResumeLayout(false);
-			this.BookablesTabsControl.ResumeLayout(false);
-			this.RoomsTab.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.RoomBookingsDataGrid)).EndInit();
-			this.ActivitiesTab.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.ActivitiesBookingDataGrid)).EndInit();
-			this.TransportsTab.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.TransportBookingsDataGrid)).EndInit();
+			this.BookingInfo.ResumeLayout(false);
+			this.BookingData.ResumeLayout(false);
+			this.BookingData.PerformLayout();
+			this.BookableData.ResumeLayout(false);
+			this.BookableData.PerformLayout();
+			this.ClientData.ResumeLayout(false);
+			this.ClientData.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -741,46 +709,42 @@
 		private System.Windows.Forms.Panel ImagePanel;
 		private System.Windows.Forms.Panel FooterPanel;
 		private System.Windows.Forms.Panel BackPanel;
-		private MetroFramework.Controls.MetroGrid RoomBookingsDataGrid;
-		private MetroFramework.Controls.MetroTabControl BookablesTabsControl;
-		private MetroFramework.Controls.MetroTabPage RoomsTab;
-		private MetroFramework.Controls.MetroTabPage ActivitiesTab;
-		private MetroFramework.Controls.MetroGrid ActivitiesBookingDataGrid;
-		private MetroFramework.Controls.MetroTabPage TransportsTab;
-		private MetroFramework.Controls.MetroGrid TransportBookingsDataGrid;
-		private System.Windows.Forms.DataGridViewTextBoxColumn A_BookingIdColumn;
-		private System.Windows.Forms.DataGridViewComboBoxColumn A_ClientNifColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn A_ClientNameColumn;
-		private System.Windows.Forms.DataGridViewComboBoxColumn A_TypeColumn;
-		private System.Windows.Forms.DataGridViewComboBoxColumn A_ActivityIdColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn A_Description;
-		private System.Windows.Forms.DataGridViewTextBoxColumn A_BasePriceColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn A_BookingDateColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn A_StartDateColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn A_EndDateColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn A_TotalPrice;
-		private System.Windows.Forms.DataGridViewTextBoxColumn T_BookingIdColumn;
-		private System.Windows.Forms.DataGridViewComboBoxColumn T_ClientNifColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn T_ClientNameColumn;
-		private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn4;
-		private System.Windows.Forms.DataGridViewComboBoxColumn T_BookableIdColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn T_Description;
-		private System.Windows.Forms.DataGridViewTextBoxColumn T_BasePriceColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn T_BookingDate;
-		private System.Windows.Forms.DataGridViewTextBoxColumn T_StartDateColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn T_EndDateColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn T_TotalPriceColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn R_IdColumn;
-		private System.Windows.Forms.DataGridViewComboBoxColumn R_ClientNifColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn R_ClientNameColumn;
-		private System.Windows.Forms.DataGridViewComboBoxColumn R_TypeColumn;
-		private System.Windows.Forms.DataGridViewComboBoxColumn R_RoomIdColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn R_DescriptionColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn R_BasePriceColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn R_BookingDateColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn R_CheckInDateColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn R_CheckOutColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn R_TotalPriceColumn;
+		private System.Windows.Forms.GroupBox BookingInfo;
+		private System.Windows.Forms.GroupBox BookingData;
+		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Button EditButton;
+		private System.Windows.Forms.Button SaveButton;
+		private MetroFramework.Controls.MetroDateTime EndDatePicker;
+		private MetroFramework.Controls.MetroDateTime StartDatePicker;
+		private System.Windows.Forms.Label EndDateLabel;
+		private System.Windows.Forms.Label StartDateLabel;
+		private System.Windows.Forms.Label BookingDateLabel;
+		private System.Windows.Forms.GroupBox BookableData;
+		private System.Windows.Forms.Label BasePriceLabel;
+		private MetroFramework.Controls.MetroComboBox BookableIdComboBox;
+		private MetroFramework.Controls.MetroComboBox SubTypeComboBox;
+		private System.Windows.Forms.Label SubTypeLabel;
+		private MetroFramework.Controls.MetroComboBox TypeCombox;
+		private System.Windows.Forms.Label BookableIdLabel;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.TextBox textBox4;
+		private System.Windows.Forms.TextBox DescriptionTextBox;
+		private System.Windows.Forms.Label DescriptionLabel;
+		private System.Windows.Forms.Label TypeLabel;
+		private System.Windows.Forms.GroupBox ClientData;
+		private System.Windows.Forms.TextBox ClientIdTextBox;
+		private System.Windows.Forms.Label NifLabel;
+		private System.Windows.Forms.TextBox NameTextBox;
+		private System.Windows.Forms.Label NameLabel;
+		private System.Windows.Forms.TextBox BasePriceTextBox;
+		private System.Windows.Forms.Label ClientIdLabel;
+		private MetroFramework.Controls.MetroComboBox NifComboBox;
+		private System.Windows.Forms.TextBox TotalPriceLabel;
+		private System.Windows.Forms.Label BookingIDLabel;
+		private System.Windows.Forms.TextBox BookingIdTextBox;
+		private System.Windows.Forms.TextBox BookingDateTextBox;
+		private System.Windows.Forms.Button NewClientButton;
+		private System.Windows.Forms.ErrorProvider errorProvider;
 
 	}
 }

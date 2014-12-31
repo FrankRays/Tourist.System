@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Windows.Forms.VisualStyles;
 using Tourist.Data.Classes;
 using Tourist.Data.Enums;
 using Tourist.Data.Interfaces;
@@ -108,35 +109,40 @@ namespace Tourist.Server
 			}
 		}
 
-		public List<int> GetBooKablesIds(string aType, string aSubType)
+		public List<string> GetBooKablesIds(string aType, string aSubType)
 		{
-			var temp = new List<int>();
+			var temp = new List<string>();
 
 			if (aType.Equals("Room"))
 			{
 				switch (aSubType)
 				{
 					case "Single":
-						temp.AddRange(from room in mData.Rooms where room.Type.ToString().Equals(aSubType) select room.Id);
+						temp.AddRange(from room in mData.Rooms where room.Type.ToString().Equals(aSubType) && 
+										  room.State.ToString().Equals("Available") select room.Id.ToString());
 						return temp;
 					case "DoubleSingle":
-						temp.AddRange(from room in mData.Rooms where room.Type.ToString().Equals(aSubType) select room.Id);
+						temp.AddRange( from room in mData.Rooms where  room.Type.ToString( ).Equals( aSubType ) && 
+										   room.State.ToString( ).Equals( "Available" )  select room.Id.ToString( ) );
 						return temp;
 					case "Double":
-						temp.AddRange(from room in mData.Rooms where room.Type.ToString().Equals(aSubType) select room.Id);
+						temp.AddRange( from room in mData.Rooms where  room.Type.ToString( ).Equals( aSubType ) && 
+										   room.State.ToString( ).Equals( "Available" )  select room.Id.ToString( ) );
 						return temp;
 					case "Suite":
-						temp.AddRange(from room in mData.Rooms where room.Type.ToString().Equals(aSubType) select room.Id);
+						temp.AddRange( from room in mData.Rooms where  room.Type.ToString( ).Equals( aSubType ) && 
+										   room.State.ToString( ).Equals( "Available" )  select room.Id.ToString( ) );
 						return temp;
 					case "FamilySuite":
-						temp.AddRange(from room in mData.Rooms where room.Type.ToString().Equals(aSubType) select room.Id);
+						temp.AddRange( from room in mData.Rooms where  room.Type.ToString( ).Equals( aSubType ) && 
+										   room.State.ToString( ).Equals( "Available" )  select room.Id.ToString( ) );
 						return temp;
 					case "Meeting":
-						temp.AddRange(from room in mData.Rooms where room.Type.ToString().Equals(aSubType) select room.Id);
+						temp.AddRange( from room in mData.Rooms where  room.Type.ToString( ).Equals( aSubType ) && 
+										   room.State.ToString( ).Equals( "Available" )  select room.Id.ToString( ) );
 						return temp;
 					default:
 						return null;
-
 				}
 			}
 			if (aType.Equals("Activity"))
@@ -144,26 +150,31 @@ namespace Tourist.Server
 				switch (aSubType)
 				{
 					case "BoatRide":
-						temp.AddRange(from activity in mData.Activities where activity.Type.ToString().Equals(aSubType) select activity.Id);
+						temp.AddRange( from activity in mData.Activities where activity.Type.ToString( ).Equals( aSubType ) && 
+										   activity.State.ToString().Equals("Available") select activity.Id.ToString( ) );
 						return temp;
 					case "Golf":
-						temp.AddRange(from activity in mData.Activities where activity.Type.ToString().Equals(aSubType) select activity.Id);
+						temp.AddRange( from activity in mData.Activities where  activity.Type.ToString( ).Equals( aSubType ) && 
+										   activity.State.ToString( ).Equals( "Available" )  select activity.Id.ToString( ) );
 						return temp;
 					case "Camping":
-						temp.AddRange(from activity in mData.Activities where activity.Type.ToString().Equals(aSubType) select activity.Id);
+						temp.AddRange( from activity in mData.Activities where  activity.Type.ToString( ).Equals( aSubType ) && 
+										   activity.State.ToString( ).Equals( "Available" )  select activity.Id.ToString( ) );
 						return temp;
 					case "Diving":
-						temp.AddRange(from activity in mData.Activities where activity.Type.ToString().Equals(aSubType) select activity.Id);
+						temp.AddRange( from activity in mData.Activities where  activity.Type.ToString( ).Equals( aSubType ) && 
+										   activity.State.ToString( ).Equals( "Available" )  select activity.Id.ToString( ) );
 						return temp;
 					case "SightSeeing":
-						temp.AddRange(from activity in mData.Activities where activity.Type.ToString().Equals(aSubType) select activity.Id);
+						temp.AddRange( from activity in mData.Activities where  activity.Type.ToString( ).Equals( aSubType ) && 
+										   activity.State.ToString( ).Equals( "Available" )  select activity.Id.ToString( ) );
 						return temp;
 					case "SkyDiving":
-						temp.AddRange(from activity in mData.Activities where activity.Type.ToString().Equals(aSubType) select activity.Id);
+						temp.AddRange( from activity in mData.Activities where  activity.Type.ToString( ).Equals( aSubType ) && 
+										   activity.State.ToString( ).Equals( "Available" )  select activity.Id.ToString( ) );
 						return temp;
 					default:
 						return null;
-
 				}
 			}
 			if ( aType.Equals( "Transport" ) )
@@ -171,31 +182,73 @@ namespace Tourist.Server
 				switch ( aSubType )
 				{
 					case "TuckTuck":
-						temp.AddRange(from transport in mData.Transports where transport.Type.ToString().Equals(aSubType) select transport.Id);
+						temp.AddRange( from transport in mData.Transports where transport.Type.ToString( ).Equals( aSubType ) && 
+										   transport.State.ToString().Equals("Available")  select transport.Id.ToString( ) );
 						return temp;
 					case "CableCar":
-						temp.AddRange(from transport in mData.Transports where transport.Type.ToString().Equals(aSubType) select transport.Id);
+						temp.AddRange( from transport in mData.Transports where  transport.Type.ToString( ).Equals( aSubType ) && 
+										   transport.State.ToString( ).Equals( "Available" )  select transport.Id.ToString( ) );
 						return temp;
 					case "Bicycle":
-						temp.AddRange(from transport in mData.Transports where transport.Type.ToString().Equals(aSubType) select transport.Id);
+						temp.AddRange( from transport in mData.Transports where  transport.Type.ToString( ).Equals( aSubType ) && 
+										   transport.State.ToString( ).Equals( "Available" )  select transport.Id.ToString( ) );
 						return temp;
 					case "Car":
-						temp.AddRange(from transport in mData.Transports where transport.Type.ToString().Equals(aSubType) select transport.Id);
+						temp.AddRange( from transport in mData.Transports where  transport.Type.ToString( ).Equals( aSubType ) && 
+										   transport.State.ToString( ).Equals( "Available" )  select transport.Id.ToString( ) );
 						return temp;
 					case "Bus":
-						temp.AddRange(from transport in mData.Transports where transport.Type.ToString().Equals(aSubType) select transport.Id);
+						temp.AddRange( from transport in mData.Transports where  transport.Type.ToString( ).Equals( aSubType ) && 
+										   transport.State.ToString( ).Equals( "Available" )  select transport.Id.ToString( ) );
 						return temp;
 					case "Motorist":
-						temp.AddRange(from transport in mData.Transports where transport.Type.ToString().Equals(aSubType) select transport.Id);
+						temp.AddRange( from transport in mData.Transports where  transport.Type.ToString( ).Equals( aSubType ) && 
+										   transport.State.ToString( ).Equals( "Available" )  select transport.Id.ToString( ) );
 						return temp;
 					default:
 						return null;
-
 				}
 			}
 
 			return temp;
 		}
+
+		public List<string> BookableSubTypesList(string aType)
+		{
+			var temp = new List<string>();
+
+			switch ( aType )
+			{
+				case "Room":
+					temp.Add("Single");
+					temp.Add("DoubleSingle");
+					temp.Add("Double");
+					temp.Add("Suite");
+					temp.Add("FamilySuite");
+					temp.Add("Meeting");					
+					return temp;
+				case "Activity":
+					temp.Add( "BoatRide" );
+					temp.Add( "Golf" );
+					temp.Add( "Camping" );
+					temp.Add( "Diving" );
+					temp.Add( "SightSeeing" );
+					temp.Add( "SkyDiving" );					
+					return temp;
+				case "Transport":
+					temp.Add( "TuckTuck" );
+					temp.Add( "CableCar" );
+					temp.Add( "Bicycle" );
+					temp.Add( "Car" );
+					temp.Add( "Bus" );
+					temp.Add( "Motorist" );
+					return temp;
+				default:
+					return temp;
+			}
+
+
+		} 
 
 		public string GetBookableDescription(int aId, string aType)
 		{
@@ -1002,11 +1055,11 @@ namespace Tourist.Server
 			return mData.Clients.FirstOrDefault( client => client.Nif == aNif );
 		}
 
-		public List<int> ClientsNifList( )
+		public List<string> ClientsNifList( )
 		{
-			return mData.Clients.Select( client => client.Nif ).ToList( );
+			return mData.Clients.Select(client => client.Nif.ToString()).ToList();
 		}
-		
+
 		public IBookable GetBookable( string aType, int aId )
 		{
 

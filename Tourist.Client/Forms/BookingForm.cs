@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
-using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
-using MetroFramework.Controls;
 using MetroFramework.Forms;
+using Tourist.Client.Properties;
 using Tourist.Data.Classes;
-using Tourist.Data.Enums;
 using Tourist.Data.Interfaces;
 using Tourist.Data.Shared;
 
@@ -18,12 +16,10 @@ namespace Tourist.Client.Forms
 
 		private readonly MainForm MainForm;
 		private readonly IRemote Remote;
-		private readonly MetroDateTime mDateTimePicker;
 		private readonly BindingSource mNifsbBindingSource;
+		private readonly BindingSource mSubTypesBindingSource;
 		private readonly BindingSource mIdBindingSource;
 		private bool mBackOrExit = default( bool );
-		
-		
 
 		public BookingsForm( Form aForm, IRemote aRemote )
 		{
@@ -31,254 +27,60 @@ namespace Tourist.Client.Forms
 
 			MainForm = aForm as MainForm;
 			Remote = aRemote;
-			mDateTimePicker = new MetroDateTime();
+			EditButton.Enabled = false;
 			mNifsbBindingSource = new BindingSource( );
+			mSubTypesBindingSource = new BindingSource( );
 			mIdBindingSource = new BindingSource( );
+			
 		}
 
 		private void BookingsForm_Load( object sender, EventArgs e )
 		{
 			SharedMethods.SetFormFullScreen( this );
-			NifComboBoxLoad( );
-			LoadDataToGrids( );
-		}
 
-
-		private void NifComboBoxLoad( )
-		{
 			mNifsbBindingSource.DataSource = Remote.ClientsNifList( );
-			R_ClientNifColumn.DataSource = mNifsbBindingSource;
-			A_ClientNifColumn.DataSource = mNifsbBindingSource;
-			T_ClientNifColumn.DataSource = mNifsbBindingSource;
+			NifComboBox.DataSource = mNifsbBindingSource;
 		}
 
-		private void LoadDataToGrids( )
+		private void AutoFillClientData( )
 		{
-			LoadRoomsDataToGrid( );
-			LoadActivitiesDataToGrid( );
-			LoadTransportsDataToGrid( );
+			if ( string.IsNullOrEmpty( NifComboBox.Text ) ) return;
+
+			var client = Remote.GetClientByNif( SharedMethods.ConvertStringToInt( NifComboBox.Text ) );
+			ClientIdTextBox.Text = client.Id.ToString( );
+			NameTextBox.Text = client.FirstName + " " + client.LastName;
 		}
 
-		private void LoadRoomsDataToGrid( )
+		private void LoadBookableSubTypes( )
 		{
-			if ( Remote.IsEmpty( "Bookings" ) )
-				return;
-
-			var roomMatrix = Remote.ListToMatrix( "Bookings", "Room" );
-
-			for ( var i = 0 ; i < Remote.Count( "Bookings" ) ; i++ )
-			{
-				RoomBookingsDataGrid.Rows.Add( );
-
-				for ( var j = 0 ; j < RoomBookingsDataGrid.ColumnCount ; j++ )
-				{
-					RoomBookingsDataGrid.Rows[ i ].Cells[ j ].Value = roomMatrix[ i, j ];
-				}
-			}
+			if ( string.IsNullOrEmpty( TypeCombox.Text ) ) return;
+			mSubTypesBindingSource.DataSource = Remote.BookableSubTypesList( TypeCombox.Text );
+			SubTypeComboBox.DataSource = mSubTypesBindingSource;
 		}
 
-		private void LoadActivitiesDataToGrid( )
+		private void LoadBookableIds( )
 		{
+			if ( string.IsNullOrEmpty( SubTypeComboBox.Text ) ) return;
 
-			if ( Remote.IsEmpty( "Bookings" ) )
-				return;
+			mIdBindingSource.DataSource = Remote.GetBooKablesIds( TypeCombox.Text, SubTypeComboBox.Text );
+			BookableIdComboBox.DataSource = mIdBindingSource;
 
-			var activityMatrix = Remote.ListToMatrix( "Bookings", "Activity" );
-
-			for ( var i = 0 ; i < Remote.Count( "Activities" ) ; i++ )
-			{
-				ActivitiesBookingDataGrid.Rows.Add( );
-
-				for ( var j = 0 ; j < ActivitiesBookingDataGrid.ColumnCount ; j++ )
-				{
-					ActivitiesBookingDataGrid.Rows[ i ].Cells[ j ].Value = activityMatrix[ i, j ];
-				}
-			}
+			BasePriceTextBox.Text = Remote.GetBasePrice( SubTypeComboBox.Text ).ToString( "0.00", CultureInfo.InvariantCulture );
 		}
 
-		private void LoadTransportsDataToGrid( )
+		private void LoadBookableDescription( )
 		{
+			if ( string.IsNullOrEmpty( BookableIdComboBox.Text ) ) return;
 
-			if ( Remote.IsEmpty( "Bookings" ) )
-				return;
-
-			var transportMatrix = Remote.ListToMatrix( "Bookings", "Transport" );
-
-			for ( var i = 0 ; i < Remote.Count( "Bookings" ) ; i++ )
-			{
-				TransportBookingsDataGrid.Rows.Add( );
-
-				for ( var j = 0 ; j < TransportBookingsDataGrid.ColumnCount ; j++ )
-				{
-					TransportBookingsDataGrid.Rows[ i ].Cells[ j ].Value = transportMatrix[ i, j ];
-				}
-			}
+			DescriptionTextBox.Text = Remote.GetBookableDescription(
+			SharedMethods.ConvertStringToInt( BookableIdComboBox.Text ), TypeCombox.Text );
 		}
 
-		private void AddToRepository( List<string> rowValues )
+		private void NifComboBox_SelectedValueChanged( object sender, EventArgs e )
 		{
-			var booking = Remote.Factory.CreateObject<Booking>( );
-			booking.Client = Remote.GetClientByNif( SharedMethods.ConvertStringToInt( rowValues[ 1 ] ) );
-			booking.Bookable = Remote.GetBookable( rowValues[ 3 ], SharedMethods.ConvertStringToInt( rowValues[ 4 ] ) );
-			booking.BookingDate = SharedMethods.ConvertStringToDateTime( rowValues[ 7 ] );
-			booking.TimeFrame.StartDateTime = SharedMethods.ConvertStringToDateTime( rowValues[ 8 ] );
-			booking.TimeFrame.EndDateTime = SharedMethods.ConvertStringToDateTime( rowValues[ 9 ] );
-			booking.TotaPrice = SharedMethods.ConvertStringToDouble( rowValues[ 10 ] );
-			Remote.Append( booking, "Bookings" );
+			AutoFillClientData( );
 		}
 
-		#region Rooms Events
-
-		private void RoomBookingsDataGrid_CellValidating( object sender, DataGridViewCellValidatingEventArgs e )
-		{
-			
-			var row = RoomBookingsDataGrid.Rows[ e.RowIndex ];
-			var roomBookingIndex = e.RowIndex;
-			var aNewValue = e.FormattedValue.ToString( );
-			int bookingId;
-			var clientNif = RoomBookingsDataGrid[ "R_ClientNifColumn", e.RowIndex ].Value.ToString( );
-			var roomType = RoomBookingsDataGrid[ "R_TypeColumn", e.RowIndex ].Value.ToString( );
-			var roomId = RoomBookingsDataGrid[ "R_RoomIdColumn", e.RowIndex ].Value.ToString( );
-			var checkInDate = RoomBookingsDataGrid[ "R_CheckInDateColumn", e.RowIndex ].Value.ToString( ); 
-			var checkOutDate = RoomBookingsDataGrid[ "R_CheckOutDateColumn", e.RowIndex ].Value.ToString( );
-
-			if ( roomBookingIndex <= Remote.Count( "Bookings" ) - 1 )
-				bookingId = Remote.GetId( roomBookingIndex, "Bookings" );
-			else
-				bookingId = Remote.NextId( "Booking" );
-
-			RoomBookingsDataGrid[ "R_IdColumn", e.RowIndex ].Value = bookingId;
-			RoomBookingsDataGrid[ "R_BookingDateColumn", e.RowIndex ].Value = DateTime.Now.Date.ToString( "d" );
-
-			if ( !string.IsNullOrEmpty( clientNif ) )
-			{
-				var client = Remote.GetClientByNif( SharedMethods.ConvertStringToInt( clientNif ) );
-				RoomBookingsDataGrid[ "R_ClientName", e.RowIndex ].Value = client.FirstName + " " + client.LastName;
-			}
-
-			if ( !string.IsNullOrEmpty( roomType ) )
-			{
-				mIdBindingSource.DataSource = Remote.GetBooKablesIds("Room", roomType);
-				R_RoomIdColumn.DataSource = mIdBindingSource;
-				RoomBookingsDataGrid[ "R_BasePriceColumn", e.RowIndex ].Value = 
-				Remote.GetBasePrice( roomType ).ToString( "0.00", CultureInfo.InvariantCulture );
-
-			}
-
-			if ( !string.IsNullOrEmpty( roomId ) )
-			{
-				RoomBookingsDataGrid[ "R_DescriptionColumn", e.RowIndex ].Value =
-				Remote.GetBookableDescription( SharedMethods.ConvertStringToInt( roomId ), roomType );
-			}
-
-			if ( !string.IsNullOrEmpty( checkInDate ) && !string.IsNullOrEmpty( checkOutDate ) && !string.IsNullOrEmpty( roomType ) )
-			{
-				var dtr = new DateTimeRange();
-
-				dtr.StartDateTime = SharedMethods.ConvertStringToDateTime(checkInDate);
-				dtr.EndDateTime = SharedMethods.ConvertStringToDateTime(checkOutDate);
-			
-				RoomBookingsDataGrid["R_TotalPriceColumn", e.RowIndex].Value =
-				(Remote.GetBasePrice(roomType)*dtr.DiferenceTimeSpan().Days).ToString("0.00", CultureInfo.InvariantCulture);
-
-			}
-
-			var isRowValidated = SharedMethods.RowCellsValidated( row );
-
-			if ( isRowValidated )
-			{
-				if ( !Remote.ExistingId( bookingId, "Rooms" ) )
-				{
-					var rowValues = SharedMethods.RowCellValues( row );
-					AddToRepository( rowValues );
-					MessageBox.Show( this, Properties.Resources.RoomString + Properties.Resources.AddString,
-					Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
-					RoomBookingsDataGrid["R_TypeColumn", e.RowIndex].ReadOnly = true;
-					RoomBookingsDataGrid[ "R_RoomIdColumn", e.RowIndex ].ReadOnly = true;
-
-				}
-				else
-				{
-					switch ( e.ColumnIndex )
-					{
-						//Client Nif
-						case 1:
-							Remote.Edit( "Booking", bookingId, "Client", aNewValue );
-							MessageBox.Show( this, Properties.Resources.BookingString + Properties.Resources.TypeEditedString,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
-							return;
-						//check in
-						case 8:
-							Remote.Edit( "Booking", bookingId, "StartDate", aNewValue );
-							MessageBox.Show( this, Properties.Resources.RoomString + Properties.Resources.DescriptionEdited,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
-							return;
-						//checkout
-						case 9:
-							Remote.Edit( "Room", bookingId, "EndDate", aNewValue );
-							MessageBox.Show( this, Properties.Resources.RoomString + Properties.Resources.DescriptionEdited,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
-							return;
-						default:
-							return;
-					}
-				}
-			}
-		}
-
-		// falta atualizar para a novo metodo remove do repositorio
-		private void RoomBookingsDataGrid_RowRemoved( object sender, DataGridViewRowsRemovedEventArgs e )
-		{
-			var dialog = MessageBox.Show( this, Properties.Resources.RemoveString,
-			Properties.Resources.RemoveTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Information );
-
-			if ( dialog == DialogResult.No )
-				return;
-
-			var removeIndex = e.RowIndex;
-
-			Remote.Remove( removeIndex, "Bookings" );
-		}
-
-		private void RoomBookingsDataGrid_CellDoubleClick( object sender, DataGridViewCellEventArgs e )
-		{
-			if ( e.ColumnIndex >= 0 && e.RowIndex >= 0 )
-			{
-				DataGridViewCell cell = RoomBookingsDataGrid[ e.ColumnIndex, e.RowIndex ];
-				RoomBookingsDataGrid.CurrentCell = cell;
-				RoomBookingsDataGrid.BeginEdit( true );
-			}
-		}
-
-		#endregion
-	
-		private void RoomBookingsDataGrid_CellClick( object sender, DataGridViewCellEventArgs e )
-		{
-			//BirthDateColumn
-			if ( e.ColumnIndex == 5 )
-			{
-				RoomBookingsDataGrid.Controls.Add( mDateTimePicker );
-				mDateTimePicker.Format = DateTimePickerFormat.Short;
-				var aRectangle = RoomBookingsDataGrid.GetCellDisplayRectangle( e.ColumnIndex, e.RowIndex, true );
-				mDateTimePicker.Size = new Size( aRectangle.Width, aRectangle.Height );
-				mDateTimePicker.Location = new Point( aRectangle.X, aRectangle.Y );
-				mDateTimePicker.CloseUp += oDateTimePicker_CloseUp;
-				mDateTimePicker.TextChanged += dateTimePicker_OnTextChange;
-				mDateTimePicker.Visible = true;
-			}
-		}
-
-		private void dateTimePicker_OnTextChange( object sender, EventArgs e )
-		{
-			// Saving the 'Selected Date on Calendar' into DataGridView current cell  
-			RoomBookingsDataGrid.CurrentCell.Value = mDateTimePicker.Text;
-		}
-
-		private void oDateTimePicker_CloseUp( object sender, EventArgs e )
-		{
-			// Hiding the control after use   
-			mDateTimePicker.Visible = false;
-		}
 		#region Close Events
 
 		protected override void OnFormClosing( FormClosingEventArgs e )
@@ -287,8 +89,8 @@ namespace Tourist.Client.Forms
 
 			base.OnFormClosing( e );
 
-			var dialogResult = MessageBox.Show( this, Properties.Resources.ExitMessage,
-				Properties.Resources.ExitMessageTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
+			var dialogResult = MessageBox.Show( this, Resources.ExitMessage,
+				Resources.ExitMessageTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
 
 			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
 
@@ -306,6 +108,116 @@ namespace Tourist.Client.Forms
 		}
 
 		#endregion
+
+		private void NewClientButton_Click( object sender, EventArgs e )
+		{
+			mBackOrExit = true;
+			Close( );
+			var clientsForm = new ClientsForm( MainForm, Remote );
+			clientsForm.Show( );
+		}
+
+		private void TypeCombox_SelectedValueChanged( object sender, EventArgs e )
+		{
+			LoadBookableSubTypes( );
+		}
+
+		private void SubTypeComboBox_SelectedValueChanged( object sender, EventArgs e )
+		{
+			LoadBookableIds( );
+		}
+
+		private void BookableIdComboBox_SelectedValueChanged( object sender, EventArgs e )
+		{
+			LoadBookableDescription( );
+		}
+
+		private void AddBooking( )
+		{
+			var booking = Remote.Factory.CreateObject<Booking>( );
+
+			booking.Client = Remote.GetClientByNif( SharedMethods.ConvertStringToInt( NifComboBox.Text ) );
+			booking.Bookable = Remote.GetBookable( TypeCombox.Text, SharedMethods.ConvertStringToInt( BookableIdComboBox.Text ) );
+			booking.BookingDate = SharedMethods.ConvertStringToDateTime( BookingDateTextBox.Text );
+			booking.TimeFrame.StartDateTime = SharedMethods.ConvertStringToDateTime( StartDatePicker.Text );
+			booking.TimeFrame.EndDateTime = SharedMethods.ConvertStringToDateTime( EndDatePicker.Text );
+
+			Remote.Append( booking, "Bookings" );
+
+		}
+
+		private void StartDatePicker_Validating( object sender, CancelEventArgs e )
+		{
+			BookingDateTextBox.Text = DateTime.Now.Date.ToString( "d" );
+			BookingIdTextBox.Text = Remote.NextId( "Booking" ).ToString( );
+
+			var timeframe = new DateTimeRange( );
+
+			timeframe.StartDateTime = SharedMethods.ConvertStringToDateTime( StartDatePicker.Text );
+			timeframe.EndDateTime = SharedMethods.ConvertStringToDateTime( EndDatePicker.Text );
+
+			if ( timeframe.StartDateTime >= timeframe.EndDateTime )
+			{
+				e.Cancel = true;
+				errorProvider.SetError( StartDatePicker, "The Start Date cannot be greater or equal than the End Date." );
+				errorProvider.SetIconPadding( StartDatePicker, -25 );
+			}
+			else
+			{
+				e.Cancel = false;
+				errorProvider.SetError( StartDatePicker, "" );
+			}
+		}
+
+		private void EndDatePicker_Validating( object sender, CancelEventArgs e )
+		{
+			var timeframe = new DateTimeRange();
+	
+			timeframe.StartDateTime = SharedMethods.ConvertStringToDateTime( StartDatePicker.Text );
+			timeframe.EndDateTime = SharedMethods.ConvertStringToDateTime( EndDatePicker.Text );
+
+			if ( timeframe.StartDateTime <= timeframe.EndDateTime )
+			{
+				e.Cancel = true;
+				errorProvider.SetError( StartDatePicker, "The End Date cannot be less or equal than the Start Date." );
+				errorProvider.SetIconPadding( StartDatePicker, -25 );
+			}
+			else
+			{
+				e.Cancel = false;
+				errorProvider.SetError( StartDatePicker, "" );
+			}
+
+			TotalPriceLabel.Text = ( timeframe.DiferenceTimeSpan().Days * Remote.GetBasePrice( SubTypeComboBox.Text )).ToString( "0.00", CultureInfo.InvariantCulture );
+
+		}
+
+		private void SaveButton_Click( object sender, EventArgs e )
+		{
+			AddBooking();
+			MessageBox.Show( this, Resources.BookingString + Resources.AddString,
+							Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
+			
+			ControlsToReadOnly(true);
+		}
+
+		private void EditButton_Click( object sender, EventArgs e )
+		{
+
+		}
+
+		private void ControlsToReadOnly( bool aBool )
+		{
+			NifComboBox.Enabled = aBool;
+			TypeCombox.Enabled = aBool;
+			SubTypeComboBox.Enabled = aBool;
+			BookableIdComboBox.Enabled = aBool;
+			StartDatePicker.Enabled = aBool;
+			EndDatePicker.Enabled = aBool;
+			SaveButton.Enabled = aBool;
+			EditButton.Enabled = !aBool;
+		}
+
 
 	}
 }

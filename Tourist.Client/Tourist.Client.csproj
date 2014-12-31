@@ -66,6 +66,12 @@
     <Compile Include="Forms\HelpForm.Designer.cs">
       <DependentUpon>HelpForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\BookingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BookingForm.Designer.cs">
+      <DependentUpon>BookingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ToolsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,11 +96,11 @@
     <Compile Include="Forms\ClientsForm.Designer.cs">
       <DependentUpon>ClientsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\BookingForm.cs">
+    <Compile Include="Forms\OldBookingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\BookingForm.Designer.cs">
-      <DependentUpon>BookingForm.cs</DependentUpon>
+    <Compile Include="Forms\OldBookingForm.Designer.cs">
+      <DependentUpon>OldBookingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
@@ -113,6 +119,9 @@
     <EmbeddedResource Include="Forms\HelpForm.resx">
       <DependentUpon>HelpForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BookingForm.resx">
+      <DependentUpon>BookingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ToolsForm.resx">
       <DependentUpon>ToolsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,8 +134,8 @@
     <EmbeddedResource Include="Forms\ClientsForm.resx">
       <DependentUpon>ClientsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\BookingForm.resx">
-      <DependentUpon>BookingForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\OldBookingForm.resx">
+      <DependentUpon>OldBookingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

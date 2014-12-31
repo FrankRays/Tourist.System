@@ -120,14 +120,19 @@ namespace Tourist.Server
 			return Repository.GetClientByNif( aNif );
 		}
 
-		public List<int> ClientsNifList( )
+		public List<string> ClientsNifList( )
 		{
 			return Repository.ClientsNifList( );
 		}
 
-		public List<int> GetBooKablesIds( string aType, string aSubType )
+		public List<string> GetBooKablesIds( string aType, string aSubType )
 		{
 			return Repository.GetBooKablesIds( aType, aSubType );
+		}
+
+		public List<string> BookableSubTypesList(string aType)
+		{
+			return Repository.BookableSubTypesList(aType);
 		}
 
 		public string GetBookableDescription( int aId, string aType )
