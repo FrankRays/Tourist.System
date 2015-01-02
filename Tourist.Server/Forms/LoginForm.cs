@@ -25,27 +25,13 @@ namespace Tourist.Server.Forms
 
 		#endregion
 
-		#region Private Methods
-
-		private void LoadEntityLogo( )
-		{
-			var buffer = Repository.MData.Entity.LogoBuffer;
-
-			if ( buffer != null )
-			{
-				LogoPicBox.Image = SharedMethods.ByteArrayToImage( buffer );
-			}
-		}
+		#region Events
 
 		private void LoginForm_Load( object sender, EventArgs e )
 		{
 			SharedMethods.SetFormFullScreen( this );
 			LoadEntityLogo( );
 		}
-
-		#endregion
-
-		#region Events
 
 		private void OkButton_Click( object sender, EventArgs e )
 		{
@@ -71,6 +57,38 @@ namespace Tourist.Server.Forms
 			else if ( !Repository.IsEmpty( "Managers" ) && !Repository.IsEmpty( "Employees" ) )
 			{
 				LoginErrorChecking( );
+			}
+		}
+
+		protected override void OnFormClosing( FormClosingEventArgs e )
+		{
+			base.OnFormClosing( e );
+
+			var dialogResult = MessageBox.Show( this, Properties.Resources.ExitMessage,
+			Properties.Resources.ExitMessageTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
+
+			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
+
+			if ( dialogResult == DialogResult.No )
+				e.Cancel = true;
+		}
+
+		private void ExitButton_Click( object sender, EventArgs e )
+		{
+			Close( );
+		}
+
+		#endregion
+
+		#region Private Methods
+
+		private void LoadEntityLogo( )
+		{
+			var buffer = Repository.MData.Entity.LogoBuffer;
+
+			if ( buffer != null )
+			{
+				LogoPicBox.Image = SharedMethods.ByteArrayToImage( buffer );
 			}
 		}
 
@@ -108,37 +126,18 @@ namespace Tourist.Server.Forms
 
 				if ( Repository.CheckLogin( UsernameTextBox.Text, PasswordTextBox.Text, "Server" ) )
 				{
-					MessageBox.Show( Properties.Resources.WelcomeString + Repository.ServerLoginSession.Username + 
+					MessageBox.Show( Properties.Resources.WelcomeString + Repository.ServerLoginSession.Username +
 					" !", Properties.Resources.LoginSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 					Hide( );
 					mMainForm.Show( );
 				}
 				else
 				{
-					MessageBox.Show( Properties.Resources.LoginErrorMessage,Properties.Resources.LoginError, 
+					MessageBox.Show( Properties.Resources.LoginErrorMessage, Properties.Resources.LoginError,
 					MessageBoxButtons.OK, MessageBoxIcon.Error );
 				}
 			}
 		}
-
-		protected override void OnFormClosing( FormClosingEventArgs e )
-		{
-			base.OnFormClosing( e );
-
-			var dialogResult = MessageBox.Show( this, Properties.Resources.ExitMessage,
-			Properties.Resources.ExitMessageTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
-
-			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
-
-			if ( dialogResult == DialogResult.No )
-				e.Cancel = true;
-		}
-
-		private void ExitButton_Click( object sender, EventArgs e )
-		{
-			Close( );
-		}
-
 
 		#endregion
 

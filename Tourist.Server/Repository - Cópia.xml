@@ -10,9 +10,39 @@
     <Phone>123456789</Phone>
     <Email>portobay@gmail.com</Email>
   </Entity>
-  <BookingList />
-  <ClientList />
-  <RoomList />
+  <BookingsList />
+  <ClientList>
+    <Client>
+      <Id>1</Id>
+      <FirstName>fabio</FirstName>
+      <LastName>nobrega</LastName>
+      <Nationality>PT  Portugal</Nationality>
+      <BirthDate>1994-06-01T00:00:00</BirthDate>
+      <Gender>Male</Gender>
+      <Nif>123456789</Nif>
+      <Address>rua das 12 casas</Address>
+      <Phone>123456789</Phone>
+      <Email>fabio@gmail.com</Email>
+    </Client>
+  </ClientList>
+  <RoomList>
+    <Room>
+      <Id>1</Id>
+      <Type>Single</Type>
+      <State>Available</State>
+      <Description>Cheapest Room Available</Description>
+      <Price>20</Price>
+      <Capacity>1</Capacity>
+    </Room>
+    <Room>
+      <Id>2</Id>
+      <Type>Single</Type>
+      <State>Unavailable</State>
+      <Description>Room Maintenance </Description>
+      <Price>20</Price>
+      <Capacity>1</Capacity>
+    </Room>
+  </RoomList>
   <ActivityList />
   <TransportList />
   <ManagersList>
@@ -22,9 +52,9 @@
       <LastName>Nobrega</LastName>
       <Gender>Male</Gender>
       <Nationality>PT  Portugal</Nationality>
-      <BirthDate>1987-05-13T00:00:00</BirthDate>
+      <BirthDate>2003-01-02T00:00:00</BirthDate>
       <Nif>123456789</Nif>
-      <Address>Rua das 12 casas</Address>
+      <Address>Rua das 12 casas </Address>
       <Phone>123456789</Phone>
       <Email>fabio@gmail.com</Email>
       <Username>fnobrega</Username>
@@ -34,17 +64,17 @@
   <EmployeesList>
     <Employer>
       <Id>1</Id>
-      <FirstName>joao</FirstName>
-      <LastName>Nobrega</LastName>
+      <FirstName>fabio</FirstName>
+      <LastName>nobrega</LastName>
       <Gender>Male</Gender>
       <Nationality>PT  Portugal</Nationality>
-      <BirthDate>1962-05-15T00:00:00</BirthDate>
+      <BirthDate>2008-10-04T00:00:00</BirthDate>
       <Nif>123456789</Nif>
-      <Address>Rua do bispo</Address>
+      <Address>Rua do auto</Address>
       <Phone>123456789</Phone>
-      <Email>joao@gmail.com</Email>
-      <Username>jnobrega</Username>
-      <Password>123456789</Password>
+      <Email>fabio@gmail.com</Email>
+      <Username>fnobrega</Username>
+      <Password>12345</Password>
     </Employer>
   </EmployeesList>
 </Repository>

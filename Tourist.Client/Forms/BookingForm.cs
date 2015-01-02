@@ -31,6 +31,7 @@ namespace Tourist.Client.Forms
 			mNifsbBindingSource = new BindingSource( );
 			mSubTypesBindingSource = new BindingSource( );
 			mIdBindingSource = new BindingSource( );
+			StartDatePicker.Value = DateTime.Today;
 			EndDatePicker.Value = DateTime.Today.AddDays(1);
 
 		}

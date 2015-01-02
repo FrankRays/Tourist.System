@@ -7,7 +7,6 @@ using MetroFramework.Controls;
 using MetroFramework.Forms;
 using Tourist.Data.Classes;
 using Tourist.Data.Enums;
-using Tourist.Data.Interfaces;
 using Tourist.Data.Shared;
 
 namespace Tourist.Server.Forms

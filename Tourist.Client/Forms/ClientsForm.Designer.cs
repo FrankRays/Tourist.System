@@ -39,16 +39,6 @@
 			this.BodyPanel = new System.Windows.Forms.Panel();
 			this.WrapperPanelGrid = new System.Windows.Forms.Panel();
 			this.ClientsDataGrid = new MetroFramework.Controls.MetroGrid();
-			this.IdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.FirstNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.LastNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.GenderColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-			this.NationalityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.BirthDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.NifColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.AddressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.PhoneColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.EmailColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.FooterPanel = new System.Windows.Forms.Panel();
 			this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,6 +49,16 @@
 			this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.IdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.FirstNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.LastNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.GenderColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+			this.NationalityColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+			this.BirthDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.NifColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.AddressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.PhoneColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.EmailColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.HeaderPanel.SuspendLayout();
 			this.BodyPanel.SuspendLayout();
 			this.WrapperPanelGrid.SuspendLayout();
@@ -222,73 +222,6 @@
 			this.ClientsDataGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.ClientsDataGrid_CellValidating);
 			this.ClientsDataGrid.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.ClientsDataGrid_RowRemoved);
 			// 
-			// IdColumn
-			// 
-			this.IdColumn.HeaderText = "ID";
-			this.IdColumn.MinimumWidth = 150;
-			this.IdColumn.Name = "IdColumn";
-			this.IdColumn.ReadOnly = true;
-			// 
-			// FirstNameColumn
-			// 
-			this.FirstNameColumn.HeaderText = "First Name";
-			this.FirstNameColumn.MinimumWidth = 150;
-			this.FirstNameColumn.Name = "FirstNameColumn";
-			this.FirstNameColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			// 
-			// LastNameColumn
-			// 
-			this.LastNameColumn.HeaderText = "Last Name";
-			this.LastNameColumn.MinimumWidth = 150;
-			this.LastNameColumn.Name = "LastNameColumn";
-			// 
-			// GenderColumn
-			// 
-			this.GenderColumn.HeaderText = "Gender";
-			this.GenderColumn.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-			this.GenderColumn.MinimumWidth = 150;
-			this.GenderColumn.Name = "GenderColumn";
-			this.GenderColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.GenderColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-			// 
-			// NationalityColumn
-			// 
-			this.NationalityColumn.HeaderText = "Nationality";
-			this.NationalityColumn.MinimumWidth = 150;
-			this.NationalityColumn.Name = "NationalityColumn";
-			// 
-			// BirthDateColumn
-			// 
-			this.BirthDateColumn.HeaderText = "BirthDate";
-			this.BirthDateColumn.MinimumWidth = 150;
-			this.BirthDateColumn.Name = "BirthDateColumn";
-			// 
-			// NifColumn
-			// 
-			this.NifColumn.HeaderText = "NIF";
-			this.NifColumn.MinimumWidth = 150;
-			this.NifColumn.Name = "NifColumn";
-			// 
-			// AddressColumn
-			// 
-			this.AddressColumn.HeaderText = "Address";
-			this.AddressColumn.MinimumWidth = 150;
-			this.AddressColumn.Name = "AddressColumn";
-			// 
-			// PhoneColumn
-			// 
-			this.PhoneColumn.HeaderText = "Phone";
-			this.PhoneColumn.MinimumWidth = 150;
-			this.PhoneColumn.Name = "PhoneColumn";
-			// 
-			// EmailColumn
-			// 
-			this.EmailColumn.HeaderText = "Email";
-			this.EmailColumn.MinimumWidth = 150;
-			this.EmailColumn.Name = "EmailColumn";
-			// 
 			// FooterPanel
 			// 
 			this.FooterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -354,6 +287,269 @@
 			this.dataGridViewTextBoxColumn19.HeaderText = "Client ID";
 			this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
 			// 
+			// IdColumn
+			// 
+			this.IdColumn.HeaderText = "ID";
+			this.IdColumn.MinimumWidth = 150;
+			this.IdColumn.Name = "IdColumn";
+			this.IdColumn.ReadOnly = true;
+			// 
+			// FirstNameColumn
+			// 
+			this.FirstNameColumn.HeaderText = "First Name (*)";
+			this.FirstNameColumn.MinimumWidth = 150;
+			this.FirstNameColumn.Name = "FirstNameColumn";
+			this.FirstNameColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			// 
+			// LastNameColumn
+			// 
+			this.LastNameColumn.HeaderText = "Last Name (*)";
+			this.LastNameColumn.MinimumWidth = 150;
+			this.LastNameColumn.Name = "LastNameColumn";
+			// 
+			// GenderColumn
+			// 
+			this.GenderColumn.HeaderText = "Gender (*)";
+			this.GenderColumn.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+			this.GenderColumn.MinimumWidth = 150;
+			this.GenderColumn.Name = "GenderColumn";
+			this.GenderColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.GenderColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			// 
+			// NationalityColumn
+			// 
+			this.NationalityColumn.HeaderText = "Nationality (*)";
+			this.NationalityColumn.Items.AddRange(new object[] {
+            "AD  Andorra",
+            "AE  United Arab Emirates",
+            "AF  Afghanistan",
+            "AG  Antigua and Barbuda",
+            "AL  Albania",
+            "AM  Armenia",
+            "AO  Angola",
+            "AR  Argentina",
+            "AT  Austria",
+            "AU  Australia",
+            "AZ  Azerbaijan",
+            "BA  Bosnia and Herzegovina",
+            "BB  Barbados",
+            "BD  Bangladesh",
+            "BE  Belgium",
+            "BF  Burkina Faso",
+            "BG  Bulgaria",
+            "BH  Bahrain",
+            "BI  Burundi",
+            "BJ  Benin",
+            "BN  Brunei Darussalam",
+            "BO  Bolivia (Plurinational State of)",
+            "BR  Brazil",
+            "BS  Bahamas",
+            "BT  Bhutan",
+            "BW  Botswana",
+            "BY  Belarus",
+            "BZ  Belize",
+            "CA  Canada",
+            "CD  Democratic Republic of the Congo",
+            "CF  Central African Republic",
+            "CG  Congo",
+            "CH  Switzerland",
+            "CI  Côte d\'Ivoire",
+            "CL  Chile",
+            "CM  Cameroon",
+            "CN  China",
+            "CO  Colombia",
+            "CR  Costa Rica",
+            "CU  Cuba",
+            "CV  Cape Verde",
+            "CY  Cyprus",
+            "CZ  Czech Republic",
+            "DE  Germany",
+            "DJ  Djibouti",
+            "DK  Denmark",
+            "DM  Dominica",
+            "DO  Dominican Republic",
+            "DZ  Algeria",
+            "EC  Ecuador",
+            "EE  Estonia",
+            "EG  Egypt",
+            "ER  Eritrea",
+            "ES  Spain",
+            "ET  Ethiopia",
+            "FI  Finland",
+            "FJ  Fiji",
+            "FM  Micronesia (Federated States of)",
+            "FR  France",
+            "GA  Gabon",
+            "GB  United Kingdom of Great Britain and Northern Ireland",
+            "GD  Grenada",
+            "GE  Georgia",
+            "GH  Ghana",
+            "GM  Gambia",
+            "GN  Guinea",
+            "GQ  Equatorial Guinea",
+            "GR  Greece",
+            "GT  Guatemala",
+            "GW  Guinea-Bissau",
+            "GY  Guyana",
+            "HN  Honduras",
+            "HR  Croatia",
+            "HT  Haiti",
+            "HU  Hungary",
+            "ID  Indonesia",
+            "IE  Ireland",
+            "IL  Israel",
+            "IN  India",
+            "IQ  Iraq",
+            "IR  Iran (Islamic Republic of)",
+            "IS  Iceland",
+            "IT  Italy",
+            "JM  Jamaica",
+            "JO  Jordan",
+            "JP  Japan",
+            "KE  Kenya",
+            "KG  Kyrgyzstan",
+            "KH  Cambodia",
+            "KI  Kiribati",
+            "KM  Comoros",
+            "KN  Saint Kitts and Nevis",
+            "KP  Democratic People\'s Republic of Korea",
+            "KR  Republic of Korea",
+            "KW  Kuwait",
+            "KZ  Kazakhstan",
+            "LA  Lao People\'s Democratic Republic",
+            "LB  Lebanon",
+            "LC  Saint Lucia",
+            "LI  Liechtenstein",
+            "LK  Sri Lanka",
+            "LR  Liberia",
+            "LS  Lesotho",
+            "LT  Lithuania",
+            "LU  Luxembourg",
+            "LV  Latvia",
+            "LY  Libyan Arab Jamahiriya",
+            "MA  Morocco",
+            "MC  Monaco",
+            "MD  Republic of Moldova",
+            "ME  Montenegro",
+            "MG  Madagascar",
+            "MH  Marshall Islands",
+            "MK  The former Yugoslav Republic of Macedonia",
+            "ML  Mali",
+            "MM  Myanmar",
+            "MN  Mongolia",
+            "MR  Mauritania",
+            "MT  Malta",
+            "MU  Mauritius",
+            "MV  Maldives",
+            "MW  Malawi",
+            "MX  Mexico",
+            "MY  Malaysia",
+            "MZ  Mozambique",
+            "NA  Namibia",
+            "NE  Niger",
+            "NG  Nigeria",
+            "NI  Nicaragua",
+            "NL  Netherlands",
+            "NO  Norway",
+            "NP  Nepal",
+            "NR  Nauru",
+            "NZ  New Zealand",
+            "OM  Oman",
+            "PA  Panama",
+            "PE  Peru",
+            "PG  Papua New Guinea",
+            "PH  Philippines",
+            "PK  Pakistan",
+            "PL  Poland",
+            "PT  Portugal",
+            "PW  Palau",
+            "PY  Paraguay",
+            "QA  Qatar",
+            "RO  Romania",
+            "RS  Serbia",
+            "RU  Russian Federation",
+            "RW  Rwanda",
+            "SA  Saudi Arabia",
+            "SB  Solomon Islands",
+            "SC  Seychelles",
+            "SD  Sudan",
+            "SE  Sweden",
+            "SG  Singapore",
+            "SI  Slovenia",
+            "SK  Slovakia",
+            "SL  Sierra Leone",
+            "SM  San Marino",
+            "SN  Senegal",
+            "SO  Somalia",
+            "SR  Suriname",
+            "SS  South Sudan",
+            "ST  Sao Tome and Principe",
+            "SV  El Salvador",
+            "SY  Syrian Arab Republic",
+            "SZ  Swaziland",
+            "TD  Chad",
+            "TG  Togo",
+            "TH  Thailand",
+            "TJ  Tajikistan",
+            "TL  Timor-Leste",
+            "TM  Turkmenistan",
+            "TN  Tunisia",
+            "TO  Tonga",
+            "TR  Turkey",
+            "TT  Trinidad and Tobago",
+            "TV  Tuvalu",
+            "TZ  United Republic of Tanzania",
+            "UA  Ukraine",
+            "UG  Uganda",
+            "US  United States of America",
+            "UY  Uruguay",
+            "UZ  Uzbekistan",
+            "VC  Saint Vincent and the Grenadines",
+            "VE  Venezuela (Bolivarian Republic of)",
+            "VN  Viet Nam",
+            "VU  Vanuatu",
+            "WS  Samoa",
+            "YE  Yemen",
+            "ZA  South Africa",
+            "ZM  Zambia",
+            "ZW  Zimbabwe"});
+			this.NationalityColumn.MinimumWidth = 150;
+			this.NationalityColumn.Name = "NationalityColumn";
+			this.NationalityColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.NationalityColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			// 
+			// BirthDateColumn
+			// 
+			this.BirthDateColumn.HeaderText = "Birth Date (*)";
+			this.BirthDateColumn.MinimumWidth = 150;
+			this.BirthDateColumn.Name = "BirthDateColumn";
+			// 
+			// NifColumn
+			// 
+			this.NifColumn.HeaderText = "NIF (*)";
+			this.NifColumn.MinimumWidth = 150;
+			this.NifColumn.Name = "NifColumn";
+			// 
+			// AddressColumn
+			// 
+			this.AddressColumn.HeaderText = "Address (*)";
+			this.AddressColumn.MinimumWidth = 150;
+			this.AddressColumn.Name = "AddressColumn";
+			// 
+			// PhoneColumn
+			// 
+			this.PhoneColumn.HeaderText = "Phone (*)";
+			this.PhoneColumn.MinimumWidth = 150;
+			this.PhoneColumn.Name = "PhoneColumn";
+			// 
+			// EmailColumn
+			// 
+			this.EmailColumn.HeaderText = "Email (*)";
+			this.EmailColumn.MinimumWidth = 150;
+			this.EmailColumn.Name = "EmailColumn";
+			// 
 			// ClientsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -403,7 +599,7 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn FirstNameColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn LastNameColumn;
 		private System.Windows.Forms.DataGridViewComboBoxColumn GenderColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn NationalityColumn;
+		private System.Windows.Forms.DataGridViewComboBoxColumn NationalityColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn BirthDateColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn NifColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn AddressColumn;
