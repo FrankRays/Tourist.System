@@ -275,7 +275,6 @@
 			this.BookingIdTextBox.Size = new System.Drawing.Size(75, 34);
 			this.BookingIdTextBox.TabIndex = 54;
 			this.BookingIdTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.BookingIdTextBox.TextChanged += new System.EventHandler(this.BookingIdTextBox_TextChanged);
 			// 
 			// label3
 			// 

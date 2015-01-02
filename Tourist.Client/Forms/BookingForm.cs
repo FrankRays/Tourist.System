@@ -15,7 +15,7 @@ namespace Tourist.Client.Forms
 	{
 
 		#region Fields
-		
+
 		private readonly MainForm MainForm;
 		private readonly IRemote Remote;
 		private readonly BindingSource mNifsbBindingSource;
@@ -79,7 +79,7 @@ namespace Tourist.Client.Forms
 			var booking = Remote.Factory.CreateObject<Booking>( );
 
 			booking.Client = Remote.GetClientByNif( SharedMethods.ConvertStringToInt( NifComboBox.Text ) );
-			booking.Bookable = Remote.GetBookable( TypeCombox.Text, SharedMethods.ConvertStringToInt( BookableIdComboBox.Text ) );
+			booking.Bookable = Remote.GetBookable( SubTypeComboBox.Text, SharedMethods.ConvertStringToInt( BookableIdComboBox.Text ) );
 			booking.BookingDate = SharedMethods.ConvertStringToDateTime( BookingDateTextBox.Text );
 			booking.TimeFrame = new DateTimeRange
 			{
@@ -112,6 +112,8 @@ namespace Tourist.Client.Forms
 				e.Cancel = false;
 				errorProvider.SetError( StartDatePicker, "" );
 			}
+			
+			TotalPriceLabel.Text = ( timeframe.DiferenceTimeSpan( ).Days * Remote.GetBasePrice( SubTypeComboBox.Text ) ).ToString( "0.00", CultureInfo.InvariantCulture );
 		}
 
 		private void EndDatePicker_Validating( object sender, CancelEventArgs e )
@@ -143,12 +145,12 @@ namespace Tourist.Client.Forms
 			MessageBox.Show( this, Resources.BookingString + Resources.AddString,
 							Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 
-			ControlsToReadOnly( true );
+			ControlsToReadOnly( false );
 		}
 
 		private void EditButton_Click( object sender, EventArgs e )
 		{
-
+			ControlsToReadOnly( true );
 		}
 
 		protected override void OnFormClosing( FormClosingEventArgs e )

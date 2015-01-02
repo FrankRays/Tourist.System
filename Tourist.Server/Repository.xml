@@ -10,7 +10,37 @@
     <Phone>123456789</Phone>
     <Email>portobay@gmail.com</Email>
   </Entity>
-  <BookingsList />
+  <BookingsList>
+    <Booking>
+      <Id>1</Id>
+      <Client>
+        <Id>1</Id>
+        <FirstName>fabio</FirstName>
+        <LastName>nobrega</LastName>
+        <Nationality>PT  Portugal</Nationality>
+        <BirthDate>1994-06-01T00:00:00</BirthDate>
+        <Gender>Male</Gender>
+        <Nif>123456789</Nif>
+        <Address>rua das 12 casas</Address>
+        <Phone>123456789</Phone>
+        <Email>fabio@gmail.com</Email>
+      </Client>
+      <BookingDate>2015-01-02T00:00:00</BookingDate>
+      <TimeFrame>
+        <StartDateTime>2015-01-02T00:00:00</StartDateTime>
+        <EndDateTime>2015-01-09T00:00:00</EndDateTime>
+      </TimeFrame>
+      <Bookable xsi:type="Room">
+        <Id>1</Id>
+        <Type>Single</Type>
+        <State>Available</State>
+        <Description>Cheapest Room Available</Description>
+        <Price>20</Price>
+        <Capacity>1</Capacity>
+      </Bookable>
+      <TotaPrice>140</TotaPrice>
+    </Booking>
+  </BookingsList>
   <ClientList>
     <Client>
       <Id>1</Id>
