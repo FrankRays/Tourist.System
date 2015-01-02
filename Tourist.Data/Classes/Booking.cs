@@ -16,6 +16,7 @@ namespace Tourist.Data.Classes
 		private DateTime mBookingDate;
 		private DateTimeRange mTimeFrame;
 		private IBookable mBookable;
+		private double mTotalPrice;
 
 
 		#endregion
@@ -84,8 +85,15 @@ namespace Tourist.Data.Classes
 
 		public double TotaPrice
 		{
-			get { return Bookable.Price * TimeFrame.DiferenceTimeSpan( ).Days; }
-			set { }
+			get
+			{
+				mTotalPrice = Bookable.Price * TimeFrame.DiferenceTimeSpan( ).Days;
+				return mTotalPrice;
+			}
+			set
+			{
+				
+			}
 		}
 
 		#endregion

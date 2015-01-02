@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Remoting.Lifetime;
-using System.Windows.Forms;
 using Tourist.Data.Classes;
 using Tourist.Data.Interfaces;
 

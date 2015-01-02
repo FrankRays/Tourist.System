@@ -192,7 +192,7 @@
 			this.BookingData.Controls.Add(this.BookingDateLabel);
 			this.BookingData.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BookingData.ForeColor = System.Drawing.Color.White;
-			this.BookingData.Location = new System.Drawing.Point(16, 18);
+			this.BookingData.Location = new System.Drawing.Point(482, 18);
 			this.BookingData.Margin = new System.Windows.Forms.Padding(2);
 			this.BookingData.Name = "BookingData";
 			this.BookingData.Padding = new System.Windows.Forms.Padding(2);
@@ -204,12 +204,12 @@
 			// BookingDateTextBox
 			// 
 			this.BookingDateTextBox.Font = new System.Drawing.Font("Segoe UI Semilight", 15F);
-			this.BookingDateTextBox.Location = new System.Drawing.Point(301, 43);
+			this.BookingDateTextBox.Location = new System.Drawing.Point(341, 43);
 			this.BookingDateTextBox.Margin = new System.Windows.Forms.Padding(2);
 			this.BookingDateTextBox.Name = "BookingDateTextBox";
-			this.BookingDateTextBox.Size = new System.Drawing.Size(216, 34);
+			this.BookingDateTextBox.Size = new System.Drawing.Size(138, 34);
 			this.BookingDateTextBox.TabIndex = 57;
-			this.BookingDateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.BookingDateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// SaveButton
 			// 
@@ -236,7 +236,7 @@
 			this.TotalPriceLabel.Name = "TotalPriceLabel";
 			this.TotalPriceLabel.Size = new System.Drawing.Size(531, 90);
 			this.TotalPriceLabel.TabIndex = 56;
-			this.TotalPriceLabel.Text = "150.00€";
+			this.TotalPriceLabel.Text = "0000.00€";
 			this.TotalPriceLabel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// EditButton
@@ -258,7 +258,7 @@
 			this.BookingIDLabel.AutoSize = true;
 			this.BookingIDLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BookingIDLabel.ForeColor = System.Drawing.Color.White;
-			this.BookingIDLabel.Location = new System.Drawing.Point(25, 43);
+			this.BookingIDLabel.Location = new System.Drawing.Point(66, 43);
 			this.BookingIDLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.BookingIDLabel.Name = "BookingIDLabel";
 			this.BookingIDLabel.Size = new System.Drawing.Size(31, 28);
@@ -269,19 +269,20 @@
 			// 
 			this.BookingIdTextBox.Font = new System.Drawing.Font("Segoe UI Semilight", 15F);
 			this.BookingIdTextBox.ForeColor = System.Drawing.Color.Black;
-			this.BookingIdTextBox.Location = new System.Drawing.Point(62, 43);
+			this.BookingIdTextBox.Location = new System.Drawing.Point(108, 43);
 			this.BookingIdTextBox.Margin = new System.Windows.Forms.Padding(2);
 			this.BookingIdTextBox.Name = "BookingIdTextBox";
-			this.BookingIdTextBox.Size = new System.Drawing.Size(81, 34);
+			this.BookingIdTextBox.Size = new System.Drawing.Size(75, 34);
 			this.BookingIdTextBox.TabIndex = 54;
 			this.BookingIdTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.BookingIdTextBox.TextChanged += new System.EventHandler(this.BookingIdTextBox_TextChanged);
 			// 
 			// label3
 			// 
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label3.ForeColor = System.Drawing.Color.White;
-			this.label3.Location = new System.Drawing.Point(174, 205);
+			this.label3.Location = new System.Drawing.Point(186, 209);
 			this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(195, 50);
@@ -291,22 +292,23 @@
 			// EndDatePicker
 			// 
 			this.EndDatePicker.FontSize = MetroFramework.MetroDateTimeSize.Tall;
-			this.EndDatePicker.Location = new System.Drawing.Point(163, 159);
+			this.EndDatePicker.Location = new System.Drawing.Point(213, 154);
 			this.EndDatePicker.MinimumSize = new System.Drawing.Size(0, 35);
 			this.EndDatePicker.Name = "EndDatePicker";
-			this.EndDatePicker.Size = new System.Drawing.Size(355, 35);
+			this.EndDatePicker.Size = new System.Drawing.Size(266, 35);
 			this.EndDatePicker.TabIndex = 49;
-			this.EndDatePicker.Value = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
+			this.EndDatePicker.Value = new System.DateTime(2015, 1, 1, 19, 44, 29, 0);
 			this.EndDatePicker.Validating += new System.ComponentModel.CancelEventHandler(this.EndDatePicker_Validating);
 			// 
 			// StartDatePicker
 			// 
 			this.StartDatePicker.FontSize = MetroFramework.MetroDateTimeSize.Tall;
-			this.StartDatePicker.Location = new System.Drawing.Point(163, 102);
+			this.StartDatePicker.Location = new System.Drawing.Point(213, 95);
 			this.StartDatePicker.MinimumSize = new System.Drawing.Size(0, 35);
 			this.StartDatePicker.Name = "StartDatePicker";
-			this.StartDatePicker.Size = new System.Drawing.Size(354, 35);
+			this.StartDatePicker.Size = new System.Drawing.Size(266, 35);
 			this.StartDatePicker.TabIndex = 49;
+			this.StartDatePicker.Value = new System.DateTime(2015, 1, 1, 19, 44, 34, 0);
 			this.StartDatePicker.Validating += new System.ComponentModel.CancelEventHandler(this.StartDatePicker_Validating);
 			// 
 			// EndDateLabel
@@ -314,7 +316,7 @@
 			this.EndDateLabel.AutoSize = true;
 			this.EndDateLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.EndDateLabel.ForeColor = System.Drawing.Color.White;
-			this.EndDateLabel.Location = new System.Drawing.Point(34, 162);
+			this.EndDateLabel.Location = new System.Drawing.Point(75, 161);
 			this.EndDateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.EndDateLabel.Name = "EndDateLabel";
 			this.EndDateLabel.Size = new System.Drawing.Size(119, 28);
@@ -326,7 +328,7 @@
 			this.StartDateLabel.AutoSize = true;
 			this.StartDateLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.StartDateLabel.ForeColor = System.Drawing.Color.White;
-			this.StartDateLabel.Location = new System.Drawing.Point(25, 105);
+			this.StartDateLabel.Location = new System.Drawing.Point(66, 100);
 			this.StartDateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.StartDateLabel.Name = "StartDateLabel";
 			this.StartDateLabel.Size = new System.Drawing.Size(128, 28);
@@ -338,7 +340,7 @@
 			this.BookingDateLabel.AutoSize = true;
 			this.BookingDateLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BookingDateLabel.ForeColor = System.Drawing.Color.White;
-			this.BookingDateLabel.Location = new System.Drawing.Point(158, 43);
+			this.BookingDateLabel.Location = new System.Drawing.Point(197, 43);
 			this.BookingDateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.BookingDateLabel.Name = "BookingDateLabel";
 			this.BookingDateLabel.Size = new System.Drawing.Size(131, 28);
@@ -362,7 +364,7 @@
 			this.BookableData.Controls.Add(this.TypeLabel);
 			this.BookableData.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BookableData.ForeColor = System.Drawing.Color.White;
-			this.BookableData.Location = new System.Drawing.Point(572, 195);
+			this.BookableData.Location = new System.Drawing.Point(13, 196);
 			this.BookableData.Margin = new System.Windows.Forms.Padding(2);
 			this.BookableData.Name = "BookableData";
 			this.BookableData.Padding = new System.Windows.Forms.Padding(2);
@@ -549,7 +551,7 @@
 			this.ClientData.Controls.Add(this.NameLabel);
 			this.ClientData.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ClientData.ForeColor = System.Drawing.Color.White;
-			this.ClientData.Location = new System.Drawing.Point(572, 18);
+			this.ClientData.Location = new System.Drawing.Point(13, 18);
 			this.ClientData.Margin = new System.Windows.Forms.Padding(2);
 			this.ClientData.Name = "ClientData";
 			this.ClientData.Padding = new System.Windows.Forms.Padding(2);
@@ -566,7 +568,7 @@
 			this.NewClientButton.Location = new System.Drawing.Point(141, 129);
 			this.NewClientButton.Margin = new System.Windows.Forms.Padding(2);
 			this.NewClientButton.Name = "NewClientButton";
-			this.NewClientButton.Size = new System.Drawing.Size(186, 40);
+			this.NewClientButton.Size = new System.Drawing.Size(162, 40);
 			this.NewClientButton.TabIndex = 54;
 			this.NewClientButton.Text = "New Client";
 			this.NewClientButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;

@@ -31,7 +31,8 @@ namespace Tourist.Client.Forms
 			mNifsbBindingSource = new BindingSource( );
 			mSubTypesBindingSource = new BindingSource( );
 			mIdBindingSource = new BindingSource( );
-			
+			EndDatePicker.Value = DateTime.Today.AddDays(1);
+
 		}
 
 		private void BookingsForm_Load( object sender, EventArgs e )
@@ -139,8 +140,11 @@ namespace Tourist.Client.Forms
 			booking.Client = Remote.GetClientByNif( SharedMethods.ConvertStringToInt( NifComboBox.Text ) );
 			booking.Bookable = Remote.GetBookable( TypeCombox.Text, SharedMethods.ConvertStringToInt( BookableIdComboBox.Text ) );
 			booking.BookingDate = SharedMethods.ConvertStringToDateTime( BookingDateTextBox.Text );
-			booking.TimeFrame.StartDateTime = SharedMethods.ConvertStringToDateTime( StartDatePicker.Text );
-			booking.TimeFrame.EndDateTime = SharedMethods.ConvertStringToDateTime( EndDatePicker.Text );
+			booking.TimeFrame = new DateTimeRange
+			{
+				StartDateTime = SharedMethods.ConvertStringToDateTime(StartDatePicker.Text),
+				EndDateTime = SharedMethods.ConvertStringToDateTime( EndDatePicker.Text )
+			};
 
 			Remote.Append( booking, "Bookings" );
 
@@ -160,7 +164,7 @@ namespace Tourist.Client.Forms
 			{
 				e.Cancel = true;
 				errorProvider.SetError( StartDatePicker, "The Start Date cannot be greater or equal than the End Date." );
-				errorProvider.SetIconPadding( StartDatePicker, -25 );
+				errorProvider.SetIconPadding( StartDatePicker, 10 );
 			}
 			else
 			{
@@ -171,16 +175,16 @@ namespace Tourist.Client.Forms
 
 		private void EndDatePicker_Validating( object sender, CancelEventArgs e )
 		{
-			var timeframe = new DateTimeRange();
-	
+			var timeframe = new DateTimeRange( );
+
 			timeframe.StartDateTime = SharedMethods.ConvertStringToDateTime( StartDatePicker.Text );
 			timeframe.EndDateTime = SharedMethods.ConvertStringToDateTime( EndDatePicker.Text );
 
-			if ( timeframe.StartDateTime <= timeframe.EndDateTime )
+			if ( timeframe.EndDateTime <= timeframe.StartDateTime )
 			{
 				e.Cancel = true;
 				errorProvider.SetError( StartDatePicker, "The End Date cannot be less or equal than the Start Date." );
-				errorProvider.SetIconPadding( StartDatePicker, -25 );
+				errorProvider.SetIconPadding( StartDatePicker, 10 );
 			}
 			else
 			{
@@ -188,17 +192,17 @@ namespace Tourist.Client.Forms
 				errorProvider.SetError( StartDatePicker, "" );
 			}
 
-			TotalPriceLabel.Text = ( timeframe.DiferenceTimeSpan().Days * Remote.GetBasePrice( SubTypeComboBox.Text )).ToString( "0.00", CultureInfo.InvariantCulture );
+			TotalPriceLabel.Text = ( timeframe.DiferenceTimeSpan( ).Days * Remote.GetBasePrice( SubTypeComboBox.Text ) ).ToString( "0.00", CultureInfo.InvariantCulture );
 
 		}
 
 		private void SaveButton_Click( object sender, EventArgs e )
 		{
-			AddBooking();
+			AddBooking( );
 			MessageBox.Show( this, Resources.BookingString + Resources.AddString,
 							Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
-			
-			ControlsToReadOnly(true);
+
+			ControlsToReadOnly( true );
 		}
 
 		private void EditButton_Click( object sender, EventArgs e )
@@ -216,6 +220,11 @@ namespace Tourist.Client.Forms
 			EndDatePicker.Enabled = aBool;
 			SaveButton.Enabled = aBool;
 			EditButton.Enabled = !aBool;
+		}
+
+		private void BookingIdTextBox_TextChanged( object sender, EventArgs e )
+		{
+
 		}
 
 
