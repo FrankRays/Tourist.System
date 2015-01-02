@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Windows.Forms.VisualStyles;
 using Tourist.Data.Classes;
 using Tourist.Data.Enums;
 using Tourist.Data.Interfaces;
@@ -1282,7 +1281,7 @@ namespace Tourist.Server
 					foreach ( var room in mData.Rooms.Where( room => room.Id == aId ) )
 						room.Type = ( RoomType ) SharedMethods.ConvertStringToEnum( aNewValue, "RoomType" );
 					return;
-				case "BookableState":
+				case "State":
 					foreach ( var room in mData.Rooms.Where( room => room.Id == aId ) )
 						room.State = ( BookableState ) SharedMethods.ConvertStringToEnum( aNewValue, "BookableState" );
 					return;
@@ -1311,7 +1310,7 @@ namespace Tourist.Server
 					foreach ( var activity in mData.Activities.Where( activity => activity.Id == aId ) )
 						activity.Type = ( ActivityType ) SharedMethods.ConvertStringToEnum( aNewValue, "ActivityType" );
 					return;
-				case "BookableState":
+				case "State":
 					foreach ( var activity in mData.Activities.Where( activity => activity.Id == aId ) )
 						activity.State = ( BookableState ) SharedMethods.ConvertStringToEnum( aNewValue, "BookableState" );
 					return;
@@ -1340,7 +1339,7 @@ namespace Tourist.Server
 					foreach ( var transport in mData.Transports.Where( transport => transport.Id == aId ) )
 						transport.Type = ( TransportType ) SharedMethods.ConvertStringToEnum( aNewValue, "TransportType" );
 					return;
-				case "BookableState":
+				case "State":
 					foreach ( var transport in mData.Transports.Where( transport => transport.Id == aId ) )
 						transport.State = ( BookableState ) SharedMethods.ConvertStringToEnum( aNewValue, "BookableState" );
 					return;

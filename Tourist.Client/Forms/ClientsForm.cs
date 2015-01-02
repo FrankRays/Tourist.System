@@ -142,9 +142,12 @@ namespace Tourist.Client.Forms
 			var dialog = MessageBox.Show( this, Properties.Resources.RemoveString,
 			Properties.Resources.RemoveTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Information );
 
-			if ( dialog == DialogResult.No )
+			if (dialog == DialogResult.No)
+			{
+				ReLoadDataToGrid();
 				return;
-
+			}
+				
 			var removeIndex = e.RowIndex;
 
 			Remote.Remove( removeIndex, "Clients" );
@@ -233,6 +236,12 @@ namespace Tourist.Client.Forms
 					ClientsDataGrid.Rows[ i ].Cells[ j ].Value = clientsMatrix[ i, j ];
 				}
 			}
+		}
+
+		private void ReLoadDataToGrid(  )
+		{
+			SharedMethods.ClearDataGrid( ClientsDataGrid);
+			LoadDataToGrid( );
 		}
 
 		private void AddToRepository( List<string> rowValues )

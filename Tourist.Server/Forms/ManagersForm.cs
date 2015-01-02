@@ -7,7 +7,6 @@ using MetroFramework.Controls;
 using MetroFramework.Forms;
 using Tourist.Data.Classes;
 using Tourist.Data.Enums;
-using Tourist.Data.Interfaces;
 using Tourist.Data.Shared;
 
 namespace Tourist.Server.Forms
@@ -64,8 +63,8 @@ namespace Tourist.Server.Forms
 				{
 					var rowValues = SharedMethods.RowCellValues( row );
 					AddToRepository( rowValues );
-					MessageBox.Show( this, Properties.Resources.ManagerString + Properties.Resources.AddString, 
-						Properties.Resources.OperationSucessfull,MessageBoxButtons.OK, MessageBoxIcon.Information );
+					MessageBox.Show( this, Properties.Resources.ManagerString + Properties.Resources.AddString,
+						Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 				}
 				else
 				{
@@ -152,7 +151,10 @@ namespace Tourist.Server.Forms
 			Properties.Resources.RemoveTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Information );
 
 			if ( dialog == DialogResult.No )
+			{
+				ReloadDataToGrid( );
 				return;
+			}
 
 			var removeIndex = e.RowIndex;
 
@@ -175,7 +177,7 @@ namespace Tourist.Server.Forms
 			if ( e.ColumnIndex == 5 )
 			{
 				var aRectangle = ManagersDataGrid.GetCellDisplayRectangle( e.ColumnIndex, e.RowIndex, true );
-				
+
 				ManagersDataGrid.Controls.Add( mDateTimePicker );
 				mDateTimePicker.Format = DateTimePickerFormat.Short;
 				mDateTimePicker.Size = new Size( aRectangle.Width, aRectangle.Height );
@@ -238,7 +240,7 @@ namespace Tourist.Server.Forms
 			}
 			else
 			{
-				MessageBox.Show( this, Properties.Resources.CompleteRow,Properties.Resources.CompleteRowTitle, 
+				MessageBox.Show( this, Properties.Resources.CompleteRow, Properties.Resources.CompleteRowTitle,
 				MessageBoxButtons.OK, MessageBoxIcon.Information );
 			}
 		}
@@ -263,6 +265,12 @@ namespace Tourist.Server.Forms
 					ManagersDataGrid.Rows[ i ].Cells[ j ].Value = managersMatrix[ i, j ];
 				}
 			}
+		}
+
+		private void ReloadDataToGrid( )
+		{
+			SharedMethods.ClearDataGrid( ManagersDataGrid );
+			LoadDataToGrid( );
 		}
 
 		private void AddToRepository( List<string> rowValues )

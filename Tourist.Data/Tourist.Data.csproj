@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Capacity.cs" />
-    <Compile Include="Classes\ObservableList.cs" />
     <Compile Include="Classes\Session.cs" />
     <Compile Include="Classes\Transport.cs" />
     <Compile Include="Classes\Activity.cs" />

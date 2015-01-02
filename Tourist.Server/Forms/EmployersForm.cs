@@ -63,8 +63,8 @@ namespace Tourist.Server.Forms
 				{
 					var rowValues = SharedMethods.RowCellValues( row );
 					AddToRepository( rowValues );
-					MessageBox.Show( this, Properties.Resources.EmployerString + Properties.Resources.AddString, 
-					Properties.Resources.OperationSucessfull,MessageBoxButtons.OK, MessageBoxIcon.Information );
+					MessageBox.Show( this, Properties.Resources.EmployerString + Properties.Resources.AddString,
+					Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 				}
 				else
 				{
@@ -151,7 +151,10 @@ namespace Tourist.Server.Forms
 			Properties.Resources.RemoveTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Information );
 
 			if ( dialog == DialogResult.No )
+			{
+				ReloadDataToGrid( );
 				return;
+			}
 
 			var removeIndex = e.RowIndex;
 
@@ -175,10 +178,10 @@ namespace Tourist.Server.Forms
 			{
 				var aRectangle = EmployeesDataGrid.GetCellDisplayRectangle( e.ColumnIndex, e.RowIndex, true );
 
-				EmployeesDataGrid.Controls.Add(mDateTimePicker);
+				EmployeesDataGrid.Controls.Add( mDateTimePicker );
 				mDateTimePicker.Format = DateTimePickerFormat.Short;
 				mDateTimePicker.Size = new Size( aRectangle.Width, aRectangle.Height );
-				mDateTimePicker.Location = new Point(aRectangle.X, aRectangle.Y);
+				mDateTimePicker.Location = new Point( aRectangle.X, aRectangle.Y );
 				mDateTimePicker.CloseUp += oDateTimePicker_CloseUp;
 				mDateTimePicker.TextChanged += dateTimePicker_OnTextChange;
 				mDateTimePicker.Visible = true;
@@ -226,7 +229,7 @@ namespace Tourist.Server.Forms
 			}
 			else
 			{
-				MessageBox.Show( this, Properties.Resources.CompleteRow, Properties.Resources.CompleteRowTitle, 
+				MessageBox.Show( this, Properties.Resources.CompleteRow, Properties.Resources.CompleteRowTitle,
 				MessageBoxButtons.OK, MessageBoxIcon.Information );
 			}
 		}
@@ -251,6 +254,12 @@ namespace Tourist.Server.Forms
 					EmployeesDataGrid.Rows[ i ].Cells[ j ].Value = managersMatrix[ i, j ];
 				}
 			}
+		}
+
+		private void ReloadDataToGrid( )
+		{
+			SharedMethods.ClearDataGrid( EmployeesDataGrid );
+			LoadDataToGrid( );
 		}
 
 		private void AddToRepository( List<string> rowValues )

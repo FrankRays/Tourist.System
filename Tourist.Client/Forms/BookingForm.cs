@@ -14,12 +14,18 @@ namespace Tourist.Client.Forms
 	public partial class BookingsForm : MetroForm
 	{
 
+		#region Fields
+		
 		private readonly MainForm MainForm;
 		private readonly IRemote Remote;
 		private readonly BindingSource mNifsbBindingSource;
 		private readonly BindingSource mSubTypesBindingSource;
 		private readonly BindingSource mIdBindingSource;
 		private bool mBackOrExit = default( bool );
+		
+		#endregion
+
+		#region Constructor
 
 		public BookingsForm( Form aForm, IRemote aRemote )
 		{
@@ -36,80 +42,14 @@ namespace Tourist.Client.Forms
 
 		}
 
-		private void BookingsForm_Load( object sender, EventArgs e )
-		{
-			SharedMethods.SetFormFullScreen( this );
+		#endregion
 
-			mNifsbBindingSource.DataSource = Remote.ClientsNifList( );
-			NifComboBox.DataSource = mNifsbBindingSource;
-		}
-
-		private void AutoFillClientData( )
-		{
-			if ( string.IsNullOrEmpty( NifComboBox.Text ) ) return;
-
-			var client = Remote.GetClientByNif( SharedMethods.ConvertStringToInt( NifComboBox.Text ) );
-			ClientIdTextBox.Text = client.Id.ToString( );
-			NameTextBox.Text = client.FirstName + " " + client.LastName;
-		}
-
-		private void LoadBookableSubTypes( )
-		{
-			if ( string.IsNullOrEmpty( TypeCombox.Text ) ) return;
-			mSubTypesBindingSource.DataSource = Remote.BookableSubTypesList( TypeCombox.Text );
-			SubTypeComboBox.DataSource = mSubTypesBindingSource;
-		}
-
-		private void LoadBookableIds( )
-		{
-			if ( string.IsNullOrEmpty( SubTypeComboBox.Text ) ) return;
-
-			mIdBindingSource.DataSource = Remote.GetBooKablesIds( TypeCombox.Text, SubTypeComboBox.Text );
-			BookableIdComboBox.DataSource = mIdBindingSource;
-
-			BasePriceTextBox.Text = Remote.GetBasePrice( SubTypeComboBox.Text ).ToString( "0.00", CultureInfo.InvariantCulture );
-		}
-
-		private void LoadBookableDescription( )
-		{
-			if ( string.IsNullOrEmpty( BookableIdComboBox.Text ) ) return;
-
-			DescriptionTextBox.Text = Remote.GetBookableDescription(
-			SharedMethods.ConvertStringToInt( BookableIdComboBox.Text ), TypeCombox.Text );
-		}
+		#region Events
 
 		private void NifComboBox_SelectedValueChanged( object sender, EventArgs e )
 		{
 			AutoFillClientData( );
 		}
-
-		#region Close Events
-
-		protected override void OnFormClosing( FormClosingEventArgs e )
-		{
-			if ( mBackOrExit ) return;
-
-			base.OnFormClosing( e );
-
-			var dialogResult = MessageBox.Show( this, Resources.ExitMessage,
-				Resources.ExitMessageTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
-
-			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
-
-			if ( dialogResult == DialogResult.No )
-				e.Cancel = true;
-			else
-				Process.GetCurrentProcess( ).Kill( );
-		}
-
-		private void BackPanel_MouseClick( object sender, MouseEventArgs e )
-		{
-			mBackOrExit = true;
-			Close( );
-			MainForm.Show( );
-		}
-
-		#endregion
 
 		private void NewClientButton_Click( object sender, EventArgs e )
 		{
@@ -211,6 +151,76 @@ namespace Tourist.Client.Forms
 
 		}
 
+		protected override void OnFormClosing( FormClosingEventArgs e )
+		{
+			if ( mBackOrExit ) return;
+
+			base.OnFormClosing( e );
+
+			var dialogResult = MessageBox.Show( this, Resources.ExitMessage,
+				Resources.ExitMessageTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
+
+			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
+
+			if ( dialogResult == DialogResult.No )
+				e.Cancel = true;
+			else
+				Process.GetCurrentProcess( ).Kill( );
+		}
+
+		private void BackPanel_MouseClick( object sender, MouseEventArgs e )
+		{
+			mBackOrExit = true;
+			Close( );
+			MainForm.Show( );
+		}
+
+		#endregion
+
+		#region Private Methods
+
+		private void BookingsForm_Load( object sender, EventArgs e )
+		{
+			SharedMethods.SetFormFullScreen( this );
+
+			mNifsbBindingSource.DataSource = Remote.ClientsNifList( );
+			NifComboBox.DataSource = mNifsbBindingSource;
+		}
+
+		private void AutoFillClientData( )
+		{
+			if ( string.IsNullOrEmpty( NifComboBox.Text ) ) return;
+
+			var client = Remote.GetClientByNif( SharedMethods.ConvertStringToInt( NifComboBox.Text ) );
+			ClientIdTextBox.Text = client.Id.ToString( );
+			NameTextBox.Text = client.FirstName + " " + client.LastName;
+		}
+
+		private void LoadBookableSubTypes( )
+		{
+			if ( string.IsNullOrEmpty( TypeCombox.Text ) ) return;
+			mSubTypesBindingSource.DataSource = Remote.BookableSubTypesList( TypeCombox.Text );
+			SubTypeComboBox.DataSource = mSubTypesBindingSource;
+		}
+
+		private void LoadBookableIds( )
+		{
+			if ( string.IsNullOrEmpty( SubTypeComboBox.Text ) ) return;
+
+			mIdBindingSource.DataSource = Remote.GetBooKablesIds( TypeCombox.Text, SubTypeComboBox.Text );
+			BookableIdComboBox.DataSource = mIdBindingSource;
+
+			BasePriceTextBox.Text = Remote.GetBasePrice( SubTypeComboBox.Text ).ToString( "0.00", CultureInfo.InvariantCulture );
+		}
+
+		private void LoadBookableDescription( )
+		{
+			if ( string.IsNullOrEmpty( BookableIdComboBox.Text ) ) return;
+
+			DescriptionTextBox.Text = Remote.GetBookableDescription(
+			SharedMethods.ConvertStringToInt( BookableIdComboBox.Text ), TypeCombox.Text );
+		}
+
 		private void ControlsToReadOnly( bool aBool )
 		{
 			NifComboBox.Enabled = aBool;
@@ -223,11 +233,7 @@ namespace Tourist.Client.Forms
 			EditButton.Enabled = !aBool;
 		}
 
-		private void BookingIdTextBox_TextChanged( object sender, EventArgs e )
-		{
-
-		}
-
+		#endregion
 
 	}
 }

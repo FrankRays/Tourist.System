@@ -84,7 +84,7 @@ namespace Tourist.Server.Forms
 		{
 			Hide( );
 
-			var employersForm = new ManagersForm( this );
+			var employersForm = new EmployersForm( this );
 			employersForm.Show( );
 		}
 

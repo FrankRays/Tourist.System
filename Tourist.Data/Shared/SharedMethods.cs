@@ -188,6 +188,10 @@ namespace Tourist.Data.Shared
 			}
 		}
 
+		public static void ClearDataGrid( DataGridView aDataGridView )
+		{
+			aDataGridView.DataSource = null;
+		}
 
 		public static void CellErrorRemove( DataGridViewCell aCell )
 		{
