@@ -18,7 +18,6 @@ namespace Tourist.Data.Classes
 		private IBookable mBookable;
 		private double mTotalPrice;
 
-
 		#endregion
 
 		#region Properties
@@ -37,12 +36,7 @@ namespace Tourist.Data.Classes
 			set { mClient = value; }
 		}
 
-		[XmlElement( "Client" )]
-		public Client SerlializationClient
-		{
-			get { return Client as Client; }
-			set { }
-		}
+
 
 		public DateTime BookingDate
 		{
@@ -64,6 +58,28 @@ namespace Tourist.Data.Classes
 			set { mBookable = value; }
 		}
 
+		public double TotaPrice
+		{
+			get
+			{
+				mTotalPrice = Bookable.Price * TimeFrame.DiferenceTimeSpan( ).Days;
+				return mTotalPrice;
+			}
+			set { mTotalPrice = value; }
+		}
+
+		#endregion
+
+		#region Serialization
+		private object mOBookable;
+
+		[XmlElement( "Client" )]
+		public Client SerlializationClient
+		{
+			get { return Client as Client; }
+			set { mClient = value; }
+		}
+
 		[XmlElement( "Bookable" )]
 		public object SerializationBookable
 		{
@@ -80,32 +96,18 @@ namespace Tourist.Data.Classes
 
 				return null;
 			}
-			set { }
-		}
-
-		public double TotaPrice
-		{
-			get
-			{
-				mTotalPrice = Bookable.Price * TimeFrame.DiferenceTimeSpan( ).Days;
-				return mTotalPrice;
-			}
 			set
 			{
-				
+				mOBookable = value;
+				CastObjectToIBookable( );
 			}
 		}
 
-		#endregion
-
-		#region Methods
-
-		/*
-		public double TotalPrice( )
+		private void CastObjectToIBookable( )
 		{
-			//
+			mBookable = ( IBookable ) mOBookable;
 		}
-		*/
+
 		#endregion
 
 		#region Constructor
@@ -116,6 +118,9 @@ namespace Tourist.Data.Classes
 		}
 
 		#endregion
+
+
+
 
 	}
 }

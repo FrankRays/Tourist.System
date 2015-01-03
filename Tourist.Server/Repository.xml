@@ -13,6 +13,12 @@
   <BookingsList>
     <Booking>
       <Id>1</Id>
+      <BookingDate>2015-01-02T00:00:00</BookingDate>
+      <TimeFrame>
+        <StartDateTime>2015-01-02T00:00:00</StartDateTime>
+        <EndDateTime>2015-01-09T00:00:00</EndDateTime>
+      </TimeFrame>
+      <TotaPrice>140</TotaPrice>
       <Client>
         <Id>1</Id>
         <FirstName>fabio</FirstName>
@@ -25,11 +31,6 @@
         <Phone>123456789</Phone>
         <Email>fabio@gmail.com</Email>
       </Client>
-      <BookingDate>2015-01-02T00:00:00</BookingDate>
-      <TimeFrame>
-        <StartDateTime>2015-01-02T00:00:00</StartDateTime>
-        <EndDateTime>2015-01-09T00:00:00</EndDateTime>
-      </TimeFrame>
       <Bookable xsi:type="Room">
         <Id>1</Id>
         <Type>Single</Type>
@@ -38,7 +39,6 @@
         <Price>20</Price>
         <Capacity>1</Capacity>
       </Bookable>
-      <TotaPrice>140</TotaPrice>
     </Booking>
   </BookingsList>
   <ClientList>
@@ -53,6 +53,18 @@
       <Address>rua das 12 casas</Address>
       <Phone>123456789</Phone>
       <Email>fabio@gmail.com</Email>
+    </Client>
+    <Client>
+      <Id>2</Id>
+      <FirstName>dino</FirstName>
+      <LastName>rodrigues</LastName>
+      <Nationality>PT  Portugal</Nationality>
+      <BirthDate>2014-05-05T00:00:00</BirthDate>
+      <Gender>Male</Gender>
+      <Nif>123456789</Nif>
+      <Address>rua das ovas</Address>
+      <Phone>123456789</Phone>
+      <Email>dino@gmail.com</Email>
     </Client>
   </ClientList>
   <RoomList>
