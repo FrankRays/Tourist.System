@@ -38,6 +38,7 @@
 			this.TitleLabel = new System.Windows.Forms.Label();
 			this.BodyPanel = new System.Windows.Forms.Panel();
 			this.BookingsDataGrid = new MetroFramework.Controls.MetroGrid();
+			this.FooterPanel = new System.Windows.Forms.Panel();
 			this.BookingIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ClientNifColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ClientNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,7 +51,6 @@
 			this.StartDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.EndDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.TotalPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.FooterPanel = new System.Windows.Forms.Panel();
 			this.HeaderPanel.SuspendLayout();
 			this.BodyPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.BookingsDataGrid)).BeginInit();
@@ -201,6 +201,17 @@
 			this.BookingsDataGrid.TabIndex = 22;
 			this.BookingsDataGrid.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.BookingsDataGrid_RowRemoved);
 			// 
+			// FooterPanel
+			// 
+			this.FooterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			this.FooterPanel.Location = new System.Drawing.Point(-1, 649);
+			this.FooterPanel.Margin = new System.Windows.Forms.Padding(2);
+			this.FooterPanel.Name = "FooterPanel";
+			this.FooterPanel.Size = new System.Drawing.Size(1202, 150);
+			this.FooterPanel.TabIndex = 15;
+			// 
 			// BookingIdColumn
 			// 
 			this.BookingIdColumn.HeaderText = "Booking ID";
@@ -212,7 +223,7 @@
 			// ClientNifColumn
 			// 
 			this.ClientNifColumn.HeaderText = "Client Nif ";
-			this.ClientNifColumn.MinimumWidth = 150;
+			this.ClientNifColumn.MinimumWidth = 125;
 			this.ClientNifColumn.Name = "ClientNifColumn";
 			this.ClientNifColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
 			this.ClientNifColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -234,7 +245,7 @@
 			// SubTypeColumn
 			// 
 			this.SubTypeColumn.HeaderText = "SubType";
-			this.SubTypeColumn.MinimumWidth = 100;
+			this.SubTypeColumn.MinimumWidth = 150;
 			this.SubTypeColumn.Name = "SubTypeColumn";
 			// 
 			// BookableIdColumn
@@ -254,7 +265,7 @@
 			// BasePriceColumn
 			// 
 			this.BasePriceColumn.HeaderText = "Base Price";
-			this.BasePriceColumn.MinimumWidth = 110;
+			this.BasePriceColumn.MinimumWidth = 100;
 			this.BasePriceColumn.Name = "BasePriceColumn";
 			this.BasePriceColumn.ReadOnly = true;
 			// 
@@ -268,7 +279,7 @@
 			// StartDateColumn
 			// 
 			this.StartDateColumn.HeaderText = "Start-Date ";
-			this.StartDateColumn.MinimumWidth = 175;
+			this.StartDateColumn.MinimumWidth = 125;
 			this.StartDateColumn.Name = "StartDateColumn";
 			this.StartDateColumn.ReadOnly = true;
 			this.StartDateColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -277,7 +288,7 @@
 			// EndDateColumn
 			// 
 			this.EndDateColumn.HeaderText = "End-Date";
-			this.EndDateColumn.MinimumWidth = 175;
+			this.EndDateColumn.MinimumWidth = 125;
 			this.EndDateColumn.Name = "EndDateColumn";
 			this.EndDateColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
 			this.EndDateColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -288,17 +299,6 @@
 			this.TotalPriceColumn.MinimumWidth = 100;
 			this.TotalPriceColumn.Name = "TotalPriceColumn";
 			this.TotalPriceColumn.ReadOnly = true;
-			// 
-			// FooterPanel
-			// 
-			this.FooterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.FooterPanel.Location = new System.Drawing.Point(-1, 649);
-			this.FooterPanel.Margin = new System.Windows.Forms.Padding(2);
-			this.FooterPanel.Name = "FooterPanel";
-			this.FooterPanel.Size = new System.Drawing.Size(1202, 150);
-			this.FooterPanel.TabIndex = 15;
 			// 
 			// DisponibilityForm
 			// 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Xml.Serialization;
 using Tourist.Data.Interfaces;
 
@@ -36,8 +37,6 @@ namespace Tourist.Data.Classes
 			set { mClient = value; }
 		}
 
-
-
 		public DateTime BookingDate
 		{
 			get { return mBookingDate; }
@@ -70,7 +69,17 @@ namespace Tourist.Data.Classes
 
 		#endregion
 
+		#region Constructor
+
+		public Booking( )
+		{
+			Id = ++mCounter;
+		}
+
+		#endregion
+
 		#region Serialization
+		
 		private object mOBookable;
 
 		[XmlElement( "Client" )]
@@ -110,17 +119,86 @@ namespace Tourist.Data.Classes
 
 		#endregion
 
-		#region Constructor
+		#region DisplayData
 
-		public Booking( )
+		[XmlIgnore]
+		public string ClientNif
 		{
-			Id = ++mCounter;
+			get { return Client.Nif.ToString(); }
+		}
+
+		[XmlIgnore]
+		public string ClientName
+		{
+			get { return Client.FirstName + " " + Client.LastName; }
+		}
+
+		[XmlIgnore]
+		public string BookableType
+		{
+			get
+			{
+				if (Bookable is Room)
+					return "Room";
+
+				if ( Bookable is Activity )
+					return "Activity";
+
+				if ( Bookable is Transport )
+					return "Transport";
+
+				return string.Empty;
+			}
+		}
+
+		[XmlIgnore]
+		public string BookableSubType
+		{
+			get { return Bookable.Type.ToString(); }
+		}
+
+		[XmlIgnore]
+		public string BookableId
+		{
+			get { return Bookable.Id.ToString( ); }
+		}
+
+		[XmlIgnore]
+		public string BookableDescription
+		{
+			get { return Bookable.Description; }
+		}
+
+		[XmlIgnore]
+		public string BookableBasePrice
+		{
+			get { return Bookable.Price.ToString( "00.00", CultureInfo.InvariantCulture ) + " €"; }
+		}
+
+		[XmlIgnore]
+		public string BookingDay
+		{
+			get { return BookingDate.ToString( "d" ); }
+		}
+
+		[XmlIgnore]
+		public string BookingStartDate
+		{
+			get { return TimeFrame.StartDateTime.ToString( "d" ); }
+		}
+
+		[XmlIgnore]
+		public string BookingEndDate
+		{
+			get { return TimeFrame.EndDateTime.ToString( "d" ); }
+		}
+
+		public string BookingTotalPrice
+		{
+			get { return TotaPrice.ToString( "00.00", CultureInfo.InvariantCulture ) + " €"; }
 		}
 
 		#endregion
-
-
-
 
 	}
 }

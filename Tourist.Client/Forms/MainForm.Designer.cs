@@ -427,7 +427,7 @@
 			this.SideBarPanel.Controls.Add(this.SearchTile);
 			this.SideBarPanel.Controls.Add(this.LogoffTile);
 			this.SideBarPanel.Controls.Add(this.PrefrencesTile);
-			this.SideBarPanel.Location = new System.Drawing.Point(1195, 2);
+			this.SideBarPanel.Location = new System.Drawing.Point(1196, 2);
 			this.SideBarPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.SideBarPanel.Name = "SideBarPanel";
 			this.SideBarPanel.Size = new System.Drawing.Size(112, 468);
@@ -437,7 +437,7 @@
 			// SearchTile
 			// 
 			this.SearchTile.ActiveControl = null;
-			this.SearchTile.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.SearchTile.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.SearchTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(219)))));
 			this.SearchTile.Location = new System.Drawing.Point(2, 188);
 			this.SearchTile.Margin = new System.Windows.Forms.Padding(2);
@@ -455,7 +455,7 @@
 			// LogoffTile
 			// 
 			this.LogoffTile.ActiveControl = null;
-			this.LogoffTile.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.LogoffTile.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.LogoffTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(219)))));
 			this.LogoffTile.Location = new System.Drawing.Point(2, 20);
 			this.LogoffTile.Margin = new System.Windows.Forms.Padding(2);
@@ -474,7 +474,7 @@
 			// PrefrencesTile
 			// 
 			this.PrefrencesTile.ActiveControl = null;
-			this.PrefrencesTile.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.PrefrencesTile.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.PrefrencesTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(219)))));
 			this.PrefrencesTile.Location = new System.Drawing.Point(2, 357);
 			this.PrefrencesTile.Margin = new System.Windows.Forms.Padding(2);
