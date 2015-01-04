@@ -22,7 +22,7 @@ namespace Tourist.Client.Forms
 		private readonly BindingSource mSubTypesBindingSource;
 		private readonly BindingSource mIdBindingSource;
 		private bool mBackOrExit = default( bool );
-		
+
 		#endregion
 
 		#region Constructor
@@ -33,12 +33,12 @@ namespace Tourist.Client.Forms
 
 			MainForm = aForm as MainForm;
 			Remote = aRemote;
-			EditButton.Enabled = false;
+			BrowseBookingsButton.Enabled = false;
 			mNifsbBindingSource = new BindingSource( );
 			mSubTypesBindingSource = new BindingSource( );
 			mIdBindingSource = new BindingSource( );
 			StartDatePicker.Value = DateTime.Today;
-			EndDatePicker.Value = DateTime.Today.AddDays(1);
+			EndDatePicker.Value = DateTime.Today.AddDays( 1 );
 
 		}
 
@@ -83,11 +83,14 @@ namespace Tourist.Client.Forms
 			booking.BookingDate = SharedMethods.ConvertStringToDateTime( BookingDateTextBox.Text );
 			booking.TimeFrame = new DateTimeRange
 			{
-				StartDateTime = SharedMethods.ConvertStringToDateTime(StartDatePicker.Text),
+				StartDateTime = SharedMethods.ConvertStringToDateTime( StartDatePicker.Text ),
 				EndDateTime = SharedMethods.ConvertStringToDateTime( EndDatePicker.Text )
 			};
 
 			Remote.Append( booking, "Bookings" );
+
+			MessageBox.Show( this, Resources.BookingString + Resources.AddString,
+							 Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 
 		}
 
@@ -112,7 +115,7 @@ namespace Tourist.Client.Forms
 				e.Cancel = false;
 				errorProvider.SetError( StartDatePicker, "" );
 			}
-			
+
 			TotalPriceLabel.Text = ( timeframe.DiferenceTimeSpan( ).Days * Remote.GetBasePrice( SubTypeComboBox.Text ) ).ToString( "0.00", CultureInfo.InvariantCulture );
 		}
 
@@ -141,16 +144,21 @@ namespace Tourist.Client.Forms
 
 		private void SaveButton_Click( object sender, EventArgs e )
 		{
-			AddBooking( );
-			MessageBox.Show( this, Resources.BookingString + Resources.AddString,
-							Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
+			if ( MessageBox.Show( this, Resources.NotEditableInformation,
+				Resources.NotEditableTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Information ) == DialogResult.No )
+			{
+				return;
+			}
 
-			ControlsToReadOnly( false );
+			AddBooking( );
+			CleanOldValues( );
 		}
 
-		private void EditButton_Click( object sender, EventArgs e )
+		private void BrowseBookingsButton_Click( object sender, EventArgs e )
 		{
-			ControlsToReadOnly( true );
+			Close( );
+			var disponibilityForm = new DisponibilityForm( MainForm, Remote );
+			disponibilityForm.Show( );
 		}
 
 		protected override void OnFormClosing( FormClosingEventArgs e )
@@ -223,16 +231,13 @@ namespace Tourist.Client.Forms
 			SharedMethods.ConvertStringToInt( BookableIdComboBox.Text ), TypeCombox.Text );
 		}
 
-		private void ControlsToReadOnly( bool aBool )
+		private void CleanOldValues( )
 		{
-			NifComboBox.Enabled = aBool;
-			TypeCombox.Enabled = aBool;
-			SubTypeComboBox.Enabled = aBool;
-			BookableIdComboBox.Enabled = aBool;
-			StartDatePicker.Enabled = aBool;
-			EndDatePicker.Enabled = aBool;
-			SaveButton.Enabled = aBool;
-			EditButton.Enabled = !aBool;
+			BookingIDLabel.Text = string.Empty;
+			BookingDateTextBox.Text = string.Empty;
+			StartDatePicker.Value = DateTime.Today;
+			EndDatePicker.Value = DateTime.Today.AddDays( 1 );
+			TotalPriceLabel.Text = Resources.TotalPriceDefault;
 		}
 
 		#endregion

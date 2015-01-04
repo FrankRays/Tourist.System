@@ -222,7 +222,7 @@
 			// DisponibilityTile
 			// 
 			this.DisponibilityTile.ActiveControl = null;
-			this.DisponibilityTile.Location = new System.Drawing.Point(12, 284);
+			this.DisponibilityTile.Location = new System.Drawing.Point(12, 149);
 			this.DisponibilityTile.Margin = new System.Windows.Forms.Padding(2);
 			this.DisponibilityTile.Name = "DisponibilityTile";
 			this.DisponibilityTile.Size = new System.Drawing.Size(263, 122);
@@ -306,7 +306,7 @@
 			// ClientsTile
 			// 
 			this.ClientsTile.ActiveControl = null;
-			this.ClientsTile.Location = new System.Drawing.Point(12, 149);
+			this.ClientsTile.Location = new System.Drawing.Point(12, 284);
 			this.ClientsTile.Margin = new System.Windows.Forms.Padding(2);
 			this.ClientsTile.Name = "ClientsTile";
 			this.ClientsTile.Size = new System.Drawing.Size(263, 122);
@@ -427,7 +427,7 @@
 			this.SideBarPanel.Controls.Add(this.SearchTile);
 			this.SideBarPanel.Controls.Add(this.LogoffTile);
 			this.SideBarPanel.Controls.Add(this.PrefrencesTile);
-			this.SideBarPanel.Location = new System.Drawing.Point(1196, 0);
+			this.SideBarPanel.Location = new System.Drawing.Point(1195, 2);
 			this.SideBarPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.SideBarPanel.Name = "SideBarPanel";
 			this.SideBarPanel.Size = new System.Drawing.Size(112, 468);
@@ -439,7 +439,7 @@
 			this.SearchTile.ActiveControl = null;
 			this.SearchTile.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.SearchTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(219)))));
-			this.SearchTile.Location = new System.Drawing.Point(2, 20);
+			this.SearchTile.Location = new System.Drawing.Point(2, 188);
 			this.SearchTile.Margin = new System.Windows.Forms.Padding(2);
 			this.SearchTile.Name = "SearchTile";
 			this.SearchTile.Size = new System.Drawing.Size(108, 85);
@@ -457,10 +457,10 @@
 			this.LogoffTile.ActiveControl = null;
 			this.LogoffTile.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.LogoffTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(219)))));
-			this.LogoffTile.Location = new System.Drawing.Point(0, 364);
+			this.LogoffTile.Location = new System.Drawing.Point(2, 20);
 			this.LogoffTile.Margin = new System.Windows.Forms.Padding(2);
 			this.LogoffTile.Name = "LogoffTile";
-			this.LogoffTile.Size = new System.Drawing.Size(112, 85);
+			this.LogoffTile.Size = new System.Drawing.Size(108, 85);
 			this.LogoffTile.TabIndex = 0;
 			this.LogoffTile.Text = "LogOff";
 			this.LogoffTile.TileImage = global::Tourist.Client.Properties.Resources.PowerOff;
@@ -469,16 +469,17 @@
 			this.LogoffTile.UseCustomBackColor = true;
 			this.LogoffTile.UseSelectable = true;
 			this.LogoffTile.UseTileImage = true;
+			this.LogoffTile.Click += new System.EventHandler(this.LogoffTile_Click);
 			// 
 			// PrefrencesTile
 			// 
 			this.PrefrencesTile.ActiveControl = null;
 			this.PrefrencesTile.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.PrefrencesTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(219)))));
-			this.PrefrencesTile.Location = new System.Drawing.Point(0, 190);
+			this.PrefrencesTile.Location = new System.Drawing.Point(2, 357);
 			this.PrefrencesTile.Margin = new System.Windows.Forms.Padding(2);
 			this.PrefrencesTile.Name = "PrefrencesTile";
-			this.PrefrencesTile.Size = new System.Drawing.Size(112, 85);
+			this.PrefrencesTile.Size = new System.Drawing.Size(108, 85);
 			this.PrefrencesTile.TabIndex = 0;
 			this.PrefrencesTile.Text = "Preferences";
 			this.PrefrencesTile.TileImage = global::Tourist.Client.Properties.Resources.preferences;

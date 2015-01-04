@@ -2,9 +2,9 @@
 using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Windows.Forms;
-using MetroFramework;
 using MetroFramework.Forms;
 using Tourist.Data.Shared;
+using Tourist.Server.Properties;
 
 namespace Tourist.Server.Forms
 {
@@ -21,7 +21,7 @@ namespace Tourist.Server.Forms
 		#endregion
 
 		#region Delegates Ui Update
-		
+
 		public delegate void UpdateDataGridView( ); // delegate type 
 		public UpdateDataGridView UpdateDataGrid; // delegate object
 
@@ -34,7 +34,7 @@ namespace Tourist.Server.Forms
 		#endregion
 
 		#region Constructor
-		
+
 		public ClientsForm( Form aForm )
 		{
 			InitializeComponent( );
@@ -60,9 +60,9 @@ namespace Tourist.Server.Forms
 			//different kind of changes that may have occurred in collection
 			if ( e.Action == NotifyCollectionChangedAction.Add )
 			{
-				if (ClientsDataGrid.InvokeRequired)
+				if ( ClientsDataGrid.InvokeRequired )
 				{
-					ClientsDataGrid.Invoke(UpdateDataGrid);
+					ClientsDataGrid.Invoke( UpdateDataGrid );
 				}
 			}
 			if ( e.Action == NotifyCollectionChangedAction.Replace )
@@ -72,18 +72,18 @@ namespace Tourist.Server.Forms
 					ClientsDataGrid.Invoke( UpdateDataGrid );
 				}
 			}
-			if (e.Action == NotifyCollectionChangedAction.Remove)
+			if ( e.Action == NotifyCollectionChangedAction.Remove )
 			{
-				if (ClientsDataGrid.InvokeRequired)
+				if ( ClientsDataGrid.InvokeRequired )
 				{
-					ClientsDataGrid.Invoke(UpdateDataGrid);
+					ClientsDataGrid.Invoke( UpdateDataGrid );
 				}
 			}
-			if ( e.Action == NotifyCollectionChangedAction.Reset)
+			if ( e.Action == NotifyCollectionChangedAction.Reset )
 			{
-				if (ClientsDataGrid.InvokeRequired)
+				if ( ClientsDataGrid.InvokeRequired )
 				{
-					ClientsDataGrid.Invoke(UpdateDataGrid);
+					ClientsDataGrid.Invoke( UpdateDataGrid );
 				}
 			}
 		}
@@ -94,8 +94,8 @@ namespace Tourist.Server.Forms
 
 			base.OnFormClosing( e );
 
-			var dialogResult = MetroMessageBox.Show( this, "\n Are you sure you want to exit the application?",
-				"Close Button Pressed", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
+			var dialogResult = MessageBox.Show( this, Resources.ExitMessage,
+				Resources.ExitMessageTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
 
 			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
 
@@ -104,7 +104,7 @@ namespace Tourist.Server.Forms
 			else
 				Process.GetCurrentProcess( ).Kill( );
 		}
-		
+
 
 		private void BackPanel_MouseClick( object sender, MouseEventArgs e )
 		{

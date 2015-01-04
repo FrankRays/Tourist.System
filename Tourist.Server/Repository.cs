@@ -31,7 +31,6 @@ namespace Tourist.Server
 
 		#endregion
 
-		//Made Factory Static 
 		#region Factory
 
 		private static readonly Factory mFactory = new Factory( );
@@ -53,17 +52,19 @@ namespace Tourist.Server
 
 		#region Login Session
 
-		private static readonly Session mServerLoginSession = Factory.CreateObject<Session>( );
-		private static readonly Session mClientLoginSession = Factory.CreateObject<Session>( );
+		private static Session mServerLoginSession = Factory.CreateObject<Session>( );
+		private static Session mClientLoginSession = Factory.CreateObject<Session>( );
 
 		public static Session ServerLoginSession
 		{
 			get { return mServerLoginSession; }
+			set { mServerLoginSession = value; }
 		}
 
 		public static Session ClientLoginSession
 		{
 			get { return mClientLoginSession; }
+			set { mClientLoginSession = value; }
 		}
 
 		#endregion
@@ -95,10 +96,10 @@ namespace Tourist.Server
 
 		public int CountBooked( string aType )
 		{
-			switch (aType)
+			switch ( aType )
 			{
 				case "Rooms":
-					return mData.Bookings.Count(booking => booking.Bookable is Room);
+					return mData.Bookings.Count( booking => booking.Bookable is Room );
 				case "Activities":
 					return mData.Bookings.Count( booking => booking.Bookable is Activity );
 				case "Transports":
@@ -108,69 +109,93 @@ namespace Tourist.Server
 			}
 		}
 
-		public List<string> GetBooKablesIds(string aType, string aSubType)
+		public List<string> GetBooKablesIds( string aType, string aSubType )
 		{
-			var temp = new List<string>();
+			var temp = new List<string>( );
 
-			if (aType.Equals("Room"))
+			if ( aType.Equals( "Room" ) )
 			{
-				switch (aSubType)
+				switch ( aSubType )
 				{
 					case "Single":
-						temp.AddRange(from room in mData.Rooms where room.Type.ToString().Equals(aSubType) && 
-										  room.State.ToString().Equals("Available") select room.Id.ToString());
+						temp.AddRange( from room in mData.Rooms
+									   where room.Type.ToString( ).Equals( aSubType ) &&
+										   room.State.ToString( ).Equals( "Available" )
+									   select room.Id.ToString( ) );
 						return temp;
 					case "DoubleSingle":
-						temp.AddRange( from room in mData.Rooms where  room.Type.ToString( ).Equals( aSubType ) && 
-										   room.State.ToString( ).Equals( "Available" )  select room.Id.ToString( ) );
+						temp.AddRange( from room in mData.Rooms
+									   where room.Type.ToString( ).Equals( aSubType ) &&
+										   room.State.ToString( ).Equals( "Available" )
+									   select room.Id.ToString( ) );
 						return temp;
 					case "Double":
-						temp.AddRange( from room in mData.Rooms where  room.Type.ToString( ).Equals( aSubType ) && 
-										   room.State.ToString( ).Equals( "Available" )  select room.Id.ToString( ) );
+						temp.AddRange( from room in mData.Rooms
+									   where room.Type.ToString( ).Equals( aSubType ) &&
+										   room.State.ToString( ).Equals( "Available" )
+									   select room.Id.ToString( ) );
 						return temp;
 					case "Suite":
-						temp.AddRange( from room in mData.Rooms where  room.Type.ToString( ).Equals( aSubType ) && 
-										   room.State.ToString( ).Equals( "Available" )  select room.Id.ToString( ) );
+						temp.AddRange( from room in mData.Rooms
+									   where room.Type.ToString( ).Equals( aSubType ) &&
+										   room.State.ToString( ).Equals( "Available" )
+									   select room.Id.ToString( ) );
 						return temp;
 					case "FamilySuite":
-						temp.AddRange( from room in mData.Rooms where  room.Type.ToString( ).Equals( aSubType ) && 
-										   room.State.ToString( ).Equals( "Available" )  select room.Id.ToString( ) );
+						temp.AddRange( from room in mData.Rooms
+									   where room.Type.ToString( ).Equals( aSubType ) &&
+										   room.State.ToString( ).Equals( "Available" )
+									   select room.Id.ToString( ) );
 						return temp;
 					case "Meeting":
-						temp.AddRange( from room in mData.Rooms where  room.Type.ToString( ).Equals( aSubType ) && 
-										   room.State.ToString( ).Equals( "Available" )  select room.Id.ToString( ) );
+						temp.AddRange( from room in mData.Rooms
+									   where room.Type.ToString( ).Equals( aSubType ) &&
+										   room.State.ToString( ).Equals( "Available" )
+									   select room.Id.ToString( ) );
 						return temp;
 					default:
 						return null;
 				}
 			}
-			if (aType.Equals("Activity"))
+			if ( aType.Equals( "Activity" ) )
 			{
-				switch (aSubType)
+				switch ( aSubType )
 				{
 					case "BoatRide":
-						temp.AddRange( from activity in mData.Activities where activity.Type.ToString( ).Equals( aSubType ) && 
-										   activity.State.ToString().Equals("Available") select activity.Id.ToString( ) );
+						temp.AddRange( from activity in mData.Activities
+									   where activity.Type.ToString( ).Equals( aSubType ) &&
+										   activity.State.ToString( ).Equals( "Available" )
+									   select activity.Id.ToString( ) );
 						return temp;
 					case "Golf":
-						temp.AddRange( from activity in mData.Activities where  activity.Type.ToString( ).Equals( aSubType ) && 
-										   activity.State.ToString( ).Equals( "Available" )  select activity.Id.ToString( ) );
+						temp.AddRange( from activity in mData.Activities
+									   where activity.Type.ToString( ).Equals( aSubType ) &&
+										   activity.State.ToString( ).Equals( "Available" )
+									   select activity.Id.ToString( ) );
 						return temp;
 					case "Camping":
-						temp.AddRange( from activity in mData.Activities where  activity.Type.ToString( ).Equals( aSubType ) && 
-										   activity.State.ToString( ).Equals( "Available" )  select activity.Id.ToString( ) );
+						temp.AddRange( from activity in mData.Activities
+									   where activity.Type.ToString( ).Equals( aSubType ) &&
+										   activity.State.ToString( ).Equals( "Available" )
+									   select activity.Id.ToString( ) );
 						return temp;
 					case "Diving":
-						temp.AddRange( from activity in mData.Activities where  activity.Type.ToString( ).Equals( aSubType ) && 
-										   activity.State.ToString( ).Equals( "Available" )  select activity.Id.ToString( ) );
+						temp.AddRange( from activity in mData.Activities
+									   where activity.Type.ToString( ).Equals( aSubType ) &&
+										   activity.State.ToString( ).Equals( "Available" )
+									   select activity.Id.ToString( ) );
 						return temp;
 					case "SightSeeing":
-						temp.AddRange( from activity in mData.Activities where  activity.Type.ToString( ).Equals( aSubType ) && 
-										   activity.State.ToString( ).Equals( "Available" )  select activity.Id.ToString( ) );
+						temp.AddRange( from activity in mData.Activities
+									   where activity.Type.ToString( ).Equals( aSubType ) &&
+										   activity.State.ToString( ).Equals( "Available" )
+									   select activity.Id.ToString( ) );
 						return temp;
 					case "SkyDiving":
-						temp.AddRange( from activity in mData.Activities where  activity.Type.ToString( ).Equals( aSubType ) && 
-										   activity.State.ToString( ).Equals( "Available" )  select activity.Id.ToString( ) );
+						temp.AddRange( from activity in mData.Activities
+									   where activity.Type.ToString( ).Equals( aSubType ) &&
+										   activity.State.ToString( ).Equals( "Available" )
+									   select activity.Id.ToString( ) );
 						return temp;
 					default:
 						return null;
@@ -181,28 +206,40 @@ namespace Tourist.Server
 				switch ( aSubType )
 				{
 					case "TuckTuck":
-						temp.AddRange( from transport in mData.Transports where transport.Type.ToString( ).Equals( aSubType ) && 
-										   transport.State.ToString().Equals("Available")  select transport.Id.ToString( ) );
+						temp.AddRange( from transport in mData.Transports
+									   where transport.Type.ToString( ).Equals( aSubType ) &&
+										   transport.State.ToString( ).Equals( "Available" )
+									   select transport.Id.ToString( ) );
 						return temp;
 					case "CableCar":
-						temp.AddRange( from transport in mData.Transports where  transport.Type.ToString( ).Equals( aSubType ) && 
-										   transport.State.ToString( ).Equals( "Available" )  select transport.Id.ToString( ) );
+						temp.AddRange( from transport in mData.Transports
+									   where transport.Type.ToString( ).Equals( aSubType ) &&
+										   transport.State.ToString( ).Equals( "Available" )
+									   select transport.Id.ToString( ) );
 						return temp;
 					case "Bicycle":
-						temp.AddRange( from transport in mData.Transports where  transport.Type.ToString( ).Equals( aSubType ) && 
-										   transport.State.ToString( ).Equals( "Available" )  select transport.Id.ToString( ) );
+						temp.AddRange( from transport in mData.Transports
+									   where transport.Type.ToString( ).Equals( aSubType ) &&
+										   transport.State.ToString( ).Equals( "Available" )
+									   select transport.Id.ToString( ) );
 						return temp;
 					case "Car":
-						temp.AddRange( from transport in mData.Transports where  transport.Type.ToString( ).Equals( aSubType ) && 
-										   transport.State.ToString( ).Equals( "Available" )  select transport.Id.ToString( ) );
+						temp.AddRange( from transport in mData.Transports
+									   where transport.Type.ToString( ).Equals( aSubType ) &&
+										   transport.State.ToString( ).Equals( "Available" )
+									   select transport.Id.ToString( ) );
 						return temp;
 					case "Bus":
-						temp.AddRange( from transport in mData.Transports where  transport.Type.ToString( ).Equals( aSubType ) && 
-										   transport.State.ToString( ).Equals( "Available" )  select transport.Id.ToString( ) );
+						temp.AddRange( from transport in mData.Transports
+									   where transport.Type.ToString( ).Equals( aSubType ) &&
+										   transport.State.ToString( ).Equals( "Available" )
+									   select transport.Id.ToString( ) );
 						return temp;
 					case "Motorist":
-						temp.AddRange( from transport in mData.Transports where  transport.Type.ToString( ).Equals( aSubType ) && 
-										   transport.State.ToString( ).Equals( "Available" )  select transport.Id.ToString( ) );
+						temp.AddRange( from transport in mData.Transports
+									   where transport.Type.ToString( ).Equals( aSubType ) &&
+										   transport.State.ToString( ).Equals( "Available" )
+									   select transport.Id.ToString( ) );
 						return temp;
 					default:
 						return null;
@@ -212,19 +249,19 @@ namespace Tourist.Server
 			return temp;
 		}
 
-		public List<string> BookableSubTypesList(string aType)
+		public List<string> BookableSubTypesList( string aType )
 		{
-			var temp = new List<string>();
+			var temp = new List<string>( );
 
 			switch ( aType )
 			{
 				case "Room":
-					temp.Add("Single");
-					temp.Add("DoubleSingle");
-					temp.Add("Double");
-					temp.Add("Suite");
-					temp.Add("FamilySuite");
-					temp.Add("Meeting");					
+					temp.Add( "Single" );
+					temp.Add( "DoubleSingle" );
+					temp.Add( "Double" );
+					temp.Add( "Suite" );
+					temp.Add( "FamilySuite" );
+					temp.Add( "Meeting" );
 					return temp;
 				case "Activity":
 					temp.Add( "BoatRide" );
@@ -232,7 +269,7 @@ namespace Tourist.Server
 					temp.Add( "Camping" );
 					temp.Add( "Diving" );
 					temp.Add( "SightSeeing" );
-					temp.Add( "SkyDiving" );					
+					temp.Add( "SkyDiving" );
 					return temp;
 				case "Transport":
 					temp.Add( "TuckTuck" );
@@ -247,29 +284,29 @@ namespace Tourist.Server
 			}
 
 
-		} 
+		}
 
-		public string GetBookableDescription(int aId, string aType)
+		public string GetBookableDescription( int aId, string aType )
 		{
-			switch (aType)
+			switch ( aType )
 			{
 				case "Room":
-					foreach (var room in mData.Rooms.Where(room => room.Id == aId))
+					foreach ( var room in mData.Rooms.Where( room => room.Id == aId ) )
 					{
 						return room.Description;
 					}
 					return "";
 				case "Activity":
 					foreach ( var activity in mData.Activities.Where( activity => activity.Id == aId ) )
-				{
-					return activity.Description;
-				}
+					{
+						return activity.Description;
+					}
 					return "";
 				case "Transport":
 					foreach ( var transport in mData.Transports.Where( transport => transport.Id == aId ) )
-				{
-					return transport.Description;
-				}
+					{
+						return transport.Description;
+					}
 					return "";
 				default:
 					return "";
@@ -378,7 +415,7 @@ namespace Tourist.Server
 			switch ( aList )
 			{
 				case "Bookings":
-					break;
+					return BookingsListToMatrix( );
 				case "Clients":
 					return ListToMatrixClients( );
 				case "Rooms":
@@ -394,129 +431,65 @@ namespace Tourist.Server
 				default:
 					return null;
 			}
-
-			return null;
 		}
 
-		public string[ , ] ListToMatrix( string aList, string aType )
+		public string[ , ] BookingsListToMatrix( )
 		{
-			if ( aList.Equals( "Bookings" ) )
+
+			var rowsCount = Count( "Bookings" );
+			const int columnsCount = 12;
+			var matrix = new string[ rowsCount, columnsCount ];
+
+			for ( var i = 0 ; i < rowsCount ; i++ )
 			{
-				var rowsCount = Count( "Bookings" );
-				const int columnsCount = 11;
-				var matrix = new string[ rowsCount, columnsCount ];
-
-				switch ( aList )
+				for ( var j = 0 ; j < columnsCount ; )
 				{
-					case "Room":
-						for ( var i = 0 ; i < rowsCount ; i++ )
-						{
-							for ( var j = 0 ; j < columnsCount ; )
-							{
-								if ( mData.Bookings.ElementAt( i ).Bookable is Room )
-								{
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Id.ToString( );
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Client.Nif.ToString( );
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Client.FirstName + " " +
-												   mData.Bookings.ElementAt( i ).Client.LastName;
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Type.ToString( );
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Id.ToString( );
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Description;
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Price.ToString( "0.00", CultureInfo.InvariantCulture );
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).BookingDate.ToString( "d" );
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).TimeFrame.StartDateTime.ToString( "d" );
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).TimeFrame.EndDateTime.ToString( "d" );
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).TotaPrice.ToString( "0.00", CultureInfo.InvariantCulture );
-									j++;
-								}
-							}
-						}
-						return matrix;
-					case "Activity":
-						for ( var i = 0 ; i < rowsCount ; i++ )
-						{
-							for ( var j = 0 ; j < columnsCount ; )
-							{
-								if ( mData.Bookings.ElementAt( i ).Bookable is Activity )
-								{
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Id.ToString( );
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Client.Nif.ToString( );
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Client.FirstName + " " +
-												   mData.Bookings.ElementAt( i ).Client.LastName;
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Type.ToString( );
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Id.ToString( );
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Description;
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Price.ToString( "0.00", CultureInfo.InvariantCulture );
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).BookingDate.ToString( "d" );
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).TimeFrame.StartDateTime.ToString( "d" );
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).TimeFrame.EndDateTime.ToString( "d" );
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).TotaPrice.ToString( "0.00", CultureInfo.InvariantCulture );
-									j++;
-								}
-							}
-						}
-						return matrix;
-					case "Transport":
-						for ( var i = 0 ; i < rowsCount ; i++ )
-						{
-							for ( var j = 0 ; j < columnsCount ; )
-							{
-								if ( mData.Bookings.ElementAt( i ).Bookable is Transport )
-								{
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Id.ToString( );
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Client.Nif.ToString( );
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Client.FirstName + " " +
-												   mData.Bookings.ElementAt( i ).Client.LastName;
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Type.ToString( );
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Id.ToString( );
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Description;
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Price.ToString( "0.00", CultureInfo.InvariantCulture );
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).BookingDate.ToString( "d" );
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).TimeFrame.StartDateTime.ToString( "d" );
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).TimeFrame.EndDateTime.ToString( "d" );
-									j++;
-									matrix[ i, j ] = mData.Bookings.ElementAt( i ).TotaPrice.ToString( "0.00", CultureInfo.InvariantCulture );
-									j++;
-								}
-							}
-						}
-						return matrix;
-					default:
-						return null;
-				}
 
+					matrix[ i, j ] = mData.Bookings.ElementAt( i ).Id.ToString( );
+					j++;
+					matrix[ i, j ] = mData.Bookings.ElementAt( i ).Client.Nif.ToString( );
+					j++;
+					matrix[ i, j ] = mData.Bookings.ElementAt( i ).Client.FirstName + " " +
+									mData.Bookings.ElementAt( i ).Client.LastName;
+					j++;
+
+					if (mData.Bookings.ElementAt(i).Bookable is Room)
+					{
+						matrix[i, j] = "Room";
+						j++;
+					}
+					else if ( mData.Bookings.ElementAt( i ).Bookable is Activity )
+					{
+						matrix[ i, j ] = "Room";
+						j++;
+					}
+					else if ( mData.Bookings.ElementAt( i ).Bookable is Transport )
+					{
+						matrix[ i, j ] = "Room";
+						j++;
+					}
+					
+					matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Type.ToString( );
+					j++;
+					matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Id.ToString( );
+					j++;
+					matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Description;
+					j++;
+					matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Price.ToString( "0.00", CultureInfo.InvariantCulture );
+					j++;
+					matrix[ i, j ] = mData.Bookings.ElementAt( i ).BookingDate.ToString( "d" );
+					j++;
+					matrix[ i, j ] = mData.Bookings.ElementAt( i ).TimeFrame.StartDateTime.ToString( "d" );
+					j++;
+					matrix[ i, j ] = mData.Bookings.ElementAt( i ).TimeFrame.EndDateTime.ToString( "d" );
+					j++;
+					matrix[ i, j ] = mData.Bookings.ElementAt( i ).TotaPrice.ToString( "0.00", CultureInfo.InvariantCulture );
+					j++;
+
+				}
 			}
 
-			return null;
+			return matrix;
 		}
 
 
@@ -753,7 +726,7 @@ namespace Tourist.Server
 			return matrix;
 		}
 
-		public double BookableBasePrice( string aType)
+		public double BookableBasePrice( string aType )
 		{
 			switch ( aType )
 			{
@@ -865,39 +838,39 @@ namespace Tourist.Server
 			switch ( aList )
 			{
 				case "Bookings":
-					if ( mData.Bookings.Contains( (Booking) aObject ) ) return;
-					mData.Bookings.Add( (Booking) aObject );
+					if ( mData.Bookings.Contains( ( Booking ) aObject ) ) return;
+					mData.Bookings.Add( ( Booking ) aObject );
 					Save( FileName );
 					return;
 				case "Clients":
-					if ( mData.Clients.Contains( (Client) aObject ) ) return;
-					mData.Clients.Add( (Client) aObject );
+					if ( mData.Clients.Contains( ( Client ) aObject ) ) return;
+					mData.Clients.Add( ( Client ) aObject );
 					Save( FileName );
 					RefreshGrid = true;
 					return;
 				case "Rooms":
-					if ( mData.Rooms.Contains( (Room) aObject ) ) return;
-					mData.Rooms.Add( (Room) aObject );
+					if ( mData.Rooms.Contains( ( Room ) aObject ) ) return;
+					mData.Rooms.Add( ( Room ) aObject );
 					Save( FileName );
 					return;
 				case "Activities":
-					if ( mData.Activities.Contains( (Activity) aObject ) ) return;
-					mData.Activities.Add( (Activity) aObject );
+					if ( mData.Activities.Contains( ( Activity ) aObject ) ) return;
+					mData.Activities.Add( ( Activity ) aObject );
 					Save( FileName );
 					return;
 				case "Transports":
-					if ( mData.Transports.Contains( (Transport) aObject ) ) return;
-					mData.Transports.Add( (Transport) aObject );
+					if ( mData.Transports.Contains( ( Transport ) aObject ) ) return;
+					mData.Transports.Add( ( Transport ) aObject );
 					Save( FileName );
 					return;
 				case "Managers":
-					if ( mData.Managers.Contains( (Manager) aObject ) ) return;
-					mData.Managers.Add( (Manager) aObject );
+					if ( mData.Managers.Contains( ( Manager ) aObject ) ) return;
+					mData.Managers.Add( ( Manager ) aObject );
 					Save( FileName );
 					return;
 				case "Employees":
-					if ( mData.Employees.Contains( (Employer) aObject ) ) return;
-					mData.Employees.Add( (Employer) aObject );
+					if ( mData.Employees.Contains( ( Employer ) aObject ) ) return;
+					mData.Employees.Add( ( Employer ) aObject );
 					Save( FileName );
 					return;
 				default:
@@ -1056,7 +1029,7 @@ namespace Tourist.Server
 
 		public List<string> ClientsNifList( )
 		{
-			return mData.Clients.Select(client => client.Nif.ToString()).ToList();
+			return mData.Clients.Select( client => client.Nif.ToString( ) ).ToList( );
 		}
 
 		public IBookable GetBookable( string aType, int aId )

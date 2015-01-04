@@ -516,6 +516,24 @@ namespace Tourist.Client.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to log out ?.
+        /// </summary>
+        internal static string LogOutString {
+            get {
+                return ResourceManager.GetString("LogOutString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log Out.
+        /// </summary>
+        internal static string LogOutTitle {
+            get {
+                return ResourceManager.GetString("LogOutTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Magnifier {
@@ -559,6 +577,24 @@ namespace Tourist.Client.Properties {
         internal static string NifEdited {
             get {
                 return ResourceManager.GetString("NifEdited", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to save the booking information ? The information can&apos;t be edited afterwards..
+        /// </summary>
+        internal static string NotEditableInformation {
+            get {
+                return ResourceManager.GetString("NotEditableInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not Editable Later.
+        /// </summary>
+        internal static string NotEditableTitle {
+            get {
+                return ResourceManager.GetString("NotEditableTitle", resourceCulture);
             }
         }
         
@@ -710,6 +746,15 @@ namespace Tourist.Client.Properties {
             get {
                 object obj = ResourceManager.GetObject("Tools", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 00.00 €.
+        /// </summary>
+        internal static string TotalPriceDefault {
+            get {
+                return ResourceManager.GetString("TotalPriceDefault", resourceCulture);
             }
         }
         

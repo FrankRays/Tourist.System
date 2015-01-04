@@ -127,6 +127,12 @@ namespace Tourist.Client.Forms
 			}
 		}
 
+		public void CleanForm( )
+		{
+			UsernameTextBox.Text = string.Empty;
+			PasswordTextBox.Text = string.Empty;
+		}
+
 		#endregion
 
 	}

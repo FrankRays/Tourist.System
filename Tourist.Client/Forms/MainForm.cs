@@ -2,6 +2,8 @@
 using System.Diagnostics;
 using System.Windows.Forms;
 using MetroFramework.Forms;
+using Tourist.Client.Properties;
+using Tourist.Data.Classes;
 using Tourist.Data.Interfaces;
 using Tourist.Data.Shared;
 using Transitions;
@@ -15,6 +17,7 @@ namespace Tourist.Client.Forms
 
 		private readonly LoginForm mLoginForm;
 		private readonly IRemote Remote;
+		private bool mBackOrExit;
 
 		#endregion
 
@@ -23,9 +26,9 @@ namespace Tourist.Client.Forms
 		public MainForm( Form aForm, IRemote aRemote )
 		{
 			InitializeComponent( );
-
 			mLoginForm = aForm as LoginForm;
 			Remote = aRemote;
+			mBackOrExit = default( bool );
 		}
 
 		#endregion
@@ -87,9 +90,8 @@ namespace Tourist.Client.Forms
 		private void DisponibilityTile_Click( object sender, EventArgs e )
 		{
 			Hide( );
-			var disponibility = new DisponibilityForm( this, Remote );
-			disponibility.Show( );
-
+			var disponibilityForm = new DisponibilityForm( this, Remote );
+			disponibilityForm.Show( );
 		}
 
 		private void PaymentsTile_Click( object sender, EventArgs e )
@@ -116,10 +118,12 @@ namespace Tourist.Client.Forms
 
 		protected override void OnFormClosing( FormClosingEventArgs e )
 		{
+			if ( mBackOrExit ) return;
+
 			base.OnFormClosing( e );
 
-			var dialogResult = MessageBox.Show( this, Properties.Resources.ExitMessage,
-				Properties.Resources.ExitMessageTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
+			var dialogResult = MessageBox.Show( this, Resources.ExitMessage,
+				Resources.ExitMessageTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
 
 			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
 
@@ -127,6 +131,20 @@ namespace Tourist.Client.Forms
 				e.Cancel = true;
 			else
 				Process.GetCurrentProcess( ).Kill( );
+		}
+
+		private void LogoffTile_Click( object sender, EventArgs e )
+		{
+
+			if ( MessageBox.Show( this, Resources.LogOutString, Resources.LogOutTitle,
+				 MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk ) == DialogResult.No )
+				return;
+
+			mBackOrExit = true;
+			Hide( );
+			Remote.ClientLoginSession = new Session( );
+			mLoginForm.CleanForm( );
+			mLoginForm.Show( );
 		}
 
 		#endregion

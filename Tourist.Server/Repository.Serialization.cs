@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.IO;
 using System.Xml.Serialization;
 using Tourist.Data.Classes;
@@ -27,18 +25,7 @@ namespace Tourist.Server
 
 			[XmlArray( ElementName = "BookingsList", Order = 2 )]
 			public ObservableCollection<Booking> Bookings = new ObservableCollection<Booking>( );
-			
-			/*
-			[XmlIgnore]
-			public ObservableCollection<Booking> BookedRooms = new ObservableCollection<Booking>( );
-
-			[XmlIgnore]
-			public ObservableCollection<Booking> BookedActivities = new ObservableCollection<Booking>( );
-
-			[XmlIgnore]
-			public ObservableCollection<Booking> BookedTransports = new ObservableCollection<Booking>( );
-
-			*/
+		
 			[XmlArray( ElementName = "ClientList", Order = 3 )]
 			public ObservableCollection<Client> Clients = new ObservableCollection<Client>( );
 

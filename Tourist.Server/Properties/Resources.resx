@@ -343,4 +343,10 @@
   <data name="WelcomeString" xml:space="preserve">
     <value>Welcome </value>
   </data>
+  <data name="LogOutString" xml:space="preserve">
+    <value>Are you sure you want to log out ?</value>
+  </data>
+  <data name="LogOutTitle" xml:space="preserve">
+    <value>Log Out</value>
+  </data>
 </root>

@@ -8,14 +8,13 @@ namespace Tourist.Data.Interfaces
 		bool ServerRunning( );
 		Factory Factory { get; }
 		Entity Entity { get; }
-		Session ClientLoginSession { get; }
+		Session ClientLoginSession { get; set; }
 		int Count( string aList );
 		int CountBooked( string aType );
 		bool IsEmpty( string aList );
 		bool ExistingId( int aId, string aList );
 		bool CheckLogin( string aUsername, string aPassword, string aType );
 		string[ , ] ListToMatrix( string aList );
-		string[ , ] ListToMatrix( string aList, string aType );
 		void Append( object aObject, string aList );
 		void Remove( int aIndex, string aList );
 		int GetId( int aIndex, string aList );

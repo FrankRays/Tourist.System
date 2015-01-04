@@ -11,7 +11,7 @@ namespace Tourist.Data.Classes
 
 		#region Fields
 
-		private static int mCounter = default( int );
+		private static int mCounter = 300;
 		private int mNumber = default( int );
 		private Enum mType;
 		private BookableState mBookableState;

@@ -41,7 +41,7 @@
 			this.BookingDateTextBox = new System.Windows.Forms.TextBox();
 			this.SaveButton = new System.Windows.Forms.Button();
 			this.TotalPriceLabel = new System.Windows.Forms.TextBox();
-			this.EditButton = new System.Windows.Forms.Button();
+			this.BrowseBookingsButton = new System.Windows.Forms.Button();
 			this.BookingIDLabel = new System.Windows.Forms.Label();
 			this.BookingIdTextBox = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
@@ -181,7 +181,7 @@
 			this.BookingData.Controls.Add(this.BookingDateTextBox);
 			this.BookingData.Controls.Add(this.SaveButton);
 			this.BookingData.Controls.Add(this.TotalPriceLabel);
-			this.BookingData.Controls.Add(this.EditButton);
+			this.BookingData.Controls.Add(this.BrowseBookingsButton);
 			this.BookingData.Controls.Add(this.BookingIDLabel);
 			this.BookingData.Controls.Add(this.BookingIdTextBox);
 			this.BookingData.Controls.Add(this.label3);
@@ -236,22 +236,22 @@
 			this.TotalPriceLabel.Name = "TotalPriceLabel";
 			this.TotalPriceLabel.Size = new System.Drawing.Size(531, 90);
 			this.TotalPriceLabel.TabIndex = 56;
-			this.TotalPriceLabel.Text = "0000.00€";
+			this.TotalPriceLabel.Text = "00.00€";
 			this.TotalPriceLabel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
-			// EditButton
+			// BrowseBookingsButton
 			// 
-			this.EditButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.EditButton.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.EditButton.ForeColor = System.Drawing.Color.White;
-			this.EditButton.Location = new System.Drawing.Point(278, 359);
-			this.EditButton.Margin = new System.Windows.Forms.Padding(2);
-			this.EditButton.Name = "EditButton";
-			this.EditButton.Size = new System.Drawing.Size(240, 63);
-			this.EditButton.TabIndex = 48;
-			this.EditButton.Text = "EDIT ";
-			this.EditButton.UseVisualStyleBackColor = false;
-			this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
+			this.BrowseBookingsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			this.BrowseBookingsButton.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BrowseBookingsButton.ForeColor = System.Drawing.Color.White;
+			this.BrowseBookingsButton.Location = new System.Drawing.Point(278, 359);
+			this.BrowseBookingsButton.Margin = new System.Windows.Forms.Padding(2);
+			this.BrowseBookingsButton.Name = "BrowseBookingsButton";
+			this.BrowseBookingsButton.Size = new System.Drawing.Size(240, 63);
+			this.BrowseBookingsButton.TabIndex = 48;
+			this.BrowseBookingsButton.Text = "Browse Bookings";
+			this.BrowseBookingsButton.UseVisualStyleBackColor = false;
+			this.BrowseBookingsButton.Click += new System.EventHandler(this.BrowseBookingsButton_Click);
 			// 
 			// BookingIDLabel
 			// 
@@ -281,7 +281,7 @@
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label3.ForeColor = System.Drawing.Color.White;
-			this.label3.Location = new System.Drawing.Point(186, 209);
+			this.label3.Location = new System.Drawing.Point(171, 209);
 			this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(195, 50);
@@ -713,7 +713,7 @@
 		private System.Windows.Forms.GroupBox BookingInfo;
 		private System.Windows.Forms.GroupBox BookingData;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.Button EditButton;
+		private System.Windows.Forms.Button BrowseBookingsButton;
 		private System.Windows.Forms.Button SaveButton;
 		private MetroFramework.Controls.MetroDateTime EndDatePicker;
 		private MetroFramework.Controls.MetroDateTime StartDatePicker;

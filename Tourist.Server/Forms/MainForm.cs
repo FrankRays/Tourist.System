@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Forms;
 using MetroFramework.Forms;
+using Tourist.Data.Classes;
 using Tourist.Data.Shared;
 using Transitions;
 
@@ -12,32 +13,28 @@ namespace Tourist.Server.Forms
 	{
 
 		#region Fields
-		
-		private LoginForm mLoginForm;
 
-		public LoginForm LoginForm
-		{
-			get { return mLoginForm; }
-			set { mLoginForm = value; }
-		}
-		
+		private readonly LoginForm mLoginForm;
+		private bool mBackOrExit;
+
 		#endregion
 
 		#region Constructor
-		
+
 		public MainForm( Form aForm )
 		{
 			InitializeComponent( );
-			LoginForm = aForm as LoginForm;
+			mLoginForm = aForm as LoginForm;
+			mBackOrExit = default( bool );
 		}
 
 		#endregion
 
 		#region Events
-		
+
 		private void MainForm_Load( object sender, EventArgs e )
 		{
-			SharedMethods.SetFormFullScreen(this);
+			SharedMethods.SetFormFullScreen( this );
 			TimerClock.Start( );//conta segundos relogio
 		}
 
@@ -109,7 +106,7 @@ namespace Tourist.Server.Forms
 			Hide( );
 
 			var managersForm = new ManagersForm( this );
-			managersForm.Show();
+			managersForm.Show( );
 		}
 
 		private void DisponibilityTile_Click( object sender, EventArgs e )
@@ -165,6 +162,8 @@ namespace Tourist.Server.Forms
 
 		protected override void OnFormClosing( FormClosingEventArgs e )
 		{
+			if ( mBackOrExit ) return;
+
 			base.OnFormClosing( e );
 
 			var dialogResult = MessageBox.Show( this, Properties.Resources.ExitMessage,
@@ -176,6 +175,20 @@ namespace Tourist.Server.Forms
 				e.Cancel = true;
 			else
 				Process.GetCurrentProcess( ).Kill( );
+		}
+
+		private void LogoffTile_Click( object sender, EventArgs e )
+		{
+			
+			if ( MessageBox.Show( this, Properties.Resources.LogOutString,Properties.Resources.LogOutTitle, 
+				 MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk ) == DialogResult.No )
+				return;
+
+			mBackOrExit = true;
+			Hide( );
+			Repository.ServerLoginSession = new Session( );
+			mLoginForm.CleanForm( );
+			mLoginForm.Show( );
 		}
 
 		#endregion

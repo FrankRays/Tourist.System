@@ -346,4 +346,19 @@
   <data name="BookingString" xml:space="preserve">
     <value>Booking </value>
   </data>
+  <data name="NotEditableInformation" xml:space="preserve">
+    <value>Are you sure you want to save the booking information ? The information can't be edited afterwards.</value>
+  </data>
+  <data name="NotEditableTitle" xml:space="preserve">
+    <value>Not Editable Later</value>
+  </data>
+  <data name="TotalPriceDefault" xml:space="preserve">
+    <value>00.00 €</value>
+  </data>
+  <data name="LogOutString" xml:space="preserve">
+    <value>Are you sure you want to log out ?</value>
+  </data>
+  <data name="LogOutTitle" xml:space="preserve">
+    <value>Log Out</value>
+  </data>
 </root>

@@ -1,39 +1,50 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
-using MetroFramework;
 using MetroFramework.Forms;
+using Tourist.Client.Properties;
 using Tourist.Data.Interfaces;
+using Tourist.Data.Shared;
 
 namespace Tourist.Client.Forms
 {
 	public partial class DisponibilityForm : MetroForm
 	{
+
+		#region Fields
+
+		private readonly MainForm MainForm;
 		private readonly IRemote Remote;
-		private readonly MainForm mMainForm;
 		private bool mBackOrExit = default( bool );
-		
-		public DisponibilityForm(Form aForm, IRemote aRemote)
+
+		#endregion
+
+		#region Constructor
+
+		public DisponibilityForm( Form aForm, IRemote aRemote )
 		{
 			InitializeComponent( );
-			
-			mMainForm = aForm as MainForm;
+			MainForm = aForm as MainForm;
 			Remote = aRemote;
 		}
 
-		private void DisponibilityForm_Load( object sender, System.EventArgs e )
-		{
-			SetFormFullScreen();
-		}
+		#endregion
 
-		private void SetFormFullScreen( )
-		{
-			var x = Screen.PrimaryScreen.Bounds.Width;
-			var y = Screen.PrimaryScreen.Bounds.Height;
-			Location = new Point( 0, 0 );
-			Size = new Size( x, y );
+		#region Events
 
-			FormBorderStyle = FormBorderStyle.None;
-			Focus( );
+		private void BookingsDataGrid_RowRemoved( object sender, DataGridViewRowsRemovedEventArgs e )
+		{
+			var dialog = MessageBox.Show( this, Resources.RemoveString,
+			Resources.RemoveTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Information );
+
+			if ( dialog == DialogResult.No )
+			{
+				ReLoadDataToGrid( );
+				return;
+			}
+			var removeIndex = e.RowIndex;
+
+			Remote.Remove( removeIndex, "Bookings" );
 		}
 
 		protected override void OnFormClosing( FormClosingEventArgs e )
@@ -42,22 +53,59 @@ namespace Tourist.Client.Forms
 
 			base.OnFormClosing( e );
 
-			var dialogResult = MessageBox.Show( this, "\n Are you sure you want to exit the application?",
-				"Close Button Pressed", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
+			var dialogResult = MessageBox.Show( this, Resources.ExitMessage,
+				Resources.ExitMessageTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
 
 			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
 
 			if ( dialogResult == DialogResult.No )
 				e.Cancel = true;
 			else
-				System.Diagnostics.Process.GetCurrentProcess( ).Kill( );
+				Process.GetCurrentProcess( ).Kill( );
 		}
 
 		private void BackPanel_MouseClick( object sender, MouseEventArgs e )
 		{
 			mBackOrExit = true;
 			Close( );
-			mMainForm.Show( );
+			MainForm.Show( );
 		}
+
+		#endregion
+
+		#region Private Methods
+
+		private void BrowseBookingsForm_Load( object sender, EventArgs e )
+		{
+			SharedMethods.SetFormFullScreen( this );
+			LoadDataToGrid( );
+		}
+
+		private void LoadDataToGrid( )
+		{
+			if ( Remote.IsEmpty( "Bookings" ) )
+				return;
+
+			var roomMatrix = Remote.ListToMatrix( "Bookings" );
+
+			for ( var i = 0 ; i < Remote.Count( "Bookings" ) ; i++ )
+			{
+				BookingsDataGrid.Rows.Add( );
+
+				for ( var j = 0 ; j < BookingsDataGrid.ColumnCount ; j++ )
+				{
+					BookingsDataGrid.Rows[ i ].Cells[ j ].Value = roomMatrix[ i, j ];
+				}
+			}
+		}
+
+		private void ReLoadDataToGrid( )
+		{
+			SharedMethods.ClearDataGrid( BookingsDataGrid );
+			LoadDataToGrid( );
+		}
+
+		#endregion
+
 	}
 }

@@ -507,6 +507,24 @@ namespace Tourist.Server.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to log out ?.
+        /// </summary>
+        internal static string LogOutString {
+            get {
+                return ResourceManager.GetString("LogOutString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log Out.
+        /// </summary>
+        internal static string LogOutTitle {
+            get {
+                return ResourceManager.GetString("LogOutTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Magnifier {

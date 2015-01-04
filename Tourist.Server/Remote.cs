@@ -8,6 +8,9 @@ namespace Tourist.Server
 	[Serializable]
 	public class Remote : MarshalByRefObject, IRemote
 	{
+
+		#region Fields
+
 		private readonly Factory mFactory = new Factory( );
 		private readonly Repository Repository = Repository.Instance;
 
@@ -16,6 +19,10 @@ namespace Tourist.Server
 			get { return mFactory; }
 		}
 
+		#endregion
+
+		#region Methods
+
 		public bool ServerRunning( )
 		{
 			return true;
@@ -23,20 +30,7 @@ namespace Tourist.Server
 
 		public override object InitializeLifetimeService( )
 		{
-
 			return null;
-			/*
-			ILease lease = ( ILease ) base.InitializeLifetimeService( );
-
-			if ( lease.CurrentState == LeaseState.Initial )
-			{
-				// set times very short for demonstration purposes
-				lease.InitialLeaseTime = TimeSpan.FromMinutes( 30 );
-				lease.SponsorshipTimeout = TimeSpan.FromMinutes( 30 );
-				lease.RenewOnCallTime = TimeSpan.FromMinutes( 1 );
-			}
-			return lease;
-			 * */
 		}
 
 		//Wrapper Repository Methods 
@@ -71,16 +65,15 @@ namespace Tourist.Server
 			return Repository.CheckLogin( aUsername, aPassword, aType );
 		}
 
-		public Session ClientLoginSession { get { return Repository.ClientLoginSession; } }
+		public Session ClientLoginSession
+		{
+			get { return Repository.ClientLoginSession; }
+			set { Repository.ClientLoginSession = value; }
+		}
 
 		public string[ , ] ListToMatrix( string aList )
 		{
 			return Repository.ListToMatrix( aList );
-		}
-
-		public string[ , ] ListToMatrix( string aList, string aType )
-		{
-			return Repository.ListToMatrix( aList, aType );
 		}
 
 		public void Append( object aObject, string aList )
@@ -128,9 +121,9 @@ namespace Tourist.Server
 			return Repository.GetBooKablesIds( aType, aSubType );
 		}
 
-		public List<string> BookableSubTypesList(string aType)
+		public List<string> BookableSubTypesList( string aType )
 		{
-			return Repository.BookableSubTypesList(aType);
+			return Repository.BookableSubTypesList( aType );
 		}
 
 		public string GetBookableDescription( int aId, string aType )
@@ -138,14 +131,17 @@ namespace Tourist.Server
 			return Repository.GetBookableDescription( aId, aType );
 		}
 
-		public double GetBasePrice(string aType)
+		public double GetBasePrice( string aType )
 		{
-			return Repository.BookableBasePrice(aType);
+			return Repository.BookableBasePrice( aType );
 		}
 
 		public IBookable GetBookable( string aType, int aId )
 		{
 			return Repository.GetBookable( aType, aId );
 		}
+
+		#endregion
+
 	}
 }
