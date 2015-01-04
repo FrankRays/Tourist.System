@@ -11,11 +11,12 @@ namespace Tourist.Server
 	static class Program
 	{
 
+		#region Fields
+		
 		public static readonly Repository repository = Repository.Instance;
-
-		public static string ConfigFileName = "Tourist.Server.exe.config";
-
 		public static string FileName = repository.FileName;
+
+		#endregion
 
 		/// <summary>
 		/// The main entry point for the application.
@@ -23,15 +24,11 @@ namespace Tourist.Server
 		[STAThread]
 		static void Main( )
 		{
-			//Create the tcp channel
+			
 			TcpChannel channel = new TcpChannel( 3000 );
-
-			// Lets the remoting system use the socket
 			ChannelServices.RegisterChannel( channel, false );
 
-			RemotingConfiguration.Configure( ConfigFileName , false );
-
-			// Associate the class HelloServer with the URI "Tourist.Server"
+			//"Tourist.Server"
 			RemotingConfiguration.RegisterWellKnownServiceType(
 				typeof( Remote ),  //type
 				"Tourist.Server",  //uri

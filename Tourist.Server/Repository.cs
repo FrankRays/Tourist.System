@@ -408,7 +408,7 @@ namespace Tourist.Server
 
 		#endregion
 
-		#region LoadDataToForm Methods
+		#region Display Data Methods
 
 		public string[ , ] ListToMatrix( string aList )
 		{
@@ -453,9 +453,9 @@ namespace Tourist.Server
 									mData.Bookings.ElementAt( i ).Client.LastName;
 					j++;
 
-					if (mData.Bookings.ElementAt(i).Bookable is Room)
+					if ( mData.Bookings.ElementAt( i ).Bookable is Room )
 					{
-						matrix[i, j] = "Room";
+						matrix[ i, j ] = "Room";
 						j++;
 					}
 					else if ( mData.Bookings.ElementAt( i ).Bookable is Activity )
@@ -468,7 +468,7 @@ namespace Tourist.Server
 						matrix[ i, j ] = "Room";
 						j++;
 					}
-					
+
 					matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Type.ToString( );
 					j++;
 					matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Id.ToString( );
@@ -490,30 +490,6 @@ namespace Tourist.Server
 			}
 
 			return matrix;
-		}
-
-
-		private int ObjectNumberOfProperties( string aType )
-		{
-			switch ( aType )
-			{
-				case "Booking":
-					return typeof( Booking ).GetProperties( ).Length;
-				case "Client":
-					return typeof( Client ).GetProperties( ).Length;
-				case "Room":
-					return typeof( Room ).GetProperties( ).Length;
-				case "Activity":
-					return typeof( Activity ).GetProperties( ).Length;
-				case "Transport":
-					return typeof( Transport ).GetProperties( ).Length;
-				case "Manager":
-					return typeof( Manager ).GetProperties( ).Length;
-				case "Employer":
-					return typeof( Employer ).GetProperties( ).Length;
-				default:
-					return 0;
-			}
 		}
 
 		private string[ , ] ListToMatrixClients( )
@@ -816,6 +792,28 @@ namespace Tourist.Server
 			}
 		}
 
+		private int ObjectNumberOfProperties( string aType )
+		{
+			switch ( aType )
+			{
+				case "Booking":
+					return typeof( Booking ).GetProperties( ).Length;
+				case "Client":
+					return typeof( Client ).GetProperties( ).Length;
+				case "Room":
+					return typeof( Room ).GetProperties( ).Length;
+				case "Activity":
+					return typeof( Activity ).GetProperties( ).Length;
+				case "Transport":
+					return typeof( Transport ).GetProperties( ).Length;
+				case "Manager":
+					return typeof( Manager ).GetProperties( ).Length;
+				case "Employer":
+					return typeof( Employer ).GetProperties( ).Length;
+				default:
+					return 0;
+			}
+		}
 
 		#endregion
 

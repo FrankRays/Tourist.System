@@ -179,6 +179,7 @@
     <None Include="Resources\Images\Remove.png" />
     <None Include="Resources\Images\Payment.png" />
     <None Include="Resources\Images\Help.png" />
+    <None Include="Resources\Images\MagnifierBig.png" />
     <Content Include="Resources\Images\unlock.png" />
     <None Include="Resources\Images\Tools.png" />
     <None Include="Resources\Images\services.png" />

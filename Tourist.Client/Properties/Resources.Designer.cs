@@ -544,6 +544,16 @@ namespace Tourist.Client.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MagnifierBig {
+            get {
+                object obj = ResourceManager.GetObject("MagnifierBig", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Manager.
         /// </summary>
         internal static string ManagerString {
