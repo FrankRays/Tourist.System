@@ -49,9 +49,9 @@ namespace Tourist.Client.Forms
 		private void BookingsForm_Load( object sender, EventArgs e )
 		{
 			SharedMethods.SetFormFullScreen( this );
-
 			mNifsbBindingSource.DataSource = Remote.ClientsNifList( );
 			NifComboBox.DataSource = mNifsbBindingSource;
+			ControlsToReadOnly(true);
 		}
 
 		private void NifComboBox_SelectedValueChanged( object sender, EventArgs e )
@@ -251,6 +251,16 @@ namespace Tourist.Client.Forms
 			StartDatePicker.Value = DateTime.Today;
 			EndDatePicker.Value = DateTime.Today.AddDays( 1 );
 			TotalPriceLabel.Text = Resources.TotalPriceDefault;
+		}
+
+		private void ControlsToReadOnly( bool aBool )
+		{
+			ClientIdTextBox.ReadOnly = aBool;
+			NameTextBox.ReadOnly = aBool;
+			BasePriceTextBox.ReadOnly = aBool;
+			DescriptionTextBox.ReadOnly = aBool;
+			BookingIdTextBox.ReadOnly = aBool;
+			BookingDateTextBox.ReadOnly = aBool;	
 		}
 
 		#endregion

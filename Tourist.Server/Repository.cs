@@ -403,16 +403,20 @@ namespace Tourist.Server
 					return false;
 			}
 		}
+		
 		/*
 		public bool IsBookedAlredy( int aBookableId, DateTimeRange aTimeFrame )
 		{
+			var buffer = new List<bool>();
+
 			foreach (var booking in mData.Bookings)
 			{
 				if (booking.Bookable.Id == aBookableId)
 				{
-					if(aTimeFrame.StartDateTime < )
-
-
+					if (aTimeFrame.StartDateTime < booking.TimeFrame.EndDateTime)
+					{
+						buffer.Add(true);
+					}
 
 				}
 
