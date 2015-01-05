@@ -1,44 +1,31 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
-using MetroFramework;
 using MetroFramework.Forms;
+using Tourist.Client.Properties;
 using Tourist.Data.Interfaces;
+using Tourist.Data.Shared;
 
 namespace Tourist.Client.Forms
 {
-	public partial class HelpForm: MetroForm
+	public partial class HelpForm : MetroForm
 	{
 
 		private readonly IRemote Remote;
-		private MainForm mMainForm;
-		
+		private readonly MainForm mMainForm;
 		private bool mBackOrExit = default( bool );
-		
-		public HelpForm( Form aForm, IRemote aRemote)
+
+
+		public HelpForm( Form aForm, IRemote aRemote )
 		{
 			InitializeComponent( );
-			
 			mMainForm = aForm as MainForm;
 			Remote = aRemote;
-
 		}
 
-		private void HelpForm_Load( object sender, System.EventArgs e )
+		private void HelpForm_Load( object sender, EventArgs e )
 		{
-			SetFormFullScreen();
-			
-		}
-
-		private void SetFormFullScreen( )
-		{
-			var x = Screen.PrimaryScreen.Bounds.Width;
-			var y = Screen.PrimaryScreen.Bounds.Height;
-			Location = new Point(0, 0);
-			Size = new Size(x, y);
-
-			FormBorderStyle = FormBorderStyle.None;
-			Focus();
-
+			SharedMethods.SetFormFullScreen( this );
 		}
 
 		protected override void OnFormClosing( FormClosingEventArgs e )
@@ -47,15 +34,15 @@ namespace Tourist.Client.Forms
 
 			base.OnFormClosing( e );
 
-			var dialogResult = MessageBox.Show( this, "\n Are you sure you want to exit the application?",
-				"Close Button Pressed", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
+			var dialogResult = MessageBox.Show( this, Resources.ExitMessage,
+			Resources.ExitMessageTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
 
 			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
 
 			if ( dialogResult == DialogResult.No )
 				e.Cancel = true;
 			else
-				System.Diagnostics.Process.GetCurrentProcess( ).Kill( );
+				Process.GetCurrentProcess( ).Kill( );
 		}
 
 		private void BackPanel_MouseClick( object sender, MouseEventArgs e )

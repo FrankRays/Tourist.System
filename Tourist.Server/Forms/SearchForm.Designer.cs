@@ -36,14 +36,14 @@
 			this.BodyPanel = new System.Windows.Forms.Panel();
 			this.GroupSearch = new System.Windows.Forms.GroupBox();
 			this.label2 = new System.Windows.Forms.Label();
-			this.metroDateTime2 = new MetroFramework.Controls.MetroDateTime();
+			this.OkButton = new System.Windows.Forms.Button();
+			this.SeachFilterComboBox = new MetroFramework.Controls.MetroComboBox();
+			this.SearchByComboBox = new MetroFramework.Controls.MetroComboBox();
+			this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
 			this.label1 = new System.Windows.Forms.Label();
 			this.SubTypeLabel = new System.Windows.Forms.Label();
-			this.metroComboBox2 = new MetroFramework.Controls.MetroComboBox();
+			this.metroDateTime2 = new MetroFramework.Controls.MetroDateTime();
 			this.BookingTypeLabel = new System.Windows.Forms.Label();
-			this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
-			this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
-			this.OkButton = new System.Windows.Forms.Button();
 			this.FooterPanel = new System.Windows.Forms.Panel();
 			this.HeaderPanel.SuspendLayout();
 			this.BodyPanel.SuspendLayout();
@@ -131,8 +131,8 @@
 			// 
 			this.GroupSearch.Controls.Add(this.label2);
 			this.GroupSearch.Controls.Add(this.OkButton);
-			this.GroupSearch.Controls.Add(this.metroComboBox1);
-			this.GroupSearch.Controls.Add(this.metroComboBox2);
+			this.GroupSearch.Controls.Add(this.SeachFilterComboBox);
+			this.GroupSearch.Controls.Add(this.SearchByComboBox);
 			this.GroupSearch.Controls.Add(this.metroDateTime1);
 			this.GroupSearch.Controls.Add(this.label1);
 			this.GroupSearch.Controls.Add(this.SubTypeLabel);
@@ -153,30 +153,72 @@
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("Segoe UI", 16F);
 			this.label2.ForeColor = System.Drawing.Color.White;
-			this.label2.Location = new System.Drawing.Point(691, 35);
+			this.label2.Location = new System.Drawing.Point(704, 30);
 			this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(103, 30);
 			this.label2.TabIndex = 28;
 			this.label2.Text = "End-Date";
-			this.label2.Click += new System.EventHandler(this.label2_Click);
 			// 
-			// metroDateTime2
+			// OkButton
 			// 
-			this.metroDateTime2.FontSize = MetroFramework.MetroDateTimeSize.Tall;
-			this.metroDateTime2.Location = new System.Drawing.Point(467, 70);
-			this.metroDateTime2.MinimumSize = new System.Drawing.Size(0, 35);
-			this.metroDateTime2.Name = "metroDateTime2";
-			this.metroDateTime2.Size = new System.Drawing.Size(211, 35);
-			this.metroDateTime2.TabIndex = 27;
-			this.metroDateTime2.ValueChanged += new System.EventHandler(this.metroDateTime2_ValueChanged);
+			this.OkButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			this.OkButton.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.OkButton.ForeColor = System.Drawing.Color.White;
+			this.OkButton.Location = new System.Drawing.Point(938, 42);
+			this.OkButton.Margin = new System.Windows.Forms.Padding(2);
+			this.OkButton.Name = "OkButton";
+			this.OkButton.Size = new System.Drawing.Size(211, 71);
+			this.OkButton.TabIndex = 11;
+			this.OkButton.Text = "Search";
+			this.OkButton.UseVisualStyleBackColor = false;
+			this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
+			// 
+			// SeachFilterComboBox
+			// 
+			this.SeachFilterComboBox.FontSize = MetroFramework.MetroComboBoxSize.Tall;
+			this.SeachFilterComboBox.FormattingEnabled = true;
+			this.SeachFilterComboBox.ItemHeight = 29;
+			this.SeachFilterComboBox.Location = new System.Drawing.Point(251, 65);
+			this.SeachFilterComboBox.Margin = new System.Windows.Forms.Padding(2);
+			this.SeachFilterComboBox.Name = "SeachFilterComboBox";
+			this.SeachFilterComboBox.Size = new System.Drawing.Size(211, 35);
+			this.SeachFilterComboBox.TabIndex = 14;
+			this.SeachFilterComboBox.UseSelectable = true;
+			// 
+			// SearchByComboBox
+			// 
+			this.SearchByComboBox.FontSize = MetroFramework.MetroComboBoxSize.Tall;
+			this.SearchByComboBox.FormattingEnabled = true;
+			this.SearchByComboBox.ItemHeight = 29;
+			this.SearchByComboBox.Items.AddRange(new object[] {
+            "Bookings",
+            "Bookables",
+            "Client",
+            "Employers",
+            "Managers"});
+			this.SearchByComboBox.Location = new System.Drawing.Point(21, 65);
+			this.SearchByComboBox.Margin = new System.Windows.Forms.Padding(2);
+			this.SearchByComboBox.Name = "SearchByComboBox";
+			this.SearchByComboBox.Size = new System.Drawing.Size(211, 35);
+			this.SearchByComboBox.TabIndex = 24;
+			this.SearchByComboBox.UseSelectable = true;
+			// 
+			// metroDateTime1
+			// 
+			this.metroDateTime1.FontSize = MetroFramework.MetroDateTimeSize.Tall;
+			this.metroDateTime1.Location = new System.Drawing.Point(709, 65);
+			this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 35);
+			this.metroDateTime1.Name = "metroDateTime1";
+			this.metroDateTime1.Size = new System.Drawing.Size(211, 35);
+			this.metroDateTime1.TabIndex = 12;
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Segoe UI", 16F);
 			this.label1.ForeColor = System.Drawing.Color.White;
-			this.label1.Location = new System.Drawing.Point(462, 35);
+			this.label1.Location = new System.Drawing.Point(475, 30);
 			this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(112, 30);
@@ -188,78 +230,33 @@
 			this.SubTypeLabel.AutoSize = true;
 			this.SubTypeLabel.Font = new System.Drawing.Font("Segoe UI", 16F);
 			this.SubTypeLabel.ForeColor = System.Drawing.Color.White;
-			this.SubTypeLabel.Location = new System.Drawing.Point(234, 35);
+			this.SubTypeLabel.Location = new System.Drawing.Point(246, 30);
 			this.SubTypeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.SubTypeLabel.Name = "SubTypeLabel";
 			this.SubTypeLabel.Size = new System.Drawing.Size(132, 30);
 			this.SubTypeLabel.TabIndex = 25;
 			this.SubTypeLabel.Text = "Search Filter";
 			// 
-			// metroComboBox2
+			// metroDateTime2
 			// 
-			this.metroComboBox2.FontSize = MetroFramework.MetroComboBoxSize.Tall;
-			this.metroComboBox2.FormattingEnabled = true;
-			this.metroComboBox2.ItemHeight = 29;
-			this.metroComboBox2.Items.AddRange(new object[] {
-            "Bookings",
-            "Clients",
-            "Bookables",
-            "Employers",
-            "Managers"});
-			this.metroComboBox2.Location = new System.Drawing.Point(13, 70);
-			this.metroComboBox2.Margin = new System.Windows.Forms.Padding(2);
-			this.metroComboBox2.Name = "metroComboBox2";
-			this.metroComboBox2.Size = new System.Drawing.Size(211, 35);
-			this.metroComboBox2.TabIndex = 24;
-			this.metroComboBox2.UseSelectable = true;
+			this.metroDateTime2.FontSize = MetroFramework.MetroDateTimeSize.Tall;
+			this.metroDateTime2.Location = new System.Drawing.Point(480, 65);
+			this.metroDateTime2.MinimumSize = new System.Drawing.Size(0, 35);
+			this.metroDateTime2.Name = "metroDateTime2";
+			this.metroDateTime2.Size = new System.Drawing.Size(211, 35);
+			this.metroDateTime2.TabIndex = 27;
 			// 
 			// BookingTypeLabel
 			// 
 			this.BookingTypeLabel.AutoSize = true;
 			this.BookingTypeLabel.Font = new System.Drawing.Font("Segoe UI", 16F);
 			this.BookingTypeLabel.ForeColor = System.Drawing.Color.White;
-			this.BookingTypeLabel.Location = new System.Drawing.Point(8, 33);
+			this.BookingTypeLabel.Location = new System.Drawing.Point(16, 28);
 			this.BookingTypeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.BookingTypeLabel.Name = "BookingTypeLabel";
 			this.BookingTypeLabel.Size = new System.Drawing.Size(108, 30);
 			this.BookingTypeLabel.TabIndex = 23;
 			this.BookingTypeLabel.Text = "Search By";
-			// 
-			// metroComboBox1
-			// 
-			this.metroComboBox1.FontSize = MetroFramework.MetroComboBoxSize.Tall;
-			this.metroComboBox1.FormattingEnabled = true;
-			this.metroComboBox1.ItemHeight = 29;
-			this.metroComboBox1.Location = new System.Drawing.Point(239, 70);
-			this.metroComboBox1.Margin = new System.Windows.Forms.Padding(2);
-			this.metroComboBox1.Name = "metroComboBox1";
-			this.metroComboBox1.Size = new System.Drawing.Size(211, 35);
-			this.metroComboBox1.TabIndex = 14;
-			this.metroComboBox1.UseSelectable = true;
-			// 
-			// metroDateTime1
-			// 
-			this.metroDateTime1.FontSize = MetroFramework.MetroDateTimeSize.Tall;
-			this.metroDateTime1.Location = new System.Drawing.Point(696, 70);
-			this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 35);
-			this.metroDateTime1.Name = "metroDateTime1";
-			this.metroDateTime1.Size = new System.Drawing.Size(211, 35);
-			this.metroDateTime1.TabIndex = 12;
-			// 
-			// OkButton
-			// 
-			this.OkButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.OkButton.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.OkButton.ForeColor = System.Drawing.Color.White;
-			this.OkButton.Location = new System.Drawing.Point(930, 70);
-			this.OkButton.Margin = new System.Windows.Forms.Padding(2);
-			this.OkButton.Name = "OkButton";
-			this.OkButton.Size = new System.Drawing.Size(211, 35);
-			this.OkButton.TabIndex = 11;
-			this.OkButton.Text = "OK";
-			this.OkButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.OkButton.UseVisualStyleBackColor = false;
-			this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
 			// 
 			// FooterPanel
 			// 
@@ -312,9 +309,9 @@
 		private MetroFramework.Controls.MetroDateTime metroDateTime2;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label SubTypeLabel;
-		private MetroFramework.Controls.MetroComboBox metroComboBox2;
+		private MetroFramework.Controls.MetroComboBox SearchByComboBox;
 		private System.Windows.Forms.Label BookingTypeLabel;
-		private MetroFramework.Controls.MetroComboBox metroComboBox1;
+		private MetroFramework.Controls.MetroComboBox SeachFilterComboBox;
 		private MetroFramework.Controls.MetroDateTime metroDateTime1;
 		private System.Windows.Forms.Button OkButton;
 

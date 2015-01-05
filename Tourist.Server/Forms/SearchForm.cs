@@ -1,37 +1,54 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
 using System.Windows.Forms;
 using MetroFramework;
 using MetroFramework.Forms;
+using Tourist.Data.Shared;
+using Tourist.Server.Properties;
 
 namespace Tourist.Server.Forms
 {
-	public partial class SearchForm: MetroForm
+	public partial class SearchForm : MetroForm
 	{
 		private readonly MainForm mMainForm;
-		private bool mBackOrExit = default(bool);
+		private bool mBackOrExit = default( bool );
+		private readonly BindingSource mBindingSource;
+		//private readonly List<string> mSearchFilterBookings;
+		private readonly List<string> mSearchFilterBookables;
+		private readonly List<string> mSearchFilterPersons;
 
 		public SearchForm( Form aForm )
 		{
-			mMainForm = aForm as MainForm;
 			InitializeComponent( );
+			mMainForm = aForm as MainForm;
+			mBindingSource = new BindingSource();
+			mSearchFilterBookables = new List<string> { "Subtypes,State,Price" };
+			mSearchFilterPersons = new List<string> {"Nif", "Phone", "Email"};
 		}
 
 		private void ToolsForm_Load( object sender, System.EventArgs e )
 		{
-			SetFormFullScreen();
-			
+			SharedMethods.SetFormFullScreen( this );
+
+
 		}
 
-		private void SetFormFullScreen( )
+		/*
+		private void SearchFilterValues( string aSearchParameter )
 		{
-			var x = Screen.PrimaryScreen.Bounds.Width;
-			var y = Screen.PrimaryScreen.Bounds.Height;
-			Location = new Point( 0, 0 );
-			Size = new Size( x, y );
+			switch (aSearchParameter)
+			{
+				
+				case "Bookings":
+					break;
+				case "Bookables":
+					
 
-			FormBorderStyle = FormBorderStyle.None;
-			Focus( );
+
+			}
 		}
+		*/
 
 		protected override void OnFormClosing( FormClosingEventArgs e )
 		{
@@ -39,15 +56,15 @@ namespace Tourist.Server.Forms
 
 			base.OnFormClosing( e );
 
-			var dialogResult = MetroMessageBox.Show( this, "\n Are you sure you want to exit the application?",
-				"Close Button Pressed", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
+			var dialogResult = MessageBox.Show( this, Resources.ExitMessage,
+			Resources.ExitMessageTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
 
 			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
 
 			if ( dialogResult == DialogResult.No )
 				e.Cancel = true;
 			else
-				System.Diagnostics.Process.GetCurrentProcess( ).Kill( );
+				Process.GetCurrentProcess( ).Kill( );
 		}
 
 		private void BackPanel_MouseClick( object sender, MouseEventArgs e )
@@ -62,14 +79,5 @@ namespace Tourist.Server.Forms
 
 		}
 
-		private void label2_Click( object sender, System.EventArgs e )
-		{
-
-		}
-
-		private void metroDateTime2_ValueChanged( object sender, System.EventArgs e )
-		{
-
-		}
 	}
 }

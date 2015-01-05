@@ -133,6 +133,7 @@
 			this.BackPanel.Name = "BackPanel";
 			this.BackPanel.Size = new System.Drawing.Size(64, 89);
 			this.BackPanel.TabIndex = 12;
+			this.BackPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BackPanel_MouseClick);
 			// 
 			// ImagePanel
 			// 
@@ -285,7 +286,7 @@
 			this.RoomsTab.Location = new System.Drawing.Point(4, 54);
 			this.RoomsTab.Margin = new System.Windows.Forms.Padding(2);
 			this.RoomsTab.Name = "RoomsTab";
-			this.RoomsTab.Size = new System.Drawing.Size(944, 442);
+			this.RoomsTab.Size = new System.Drawing.Size(944, 385);
 			this.RoomsTab.TabIndex = 0;
 			this.RoomsTab.Text = "ROOMS";
 			this.RoomsTab.VerticalScrollbarBarColor = true;
@@ -451,7 +452,7 @@
 			this.ActivitiesTab.Location = new System.Drawing.Point(4, 54);
 			this.ActivitiesTab.Margin = new System.Windows.Forms.Padding(2);
 			this.ActivitiesTab.Name = "ActivitiesTab";
-			this.ActivitiesTab.Size = new System.Drawing.Size(944, 442);
+			this.ActivitiesTab.Size = new System.Drawing.Size(944, 385);
 			this.ActivitiesTab.TabIndex = 1;
 			this.ActivitiesTab.Text = "ACTIVITIES";
 			this.ActivitiesTab.VerticalScrollbarBarColor = true;

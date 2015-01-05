@@ -198,7 +198,7 @@ namespace Tourist.Client.Forms
 
 			base.OnFormClosing( e );
 
-			var dialogResult = MetroMessageBox.Show( this, Properties.Resources.ExitMessage,
+			var dialogResult = MessageBox.Show( this, Properties.Resources.ExitMessage,
 			Properties.Resources.ExitMessageTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
 
 			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
