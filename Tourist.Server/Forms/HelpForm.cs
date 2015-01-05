@@ -12,7 +12,6 @@ namespace Tourist.Server.Forms
 		private readonly MainForm mMainForm;
 		private bool mBackOrExit = default( bool );
 
-
 		public HelpForm( Form aForm )
 		{
 			mMainForm = aForm as MainForm;

@@ -35,15 +35,15 @@
 			this.TitleLabel = new System.Windows.Forms.Label();
 			this.BodyPanel = new System.Windows.Forms.Panel();
 			this.GroupSearch = new System.Windows.Forms.GroupBox();
-			this.label2 = new System.Windows.Forms.Label();
+			this.EndDateLabel = new System.Windows.Forms.Label();
 			this.OkButton = new System.Windows.Forms.Button();
 			this.SeachFilterComboBox = new MetroFramework.Controls.MetroComboBox();
 			this.SearchByComboBox = new MetroFramework.Controls.MetroComboBox();
 			this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
-			this.label1 = new System.Windows.Forms.Label();
-			this.SubTypeLabel = new System.Windows.Forms.Label();
+			this.StartDateLabel = new System.Windows.Forms.Label();
+			this.SearchFilterLabel = new System.Windows.Forms.Label();
 			this.metroDateTime2 = new MetroFramework.Controls.MetroDateTime();
-			this.BookingTypeLabel = new System.Windows.Forms.Label();
+			this.SearchByLabel = new System.Windows.Forms.Label();
 			this.FooterPanel = new System.Windows.Forms.Panel();
 			this.HeaderPanel.SuspendLayout();
 			this.BodyPanel.SuspendLayout();
@@ -129,43 +129,46 @@
 			// 
 			// GroupSearch
 			// 
-			this.GroupSearch.Controls.Add(this.label2);
+			this.GroupSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+			this.GroupSearch.Controls.Add(this.EndDateLabel);
 			this.GroupSearch.Controls.Add(this.OkButton);
 			this.GroupSearch.Controls.Add(this.SeachFilterComboBox);
 			this.GroupSearch.Controls.Add(this.SearchByComboBox);
 			this.GroupSearch.Controls.Add(this.metroDateTime1);
-			this.GroupSearch.Controls.Add(this.label1);
-			this.GroupSearch.Controls.Add(this.SubTypeLabel);
+			this.GroupSearch.Controls.Add(this.StartDateLabel);
+			this.GroupSearch.Controls.Add(this.SearchFilterLabel);
 			this.GroupSearch.Controls.Add(this.metroDateTime2);
-			this.GroupSearch.Controls.Add(this.BookingTypeLabel);
+			this.GroupSearch.Controls.Add(this.SearchByLabel);
 			this.GroupSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.GroupSearch.ForeColor = System.Drawing.Color.White;
-			this.GroupSearch.Location = new System.Drawing.Point(18, -7);
+			this.GroupSearch.Location = new System.Drawing.Point(18, 0);
 			this.GroupSearch.Margin = new System.Windows.Forms.Padding(2);
 			this.GroupSearch.Name = "GroupSearch";
 			this.GroupSearch.Padding = new System.Windows.Forms.Padding(2);
-			this.GroupSearch.Size = new System.Drawing.Size(1166, 130);
+			this.GroupSearch.Size = new System.Drawing.Size(252, 459);
 			this.GroupSearch.TabIndex = 24;
 			this.GroupSearch.TabStop = false;
 			// 
-			// label2
+			// EndDateLabel
 			// 
-			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("Segoe UI", 16F);
-			this.label2.ForeColor = System.Drawing.Color.White;
-			this.label2.Location = new System.Drawing.Point(704, 30);
-			this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(103, 30);
-			this.label2.TabIndex = 28;
-			this.label2.Text = "End-Date";
+			this.EndDateLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.EndDateLabel.AutoSize = true;
+			this.EndDateLabel.Font = new System.Drawing.Font("Segoe UI", 16F);
+			this.EndDateLabel.ForeColor = System.Drawing.Color.White;
+			this.EndDateLabel.Location = new System.Drawing.Point(21, 286);
+			this.EndDateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.EndDateLabel.Name = "EndDateLabel";
+			this.EndDateLabel.Size = new System.Drawing.Size(103, 30);
+			this.EndDateLabel.TabIndex = 28;
+			this.EndDateLabel.Text = "End-Date";
 			// 
 			// OkButton
 			// 
+			this.OkButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.OkButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
 			this.OkButton.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.OkButton.ForeColor = System.Drawing.Color.White;
-			this.OkButton.Location = new System.Drawing.Point(938, 42);
+			this.OkButton.Location = new System.Drawing.Point(21, 374);
 			this.OkButton.Margin = new System.Windows.Forms.Padding(2);
 			this.OkButton.Name = "OkButton";
 			this.OkButton.Size = new System.Drawing.Size(211, 71);
@@ -176,10 +179,11 @@
 			// 
 			// SeachFilterComboBox
 			// 
+			this.SeachFilterComboBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.SeachFilterComboBox.FontSize = MetroFramework.MetroComboBoxSize.Tall;
 			this.SeachFilterComboBox.FormattingEnabled = true;
 			this.SeachFilterComboBox.ItemHeight = 29;
-			this.SeachFilterComboBox.Location = new System.Drawing.Point(251, 65);
+			this.SeachFilterComboBox.Location = new System.Drawing.Point(21, 142);
 			this.SeachFilterComboBox.Margin = new System.Windows.Forms.Padding(2);
 			this.SeachFilterComboBox.Name = "SeachFilterComboBox";
 			this.SeachFilterComboBox.Size = new System.Drawing.Size(211, 35);
@@ -188,75 +192,82 @@
 			// 
 			// SearchByComboBox
 			// 
+			this.SearchByComboBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.SearchByComboBox.FontSize = MetroFramework.MetroComboBoxSize.Tall;
 			this.SearchByComboBox.FormattingEnabled = true;
 			this.SearchByComboBox.ItemHeight = 29;
 			this.SearchByComboBox.Items.AddRange(new object[] {
             "Bookings",
             "Bookables",
-            "Client",
-            "Employers",
+            "Clients",
+            "Employees",
             "Managers"});
-			this.SearchByComboBox.Location = new System.Drawing.Point(21, 65);
+			this.SearchByComboBox.Location = new System.Drawing.Point(21, 53);
 			this.SearchByComboBox.Margin = new System.Windows.Forms.Padding(2);
 			this.SearchByComboBox.Name = "SearchByComboBox";
 			this.SearchByComboBox.Size = new System.Drawing.Size(211, 35);
 			this.SearchByComboBox.TabIndex = 24;
 			this.SearchByComboBox.UseSelectable = true;
+			this.SearchByComboBox.SelectedValueChanged += new System.EventHandler(this.SearchByComboBox_SelectedValueChanged);
 			// 
 			// metroDateTime1
 			// 
+			this.metroDateTime1.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.metroDateTime1.FontSize = MetroFramework.MetroDateTimeSize.Tall;
-			this.metroDateTime1.Location = new System.Drawing.Point(709, 65);
+			this.metroDateTime1.Location = new System.Drawing.Point(21, 319);
 			this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 35);
 			this.metroDateTime1.Name = "metroDateTime1";
 			this.metroDateTime1.Size = new System.Drawing.Size(211, 35);
 			this.metroDateTime1.TabIndex = 12;
 			// 
-			// label1
+			// StartDateLabel
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Segoe UI", 16F);
-			this.label1.ForeColor = System.Drawing.Color.White;
-			this.label1.Location = new System.Drawing.Point(475, 30);
-			this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(112, 30);
-			this.label1.TabIndex = 26;
-			this.label1.Text = "Start-Date";
+			this.StartDateLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.StartDateLabel.AutoSize = true;
+			this.StartDateLabel.Font = new System.Drawing.Font("Segoe UI", 16F);
+			this.StartDateLabel.ForeColor = System.Drawing.Color.White;
+			this.StartDateLabel.Location = new System.Drawing.Point(21, 194);
+			this.StartDateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.StartDateLabel.Name = "StartDateLabel";
+			this.StartDateLabel.Size = new System.Drawing.Size(112, 30);
+			this.StartDateLabel.TabIndex = 26;
+			this.StartDateLabel.Text = "Start-Date";
 			// 
-			// SubTypeLabel
+			// SearchFilterLabel
 			// 
-			this.SubTypeLabel.AutoSize = true;
-			this.SubTypeLabel.Font = new System.Drawing.Font("Segoe UI", 16F);
-			this.SubTypeLabel.ForeColor = System.Drawing.Color.White;
-			this.SubTypeLabel.Location = new System.Drawing.Point(246, 30);
-			this.SubTypeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.SubTypeLabel.Name = "SubTypeLabel";
-			this.SubTypeLabel.Size = new System.Drawing.Size(132, 30);
-			this.SubTypeLabel.TabIndex = 25;
-			this.SubTypeLabel.Text = "Search Filter";
+			this.SearchFilterLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.SearchFilterLabel.AutoSize = true;
+			this.SearchFilterLabel.Font = new System.Drawing.Font("Segoe UI", 16F);
+			this.SearchFilterLabel.ForeColor = System.Drawing.Color.White;
+			this.SearchFilterLabel.Location = new System.Drawing.Point(21, 110);
+			this.SearchFilterLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.SearchFilterLabel.Name = "SearchFilterLabel";
+			this.SearchFilterLabel.Size = new System.Drawing.Size(132, 30);
+			this.SearchFilterLabel.TabIndex = 25;
+			this.SearchFilterLabel.Text = "Search Filter";
 			// 
 			// metroDateTime2
 			// 
+			this.metroDateTime2.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.metroDateTime2.FontSize = MetroFramework.MetroDateTimeSize.Tall;
-			this.metroDateTime2.Location = new System.Drawing.Point(480, 65);
+			this.metroDateTime2.Location = new System.Drawing.Point(21, 230);
 			this.metroDateTime2.MinimumSize = new System.Drawing.Size(0, 35);
 			this.metroDateTime2.Name = "metroDateTime2";
 			this.metroDateTime2.Size = new System.Drawing.Size(211, 35);
 			this.metroDateTime2.TabIndex = 27;
 			// 
-			// BookingTypeLabel
+			// SearchByLabel
 			// 
-			this.BookingTypeLabel.AutoSize = true;
-			this.BookingTypeLabel.Font = new System.Drawing.Font("Segoe UI", 16F);
-			this.BookingTypeLabel.ForeColor = System.Drawing.Color.White;
-			this.BookingTypeLabel.Location = new System.Drawing.Point(16, 28);
-			this.BookingTypeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.BookingTypeLabel.Name = "BookingTypeLabel";
-			this.BookingTypeLabel.Size = new System.Drawing.Size(108, 30);
-			this.BookingTypeLabel.TabIndex = 23;
-			this.BookingTypeLabel.Text = "Search By";
+			this.SearchByLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.SearchByLabel.AutoSize = true;
+			this.SearchByLabel.Font = new System.Drawing.Font("Segoe UI", 16F);
+			this.SearchByLabel.ForeColor = System.Drawing.Color.White;
+			this.SearchByLabel.Location = new System.Drawing.Point(16, 21);
+			this.SearchByLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.SearchByLabel.Name = "SearchByLabel";
+			this.SearchByLabel.Size = new System.Drawing.Size(108, 30);
+			this.SearchByLabel.TabIndex = 23;
+			this.SearchByLabel.Text = "Search By";
 			// 
 			// FooterPanel
 			// 
@@ -305,12 +316,12 @@
 		private System.Windows.Forms.Panel FooterPanel;
 		private System.Windows.Forms.Panel BackPanel;
 		private System.Windows.Forms.GroupBox GroupSearch;
-		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label EndDateLabel;
 		private MetroFramework.Controls.MetroDateTime metroDateTime2;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label SubTypeLabel;
+		private System.Windows.Forms.Label StartDateLabel;
+		private System.Windows.Forms.Label SearchFilterLabel;
 		private MetroFramework.Controls.MetroComboBox SearchByComboBox;
-		private System.Windows.Forms.Label BookingTypeLabel;
+		private System.Windows.Forms.Label SearchByLabel;
 		private MetroFramework.Controls.MetroComboBox SeachFilterComboBox;
 		private MetroFramework.Controls.MetroDateTime metroDateTime1;
 		private System.Windows.Forms.Button OkButton;

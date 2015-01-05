@@ -403,9 +403,26 @@ namespace Tourist.Server
 					return false;
 			}
 		}
+		/*
+		public bool IsBookedAlredy( int aBookableId, DateTimeRange aTimeFrame )
+		{
+			foreach (var booking in mData.Bookings)
+			{
+				if (booking.Bookable.Id == aBookableId)
+				{
+					if(aTimeFrame.StartDateTime < )
 
-		public bool RefreshGrid { get; set; }
 
+
+				}
+
+
+
+			}
+
+
+		}
+		*/
 		#endregion
 
 		#region Display Data Methods
@@ -844,7 +861,6 @@ namespace Tourist.Server
 					if ( mData.Clients.Contains( ( Client ) aObject ) ) return;
 					mData.Clients.Add( ( Client ) aObject );
 					Save( FileName );
-					RefreshGrid = true;
 					return;
 				case "Rooms":
 					if ( mData.Rooms.Contains( ( Room ) aObject ) ) return;
@@ -894,7 +910,6 @@ namespace Tourist.Server
 					{
 						mData.Clients.RemoveAt( aIndex );
 						Save( FileName );
-						RefreshGrid = true;
 						return;
 					}
 					return;

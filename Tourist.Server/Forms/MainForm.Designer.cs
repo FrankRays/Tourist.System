@@ -55,21 +55,21 @@
 			this.TimerClock = new System.Windows.Forms.Timer(this.components);
 			this.FooterPanel = new System.Windows.Forms.Panel();
 			this.BodyPanel = new System.Windows.Forms.Panel();
+			this.SideBarPanel = new System.Windows.Forms.Panel();
+			this.SearchTile = new MetroFramework.Controls.MetroTile();
+			this.LogoffTile = new MetroFramework.Controls.MetroTile();
+			this.PrefrencesTile = new MetroFramework.Controls.MetroTile();
 			this.TitleLabel = new System.Windows.Forms.Label();
 			this.SubTitleLabel = new System.Windows.Forms.Label();
 			this.HeaderPanel = new System.Windows.Forms.Panel();
 			this.ImagePanel = new System.Windows.Forms.Panel();
 			this.BackupFile = new System.Windows.Forms.SaveFileDialog();
-			this.SideBarPanel = new System.Windows.Forms.Panel();
-			this.SearchTile = new MetroFramework.Controls.MetroTile();
-			this.LogoffTile = new MetroFramework.Controls.MetroTile();
-			this.PrefrencesTile = new MetroFramework.Controls.MetroTile();
 			this.MainPanel.SuspendLayout();
 			this.panel1.SuspendLayout();
 			this.ClockTile.SuspendLayout();
 			this.BodyPanel.SuspendLayout();
-			this.HeaderPanel.SuspendLayout();
 			this.SideBarPanel.SuspendLayout();
+			this.HeaderPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// htmlToolTip1
@@ -449,6 +449,77 @@
 			this.BodyPanel.TabIndex = 13;
 			this.BodyPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BodyPanel_MouseMove);
 			// 
+			// SideBarPanel
+			// 
+			this.SideBarPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.SideBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			this.SideBarPanel.Controls.Add(this.SearchTile);
+			this.SideBarPanel.Controls.Add(this.LogoffTile);
+			this.SideBarPanel.Controls.Add(this.PrefrencesTile);
+			this.SideBarPanel.Location = new System.Drawing.Point(1195, 2);
+			this.SideBarPanel.Margin = new System.Windows.Forms.Padding(2);
+			this.SideBarPanel.Name = "SideBarPanel";
+			this.SideBarPanel.Size = new System.Drawing.Size(112, 468);
+			this.SideBarPanel.TabIndex = 15;
+			this.SideBarPanel.Visible = false;
+			// 
+			// SearchTile
+			// 
+			this.SearchTile.ActiveControl = null;
+			this.SearchTile.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.SearchTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(219)))));
+			this.SearchTile.Location = new System.Drawing.Point(2, 188);
+			this.SearchTile.Margin = new System.Windows.Forms.Padding(2);
+			this.SearchTile.Name = "SearchTile";
+			this.SearchTile.Size = new System.Drawing.Size(108, 85);
+			this.SearchTile.TabIndex = 1;
+			this.SearchTile.Text = "Search";
+			this.SearchTile.TileImage = global::Tourist.Server.Properties.Resources.Magnifier;
+			this.SearchTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.SearchTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+			this.SearchTile.UseCustomBackColor = true;
+			this.SearchTile.UseSelectable = true;
+			this.SearchTile.UseTileImage = true;
+			this.SearchTile.Click += new System.EventHandler(this.SearchTile_Click);
+			// 
+			// LogoffTile
+			// 
+			this.LogoffTile.ActiveControl = null;
+			this.LogoffTile.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.LogoffTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(219)))));
+			this.LogoffTile.Location = new System.Drawing.Point(2, 20);
+			this.LogoffTile.Margin = new System.Windows.Forms.Padding(2);
+			this.LogoffTile.Name = "LogoffTile";
+			this.LogoffTile.Size = new System.Drawing.Size(108, 85);
+			this.LogoffTile.TabIndex = 0;
+			this.LogoffTile.Text = "LogOff";
+			this.LogoffTile.TileImage = global::Tourist.Server.Properties.Resources.PowerOff;
+			this.LogoffTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.LogoffTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+			this.LogoffTile.UseCustomBackColor = true;
+			this.LogoffTile.UseSelectable = true;
+			this.LogoffTile.UseTileImage = true;
+			this.LogoffTile.Click += new System.EventHandler(this.LogoffTile_Click);
+			// 
+			// PrefrencesTile
+			// 
+			this.PrefrencesTile.ActiveControl = null;
+			this.PrefrencesTile.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.PrefrencesTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(219)))));
+			this.PrefrencesTile.Location = new System.Drawing.Point(2, 357);
+			this.PrefrencesTile.Margin = new System.Windows.Forms.Padding(2);
+			this.PrefrencesTile.Name = "PrefrencesTile";
+			this.PrefrencesTile.Size = new System.Drawing.Size(108, 85);
+			this.PrefrencesTile.TabIndex = 0;
+			this.PrefrencesTile.Text = "Preferences";
+			this.PrefrencesTile.TileImage = global::Tourist.Server.Properties.Resources.preferences;
+			this.PrefrencesTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.PrefrencesTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+			this.PrefrencesTile.UseCustomBackColor = true;
+			this.PrefrencesTile.UseSelectable = true;
+			this.PrefrencesTile.UseTileImage = true;
+			// 
 			// TitleLabel
 			// 
 			this.TitleLabel.AutoSize = true;
@@ -504,76 +575,6 @@
 			// 
 			this.BackupFile.FileOk += new System.ComponentModel.CancelEventHandler(this.BackupFile_OK);
 			// 
-			// SideBarPanel
-			// 
-			this.SideBarPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.SideBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.SideBarPanel.Controls.Add(this.SearchTile);
-			this.SideBarPanel.Controls.Add(this.LogoffTile);
-			this.SideBarPanel.Controls.Add(this.PrefrencesTile);
-			this.SideBarPanel.Location = new System.Drawing.Point(1195, 2);
-			this.SideBarPanel.Margin = new System.Windows.Forms.Padding(2);
-			this.SideBarPanel.Name = "SideBarPanel";
-			this.SideBarPanel.Size = new System.Drawing.Size(112, 468);
-			this.SideBarPanel.TabIndex = 15;
-			this.SideBarPanel.Visible = false;
-			// 
-			// SearchTile
-			// 
-			this.SearchTile.ActiveControl = null;
-			this.SearchTile.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.SearchTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(219)))));
-			this.SearchTile.Location = new System.Drawing.Point(2, 188);
-			this.SearchTile.Margin = new System.Windows.Forms.Padding(2);
-			this.SearchTile.Name = "SearchTile";
-			this.SearchTile.Size = new System.Drawing.Size(108, 85);
-			this.SearchTile.TabIndex = 1;
-			this.SearchTile.Text = "Search";
-			this.SearchTile.TileImage = global::Tourist.Server.Properties.Resources.Magnifier;
-			this.SearchTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.SearchTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-			this.SearchTile.UseCustomBackColor = true;
-			this.SearchTile.UseSelectable = true;
-			this.SearchTile.UseTileImage = true;
-			// 
-			// LogoffTile
-			// 
-			this.LogoffTile.ActiveControl = null;
-			this.LogoffTile.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.LogoffTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(219)))));
-			this.LogoffTile.Location = new System.Drawing.Point(2, 20);
-			this.LogoffTile.Margin = new System.Windows.Forms.Padding(2);
-			this.LogoffTile.Name = "LogoffTile";
-			this.LogoffTile.Size = new System.Drawing.Size(108, 85);
-			this.LogoffTile.TabIndex = 0;
-			this.LogoffTile.Text = "LogOff";
-			this.LogoffTile.TileImage = global::Tourist.Server.Properties.Resources.PowerOff;
-			this.LogoffTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.LogoffTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-			this.LogoffTile.UseCustomBackColor = true;
-			this.LogoffTile.UseSelectable = true;
-			this.LogoffTile.UseTileImage = true;
-			this.LogoffTile.Click += new System.EventHandler(this.LogoffTile_Click);
-			// 
-			// PrefrencesTile
-			// 
-			this.PrefrencesTile.ActiveControl = null;
-			this.PrefrencesTile.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.PrefrencesTile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(219)))));
-			this.PrefrencesTile.Location = new System.Drawing.Point(2, 357);
-			this.PrefrencesTile.Margin = new System.Windows.Forms.Padding(2);
-			this.PrefrencesTile.Name = "PrefrencesTile";
-			this.PrefrencesTile.Size = new System.Drawing.Size(108, 85);
-			this.PrefrencesTile.TabIndex = 0;
-			this.PrefrencesTile.Text = "Preferences";
-			this.PrefrencesTile.TileImage = global::Tourist.Server.Properties.Resources.preferences;
-			this.PrefrencesTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.PrefrencesTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-			this.PrefrencesTile.UseCustomBackColor = true;
-			this.PrefrencesTile.UseSelectable = true;
-			this.PrefrencesTile.UseTileImage = true;
-			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -598,9 +599,9 @@
 			this.ClockTile.ResumeLayout(false);
 			this.ClockTile.PerformLayout();
 			this.BodyPanel.ResumeLayout(false);
+			this.SideBarPanel.ResumeLayout(false);
 			this.HeaderPanel.ResumeLayout(false);
 			this.HeaderPanel.PerformLayout();
-			this.SideBarPanel.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}

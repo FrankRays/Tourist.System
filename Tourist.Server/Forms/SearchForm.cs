@@ -23,32 +23,41 @@ namespace Tourist.Server.Forms
 			InitializeComponent( );
 			mMainForm = aForm as MainForm;
 			mBindingSource = new BindingSource();
-			mSearchFilterBookables = new List<string> { "Subtypes,State,Price" };
+			mSearchFilterBookables = new List<string> { "Subtypes","State","Price" };
 			mSearchFilterPersons = new List<string> {"Nif", "Phone", "Email"};
 		}
 
 		private void ToolsForm_Load( object sender, System.EventArgs e )
 		{
 			SharedMethods.SetFormFullScreen( this );
-
-
 		}
 
-		/*
-		private void SearchFilterValues( string aSearchParameter )
+		private void LoadSearchFilterValues( string aSearchBy )
 		{
-			switch (aSearchParameter)
+			switch (aSearchBy)
 			{
-				
+		
 				case "Bookings":
 					break;
 				case "Bookables":
-					
-
-
+					mBindingSource.DataSource = mSearchFilterBookables;
+					SeachFilterComboBox.DataSource = mBindingSource;
+					break;
+				case "Clients":
+					mBindingSource.DataSource = mSearchFilterPersons;
+					SeachFilterComboBox.DataSource = mBindingSource;
+					break;
+				case "Managers":
+					mBindingSource.DataSource = mSearchFilterPersons;
+					SeachFilterComboBox.DataSource = mBindingSource;
+					break;
+				case "Employees":
+					mBindingSource.DataSource = mSearchFilterPersons;
+					SeachFilterComboBox.DataSource = mBindingSource;
+					break;			
 			}
 		}
-		*/
+		
 
 		protected override void OnFormClosing( FormClosingEventArgs e )
 		{
@@ -76,7 +85,18 @@ namespace Tourist.Server.Forms
 
 		private void OkButton_Click( object sender, System.EventArgs e )
 		{
+			// Show data if exists
+		}
 
+		private void SearchByComboBox_SelectedValueChanged( object sender, System.EventArgs e )
+		{
+			CleanOldSeachFilterValues();
+			LoadSearchFilterValues(SearchByComboBox.Text);
+		}
+
+		private void CleanOldSeachFilterValues()
+		{
+			mBindingSource.DataSource = null;
 		}
 
 	}

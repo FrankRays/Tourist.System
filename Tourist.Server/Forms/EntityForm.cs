@@ -58,13 +58,13 @@ namespace Tourist.Server.Forms
 			if ( ValidateChildren( ValidationConstraints.Enabled ) )
 			{
 				SaveEntityData( );
-				ControlsToReadOnly( false );
+				ControlsToReadOnly( true );
 			}
 		}
 
 		private void EditButton_Click( object sender, EventArgs e )
 		{
-			ControlsToReadOnly( true );
+			ControlsToReadOnly( false );
 		}
 
 		private void NameTextBox_Validating( object sender, System.ComponentModel.CancelEventArgs e )
@@ -236,7 +236,7 @@ namespace Tourist.Server.Forms
 			PhoneTextBox.Text = entity.Phone.ToString( );
 			EmailTextBox.Text = entity.Email;
 
-			ControlsToReadOnly( false );
+			ControlsToReadOnly( true );
 		}
 
 		private void SelectDefaultType( )
@@ -271,14 +271,14 @@ namespace Tourist.Server.Forms
 		private void ControlsToReadOnly( bool aBool )
 		{
 			NameTextBox.ReadOnly = aBool;
-			TypeComboBox.Enabled = aBool;
+			TypeComboBox.Enabled = !aBool;
 			NifTextBox.ReadOnly = aBool;
 			AddressTextBox.ReadOnly = aBool;
 			PhoneTextBox.ReadOnly = aBool;
 			EmailTextBox.ReadOnly = aBool;
-			SaveButton.Enabled = aBool;
-			EditButton.Enabled = !aBool;
-			LogoPictureBox.Enabled = aBool;
+			SaveButton.Enabled = !aBool;
+			EditButton.Enabled = aBool;
+			LogoPictureBox.Enabled = !aBool;
 		}
 
 		#endregion

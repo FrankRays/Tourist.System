@@ -46,6 +46,14 @@ namespace Tourist.Client.Forms
 
 		#region Events
 
+		private void BookingsForm_Load( object sender, EventArgs e )
+		{
+			SharedMethods.SetFormFullScreen( this );
+
+			mNifsbBindingSource.DataSource = Remote.ClientsNifList( );
+			NifComboBox.DataSource = mNifsbBindingSource;
+		}
+
 		private void NifComboBox_SelectedValueChanged( object sender, EventArgs e )
 		{
 			AutoFillClientData( );
@@ -72,26 +80,6 @@ namespace Tourist.Client.Forms
 		private void BookableIdComboBox_SelectedValueChanged( object sender, EventArgs e )
 		{
 			LoadBookableDescription( );
-		}
-
-		private void AddBooking( )
-		{
-			var booking = Remote.Factory.CreateObject<Booking>( );
-
-			booking.Client = Remote.GetClientByNif( SharedMethods.ConvertStringToInt( NifComboBox.Text ) );
-			booking.Bookable = Remote.GetBookable( SubTypeComboBox.Text, SharedMethods.ConvertStringToInt( BookableIdComboBox.Text ) );
-			booking.BookingDate = SharedMethods.ConvertStringToDateTime( BookingDateTextBox.Text );
-			booking.TimeFrame = new DateTimeRange
-			{
-				StartDateTime = SharedMethods.ConvertStringToDateTime( StartDatePicker.Text ),
-				EndDateTime = SharedMethods.ConvertStringToDateTime( EndDatePicker.Text )
-			};
-
-			Remote.Append( booking, "Bookings" );
-
-			MessageBox.Show( this, Resources.BookingString + Resources.AddString,
-							 Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
-
 		}
 
 		private void StartDatePicker_Validating( object sender, CancelEventArgs e )
@@ -189,12 +177,41 @@ namespace Tourist.Client.Forms
 
 		#region Private Methods
 
-		private void BookingsForm_Load( object sender, EventArgs e )
+		private void AddBooking( )
 		{
-			SharedMethods.SetFormFullScreen( this );
+			var booking = Remote.Factory.CreateObject<Booking>( );
 
-			mNifsbBindingSource.DataSource = Remote.ClientsNifList( );
-			NifComboBox.DataSource = mNifsbBindingSource;
+			booking.Client = Remote.GetClientByNif( SharedMethods.ConvertStringToInt( NifComboBox.Text ) );
+			booking.Bookable = Remote.GetBookable( SubTypeComboBox.Text, SharedMethods.ConvertStringToInt( BookableIdComboBox.Text ) );
+			booking.BookingDate = SharedMethods.ConvertStringToDateTime( BookingDateTextBox.Text );
+			booking.TimeFrame = new DateTimeRange
+			{
+				StartDateTime = SharedMethods.ConvertStringToDateTime( StartDatePicker.Text ),
+				EndDateTime = SharedMethods.ConvertStringToDateTime( EndDatePicker.Text )
+			};
+
+			Remote.Append( booking, "Bookings" );
+
+			MessageBox.Show( this, Resources.BookingString + Resources.AddString,
+							 Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
+
+		}
+
+		private bool CanBook()
+		{
+			var bookableId = SharedMethods.ConvertStringToInt(BookableIdComboBox.Text);
+			var timeFrame = new DateTimeRange
+			{
+				StartDateTime = SharedMethods.ConvertStringToDateTime(StartDatePicker.Text),
+				EndDateTime = SharedMethods.ConvertStringToDateTime(EndDatePicker.Text)
+			};
+
+
+
+
+
+
+
 		}
 
 		private void AutoFillClientData( )

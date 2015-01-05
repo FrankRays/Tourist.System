@@ -72,7 +72,6 @@ namespace Tourist.Server.Forms
 		private void EntityTile_Click( object sender, EventArgs e )
 		{
 			Hide( );
-
 			var entityForm = new EntityForm( this );
 			entityForm.Show( );
 		}
@@ -80,7 +79,6 @@ namespace Tourist.Server.Forms
 		private void EmployersTile_Click( object sender, EventArgs e )
 		{
 			Hide( );
-
 			var employersForm = new EmployersForm( this );
 			employersForm.Show( );
 		}
@@ -88,7 +86,6 @@ namespace Tourist.Server.Forms
 		private void ServicesTile_Click( object sender, EventArgs e )
 		{
 			Hide( );
-
 			var servicesForm = new BookablesForm( this );
 			servicesForm.Show( );
 		}
@@ -96,7 +93,6 @@ namespace Tourist.Server.Forms
 		private void ClientsTile_Click( object sender, EventArgs e )
 		{
 			Hide( );
-
 			var clientsForm = new ClientsForm( this );
 			clientsForm.Show( );
 		}
@@ -104,7 +100,6 @@ namespace Tourist.Server.Forms
 		private void ManagersTile_Click( object sender, EventArgs e )
 		{
 			Hide( );
-
 			var managersForm = new ManagersForm( this );
 			managersForm.Show( );
 		}
@@ -112,7 +107,6 @@ namespace Tourist.Server.Forms
 		private void DisponibilityTile_Click( object sender, EventArgs e )
 		{
 			Hide( );
-
 			var disponibilityForm = new DisponibilityForm( this );
 			disponibilityForm.Show( );
 		}
@@ -120,7 +114,6 @@ namespace Tourist.Server.Forms
 		private void ReportsTile_Click( object sender, EventArgs e )
 		{
 			Hide( );
-
 			var reportsForm = new ReportsForm( this );
 			reportsForm.Show( );
 		}
@@ -128,7 +121,6 @@ namespace Tourist.Server.Forms
 		private void NotifyTile_Click( object sender, EventArgs e )
 		{
 			Hide( );
-
 			var notifyForm = new NotifyForm( this );
 			notifyForm.Show( );
 		}
@@ -141,7 +133,6 @@ namespace Tourist.Server.Forms
 		private void ToolsTile_Click( object sender, EventArgs e )
 		{
 			Hide( );
-
 			var toolsForm = new ToolsForm( this );
 			toolsForm.Show( );
 		}
@@ -149,7 +140,6 @@ namespace Tourist.Server.Forms
 		private void HelpTile_Click( object sender, EventArgs e )
 		{
 			Hide( );
-
 			var helpForm = new HelpForm( this );
 			helpForm.Show( );
 
@@ -191,7 +181,16 @@ namespace Tourist.Server.Forms
 			mLoginForm.Show( );
 		}
 
+		private void SearchTile_Click( object sender, EventArgs e )
+		{
+			Hide( );
+			var searchForm = new SearchForm( this );
+			searchForm.Show( );
+		}
+
 		#endregion
+
+		
 
 	}
 }
