@@ -38,6 +38,7 @@
 			this.TitleLabel = new System.Windows.Forms.Label();
 			this.BodyPanel = new System.Windows.Forms.Panel();
 			this.BookingsDataGrid = new MetroFramework.Controls.MetroGrid();
+			this.FooterPanel = new System.Windows.Forms.Panel();
 			this.BookingIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ClientNifColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ClientNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,7 +51,6 @@
 			this.StartDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.EndDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.TotalPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.FooterPanel = new System.Windows.Forms.Panel();
 			this.HeaderPanel.SuspendLayout();
 			this.BodyPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.BookingsDataGrid)).BeginInit();
@@ -201,6 +201,17 @@
 			this.BookingsDataGrid.TabIndex = 22;
 			this.BookingsDataGrid.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.BookingsDataGrid_RowRemoved);
 			// 
+			// FooterPanel
+			// 
+			this.FooterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			this.FooterPanel.Location = new System.Drawing.Point(-1, 649);
+			this.FooterPanel.Margin = new System.Windows.Forms.Padding(2);
+			this.FooterPanel.Name = "FooterPanel";
+			this.FooterPanel.Size = new System.Drawing.Size(1202, 150);
+			this.FooterPanel.TabIndex = 15;
+			// 
 			// BookingIdColumn
 			// 
 			this.BookingIdColumn.HeaderText = "Booking ID";
@@ -247,7 +258,7 @@
 			// BookableDescriptionColumn
 			// 
 			this.BookableDescriptionColumn.HeaderText = "Bookable Description";
-			this.BookableDescriptionColumn.MinimumWidth = 200;
+			this.BookableDescriptionColumn.MinimumWidth = 250;
 			this.BookableDescriptionColumn.Name = "BookableDescriptionColumn";
 			this.BookableDescriptionColumn.ReadOnly = true;
 			// 
@@ -261,7 +272,7 @@
 			// BookingDateColumn
 			// 
 			this.BookingDateColumn.HeaderText = "Booking Date";
-			this.BookingDateColumn.MinimumWidth = 200;
+			this.BookingDateColumn.MinimumWidth = 125;
 			this.BookingDateColumn.Name = "BookingDateColumn";
 			this.BookingDateColumn.ReadOnly = true;
 			// 
@@ -288,17 +299,6 @@
 			this.TotalPriceColumn.MinimumWidth = 100;
 			this.TotalPriceColumn.Name = "TotalPriceColumn";
 			this.TotalPriceColumn.ReadOnly = true;
-			// 
-			// FooterPanel
-			// 
-			this.FooterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.FooterPanel.Location = new System.Drawing.Point(-1, 649);
-			this.FooterPanel.Margin = new System.Windows.Forms.Padding(2);
-			this.FooterPanel.Name = "FooterPanel";
-			this.FooterPanel.Size = new System.Drawing.Size(1202, 150);
-			this.FooterPanel.TabIndex = 15;
 			// 
 			// BrowseBookings
 			// 

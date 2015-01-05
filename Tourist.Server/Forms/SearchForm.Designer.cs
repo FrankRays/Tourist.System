@@ -28,25 +28,28 @@
 		/// </summary>
 		private void InitializeComponent( )
 		{
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.HeaderPanel = new System.Windows.Forms.Panel();
 			this.ImagePanel = new System.Windows.Forms.Panel();
 			this.BackPanel = new System.Windows.Forms.Panel();
 			this.SubTitleLabel = new System.Windows.Forms.Label();
 			this.TitleLabel = new System.Windows.Forms.Label();
 			this.BodyPanel = new System.Windows.Forms.Panel();
+			this.SearchDataGrid = new MetroFramework.Controls.MetroGrid();
 			this.GroupSearch = new System.Windows.Forms.GroupBox();
-			this.EndDateLabel = new System.Windows.Forms.Label();
+			this.SearchParameterLabel = new System.Windows.Forms.Label();
+			this.SearchParameterTextBox = new System.Windows.Forms.TextBox();
 			this.OkButton = new System.Windows.Forms.Button();
 			this.SeachFilterComboBox = new MetroFramework.Controls.MetroComboBox();
 			this.SearchByComboBox = new MetroFramework.Controls.MetroComboBox();
-			this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
-			this.StartDateLabel = new System.Windows.Forms.Label();
 			this.SearchFilterLabel = new System.Windows.Forms.Label();
-			this.metroDateTime2 = new MetroFramework.Controls.MetroDateTime();
 			this.SearchByLabel = new System.Windows.Forms.Label();
 			this.FooterPanel = new System.Windows.Forms.Panel();
 			this.HeaderPanel.SuspendLayout();
 			this.BodyPanel.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.SearchDataGrid)).BeginInit();
 			this.GroupSearch.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -120,6 +123,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.BodyPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			this.BodyPanel.Controls.Add(this.SearchDataGrid);
 			this.BodyPanel.Controls.Add(this.GroupSearch);
 			this.BodyPanel.Location = new System.Drawing.Point(-1, 177);
 			this.BodyPanel.Margin = new System.Windows.Forms.Padding(2);
@@ -127,51 +131,114 @@
 			this.BodyPanel.Size = new System.Drawing.Size(1202, 469);
 			this.BodyPanel.TabIndex = 16;
 			// 
+			// SearchDataGrid
+			// 
+			this.SearchDataGrid.AllowUserToAddRows = false;
+			this.SearchDataGrid.AllowUserToOrderColumns = true;
+			this.SearchDataGrid.AllowUserToResizeColumns = false;
+			this.SearchDataGrid.AllowUserToResizeRows = false;
+			this.SearchDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.SearchDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.SearchDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+			this.SearchDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.SearchDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.SearchDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+			this.SearchDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semilight", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			this.SearchDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+			this.SearchDataGrid.ColumnHeadersHeight = 60;
+			this.SearchDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(172)))), ((int)(((byte)(219)))));
+			dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 13F);
+			dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.SearchDataGrid.DefaultCellStyle = dataGridViewCellStyle5;
+			this.SearchDataGrid.EnableHeadersVisualStyles = false;
+			this.SearchDataGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.SearchDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.SearchDataGrid.Location = new System.Drawing.Point(285, 11);
+			this.SearchDataGrid.Margin = new System.Windows.Forms.Padding(2);
+			this.SearchDataGrid.Name = "SearchDataGrid";
+			this.SearchDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.SearchDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+			this.SearchDataGrid.RowHeadersWidth = 50;
+			this.SearchDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+			this.SearchDataGrid.RowTemplate.Height = 25;
+			this.SearchDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.SearchDataGrid.Size = new System.Drawing.Size(899, 443);
+			this.SearchDataGrid.TabIndex = 25;
+			// 
 			// GroupSearch
 			// 
-			this.GroupSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-			this.GroupSearch.Controls.Add(this.EndDateLabel);
+			this.GroupSearch.Controls.Add(this.SearchParameterLabel);
+			this.GroupSearch.Controls.Add(this.SearchParameterTextBox);
 			this.GroupSearch.Controls.Add(this.OkButton);
 			this.GroupSearch.Controls.Add(this.SeachFilterComboBox);
 			this.GroupSearch.Controls.Add(this.SearchByComboBox);
-			this.GroupSearch.Controls.Add(this.metroDateTime1);
-			this.GroupSearch.Controls.Add(this.StartDateLabel);
 			this.GroupSearch.Controls.Add(this.SearchFilterLabel);
-			this.GroupSearch.Controls.Add(this.metroDateTime2);
 			this.GroupSearch.Controls.Add(this.SearchByLabel);
 			this.GroupSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.GroupSearch.ForeColor = System.Drawing.Color.White;
-			this.GroupSearch.Location = new System.Drawing.Point(18, 0);
+			this.GroupSearch.Location = new System.Drawing.Point(18, 1);
 			this.GroupSearch.Margin = new System.Windows.Forms.Padding(2);
 			this.GroupSearch.Name = "GroupSearch";
 			this.GroupSearch.Padding = new System.Windows.Forms.Padding(2);
-			this.GroupSearch.Size = new System.Drawing.Size(252, 459);
+			this.GroupSearch.Size = new System.Drawing.Size(252, 453);
 			this.GroupSearch.TabIndex = 24;
 			this.GroupSearch.TabStop = false;
 			// 
-			// EndDateLabel
+			// SearchParameterLabel
 			// 
-			this.EndDateLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.EndDateLabel.AutoSize = true;
-			this.EndDateLabel.Font = new System.Drawing.Font("Segoe UI", 16F);
-			this.EndDateLabel.ForeColor = System.Drawing.Color.White;
-			this.EndDateLabel.Location = new System.Drawing.Point(21, 286);
-			this.EndDateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.EndDateLabel.Name = "EndDateLabel";
-			this.EndDateLabel.Size = new System.Drawing.Size(103, 30);
-			this.EndDateLabel.TabIndex = 28;
-			this.EndDateLabel.Text = "End-Date";
+			this.SearchParameterLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.SearchParameterLabel.AutoSize = true;
+			this.SearchParameterLabel.Font = new System.Drawing.Font("Segoe UI", 16F);
+			this.SearchParameterLabel.ForeColor = System.Drawing.Color.White;
+			this.SearchParameterLabel.Location = new System.Drawing.Point(16, 207);
+			this.SearchParameterLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.SearchParameterLabel.Name = "SearchParameterLabel";
+			this.SearchParameterLabel.Size = new System.Drawing.Size(184, 30);
+			this.SearchParameterLabel.TabIndex = 27;
+			this.SearchParameterLabel.Text = "Search Parameter";
+			this.SearchParameterLabel.Visible = false;
+			// 
+			// SearchParameterTextBox
+			// 
+			this.SearchParameterTextBox.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.SearchParameterTextBox.Location = new System.Drawing.Point(21, 240);
+			this.SearchParameterTextBox.Name = "SearchParameterTextBox";
+			this.SearchParameterTextBox.Size = new System.Drawing.Size(207, 35);
+			this.SearchParameterTextBox.TabIndex = 26;
+			this.SearchParameterTextBox.Visible = false;
 			// 
 			// OkButton
 			// 
-			this.OkButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.OkButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.OkButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
 			this.OkButton.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.OkButton.ForeColor = System.Drawing.Color.White;
-			this.OkButton.Location = new System.Drawing.Point(21, 374);
+			this.OkButton.Location = new System.Drawing.Point(21, 380);
 			this.OkButton.Margin = new System.Windows.Forms.Padding(2);
 			this.OkButton.Name = "OkButton";
-			this.OkButton.Size = new System.Drawing.Size(211, 71);
+			this.OkButton.Size = new System.Drawing.Size(211, 60);
 			this.OkButton.TabIndex = 11;
 			this.OkButton.Text = "Search";
 			this.OkButton.UseVisualStyleBackColor = false;
@@ -179,20 +246,23 @@
 			// 
 			// SeachFilterComboBox
 			// 
-			this.SeachFilterComboBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.SeachFilterComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.SeachFilterComboBox.FontSize = MetroFramework.MetroComboBoxSize.Tall;
 			this.SeachFilterComboBox.FormattingEnabled = true;
 			this.SeachFilterComboBox.ItemHeight = 29;
-			this.SeachFilterComboBox.Location = new System.Drawing.Point(21, 142);
+			this.SeachFilterComboBox.Location = new System.Drawing.Point(21, 144);
 			this.SeachFilterComboBox.Margin = new System.Windows.Forms.Padding(2);
 			this.SeachFilterComboBox.Name = "SeachFilterComboBox";
 			this.SeachFilterComboBox.Size = new System.Drawing.Size(211, 35);
 			this.SeachFilterComboBox.TabIndex = 14;
 			this.SeachFilterComboBox.UseSelectable = true;
+			this.SeachFilterComboBox.SelectedValueChanged += new System.EventHandler(this.SeachFilterComboBox_SelectedValueChanged);
 			// 
 			// SearchByComboBox
 			// 
-			this.SearchByComboBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.SearchByComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.SearchByComboBox.FontSize = MetroFramework.MetroComboBoxSize.Tall;
 			this.SearchByComboBox.FormattingEnabled = true;
 			this.SearchByComboBox.ItemHeight = 29;
@@ -202,7 +272,7 @@
             "Clients",
             "Employees",
             "Managers"});
-			this.SearchByComboBox.Location = new System.Drawing.Point(21, 53);
+			this.SearchByComboBox.Location = new System.Drawing.Point(21, 59);
 			this.SearchByComboBox.Margin = new System.Windows.Forms.Padding(2);
 			this.SearchByComboBox.Name = "SearchByComboBox";
 			this.SearchByComboBox.Size = new System.Drawing.Size(211, 35);
@@ -210,59 +280,28 @@
 			this.SearchByComboBox.UseSelectable = true;
 			this.SearchByComboBox.SelectedValueChanged += new System.EventHandler(this.SearchByComboBox_SelectedValueChanged);
 			// 
-			// metroDateTime1
-			// 
-			this.metroDateTime1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.metroDateTime1.FontSize = MetroFramework.MetroDateTimeSize.Tall;
-			this.metroDateTime1.Location = new System.Drawing.Point(21, 319);
-			this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 35);
-			this.metroDateTime1.Name = "metroDateTime1";
-			this.metroDateTime1.Size = new System.Drawing.Size(211, 35);
-			this.metroDateTime1.TabIndex = 12;
-			// 
-			// StartDateLabel
-			// 
-			this.StartDateLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.StartDateLabel.AutoSize = true;
-			this.StartDateLabel.Font = new System.Drawing.Font("Segoe UI", 16F);
-			this.StartDateLabel.ForeColor = System.Drawing.Color.White;
-			this.StartDateLabel.Location = new System.Drawing.Point(21, 194);
-			this.StartDateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.StartDateLabel.Name = "StartDateLabel";
-			this.StartDateLabel.Size = new System.Drawing.Size(112, 30);
-			this.StartDateLabel.TabIndex = 26;
-			this.StartDateLabel.Text = "Start-Date";
-			// 
 			// SearchFilterLabel
 			// 
-			this.SearchFilterLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.SearchFilterLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.SearchFilterLabel.AutoSize = true;
 			this.SearchFilterLabel.Font = new System.Drawing.Font("Segoe UI", 16F);
 			this.SearchFilterLabel.ForeColor = System.Drawing.Color.White;
-			this.SearchFilterLabel.Location = new System.Drawing.Point(21, 110);
+			this.SearchFilterLabel.Location = new System.Drawing.Point(16, 112);
 			this.SearchFilterLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.SearchFilterLabel.Name = "SearchFilterLabel";
 			this.SearchFilterLabel.Size = new System.Drawing.Size(132, 30);
 			this.SearchFilterLabel.TabIndex = 25;
 			this.SearchFilterLabel.Text = "Search Filter";
 			// 
-			// metroDateTime2
-			// 
-			this.metroDateTime2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.metroDateTime2.FontSize = MetroFramework.MetroDateTimeSize.Tall;
-			this.metroDateTime2.Location = new System.Drawing.Point(21, 230);
-			this.metroDateTime2.MinimumSize = new System.Drawing.Size(0, 35);
-			this.metroDateTime2.Name = "metroDateTime2";
-			this.metroDateTime2.Size = new System.Drawing.Size(211, 35);
-			this.metroDateTime2.TabIndex = 27;
-			// 
 			// SearchByLabel
 			// 
-			this.SearchByLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.SearchByLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.SearchByLabel.AutoSize = true;
 			this.SearchByLabel.Font = new System.Drawing.Font("Segoe UI", 16F);
 			this.SearchByLabel.ForeColor = System.Drawing.Color.White;
-			this.SearchByLabel.Location = new System.Drawing.Point(16, 21);
+			this.SearchByLabel.Location = new System.Drawing.Point(16, 27);
 			this.SearchByLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.SearchByLabel.Name = "SearchByLabel";
 			this.SearchByLabel.Size = new System.Drawing.Size(108, 30);
@@ -300,6 +339,7 @@
 			this.HeaderPanel.ResumeLayout(false);
 			this.HeaderPanel.PerformLayout();
 			this.BodyPanel.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.SearchDataGrid)).EndInit();
 			this.GroupSearch.ResumeLayout(false);
 			this.GroupSearch.PerformLayout();
 			this.ResumeLayout(false);
@@ -316,15 +356,14 @@
 		private System.Windows.Forms.Panel FooterPanel;
 		private System.Windows.Forms.Panel BackPanel;
 		private System.Windows.Forms.GroupBox GroupSearch;
-		private System.Windows.Forms.Label EndDateLabel;
-		private MetroFramework.Controls.MetroDateTime metroDateTime2;
-		private System.Windows.Forms.Label StartDateLabel;
 		private System.Windows.Forms.Label SearchFilterLabel;
 		private MetroFramework.Controls.MetroComboBox SearchByComboBox;
 		private System.Windows.Forms.Label SearchByLabel;
 		private MetroFramework.Controls.MetroComboBox SeachFilterComboBox;
-		private MetroFramework.Controls.MetroDateTime metroDateTime1;
 		private System.Windows.Forms.Button OkButton;
+		private MetroFramework.Controls.MetroGrid SearchDataGrid;
+		private System.Windows.Forms.TextBox SearchParameterTextBox;
+		private System.Windows.Forms.Label SearchParameterLabel;
 
 	}
 }

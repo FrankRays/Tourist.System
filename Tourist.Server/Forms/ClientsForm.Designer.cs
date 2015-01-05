@@ -34,6 +34,12 @@
 			this.BodyPanel = new System.Windows.Forms.Panel();
 			this.WrapperPanelGrid = new System.Windows.Forms.Panel();
 			this.ClientsDataGrid = new MetroFramework.Controls.MetroGrid();
+			this.FooterPanel = new System.Windows.Forms.Panel();
+			this.BackPanel = new System.Windows.Forms.Panel();
+			this.HeaderPanel = new System.Windows.Forms.Panel();
+			this.ImagePanel = new System.Windows.Forms.Panel();
+			this.SubTitleLabel = new System.Windows.Forms.Label();
+			this.TitleLabel = new System.Windows.Forms.Label();
 			this.IdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.FirstNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.LastNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,12 +50,6 @@
 			this.AddressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.PhoneColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.EmailColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.FooterPanel = new System.Windows.Forms.Panel();
-			this.BackPanel = new System.Windows.Forms.Panel();
-			this.HeaderPanel = new System.Windows.Forms.Panel();
-			this.ImagePanel = new System.Windows.Forms.Panel();
-			this.SubTitleLabel = new System.Windows.Forms.Label();
-			this.TitleLabel = new System.Windows.Forms.Label();
 			this.BodyPanel.SuspendLayout();
 			this.WrapperPanelGrid.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ClientsDataGrid)).BeginInit();
@@ -145,78 +145,6 @@
 			this.ClientsDataGrid.Size = new System.Drawing.Size(1161, 427);
 			this.ClientsDataGrid.TabIndex = 20;
 			// 
-			// IdColumn
-			// 
-			this.IdColumn.HeaderText = "ID";
-			this.IdColumn.MinimumWidth = 150;
-			this.IdColumn.Name = "IdColumn";
-			this.IdColumn.ReadOnly = true;
-			// 
-			// FirstNameColumn
-			// 
-			this.FirstNameColumn.HeaderText = "First Name";
-			this.FirstNameColumn.MinimumWidth = 150;
-			this.FirstNameColumn.Name = "FirstNameColumn";
-			this.FirstNameColumn.ReadOnly = true;
-			this.FirstNameColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			// 
-			// LastNameColumn
-			// 
-			this.LastNameColumn.HeaderText = "Last Name";
-			this.LastNameColumn.MinimumWidth = 150;
-			this.LastNameColumn.Name = "LastNameColumn";
-			this.LastNameColumn.ReadOnly = true;
-			// 
-			// GenderColumn
-			// 
-			this.GenderColumn.HeaderText = "Gender";
-			this.GenderColumn.MinimumWidth = 150;
-			this.GenderColumn.Name = "GenderColumn";
-			this.GenderColumn.ReadOnly = true;
-			this.GenderColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			// 
-			// NationalityColumn
-			// 
-			this.NationalityColumn.HeaderText = "Nationality";
-			this.NationalityColumn.MinimumWidth = 150;
-			this.NationalityColumn.Name = "NationalityColumn";
-			this.NationalityColumn.ReadOnly = true;
-			// 
-			// BirthDateColumn
-			// 
-			this.BirthDateColumn.HeaderText = "BirthDate";
-			this.BirthDateColumn.MinimumWidth = 150;
-			this.BirthDateColumn.Name = "BirthDateColumn";
-			this.BirthDateColumn.ReadOnly = true;
-			// 
-			// NifColumn
-			// 
-			this.NifColumn.HeaderText = "NIF";
-			this.NifColumn.MinimumWidth = 150;
-			this.NifColumn.Name = "NifColumn";
-			this.NifColumn.ReadOnly = true;
-			// 
-			// AddressColumn
-			// 
-			this.AddressColumn.HeaderText = "Address";
-			this.AddressColumn.MinimumWidth = 150;
-			this.AddressColumn.Name = "AddressColumn";
-			this.AddressColumn.ReadOnly = true;
-			// 
-			// PhoneColumn
-			// 
-			this.PhoneColumn.HeaderText = "Phone";
-			this.PhoneColumn.MinimumWidth = 150;
-			this.PhoneColumn.Name = "PhoneColumn";
-			this.PhoneColumn.ReadOnly = true;
-			// 
-			// EmailColumn
-			// 
-			this.EmailColumn.HeaderText = "Email";
-			this.EmailColumn.MinimumWidth = 150;
-			this.EmailColumn.Name = "EmailColumn";
-			this.EmailColumn.ReadOnly = true;
-			// 
 			// FooterPanel
 			// 
 			this.FooterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -291,6 +219,78 @@
 			this.TitleLabel.Size = new System.Drawing.Size(138, 51);
 			this.TitleLabel.TabIndex = 3;
 			this.TitleLabel.Text = "Clients";
+			// 
+			// IdColumn
+			// 
+			this.IdColumn.HeaderText = "ID";
+			this.IdColumn.MinimumWidth = 100;
+			this.IdColumn.Name = "IdColumn";
+			this.IdColumn.ReadOnly = true;
+			// 
+			// FirstNameColumn
+			// 
+			this.FirstNameColumn.HeaderText = "First Name";
+			this.FirstNameColumn.MinimumWidth = 150;
+			this.FirstNameColumn.Name = "FirstNameColumn";
+			this.FirstNameColumn.ReadOnly = true;
+			this.FirstNameColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			// 
+			// LastNameColumn
+			// 
+			this.LastNameColumn.HeaderText = "Last Name";
+			this.LastNameColumn.MinimumWidth = 150;
+			this.LastNameColumn.Name = "LastNameColumn";
+			this.LastNameColumn.ReadOnly = true;
+			// 
+			// GenderColumn
+			// 
+			this.GenderColumn.HeaderText = "Gender";
+			this.GenderColumn.MinimumWidth = 100;
+			this.GenderColumn.Name = "GenderColumn";
+			this.GenderColumn.ReadOnly = true;
+			this.GenderColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			// 
+			// NationalityColumn
+			// 
+			this.NationalityColumn.HeaderText = "Nationality";
+			this.NationalityColumn.MinimumWidth = 150;
+			this.NationalityColumn.Name = "NationalityColumn";
+			this.NationalityColumn.ReadOnly = true;
+			// 
+			// BirthDateColumn
+			// 
+			this.BirthDateColumn.HeaderText = "BirthDate";
+			this.BirthDateColumn.MinimumWidth = 125;
+			this.BirthDateColumn.Name = "BirthDateColumn";
+			this.BirthDateColumn.ReadOnly = true;
+			// 
+			// NifColumn
+			// 
+			this.NifColumn.HeaderText = "NIF";
+			this.NifColumn.MinimumWidth = 125;
+			this.NifColumn.Name = "NifColumn";
+			this.NifColumn.ReadOnly = true;
+			// 
+			// AddressColumn
+			// 
+			this.AddressColumn.HeaderText = "Address";
+			this.AddressColumn.MinimumWidth = 250;
+			this.AddressColumn.Name = "AddressColumn";
+			this.AddressColumn.ReadOnly = true;
+			// 
+			// PhoneColumn
+			// 
+			this.PhoneColumn.HeaderText = "Phone";
+			this.PhoneColumn.MinimumWidth = 125;
+			this.PhoneColumn.Name = "PhoneColumn";
+			this.PhoneColumn.ReadOnly = true;
+			// 
+			// EmailColumn
+			// 
+			this.EmailColumn.HeaderText = "Email";
+			this.EmailColumn.MinimumWidth = 200;
+			this.EmailColumn.Name = "EmailColumn";
+			this.EmailColumn.ReadOnly = true;
 			// 
 			// ClientsForm
 			// 

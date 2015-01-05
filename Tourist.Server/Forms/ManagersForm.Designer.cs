@@ -465,7 +465,7 @@
 			// BirthDateColumn
 			// 
 			this.BirthDateColumn.HeaderText = "BirthDate (*)";
-			this.BirthDateColumn.MinimumWidth = 175;
+			this.BirthDateColumn.MinimumWidth = 200;
 			this.BirthDateColumn.Name = "BirthDateColumn";
 			// 
 			// NifColumn

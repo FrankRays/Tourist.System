@@ -290,7 +290,7 @@
 			// IdColumn
 			// 
 			this.IdColumn.HeaderText = "ID";
-			this.IdColumn.MinimumWidth = 150;
+			this.IdColumn.MinimumWidth = 100;
 			this.IdColumn.Name = "IdColumn";
 			this.IdColumn.ReadOnly = true;
 			// 
@@ -313,7 +313,7 @@
 			this.GenderColumn.Items.AddRange(new object[] {
             "Male",
             "Female"});
-			this.GenderColumn.MinimumWidth = 150;
+			this.GenderColumn.MinimumWidth = 125;
 			this.GenderColumn.Name = "GenderColumn";
 			this.GenderColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
 			this.GenderColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
@@ -523,31 +523,31 @@
 			// BirthDateColumn
 			// 
 			this.BirthDateColumn.HeaderText = "Birth Date (*)";
-			this.BirthDateColumn.MinimumWidth = 150;
+			this.BirthDateColumn.MinimumWidth = 185;
 			this.BirthDateColumn.Name = "BirthDateColumn";
 			// 
 			// NifColumn
 			// 
 			this.NifColumn.HeaderText = "NIF (*)";
-			this.NifColumn.MinimumWidth = 150;
+			this.NifColumn.MinimumWidth = 125;
 			this.NifColumn.Name = "NifColumn";
 			// 
 			// AddressColumn
 			// 
 			this.AddressColumn.HeaderText = "Address (*)";
-			this.AddressColumn.MinimumWidth = 150;
+			this.AddressColumn.MinimumWidth = 250;
 			this.AddressColumn.Name = "AddressColumn";
 			// 
 			// PhoneColumn
 			// 
 			this.PhoneColumn.HeaderText = "Phone (*)";
-			this.PhoneColumn.MinimumWidth = 150;
+			this.PhoneColumn.MinimumWidth = 125;
 			this.PhoneColumn.Name = "PhoneColumn";
 			// 
 			// EmailColumn
 			// 
 			this.EmailColumn.HeaderText = "Email (*)";
-			this.EmailColumn.MinimumWidth = 150;
+			this.EmailColumn.MinimumWidth = 200;
 			this.EmailColumn.Name = "EmailColumn";
 			// 
 			// ClientsForm
