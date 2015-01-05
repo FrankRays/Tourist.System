@@ -107,7 +107,7 @@ namespace Tourist.Server.Forms
 		private void DisponibilityTile_Click( object sender, EventArgs e )
 		{
 			Hide( );
-			var disponibilityForm = new DisponibilityForm( this );
+			var disponibilityForm = new BrowseBookings( this );
 			disponibilityForm.Show( );
 		}
 

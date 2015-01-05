@@ -8,7 +8,7 @@ using Tourist.Server.Properties;
 
 namespace Tourist.Server.Forms
 {
-	public partial class DisponibilityForm : MetroForm
+	public partial class BrowseBookings : MetroForm
 	{
 
 		#region Fields
@@ -35,7 +35,7 @@ namespace Tourist.Server.Forms
 
 		#region Constructor
 		
-		public DisponibilityForm( Form aForm )
+		public BrowseBookings( Form aForm )
 		{
 			InitializeComponent( );
 			mMainForm = aForm as MainForm;

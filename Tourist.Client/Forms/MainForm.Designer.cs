@@ -40,7 +40,7 @@
 			this.ClockTitleLabel = new System.Windows.Forms.Label();
 			this.AmPmLabel = new System.Windows.Forms.Label();
 			this.ClockLabel = new System.Windows.Forms.Label();
-			this.DisponibilityTile = new MetroFramework.Controls.MetroTile();
+			this.BrowseBookingsTile = new MetroFramework.Controls.MetroTile();
 			this.HelpTile = new MetroFramework.Controls.MetroTile();
 			this.ReportsTile = new MetroFramework.Controls.MetroTile();
 			this.PaymentsTile = new MetroFramework.Controls.MetroTile();
@@ -76,7 +76,7 @@
 			this.MainPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.MainPanel.Controls.Add(this.panel1);
 			this.MainPanel.Controls.Add(this.ClockTile);
-			this.MainPanel.Controls.Add(this.DisponibilityTile);
+			this.MainPanel.Controls.Add(this.BrowseBookingsTile);
 			this.MainPanel.Controls.Add(this.HelpTile);
 			this.MainPanel.Controls.Add(this.ReportsTile);
 			this.MainPanel.Controls.Add(this.PaymentsTile);
@@ -219,22 +219,22 @@
 			this.ClockLabel.Text = "00:00:00";
 			this.ClockLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// DisponibilityTile
+			// BrowseBookingsTile
 			// 
-			this.DisponibilityTile.ActiveControl = null;
-			this.DisponibilityTile.Location = new System.Drawing.Point(12, 149);
-			this.DisponibilityTile.Margin = new System.Windows.Forms.Padding(2);
-			this.DisponibilityTile.Name = "DisponibilityTile";
-			this.DisponibilityTile.Size = new System.Drawing.Size(263, 122);
-			this.DisponibilityTile.TabIndex = 9;
-			this.DisponibilityTile.Text = "Disponibility";
-			this.DisponibilityTile.TileImage = global::Tourist.Client.Properties.Resources.Disponibility;
-			this.DisponibilityTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.DisponibilityTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-			this.DisponibilityTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-			this.DisponibilityTile.UseSelectable = true;
-			this.DisponibilityTile.UseTileImage = true;
-			this.DisponibilityTile.Click += new System.EventHandler(this.DisponibilityTile_Click);
+			this.BrowseBookingsTile.ActiveControl = null;
+			this.BrowseBookingsTile.Location = new System.Drawing.Point(12, 149);
+			this.BrowseBookingsTile.Margin = new System.Windows.Forms.Padding(2);
+			this.BrowseBookingsTile.Name = "BrowseBookingsTile";
+			this.BrowseBookingsTile.Size = new System.Drawing.Size(263, 122);
+			this.BrowseBookingsTile.TabIndex = 9;
+			this.BrowseBookingsTile.Text = "Browse Bookings";
+			this.BrowseBookingsTile.TileImage = global::Tourist.Client.Properties.Resources.Disponibility;
+			this.BrowseBookingsTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.BrowseBookingsTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+			this.BrowseBookingsTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+			this.BrowseBookingsTile.UseSelectable = true;
+			this.BrowseBookingsTile.UseTileImage = true;
+			this.BrowseBookingsTile.Click += new System.EventHandler(this.DisponibilityTile_Click);
 			// 
 			// HelpTile
 			// 
@@ -525,7 +525,7 @@
 		private MetroFramework.Controls.MetroPanel MainPanel;
 		private MetroFramework.Controls.MetroTile BookingsTile;
 		private MetroFramework.Controls.MetroTile ClientsTile;
-		private MetroFramework.Controls.MetroTile DisponibilityTile;
+		private MetroFramework.Controls.MetroTile BrowseBookingsTile;
 		private MetroFramework.Controls.MetroTile HelpTile;
 		private MetroFramework.Controls.MetroTile ReportsTile;
 		private MetroFramework.Controls.MetroTile PaymentsTile;

@@ -1,6 +1,6 @@
 ﻿namespace Tourist.Client.Forms
 {
-	partial class DisponibilityForm
+	partial class BrowseBookings
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -38,7 +38,6 @@
 			this.TitleLabel = new System.Windows.Forms.Label();
 			this.BodyPanel = new System.Windows.Forms.Panel();
 			this.BookingsDataGrid = new MetroFramework.Controls.MetroGrid();
-			this.FooterPanel = new System.Windows.Forms.Panel();
 			this.BookingIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ClientNifColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ClientNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +50,7 @@
 			this.StartDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.EndDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.TotalPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.FooterPanel = new System.Windows.Forms.Panel();
 			this.HeaderPanel.SuspendLayout();
 			this.BodyPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.BookingsDataGrid)).BeginInit();
@@ -103,9 +103,9 @@
 			this.SubTitleLabel.Location = new System.Drawing.Point(106, 86);
 			this.SubTitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.SubTitleLabel.Name = "SubTitleLabel";
-			this.SubTitleLabel.Size = new System.Drawing.Size(216, 30);
+			this.SubTitleLabel.Size = new System.Drawing.Size(264, 30);
 			this.SubTitleLabel.TabIndex = 4;
-			this.SubTitleLabel.Text = "Disponibility Services";
+			this.SubTitleLabel.Text = "Browse Bookings Services";
 			// 
 			// TitleLabel
 			// 
@@ -116,9 +116,9 @@
 			this.TitleLabel.Location = new System.Drawing.Point(98, 30);
 			this.TitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.TitleLabel.Name = "TitleLabel";
-			this.TitleLabel.Size = new System.Drawing.Size(239, 51);
+			this.TitleLabel.Size = new System.Drawing.Size(317, 51);
 			this.TitleLabel.TabIndex = 3;
-			this.TitleLabel.Text = "Disponibility";
+			this.TitleLabel.Text = "Browse Bookings";
 			// 
 			// BodyPanel
 			// 
@@ -200,17 +200,6 @@
 			this.BookingsDataGrid.Size = new System.Drawing.Size(1166, 428);
 			this.BookingsDataGrid.TabIndex = 22;
 			this.BookingsDataGrid.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.BookingsDataGrid_RowRemoved);
-			// 
-			// FooterPanel
-			// 
-			this.FooterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.FooterPanel.Location = new System.Drawing.Point(-1, 649);
-			this.FooterPanel.Margin = new System.Windows.Forms.Padding(2);
-			this.FooterPanel.Name = "FooterPanel";
-			this.FooterPanel.Size = new System.Drawing.Size(1202, 150);
-			this.FooterPanel.TabIndex = 15;
 			// 
 			// BookingIdColumn
 			// 
@@ -300,7 +289,18 @@
 			this.TotalPriceColumn.Name = "TotalPriceColumn";
 			this.TotalPriceColumn.ReadOnly = true;
 			// 
-			// DisponibilityForm
+			// FooterPanel
+			// 
+			this.FooterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			this.FooterPanel.Location = new System.Drawing.Point(-1, 649);
+			this.FooterPanel.Margin = new System.Windows.Forms.Padding(2);
+			this.FooterPanel.Name = "FooterPanel";
+			this.FooterPanel.Size = new System.Drawing.Size(1202, 150);
+			this.FooterPanel.TabIndex = 15;
+			// 
+			// BrowseBookings
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -311,7 +311,7 @@
 			this.Margin = new System.Windows.Forms.Padding(2);
 			this.MaximizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(1200, 800);
-			this.Name = "DisponibilityForm";
+			this.Name = "BrowseBookings";
 			this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
 			this.Resizable = false;
 			this.Style = MetroFramework.MetroColorStyle.White;

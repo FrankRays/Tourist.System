@@ -144,7 +144,7 @@ namespace Tourist.Client.Forms
 		private void BrowseBookingsButton_Click( object sender, EventArgs e )
 		{
 			Close( );
-			var disponibilityForm = new DisponibilityForm( MainForm, Remote );
+			var disponibilityForm = new BrowseBookings( MainForm, Remote );
 			disponibilityForm.Show( );
 		}
 

@@ -90,7 +90,7 @@ namespace Tourist.Client.Forms
 		private void DisponibilityTile_Click( object sender, EventArgs e )
 		{
 			Hide( );
-			var disponibilityForm = new DisponibilityForm( this, Remote );
+			var disponibilityForm = new BrowseBookings( this, Remote );
 			disponibilityForm.Show( );
 		}
 
