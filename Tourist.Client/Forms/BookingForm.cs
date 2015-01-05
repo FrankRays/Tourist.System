@@ -69,6 +69,8 @@ namespace Tourist.Client.Forms
 
 		private void TypeCombox_SelectedValueChanged( object sender, EventArgs e )
 		{
+			BookingDateTextBox.Text = DateTime.Now.Date.ToString( "d" );
+			BookingIdTextBox.Text = Remote.NextId( "Booking" ).ToString( );
 			LoadBookableSubTypes( );
 		}
 
@@ -84,9 +86,7 @@ namespace Tourist.Client.Forms
 
 		private void StartDatePicker_Validating( object sender, CancelEventArgs e )
 		{
-			BookingDateTextBox.Text = DateTime.Now.Date.ToString( "d" );
-			BookingIdTextBox.Text = Remote.NextId( "Booking" ).ToString( );
-
+			
 			var timeframe = new DateTimeRange( );
 
 			timeframe.StartDateTime = SharedMethods.ConvertStringToDateTime( StartDatePicker.Text );
@@ -197,6 +197,7 @@ namespace Tourist.Client.Forms
 
 		}
 
+		/*
 		private bool CanBook()
 		{
 			var bookableId = SharedMethods.ConvertStringToInt(BookableIdComboBox.Text);
@@ -205,15 +206,10 @@ namespace Tourist.Client.Forms
 				StartDateTime = SharedMethods.ConvertStringToDateTime(StartDatePicker.Text),
 				EndDateTime = SharedMethods.ConvertStringToDateTime(EndDatePicker.Text)
 			};
-
-
-
-
-
-
-
 		}
 
+		 * */
+		
 		private void AutoFillClientData( )
 		{
 			if ( string.IsNullOrEmpty( NifComboBox.Text ) ) return;
