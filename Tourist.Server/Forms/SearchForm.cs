@@ -56,5 +56,20 @@ namespace Tourist.Server.Forms
 			Close( );
 			mMainForm.Show( );
 		}
+
+		private void OkButton_Click( object sender, System.EventArgs e )
+		{
+
+		}
+
+		private void label2_Click( object sender, System.EventArgs e )
+		{
+
+		}
+
+		private void metroDateTime2_ValueChanged( object sender, System.EventArgs e )
+		{
+
+		}
 	}
 }
