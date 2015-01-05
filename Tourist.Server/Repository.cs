@@ -403,30 +403,25 @@ namespace Tourist.Server
 					return false;
 			}
 		}
-		
-		/*
-		public bool IsBookedAlredy( int aBookableId, DateTimeRange aTimeFrame )
-		{
-			var buffer = new List<bool>();
 
-			foreach (var booking in mData.Bookings)
+		public bool IsNotBookedAlredy( int aBookableId, DateTimeRange aTimeFrame )
+		{
+			var temp = true;
+
+			foreach ( var booking in mData.Bookings )
 			{
-				if (booking.Bookable.Id == aBookableId)
+				if ( booking.Bookable.Id == aBookableId )
 				{
 					if (aTimeFrame.StartDateTime < booking.TimeFrame.EndDateTime)
 					{
-						buffer.Add(true);
+						temp = false;
 					}
-
 				}
-
-
-
 			}
-
-
+			
+			return temp;
 		}
-		*/
+
 		#endregion
 
 		#region Display Data Methods

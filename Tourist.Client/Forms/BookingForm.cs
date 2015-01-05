@@ -51,7 +51,7 @@ namespace Tourist.Client.Forms
 			SharedMethods.SetFormFullScreen( this );
 			mNifsbBindingSource.DataSource = Remote.ClientsNifList( );
 			NifComboBox.DataSource = mNifsbBindingSource;
-			ControlsToReadOnly(true);
+			ControlsToReadOnly( true );
 		}
 
 		private void NifComboBox_SelectedValueChanged( object sender, EventArgs e )
@@ -86,7 +86,7 @@ namespace Tourist.Client.Forms
 
 		private void StartDatePicker_Validating( object sender, CancelEventArgs e )
 		{
-			
+
 			var timeframe = new DateTimeRange( );
 
 			timeframe.StartDateTime = SharedMethods.ConvertStringToDateTime( StartDatePicker.Text );
@@ -139,7 +139,6 @@ namespace Tourist.Client.Forms
 			}
 
 			AddBooking( );
-			CleanOldValues( );
 		}
 
 		private void BrowseBookingsButton_Click( object sender, EventArgs e )
@@ -190,26 +189,31 @@ namespace Tourist.Client.Forms
 				EndDateTime = SharedMethods.ConvertStringToDateTime( EndDatePicker.Text )
 			};
 
-			Remote.Append( booking, "Bookings" );
-
-			MessageBox.Show( this, Resources.BookingString + Resources.AddString,
-							 Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
-
-		}
-
-		/*
-		private bool CanBook()
-		{
-			var bookableId = SharedMethods.ConvertStringToInt(BookableIdComboBox.Text);
-			var timeFrame = new DateTimeRange
+			if ( CanAddBooking( booking.Bookable.Id, booking.TimeFrame ) )
 			{
-				StartDateTime = SharedMethods.ConvertStringToDateTime(StartDatePicker.Text),
-				EndDateTime = SharedMethods.ConvertStringToDateTime(EndDatePicker.Text)
-			};
+				Remote.Append( booking, "Bookings" );
+
+				MessageBox.Show( this, Resources.BookingString + Resources.AddString,
+								 Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
+
+				CleanOldValues( );
+				return;
+			}
+
+
+			MessageBox.Show( this, Resources.AlreadyBookedString, Resources.AlreadyBookedTitle,
+							 MessageBoxButtons.OK, MessageBoxIcon.Information );
+
 		}
 
-		 * */
-		
+
+		private bool CanAddBooking( int aBookableId, DateTimeRange aTimeFrame )
+		{
+			return Remote.IsNotBookedAlredy( aBookableId, aTimeFrame );
+		}
+
+
+
 		private void AutoFillClientData( )
 		{
 			if ( string.IsNullOrEmpty( NifComboBox.Text ) ) return;
@@ -260,7 +264,7 @@ namespace Tourist.Client.Forms
 			BasePriceTextBox.ReadOnly = aBool;
 			DescriptionTextBox.ReadOnly = aBool;
 			BookingIdTextBox.ReadOnly = aBool;
-			BookingDateTextBox.ReadOnly = aBool;	
+			BookingDateTextBox.ReadOnly = aBool;
 		}
 
 		#endregion

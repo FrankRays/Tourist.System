@@ -14,6 +14,7 @@ namespace Tourist.Data.Interfaces
 		bool IsEmpty( string aList );
 		bool ExistingId( int aId, string aList );
 		bool CheckLogin( string aUsername, string aPassword, string aType );
+		bool IsNotBookedAlredy( int aBookableId, DateTimeRange aTimeFrame );
 		string[ , ] ListToMatrix( string aList );
 		void Append( object aObject, string aList );
 		void Remove( int aIndex, string aList );

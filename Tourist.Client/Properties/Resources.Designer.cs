@@ -98,6 +98,24 @@ namespace Tourist.Client.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Can´t Add because that service is already Booked ! Choose other Etart/End Dates..
+        /// </summary>
+        internal static string AlreadyBookedString {
+            get {
+                return ResourceManager.GetString("AlreadyBookedString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error Booked Already.
+        /// </summary>
+        internal static string AlreadyBookedTitle {
+            get {
+                return ResourceManager.GetString("AlreadyBookedTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap backup {
