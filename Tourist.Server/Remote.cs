@@ -146,6 +146,12 @@ namespace Tourist.Server
 			return Repository.GetBookable( aType, aId );
 		}
 
+		public int MaxBookingId
+		{
+			get { return Repository.MaxBookingId; }
+			set { Repository.MaxBookingId = value; }
+		}
+
 		#endregion
 
 	}

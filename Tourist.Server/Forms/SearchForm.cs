@@ -23,7 +23,7 @@ namespace Tourist.Server.Forms
 			mMainForm = aForm as MainForm;
 			mBindingSearchDataGrid = new BindingSource( );
 			mBindingSearchByComboBox = new BindingSource( );
-			mBindingSearchFilterComboBox = new BindingSource();
+			mBindingSearchFilterComboBox = new BindingSource( );
 			SearchParameter2.Value = DateTime.Today;
 			SearchParameter3.Value = DateTime.Today.AddDays( 1 );
 			SearchDataGrid.AutoGenerateColumns = false;
@@ -75,33 +75,54 @@ namespace Tourist.Server.Forms
 			SearchParameter3.Visible = false;
 		}
 
-		private void LoadSearchDataGrid( string aSearchBy, string aSearchFilter, string aSearchParameter1 = null, string aSearchParameter2 = null, string aSearchParameter3 = null )
+		private void LoadSearchDataGrid( string aSearchBy, string aSearchFilter, string aSearchParameter1 = null, 
+										string aSearchParameter2 = null, string aSearchParameter3 = null )
 		{
-
 			switch ( aSearchBy )
 			{
 				case "Bookings":
-					/*if ( Repository.SearchBookings( aSearchFilter, aSearchParameter1, aSearchParameter2, aSearchParameter3 ).Count == 0 )
-						return;*/
-					RemoveOldSearchDataGridValues();
-					AddBookingsColumns();
-					mBindingSearchDataGrid.DataSource = Repository.SearchBookings( aSearchFilter, aSearchParameter1, aSearchParameter2, aSearchParameter3);
+					RemoveOldSearchDataGridValues( );
+					AddBookingsColumns( );
+					mBindingSearchDataGrid.DataSource = Repository.SearchBookings( aSearchFilter, aSearchParameter1, aSearchParameter2, aSearchParameter3 );
 					SearchDataGrid.DataSource = mBindingSearchDataGrid;
 					break;
 				case "Rooms":
+					RemoveOldSearchDataGridValues( );
+					AddBookablesColumns( );
+					mBindingSearchDataGrid.DataSource = Repository.SearchRooms( aSearchFilter );
+					SearchDataGrid.DataSource = mBindingSearchDataGrid;
 					break;
 				case "Activities":
+					RemoveOldSearchDataGridValues( );
+					AddBookablesColumns( );
+					mBindingSearchDataGrid.DataSource = Repository.SearchActivities( aSearchFilter );
+					SearchDataGrid.DataSource = mBindingSearchDataGrid;
 					break;
 				case "Transports":
+					RemoveOldSearchDataGridValues( );
+					AddBookablesColumns( );
+					mBindingSearchDataGrid.DataSource = Repository.SearchTransports( aSearchFilter );
+					SearchDataGrid.DataSource = mBindingSearchDataGrid;
 					break;
 				case "Clients":
+					RemoveOldSearchDataGridValues( );
+					AddPersonColumns( );
+					mBindingSearchDataGrid.DataSource = Repository.SearchClients( aSearchFilter, aSearchParameter1 );
+					SearchDataGrid.DataSource = mBindingSearchDataGrid;
 					break;
 				case "Managers":
+					RemoveOldSearchDataGridValues( );
+					AddPersonColumns( );
+					mBindingSearchDataGrid.DataSource = Repository.SearchManagers( aSearchFilter, aSearchParameter1 );
+					SearchDataGrid.DataSource = mBindingSearchDataGrid;
 					break;
 				case "Employees":
+					RemoveOldSearchDataGridValues( );
+					AddPersonColumns( );
+					mBindingSearchDataGrid.DataSource = Repository.SearchEmployes( aSearchFilter, aSearchParameter1 );
+					SearchDataGrid.DataSource = mBindingSearchDataGrid;
 					break;
 			}
-
 		}
 
 		private void AddBookingsColumns( )
@@ -178,9 +199,9 @@ namespace Tourist.Server.Forms
 			totalPriceColumn.MinimumWidth = 150;
 		}
 
-		public void AddBookablesColumns()
+		public void AddBookablesColumns( )
 		{
-			
+
 			var IdColumn = new DataGridViewTextBoxColumn( );
 			var TypeColumn = new DataGridViewTextBoxColumn( );
 			var StateColumn = new DataGridViewTextBoxColumn( );
@@ -212,7 +233,7 @@ namespace Tourist.Server.Forms
 			BasePriceColumn.MinimumWidth = 150;
 			CapacityColumn.MinimumWidth = 125;
 		}
-		
+
 		public void AddPersonColumns( )
 		{
 			var IdColumn = new DataGridViewTextBoxColumn( );
@@ -242,6 +263,17 @@ namespace Tourist.Server.Forms
 			PhoneColumn.HeaderText = "Phone";
 			EmailColumn.HeaderText = "Email";
 
+			IdColumn.DataPropertyName = "Id";
+			FirstNameColumn.DataPropertyName = "FirstName";
+			LastNameColumn.DataPropertyName = "LastName";
+			GenderColumn.DataPropertyName = "Gender";
+			NationalityColumn.DataPropertyName = "Nationality";
+			BirthDateColumn.DataPropertyName = "BirthDate";
+			NifColumn.DataPropertyName = "Nif";
+			AddressColumn.DataPropertyName = "Address";
+			PhoneColumn.DataPropertyName = "Phone";
+			EmailColumn.DataPropertyName = "Email";
+
 			IdColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.NotSet;
 			FirstNameColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.NotSet;
 			LastNameColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.NotSet;
@@ -254,16 +286,16 @@ namespace Tourist.Server.Forms
 			EmailColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.NotSet;
 
 			IdColumn.MinimumWidth = 125;
-			FirstNameColumn.MinimumWidth = 200;
+			FirstNameColumn.MinimumWidth = 150;
 			LastNameColumn.MinimumWidth = 150;
 			NationalityColumn.MinimumWidth = 150;
 			BirthDateColumn.MinimumWidth = 125;
-			GenderColumn.MinimumWidth = 250;
+			GenderColumn.MinimumWidth = 125;
 			NifColumn.MinimumWidth = 125;
 			AddressColumn.MinimumWidth = 150;
 			PhoneColumn.MinimumWidth = 125;
-			EmailColumn.MinimumWidth = 125;
-			
+			EmailColumn.MinimumWidth = 200;
+
 		}
 
 		protected override void OnFormClosing( FormClosingEventArgs e )
@@ -306,9 +338,9 @@ namespace Tourist.Server.Forms
 			mBindingSearchFilterComboBox.DataSource = null;
 		}
 
-		private void RemoveOldSearchDataGridValues()
+		private void RemoveOldSearchDataGridValues( )
 		{
-			SearchDataGrid.Columns.Clear();
+			SearchDataGrid.Columns.Clear( );
 		}
 
 		private void SeachFilterComboBox_SelectedValueChanged( object sender, EventArgs e )

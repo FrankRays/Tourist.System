@@ -28,6 +28,7 @@ namespace Tourist.Data.Interfaces
 		double GetBasePrice( string aType );
 		string GetBookableDescription( int aId, string aType );
 		int NextId( string aType );
+		int MaxBookingId { get; set; }
 		void Edit( string aType, int aId, string aPropertie, string aNewValue );
 	}
 }

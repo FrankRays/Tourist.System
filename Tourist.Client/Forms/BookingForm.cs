@@ -72,11 +72,22 @@ namespace Tourist.Client.Forms
 			BookingDateTextBox.Text = DateTime.Now.Date.ToString( "d" );
 			BookingIdTextBox.Text = Remote.NextId( "Booking" ).ToString( );
 			LoadBookableSubTypes( );
+			
+			
 		}
 
 		private void SubTypeComboBox_SelectedValueChanged( object sender, EventArgs e )
 		{
 			LoadBookableIds( );
+			
+			var timeframe = new DateTimeRange
+			{
+				StartDateTime = SharedMethods.ConvertStringToDateTime( StartDatePicker.Text ),
+				EndDateTime = SharedMethods.ConvertStringToDateTime( EndDatePicker.Text )
+			};
+
+			TotalPriceLabel.Text = ( timeframe.DiferenceTimeSpan( ).Days * Remote.GetBasePrice( SubTypeComboBox.Text ) ).ToString( "0.00", CultureInfo.InvariantCulture ) + " €";
+
 		}
 
 		private void BookableIdComboBox_SelectedValueChanged( object sender, EventArgs e )
@@ -104,7 +115,7 @@ namespace Tourist.Client.Forms
 				errorProvider.SetError( StartDatePicker, "" );
 			}
 
-			TotalPriceLabel.Text = ( timeframe.DiferenceTimeSpan( ).Days * Remote.GetBasePrice( SubTypeComboBox.Text ) ).ToString( "0.00", CultureInfo.InvariantCulture );
+			TotalPriceLabel.Text = ( timeframe.DiferenceTimeSpan( ).Days * Remote.GetBasePrice( SubTypeComboBox.Text ) ).ToString( "0.00", CultureInfo.InvariantCulture ) + " €";
 		}
 
 		private void EndDatePicker_Validating( object sender, CancelEventArgs e )
@@ -198,6 +209,7 @@ namespace Tourist.Client.Forms
 								 Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 
 				CleanOldValues( );
+				Remote.MaxBookingId = booking.Id;
 				return;
 			}
 
@@ -243,7 +255,10 @@ namespace Tourist.Client.Forms
 
 		private void LoadBookableDescription( )
 		{
-			if ( string.IsNullOrEmpty( BookableIdComboBox.Text ) ) return;
+			if ( string.IsNullOrEmpty( BookableIdComboBox.Text ) ) {
+				DescriptionTextBox.Text = string.Empty;
+				return;
+			}
 
 			DescriptionTextBox.Text = Remote.GetBookableDescription(
 			SharedMethods.ConvertStringToInt( BookableIdComboBox.Text ), TypeCombox.Text );

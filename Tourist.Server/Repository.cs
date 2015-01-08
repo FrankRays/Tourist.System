@@ -50,6 +50,18 @@ namespace Tourist.Server
 
 		#endregion
 
+		#region MaxId Record
+
+		private int mMaxBookingId = default (int);
+
+		public int MaxBookingId
+		{
+			get { return mMaxBookingId; }
+			set { mMaxBookingId = value; }
+		}
+
+		#endregion
+
 		#region Login Session
 
 		private static Session mServerLoginSession = Factory.CreateObject<Session>( );
@@ -410,7 +422,7 @@ namespace Tourist.Server
 
 			foreach ( var booking in mData.Bookings )
 			{
-				if ( booking.Bookable.Id == aBookableId && booking.BookableType.Equals( aBookableSubtype ) )
+				if ( booking.Bookable.Id == aBookableId && booking.BookableSubType.Equals( aBookableSubtype ) )
 				{
 					if ( aTimeFrame.StartDateTime < booking.TimeFrame.EndDateTime )
 					{
@@ -1009,7 +1021,7 @@ namespace Tourist.Server
 			switch ( aType )
 			{
 				case "Booking":
-					if ( IsEmpty( "Bookings" ) ) return 1;
+					if ( IsEmpty( "Bookings" ) ) return MaxBookingId + 1;
 					return mData.Bookings.Select( booking => booking.Id ).ToList( ).Max( ) + 1;
 				case "Client":
 					if ( IsEmpty( "Clients" ) ) return 1;
@@ -1455,7 +1467,7 @@ namespace Tourist.Server
 
 		public List<Booking> SearchBookings( string aSearchFilter, string aSearchParameter1 = null, string aSearchParameter2 = null, string aSearchParameter3 = null )
 		{
-			List<Booking> buffer = new List<Booking>( );
+			var buffer = new List<Booking>( );
 
 			switch ( aSearchFilter )
 			{
@@ -1490,36 +1502,110 @@ namespace Tourist.Server
 			return buffer;
 		}
 
-		public List<Booking> SearchBookables( string aSearchFilter, string aSearchParameter1 = null, string aSearchParameter2 = null, string aSearchParameter3 = null )
+		public List<Room> SearchRooms( string aSearchFilter )
 		{
-			List<Booking> buffer = new List<Booking>( );
+			return mData.Rooms.Where( room => room.Type.ToString( ).Equals( aSearchFilter ) ).ToList( );
+		}
+
+		public List<Activity> SearchActivities( string aSearchFilter )
+		{
+			return mData.Activities.Where( activity => activity.Type.ToString( ).Equals( aSearchFilter ) ).ToList( );
+		}
+
+		public List<Transport> SearchTransports( string aSearchFilter )
+		{
+			return mData.Transports.Where( transport => transport.Type.ToString( ).Equals( aSearchFilter ) ).ToList( );
+		}
+
+		public List<Client> SearchClients( string aSearchFilter, string aSearchParameter1 )
+		{
+			var buffer = new List<Client>( );
 
 			switch ( aSearchFilter )
 			{
 				case "Nif":
-					foreach ( var booking in mData.Bookings.Where( booking => booking.ClientNif.Equals( aSearchParameter1 ) ) )
+					foreach ( var client in mData.Clients.Where( client => client.Nif.ToString( ).Equals( aSearchParameter1 ) ) )
 					{
-						buffer.Add( booking );
+						buffer.Add( client );
 						break;
 					}
 					break;
-				case "BookingDate":
-					buffer.AddRange( mData.Bookings.Where( booking => booking.BookingDay.Equals( aSearchParameter2 ) ) );
-					break;
-				case "StartDate":
-					buffer.AddRange( mData.Bookings.Where( booking => booking.BookingStartDate.Equals( aSearchParameter2 ) ) );
-					break;
-				case "EndDate":
-					buffer.AddRange( mData.Bookings.Where( booking => booking.BookingEndDate.Equals( aSearchParameter2 ) ) );
-					break;
-				case "TimeRange":
-					foreach ( var booking in mData.Bookings )
+				case "Phone":
+					foreach ( var client in mData.Clients.Where( client => client.Phone.ToString( ).Equals( aSearchParameter1 ) ) )
 					{
-						if ( booking.TimeFrame.StartDateTime >= SharedMethods.ConvertStringToDateTime( aSearchParameter2 )
-							&& booking.TimeFrame.EndDateTime <= SharedMethods.ConvertStringToDateTime( aSearchParameter3 ) )
-						{
-							buffer.Add( booking );
-						}
+						buffer.Add( client );
+						break;
+					}
+					break;
+				case "Email":
+					foreach ( var client in mData.Clients.Where( client => client.Email.Equals( aSearchParameter1 ) ) )
+					{
+						buffer.Add( client );
+						break;
+					}
+					break;
+			}
+
+			return buffer;
+		}
+
+		public List<Manager> SearchManagers( string aSearchFilter, string aSearchParameter1 )
+		{
+			var buffer = new List<Manager>( );
+
+			switch ( aSearchFilter )
+			{
+				case "Nif":
+					foreach ( var manager in mData.Managers.Where( manager => manager.Nif.ToString( ).Equals( aSearchParameter1 ) ) )
+					{
+						buffer.Add( manager );
+						break;
+					}
+					break;
+				case "Phone":
+					foreach ( var manager in mData.Managers.Where( manager => manager.Phone.ToString( ).Equals( aSearchParameter1 ) ) )
+					{
+						buffer.Add( manager );
+						break;
+					}
+					break;
+				case "Email":
+					foreach ( var manager in mData.Managers.Where( manager => manager.Email.Equals( aSearchParameter1 ) ) )
+					{
+						buffer.Add( manager );
+						break;
+					}
+					break;
+			}
+
+			return buffer;
+		}
+
+		public List<Employer> SearchEmployes( string aSearchFilter, string aSearchParameter1 )
+		{
+			var buffer = new List<Employer>( );
+
+			switch ( aSearchFilter )
+			{
+				case "Nif":
+					foreach ( var employer in mData.Employees.Where( employer => employer.Nif.ToString( ).Equals( aSearchParameter1 ) ) )
+					{
+						buffer.Add( employer );
+						break;
+					}
+					break;
+				case "Phone":
+					foreach ( var employer in mData.Employees.Where( employer => employer.Phone.ToString( ).Equals( aSearchParameter1 ) ) )
+					{
+						buffer.Add( employer );
+						break;
+					}
+					break;
+				case "Email":
+					foreach ( var employer in mData.Employees.Where( employer => employer.Email.Equals( aSearchParameter1 ) ) )
+					{
+						buffer.Add( employer );
+						break;
 					}
 					break;
 			}
