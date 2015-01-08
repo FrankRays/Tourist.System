@@ -30,7 +30,7 @@ namespace Tourist.Client
 			// Create a transparent proxy "obj" for the remote object
 			IRemote Remote = ( IRemote ) Activator.GetObject(
 				typeof( IRemote ), // Remote object type
-				//"tcp://10.2.5.225:3000/Tourist.Server" );
+				//"tcp://10.2.5.92:3000/Tourist.Server" );
 				"tcp://localhost:3000/Tourist.Server" ); // Remote object URL
 
 			try

@@ -48,11 +48,11 @@ namespace Tourist.Server.Forms
 
 		#region Events
 
-		private void DisponibilityForm_Load( object sender, EventArgs e )
+		private void BrowseBookingsForm_Load( object sender, EventArgs e )
 		{
 			SharedMethods.SetFormFullScreen( this );
 			LoadDataToGrid( );
-			Repository.MData.Clients.CollectionChanged += OnCollectionChange;
+			Repository.MData.Bookings.CollectionChanged += OnCollectionChange;
 		}
 
 		private void OnCollectionChange( object sender, NotifyCollectionChangedEventArgs e )
@@ -133,7 +133,6 @@ namespace Tourist.Server.Forms
 			ClientNameColumn.DataPropertyName = "ClientName";
 			TypeColumn.DataPropertyName = "BookableType";
 			SubTypeColumn.DataPropertyName = "BookableSubType";
-			//BookableIdColumn.DataPropertyName = "BookableId";
 			BookableDescriptionColumn.DataPropertyName = "BookableDescription";
 			BasePriceColumn.DataPropertyName = "BookableBasePrice";
 			BookingDateColumn.DataPropertyName = "BookingDay";

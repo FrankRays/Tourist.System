@@ -307,7 +307,7 @@
 			this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
 			this.Resizable = false;
 			this.Style = MetroFramework.MetroColorStyle.White;
-			this.Load += new System.EventHandler(this.DisponibilityForm_Load);
+			this.Load += new System.EventHandler(this.BrowseBookingsForm_Load);
 			this.HeaderPanel.ResumeLayout(false);
 			this.HeaderPanel.PerformLayout();
 			this.BodyPanel.ResumeLayout(false);

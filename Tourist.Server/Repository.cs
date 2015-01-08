@@ -496,7 +496,6 @@ namespace Tourist.Server
 						matrix[ i, j ] = "Transport";
 						j++;
 					}
-
 					matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Type.ToString( );
 					j++;
 					matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Description;
