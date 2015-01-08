@@ -7,6 +7,7 @@ namespace Tourist.Data.Classes
 	[Serializable]
 	public class Factory : IFactory
 	{
+
 		#region Methods
 
 		public Type[ ] GetTypes( )
@@ -66,9 +67,9 @@ namespace Tourist.Data.Classes
 			return new DateTimeRange( );
 		}
 
-		public Session CreateSession()
+		public Session CreateSession( )
 		{
-			return new Session();
+			return new Session( );
 		}
 
 		public object CreateObject( string aType )
@@ -86,7 +87,7 @@ namespace Tourist.Data.Classes
 				case "Manager":
 					return CreateManager( );
 				case "DateTimeRange":
-					return CreateDateTimeRange();
+					return CreateDateTimeRange( );
 				case "Room":
 					return CreateRoom( );
 				case "Activity":
@@ -111,6 +112,7 @@ namespace Tourist.Data.Classes
 		}
 
 		#endregion
+
 	}
 
 }

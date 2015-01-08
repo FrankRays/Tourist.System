@@ -31,13 +31,10 @@ namespace Tourist.Data.Interfaces
 		int MaxBookingId { get; set; }
 		void Edit( string aType, int aId, string aPropertie, string aNewValue );
 		List<Booking> SearchBookings( string aSearchFilter, string aSearchParameter1 = null,
-									  string aSearchParameter2 = null, string aSearchParameter3 = null);
-		List<Room> SearchRooms(string aSearchFilter);
-		List<Activity> SearchActivities(string aSearchFilter);
-		List<Transport> SearchTransports(string aSearchFilter);
-		List<Client> SearchClients(string aSearchFilter, string aSearchParameter1);
-
-
-
+									  string aSearchParameter2 = null, string aSearchParameter3 = null );
+		List<Room> SearchRooms( string aSearchFilter );
+		List<Activity> SearchActivities( string aSearchFilter );
+		List<Transport> SearchTransports( string aSearchFilter );
+		List<Client> SearchClients( string aSearchFilter, string aSearchParameter1 );
 	}
 }

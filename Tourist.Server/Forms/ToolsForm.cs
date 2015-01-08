@@ -7,21 +7,31 @@ using Tourist.Server.Properties;
 
 namespace Tourist.Server.Forms
 {
-	public partial class ToolsForm: MetroForm
+	public partial class ToolsForm : MetroForm
 	{
+
+		#region Fields
+
 		private readonly MainForm mMainForm;
-		private bool mBackOrExit = default(bool);
-		
-		public ToolsForm(Form aForm)
+		private bool mBackOrExit = default( bool );
+
+		#endregion
+
+		#region Constructor
+
+		public ToolsForm( Form aForm )
 		{
 			mMainForm = aForm as MainForm;
 			InitializeComponent( );
 		}
 
+		#endregion
+
+		#region Events
+
 		private void ToolsForm_Load( object sender, EventArgs e )
 		{
-			SharedMethods.SetFormFullScreen(this);
-			
+			SharedMethods.SetFormFullScreen( this );
 		}
 
 		protected override void OnFormClosing( FormClosingEventArgs e )
@@ -47,5 +57,8 @@ namespace Tourist.Server.Forms
 			Close( );
 			mMainForm.Show( );
 		}
+
+		#endregion
+
 	}
 }

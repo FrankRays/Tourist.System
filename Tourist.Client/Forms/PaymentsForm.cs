@@ -8,23 +8,34 @@ using Tourist.Data.Shared;
 
 namespace Tourist.Client.Forms
 {
-	public partial class PaymentsForm: MetroForm
+	public partial class PaymentsForm : MetroForm
 	{
+
+		#region Fields
+
 		private readonly IRemote Remote;
 		private readonly MainForm mMainForm;
 		private bool mBackOrExit = default( bool );
-		
-		public PaymentsForm(Form aForm, IRemote aRemote )
+
+		#endregion
+
+		#region Constructor
+
+		public PaymentsForm( Form aForm, IRemote aRemote )
 		{
 			InitializeComponent( );
-			
+
 			mMainForm = aForm as MainForm;
 			Remote = aRemote;
 		}
 
+		#endregion
+
+		#region Events
+
 		private void PaymentsForm_Load( object sender, EventArgs e )
 		{
-			SharedMethods.SetFormFullScreen(this);
+			SharedMethods.SetFormFullScreen( this );
 		}
 
 		protected override void OnFormClosing( FormClosingEventArgs e )
@@ -50,6 +61,8 @@ namespace Tourist.Client.Forms
 			Close( );
 			mMainForm.Show( );
 		}
+
+		#endregion
 
 	}
 }

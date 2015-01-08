@@ -98,7 +98,5 @@ namespace Tourist.Data.Classes
 
 		#endregion
 
-	
-
 	}
 }

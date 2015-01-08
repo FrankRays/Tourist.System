@@ -12,7 +12,7 @@ namespace Tourist.Client
 	{
 
 		public static string ConfigFileName = "Tourist.Client.exe.config";
-		
+
 		/// <summary>
 		/// The main entry point for the application.
 		/// </summary>
@@ -25,8 +25,8 @@ namespace Tourist.Client
 			// Tell the remoting system to use the channel
 			ChannelServices.RegisterChannel( channel, false );
 
-			RemotingConfiguration.Configure( ConfigFileName , false );
-			
+			RemotingConfiguration.Configure( ConfigFileName, false );
+
 			// Create a transparent proxy "obj" for the remote object
 			IRemote Remote = ( IRemote ) Activator.GetObject(
 				typeof( IRemote ), // Remote object type
@@ -39,7 +39,7 @@ namespace Tourist.Client
 			}
 			catch ( Exception )
 			{
-				MessageBox.Show("Server not found !!! Please check if server is running or your internet connection.", "NETWORKING ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error );
+				MessageBox.Show( "Server not found !!! Please check if server is running or your internet connection.", "NETWORKING ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error );
 				return;
 			}
 

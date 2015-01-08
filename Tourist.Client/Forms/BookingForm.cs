@@ -72,14 +72,14 @@ namespace Tourist.Client.Forms
 			BookingDateTextBox.Text = DateTime.Now.Date.ToString( "d" );
 			BookingIdTextBox.Text = Remote.NextId( "Booking" ).ToString( );
 			LoadBookableSubTypes( );
-			
-			
+
+
 		}
 
 		private void SubTypeComboBox_SelectedValueChanged( object sender, EventArgs e )
 		{
 			LoadBookableIds( );
-			
+
 			var timeframe = new DateTimeRange
 			{
 				StartDateTime = SharedMethods.ConvertStringToDateTime( StartDatePicker.Text ),
@@ -201,7 +201,7 @@ namespace Tourist.Client.Forms
 				EndDateTime = SharedMethods.ConvertStringToDateTime( EndDatePicker.Text )
 			};
 
-			if ( CanAddBooking( booking.Bookable.Id,booking.BookableSubType,booking.TimeFrame ) )
+			if ( CanAddBooking( booking.Bookable.Id, booking.BookableSubType, booking.TimeFrame ) )
 			{
 				Remote.Append( booking, "Bookings" );
 
@@ -220,9 +220,9 @@ namespace Tourist.Client.Forms
 		}
 
 
-		private bool CanAddBooking( int aBookableId, string aBookableSubType,DateTimeRange aTimeFrame )
+		private bool CanAddBooking( int aBookableId, string aBookableSubType, DateTimeRange aTimeFrame )
 		{
-			return Remote.IsNotBookedAlredy( aBookableId, aBookableSubType , aTimeFrame );
+			return Remote.IsNotBookedAlredy( aBookableId, aBookableSubType, aTimeFrame );
 		}
 
 
@@ -255,7 +255,8 @@ namespace Tourist.Client.Forms
 
 		private void LoadBookableDescription( )
 		{
-			if ( string.IsNullOrEmpty( BookableIdComboBox.Text ) ) {
+			if ( string.IsNullOrEmpty( BookableIdComboBox.Text ) )
+			{
 				DescriptionTextBox.Text = string.Empty;
 				return;
 			}

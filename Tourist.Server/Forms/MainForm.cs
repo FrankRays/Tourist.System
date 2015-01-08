@@ -169,8 +169,8 @@ namespace Tourist.Server.Forms
 
 		private void LogoffTile_Click( object sender, EventArgs e )
 		{
-			
-			if ( MessageBox.Show( this, Properties.Resources.LogOutString,Properties.Resources.LogOutTitle, 
+
+			if ( MessageBox.Show( this, Properties.Resources.LogOutString, Properties.Resources.LogOutTitle,
 				 MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk ) == DialogResult.No )
 				return;
 
@@ -189,8 +189,6 @@ namespace Tourist.Server.Forms
 		}
 
 		#endregion
-
-		
 
 	}
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using Tourist.Data.Interfaces;
 
 namespace Tourist.Data.Classes
 {
@@ -53,8 +52,6 @@ namespace Tourist.Data.Classes
 		}
 
 		#endregion
-
-		
 
 	}
 }

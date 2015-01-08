@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace Tourist.Data.Interfaces
+﻿namespace Tourist.Data.Interfaces
 {
-	public interface IClient : IPersonalInformation,IContact
+	public interface IClient : IPersonalInformation, IContact
 	{
 		int Id { get; set; }
 	}

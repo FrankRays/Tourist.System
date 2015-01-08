@@ -8,7 +8,7 @@ namespace Tourist.Data.Interfaces
 		string FirstName { get; set; }
 		string LastName { get; set; }
 		Gender Gender { get; set; }
-		string Nationality { get; set; } // fazer um enum com as nacionalidades 
+		string Nationality { get; set; } 
 		DateTime BirthDate { get; set; }
 		int Nif { get; set; }	
 	}

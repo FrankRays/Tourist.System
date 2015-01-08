@@ -5,6 +5,9 @@ namespace Tourist.Data.Classes
 	[Serializable]
 	public class Session
 	{
+
+		#region Fields & Properties
+
 		//more data if needed
 		private int mId;
 		private string mUsername;
@@ -27,5 +30,8 @@ namespace Tourist.Data.Classes
 			get { return mPassword; }
 			set { mPassword = value; }
 		}
+
+		#endregion
+	
 	}
 }

@@ -52,8 +52,8 @@ namespace Tourist.Server
 
 		#region MaxId Record
 
-		private int mMaxBookingId = default (int);
-
+		private int mMaxBookingId = default( int );
+		
 		public int MaxBookingId
 		{
 			get { return mMaxBookingId; }

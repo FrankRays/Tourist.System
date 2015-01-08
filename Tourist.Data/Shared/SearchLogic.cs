@@ -64,7 +64,7 @@ namespace Tourist.Data.Shared
 
 		#region Methods
 
-		public static void LoadSearchFilterCombox( string aSearchBy ,BindingSource aBindingSource, ComboBox aComboBox )
+		public static void LoadSearchFilterCombox( string aSearchBy, BindingSource aBindingSource, ComboBox aComboBox )
 		{
 			switch ( aSearchBy )
 			{
@@ -102,5 +102,6 @@ namespace Tourist.Data.Shared
 
 
 		#endregion
+
 	}
 }

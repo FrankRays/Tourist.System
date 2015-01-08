@@ -10,9 +10,16 @@ namespace Tourist.Client.Forms
 {
 	public partial class ToolsForm : MetroForm
 	{
+
+		#region Fields
+
 		private readonly IRemote Remote;
 		private readonly MainForm mMainForm;
 		private bool mBackOrExit = default( bool );
+
+		#endregion
+
+		#region Constructor
 
 		public ToolsForm( Form aForm, IRemote aRemote )
 		{
@@ -20,6 +27,10 @@ namespace Tourist.Client.Forms
 			mMainForm = aForm as MainForm;
 			Remote = aRemote;
 		}
+
+		#endregion
+
+		#region Events
 
 		private void ToolsForm_Load( object sender, EventArgs e )
 		{
@@ -49,5 +60,8 @@ namespace Tourist.Client.Forms
 			Close( );
 			mMainForm.Show( );
 		}
+
+		#endregion
+
 	}
 }

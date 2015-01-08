@@ -7,6 +7,7 @@ namespace Tourist.Data.Classes
 	[Serializable]
 	public class Employer : IEmployer
 	{
+		
 		#region Fields
 
 		private static int mCounter = default( int );

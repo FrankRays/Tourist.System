@@ -18,17 +18,17 @@ namespace Tourist.Client.Forms
 		#endregion
 
 		#region Constructor
-		
+
 		public LoginForm( IRemote aRemote )
 		{
 			InitializeComponent( );
 			Remote = aRemote;
 			mMainForm = new MainForm( this, Remote );
 		}
-		
+
 		#endregion
 
-		#region Events 
+		#region Events
 
 		private void LoginForm_Load( object sender, EventArgs e )
 		{
@@ -72,7 +72,7 @@ namespace Tourist.Client.Forms
 		#endregion
 
 		#region Private Methods
-		
+
 		private void LoadEntityLogo( )
 		{
 			var buffer = Remote.Entity.LogoBuffer;

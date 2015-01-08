@@ -9,8 +9,15 @@ namespace Tourist.Server.Forms
 {
 	public partial class NotifyForm : MetroForm
 	{
+
+		#region Fields
+
 		private readonly MainForm mMainForm;
 		private bool mBackOrExit = default( bool );
+
+		#endregion
+
+		#region Constructor
 
 		public NotifyForm( Form aForm )
 		{
@@ -18,10 +25,13 @@ namespace Tourist.Server.Forms
 			InitializeComponent( );
 		}
 
+		#endregion
+
+		#region Events
+
 		private void NotifyForm_Load( object sender, EventArgs e )
 		{
 			SharedMethods.SetFormFullScreen( this );
-
 		}
 
 		protected override void OnFormClosing( FormClosingEventArgs e )
@@ -47,5 +57,8 @@ namespace Tourist.Server.Forms
 			Close( );
 			mMainForm.Show( );
 		}
+
+		#endregion
+
 	}
 }

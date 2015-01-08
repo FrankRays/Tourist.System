@@ -92,7 +92,7 @@ namespace Tourist.Client.Forms
 							return;
 						//BirthDate
 						case 5:
-							Remote.Edit("Client", clientId, "BirthDate", aNewValue);
+							Remote.Edit( "Client", clientId, "BirthDate", aNewValue );
 							return;
 						//Nif
 						case 6:
@@ -123,12 +123,12 @@ namespace Tourist.Client.Forms
 			var dialog = MessageBox.Show( this, Resources.RemoveString,
 			Resources.RemoveTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Information );
 
-			if (dialog == DialogResult.No)
+			if ( dialog == DialogResult.No )
 			{
-				ReLoadDataToGrid();
+				ReLoadDataToGrid( );
 				return;
 			}
-				
+
 			var removeIndex = e.RowIndex;
 
 			Remote.Remove( removeIndex, "Clients" );
@@ -219,9 +219,9 @@ namespace Tourist.Client.Forms
 			}
 		}
 
-		private void ReLoadDataToGrid(  )
+		private void ReLoadDataToGrid( )
 		{
-			SharedMethods.ClearDataGrid( ClientsDataGrid);
+			SharedMethods.ClearDataGrid( ClientsDataGrid );
 			LoadDataToGrid( );
 		}
 
@@ -241,6 +241,7 @@ namespace Tourist.Client.Forms
 			client.Email = rowValues[ 9 ];
 
 			Remote.Append( client, "Clients" );
+
 		}
 
 		#endregion

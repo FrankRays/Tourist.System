@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Tourist.Data.Interfaces
+﻿namespace Tourist.Data.Interfaces
 {
 	public interface IEmployer : IPersonalInformation, IContact
 	{

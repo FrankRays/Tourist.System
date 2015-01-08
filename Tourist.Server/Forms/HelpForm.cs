@@ -9,14 +9,25 @@ namespace Tourist.Server.Forms
 {
 	public partial class HelpForm : MetroForm
 	{
+
+		#region Fields
+		
 		private readonly MainForm mMainForm;
 		private bool mBackOrExit = default( bool );
 
+		#endregion
+
+		#region Constructor
+		
 		public HelpForm( Form aForm )
 		{
 			mMainForm = aForm as MainForm;
 			InitializeComponent( );
 		}
+
+		#endregion
+
+		#region Events
 
 		private void HelpForm_Load( object sender, EventArgs e )
 		{
@@ -46,5 +57,7 @@ namespace Tourist.Server.Forms
 			Close( );
 			mMainForm.Show( );
 		}
+
+		#endregion
 	}
 }

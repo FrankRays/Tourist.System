@@ -18,7 +18,7 @@ namespace Tourist.Data.Classes
 		private string mDescription;
 		private double mPrice;
 		private int mCapacity;
-		
+
 		#endregion
 
 		#region Properties
@@ -33,7 +33,7 @@ namespace Tourist.Data.Classes
 		public Enum Type
 		{
 			get { return mType; }
-			set { mType = value;  }
+			set { mType = value; }
 		}
 
 		[XmlElement( "Type" )]
@@ -47,7 +47,7 @@ namespace Tourist.Data.Classes
 		public BookableState State
 		{
 			get { return mBookableState; }
-			set { mBookableState = value;  }
+			set { mBookableState = value; }
 		}
 
 		public string Description
@@ -59,13 +59,13 @@ namespace Tourist.Data.Classes
 		public double Price
 		{
 			get { return mPrice; }
-			set { mPrice = value;   }
+			set { mPrice = value; }
 		}
 
 		public int Capacity
 		{
 			get { return mCapacity; }
-			set { mCapacity = value;  }
+			set { mCapacity = value; }
 		}
 
 		#endregion
