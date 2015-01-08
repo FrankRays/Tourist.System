@@ -8,7 +8,7 @@ using Tourist.Data.Shared;
 
 namespace Tourist.Client.Forms
 {
-	public partial class BrowseBookings : MetroForm
+	public partial class BrowseBookingsForm : MetroForm
 	{
 
 		#region Fields
@@ -21,7 +21,7 @@ namespace Tourist.Client.Forms
 
 		#region Constructor
 
-		public BrowseBookings( Form aForm, IRemote aRemote )
+		public BrowseBookingsForm( Form aForm, IRemote aRemote )
 		{
 			InitializeComponent( );
 			MainForm = aForm as MainForm;

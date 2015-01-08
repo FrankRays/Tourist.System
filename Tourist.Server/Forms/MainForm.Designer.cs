@@ -46,7 +46,7 @@
 			this.ClockTitleLabel = new System.Windows.Forms.Label();
 			this.AmPmLabel = new System.Windows.Forms.Label();
 			this.ClockLabel = new System.Windows.Forms.Label();
-			this.EmployersTile = new MetroFramework.Controls.MetroTile();
+			this.EmployeesTile = new MetroFramework.Controls.MetroTile();
 			this.BrowseBookingsTile = new MetroFramework.Controls.MetroTile();
 			this.BackupTile = new MetroFramework.Controls.MetroTile();
 			this.ServicesTile = new MetroFramework.Controls.MetroTile();
@@ -87,7 +87,7 @@
 			this.MainPanel.Controls.Add(this.ReportsTile);
 			this.MainPanel.Controls.Add(this.panel1);
 			this.MainPanel.Controls.Add(this.ClockTile);
-			this.MainPanel.Controls.Add(this.EmployersTile);
+			this.MainPanel.Controls.Add(this.EmployeesTile);
 			this.MainPanel.Controls.Add(this.BrowseBookingsTile);
 			this.MainPanel.Controls.Add(this.BackupTile);
 			this.MainPanel.Controls.Add(this.ServicesTile);
@@ -332,24 +332,24 @@
 			this.ClockLabel.Text = "00:00:00";
 			this.ClockLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// EmployersTile
+			// EmployeesTile
 			// 
-			this.EmployersTile.ActiveControl = null;
-			this.EmployersTile.BackColor = System.Drawing.Color.Transparent;
-			this.EmployersTile.Location = new System.Drawing.Point(286, 146);
-			this.EmployersTile.Margin = new System.Windows.Forms.Padding(2);
-			this.EmployersTile.Name = "EmployersTile";
-			this.EmployersTile.Size = new System.Drawing.Size(268, 122);
-			this.EmployersTile.TabIndex = 2;
-			this.EmployersTile.Text = "Employers";
-			this.EmployersTile.Theme = MetroFramework.MetroThemeStyle.Dark;
-			this.EmployersTile.TileImage = global::Tourist.Server.Properties.Resources.employers;
-			this.EmployersTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.EmployersTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-			this.EmployersTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-			this.EmployersTile.UseSelectable = true;
-			this.EmployersTile.UseTileImage = true;
-			this.EmployersTile.Click += new System.EventHandler(this.EmployersTile_Click);
+			this.EmployeesTile.ActiveControl = null;
+			this.EmployeesTile.BackColor = System.Drawing.Color.Transparent;
+			this.EmployeesTile.Location = new System.Drawing.Point(286, 146);
+			this.EmployeesTile.Margin = new System.Windows.Forms.Padding(2);
+			this.EmployeesTile.Name = "EmployeesTile";
+			this.EmployeesTile.Size = new System.Drawing.Size(268, 122);
+			this.EmployeesTile.TabIndex = 2;
+			this.EmployeesTile.Text = "Employees";
+			this.EmployeesTile.Theme = MetroFramework.MetroThemeStyle.Dark;
+			this.EmployeesTile.TileImage = global::Tourist.Server.Properties.Resources.employers;
+			this.EmployeesTile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.EmployeesTile.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+			this.EmployeesTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+			this.EmployeesTile.UseSelectable = true;
+			this.EmployeesTile.UseTileImage = true;
+			this.EmployeesTile.Click += new System.EventHandler(this.EmployersTile_Click);
 			// 
 			// BrowseBookingsTile
 			// 
@@ -611,7 +611,7 @@
 		private MetroFramework.Drawing.Html.HtmlToolTip htmlToolTip1;
 		private MetroFramework.Controls.MetroPanel MainPanel;
 		private MetroFramework.Controls.MetroTile ClientsTile;
-		private MetroFramework.Controls.MetroTile EmployersTile;
+		private MetroFramework.Controls.MetroTile EmployeesTile;
 		private MetroFramework.Controls.MetroTile ServicesTile;
 		private MetroFramework.Controls.MetroTile BrowseBookingsTile;
 		private MetroFramework.Controls.MetroTile BackupTile;

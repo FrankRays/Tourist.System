@@ -65,9 +65,9 @@ namespace Tourist.Server
 			return Repository.CheckLogin( aUsername, aPassword, aType );
 		}
 
-		public bool IsNotBookedAlredy( int aBookableId, DateTimeRange aTimeFrame )
+		public bool IsNotBookedAlredy( int aBookableId, string aBookableSubType,DateTimeRange aTimeFrame )
 		{
-			return Repository.IsNotBookedAlredy(aBookableId, aTimeFrame);
+			return Repository.IsNotBookedAlredy( aBookableId, aBookableSubType, aTimeFrame );
 		}
 
 		public Session ClientLoginSession

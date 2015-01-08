@@ -1,6 +1,6 @@
 ﻿namespace Tourist.Client.Forms
 {
-	partial class BrowseBookings
+	partial class BrowseBookingsForm
 	{
 		/// <summary>
 		/// Required designer variable.

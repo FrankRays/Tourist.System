@@ -40,6 +40,35 @@
         <Capacity>1</Capacity>
       </Bookable>
     </Booking>
+    <Booking>
+      <Id>1</Id>
+      <BookingDate>2015-01-08T00:00:00</BookingDate>
+      <TimeFrame>
+        <StartDateTime>2015-01-08T00:00:00</StartDateTime>
+        <EndDateTime>2015-01-09T00:00:00</EndDateTime>
+      </TimeFrame>
+      <TotaPrice>100.5</TotaPrice>
+      <Client>
+        <Id>2</Id>
+        <FirstName>dino</FirstName>
+        <LastName>rodrigues</LastName>
+        <Nationality>PT  Portugal</Nationality>
+        <BirthDate>2014-05-05T00:00:00</BirthDate>
+        <Gender>Male</Gender>
+        <Nif>102345678</Nif>
+        <Address>rua das ovas</Address>
+        <Phone>123456789</Phone>
+        <Email>dino@gmail.com</Email>
+      </Client>
+      <Bookable xsi:type="Activity">
+        <Id>1</Id>
+        <Type>Golf</Type>
+        <State>Available</State>
+        <Description>Santo Serra Golf Club</Description>
+        <Price>100.5</Price>
+        <Capacity>4</Capacity>
+      </Bookable>
+    </Booking>
   </BookingsList>
   <ClientList>
     <Client>
@@ -61,7 +90,7 @@
       <Nationality>PT  Portugal</Nationality>
       <BirthDate>2014-05-05T00:00:00</BirthDate>
       <Gender>Male</Gender>
-      <Nif>123456789</Nif>
+      <Nif>102345678</Nif>
       <Address>rua das ovas</Address>
       <Phone>123456789</Phone>
       <Email>dino@gmail.com</Email>
@@ -85,7 +114,16 @@
       <Capacity>1</Capacity>
     </Room>
   </RoomList>
-  <ActivityList />
+  <ActivityList>
+    <Activity>
+      <Id>1</Id>
+      <Type>Golf</Type>
+      <State>Available</State>
+      <Description>Santo Serra Golf Club</Description>
+      <Price>100.5</Price>
+      <Capacity>4</Capacity>
+    </Activity>
+  </ActivityList>
   <TransportList />
   <ManagersList>
     <Manager>

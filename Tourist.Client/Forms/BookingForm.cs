@@ -143,9 +143,10 @@ namespace Tourist.Client.Forms
 
 		private void BrowseBookingsButton_Click( object sender, EventArgs e )
 		{
+			mBackOrExit = true;
 			Close( );
-			var disponibilityForm = new BrowseBookings( MainForm, Remote );
-			disponibilityForm.Show( );
+			var browseBookingsForm = new BrowseBookingsForm( MainForm, Remote );
+			browseBookingsForm.Show( );
 		}
 
 		protected override void OnFormClosing( FormClosingEventArgs e )
@@ -189,7 +190,7 @@ namespace Tourist.Client.Forms
 				EndDateTime = SharedMethods.ConvertStringToDateTime( EndDatePicker.Text )
 			};
 
-			if ( CanAddBooking( booking.Bookable.Id, booking.TimeFrame ) )
+			if ( CanAddBooking( booking.Bookable.Id,booking.BookableSubType,booking.TimeFrame ) )
 			{
 				Remote.Append( booking, "Bookings" );
 
@@ -207,9 +208,9 @@ namespace Tourist.Client.Forms
 		}
 
 
-		private bool CanAddBooking( int aBookableId, DateTimeRange aTimeFrame )
+		private bool CanAddBooking( int aBookableId, string aBookableSubType,DateTimeRange aTimeFrame )
 		{
-			return Remote.IsNotBookedAlredy( aBookableId, aTimeFrame );
+			return Remote.IsNotBookedAlredy( aBookableId, aBookableSubType , aTimeFrame );
 		}
 
 
@@ -265,6 +266,7 @@ namespace Tourist.Client.Forms
 			DescriptionTextBox.ReadOnly = aBool;
 			BookingIdTextBox.ReadOnly = aBool;
 			BookingDateTextBox.ReadOnly = aBool;
+			BrowseBookingsButton.Enabled = aBool;
 		}
 
 		#endregion

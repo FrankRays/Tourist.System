@@ -404,13 +404,13 @@ namespace Tourist.Server
 			}
 		}
 
-		public bool IsNotBookedAlredy( int aBookableId, DateTimeRange aTimeFrame )
+		public bool IsNotBookedAlredy( int aBookableId, string aBookableSubtype, DateTimeRange aTimeFrame )
 		{
 			var temp = true;
 
 			foreach ( var booking in mData.Bookings )
 			{
-				if ( booking.Bookable.Id == aBookableId )
+				if ( booking.Bookable.Id == aBookableId && booking.BookableType.Equals( aBookableSubtype ) )
 				{
 					if ( aTimeFrame.StartDateTime < booking.TimeFrame.EndDateTime )
 					{
@@ -476,12 +476,12 @@ namespace Tourist.Server
 					}
 					else if ( mData.Bookings.ElementAt( i ).Bookable is Activity )
 					{
-						matrix[ i, j ] = "Room";
+						matrix[ i, j ] = "Activity";
 						j++;
 					}
 					else if ( mData.Bookings.ElementAt( i ).Bookable is Transport )
 					{
-						matrix[ i, j ] = "Room";
+						matrix[ i, j ] = "Transport";
 						j++;
 					}
 
@@ -1241,6 +1241,10 @@ namespace Tourist.Server
 					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
 						client.BirthDate = SharedMethods.ConvertStringToDateTime( aNewValue );
 					return;
+				case "Nif":
+					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
+						client.Nif = SharedMethods.ConvertStringToInt( aNewValue );
+					return;
 				case "Address":
 					foreach ( var client in mData.Clients.Where( client => client.Id == aId ) )
 						client.Address = aNewValue;
@@ -1485,6 +1489,44 @@ namespace Tourist.Server
 
 			return buffer;
 		}
+
+		public List<Booking> SearchBookables( string aSearchFilter, string aSearchParameter1 = null, string aSearchParameter2 = null, string aSearchParameter3 = null )
+		{
+			List<Booking> buffer = new List<Booking>( );
+
+			switch ( aSearchFilter )
+			{
+				case "Nif":
+					foreach ( var booking in mData.Bookings.Where( booking => booking.ClientNif.Equals( aSearchParameter1 ) ) )
+					{
+						buffer.Add( booking );
+						break;
+					}
+					break;
+				case "BookingDate":
+					buffer.AddRange( mData.Bookings.Where( booking => booking.BookingDay.Equals( aSearchParameter2 ) ) );
+					break;
+				case "StartDate":
+					buffer.AddRange( mData.Bookings.Where( booking => booking.BookingStartDate.Equals( aSearchParameter2 ) ) );
+					break;
+				case "EndDate":
+					buffer.AddRange( mData.Bookings.Where( booking => booking.BookingEndDate.Equals( aSearchParameter2 ) ) );
+					break;
+				case "TimeRange":
+					foreach ( var booking in mData.Bookings )
+					{
+						if ( booking.TimeFrame.StartDateTime >= SharedMethods.ConvertStringToDateTime( aSearchParameter2 )
+							&& booking.TimeFrame.EndDateTime <= SharedMethods.ConvertStringToDateTime( aSearchParameter3 ) )
+						{
+							buffer.Add( booking );
+						}
+					}
+					break;
+			}
+
+			return buffer;
+		}
+
 
 		#endregion
 	}

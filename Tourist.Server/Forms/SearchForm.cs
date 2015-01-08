@@ -83,6 +83,7 @@ namespace Tourist.Server.Forms
 				case "Bookings":
 					/*if ( Repository.SearchBookings( aSearchFilter, aSearchParameter1, aSearchParameter2, aSearchParameter3 ).Count == 0 )
 						return;*/
+					RemoveOldSearchDataGridValues();
 					AddBookingsColumns();
 					mBindingSearchDataGrid.DataSource = Repository.SearchBookings( aSearchFilter, aSearchParameter1, aSearchParameter2, aSearchParameter3);
 					SearchDataGrid.DataSource = mBindingSearchDataGrid;
@@ -179,6 +180,7 @@ namespace Tourist.Server.Forms
 
 		public void AddBookablesColumns()
 		{
+			
 			var IdColumn = new DataGridViewTextBoxColumn( );
 			var TypeColumn = new DataGridViewTextBoxColumn( );
 			var StateColumn = new DataGridViewTextBoxColumn( );
@@ -295,13 +297,18 @@ namespace Tourist.Server.Forms
 
 		private void SearchByComboBox_SelectedValueChanged( object sender, EventArgs e )
 		{
-			CleanOldSeachFilterValues( );
+			RemoveOldSeachFilterValues( );
 			SearchLogic.LoadSearchFilterCombox( SearchByComboBox.Text, mBindingSearchFilterComboBox, SearchFilterComboBox );
 		}
 
-		private void CleanOldSeachFilterValues( )
+		private void RemoveOldSeachFilterValues( )
 		{
 			mBindingSearchFilterComboBox.DataSource = null;
+		}
+
+		private void RemoveOldSearchDataGridValues()
+		{
+			SearchDataGrid.Columns.Clear();
 		}
 
 		private void SeachFilterComboBox_SelectedValueChanged( object sender, EventArgs e )
