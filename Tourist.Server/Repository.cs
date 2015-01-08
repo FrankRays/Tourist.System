@@ -412,13 +412,13 @@ namespace Tourist.Server
 			{
 				if ( booking.Bookable.Id == aBookableId )
 				{
-					if (aTimeFrame.StartDateTime < booking.TimeFrame.EndDateTime)
+					if ( aTimeFrame.StartDateTime < booking.TimeFrame.EndDateTime )
 					{
 						temp = false;
 					}
 				}
 			}
-			
+
 			return temp;
 		}
 
@@ -1447,5 +1447,45 @@ namespace Tourist.Server
 
 		#endregion
 
+		#region Search Methods
+
+		public List<Booking> SearchBookings( string aSearchFilter, string aSearchParameter1 = null, string aSearchParameter2 = null, string aSearchParameter3 = null )
+		{
+			List<Booking> buffer = new List<Booking>( );
+
+			switch ( aSearchFilter )
+			{
+				case "Nif":
+					foreach ( var booking in mData.Bookings.Where( booking => booking.ClientNif.Equals( aSearchParameter1 ) ) )
+					{
+						buffer.Add( booking );
+						break;
+					}
+					break;
+				case "BookingDate":
+					buffer.AddRange( mData.Bookings.Where( booking => booking.BookingDay.Equals( aSearchParameter2 ) ) );
+					break;
+				case "StartDate":
+					buffer.AddRange( mData.Bookings.Where( booking => booking.BookingStartDate.Equals( aSearchParameter2 ) ) );
+					break;
+				case "EndDate":
+					buffer.AddRange( mData.Bookings.Where( booking => booking.BookingEndDate.Equals( aSearchParameter2 ) ) );
+					break;
+				case "TimeRange":
+					foreach ( var booking in mData.Bookings )
+					{
+						if ( booking.TimeFrame.StartDateTime >= SharedMethods.ConvertStringToDateTime( aSearchParameter2 )
+							&& booking.TimeFrame.EndDateTime <= SharedMethods.ConvertStringToDateTime( aSearchParameter3 ) )
+						{
+							buffer.Add( booking );
+						}
+					}
+					break;
+			}
+
+			return buffer;
+		}
+
+		#endregion
 	}
 }

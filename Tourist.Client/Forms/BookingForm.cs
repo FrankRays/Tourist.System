@@ -237,7 +237,7 @@ namespace Tourist.Client.Forms
 			mIdBindingSource.DataSource = Remote.GetBooKablesIds( TypeCombox.Text, SubTypeComboBox.Text );
 			BookableIdComboBox.DataSource = mIdBindingSource;
 
-			BasePriceTextBox.Text = Remote.GetBasePrice( SubTypeComboBox.Text ).ToString( "0.00", CultureInfo.InvariantCulture );
+			BasePriceTextBox.Text = Remote.GetBasePrice( SubTypeComboBox.Text ).ToString( "0.00", CultureInfo.InvariantCulture ) + " €";
 		}
 
 		private void LoadBookableDescription( )
