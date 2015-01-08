@@ -75,68 +75,46 @@ namespace Tourist.Server.Forms
 						//FirstName
 						case 1:
 							Repository.Edit( "Manager", managerId, "FirstName", aNewValue );
-							MessageBox.Show( this, Properties.Resources.ManagerString + Properties.Resources.FirstNameEdited,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//LastName	
 						case 2:
 							Repository.Edit( "Manager", managerId, "LastName", aNewValue );
-							MessageBox.Show( this, Properties.Resources.ManagerString + Properties.Resources.LastNameEdited,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Gender	
 						case 3:
 							Repository.Edit( "Manager", managerId, "Gender", aNewValue );
-							MessageBox.Show( this, Properties.Resources.ManagerString + Properties.Resources.GenderEdited,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Nationality
 						case 4:
 							Repository.Edit( "Manager", managerId, "Nationality", aNewValue );
-							MessageBox.Show( this, Properties.Resources.ManagerString + Properties.Resources.NationalityEdited,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//BirthDate
 						case 5:
 							Repository.Edit( "Manager", managerId, "BirthDate", aNewValue );
-							MessageBox.Show( this, Properties.Resources.ManagerString + Properties.Resources.BirthDateEdited,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Nif
 						case 6:
 							Repository.Edit( "Manager", managerId, "Nif", aNewValue );
-							MessageBox.Show( this, Properties.Resources.ManagerString + Properties.Resources.NifEdited,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Address
 						case 7:
 							Repository.Edit( "Manager", managerId, "Address", aNewValue );
-							MessageBox.Show( this, Properties.Resources.ManagerString + Properties.Resources.AddressEdited,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Phone
 						case 8:
 							Repository.Edit( "Manager", managerId, "Phone", aNewValue );
-							MessageBox.Show( this, Properties.Resources.ManagerString + Properties.Resources.PhoneEdited,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Email
 						case 9:
 							Repository.Edit( "Manager", managerId, "Email", aNewValue );
-							MessageBox.Show( this, Properties.Resources.ManagerString + Properties.Resources.EmailEdited,
-											Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Username
 						case 10:
 							Repository.Edit( "Manager", managerId, "Username", aNewValue );
-							MessageBox.Show( this, Properties.Resources.ManagerString + Properties.Resources.UsernameEdited,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Password
 						case 11:
 							Repository.Edit( "Manager", managerId, "Password", aNewValue );
-							MessageBox.Show( this, Properties.Resources.ManagerString + Properties.Resources.PasswordEdited,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						default:
 							return;

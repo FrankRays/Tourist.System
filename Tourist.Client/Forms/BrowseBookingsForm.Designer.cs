@@ -44,7 +44,6 @@
 			this.ClientNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.TypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.SubTypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.BookableIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.BookableDescriptionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.BasePriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.BookingDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -163,7 +162,6 @@
             this.ClientNameColumn,
             this.TypeColumn,
             this.SubTypeColumn,
-            this.BookableIdColumn,
             this.BookableDescriptionColumn,
             this.BasePriceColumn,
             this.BookingDateColumn,
@@ -248,13 +246,6 @@
 			this.SubTypeColumn.MinimumWidth = 150;
 			this.SubTypeColumn.Name = "SubTypeColumn";
 			// 
-			// BookableIdColumn
-			// 
-			this.BookableIdColumn.HeaderText = "Bookable ID ";
-			this.BookableIdColumn.MinimumWidth = 125;
-			this.BookableIdColumn.Name = "BookableIdColumn";
-			this.BookableIdColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			// 
 			// BookableDescriptionColumn
 			// 
 			this.BookableDescriptionColumn.HeaderText = "Bookable Description";
@@ -300,7 +291,7 @@
 			this.TotalPriceColumn.Name = "TotalPriceColumn";
 			this.TotalPriceColumn.ReadOnly = true;
 			// 
-			// BrowseBookings
+			// BrowseBookingsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -311,7 +302,7 @@
 			this.Margin = new System.Windows.Forms.Padding(2);
 			this.MaximizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(1200, 800);
-			this.Name = "BrowseBookings";
+			this.Name = "BrowseBookingsForm";
 			this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
 			this.Resizable = false;
 			this.Style = MetroFramework.MetroColorStyle.White;
@@ -339,7 +330,6 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn ClientNameColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn TypeColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn SubTypeColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn BookableIdColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn BookableDescriptionColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn BasePriceColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn BookingDateColumn;

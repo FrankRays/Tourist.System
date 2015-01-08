@@ -86,7 +86,7 @@ namespace Tourist.Client.Forms
 			if ( Remote.IsEmpty( "Bookings" ) )
 				return;
 
-			var roomMatrix = Remote.ListToMatrix( "Bookings" );
+			var bookingMatrix = Remote.ListToMatrix( "Bookings" );
 
 			for ( var i = 0 ; i < Remote.Count( "Bookings" ) ; i++ )
 			{
@@ -94,7 +94,7 @@ namespace Tourist.Client.Forms
 
 				for ( var j = 0 ; j < BookingsDataGrid.ColumnCount ; j++ )
 				{
-					BookingsDataGrid.Rows[ i ].Cells[ j ].Value = roomMatrix[ i, j ];
+					BookingsDataGrid.Rows[ i ].Cells[ j ].Value = bookingMatrix[ i, j ];
 				}
 			}
 		}

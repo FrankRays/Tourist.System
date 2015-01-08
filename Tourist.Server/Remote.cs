@@ -65,7 +65,7 @@ namespace Tourist.Server
 			return Repository.CheckLogin( aUsername, aPassword, aType );
 		}
 
-		public bool IsNotBookedAlredy( int aBookableId, string aBookableSubType,DateTimeRange aTimeFrame )
+		public bool IsNotBookedAlredy( int aBookableId, string aBookableSubType, DateTimeRange aTimeFrame )
 		{
 			return Repository.IsNotBookedAlredy( aBookableId, aBookableSubType, aTimeFrame );
 		}
@@ -150,6 +150,32 @@ namespace Tourist.Server
 		{
 			get { return Repository.MaxBookingId; }
 			set { Repository.MaxBookingId = value; }
+		}
+
+		public List<Booking> SearchBookings( string aSearchFilter, string aSearchParameter1 = null,
+			string aSearchParameter2 = null, string aSearchParameter3 = null )
+		{
+			return Repository.SearchBookings( aSearchFilter, aSearchParameter1, aSearchParameter2, aSearchParameter3 );
+		}
+
+		public List<Room> SearchRooms( string aSearchFilter )
+		{
+			return Repository.SearchRooms( aSearchFilter );
+		}
+
+		public List<Activity> SearchActivities( string aSearchFilter )
+		{
+			return Repository.SearchActivities( aSearchFilter );
+		}
+
+		public List<Transport> SearchTransports( string aSearchFilter )
+		{
+			return Repository.SearchTransports( aSearchFilter );
+		}
+
+		public List<Client> SearchClients( string aSearchFilter, string aSearchParameter1 )
+		{
+			return Repository.SearchClients( aSearchFilter, aSearchParameter1 );
 		}
 
 		#endregion

@@ -147,6 +147,13 @@ namespace Tourist.Client.Forms
 			mLoginForm.Show( );
 		}
 
+		private void SearchTile_Click( object sender, EventArgs e )
+		{
+			Hide( );
+			var searchForm = new SearchForm( this, Remote );
+			searchForm.Show( );
+		}
+
 		#endregion
 
 	}

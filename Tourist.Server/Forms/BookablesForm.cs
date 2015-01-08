@@ -70,20 +70,14 @@ namespace Tourist.Server.Forms
 							Repository.Edit( "Room", roomId, "Type", aNewValue );
 							Repository.Edit( "Room", roomId, "Capacity", RoomDataGrid[ "R_CapacityColumn", e.RowIndex ].Value.ToString( ) );
 							Repository.Edit( "Room", roomId, "Price", RoomDataGrid[ "R_PriceColumn", e.RowIndex ].Value.ToString( ) );
-							MessageBox.Show( this, Properties.Resources.RoomString + Properties.Resources.TypeEditedString,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//state
 						case 2:
 							Repository.Edit( "Room", roomId, "State", aNewValue );
-							MessageBox.Show( this, Properties.Resources.RoomString + Properties.Resources.StateEditedString,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Description
 						case 3:
 							Repository.Edit( "Room", roomId, "Description", aNewValue );
-							MessageBox.Show( this, Properties.Resources.RoomString + Properties.Resources.DescriptionEdited,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						default:
 							return;
@@ -160,20 +154,14 @@ namespace Tourist.Server.Forms
 							Repository.Edit( "Activity", activityId, "Type", aNewValue );
 							Repository.Edit( "Activity", activityId, "Capacity", ActivitiesDataGrid[ "A_CapacityColumn", e.RowIndex ].Value.ToString( ) );
 							Repository.Edit( "Activity", activityId, "Price", ActivitiesDataGrid[ "A_PriceColumn", e.RowIndex ].Value.ToString( ) );
-							MessageBox.Show( this, Properties.Resources.ActivityString + Properties.Resources.TypeEditedString,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//state
 						case 2:
 							Repository.Edit( "Activity", activityId, "State", aNewValue );
-							MessageBox.Show( this, Properties.Resources.ActivityString + Properties.Resources.StateEditedString,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Description
 						case 3:
 							Repository.Edit( "Activity", activityId, "Description", aNewValue );
-							MessageBox.Show( this, Properties.Resources.ActivityString + Properties.Resources.DescriptionEdited,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						default:
 							return;
@@ -249,20 +237,14 @@ namespace Tourist.Server.Forms
 							Repository.Edit( "Transport", transportId, "Type", aNewValue );
 							Repository.Edit( "Transport", transportId, "Capacity", TransportsDataGrid[ "T_CapacityColumn", e.RowIndex ].Value.ToString( ) );
 							Repository.Edit( "Transport", transportId, "Price", TransportsDataGrid[ "T_PriceColumn", e.RowIndex ].Value.ToString( ) );
-							MessageBox.Show( this, Properties.Resources.TransportString + Properties.Resources.TypeEditedString,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//state
 						case 4:
 							Repository.Edit( "Transport", transportId, "StartDate", aNewValue );
-							MessageBox.Show( this, Properties.Resources.TransportString + Properties.Resources.StateEditedString,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Description
 						case 3:
 							Repository.Edit( "Transport", transportId, "Description", aNewValue );
-							MessageBox.Show( this, Properties.Resources.TransportString + Properties.Resources.DescriptionEdited,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						default:
 							return;

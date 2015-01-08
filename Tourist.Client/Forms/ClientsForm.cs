@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
-using MetroFramework;
 using MetroFramework.Controls;
 using MetroFramework.Forms;
+using Tourist.Client.Properties;
 using Tourist.Data.Enums;
 using Tourist.Data.Interfaces;
 using Tourist.Data.Shared;
-
 
 namespace Tourist.Client.Forms
 {
@@ -66,8 +65,8 @@ namespace Tourist.Client.Forms
 				{
 					var rowValues = SharedMethods.RowCellValues( row );
 					AddToRepository( rowValues );
-					MessageBox.Show( this, Properties.Resources.ClientString + Properties.Resources.AddString,
-					Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
+					MessageBox.Show( this, Resources.ClientString + Resources.AddString,
+					Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 				}
 				else
 				{
@@ -78,56 +77,38 @@ namespace Tourist.Client.Forms
 						//FirstName
 						case 1:
 							Remote.Edit( "Client", clientId, "FirstName", aNewValue );
-							MessageBox.Show( this, Properties.Resources.ClientString + Properties.Resources.FirstNameEdited,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//LastName	
 						case 2:
 							Remote.Edit( "Client", clientId, "LastName", aNewValue );
-							MessageBox.Show( this, Properties.Resources.ClientString + Properties.Resources.LastNameEdited,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Gender	
 						case 3:
 							Remote.Edit( "Client", clientId, "Gender", aNewValue );
-							MessageBox.Show( this, Properties.Resources.ClientString + Properties.Resources.GenderEdited,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Nationality
 						case 4:
 							Remote.Edit( "Client", clientId, "Nationality", aNewValue );
-							MessageBox.Show( this, Properties.Resources.ClientString + Properties.Resources.NationalityEdited,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//BirthDate
 						case 5:
-							Remote.Edit( "Client", clientId, "BirthDate", aNewValue );
-							MessageBox.Show( this, Properties.Resources.ClientString + Properties.Resources.BirthDateEdited,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
+							Remote.Edit("Client", clientId, "BirthDate", aNewValue);
 							return;
 						//Nif
 						case 6:
 							Remote.Edit( "Client", clientId, "Nif", aNewValue );
-							MessageBox.Show( this, Properties.Resources.ClientString + Properties.Resources.NifEdited,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Address
 						case 7:
 							Remote.Edit( "Client", clientId, "Address", aNewValue );
-							MessageBox.Show( this, Properties.Resources.ClientString + Properties.Resources.AddressEdited,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Phone
 						case 8:
 							Remote.Edit( "Client", clientId, "Phone", aNewValue );
-							MessageBox.Show( this, Properties.Resources.ClientString + Properties.Resources.PhoneEdited,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						//Email
 						case 9:
 							Remote.Edit( "Client", clientId, "Email", aNewValue );
-							MessageBox.Show( this, Properties.Resources.ClientString + Properties.Resources.EmailEdited,
-							Properties.Resources.OperationSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 							return;
 						default:
 							return;
@@ -139,8 +120,8 @@ namespace Tourist.Client.Forms
 		private void ClientsDataGrid_RowRemoved( object sender, DataGridViewRowsRemovedEventArgs e )
 		{
 
-			var dialog = MessageBox.Show( this, Properties.Resources.RemoveString,
-			Properties.Resources.RemoveTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Information );
+			var dialog = MessageBox.Show( this, Resources.RemoveString,
+			Resources.RemoveTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Information );
 
 			if (dialog == DialogResult.No)
 			{
@@ -198,8 +179,8 @@ namespace Tourist.Client.Forms
 
 			base.OnFormClosing( e );
 
-			var dialogResult = MessageBox.Show( this, Properties.Resources.ExitMessage,
-			Properties.Resources.ExitMessageTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
+			var dialogResult = MessageBox.Show( this, Resources.ExitMessage,
+			Resources.ExitMessageTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk );
 
 			if ( e.CloseReason == CloseReason.WindowsShutDown ) return;
 

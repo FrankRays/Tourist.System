@@ -133,7 +133,7 @@ namespace Tourist.Server.Forms
 			ClientNameColumn.DataPropertyName = "ClientName";
 			TypeColumn.DataPropertyName = "BookableType";
 			SubTypeColumn.DataPropertyName = "BookableSubType";
-			BookableIdColumn.DataPropertyName = "BookableId";
+			//BookableIdColumn.DataPropertyName = "BookableId";
 			BookableDescriptionColumn.DataPropertyName = "BookableDescription";
 			BasePriceColumn.DataPropertyName = "BookableBasePrice";
 			BookingDateColumn.DataPropertyName = "BookingDay";

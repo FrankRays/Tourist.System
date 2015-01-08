@@ -3,16 +3,17 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using MetroFramework.Forms;
 using Tourist.Data.Shared;
-using Tourist.Server.Properties;
+using Tourist.Client.Properties;
+using Tourist.Data.Interfaces;
 
-namespace Tourist.Server.Forms
+namespace Tourist.Client.Forms
 {
 	public partial class SearchForm : MetroForm
 	{
 
 		#region Fields
 
-		private readonly Repository Repository = Repository.Instance;
+		private readonly IRemote Remote;
 		private readonly MainForm mMainForm;
 		private readonly BindingSource mBindingSearchDataGrid;
 		private readonly BindingSource mBindingSearchByComboBox;
@@ -23,9 +24,10 @@ namespace Tourist.Server.Forms
 
 		#region Constructor
 
-		public SearchForm( Form aForm )
+		public SearchForm( Form aForm, IRemote aRemote )
 		{
 			InitializeComponent( );
+			Remote = aRemote;
 			mMainForm = aForm as MainForm;
 			mBindingSearchDataGrid = new BindingSource( );
 			mBindingSearchByComboBox = new BindingSource( );
@@ -137,43 +139,31 @@ namespace Tourist.Server.Forms
 				case "Bookings":
 					RemoveOldSearchDataGridValues( );
 					AddBookingsColumns( );
-					mBindingSearchDataGrid.DataSource = Repository.SearchBookings( aSearchFilter, aSearchParameter1, aSearchParameter2, aSearchParameter3 );
+					mBindingSearchDataGrid.DataSource = Remote.SearchBookings( aSearchFilter, aSearchParameter1, aSearchParameter2, aSearchParameter3 );
 					SearchDataGrid.DataSource = mBindingSearchDataGrid;
 					break;
 				case "Rooms":
 					RemoveOldSearchDataGridValues( );
 					AddBookablesColumns( );
-					mBindingSearchDataGrid.DataSource = Repository.SearchRooms( aSearchFilter );
+					mBindingSearchDataGrid.DataSource = Remote.SearchRooms( aSearchFilter );
 					SearchDataGrid.DataSource = mBindingSearchDataGrid;
 					break;
 				case "Activities":
 					RemoveOldSearchDataGridValues( );
 					AddBookablesColumns( );
-					mBindingSearchDataGrid.DataSource = Repository.SearchActivities( aSearchFilter );
+					mBindingSearchDataGrid.DataSource = Remote.SearchActivities( aSearchFilter );
 					SearchDataGrid.DataSource = mBindingSearchDataGrid;
 					break;
 				case "Transports":
 					RemoveOldSearchDataGridValues( );
 					AddBookablesColumns( );
-					mBindingSearchDataGrid.DataSource = Repository.SearchTransports( aSearchFilter );
+					mBindingSearchDataGrid.DataSource = Remote.SearchTransports( aSearchFilter );
 					SearchDataGrid.DataSource = mBindingSearchDataGrid;
 					break;
 				case "Clients":
 					RemoveOldSearchDataGridValues( );
 					AddPersonColumns( );
-					mBindingSearchDataGrid.DataSource = Repository.SearchClients( aSearchFilter, aSearchParameter1 );
-					SearchDataGrid.DataSource = mBindingSearchDataGrid;
-					break;
-				case "Managers":
-					RemoveOldSearchDataGridValues( );
-					AddPersonColumns( );
-					mBindingSearchDataGrid.DataSource = Repository.SearchManagers( aSearchFilter, aSearchParameter1 );
-					SearchDataGrid.DataSource = mBindingSearchDataGrid;
-					break;
-				case "Employees":
-					RemoveOldSearchDataGridValues( );
-					AddPersonColumns( );
-					mBindingSearchDataGrid.DataSource = Repository.SearchEmployees( aSearchFilter, aSearchParameter1 );
+					mBindingSearchDataGrid.DataSource = Remote.SearchClients( aSearchFilter, aSearchParameter1 );
 					SearchDataGrid.DataSource = mBindingSearchDataGrid;
 					break;
 			}

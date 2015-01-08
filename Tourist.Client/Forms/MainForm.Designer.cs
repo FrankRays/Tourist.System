@@ -451,6 +451,7 @@
 			this.SearchTile.UseCustomBackColor = true;
 			this.SearchTile.UseSelectable = true;
 			this.SearchTile.UseTileImage = true;
+			this.SearchTile.Click += new System.EventHandler(this.SearchTile_Click);
 			// 
 			// LogoffTile
 			// 

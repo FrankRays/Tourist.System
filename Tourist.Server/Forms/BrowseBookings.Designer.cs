@@ -38,19 +38,18 @@
 			this.TitleLabel = new System.Windows.Forms.Label();
 			this.BodyPanel = new System.Windows.Forms.Panel();
 			this.BookingsDataGrid = new MetroFramework.Controls.MetroGrid();
+			this.FooterPanel = new System.Windows.Forms.Panel();
 			this.BookingIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ClientNifColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ClientNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.TypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.SubTypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.BookableIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.BookableDescriptionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.BasePriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.BookingDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.StartDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.EndDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.TotalPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.FooterPanel = new System.Windows.Forms.Panel();
 			this.HeaderPanel.SuspendLayout();
 			this.BodyPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.BookingsDataGrid)).BeginInit();
@@ -164,7 +163,6 @@
             this.ClientNameColumn,
             this.TypeColumn,
             this.SubTypeColumn,
-            this.BookableIdColumn,
             this.BookableDescriptionColumn,
             this.BasePriceColumn,
             this.BookingDateColumn,
@@ -201,6 +199,17 @@
 			this.BookingsDataGrid.Size = new System.Drawing.Size(1166, 428);
 			this.BookingsDataGrid.TabIndex = 23;
 			// 
+			// FooterPanel
+			// 
+			this.FooterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+			this.FooterPanel.Location = new System.Drawing.Point(-1, 650);
+			this.FooterPanel.Margin = new System.Windows.Forms.Padding(2);
+			this.FooterPanel.Name = "FooterPanel";
+			this.FooterPanel.Size = new System.Drawing.Size(1202, 150);
+			this.FooterPanel.TabIndex = 15;
+			// 
 			// BookingIdColumn
 			// 
 			this.BookingIdColumn.HeaderText = "Booking ID";
@@ -236,13 +245,6 @@
 			this.SubTypeColumn.HeaderText = "SubType";
 			this.SubTypeColumn.MinimumWidth = 150;
 			this.SubTypeColumn.Name = "SubTypeColumn";
-			// 
-			// BookableIdColumn
-			// 
-			this.BookableIdColumn.HeaderText = "Bookable ID ";
-			this.BookableIdColumn.MinimumWidth = 125;
-			this.BookableIdColumn.Name = "BookableIdColumn";
-			this.BookableIdColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
 			// 
 			// BookableDescriptionColumn
 			// 
@@ -289,17 +291,6 @@
 			this.TotalPriceColumn.Name = "TotalPriceColumn";
 			this.TotalPriceColumn.ReadOnly = true;
 			// 
-			// FooterPanel
-			// 
-			this.FooterPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-			this.FooterPanel.Location = new System.Drawing.Point(-1, 650);
-			this.FooterPanel.Margin = new System.Windows.Forms.Padding(2);
-			this.FooterPanel.Name = "FooterPanel";
-			this.FooterPanel.Size = new System.Drawing.Size(1202, 150);
-			this.FooterPanel.TabIndex = 15;
-			// 
 			// BrowseBookings
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -340,7 +331,6 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn ClientNameColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn TypeColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn SubTypeColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn BookableIdColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn BookableDescriptionColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn BasePriceColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn BookingDateColumn;

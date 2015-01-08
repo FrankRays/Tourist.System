@@ -465,7 +465,7 @@ namespace Tourist.Server
 		{
 
 			var rowsCount = Count( "Bookings" );
-			const int columnsCount = 12;
+			const int columnsCount = 11;
 			var matrix = new string[ rowsCount, columnsCount ];
 
 			for ( var i = 0 ; i < rowsCount ; i++ )
@@ -499,11 +499,9 @@ namespace Tourist.Server
 
 					matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Type.ToString( );
 					j++;
-					matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Id.ToString( );
-					j++;
 					matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Description;
 					j++;
-					matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Price.ToString( "0.00", CultureInfo.InvariantCulture );
+					matrix[ i, j ] = mData.Bookings.ElementAt( i ).Bookable.Price.ToString( "0.00", CultureInfo.InvariantCulture ) + " €";
 					j++;
 					matrix[ i, j ] = mData.Bookings.ElementAt( i ).BookingDate.ToString( "d" );
 					j++;
@@ -511,7 +509,7 @@ namespace Tourist.Server
 					j++;
 					matrix[ i, j ] = mData.Bookings.ElementAt( i ).TimeFrame.EndDateTime.ToString( "d" );
 					j++;
-					matrix[ i, j ] = mData.Bookings.ElementAt( i ).TotaPrice.ToString( "0.00", CultureInfo.InvariantCulture );
+					matrix[ i, j ] = mData.Bookings.ElementAt( i ).TotaPrice.ToString( "0.00", CultureInfo.InvariantCulture ) + " €";
 					j++;
 
 				}
@@ -1581,7 +1579,7 @@ namespace Tourist.Server
 			return buffer;
 		}
 
-		public List<Employer> SearchEmployes( string aSearchFilter, string aSearchParameter1 )
+		public List<Employer> SearchEmployees( string aSearchFilter, string aSearchParameter1 )
 		{
 			var buffer = new List<Employer>( );
 
