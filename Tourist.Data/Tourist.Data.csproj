@@ -61,6 +61,7 @@
     <Compile Include="Interfaces\IBookable.cs" />
     <Compile Include="Interfaces\IBooking.cs" />
     <Compile Include="Interfaces\IContact.cs" />
+    <Compile Include="Interfaces\ILogin.cs" />
     <Compile Include="Interfaces\IPersonalInformation.cs" />
     <Compile Include="Interfaces\IClient.cs" />
     <Compile Include="Interfaces\IEmployer.cs" />

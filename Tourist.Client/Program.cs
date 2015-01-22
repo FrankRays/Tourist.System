@@ -33,6 +33,8 @@ namespace Tourist.Client
 				//"tcp://10.2.5.92:3000/Tourist.Server" );
 				"tcp://localhost:3000/Tourist.Server" ); // Remote object URL
 
+			//var login = new CacheRemoteLogin( new RemoteLogin( Remote ) );
+
 			try
 			{
 				Remote.ServerRunning( );

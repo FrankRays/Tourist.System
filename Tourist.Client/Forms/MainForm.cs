@@ -142,7 +142,7 @@ namespace Tourist.Client.Forms
 
 			mBackOrExit = true;
 			Hide( );
-			Remote.ClientLoginSession = new Session( );
+			//Remote.ClientLoginSession = new Session( );
 			mLoginForm.CleanForm( );
 			mLoginForm.Show( );
 		}

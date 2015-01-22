@@ -53,7 +53,7 @@ namespace Tourist.Server
 		#region MaxId Record
 
 		private int mMaxBookingId = default( int );
-		
+
 		public int MaxBookingId
 		{
 			get { return mMaxBookingId; }
@@ -63,6 +63,8 @@ namespace Tourist.Server
 		#endregion
 
 		#region Login Session
+
+		public ILogin Login { get; set; }
 
 		private static Session mServerLoginSession = Factory.CreateObject<Session>( );
 		private static Session mClientLoginSession = Factory.CreateObject<Session>( );
@@ -383,38 +385,34 @@ namespace Tourist.Server
 			}
 		}
 
-		public bool CheckLogin( string aUsername, string aPassword, string aType )
+		public bool CheckRemoteLogin( string aUsername, string aPassword )
 		{
-			switch ( aType )
+			if ( Login == null )
+				return false;
+
+			foreach ( var employer in mData.Employees )
 			{
-				case "Server":
-					foreach ( var manager in mData.Managers )
-					{
-						if ( manager.Username.Equals( aUsername ) && manager.Password.Equals( aPassword ) )
-						{
-							ServerLoginSession.Id = manager.Id;
-							ServerLoginSession.Username = aUsername;
-							ServerLoginSession.Password = aPassword;
-							return true;
-						}
-					}
-					return false;
-				case "Client":
-					foreach ( var employer in mData.Employees )
-					{
-						if ( employer.Username.Equals( aUsername ) && employer.Password.Equals( aPassword ) )
-						{
-							ClientLoginSession.Id = employer.Id;
-							ClientLoginSession.Username = aUsername;
-							ClientLoginSession.Password = aPassword;
-							return true;
-						}
-					}
-					return false;
-				default:
-					return false;
+				if ( employer.Username.Equals( aUsername ) && employer.Password.Equals( aPassword ) )
+					return true;
 			}
+
+			return Login.Authentication( aUsername, aPassword );
 		}
+
+		public bool CheckServerLogin( string aUsername, string aPassword )
+		{
+			if ( Login == null )
+				return false;
+
+			foreach ( var manager in mData.Managers )
+			{
+				if ( manager.Username.Equals( aUsername ) && manager.Password.Equals( aPassword ) )
+					return true;
+			}
+			
+			return Login.Authentication( aUsername, aPassword );
+		}
+
 
 		public bool IsNotBookedAlredy( int aBookableId, string aBookableSubtype, DateTimeRange aTimeFrame )
 		{
@@ -966,7 +964,6 @@ namespace Tourist.Server
 			}
 		}
 
-
 		public int GetId( int aIndex, string aList )
 		{
 			switch ( aList )
@@ -1143,7 +1140,6 @@ namespace Tourist.Server
 					return;
 			}
 		}
-
 
 		private void TypeOf( string aType, int aBookingId )
 		{
@@ -1610,6 +1606,8 @@ namespace Tourist.Server
 			return buffer;
 		}
 
+
+		
 
 		#endregion
 	}

@@ -13,7 +13,7 @@ namespace Tourist.Data.Interfaces
 		int CountBooked( string aType );
 		bool IsEmpty( string aList );
 		bool ExistingId( int aId, string aList );
-		bool CheckLogin( string aUsername, string aPassword, string aType );
+		bool CheckLogin( string aUsername, string aPassword);
 		bool IsNotBookedAlredy( int aBookableId, string aBookableSubType, DateTimeRange aTimeFrame );
 		string[ , ] ListToMatrix( string aList );
 		void Append( object aObject, string aList );

@@ -14,6 +14,8 @@ namespace Tourist.Client.Forms
 
 		private readonly IRemote Remote;
 		private readonly MainForm mMainForm;
+		private readonly CacheRemoteLogin Cache;
+
 
 		#endregion
 
@@ -24,6 +26,7 @@ namespace Tourist.Client.Forms
 			InitializeComponent( );
 			Remote = aRemote;
 			mMainForm = new MainForm( this, Remote );
+			Cache = new CacheRemoteLogin( new RemoteLogin( Remote ) );
 		}
 
 		#endregion
@@ -111,10 +114,10 @@ namespace Tourist.Client.Forms
 				ErrorProvider.SetError( UsernameTextBox, "" );
 				ErrorProvider.SetError( PasswordTextBox, "" );
 
-				if ( Remote.CheckLogin( UsernameTextBox.Text, PasswordTextBox.Text, "Client" ) )
+				if ( Cache.Authentication( UsernameTextBox.Text, PasswordTextBox.Text ) )
 				{
 					//entra
-					MessageBox.Show( Resources.LoginSucessfullMessage + Remote.ClientLoginSession.Username,
+					MessageBox.Show( Resources.LoginSucessfullMessage + UsernameTextBox.Text,
 								Resources.LoginSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 					Hide( );
 					mMainForm.Show( );

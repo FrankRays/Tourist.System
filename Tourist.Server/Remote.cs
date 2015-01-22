@@ -60,9 +60,9 @@ namespace Tourist.Server
 			return Repository.ExistingId( aId, aList );
 		}
 
-		public bool CheckLogin( string aUsername, string aPassword, string aType )
+		public bool CheckLogin( string aUsername, string aPassword)
 		{
-			return Repository.CheckLogin( aUsername, aPassword, aType );
+			return Repository.CheckRemoteLogin( aUsername, aPassword);
 		}
 
 		public bool IsNotBookedAlredy( int aBookableId, string aBookableSubType, DateTimeRange aTimeFrame )
@@ -179,6 +179,8 @@ namespace Tourist.Server
 		}
 
 		#endregion
+
+		
 
 	}
 }

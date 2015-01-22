@@ -12,6 +12,7 @@ namespace Tourist.Server.Forms
 
 		private readonly Repository Repository = Repository.Instance;
 		private readonly MainForm mMainForm;
+		private CacheServerLogin Cache;
 
 		#endregion
 
@@ -21,6 +22,8 @@ namespace Tourist.Server.Forms
 		{
 			InitializeComponent( );
 			mMainForm = new MainForm( this );
+			Repository.Login = new ServerLogin();
+			Cache = new CacheServerLogin( Repository.Login );
 		}
 
 		#endregion
@@ -124,9 +127,10 @@ namespace Tourist.Server.Forms
 				ErrorProvider.SetError( UsernameTextBox, "" );
 				ErrorProvider.SetError( PasswordTextBox, "" );
 
-				if ( Repository.CheckLogin( UsernameTextBox.Text, PasswordTextBox.Text, "Server" ) )
+				
+				if ( Cache.Authentication( UsernameTextBox.Text, PasswordTextBox.Text ) )
 				{
-					MessageBox.Show( Properties.Resources.WelcomeString + Repository.ServerLoginSession.Username +
+					MessageBox.Show( Properties.Resources.WelcomeString + UsernameTextBox.Text +
 					" !", Properties.Resources.LoginSucessfull, MessageBoxButtons.OK, MessageBoxIcon.Information );
 					Hide( );
 					mMainForm.Show( );
@@ -139,7 +143,7 @@ namespace Tourist.Server.Forms
 			}
 		}
 
-		public void CleanForm()
+		public void CleanForm( )
 		{
 			UsernameTextBox.Text = string.Empty;
 			PasswordTextBox.Text = string.Empty;

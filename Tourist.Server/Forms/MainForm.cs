@@ -176,7 +176,7 @@ namespace Tourist.Server.Forms
 
 			mBackOrExit = true;
 			Hide( );
-			Repository.ServerLoginSession = new Session( );
+			//Repository.ServerLoginSession = new Session( );
 			mLoginForm.CleanForm( );
 			mLoginForm.Show( );
 		}

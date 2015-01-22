@@ -57,6 +57,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CacheServerLogin.cs" />
     <Compile Include="Forms\ManagersForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +146,7 @@
     <Compile Include="Remote.cs" />
     <Compile Include="Repository.Serialization.cs" />
     <Compile Include="Repository.cs" />
+    <Compile Include="ServerLogin.cs" />
     <EmbeddedResource Include="Forms\ManagersForm.resx">
       <DependentUpon>ManagersForm.cs</DependentUpon>
     </EmbeddedResource>
