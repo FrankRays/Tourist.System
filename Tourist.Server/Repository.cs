@@ -66,21 +66,6 @@ namespace Tourist.Server
 
 		public ILogin Login { get; set; }
 
-		private static Session mServerLoginSession = Factory.CreateObject<Session>( );
-		private static Session mClientLoginSession = Factory.CreateObject<Session>( );
-
-		public static Session ServerLoginSession
-		{
-			get { return mServerLoginSession; }
-			set { mServerLoginSession = value; }
-		}
-
-		public static Session ClientLoginSession
-		{
-			get { return mClientLoginSession; }
-			set { mClientLoginSession = value; }
-		}
-
 		#endregion
 
 		#region Count && Bool Methods

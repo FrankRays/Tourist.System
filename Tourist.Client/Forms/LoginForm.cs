@@ -16,7 +16,6 @@ namespace Tourist.Client.Forms
 		private readonly MainForm mMainForm;
 		private readonly CacheRemoteLogin Cache;
 
-
 		#endregion
 
 		#region Constructor
